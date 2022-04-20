@@ -1,0 +1,233 @@
+/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90: 30 - 404
+--------------------------------------------------------------------------------
+
+30: !$OMP&  um1,up1,uijk,vm1,vp1,vijk,wm1,wp1,wijk)
+31: !---------------------------------------------------------------------
+32: !     compute the reciprocal of density and the kinetic energy, 
+33: !---------------------------------------------------------------------
+34: !$OMP DO SCHEDULE(STATIC) COLLAPSE(2)
+35:       do k = 0, nz-1
+36:          do j = 0, ny-1
+37:             do i = 0, nx-1
+38:                rho_inv = 1.0d0/u(1,i,j,k)
+39:                rho_i(i,j,k) = rho_inv
+40:                us(i,j,k) = u(2,i,j,k) * rho_inv
+41:                vs(i,j,k) = u(3,i,j,k) * rho_inv
+42:                ws(i,j,k) = u(4,i,j,k) * rho_inv
+43:                square(i,j,k)     = 0.5d0* (  &
+44:      &                 u(2,i,j,k)*u(2,i,j,k) +  &
+45:      &                 u(3,i,j,k)*u(3,i,j,k) +  &
+46:      &                 u(4,i,j,k)*u(4,i,j,k) ) * rho_inv
+47:                qs(i,j,k) = square(i,j,k) * rho_inv
+[...]
+62:             do i = 0, nx-1
+63:                do m = 1, 5
+64:                   rhs(m,i,j,k) = forcing(m,i,j,k)
+[...]
+71: !$OMP MASTER
+72:       if (timeron) call timer_start(t_rhsx)
+73: !$OMP END MASTER
+74: !---------------------------------------------------------------------
+75: !     compute xi-direction fluxes 
+76: !---------------------------------------------------------------------
+77: !$OMP DO SCHEDULE(STATIC) COLLAPSE(2)
+78:       do k = 1, nz-2
+79:          do j = 1, ny-2
+80:             do i = 1, nx-2
+81:                uijk = us(i,j,k)
+82:                up1  = us(i+1,j,k)
+83:                um1  = us(i-1,j,k)
+84: 
+85:                rhs(1,i,j,k) = rhs(1,i,j,k) + dx1tx1 *  &
+86:      &                 (u(1,i+1,j,k) - 2.0d0*u(1,i,j,k) +  &
+87:      &                 u(1,i-1,j,k)) -  &
+88:      &                 tx2 * (u(2,i+1,j,k) - u(2,i-1,j,k))
+[...]
+98:      &                 c2)
+[...]
+106:      &                 u(3,i-1,j,k)*um1)
+[...]
+114:      &                 u(4,i-1,j,k)*um1)
+[...]
+129:      &                 c2*square(i-1,j,k))*um1 )
+[...]
+139:      &                    u(m,i+2,j,k))
+[...]
+146:      &                    4.0d0*u(m,i+1,j,k) + u(m,i+2,j,k))
+147:             enddo
+148: 
+149:             do i = 3,nx-4
+150:                do m = 1, 5
+151:                   rhs(m,i,j,k) = rhs(m,i,j,k) - dssp *  &
+152:      &                    (  u(m,i-2,j,k) - 4.0d0*u(m,i-1,j,k) +  &
+153:      &                    6.0*u(m,i,j,k) - 4.0d0*u(m,i+1,j,k) +  &
+154:      &                    u(m,i+2,j,k) )
+155:                enddo
+156:             enddo
+157:          
+158:             i = nx-3
+159:             do m = 1, 5
+160:                rhs(m,i,j,k) = rhs(m,i,j,k) - dssp *  &
+161:      &                    ( u(m,i-2,j,k) - 4.0d0*u(m,i-1,j,k) +  &
+162:      &                    6.0d0*u(m,i,j,k) - 4.0d0*u(m,i+1,j,k) )
+[...]
+169:      &                    5.d0*u(m,i,j,k) )
+170:             enddo
+171:          enddo
+172:       enddo
+173: !$OMP END DO nowait
+174: !$OMP MASTER
+175:       if (timeron) call timer_stop(t_rhsx)
+176: 
+177:       if (timeron) call timer_start(t_rhsy)
+178: !$OMP END MASTER
+179: !---------------------------------------------------------------------
+180: !     compute eta-direction fluxes 
+181: !---------------------------------------------------------------------
+182: !$OMP DO SCHEDULE(STATIC) COLLAPSE(2)
+183:       do k = 1, nz-2
+184:          do j = 1, ny-2
+185:             do i = 1, nx-2
+186:                vijk = vs(i,j,k)
+187:                vp1  = vs(i,j+1,k)
+188:                vm1  = vs(i,j-1,k)
+189:                rhs(1,i,j,k) = rhs(1,i,j,k) + dy1ty1 *  &
+190:      &                 (u(1,i,j+1,k) - 2.0d0*u(1,i,j,k) +  &
+191:      &                 u(1,i,j-1,k)) -  &
+192:      &                 ty2 * (u(3,i,j+1,k) - u(3,i,j-1,k))
+[...]
+199:      &                 u(2,i,j-1,k)*vm1)
+[...]
+208:      &                 *c2)
+[...]
+215:      &                 u(4,i,j-1,k)*vm1)
+[...]
+229:      &                 c2*square(i,j-1,k)) * vm1)
+[...]
+235:             if (j.eq.1) then
+236:                do i = 1, nx-2
+237:                do m = 1, 5
+238:                   rhs(m,i,j,k) = rhs(m,i,j,k)- dssp *  &
+239:      &                    ( 5.0d0*u(m,i,j,k) - 4.0d0*u(m,i,j+1,k) +  &
+240:      &                    u(m,i,j+2,k))
+241:                enddo
+242:                enddo
+243: 
+244:             else if (j.eq.2) then
+245:                do i = 1, nx-2
+246:                do m = 1, 5
+247:                   rhs(m,i,j,k) = rhs(m,i,j,k) - dssp *  &
+248:      &                    (-4.0d0*u(m,i,j-1,k) + 6.0d0*u(m,i,j,k) -  &
+249:      &                    4.0d0*u(m,i,j+1,k) + u(m,i,j+2,k))
+250:                enddo
+251:                enddo
+252:          
+253:             else if (j.eq.ny-3) then
+254:                do i = 1, nx-2
+255:                do m = 1, 5
+256:                   rhs(m,i,j,k) = rhs(m,i,j,k) - dssp *  &
+257:      &                    ( u(m,i,j-2,k) - 4.0d0*u(m,i,j-1,k) +  &
+258:      &                    6.0d0*u(m,i,j,k) - 4.0d0*u(m,i,j+1,k) )
+259:                enddo
+260:                enddo
+261: 
+262:             else if (j.eq.ny-2) then
+263:                do i = 1, nx-2
+264:                do m = 1, 5
+265:                   rhs(m,i,j,k) = rhs(m,i,j,k) - dssp *  &
+266:      &                    ( u(m,i,j-2,k) - 4.d0*u(m,i,j-1,k) +  &
+267:      &                    5.d0*u(m,i,j,k) )
+268:                enddo
+269:                enddo
+270: 
+271:             else
+272:                do i = 1,nx-2
+273:                do m = 1, 5
+274:                   rhs(m,i,j,k) = rhs(m,i,j,k) - dssp *  &
+275:      &                    (  u(m,i,j-2,k) - 4.0d0*u(m,i,j-1,k) +  &
+276:      &                    6.0*u(m,i,j,k) - 4.0d0*u(m,i,j+1,k) +  &
+277:      &                    u(m,i,j+2,k) )
+[...]
+284: !$OMP MASTER
+285:       if (timeron) call timer_stop(t_rhsy)
+286: 
+287:       if (timeron) call timer_start(t_rhsz)
+288: !$OMP END MASTER
+289: !---------------------------------------------------------------------
+290: !     compute zeta-direction fluxes 
+291: !---------------------------------------------------------------------
+292: !$OMP DO SCHEDULE(STATIC) COLLAPSE(2)
+293:       do k = 1, nz-2
+294:          do j = 1, ny-2
+295:             do i = 1, nx-2
+296:                wijk = ws(i,j,k)
+297:                wp1  = ws(i,j,k+1)
+298:                wm1  = ws(i,j,k-1)
+299: 
+300:                rhs(1,i,j,k) = rhs(1,i,j,k) + dz1tz1 *  &
+301:      &                 (u(1,i,j,k+1) - 2.0d0*u(1,i,j,k) +  &
+302:      &                 u(1,i,j,k-1)) -  &
+303:      &                 tz2 * (u(4,i,j,k+1) - u(4,i,j,k-1))
+[...]
+310:      &                 u(2,i,j,k-1)*wm1)
+[...]
+317:      &                 u(3,i,j,k-1)*wm1)
+[...]
+326:      &                 *c2)
+[...]
+340:      &                 c2*square(i,j,k-1))*wm1)
+[...]
+346:             if (k.eq.1) then
+347:                do i = 1, nx-2
+348:                do m = 1, 5
+349:                   rhs(m,i,j,k) = rhs(m,i,j,k)- dssp *  &
+350:      &                    ( 5.0d0*u(m,i,j,k) - 4.0d0*u(m,i,j,k+1) +  &
+351:      &                    u(m,i,j,k+2))
+352:                enddo
+353:                enddo
+354: 
+355:             else if (k.eq.2) then
+356:                do i = 1, nx-2
+357:                do m = 1, 5
+358:                   rhs(m,i,j,k) = rhs(m,i,j,k) - dssp *  &
+359:      &                    (-4.0d0*u(m,i,j,k-1) + 6.0d0*u(m,i,j,k) -  &
+360:      &                    4.0d0*u(m,i,j,k+1) + u(m,i,j,k+2))
+361:                enddo
+362:                enddo
+363:          
+364:             else if (k.eq.nz-3) then
+365:                do i = 1, nx-2
+366:                do m = 1, 5
+367:                   rhs(m,i,j,k) = rhs(m,i,j,k) - dssp *  &
+368:      &                    ( u(m,i,j,k-2) - 4.0d0*u(m,i,j,k-1) +  &
+369:      &                    6.0d0*u(m,i,j,k) - 4.0d0*u(m,i,j,k+1) )
+370:                enddo
+371:                enddo
+372: 
+373:             else if (k.eq.nz-2) then
+374:                do i = 1, nx-2
+375:                do m = 1, 5
+376:                   rhs(m,i,j,k) = rhs(m,i,j,k) - dssp *  &
+377:      &                    ( u(m,i,j,k-2) - 4.d0*u(m,i,j,k-1) +  &
+378:      &                    5.d0*u(m,i,j,k) )
+379:                enddo
+380:             enddo
+381: 
+382:             else
+383:                do i = 1,nx-2
+384:                do m = 1, 5
+385:                   rhs(m,i,j,k) = rhs(m,i,j,k) - dssp *  &
+386:      &                    (  u(m,i,j,k-2) - 4.0d0*u(m,i,j,k-1) +  &
+387:      &                    6.0*u(m,i,j,k) - 4.0d0*u(m,i,j,k+1) +  &
+388:      &                    u(m,i,j,k+2) )
+[...]
+395: !$OMP MASTER
+396:       if (timeron) call timer_stop(t_rhsz)
+397: !$OMP END MASTER
+398: 
+399: !$OMP DO SCHEDULE(STATIC) COLLAPSE(2)
+400:       do k = 1, nz-2
+401:          do j = 1, ny-2
+402:             do i = 1, nx-2
+403:                do m = 1, 5
+404:                   rhs(m,i,j,k) = rhs(m,i,j,k) * dt

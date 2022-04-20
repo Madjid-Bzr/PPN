@@ -1,0 +1,279 @@
+/users/user2210/NPB3.4-MZ-MPI/BT-MZ/x_solve.f90: 47 - 398
+--------------------------------------------------------------------------------
+
+47: !$OMP PARALLEL DEFAULT(SHARED) PRIVATE(n,m,i,j,k,isize,tmp1,tmp2,tmp3)
+48:       isize = nx-1
+49: 
+50: !---------------------------------------------------------------------
+51: !     determine a (labeled f) and n jacobians
+52: !---------------------------------------------------------------------
+53: !$OMP DO SCHEDULE(static) COLLAPSE(2)
+54:       do k = 1, nz-2
+55:          do j = 1, ny-2
+56:             do i = 0, isize
+57: 
+58:                tmp1 = rho_i(i,j,k)
+59:                tmp2 = tmp1 * tmp1
+60:                tmp3 = tmp1 * tmp2
+61: !---------------------------------------------------------------------
+62: !     
+63: !---------------------------------------------------------------------
+64:                fjac(1,1,i) = 0.d0
+65:                fjac(1,2,i) = 1.d0
+66:                fjac(1,3,i) = 0.d0
+67:                fjac(1,4,i) = 0.d0
+68:                fjac(1,5,i) = 0.d0
+69: 
+70:                fjac(2,1,i) = -(u(2,i,j,k) * tmp2 *  &
+71:      &              u(2,i,j,k))  &
+72:      &              + c2 * qs(i,j,k)
+73:                fjac(2,2,i) = ( 2.d0 - c2 )  &
+74:      &              * ( u(2,i,j,k) / u(1,i,j,k) )
+75:                fjac(2,3,i) = - c2 * ( u(3,i,j,k) * tmp1 )
+76:                fjac(2,4,i) = - c2 * ( u(4,i,j,k) * tmp1 )
+77:                fjac(2,5,i) = c2
+78: 
+79:                fjac(3,1,i) = - ( u(2,i,j,k)*u(3,i,j,k) ) * tmp2
+80:                fjac(3,2,i) = u(3,i,j,k) * tmp1
+81:                fjac(3,3,i) = u(2,i,j,k) * tmp1
+82:                fjac(3,4,i) = 0.d0
+83:                fjac(3,5,i) = 0.d0
+84: 
+85:                fjac(4,1,i) = - ( u(2,i,j,k)*u(4,i,j,k) ) * tmp2
+86:                fjac(4,2,i) = u(4,i,j,k) * tmp1
+87:                fjac(4,3,i) = 0.d0
+88:                fjac(4,4,i) = u(2,i,j,k) * tmp1
+89:                fjac(4,5,i) = 0.d0
+90: 
+91:                fjac(5,1,i) = ( c2 * 2.0d0 * square(i,j,k)  &
+92:      &              - c1 * u(5,i,j,k) )  &
+93:      &              * ( u(2,i,j,k) * tmp2 )
+94:                fjac(5,2,i) = c1 *  u(5,i,j,k) * tmp1  &
+95:      &              - c2  &
+96:      &              * ( u(2,i,j,k)*u(2,i,j,k) * tmp2  &
+97:      &              + qs(i,j,k) )
+98:                fjac(5,3,i) = - c2 * ( u(3,i,j,k)*u(2,i,j,k) )  &
+99:      &              * tmp2
+100:                fjac(5,4,i) = - c2 * ( u(4,i,j,k)*u(2,i,j,k) )  &
+101:      &              * tmp2
+102:                fjac(5,5,i) = c1 * ( u(2,i,j,k) * tmp1 )
+103: 
+104:                njac(1,1,i) = 0.d0
+105:                njac(1,2,i) = 0.d0
+106:                njac(1,3,i) = 0.d0
+107:                njac(1,4,i) = 0.d0
+108:                njac(1,5,i) = 0.d0
+109: 
+110:                njac(2,1,i) = - con43 * c3c4 * tmp2 * u(2,i,j,k)
+111:                njac(2,2,i) =   con43 * c3c4 * tmp1
+112:                njac(2,3,i) =   0.d0
+113:                njac(2,4,i) =   0.d0
+114:                njac(2,5,i) =   0.d0
+115: 
+116:                njac(3,1,i) = - c3c4 * tmp2 * u(3,i,j,k)
+117:                njac(3,2,i) =   0.d0
+118:                njac(3,3,i) =   c3c4 * tmp1
+119:                njac(3,4,i) =   0.d0
+120:                njac(3,5,i) =   0.d0
+121: 
+122:                njac(4,1,i) = - c3c4 * tmp2 * u(4,i,j,k)
+123:                njac(4,2,i) =   0.d0 
+124:                njac(4,3,i) =   0.d0
+125:                njac(4,4,i) =   c3c4 * tmp1
+126:                njac(4,5,i) =   0.d0
+[...]
+132:      &              - c1345 * tmp2 * u(5,i,j,k)
+133: 
+134:                njac(5,2,i) = ( con43 * c3c4  &
+135:      &              - c1345 ) * tmp2 * u(2,i,j,k)
+136:                njac(5,3,i) = ( c3c4 - c1345 ) * tmp2 * u(3,i,j,k)
+137:                njac(5,4,i) = ( c3c4 - c1345 ) * tmp2 * u(4,i,j,k)
+138:                njac(5,5,i) = ( c1345 ) * tmp1
+[...]
+144:             call lhsinit(lhs, isize)
+145:             do i = 1, isize-1
+146: 
+147:                tmp1 = dt * tx1
+148:                tmp2 = dt * tx2
+149: 
+150:                lhs(1,1,aa,i) = - tmp2 * fjac(1,1,i-1)  &
+151:      &              - tmp1 * njac(1,1,i-1)  &
+152:      &              - tmp1 * dx1 
+153:                lhs(1,2,aa,i) = - tmp2 * fjac(1,2,i-1)  &
+154:      &              - tmp1 * njac(1,2,i-1)
+155:                lhs(1,3,aa,i) = - tmp2 * fjac(1,3,i-1)  &
+156:      &              - tmp1 * njac(1,3,i-1)
+157:                lhs(1,4,aa,i) = - tmp2 * fjac(1,4,i-1)  &
+158:      &              - tmp1 * njac(1,4,i-1)
+159:                lhs(1,5,aa,i) = - tmp2 * fjac(1,5,i-1)  &
+160:      &              - tmp1 * njac(1,5,i-1)
+161: 
+162:                lhs(2,1,aa,i) = - tmp2 * fjac(2,1,i-1)  &
+163:      &              - tmp1 * njac(2,1,i-1)
+164:                lhs(2,2,aa,i) = - tmp2 * fjac(2,2,i-1)  &
+165:      &              - tmp1 * njac(2,2,i-1)  &
+166:      &              - tmp1 * dx2
+167:                lhs(2,3,aa,i) = - tmp2 * fjac(2,3,i-1)  &
+168:      &              - tmp1 * njac(2,3,i-1)
+169:                lhs(2,4,aa,i) = - tmp2 * fjac(2,4,i-1)  &
+170:      &              - tmp1 * njac(2,4,i-1)
+171:                lhs(2,5,aa,i) = - tmp2 * fjac(2,5,i-1)  &
+172:      &              - tmp1 * njac(2,5,i-1)
+173: 
+174:                lhs(3,1,aa,i) = - tmp2 * fjac(3,1,i-1)  &
+175:      &              - tmp1 * njac(3,1,i-1)
+176:                lhs(3,2,aa,i) = - tmp2 * fjac(3,2,i-1)  &
+177:      &              - tmp1 * njac(3,2,i-1)
+178:                lhs(3,3,aa,i) = - tmp2 * fjac(3,3,i-1)  &
+179:      &              - tmp1 * njac(3,3,i-1)  &
+180:      &              - tmp1 * dx3 
+181:                lhs(3,4,aa,i) = - tmp2 * fjac(3,4,i-1)  &
+182:      &              - tmp1 * njac(3,4,i-1)
+183:                lhs(3,5,aa,i) = - tmp2 * fjac(3,5,i-1)  &
+184:      &              - tmp1 * njac(3,5,i-1)
+185: 
+186:                lhs(4,1,aa,i) = - tmp2 * fjac(4,1,i-1)  &
+187:      &              - tmp1 * njac(4,1,i-1)
+188:                lhs(4,2,aa,i) = - tmp2 * fjac(4,2,i-1)  &
+189:      &              - tmp1 * njac(4,2,i-1)
+190:                lhs(4,3,aa,i) = - tmp2 * fjac(4,3,i-1)  &
+191:      &              - tmp1 * njac(4,3,i-1)
+192:                lhs(4,4,aa,i) = - tmp2 * fjac(4,4,i-1)  &
+193:      &              - tmp1 * njac(4,4,i-1)  &
+194:      &              - tmp1 * dx4
+195:                lhs(4,5,aa,i) = - tmp2 * fjac(4,5,i-1)  &
+196:      &              - tmp1 * njac(4,5,i-1)
+197: 
+198:                lhs(5,1,aa,i) = - tmp2 * fjac(5,1,i-1)  &
+199:      &              - tmp1 * njac(5,1,i-1)
+200:                lhs(5,2,aa,i) = - tmp2 * fjac(5,2,i-1)  &
+201:      &              - tmp1 * njac(5,2,i-1)
+202:                lhs(5,3,aa,i) = - tmp2 * fjac(5,3,i-1)  &
+203:      &              - tmp1 * njac(5,3,i-1)
+204:                lhs(5,4,aa,i) = - tmp2 * fjac(5,4,i-1)  &
+205:      &              - tmp1 * njac(5,4,i-1)
+206:                lhs(5,5,aa,i) = - tmp2 * fjac(5,5,i-1)  &
+207:      &              - tmp1 * njac(5,5,i-1)  &
+208:      &              - tmp1 * dx5
+209: 
+210:                lhs(1,1,bb,i) = 1.d0  &
+211:      &              + tmp1 * 2.d0 * njac(1,1,i)  &
+212:      &              + tmp1 * 2.d0 * dx1
+213:                lhs(1,2,bb,i) = tmp1 * 2.d0 * njac(1,2,i)
+214:                lhs(1,3,bb,i) = tmp1 * 2.d0 * njac(1,3,i)
+215:                lhs(1,4,bb,i) = tmp1 * 2.d0 * njac(1,4,i)
+216:                lhs(1,5,bb,i) = tmp1 * 2.d0 * njac(1,5,i)
+217: 
+218:                lhs(2,1,bb,i) = tmp1 * 2.d0 * njac(2,1,i)
+219:                lhs(2,2,bb,i) = 1.d0  &
+220:      &              + tmp1 * 2.d0 * njac(2,2,i)  &
+221:      &              + tmp1 * 2.d0 * dx2
+222:                lhs(2,3,bb,i) = tmp1 * 2.d0 * njac(2,3,i)
+223:                lhs(2,4,bb,i) = tmp1 * 2.d0 * njac(2,4,i)
+224:                lhs(2,5,bb,i) = tmp1 * 2.d0 * njac(2,5,i)
+225: 
+226:                lhs(3,1,bb,i) = tmp1 * 2.d0 * njac(3,1,i)
+227:                lhs(3,2,bb,i) = tmp1 * 2.d0 * njac(3,2,i)
+228:                lhs(3,3,bb,i) = 1.d0  &
+229:      &              + tmp1 * 2.d0 * njac(3,3,i)  &
+230:      &              + tmp1 * 2.d0 * dx3
+231:                lhs(3,4,bb,i) = tmp1 * 2.d0 * njac(3,4,i)
+232:                lhs(3,5,bb,i) = tmp1 * 2.d0 * njac(3,5,i)
+233: 
+234:                lhs(4,1,bb,i) = tmp1 * 2.d0 * njac(4,1,i)
+235:                lhs(4,2,bb,i) = tmp1 * 2.d0 * njac(4,2,i)
+236:                lhs(4,3,bb,i) = tmp1 * 2.d0 * njac(4,3,i)
+237:                lhs(4,4,bb,i) = 1.d0  &
+238:      &              + tmp1 * 2.d0 * njac(4,4,i)  &
+239:      &              + tmp1 * 2.d0 * dx4
+240:                lhs(4,5,bb,i) = tmp1 * 2.d0 * njac(4,5,i)
+241: 
+242:                lhs(5,1,bb,i) = tmp1 * 2.d0 * njac(5,1,i)
+243:                lhs(5,2,bb,i) = tmp1 * 2.d0 * njac(5,2,i)
+244:                lhs(5,3,bb,i) = tmp1 * 2.d0 * njac(5,3,i)
+245:                lhs(5,4,bb,i) = tmp1 * 2.d0 * njac(5,4,i)
+246:                lhs(5,5,bb,i) = 1.d0  &
+247:      &              + tmp1 * 2.d0 * njac(5,5,i)  &
+248:      &              + tmp1 * 2.d0 * dx5
+249: 
+250:                lhs(1,1,cc,i) =  tmp2 * fjac(1,1,i+1)  &
+251:      &              - tmp1 * njac(1,1,i+1)  &
+252:      &              - tmp1 * dx1
+253:                lhs(1,2,cc,i) =  tmp2 * fjac(1,2,i+1)  &
+254:      &              - tmp1 * njac(1,2,i+1)
+255:                lhs(1,3,cc,i) =  tmp2 * fjac(1,3,i+1)  &
+256:      &              - tmp1 * njac(1,3,i+1)
+257:                lhs(1,4,cc,i) =  tmp2 * fjac(1,4,i+1)  &
+258:      &              - tmp1 * njac(1,4,i+1)
+259:                lhs(1,5,cc,i) =  tmp2 * fjac(1,5,i+1)  &
+260:      &              - tmp1 * njac(1,5,i+1)
+261: 
+262:                lhs(2,1,cc,i) =  tmp2 * fjac(2,1,i+1)  &
+263:      &              - tmp1 * njac(2,1,i+1)
+264:                lhs(2,2,cc,i) =  tmp2 * fjac(2,2,i+1)  &
+265:      &              - tmp1 * njac(2,2,i+1)  &
+266:      &              - tmp1 * dx2
+267:                lhs(2,3,cc,i) =  tmp2 * fjac(2,3,i+1)  &
+268:      &              - tmp1 * njac(2,3,i+1)
+269:                lhs(2,4,cc,i) =  tmp2 * fjac(2,4,i+1)  &
+270:      &              - tmp1 * njac(2,4,i+1)
+271:                lhs(2,5,cc,i) =  tmp2 * fjac(2,5,i+1)  &
+272:      &              - tmp1 * njac(2,5,i+1)
+273: 
+274:                lhs(3,1,cc,i) =  tmp2 * fjac(3,1,i+1)  &
+275:      &              - tmp1 * njac(3,1,i+1)
+276:                lhs(3,2,cc,i) =  tmp2 * fjac(3,2,i+1)  &
+277:      &              - tmp1 * njac(3,2,i+1)
+278:                lhs(3,3,cc,i) =  tmp2 * fjac(3,3,i+1)  &
+279:      &              - tmp1 * njac(3,3,i+1)  &
+280:      &              - tmp1 * dx3
+281:                lhs(3,4,cc,i) =  tmp2 * fjac(3,4,i+1)  &
+282:      &              - tmp1 * njac(3,4,i+1)
+283:                lhs(3,5,cc,i) =  tmp2 * fjac(3,5,i+1)  &
+284:      &              - tmp1 * njac(3,5,i+1)
+285: 
+286:                lhs(4,1,cc,i) =  tmp2 * fjac(4,1,i+1)  &
+287:      &              - tmp1 * njac(4,1,i+1)
+288:                lhs(4,2,cc,i) =  tmp2 * fjac(4,2,i+1)  &
+289:      &              - tmp1 * njac(4,2,i+1)
+290:                lhs(4,3,cc,i) =  tmp2 * fjac(4,3,i+1)  &
+291:      &              - tmp1 * njac(4,3,i+1)
+292:                lhs(4,4,cc,i) =  tmp2 * fjac(4,4,i+1)  &
+293:      &              - tmp1 * njac(4,4,i+1)  &
+294:      &              - tmp1 * dx4
+295:                lhs(4,5,cc,i) =  tmp2 * fjac(4,5,i+1)  &
+296:      &              - tmp1 * njac(4,5,i+1)
+297: 
+298:                lhs(5,1,cc,i) =  tmp2 * fjac(5,1,i+1)  &
+299:      &              - tmp1 * njac(5,1,i+1)
+300:                lhs(5,2,cc,i) =  tmp2 * fjac(5,2,i+1)  &
+301:      &              - tmp1 * njac(5,2,i+1)
+302:                lhs(5,3,cc,i) =  tmp2 * fjac(5,3,i+1)  &
+303:      &              - tmp1 * njac(5,3,i+1)
+304:                lhs(5,4,cc,i) =  tmp2 * fjac(5,4,i+1)  &
+305:      &              - tmp1 * njac(5,4,i+1)
+306:                lhs(5,5,cc,i) =  tmp2 * fjac(5,5,i+1)  &
+307:      &              - tmp1 * njac(5,5,i+1)  &
+308:      &              - tmp1 * dx5
+[...]
+335:      &                        rhs(1,0,j,k) )
+[...]
+341:             do i=1,isize-1
+[...]
+347:      &                         rhs(1,i-1,j,k),rhs(1,i,j,k))
+[...]
+354:      &                         lhs(1,1,bb,i))
+[...]
+363:      &                        rhs(1,i,j,k) )
+[...]
+371:      &                         rhs(1,isize-1,j,k),rhs(1,isize,j,k))
+[...]
+378:      &                         lhs(1,1,bb,isize))
+[...]
+384:      &                       rhs(1,isize,j,k) )
+[...]
+394:             do i=isize-1,0,-1
+395:                do m=1,BLOCK_SIZE
+396:                   do n=1,BLOCK_SIZE
+397:                      rhs(m,i,j,k) = rhs(m,i,j,k)  &
+398:      &                    - lhs(m,n,cc,i)*rhs(n,i+1,j,k)

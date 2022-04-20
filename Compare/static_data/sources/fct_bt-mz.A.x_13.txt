@@ -1,0 +1,210 @@
+/users/user2210/NPB3.4-MZ-MPI/BT-MZ/exact_rhs.f90: 23 - 347
+--------------------------------------------------------------------------------
+
+23: !$OMP& dtemp,xi,eta,zeta,m,i,j,k)
+24: !---------------------------------------------------------------------
+25: !     initialize                                  
+26: !---------------------------------------------------------------------
+27: !$OMP DO SCHEDULE(STATIC) COLLAPSE(2)
+28:       do k= 0, nz-1
+29:          do j = 0, ny-1
+30:             do i = 0, nx-1
+31:                do m = 1, 5
+32:                   forcing(m,i,j,k) = 0.0d0
+[...]
+42: !$OMP DO SCHEDULE(STATIC) COLLAPSE(2)
+43:       do k = 1, nz-2
+44:          do j = 1, ny-2
+45:             zeta = dble(k) * dnzm1
+46:             eta = dble(j) * dnym1
+47: 
+48:             do i=0, nx-1
+49:                xi = dble(i) * dnxm1
+50: 
+51:                call exact_solution(xi, eta, zeta, dtemp)
+52:                do m = 1, 5
+53:                   ue(i,m) = dtemp(m)
+54:                enddo
+55: 
+56:                dtpp = 1.0d0 / dtemp(1)
+57: 
+58:                do m = 2, 5
+59:                   buf(i,m) = dtpp * dtemp(m)
+60:                enddo
+61: 
+62:                cuf(i)   = buf(i,2) * buf(i,2)
+63:                buf(i,1) = cuf(i) + buf(i,3) * buf(i,3) +  &
+64:      &                 buf(i,4) * buf(i,4) 
+65:                q(i) = 0.5d0*(buf(i,2)*ue(i,2) + buf(i,3)*ue(i,3) +  &
+66:      &                 buf(i,4)*ue(i,4))
+67: 
+68:             enddo
+69:                
+70:             do i = 1, nx-2
+[...]
+76:      &                 dx1tx1*(ue(ip1,1)-2.0d0*ue(i,1)+ue(im1,1))
+[...]
+82:      &                 dx2tx1*( ue(ip1,2)-2.0d0* ue(i,2)+ue(im1,2))
+83: 
+84:                forcing(3,i,j,k) = forcing(3,i,j,k) - tx2 * (  &
+85:      &                 ue(ip1,3)*buf(ip1,2)-ue(im1,3)*buf(im1,2))+  &
+86:      &                 xxcon2*(buf(ip1,3)-2.0d0*buf(i,3)+buf(im1,3))+  &
+87:      &                 dx3tx1*( ue(ip1,3)-2.0d0*ue(i,3) +ue(im1,3))
+88:                   
+89:                forcing(4,i,j,k) = forcing(4,i,j,k) - tx2*(  &
+90:      &                 ue(ip1,4)*buf(ip1,2)-ue(im1,4)*buf(im1,2))+  &
+91:      &                 xxcon2*(buf(ip1,4)-2.0d0*buf(i,4)+buf(im1,4))+  &
+92:      &                 dx4tx1*( ue(ip1,4)-2.0d0* ue(i,4)+ ue(im1,4))
+[...]
+101:      &                 dx5tx1*( ue(ip1,5)-2.0d0* ue(i,5)+ ue(im1,5))
+[...]
+111:      &                    (5.0d0*ue(i,m) - 4.0d0*ue(i+1,m) +ue(i+2,m))
+112:                i = 2
+113:                forcing(m,i,j,k) = forcing(m,i,j,k) - dssp *  &
+114:      &                    (-4.0d0*ue(i-1,m) + 6.0d0*ue(i,m) -  &
+115:      &                    4.0d0*ue(i+1,m) +       ue(i+2,m))
+116:             enddo
+117: 
+118:             do m = 1, 5
+119:                do i = 3, nx-4
+120:                   forcing(m,i,j,k) = forcing(m,i,j,k) - dssp*  &
+121:      &                    (ue(i-2,m) - 4.0d0*ue(i-1,m) +  &
+122:      &                    6.0d0*ue(i,m) - 4.0d0*ue(i+1,m) + ue(i+2,m))
+[...]
+130:      &                    6.0d0*ue(i,m) - 4.0d0*ue(i+1,m))
+131:                i = nx-2
+132:                forcing(m,i,j,k) = forcing(m,i,j,k) - dssp *  &
+133:      &                    (ue(i-2,m) - 4.0d0*ue(i-1,m) + 5.0d0*ue(i,m))
+[...]
+143: !$OMP DO SCHEDULE(STATIC) COLLAPSE(2)
+144:       do k = 1, nz-2          
+145:          do i=1, nx-2
+146:             zeta = dble(k) * dnzm1
+147:             xi = dble(i) * dnxm1
+148: 
+149:             do j=0, ny-1
+150:                eta = dble(j) * dnym1
+151: 
+152:                call exact_solution(xi, eta, zeta, dtemp)
+153:                do m = 1, 5 
+154:                   ue(j,m) = dtemp(m)
+155:                enddo
+156:                   
+157:                dtpp = 1.0d0/dtemp(1)
+158: 
+159:                do m = 2, 5
+160:                   buf(j,m) = dtpp * dtemp(m)
+161:                enddo
+162: 
+163:                cuf(j)   = buf(j,3) * buf(j,3)
+164:                buf(j,1) = cuf(j) + buf(j,2) * buf(j,2) +  &
+165:      &                 buf(j,4) * buf(j,4)
+166:                q(j) = 0.5d0*(buf(j,2)*ue(j,2) + buf(j,3)*ue(j,3) +  &
+167:      &                 buf(j,4)*ue(j,4))
+168:             enddo
+169: 
+170:             do j = 1, ny-2
+[...]
+176:      &                 dy1ty1*(ue(jp1,1)-2.0d0*ue(j,1)+ue(jm1,1))
+177: 
+178:                forcing(2,i,j,k) = forcing(2,i,j,k) - ty2*(  &
+179:      &                 ue(jp1,2)*buf(jp1,3)-ue(jm1,2)*buf(jm1,3))+  &
+180:      &                 yycon2*(buf(jp1,2)-2.0d0*buf(j,2)+buf(jm1,2))+  &
+181:      &                 dy2ty1*( ue(jp1,2)-2.0* ue(j,2)+ ue(jm1,2))
+[...]
+187:      &                 dy3ty1*( ue(jp1,3)-2.0d0*ue(j,3) +ue(jm1,3))
+188: 
+189:                forcing(4,i,j,k) = forcing(4,i,j,k) - ty2*(  &
+190:      &                 ue(jp1,4)*buf(jp1,3)-ue(jm1,4)*buf(jm1,3))+  &
+191:      &                 yycon2*(buf(jp1,4)-2.0d0*buf(j,4)+buf(jm1,4))+  &
+192:      &                 dy4ty1*( ue(jp1,4)-2.0d0*ue(j,4)+ ue(jm1,4))
+[...]
+201:      &                 dy5ty1*(ue(jp1,5)-2.0d0*ue(j,5)+ue(jm1,5))
+[...]
+210:      &                    (5.0d0*ue(j,m) - 4.0d0*ue(j+1,m) +ue(j+2,m))
+211:                j = 2
+212:                forcing(m,i,j,k) = forcing(m,i,j,k) - dssp *  &
+213:      &                    (-4.0d0*ue(j-1,m) + 6.0d0*ue(j,m) -  &
+214:      &                    4.0d0*ue(j+1,m) +       ue(j+2,m))
+215:             enddo
+216: 
+217:             do m = 1, 5
+218:                do j = 3, ny-4
+219:                   forcing(m,i,j,k) = forcing(m,i,j,k) - dssp*  &
+220:      &                    (ue(j-2,m) - 4.0d0*ue(j-1,m) +  &
+221:      &                    6.0d0*ue(j,m) - 4.0d0*ue(j+1,m) + ue(j+2,m))
+[...]
+229:      &                    6.0d0*ue(j,m) - 4.0d0*ue(j+1,m))
+230:                j = ny-2
+231:                forcing(m,i,j,k) = forcing(m,i,j,k) - dssp *  &
+232:      &                    (ue(j-2,m) - 4.0d0*ue(j-1,m) + 5.0d0*ue(j,m))
+[...]
+243: !$OMP DO SCHEDULE(STATIC) COLLAPSE(2)
+244:       do j=1, ny-2
+245:          do i = 1, nx-2
+246:             eta = dble(j) * dnym1
+247:             xi = dble(i) * dnxm1
+248: 
+249:             do k=0, nz-1
+250:                zeta = dble(k) * dnzm1
+251: 
+252:                call exact_solution(xi, eta, zeta, dtemp)
+253:                do m = 1, 5
+254:                   ue(k,m) = dtemp(m)
+255:                enddo
+256: 
+257:                dtpp = 1.0d0/dtemp(1)
+258: 
+259:                do m = 2, 5
+260:                   buf(k,m) = dtpp * dtemp(m)
+261:                enddo
+262: 
+263:                cuf(k)   = buf(k,4) * buf(k,4)
+264:                buf(k,1) = cuf(k) + buf(k,2) * buf(k,2) +  &
+265:      &                 buf(k,3) * buf(k,3)
+266:                q(k) = 0.5d0*(buf(k,2)*ue(k,2) + buf(k,3)*ue(k,3) +  &
+267:      &                 buf(k,4)*ue(k,4))
+268:             enddo
+269: 
+270:             do k=1, nz-2
+[...]
+276:      &                 dz1tz1*(ue(kp1,1)-2.0d0*ue(k,1)+ue(km1,1))
+277: 
+278:                forcing(2,i,j,k) = forcing(2,i,j,k) - tz2 * (  &
+279:      &                 ue(kp1,2)*buf(kp1,4)-ue(km1,2)*buf(km1,4))+  &
+280:      &                 zzcon2*(buf(kp1,2)-2.0d0*buf(k,2)+buf(km1,2))+  &
+281:      &                 dz2tz1*( ue(kp1,2)-2.0d0* ue(k,2)+ ue(km1,2))
+282: 
+283:                forcing(3,i,j,k) = forcing(3,i,j,k) - tz2 * (  &
+284:      &                 ue(kp1,3)*buf(kp1,4)-ue(km1,3)*buf(km1,4))+  &
+285:      &                 zzcon2*(buf(kp1,3)-2.0d0*buf(k,3)+buf(km1,3))+  &
+286:      &                 dz3tz1*(ue(kp1,3)-2.0d0*ue(k,3)+ue(km1,3))
+[...]
+292:      &                 dz4tz1*( ue(kp1,4)-2.0d0*ue(k,4) +ue(km1,4))
+[...]
+301:      &                 dz5tz1*( ue(kp1,5)-2.0d0*ue(k,5)+ ue(km1,5))
+[...]
+310:      &                    (5.0d0*ue(k,m) - 4.0d0*ue(k+1,m) +ue(k+2,m))
+311:                k = 2
+312:                forcing(m,i,j,k) = forcing(m,i,j,k) - dssp *  &
+313:      &                    (-4.0d0*ue(k-1,m) + 6.0d0*ue(k,m) -  &
+314:      &                    4.0d0*ue(k+1,m) +       ue(k+2,m))
+315:             enddo
+316: 
+317:             do m = 1, 5
+318:                do k = 3, nz-4
+319:                   forcing(m,i,j,k) = forcing(m,i,j,k) - dssp*  &
+320:      &                    (ue(k-2,m) - 4.0d0*ue(k-1,m) +  &
+321:      &                    6.0d0*ue(k,m) - 4.0d0*ue(k+1,m) + ue(k+2,m))
+[...]
+329:      &                    6.0d0*ue(k,m) - 4.0d0*ue(k+1,m))
+330:                k = nz-2
+331:                forcing(m,i,j,k) = forcing(m,i,j,k) - dssp *  &
+332:      &                    (ue(k-2,m) - 4.0d0*ue(k-1,m) + 5.0d0*ue(k,m))
+[...]
+342: !$OMP DO SCHEDULE(STATIC) COLLAPSE(2)
+343:       do k = 1, nz-2
+344:          do j = 1, ny-2
+345:             do i = 1, nx-2
+346:                do m = 1, 5
+347:                   forcing(m,i,j,k) = -1.d0 * forcing(m,i,j,k)

@@ -1,0 +1,10 @@
+/users/user2210/NPB3.4-MZ-MPI/BT-MZ/error.f90: 38 - 44
+--------------------------------------------------------------------------------
+
+38:             do i = 0, nx-1
+39:                xi = dble(i) * dnxm1
+40:                call exact_solution(xi, eta, zeta, u_exact)
+41: 
+42:                do m = 1, 5
+43:                   add = u(m,i,j,k)-u_exact(m)
+44:                   rms_loc(m) = rms_loc(m) + add*add

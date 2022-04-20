@@ -1,0 +1,7 @@
+name;time_p;time_s;cpi_ratio;
+/users/user2210/NPB3.4-MZ-MPI/bin/Compare/binaries/bt-mz.A.x;99.68;44.87;;
+/usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0;0.12;0.06;;
+/usr/lib/x86_64-linux-gnu/libc-2.31.so;0.1;0.05;;
+/usr/lib/x86_64-linux-gnu/ld-2.31.so;0.07;0.03;;
+/opt/other/openmpi/3.1.1/lib/libopen-pal.so.40.10.1;0.01;0.01;;
+/usr/lib/x86_64-linux-gnu/libgcc_s.so.1;0.01;0.01;;

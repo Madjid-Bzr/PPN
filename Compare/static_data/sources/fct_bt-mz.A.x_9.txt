@@ -1,0 +1,106 @@
+/users/user2210/NPB3.4-MZ-MPI/BT-MZ/initialize.f90: 24 - 200
+--------------------------------------------------------------------------------
+
+24: !$OMP& Pface,ix,xi,i,eta,j,zeta,k)
+[...]
+32: !$OMP DO SCHEDULE(STATIC) COLLAPSE(2)
+33:       do k = 0, nz-1
+34:          do j = 0, ny-1
+35:             do i = 0, nx-1
+36:                do m = 1, 5
+37:                   u(m,i,j,k) = 1.0
+[...]
+54:          zeta = dble(k) * dnzm1
+55:             eta = dble(j) * dnym1
+56:             do i = 0, nx-1
+57:                xi = dble(i) * dnxm1
+58:                   
+59:                do ix = 1, 2
+60:                   call exact_solution(dble(ix-1), eta, zeta,  &
+61:      &                    Pface(1,1,ix))
+62:                enddo
+63: 
+64:                do iy = 1, 2
+65:                   call exact_solution(xi, dble(iy-1) , zeta,  &
+66:      &                    Pface(1,2,iy))
+67:                enddo
+68: 
+69:                do iz = 1, 2
+70:                   call exact_solution(xi, eta, dble(iz-1),   &
+71:      &                    Pface(1,3,iz))
+72:                enddo
+73: 
+74:                do m = 1, 5
+75:                   Pxi   = xi   * Pface(m,1,2) +  &
+76:      &                    (1.0d0-xi)   * Pface(m,1,1)
+77:                   Peta  = eta  * Pface(m,2,2) +  &
+78:      &                    (1.0d0-eta)  * Pface(m,2,1)
+79:                   Pzeta = zeta * Pface(m,3,2) +  &
+80:      &                    (1.0d0-zeta) * Pface(m,3,1)
+81:                      
+82:                   u(m,i,j,k) = Pxi + Peta + Pzeta -  &
+83:      &                    Pxi*Peta - Pxi*Pzeta - Peta*Pzeta +  &
+84:      &                    Pxi*Peta*Pzeta
+[...]
+100:       xi = 0.0d0
+101: !$OMP DO SCHEDULE(STATIC) COLLAPSE(2)
+102:       do k = 0, nz-1
+103:          do j = 0, ny-1
+104:          zeta = dble(k) * dnzm1
+105:             eta = dble(j) * dnym1
+106:             call exact_solution(xi, eta, zeta, temp)
+107:             do m = 1, 5
+108:                u(m,i,j,k) = temp(m)
+[...]
+118:       i = nx-1
+119:       xi = 1.0d0
+120: !$OMP DO SCHEDULE(STATIC) COLLAPSE(2)
+121:       do k = 0, nz-1
+122:          do j = 0, ny-1
+123:          zeta = dble(k) * dnzm1
+124:             eta = dble(j) * dnym1
+125:             call exact_solution(xi, eta, zeta, temp)
+126:             do m = 1, 5
+127:                u(m,i,j,k) = temp(m)
+[...]
+137:       eta = 0.0d0
+138: !$OMP DO SCHEDULE(STATIC)
+139:       do k = 0, nz-1
+140:          zeta = dble(k) * dnzm1
+141:          do i = 0, nx-1
+142:             xi = dble(i) * dnxm1
+143:             call exact_solution(xi, eta, zeta, temp)
+144:             do m = 1, 5
+145:                u(m,i,j,k) = temp(m)
+[...]
+155:       j = ny-1
+156:       eta = 1.0d0
+157: !$OMP DO SCHEDULE(STATIC)
+158:       do k = 0, nz-1
+159:          zeta = dble(k) * dnzm1
+160:          do i = 0, nx-1
+161:             xi = dble(i) * dnxm1
+162:             call exact_solution(xi, eta, zeta, temp)
+163:             do m = 1, 5
+164:                u(m,i,j,k) = temp(m)
+[...]
+174:       zeta = 0.0d0
+175: !$OMP DO SCHEDULE(STATIC)
+176:       do j = 0, ny-1
+177:          eta = dble(j) * dnym1
+178:          do i =0, nx-1
+179:             xi = dble(i) *dnxm1
+180:             call exact_solution(xi, eta, zeta, temp)
+181:             do m = 1, 5
+182:                u(m,i,j,k) = temp(m)
+[...]
+191:       k = nz-1
+192:       zeta = 1.0d0
+193: !$OMP DO SCHEDULE(STATIC)
+194:       do j = 0, ny-1
+195:          eta = dble(j) * dnym1
+196:          do i =0, nx-1
+197:             xi = dble(i) * dnxm1
+198:             call exact_solution(xi, eta, zeta, temp)
+199:             do m = 1, 5
+200:                u(m,i,j,k) = temp(m)

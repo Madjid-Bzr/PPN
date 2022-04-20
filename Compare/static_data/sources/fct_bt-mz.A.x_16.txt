@@ -1,0 +1,17 @@
+/home/madjid/Bureau/CHPS/Maqao/NPB3.4.1-MZ/NPB3.4-MZ-MPI/BT-MZ/adi.f90: 4 - 33
+--------------------------------------------------------------------------------
+
+4:       subroutine  adi(rho_i, us, vs, ws, qs, square, rhs,  &
+[...]
+22:      &                 forcing, u, nx, nxmax, ny, nz)
+23: 
+24:       call x_solve(rho_i, qs, square, u, rhs, nx, nxmax, ny, nz)
+25: 
+26:       call y_solve(rho_i, qs, square, u, rhs, nx, nxmax, ny, nz)
+27: 
+28:       call z_solve(rho_i, qs, square, u, rhs, nx, nxmax, ny, nz)
+29: 
+30:       call add(u, rhs, nx, nxmax, ny, nz)
+31: 
+32:       return
+33:       end

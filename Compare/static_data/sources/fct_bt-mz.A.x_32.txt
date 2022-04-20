@@ -1,0 +1,28 @@
+/users/user2210/NPB3.4-MZ-MPI/BT-MZ/solve_subs.f90: 27 - 51
+--------------------------------------------------------------------------------
+
+27:      &                     - ablock(1,5)*avec(5)
+28:          bvec(2) = bvec(2) - ablock(2,1)*avec(1)  &
+29:      &                     - ablock(2,2)*avec(2)  &
+30:      &                     - ablock(2,3)*avec(3)  &
+31:      &                     - ablock(2,4)*avec(4)  &
+32:      &                     - ablock(2,5)*avec(5)
+33:          bvec(3) = bvec(3) - ablock(3,1)*avec(1)  &
+34:      &                     - ablock(3,2)*avec(2)  &
+35:      &                     - ablock(3,3)*avec(3)  &
+36:      &                     - ablock(3,4)*avec(4)  &
+37:      &                     - ablock(3,5)*avec(5)
+38:          bvec(4) = bvec(4) - ablock(4,1)*avec(1)  &
+39:      &                     - ablock(4,2)*avec(2)  &
+40:      &                     - ablock(4,3)*avec(3)  &
+41:      &                     - ablock(4,4)*avec(4)  &
+42:      &                     - ablock(4,5)*avec(5)
+43:          bvec(5) = bvec(5) - ablock(5,1)*avec(1)  &
+44:      &                     - ablock(5,2)*avec(2)  &
+45:      &                     - ablock(5,3)*avec(3)  &
+46:      &                     - ablock(5,4)*avec(4)  &
+47:      &                     - ablock(5,5)*avec(5)
+48: 
+49: 
+50:       return
+51:       end

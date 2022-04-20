@@ -1,0 +1,20 @@
+/users/user2210/NPB3.4-MZ-MPI/BT-MZ/exact_rhs.f90: 70 - 101
+--------------------------------------------------------------------------------
+
+70:             do i = 1, nx-2
+[...]
+76:      &                 dx1tx1*(ue(ip1,1)-2.0d0*ue(i,1)+ue(im1,1))
+[...]
+82:      &                 dx2tx1*( ue(ip1,2)-2.0d0* ue(i,2)+ue(im1,2))
+83: 
+84:                forcing(3,i,j,k) = forcing(3,i,j,k) - tx2 * (  &
+85:      &                 ue(ip1,3)*buf(ip1,2)-ue(im1,3)*buf(im1,2))+  &
+86:      &                 xxcon2*(buf(ip1,3)-2.0d0*buf(i,3)+buf(im1,3))+  &
+87:      &                 dx3tx1*( ue(ip1,3)-2.0d0*ue(i,3) +ue(im1,3))
+88:                   
+89:                forcing(4,i,j,k) = forcing(4,i,j,k) - tx2*(  &
+90:      &                 ue(ip1,4)*buf(ip1,2)-ue(im1,4)*buf(im1,2))+  &
+91:      &                 xxcon2*(buf(ip1,4)-2.0d0*buf(i,4)+buf(im1,4))+  &
+92:      &                 dx4tx1*( ue(ip1,4)-2.0d0* ue(i,4)+ ue(im1,4))
+[...]
+101:      &                 dx5tx1*( ue(ip1,5)-2.0d0* ue(i,5)+ ue(im1,5))

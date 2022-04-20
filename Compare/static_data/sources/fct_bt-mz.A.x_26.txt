@@ -1,0 +1,8 @@
+/users/user2210/NPB3.4-MZ-MPI/BT-MZ/exch_qbc.f90: 218 - 222
+--------------------------------------------------------------------------------
+
+218: !$OMP&  SCHEDULE(STATIC) COLLAPSE(2)
+219:          do k = 1, nz-2
+220:            do i = 1, nx-2
+221:              do m = 1, 5
+222:                qbc(m,i,k) = u(m,i,j,k)

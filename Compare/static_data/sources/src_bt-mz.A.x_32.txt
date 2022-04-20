@@ -1,0 +1,20 @@
+/users/user2210/NPB3.4-MZ-MPI/BT-MZ/exact_rhs.f90: 270 - 301
+--------------------------------------------------------------------------------
+
+270:             do k=1, nz-2
+[...]
+276:      &                 dz1tz1*(ue(kp1,1)-2.0d0*ue(k,1)+ue(km1,1))
+277: 
+278:                forcing(2,i,j,k) = forcing(2,i,j,k) - tz2 * (  &
+279:      &                 ue(kp1,2)*buf(kp1,4)-ue(km1,2)*buf(km1,4))+  &
+280:      &                 zzcon2*(buf(kp1,2)-2.0d0*buf(k,2)+buf(km1,2))+  &
+281:      &                 dz2tz1*( ue(kp1,2)-2.0d0* ue(k,2)+ ue(km1,2))
+282: 
+283:                forcing(3,i,j,k) = forcing(3,i,j,k) - tz2 * (  &
+284:      &                 ue(kp1,3)*buf(kp1,4)-ue(km1,3)*buf(km1,4))+  &
+285:      &                 zzcon2*(buf(kp1,3)-2.0d0*buf(k,3)+buf(km1,3))+  &
+286:      &                 dz3tz1*(ue(kp1,3)-2.0d0*ue(k,3)+ue(km1,3))
+[...]
+292:      &                 dz4tz1*( ue(kp1,4)-2.0d0*ue(k,4) +ue(km1,4))
+[...]
+301:      &                 dz5tz1*( ue(kp1,5)-2.0d0*ue(k,5)+ ue(km1,5))

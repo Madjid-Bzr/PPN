@@ -1,0 +1,10 @@
+/users/user2210/NPB3.4-MZ-MPI/BT-MZ/z_solve.f90: 414 - 420
+--------------------------------------------------------------------------------
+
+414:             do k=ksize-1,0,-1
+415:                do m=1,BLOCK_SIZE
+416:                   do n=1,BLOCK_SIZE
+417:                      rtmp(m,k) = rtmp(m,k)  &
+418:      &                    - lhs(m,n,cc,k)*rtmp(n,k+1)
+419:                   enddo
+420:                   rhs(m,i,j,k) = rtmp(m,k) 

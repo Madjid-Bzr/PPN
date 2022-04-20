@@ -1,0 +1,130 @@
+/users/user2210/NPB3.4-MZ-MPI/BT-MZ/solve_subs.f90: 56 - 199
+--------------------------------------------------------------------------------
+
+56:       subroutine matmul_sub(ablock, bblock, cblock)
+[...]
+75:      &                             - ablock(1,5)*bblock(5,1)
+76:          cblock(2,1) = cblock(2,1) - ablock(2,1)*bblock(1,1)  &
+77:      &                             - ablock(2,2)*bblock(2,1)  &
+78:      &                             - ablock(2,3)*bblock(3,1)  &
+79:      &                             - ablock(2,4)*bblock(4,1)  &
+80:      &                             - ablock(2,5)*bblock(5,1)
+81:          cblock(3,1) = cblock(3,1) - ablock(3,1)*bblock(1,1)  &
+82:      &                             - ablock(3,2)*bblock(2,1)  &
+83:      &                             - ablock(3,3)*bblock(3,1)  &
+84:      &                             - ablock(3,4)*bblock(4,1)  &
+85:      &                             - ablock(3,5)*bblock(5,1)
+86:          cblock(4,1) = cblock(4,1) - ablock(4,1)*bblock(1,1)  &
+87:      &                             - ablock(4,2)*bblock(2,1)  &
+88:      &                             - ablock(4,3)*bblock(3,1)  &
+89:      &                             - ablock(4,4)*bblock(4,1)  &
+90:      &                             - ablock(4,5)*bblock(5,1)
+91:          cblock(5,1) = cblock(5,1) - ablock(5,1)*bblock(1,1)  &
+92:      &                             - ablock(5,2)*bblock(2,1)  &
+93:      &                             - ablock(5,3)*bblock(3,1)  &
+94:      &                             - ablock(5,4)*bblock(4,1)  &
+95:      &                             - ablock(5,5)*bblock(5,1)
+96:          cblock(1,2) = cblock(1,2) - ablock(1,1)*bblock(1,2)  &
+97:      &                             - ablock(1,2)*bblock(2,2)  &
+98:      &                             - ablock(1,3)*bblock(3,2)  &
+99:      &                             - ablock(1,4)*bblock(4,2)  &
+100:      &                             - ablock(1,5)*bblock(5,2)
+101:          cblock(2,2) = cblock(2,2) - ablock(2,1)*bblock(1,2)  &
+102:      &                             - ablock(2,2)*bblock(2,2)  &
+103:      &                             - ablock(2,3)*bblock(3,2)  &
+104:      &                             - ablock(2,4)*bblock(4,2)  &
+105:      &                             - ablock(2,5)*bblock(5,2)
+106:          cblock(3,2) = cblock(3,2) - ablock(3,1)*bblock(1,2)  &
+107:      &                             - ablock(3,2)*bblock(2,2)  &
+108:      &                             - ablock(3,3)*bblock(3,2)  &
+109:      &                             - ablock(3,4)*bblock(4,2)  &
+110:      &                             - ablock(3,5)*bblock(5,2)
+111:          cblock(4,2) = cblock(4,2) - ablock(4,1)*bblock(1,2)  &
+112:      &                             - ablock(4,2)*bblock(2,2)  &
+113:      &                             - ablock(4,3)*bblock(3,2)  &
+114:      &                             - ablock(4,4)*bblock(4,2)  &
+115:      &                             - ablock(4,5)*bblock(5,2)
+116:          cblock(5,2) = cblock(5,2) - ablock(5,1)*bblock(1,2)  &
+117:      &                             - ablock(5,2)*bblock(2,2)  &
+118:      &                             - ablock(5,3)*bblock(3,2)  &
+119:      &                             - ablock(5,4)*bblock(4,2)  &
+120:      &                             - ablock(5,5)*bblock(5,2)
+121:          cblock(1,3) = cblock(1,3) - ablock(1,1)*bblock(1,3)  &
+122:      &                             - ablock(1,2)*bblock(2,3)  &
+123:      &                             - ablock(1,3)*bblock(3,3)  &
+124:      &                             - ablock(1,4)*bblock(4,3)  &
+125:      &                             - ablock(1,5)*bblock(5,3)
+126:          cblock(2,3) = cblock(2,3) - ablock(2,1)*bblock(1,3)  &
+127:      &                             - ablock(2,2)*bblock(2,3)  &
+128:      &                             - ablock(2,3)*bblock(3,3)  &
+129:      &                             - ablock(2,4)*bblock(4,3)  &
+130:      &                             - ablock(2,5)*bblock(5,3)
+131:          cblock(3,3) = cblock(3,3) - ablock(3,1)*bblock(1,3)  &
+132:      &                             - ablock(3,2)*bblock(2,3)  &
+133:      &                             - ablock(3,3)*bblock(3,3)  &
+134:      &                             - ablock(3,4)*bblock(4,3)  &
+135:      &                             - ablock(3,5)*bblock(5,3)
+136:          cblock(4,3) = cblock(4,3) - ablock(4,1)*bblock(1,3)  &
+137:      &                             - ablock(4,2)*bblock(2,3)  &
+138:      &                             - ablock(4,3)*bblock(3,3)  &
+139:      &                             - ablock(4,4)*bblock(4,3)  &
+140:      &                             - ablock(4,5)*bblock(5,3)
+141:          cblock(5,3) = cblock(5,3) - ablock(5,1)*bblock(1,3)  &
+142:      &                             - ablock(5,2)*bblock(2,3)  &
+143:      &                             - ablock(5,3)*bblock(3,3)  &
+144:      &                             - ablock(5,4)*bblock(4,3)  &
+145:      &                             - ablock(5,5)*bblock(5,3)
+146:          cblock(1,4) = cblock(1,4) - ablock(1,1)*bblock(1,4)  &
+147:      &                             - ablock(1,2)*bblock(2,4)  &
+148:      &                             - ablock(1,3)*bblock(3,4)  &
+149:      &                             - ablock(1,4)*bblock(4,4)  &
+150:      &                             - ablock(1,5)*bblock(5,4)
+151:          cblock(2,4) = cblock(2,4) - ablock(2,1)*bblock(1,4)  &
+152:      &                             - ablock(2,2)*bblock(2,4)  &
+153:      &                             - ablock(2,3)*bblock(3,4)  &
+154:      &                             - ablock(2,4)*bblock(4,4)  &
+155:      &                             - ablock(2,5)*bblock(5,4)
+156:          cblock(3,4) = cblock(3,4) - ablock(3,1)*bblock(1,4)  &
+157:      &                             - ablock(3,2)*bblock(2,4)  &
+158:      &                             - ablock(3,3)*bblock(3,4)  &
+159:      &                             - ablock(3,4)*bblock(4,4)  &
+160:      &                             - ablock(3,5)*bblock(5,4)
+161:          cblock(4,4) = cblock(4,4) - ablock(4,1)*bblock(1,4)  &
+162:      &                             - ablock(4,2)*bblock(2,4)  &
+163:      &                             - ablock(4,3)*bblock(3,4)  &
+164:      &                             - ablock(4,4)*bblock(4,4)  &
+165:      &                             - ablock(4,5)*bblock(5,4)
+166:          cblock(5,4) = cblock(5,4) - ablock(5,1)*bblock(1,4)  &
+167:      &                             - ablock(5,2)*bblock(2,4)  &
+168:      &                             - ablock(5,3)*bblock(3,4)  &
+169:      &                             - ablock(5,4)*bblock(4,4)  &
+170:      &                             - ablock(5,5)*bblock(5,4)
+171:          cblock(1,5) = cblock(1,5) - ablock(1,1)*bblock(1,5)  &
+172:      &                             - ablock(1,2)*bblock(2,5)  &
+173:      &                             - ablock(1,3)*bblock(3,5)  &
+174:      &                             - ablock(1,4)*bblock(4,5)  &
+175:      &                             - ablock(1,5)*bblock(5,5)
+176:          cblock(2,5) = cblock(2,5) - ablock(2,1)*bblock(1,5)  &
+177:      &                             - ablock(2,2)*bblock(2,5)  &
+178:      &                             - ablock(2,3)*bblock(3,5)  &
+179:      &                             - ablock(2,4)*bblock(4,5)  &
+180:      &                             - ablock(2,5)*bblock(5,5)
+181:          cblock(3,5) = cblock(3,5) - ablock(3,1)*bblock(1,5)  &
+182:      &                             - ablock(3,2)*bblock(2,5)  &
+183:      &                             - ablock(3,3)*bblock(3,5)  &
+184:      &                             - ablock(3,4)*bblock(4,5)  &
+185:      &                             - ablock(3,5)*bblock(5,5)
+186:          cblock(4,5) = cblock(4,5) - ablock(4,1)*bblock(1,5)  &
+187:      &                             - ablock(4,2)*bblock(2,5)  &
+188:      &                             - ablock(4,3)*bblock(3,5)  &
+189:      &                             - ablock(4,4)*bblock(4,5)  &
+190:      &                             - ablock(4,5)*bblock(5,5)
+191:          cblock(5,5) = cblock(5,5) - ablock(5,1)*bblock(1,5)  &
+192:      &                             - ablock(5,2)*bblock(2,5)  &
+193:      &                             - ablock(5,3)*bblock(3,5)  &
+194:      &                             - ablock(5,4)*bblock(4,5)  &
+195:      &                             - ablock(5,5)*bblock(5,5)
+196: 
+197:               
+198:       return
+199:       end

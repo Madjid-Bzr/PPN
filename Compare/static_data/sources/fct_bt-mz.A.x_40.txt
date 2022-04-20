@@ -1,0 +1,22 @@
+/users/user2210/NPB3.4-MZ-MPI/BT-MZ/error.f90: 29 - 51
+--------------------------------------------------------------------------------
+
+29: !$OMP& j,zeta,k)
+30:       do m=1,5
+31:          rms_loc(m)=0.0d0
+32:       enddo
+33: !$OMP DO SCHEDULE(STATIC) COLLAPSE(2)
+34:       do k = 0, nz-1
+35:          do j = 0, ny-1
+36:          zeta = dble(k) * dnzm1
+37:             eta = dble(j) * dnym1
+38:             do i = 0, nx-1
+39:                xi = dble(i) * dnxm1
+40:                call exact_solution(xi, eta, zeta, u_exact)
+41: 
+42:                do m = 1, 5
+43:                   add = u(m,i,j,k)-u_exact(m)
+44:                   rms_loc(m) = rms_loc(m) + add*add
+[...]
+50:       do m=1,5
+51: !$OMP ATOMIC

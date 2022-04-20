@@ -1,0 +1,135 @@
+/users/user2210/NPB3.4-MZ-MPI/BT-MZ/solve_subs.f90: 508 - 639
+--------------------------------------------------------------------------------
+
+508:       pivot = 1.00d0/lhs(1,1)
+509:       lhs(1,2) = lhs(1,2)*pivot
+510:       lhs(1,3) = lhs(1,3)*pivot
+511:       lhs(1,4) = lhs(1,4)*pivot
+512:       lhs(1,5) = lhs(1,5)*pivot
+513:       r(1)   = r(1)  *pivot
+514: 
+515:       coeff = lhs(2,1)
+516:       lhs(2,2)= lhs(2,2) - coeff*lhs(1,2)
+517:       lhs(2,3)= lhs(2,3) - coeff*lhs(1,3)
+518:       lhs(2,4)= lhs(2,4) - coeff*lhs(1,4)
+519:       lhs(2,5)= lhs(2,5) - coeff*lhs(1,5)
+520:       r(2)   = r(2)   - coeff*r(1)
+521: 
+522:       coeff = lhs(3,1)
+523:       lhs(3,2)= lhs(3,2) - coeff*lhs(1,2)
+524:       lhs(3,3)= lhs(3,3) - coeff*lhs(1,3)
+525:       lhs(3,4)= lhs(3,4) - coeff*lhs(1,4)
+526:       lhs(3,5)= lhs(3,5) - coeff*lhs(1,5)
+527:       r(3)   = r(3)   - coeff*r(1)
+528: 
+529:       coeff = lhs(4,1)
+530:       lhs(4,2)= lhs(4,2) - coeff*lhs(1,2)
+531:       lhs(4,3)= lhs(4,3) - coeff*lhs(1,3)
+532:       lhs(4,4)= lhs(4,4) - coeff*lhs(1,4)
+533:       lhs(4,5)= lhs(4,5) - coeff*lhs(1,5)
+534:       r(4)   = r(4)   - coeff*r(1)
+535: 
+536:       coeff = lhs(5,1)
+537:       lhs(5,2)= lhs(5,2) - coeff*lhs(1,2)
+538:       lhs(5,3)= lhs(5,3) - coeff*lhs(1,3)
+539:       lhs(5,4)= lhs(5,4) - coeff*lhs(1,4)
+540:       lhs(5,5)= lhs(5,5) - coeff*lhs(1,5)
+541:       r(5)   = r(5)   - coeff*r(1)
+542: 
+543: 
+544:       pivot = 1.00d0/lhs(2,2)
+545:       lhs(2,3) = lhs(2,3)*pivot
+546:       lhs(2,4) = lhs(2,4)*pivot
+547:       lhs(2,5) = lhs(2,5)*pivot
+548:       r(2)   = r(2)  *pivot
+549: 
+550:       coeff = lhs(1,2)
+551:       lhs(1,3)= lhs(1,3) - coeff*lhs(2,3)
+552:       lhs(1,4)= lhs(1,4) - coeff*lhs(2,4)
+553:       lhs(1,5)= lhs(1,5) - coeff*lhs(2,5)
+554:       r(1)   = r(1)   - coeff*r(2)
+555: 
+556:       coeff = lhs(3,2)
+557:       lhs(3,3)= lhs(3,3) - coeff*lhs(2,3)
+558:       lhs(3,4)= lhs(3,4) - coeff*lhs(2,4)
+559:       lhs(3,5)= lhs(3,5) - coeff*lhs(2,5)
+560:       r(3)   = r(3)   - coeff*r(2)
+561: 
+562:       coeff = lhs(4,2)
+563:       lhs(4,3)= lhs(4,3) - coeff*lhs(2,3)
+564:       lhs(4,4)= lhs(4,4) - coeff*lhs(2,4)
+565:       lhs(4,5)= lhs(4,5) - coeff*lhs(2,5)
+566:       r(4)   = r(4)   - coeff*r(2)
+567: 
+568:       coeff = lhs(5,2)
+569:       lhs(5,3)= lhs(5,3) - coeff*lhs(2,3)
+570:       lhs(5,4)= lhs(5,4) - coeff*lhs(2,4)
+571:       lhs(5,5)= lhs(5,5) - coeff*lhs(2,5)
+572:       r(5)   = r(5)   - coeff*r(2)
+573: 
+574: 
+575:       pivot = 1.00d0/lhs(3,3)
+576:       lhs(3,4) = lhs(3,4)*pivot
+577:       lhs(3,5) = lhs(3,5)*pivot
+578:       r(3)   = r(3)  *pivot
+579: 
+580:       coeff = lhs(1,3)
+581:       lhs(1,4)= lhs(1,4) - coeff*lhs(3,4)
+582:       lhs(1,5)= lhs(1,5) - coeff*lhs(3,5)
+583:       r(1)   = r(1)   - coeff*r(3)
+584: 
+585:       coeff = lhs(2,3)
+586:       lhs(2,4)= lhs(2,4) - coeff*lhs(3,4)
+587:       lhs(2,5)= lhs(2,5) - coeff*lhs(3,5)
+588:       r(2)   = r(2)   - coeff*r(3)
+589: 
+590:       coeff = lhs(4,3)
+591:       lhs(4,4)= lhs(4,4) - coeff*lhs(3,4)
+592:       lhs(4,5)= lhs(4,5) - coeff*lhs(3,5)
+593:       r(4)   = r(4)   - coeff*r(3)
+594: 
+595:       coeff = lhs(5,3)
+596:       lhs(5,4)= lhs(5,4) - coeff*lhs(3,4)
+597:       lhs(5,5)= lhs(5,5) - coeff*lhs(3,5)
+598:       r(5)   = r(5)   - coeff*r(3)
+599: 
+600: 
+601:       pivot = 1.00d0/lhs(4,4)
+602:       lhs(4,5) = lhs(4,5)*pivot
+603:       r(4)   = r(4)  *pivot
+604: 
+605:       coeff = lhs(1,4)
+606:       lhs(1,5)= lhs(1,5) - coeff*lhs(4,5)
+607:       r(1)   = r(1)   - coeff*r(4)
+608: 
+609:       coeff = lhs(2,4)
+610:       lhs(2,5)= lhs(2,5) - coeff*lhs(4,5)
+611:       r(2)   = r(2)   - coeff*r(4)
+612: 
+613:       coeff = lhs(3,4)
+614:       lhs(3,5)= lhs(3,5) - coeff*lhs(4,5)
+615:       r(3)   = r(3)   - coeff*r(4)
+616: 
+617:       coeff = lhs(5,4)
+618:       lhs(5,5)= lhs(5,5) - coeff*lhs(4,5)
+619:       r(5)   = r(5)   - coeff*r(4)
+620: 
+621: 
+622:       pivot = 1.00d0/lhs(5,5)
+623:       r(5)   = r(5)  *pivot
+624: 
+625:       coeff = lhs(1,5)
+626:       r(1)   = r(1)   - coeff*r(5)
+627: 
+628:       coeff = lhs(2,5)
+629:       r(2)   = r(2)   - coeff*r(5)
+630: 
+631:       coeff = lhs(3,5)
+632:       r(3)   = r(3)   - coeff*r(5)
+633: 
+634:       coeff = lhs(4,5)
+635:       r(4)   = r(4)   - coeff*r(5)
+636: 
+637: 
+638:       return
+639:       end

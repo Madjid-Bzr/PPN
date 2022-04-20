@@ -1,0 +1,8 @@
+/home/madjid/Bureau/CHPS/Maqao/NPB3.4.1-MZ/NPB3.4-MZ-MPI/BT-MZ/initialize.f90: 196 - 200
+--------------------------------------------------------------------------------
+
+196:          do i =0, nx-1
+197:             xi = dble(i) * dnxm1
+198:             call exact_solution(xi, eta, zeta, temp)
+199:             do m = 1, 5
+200:                u(m,i,j,k) = temp(m)

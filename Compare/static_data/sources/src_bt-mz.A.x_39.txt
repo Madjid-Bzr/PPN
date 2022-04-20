@@ -1,0 +1,22 @@
+/users/user2210/NPB3.4-MZ-MPI/BT-MZ/exact_rhs.f90: 149 - 167
+--------------------------------------------------------------------------------
+
+149:             do j=0, ny-1
+150:                eta = dble(j) * dnym1
+151: 
+152:                call exact_solution(xi, eta, zeta, dtemp)
+153:                do m = 1, 5 
+154:                   ue(j,m) = dtemp(m)
+155:                enddo
+156:                   
+157:                dtpp = 1.0d0/dtemp(1)
+158: 
+159:                do m = 2, 5
+160:                   buf(j,m) = dtpp * dtemp(m)
+161:                enddo
+162: 
+163:                cuf(j)   = buf(j,3) * buf(j,3)
+164:                buf(j,1) = cuf(j) + buf(j,2) * buf(j,2) +  &
+165:      &                 buf(j,4) * buf(j,4)
+166:                q(j) = 0.5d0*(buf(j,2)*ue(j,2) + buf(j,3)*ue(j,3) +  &
+167:      &                 buf(j,4)*ue(j,4))

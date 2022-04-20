@@ -1,0 +1,8 @@
+/users/user2210/NPB3.4-MZ-MPI/BT-MZ/y_solve.f90: 393 - 397
+--------------------------------------------------------------------------------
+
+393:             do j=jsize-1,0,-1
+394:                do m=1,BLOCK_SIZE
+395:                   do n=1,BLOCK_SIZE
+396:                      rhs(m,i,j,k) = rhs(m,i,j,k)  &
+397:      &                    - lhs(m,n,cc,j)*rhs(n,i,j+1,k)
