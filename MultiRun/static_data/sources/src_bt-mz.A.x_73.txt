@@ -1,0 +1,14 @@
+/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90: 37 - 47
+--------------------------------------------------------------------------------
+
+37:             do i = 0, nx-1
+38:                rho_inv = 1.0d0/u(1,i,j,k)
+39:                rho_i(i,j,k) = rho_inv
+40:                us(i,j,k) = u(2,i,j,k) * rho_inv
+41:                vs(i,j,k) = u(3,i,j,k) * rho_inv
+42:                ws(i,j,k) = u(4,i,j,k) * rho_inv
+43:                square(i,j,k)     = 0.5d0* (  &
+44:      &                 u(2,i,j,k)*u(2,i,j,k) +  &
+45:      &                 u(3,i,j,k)*u(3,i,j,k) +  &
+46:      &                 u(4,i,j,k)*u(4,i,j,k) ) * rho_inv
+47:                qs(i,j,k) = square(i,j,k) * rho_inv

@@ -1,0 +1,105 @@
+
+* Info: Detected 6 Lprof instances in fob1: processes-per-node/ppn set accordingly.
+If this is incorrect, rerun with an explicit value for this setting
+[0m
+* Info: Process launched (host fob1, process 532647)[0m
+* Info: Process launched (host fob1, process 532649)[0m
+* Info: Process launched (host fob1, process 532651)[0m
+* Info: Process launched (host fob1, process 532653)[0m
+* Info: Process launched (host fob1, process 532655)[0m
+* Info: Process launched (host fob1, process 532657)[0m
+
+ NAS Parallel Benchmarks (NPB3.4-MZ MPI+OpenMP) - BT-MZ Benchmark
+
+ Number of zones:   4 x   4
+ Total mesh size:   128 x   128 x  16
+ Iterations: 200    dt:   0.000800
+ Number of active processes:      6
+
+ Use the default load factors
+ Total number of threads:      6  (  1.0 threads/process)
+
+ Calculated speedup =      4.87
+
+ Time step    1
+ Time step   20
+ Time step   40
+ Time step   60
+ Time step   80
+ Time step  100
+ Time step  120
+ Time step  140
+ Time step  160
+ Time step  180
+ Time step  200
+ Verification being performed for class A
+ accuracy setting for epsilon =  0.1000000000000E-07
+ Comparison of RMS-norms of residual
+           1 0.5536703889522E+05 0.5536703889522E+05 0.5900450943297E-13
+           2 0.5077835038405E+04 0.5077835038405E+04 0.6161408849315E-13
+           3 0.1067391361067E+05 0.1067391361067E+05 0.4493829753649E-12
+           4 0.6441179694972E+04 0.6441179694972E+04 0.5379720762114E-13
+           5 0.4371926324069E+05 0.4371926324069E+05 0.9253203584915E-13
+ Comparison of RMS-norms of solution error
+           1 0.6716797714343E+04 0.6716797714343E+04 0.6607812730722E-13
+           2 0.6512687902160E+03 0.6512687902160E+03 0.4905194580133E-13
+           3 0.1332930740128E+04 0.1332930740128E+04 0.2519492637685E-12
+           4 0.7848302089180E+03 0.7848302089180E+03 0.4925081168657E-13
+           5 0.5429053878818E+04 0.5429053878818E+04 0.8794989497042E-13
+ Verification Successful
+
+
+ BT-MZ Benchmark Completed.
+ Class           =                        A
+ Size            =            128x  128x 16
+ Iterations      =                      200
+ Time in seconds =                    10.60
+ Total processes =                        6
+ Total threads   =                        6
+ Mop/s total     =                 13793.35
+ Mop/s/thread    =                  2298.89
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.1
+ Compile date    =              20 Apr 2022
+
+ Compile options:
+    FC           = mpif90
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = -march=native -funroll-loops
+    FFLAGS       = -O3 -g -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = (none)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+
+* Info: Process finished (host fob1, process 532657)[0m
+* Info: Process finished (host fob1, process 532653)[0m
+* Info: Process finished (host fob1, process 532651)[0m
+* Info: Process finished (host fob1, process 532655)[0m
+* Info: Process finished (host fob1, process 532649)[0m
+* Info: Process finished (host fob1, process 532647)[0m
+
+Your experiment path is /users/user2210/NPB3.4-MZ-MPI/bin/Compare2/tools/lprof_npsu_run_1
+
+To display your profiling results:
+#############################################################################################################################
+#    LEVEL    |     REPORT     |                                          COMMAND                                           #
+#############################################################################################################################
+#  Functions  |  Cluster-wide  |  maqao lprof -df xp=/users/user2210/NPB3.4-MZ-MPI/bin/Compare2/tools/lprof_npsu_run_1      #
+#  Functions  |  Per-node      |  maqao lprof -df -dn xp=/users/user2210/NPB3.4-MZ-MPI/bin/Compare2/tools/lprof_npsu_run_1  #
+#  Functions  |  Per-process   |  maqao lprof -df -dp xp=/users/user2210/NPB3.4-MZ-MPI/bin/Compare2/tools/lprof_npsu_run_1  #
+#  Functions  |  Per-thread    |  maqao lprof -df -dt xp=/users/user2210/NPB3.4-MZ-MPI/bin/Compare2/tools/lprof_npsu_run_1  #
+#  Loops      |  Cluster-wide  |  maqao lprof -dl xp=/users/user2210/NPB3.4-MZ-MPI/bin/Compare2/tools/lprof_npsu_run_1      #
+#  Loops      |  Per-node      |  maqao lprof -dl -dn xp=/users/user2210/NPB3.4-MZ-MPI/bin/Compare2/tools/lprof_npsu_run_1  #
+#  Loops      |  Per-process   |  maqao lprof -dl -dp xp=/users/user2210/NPB3.4-MZ-MPI/bin/Compare2/tools/lprof_npsu_run_1  #
+#  Loops      |  Per-thread    |  maqao lprof -dl -dt xp=/users/user2210/NPB3.4-MZ-MPI/bin/Compare2/tools/lprof_npsu_run_1  #
+#############################################################################################################################
+

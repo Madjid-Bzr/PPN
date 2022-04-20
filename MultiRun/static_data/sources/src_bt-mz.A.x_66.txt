@@ -1,0 +1,9 @@
+/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90: 182 - 244
+--------------------------------------------------------------------------------
+
+182: !$OMP DO SCHEDULE(STATIC) COLLAPSE(2)
+183:       do k = 1, nz-2
+184:          do j = 1, ny-2
+185:             do i = 1, nx-2
+[...]
+244:             else if (j.eq.2) then

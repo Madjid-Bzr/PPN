@@ -1,0 +1,26 @@
+/users/user2210/NPB3.4-MZ-MPI/BT-MZ/exch_qbc.f90: 23 - 45
+--------------------------------------------------------------------------------
+
+23:        do iz = 1, proc_num_zones
+24:            zone_no = proc_zone_id(iz)
+25:            nnx    = nx(zone_no)
+26:            nnxmax = nxmax(zone_no)
+27:            nny    = ny(zone_no)
+28:            nnz    = nz(zone_no)
+29: 
+30:            call copy_x_face(u(start5(iz)),  &
+31:      &                      qbc_ou(qstart_west(zone_no)),  &
+32:      &                      nnx, nnxmax, nny, nnz, 1, 'out')
+33: 
+34:            call copy_x_face(u(start5(iz)),  &
+35:      &                      qbc_ou(qstart_east(zone_no)),  &
+36:      &                      nnx, nnxmax, nny, nnz, nnx-2, 'out')
+37: 
+38: 
+39:            call copy_y_face(u(start5(iz)),  &
+40:      &                      qbc_ou(qstart_south(zone_no)),  &
+41:      &                      nnx, nnxmax, nny, nnz, 1, 'out')
+42: 
+43:            call copy_y_face(u(start5(iz)),  &
+44:      &                      qbc_ou(qstart_north(zone_no)),  &
+45:      &                      nnx, nnxmax, nny, nnz, nny-2, 'out')

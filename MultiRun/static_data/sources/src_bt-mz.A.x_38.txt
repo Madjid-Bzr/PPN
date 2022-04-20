@@ -1,0 +1,20 @@
+/users/user2210/NPB3.4-MZ-MPI/BT-MZ/exact_rhs.f90: 170 - 201
+--------------------------------------------------------------------------------
+
+170:             do j = 1, ny-2
+[...]
+176:      &                 dy1ty1*(ue(jp1,1)-2.0d0*ue(j,1)+ue(jm1,1))
+177: 
+178:                forcing(2,i,j,k) = forcing(2,i,j,k) - ty2*(  &
+179:      &                 ue(jp1,2)*buf(jp1,3)-ue(jm1,2)*buf(jm1,3))+  &
+180:      &                 yycon2*(buf(jp1,2)-2.0d0*buf(j,2)+buf(jm1,2))+  &
+181:      &                 dy2ty1*( ue(jp1,2)-2.0* ue(j,2)+ ue(jm1,2))
+[...]
+187:      &                 dy3ty1*( ue(jp1,3)-2.0d0*ue(j,3) +ue(jm1,3))
+188: 
+189:                forcing(4,i,j,k) = forcing(4,i,j,k) - ty2*(  &
+190:      &                 ue(jp1,4)*buf(jp1,3)-ue(jm1,4)*buf(jm1,3))+  &
+191:      &                 yycon2*(buf(jp1,4)-2.0d0*buf(j,4)+buf(jm1,4))+  &
+192:      &                 dy4ty1*( ue(jp1,4)-2.0d0*ue(j,4)+ ue(jm1,4))
+[...]
+201:      &                 dy5ty1*(ue(jp1,5)-2.0d0*ue(j,5)+ue(jm1,5))

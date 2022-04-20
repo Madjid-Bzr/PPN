@@ -1,0 +1,81 @@
+/users/user2210/NPB3.4-MZ-MPI/BT-MZ/z_solve.f90: 54 - 136
+--------------------------------------------------------------------------------
+
+54:             do k = 0, ksize
+55: 
+56:                tmp1 = 1.d0 / u(1,i,j,k)
+57:                tmp2 = tmp1 * tmp1
+58:                tmp3 = tmp1 * tmp2
+59: 
+60:                fjac(1,1,k) = 0.d0
+61:                fjac(1,2,k) = 0.d0
+62:                fjac(1,3,k) = 0.d0
+63:                fjac(1,4,k) = 1.d0
+64:                fjac(1,5,k) = 0.d0
+65: 
+66:                fjac(2,1,k) = - ( u(2,i,j,k)*u(4,i,j,k) )  &
+67:      &              * tmp2 
+68:                fjac(2,2,k) = u(4,i,j,k) * tmp1
+69:                fjac(2,3,k) = 0.d0
+70:                fjac(2,4,k) = u(2,i,j,k) * tmp1
+71:                fjac(2,5,k) = 0.d0
+72: 
+73:                fjac(3,1,k) = - ( u(3,i,j,k)*u(4,i,j,k) )  &
+74:      &              * tmp2 
+75:                fjac(3,2,k) = 0.d0
+76:                fjac(3,3,k) = u(4,i,j,k) * tmp1
+77:                fjac(3,4,k) = u(3,i,j,k) * tmp1
+78:                fjac(3,5,k) = 0.d0
+79: 
+80:                fjac(4,1,k) = - (u(4,i,j,k)*u(4,i,j,k) * tmp2 )  &
+81:      &              + c2 * qs(i,j,k)
+82:                fjac(4,2,k) = - c2 *  u(2,i,j,k) * tmp1 
+83:                fjac(4,3,k) = - c2 *  u(3,i,j,k) * tmp1
+84:                fjac(4,4,k) = ( 2.d0 - c2 )  &
+85:      &              *  u(4,i,j,k) * tmp1 
+86:                fjac(4,5,k) = c2
+87: 
+88:                fjac(5,1,k) = ( c2 * 2.0d0 * square(i,j,k)  &
+89:      &              - c1 * u(5,i,j,k) )  &
+90:      &              * u(4,i,j,k) * tmp2
+91:                fjac(5,2,k) = - c2 * ( u(2,i,j,k)*u(4,i,j,k) )  &
+92:      &              * tmp2 
+93:                fjac(5,3,k) = - c2 * ( u(3,i,j,k)*u(4,i,j,k) )  &
+94:      &              * tmp2
+95:                fjac(5,4,k) = c1 * ( u(5,i,j,k) * tmp1 )  &
+96:      &              - c2  &
+97:      &              * ( qs(i,j,k)  &
+98:      &              + u(4,i,j,k)*u(4,i,j,k) * tmp2 )
+99:                fjac(5,5,k) = c1 * u(4,i,j,k) * tmp1
+100: 
+101:                njac(1,1,k) = 0.d0
+102:                njac(1,2,k) = 0.d0
+103:                njac(1,3,k) = 0.d0
+104:                njac(1,4,k) = 0.d0
+105:                njac(1,5,k) = 0.d0
+106: 
+107:                njac(2,1,k) = - c3c4 * tmp2 * u(2,i,j,k)
+108:                njac(2,2,k) =   c3c4 * tmp1
+109:                njac(2,3,k) =   0.d0
+110:                njac(2,4,k) =   0.d0
+111:                njac(2,5,k) =   0.d0
+112: 
+113:                njac(3,1,k) = - c3c4 * tmp2 * u(3,i,j,k)
+114:                njac(3,2,k) =   0.d0
+115:                njac(3,3,k) =   c3c4 * tmp1
+116:                njac(3,4,k) =   0.d0
+117:                njac(3,5,k) =   0.d0
+118: 
+119:                njac(4,1,k) = - con43 * c3c4 * tmp2 * u(4,i,j,k)
+120:                njac(4,2,k) =   0.d0
+121:                njac(4,3,k) =   0.d0
+122:                njac(4,4,k) =   con43 * c3 * c4 * tmp1
+123:                njac(4,5,k) =   0.d0
+[...]
+130:      &              - c1345 * tmp2 * u(5,i,j,k)
+131: 
+132:                njac(5,2,k) = (  c3c4 - c1345 ) * tmp2 * u(2,i,j,k)
+133:                njac(5,3,k) = (  c3c4 - c1345 ) * tmp2 * u(3,i,j,k)
+134:                njac(5,4,k) = ( con43 * c3c4  &
+135:      &              - c1345 ) * tmp2 * u(4,i,j,k)
+136:                njac(5,5,k) = ( c1345 )* tmp1

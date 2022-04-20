@@ -1,0 +1,12 @@
+name;time_p;time_s;cpi_ratio;
+/users/user2210/NPB3.4-MZ-MPI/bin/Compare2/binaries/bt-mz.A.x;45.35;4.82;;
+/opt/other/openmpi/3.1.1/lib/openmpi/mca_btl_vader.so;36.45;3.88;;
+/opt/other/openmpi/3.1.1/lib/libopen-pal.so.40.10.1;10.54;1.12;;
+/opt/other/openmpi/3.1.1/lib/openmpi/mca_coll_libnbc.so;5.6;0.6;;
+/opt/other/openmpi/3.1.1/lib/libmpi.so.40.10.1;1.16;0.12;;
+/usr/lib/x86_64-linux-gnu/libc-2.31.so;0.67;0.07;;
+/usr/lib/x86_64-linux-gnu/ld-2.31.so;0.13;0.01;;
+/usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0;0.04;0;;
+/usr/lib/x86_64-linux-gnu/libpthread-2.31.so;0.02;0;;
+/opt/other/openmpi/3.1.1/lib/openmpi/mca_pml_ob1.so;0.01;0;;
+/usr/lib/x86_64-linux-gnu/libdl-2.31.so;0;0;;

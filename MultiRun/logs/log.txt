@@ -1,0 +1,21 @@
+********************************************************************************
+
+MAQAO 2.15.5 - 0b66882c33fcd95ef103e22d5fec6c0d2ff1b5e2::20220328-144625 || 2022/03/28
+
+maqao oneview -R1 -xp=Compare2 -WS -c=config.lua --replace 
+
+CMD:   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2210/NPB3.4-MZ-MPI/bin/Compare2/tools/lprof_npsu_run_0" --mpi-command="mpirun -n 4"   -- /users/user2210/NPB3.4-MZ-MPI/bin/Compare2/binaries/bt-mz.A.x 
+CMD:   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2210/NPB3.4-MZ-MPI/bin/Compare2/tools/lprof_npsu_run_1" --mpi-command="mpirun -n 6"   -- /users/user2210/NPB3.4-MZ-MPI/bin/Compare2/binaries/bt-mz.A.x 
+CMD:   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2210/NPB3.4-MZ-MPI/bin/Compare2/tools/lprof_npsu_run_2" --mpi-command="mpirun -n 10"   -- /users/user2210/NPB3.4-MZ-MPI/bin/Compare2/binaries/bt-mz.A.x 
+In run , 12 loops were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+17 functions were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+

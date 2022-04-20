@@ -1,0 +1,28 @@
+address;source_location;insn;indent
+0xe288;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:244;CMP	%EBX,0xa4(%RSP);
+0xe28f;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:244;JNE	10b97 <compute_rhs_._omp_fn.0+0x4847>;
+0x10b97;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:182;ADD	$0x1,%R11D;
+0x10b9b;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:182;CMP	%R11D,0xb8(%RSP);
+0x10ba3;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:182;JLE	10bc1 <compute_rhs_._omp_fn.0+0x4871>;
+0x10bc1;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:185;CMPL	$0,0x108(%RSP);
+0x10bc9;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:185;LEA	0x1(%R14),%R12D;
+0x10bcd;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:185;MOV	$0x1,%R11D;
+0x10bd3;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:185;MOV	%R12D,%R14D;
+0x10bd6;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:185;LEA	0x1(%RBX),%R10D;
+0x10bda;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:185;MOV	%R10D,%EBX;
+0x10bdd;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:185;JLE	10bfb <compute_rhs_._omp_fn.0+0x48ab>;
+0x10bfb;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:185;CMPL	$0x2,0xb8(%RSP);
+0x10c03;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:185;MOV	$0x2,%R11D;
+0x10c09;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:185;JG	10ba5 <compute_rhs_._omp_fn.0+0x4855>;
+0x10c0b;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:185;CMPL	$0,0x108(%RSP);
+0x10c13;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:185;LEA	0x4(%R10),%EBX;
+0x10c17;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:185;MOV	$0x1,%R11D;
+0x10c1d;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:185;LEA	0x4(%R12),%R14D;
+0x10c22;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:185;JG	10bdf <compute_rhs_._omp_fn.0+0x488f>;
+0x10c24;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:185;CMPL	$0x2,0xb8(%RSP);
+0x10c2c;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:185;MOV	$0x2,%R11D;
+0x10c32;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:185;JG	10ba5 <compute_rhs_._omp_fn.0+0x4855>;
+0x10c38;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:185;LEA	0x7(%R12),%R14D;
+0x10c3d;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:185;MOV	$0x1,%R11D;
+0x10c43;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:185;LEA	0x7(%R10),%EBX;
+0x10c47;/users/user2210/NPB3.4-MZ-MPI/BT-MZ/rhs.f90:185;JMP	e288 <compute_rhs_._omp_fn.0+0x1f38>;
