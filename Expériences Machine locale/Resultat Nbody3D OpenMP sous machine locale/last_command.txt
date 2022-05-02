@@ -1,0 +1,1 @@
+maqao oneview --create-report=one -- ./nbody.g3 225536 

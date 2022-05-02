@@ -1,0 +1,14 @@
+omp_in_final - :0
+libgomp.so.1.0.0
+GOMP_parallel - :0
+unknown kernel region
+kernel
+move_particles._omp_fn.0 - /home/anism/VersionFinaleNbody3D/nbody3.c:106
+nbody.g3
+move_particles._omp_fn.0 - /home/anism/VersionFinaleNbody3D/nbody3.c:102
+move_particles._omp_fn.0 - /home/anism/VersionFinaleNbody3D/nbody3.c:100
+move_particles._omp_fn.0 - /home/anism/VersionFinaleNbody3D/nbody3.c:107
+move_particles._omp_fn.0 - /home/anism/VersionFinaleNbody3D/nbody3.c:108
+main - /usr/include/x86_64-linux-gnu/bits/stdio2.h:107
+__libc_start_main - :0
+libc-2.31.so

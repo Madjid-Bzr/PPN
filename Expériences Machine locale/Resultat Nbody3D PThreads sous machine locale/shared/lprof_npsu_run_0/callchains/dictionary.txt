@@ -1,0 +1,8 @@
+start_thread - :0
+libpthread-2.31.so
+unknown kernel region
+kernel
+pthread_setcanceltype - :0
+libc-2.31.so
+move_particles - /home/anism/VersionFinaleNbody3D/nbody4.c:110
+nbody.g4

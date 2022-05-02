@@ -1,0 +1,50 @@
+
+* Info: Selecting the 'perf-low-ppn' engine for node anism-VivoBook-ASUSLaptop-X515EA-X515EA
+
+* Info: Process launched (host anism-VivoBook-ASUSLaptop-X515EA-X515EA, process 5917)
+[1mTotal memory size:[0m 10825728 B, 10572 KiB, 10 MiB
+
+n= 225536 
+[1m Step    Time, s Interact/s  GFLOP/s[0m
+    0  5.345e+00  9.517e+09    218.9 *
+    1  5.970e+00  8.520e+09    196.0 *
+    2  6.493e+00  7.834e+09    180.2 *
+    3  6.713e+00  7.577e+09    174.3 
+    4  7.028e+00  7.238e+09    166.5 
+    5  6.568e+00  7.744e+09    178.1 
+    6  6.578e+00  7.733e+09    177.9 
+    7  6.569e+00  7.743e+09    178.1 
+    8  7.040e+00  7.226e+09    166.2 
+    9  6.589e+00  7.719e+09    177.5 
+-----------------------------------------------------
+[1mAverage performance:      [42m     174.1 +- 5.1 GFLOP/s[0m
+-----------------------------------------------------
+Somme X = 11405.503332 
+Somme Y = 112535.549223 
+Somme Z = 11318.752684 
+Somme VX = 112849.683891 
+Somme VY = 12.806488 
+Somme VZ = 112917.798937 
+
+* Info: Process finished (host anism-VivoBook-ASUSLaptop-X515EA-X515EA, process 5917)
+* Info: Dumping samples (host anism-VivoBook-ASUSLaptop-X515EA-X515EA, process 5917)
+* Info: Dumping source info for callchain nodes (host anism-VivoBook-ASUSLaptop-X515EA-X515EA, process 5917)
+* Info: Building/writing metadata (host anism-VivoBook-ASUSLaptop-X515EA-X515EA)
+* Info: Finished collect step (host anism-VivoBook-ASUSLaptop-X515EA-X515EA, process 5917)
+
+Your experiment path is /home/anism/VersionFinaleNbody3D/maqao_2022-05-02_22-35-22/tools/lprof_npsu_run_0
+
+To display your profiling results:
+#############################################################################################################################################
+#    LEVEL    |     REPORT     |                                                  COMMAND                                                   #
+#############################################################################################################################################
+#  Functions  |  Cluster-wide  |  maqao lprof -df xp=/home/anism/VersionFinaleNbody3D/maqao_2022-05-02_22-35-22/tools/lprof_npsu_run_0      #
+#  Functions  |  Per-node      |  maqao lprof -df -dn xp=/home/anism/VersionFinaleNbody3D/maqao_2022-05-02_22-35-22/tools/lprof_npsu_run_0  #
+#  Functions  |  Per-process   |  maqao lprof -df -dp xp=/home/anism/VersionFinaleNbody3D/maqao_2022-05-02_22-35-22/tools/lprof_npsu_run_0  #
+#  Functions  |  Per-thread    |  maqao lprof -df -dt xp=/home/anism/VersionFinaleNbody3D/maqao_2022-05-02_22-35-22/tools/lprof_npsu_run_0  #
+#  Loops      |  Cluster-wide  |  maqao lprof -dl xp=/home/anism/VersionFinaleNbody3D/maqao_2022-05-02_22-35-22/tools/lprof_npsu_run_0      #
+#  Loops      |  Per-node      |  maqao lprof -dl -dn xp=/home/anism/VersionFinaleNbody3D/maqao_2022-05-02_22-35-22/tools/lprof_npsu_run_0  #
+#  Loops      |  Per-process   |  maqao lprof -dl -dp xp=/home/anism/VersionFinaleNbody3D/maqao_2022-05-02_22-35-22/tools/lprof_npsu_run_0  #
+#  Loops      |  Per-thread    |  maqao lprof -dl -dt xp=/home/anism/VersionFinaleNbody3D/maqao_2022-05-02_22-35-22/tools/lprof_npsu_run_0  #
+#############################################################################################################################################
+

@@ -1,0 +1,18 @@
+/home/anism/VersionFinaleNbody3D/nbody3.c: 94 - 108
+--------------------------------------------------------------------------------
+
+94:     const f32 dx = p.x[j] - p.x[i]; //1
+95:     const f32 dy = p.y[j] - p.y[i]; //2
+96:     const f32 dz = p.z[j] - p.z[i]; //3
+97:     const f32 d_2 = (dz * dz) + softening;
+98:    const f32 d_3= (dx *dx)+d_2;
+99:    const f32 d_4=(dy *dy)+d_3;
+100:     const f32 t=sqrtf(d_4);
+101:     
+102:     const f32 d_3_over_2 = 1.0f/(d_4*t); //11
+103:     
+104: 
+105:     //Net force
+106:     fx += (dx * d_3_over_2); //13
+107:     fy += (dy * d_3_over_2); //15
+108:     fz += (dz * d_3_over_2); //17
