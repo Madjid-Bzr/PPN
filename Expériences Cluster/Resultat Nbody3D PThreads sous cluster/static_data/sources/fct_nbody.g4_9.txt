@@ -1,0 +1,58 @@
+/users/user2234/VersionFinaleNbody3DOptimisé/nbody4.c: 87 - 145
+--------------------------------------------------------------------------------
+
+87: {
+[...]
+93:   for (u64 i =  une->o; i <  une->o+une->n; i++)
+94:   {
+95:     //
+96:     f32 fx = 0.0;
+97:     f32 fy = 0.0;
+98:     f32 fz = 0.0;
+99: 
+100:     // 23 floating-point operations
+101:     for (u64 j = une->o; j <  une->o + une->n; j++)
+102:     {
+103:       // Newton's law
+104:       const f32 dx = une->p->x[j] - une->p->x[i]; // 1
+105:       const f32 dy = une->p->y[j] - une->p->y[i]; // 2
+106:       const f32 dz = une->p->z[j] - une->p->z[i]; // 3
+107:       const f32 d_2 = (dz * dz) + softening;
+108:       const f32 d_3 = (dx * dx) + d_2;
+109:       const f32 d_4 = (dy * dy) + d_3;
+110:       const f32 t = sqrtf(d_4);
+111:       const f32 d_3_over_2 = 1.0f / (d_4 * t); // 11
+112: 
+113:       // Net force
+114:       fx += (dx * d_3_over_2); // 13
+115:       fy += (dy * d_3_over_2); // 15
+116:       fz += (dz * d_3_over_2); // 17
+117:     }
+118: 
+119:     //
+120:     une->p->vx[i] += 0.01 * fx; // 19
+121:     une->p->vy[i] += 0.01 * fy; // 21
+122:     une->p->vz[i] += 0.01 * fz; // 23
+123:   }
+124: 
+125:   // 3 floating-point operations
+126:   for (u64 i =  une->o; i <  une->o+une->n; i += 4)
+127:   {
+128:     une->p->x[i] += 0.01 * une->p->vx[i];
+129:     une->p->y[i] += 0.01 * une->p->vy[i];
+130:     une->p->z[i] += 0.01 * une->p->vz[i];
+131: 
+132:     une->p->x[i + 1] += 0.01 * une->p->vx[i + 1];
+133:     une->p->y[i + 1] += 0.01 * une->p->vy[i + 1];
+134:     une->p->z[i + 1] += 0.01 * une->p->vz[i + 1];
+135: 
+136:     une->p->x[i + 2] += 0.01 * une->p->vx[i + 2];
+137:     une->p->y[i + 2] += 0.01 * une->p->vy[i + 2];
+138:     une->p->z[i + 2] += 0.01 * une->p->vz[i + 2];
+139: 
+140:     une->p->x[i + 3] += 0.01 * une->p->vx[i + 3];
+141:     une->p->y[i + 3] += 0.01 * une->p->vy[i + 3];
+142:     une->p->z[i + 3] += 0.01 * une->p->vz[i + 3];
+143:   }
+144: 
+145:   pthread_exit(NULL);

@@ -1,0 +1,51 @@
+
+* Info: Selecting the 'perf-low-ppn' engine for node knl01
+
+* Info: Process launched (host knl01, process 385542)
+[1mTotal memory size:[0m 10825728 B, 10572 KiB, 10 MiB
+
+n= 225536 
+[1m Step    Time, s Interact/s  GFLOP/s[0m
+    0  2.540e+00  2.003e+10    460.6 *
+    1  1.710e+00  2.974e+10    684.1 *
+    2  1.019e+00  4.990e+10   1147.7 *
+    3  9.741e-01  5.222e+10   1201.0 
+    4  9.840e-01  5.169e+10   1188.9 
+    5  9.802e-01  5.189e+10   1193.6 
+    6  1.013e+00  5.022e+10   1155.0 
+    7  1.053e+00  4.830e+10   1110.9 
+    8  9.958e-01  5.108e+10   1174.9 
+    9  9.971e-01  5.101e+10   1173.3 
+-----------------------------------------------------
+[1mAverage performance:      [42m    1171.1 +- 28.3 GFLOP/s[0m
+-----------------------------------------------------
+Somme X = 11405.501328 
+Somme Y = 112535.544339 
+Somme Z = 11318.750610 
+Somme VX = 112849.518407 
+Somme VY = 12.737502 
+Somme VZ = 112917.832188 
+
+* Info: Process finished (host knl01, process 385542)
+* Info: If you don't need callstacks and accept reduced categorization accuracy rerun with --backtrace-mode=off.
+* Info: Dumping samples (host knl01, process 385542)
+* Info: Dumping source info for callchain nodes (host knl01, process 385542)
+* Info: Building/writing metadata (host knl01)
+* Info: Finished collect step (host knl01, process 385542)
+
+Your experiment path is /users/user2234/VersionFinaleNbody3DOptimisé/maqao_2022-05-02_22-34-19/tools/lprof_npsu_run_0
+
+To display your profiling results:
+##########################################################################################################################################################
+#    LEVEL    |     REPORT     |                                                         COMMAND                                                         #
+##########################################################################################################################################################
+#  Functions  |  Cluster-wide  |  maqao lprof -df xp=/users/user2234/VersionFinaleNbody3DOptimisé/maqao_2022-05-02_22-34-19/tools/lprof_npsu_run_0      #
+#  Functions  |  Per-node      |  maqao lprof -df -dn xp=/users/user2234/VersionFinaleNbody3DOptimisé/maqao_2022-05-02_22-34-19/tools/lprof_npsu_run_0  #
+#  Functions  |  Per-process   |  maqao lprof -df -dp xp=/users/user2234/VersionFinaleNbody3DOptimisé/maqao_2022-05-02_22-34-19/tools/lprof_npsu_run_0  #
+#  Functions  |  Per-thread    |  maqao lprof -df -dt xp=/users/user2234/VersionFinaleNbody3DOptimisé/maqao_2022-05-02_22-34-19/tools/lprof_npsu_run_0  #
+#  Loops      |  Cluster-wide  |  maqao lprof -dl xp=/users/user2234/VersionFinaleNbody3DOptimisé/maqao_2022-05-02_22-34-19/tools/lprof_npsu_run_0      #
+#  Loops      |  Per-node      |  maqao lprof -dl -dn xp=/users/user2234/VersionFinaleNbody3DOptimisé/maqao_2022-05-02_22-34-19/tools/lprof_npsu_run_0  #
+#  Loops      |  Per-process   |  maqao lprof -dl -dp xp=/users/user2234/VersionFinaleNbody3DOptimisé/maqao_2022-05-02_22-34-19/tools/lprof_npsu_run_0  #
+#  Loops      |  Per-thread    |  maqao lprof -dl -dt xp=/users/user2234/VersionFinaleNbody3DOptimisé/maqao_2022-05-02_22-34-19/tools/lprof_npsu_run_0  #
+##########################################################################################################################################################
+
