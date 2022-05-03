@@ -236,22 +236,7 @@ int main(int argc, char **argv)
   printf("\033[1m%s %4s \033[42m%10.1lf +- %.1lf GFLOP/s\033[0m\n",
    "Average performance:", "", rate, drate);
   printf("-----------------------------------------------------\n");
-  f64 somme_x=0, somme_y=0, somme_z=0, somme_vx=0, somme_vy=0, somme_vz=0;
-  for(int i=0;i<n; i++){
-    somme_x+=p.x[i];
-    somme_y+=p.y[i];
-    somme_z+=p.z[i];
-    somme_vx+=p.vx[i];
-    somme_vy+=p.vy[i];
-    somme_vz+=p.vz[i];
-
-  }
-  printf("Somme X = %f \n",somme_x);
-  printf("Somme Y = %f \n",somme_y);
-  printf("Somme Z = %f \n",somme_z);
-  printf("Somme VX = %f \n",somme_vx);
-  printf("Somme VY = %f \n",somme_vy);
-  printf("Somme VZ = %f \n",somme_vz);
+  
   //
  
   free(p.x);
@@ -267,3 +252,4 @@ int main(int argc, char **argv)
   //
   return 0;
 }
+

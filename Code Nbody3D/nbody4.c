@@ -34,7 +34,7 @@ void *init(void *arg)
 {
   srtuct_1 *une = (srtuct_1 *)arg;
 
-  for (u64 i =  une->o; i <  une->o+une->n; i += 4)
+  for (u64 i = une->o; i < une->o + une->n; i += 4)
   {
 
     u64 r1 = (u64)rand();
@@ -90,20 +90,22 @@ void *move_particles(void *arg)
   const f32 softening = 1e-20;
 
   //
-  for (u64 i =  une->o; i <  une->o+une->n; i++)
+  for (u64 i = une->o; i < une->o + une->n; i++)
   {
     //
     f32 fx = 0.0;
     f32 fy = 0.0;
     f32 fz = 0.0;
-
+    const f32 p_xi = une->p->x[i];
+    const f32 p_yi = une->p->y[i];
+    const f32 p_zi = une->p->z[i];
     // 23 floating-point operations
-    for (u64 j = une->o; j <  une->o + une->n; j++)
+    for (u64 j = une->o; j < une->o + une->n; j++)
     {
       // Newton's law
-      const f32 dx = une->p->x[j] - une->p->x[i]; // 1
-      const f32 dy = une->p->y[j] - une->p->y[i]; // 2
-      const f32 dz = une->p->z[j] - une->p->z[i]; // 3
+      const f32 dx = une->p->x[j] - p_xi; // 1
+      const f32 dy = une->p->y[j] - p_yi; // 2
+      const f32 dz = une->p->z[j] - p_zi; // 3
       const f32 d_2 = (dz * dz) + softening;
       const f32 d_3 = (dx * dx) + d_2;
       const f32 d_4 = (dy * dy) + d_3;
@@ -123,7 +125,7 @@ void *move_particles(void *arg)
   }
 
   // 3 floating-point operations
-  for (u64 i =  une->o; i <  une->o+une->n; i += 4)
+  for (u64 i = une->o; i < une->o + une->n; i += 4)
   {
     une->p->x[i] += 0.01 * une->p->vx[i];
     une->p->y[i] += 0.01 * une->p->vy[i];
@@ -148,7 +150,7 @@ void *move_particles(void *arg)
 //
 int main(int argc, char **argv)
 {
-  
+
   pthread_t t1[NB_PTHREADS];
   pthread_t t2[NB_PTHREADS];
 
@@ -169,12 +171,13 @@ int main(int argc, char **argv)
   srand(0);
 
   particle_t *p = malloc(sizeof(particle_t) * n);
-  p->x = malloc(n * sizeof(f32));
-  p->y = malloc(n * sizeof(f32));
-  p->z = malloc(n * sizeof(f32));
-  p->vx = malloc(n * sizeof(f32));
-  p->vy = malloc(n * sizeof(f32));
-  p->vz = malloc(n * sizeof(f32));
+  p->x = aligned_alloc(64, n * sizeof(f32));
+  p->y = aligned_alloc(64, n * sizeof(f32));
+  p->z = aligned_alloc(64, n * sizeof(f32));
+  p->vx = aligned_alloc(64, n * sizeof(f32));
+  p->vy = aligned_alloc(64, n * sizeof(f32));
+  p->vz = aligned_alloc(64, n * sizeof(f32));
+  
 
   for (u64 l = 0; l < NB_PTHREADS; l++)
   {
@@ -182,7 +185,7 @@ int main(int argc, char **argv)
     arg1[l].o = (l * n) / NB_PTHREADS;
     arg1[l].n = n / NB_PTHREADS;
   }
-  
+
   for (u64 m = 0; m < NB_PTHREADS; m++)
   {
     pthread_create(&t1[m], NULL, init, (void *)&arg1[m]);
@@ -249,32 +252,16 @@ int main(int argc, char **argv)
   printf("\033[1m%s %4s \033[42m%10.1lf +- %.1lf GFLOP/s\033[0m\n",
          "Average performance:", "", rate, drate);
   printf("-----------------------------------------------------\n");
-  f64 somme_x = 0, somme_y = 0, somme_z = 0, somme_vx = 0, somme_vy = 0, somme_vz = 0;
-  for (int i = 0; i < n; i++)
-  {
-
-    somme_x += p->x[i];
-    somme_y += p->y[i];
-    somme_z += p->z[i];
-    somme_vx += p->vx[i];
-    somme_vy += p->vy[i];
-    somme_vz += p->vz[i];
-  }
-  printf("Somme X = %f \n", somme_x);
-  printf("Somme Y = %f \n", somme_y);
-  printf("Somme Z = %f \n", somme_z);
-  printf("Somme VX = %f \n", somme_vx);
-  printf("Somme VY = %f \n", somme_vy);
-  printf("Somme VZ = %f \n", somme_vz);
+  
   //
   free(p->x);
   free(p->y);
   free(p->z);
-  free(p->vx);  
+  free(p->vx);
   free(p->vy);
   free(p->vz);
   free(p);
-  
+
   //
   return 0;
 }
