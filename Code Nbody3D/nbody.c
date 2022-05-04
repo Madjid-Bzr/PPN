@@ -3,7 +3,6 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <SDL2/SDL.h>
 #include <time.h>
 #include "rdtsc.h"
 

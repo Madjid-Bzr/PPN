@@ -16,6 +16,15 @@ nbody.g4: nbody4.c
 nbody.g5: nbody5.c
 	mpicc   -funroll-loops -march=native -mtune=generic -finline-functions -fno-omit-frame-pointer  -ftree-vectorize -Ofast -g -fopt-info-all=nbody.gcc.optrpt $< -o $@ -lm -fopenmp
 
+
+run: 
+	./nbody.g 16384
+	./nbody.g1 16384
+	./nbody.g2 16384
+	./nbody.g3 16384
+	./nbody.g4 16384
+	./nbody.g5 16384
+
 clean:
-	rm -Rf *~ nbody.g nbody.g1 nbody.g2 nbody.g3 nbody.g4 nbody.g5 *.optrpt
+	rm -Rf *~ nbody.g nbody.g1 nbody.g2 nbody.g3 nbody.g4 nbody.g5 *.optrpt 
 
