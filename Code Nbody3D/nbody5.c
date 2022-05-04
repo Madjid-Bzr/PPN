@@ -32,7 +32,7 @@ void move_particles(particle_t p, const u64 nb_particles, const f32 dt, const in
 
   //
 
-  for (int i = 0; i < nb_particles; i++)
+  for (int i = start_particle; i < end_particle; i++)
   {
     //
     f32 fx = 0.0;
@@ -42,7 +42,7 @@ void move_particles(particle_t p, const u64 nb_particles, const f32 dt, const in
     const f32 p_yi = p.y[i];
     const f32 p_zi = p.z[i];
 
-    for (u64 j = 0; j < nb_particles; j++)
+    for (u64 j = start_particle; j < end_particle; j++)
     {
       // Newton's law
       const f32 dx = p.x[j] - p_xi; // 1
@@ -69,24 +69,13 @@ void move_particles(particle_t p, const u64 nb_particles, const f32 dt, const in
 
   // 3 floating-point operations
 
-  for (u64 i = 0; i < nb_particles; i += 4)
+  for (u64 i = start_particle; i < end_particle; i++)
   {
     //
     p.x[i] += (dt * p.vx[i]);
     p.y[i] += (dt * p.vy[i]);
     p.z[i] += (dt * p.vz[i]);
 
-    p.x[i + 1] += (dt * p.vx[i + 1]);
-    p.y[i + 1] += (dt * p.vy[i + 1]);
-    p.z[i + 1] += (dt * p.vz[i + 1]);
-
-    p.x[i + 2] += (dt * p.vx[i + 2]);
-    p.y[i + 2] += (dt * p.vy[i + 2]);
-    p.z[i + 2] += (dt * p.vz[i + 2]);
-
-    p.x[i + 3] += (dt * p.vx[i + 3]);
-    p.y[i + 3] += (dt * p.vy[i + 3]);
-    p.z[i + 3] += (dt * p.vz[i + 3]);
   }
   MPI_Allgather(MPI_IN_PLACE, 0, MPI_DATATYPE_NULL, p.x, particles, MPI_FLOAT, MPI_COMM_WORLD);
   MPI_Allgather(MPI_IN_PLACE, 0, MPI_DATATYPE_NULL, p.y, particles, MPI_FLOAT, MPI_COMM_WORLD);
@@ -101,11 +90,14 @@ int main(int argc, char **argv)
 {
   // Initialisation MPI
   MPI_Init((int *)&argc, (char ***)&argv);
+  
   int mpi_world_size, mpi_rank;
+  
   MPI_Comm_size(MPI_COMM_WORLD, &mpi_world_size);
   MPI_Comm_rank(MPI_COMM_WORLD, &mpi_rank);
 
-  const u64 n = (argc > 1) ? atoll(argv[1]) : 26244;
+  const u64 n = (argc > 1) ? atoll(argv[1]) : 16384;
+  
   const int particles = n / mpi_world_size;
   const u64 steps = 10;
   const f32 dt = 0.01;
@@ -127,7 +119,7 @@ int main(int argc, char **argv)
 
   //
   srand(0);
-  for (u64 i = 0; i < n; i += 4)
+  for (u64 i = 0; i < n; i++)
   {
     //
     u64 r1 = (u64)rand();
@@ -143,36 +135,6 @@ int main(int argc, char **argv)
     p.vx[i] = (f32)rand() * (1 / (f32)RAND_MAX);
     p.vy[i] = sign * (f32)rand() * (1 / (f32)RAND_MAX);
     p.vz[i] = (f32)rand() * (1 / (f32)RAND_MAX);
-
-    //
-    p.x[i + 1] = sign * (f32)rand() * (1 / (f32)RAND_MAX);
-    p.y[i + 1] = (f32)rand() * (1 / (f32)RAND_MAX);
-    p.z[i + 1] = sign * (f32)rand() * (1 / (f32)RAND_MAX);
-
-    //
-    p.vx[i + 1] = (f32)rand() * (1 / (f32)RAND_MAX);
-    p.vy[i + 1] = sign * (f32)rand() * (1 / (f32)RAND_MAX);
-    p.vz[i + 1] = (f32)rand() * (1 / (f32)RAND_MAX);
-
-    //
-    p.x[i + 2] = sign * (f32)rand() * (1 / (f32)RAND_MAX);
-    p.y[i + 2] = (f32)rand() * (1 / (f32)RAND_MAX);
-    p.z[i + 2] = sign * (f32)rand() * (1 / (f32)RAND_MAX);
-
-    //
-    p.vx[i + 2] = (f32)rand() * (1 / (f32)RAND_MAX);
-    p.vy[i + 2] = sign * (f32)rand() * (1 / (f32)RAND_MAX);
-    p.vz[i + 2] = (f32)rand() * (1 / (f32)RAND_MAX);
-
-    //
-    p.x[i + 3] = sign * (f32)rand() * (1 / (f32)RAND_MAX);
-    p.y[i + 3] = (f32)rand() * (1 / (f32)RAND_MAX);
-    p.z[i + 3] = sign * (f32)rand() * (1 / (f32)RAND_MAX);
-
-    //
-    p.vx[i + 3] = (f32)rand() * (1 / (f32)RAND_MAX);
-    p.vy[i + 3] = sign * (f32)rand() * (1 / (f32)RAND_MAX);
-    p.vz[i + 3] = (f32)rand() * (1 / (f32)RAND_MAX);
   }
 
   MPI_Allgather(MPI_IN_PLACE, 0, MPI_DATATYPE_NULL, p.x, particles, MPI_FLOAT, MPI_COMM_WORLD);
@@ -191,15 +153,7 @@ int main(int argc, char **argv)
     printf("\033[1m%5s %10s %10s %8s\033[0m\n", "Step", "Time, s", "Interact/s", "GFLOP/s");
     fflush(stdout);
   }
-  /*
-    const u64 s = sizeof(particle_t) * particles;
 
-    printf("\n\033[1mTotal memory size:\033[0m %llu B, %  llu KiB, %llu MiB\n\n", s, s >> 10, s >> 20);
-    printf("n= %u \n",particles);
-    //
-    printf("\033[1m%5s %10s %10s %8s\033[0m\n", "Step", "Time, s", "Interact/s", "GFLOP/s"); fflush(stdout);
-    */
-  //
   
   for (u64 i = 0; i < steps; i++)
   {
@@ -244,6 +198,23 @@ int main(int argc, char **argv)
            "Average performance:", "", rate, drate);
     printf("-----------------------------------------------------\n");
     
+       f64 somme_x=0, somme_y=0, somme_z=0, somme_vx=0, somme_vy=0, somme_vz=0;
+  for(int i=0;i<n; i++){
+    somme_x+=p.x[i];
+    somme_y+=p.y[i];
+    somme_z+=p.z[i];
+    somme_vx+=p.vx[i];
+    somme_vy+=p.vy[i];
+    somme_vz+=p.vz[i];
+
+  }
+  printf("Somme X = %f \n",somme_x);
+  printf("Somme Y = %f \n",somme_y);
+  printf("Somme Z = %f \n",somme_z);
+  printf("Somme VX = %f \n",somme_vx);
+  printf("Somme VY = %f \n",somme_vy);
+  printf("Somme VZ = %f \n",somme_vz);
+  //
     //
   }
   free(p.x);
