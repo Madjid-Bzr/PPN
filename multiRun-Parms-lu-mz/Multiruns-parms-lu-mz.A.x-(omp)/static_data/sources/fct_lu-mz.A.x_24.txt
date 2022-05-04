@@ -1,0 +1,28 @@
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/setiv.f90: 33 - 57
+--------------------------------------------------------------------------------
+
+33: !$OMP& ue_ij1,ue_iny0k,ue_i1k,ue_nx0jk,ue_1jk,xi,i,eta,j,zeta,k)
+34:       do k = 2, nz - 1
+35:          zeta = ( dble (k-1) ) / (nz-1)
+36: !$OMP DO SCHEDULE(STATIC)
+37:          do j = 2, ny - 1
+38:             eta = ( dble (j-1) ) / (ny-1)
+39:             do i = 2, nx - 1
+40:                xi = ( dble (i-1) ) / (nx-1)
+41:                call exact(1,j,k,ue_1jk,nx,ny,nz)
+42:                call exact(nx,j,k,ue_nx0jk,nx,ny,nz)
+43:                call exact(i,1,k,ue_i1k,nx,ny,nz)
+44:                call exact(i,ny,k,ue_iny0k,nx,ny,nz)
+45:                call exact(i,j,1,ue_ij1,nx,ny,nz)
+46:                call exact(i,j,nz,ue_ijnz,nx,ny,nz)
+47:                do m = 1, 5
+48:                   pxi =   ( 1.0d+00 - xi ) * ue_1jk(m)  &
+49:      &                              + xi   * ue_nx0jk(m)
+50:                   peta =  ( 1.0d+00 - eta ) * ue_i1k(m)  &
+51:      &                              + eta   * ue_iny0k(m)
+52:                   pzeta = ( 1.0d+00 - zeta ) * ue_ij1(m)  &
+53:      &                              + zeta   * ue_ijnz(m)
+54: 
+55:                   u( m, i, j, k ) = pxi + peta + pzeta  &
+56:      &                 - pxi * peta - peta * pzeta - pzeta * pxi  &
+57:      &                 + pxi * peta * pzeta

@@ -1,0 +1,30 @@
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/ssor.f90:106
+lu-mz.A.x
+GOMP_parallel - :0
+libgomp.so.1.0.0
+exch_qbc_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:46
+exch_qbc_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:37
+exch_qbc_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:42
+exch_qbc_._omp_fn.1 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:82
+exch_qbc_._omp_fn.1 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:86
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/setiv.f90:42
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/setiv.f90:46
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/setiv.f90:45
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/setiv.f90:43
+error_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/error.f90:42
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/setiv.f90:44
+setbv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/setbv.f90:69
+unknown kernel region
+kernel
+omp_get_num_procs - :0
+blts - /home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/blts.f90:70
+jacld - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/jacld.f90:240
+rhs_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/rhs.f90:47
+blts - /home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/blts.f90:184
+buts - /home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/buts.f90:67
+jacld - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/jacld.f90:85
+jacld - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/jacld.f90:44
+buts - /home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/buts.f90:88
+buts - /home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/buts.f90:204
+blts - /home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/blts.f90:217
+init_workarray_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/lu.f90:434

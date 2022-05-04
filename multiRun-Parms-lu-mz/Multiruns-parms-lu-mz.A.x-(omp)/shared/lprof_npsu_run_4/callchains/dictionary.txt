@@ -1,0 +1,29 @@
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/ssor.f90:106
+lu-mz.A.x
+GOMP_parallel - :0
+libgomp.so.1.0.0
+exch_qbc_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:37
+exch_qbc_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:42
+exch_qbc_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:46
+exch_qbc_._omp_fn.1 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:74
+exch_qbc_._omp_fn.1 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:82
+exch_qbc_._omp_fn.1 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:86
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/setiv.f90:42
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/setiv.f90:43
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/setiv.f90:45
+error_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/error.f90:42
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/setiv.f90:46
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/setiv.f90:44
+setbv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/setbv.f90:67
+setbv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/setbv.f90:54
+unknown kernel region
+kernel
+omp_get_num_procs - :0
+jacld - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/jacld.f90:120
+rhs_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/rhs.f90:47
+jacu - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/jacu.f90:209
+init_workarray_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/lu.f90:434
+blts - /home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/blts.f90:219
+jacld - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/jacld.f90:44
+jacld - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/jacld.f90:107
+buts - /home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/buts.f90:47

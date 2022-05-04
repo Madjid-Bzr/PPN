@@ -1,0 +1,7 @@
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90: 115 - 127
+--------------------------------------------------------------------------------
+
+115:        else if (dir(1:3) .eq. 'out') then
+[...]
+126:          print *, 'Erroneous data designation: ', dir
+127:          stop

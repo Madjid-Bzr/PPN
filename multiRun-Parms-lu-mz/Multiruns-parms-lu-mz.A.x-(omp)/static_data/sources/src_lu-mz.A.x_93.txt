@@ -1,0 +1,8 @@
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/ssor.f90: 37 - 143
+--------------------------------------------------------------------------------
+
+37: !$OMP PARALLEL DEFAULT(SHARED) PRIVATE(m,i,j,k,tmp,mthreadnum,iam)
+[...]
+141:             do i = 2, nx-1
+142:                do m = 1, 5
+143:                   u(m,i,j,k) = u(m,i,j,k) + tmp * rsd(m,i,j,k)

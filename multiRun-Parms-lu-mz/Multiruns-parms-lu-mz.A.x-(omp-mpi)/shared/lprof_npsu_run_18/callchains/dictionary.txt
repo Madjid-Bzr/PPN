@@ -1,0 +1,32 @@
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:125
+lu-mz.A.x
+GOMP_parallel - :0
+libgomp.so.1.0.0
+rhs - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/rhs.f90:47
+erhs_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/erhs.f90:98
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:91
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:135
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:71
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:115
+main - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/lu.f90:60
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setiv.f90:44
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setiv.f90:46
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setiv.f90:47
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setiv.f90:48
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setiv.f90:49
+error_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/error.f90:45
+psiginfo - :0
+libc-2.31.so
+_IO_ungetc - :0
+__isoc99_sscanf - :0
+__isoc99_fscanf - :0
+MPL_shm_seg_remove - :0
+libmpich.so.12.1.8
+vscanf - :0
+unknown kernel region
+kernel
+__poll - :0
+omp_get_num_procs - :0
+mpirinitf_ - :0
+init_workarray_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/lu.f90:437
+erhs_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/erhs.f90:86

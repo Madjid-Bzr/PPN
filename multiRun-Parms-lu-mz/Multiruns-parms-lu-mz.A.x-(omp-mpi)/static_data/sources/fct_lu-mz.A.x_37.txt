@@ -1,0 +1,326 @@
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/rhs.f90: 58 - 475
+--------------------------------------------------------------------------------
+
+58: !$OMP& u51km1,u41km1,u31km1,u21km1,u51k,u41k,u31k,u21k,u41)
+59: 
+60:       do k = 1, nz
+61: !$OMP DO SCHEDULE(STATIC)
+62:          do j = 1, ny
+63:             do i = 1, nx
+64:                do m = 1, 5
+65:                   rsd(m,i,j,k) = - frct(m,i,j,k)
+66:                end do
+67:             end do
+68:             do i = L1, L2
+69:                tmp = 1.0d+00 / u(1,i,j,k)
+70:                rho_i(i,j,k) = tmp
+71:                qs(i,j,k) = 0.50d+00 * (  u(2,i,j,k) * u(2,i,j,k)  &
+72:      &                         + u(3,i,j,k) * u(3,i,j,k)  &
+73:      &                         + u(4,i,j,k) * u(4,i,j,k) )  &
+74:      &                      * tmp
+75:             end do
+76:          end do
+77: !$OMP END DO nowait
+78:       end do
+79: !$OMP BARRIER
+80: !$OMP MASTER
+81:       if (timeron) call timer_start(t_rhsx)
+[...]
+87:       do k = 2, nz - 1
+88: !$OMP DO SCHEDULE(STATIC)
+89:          do j = 2, ny-1
+90:             do i = L1, L2
+91:                flux(1,i) = u(2,i,j,k)
+92:                u21 = u(2,i,j,k) * rho_i(i,j,k)
+93: 
+94:                q = qs(i,j,k)
+95: 
+96:                flux(2,i) = u(2,i,j,k) * u21 + c2 *  &
+97:      &                        ( u(5,i,j,k) - q )
+98:                flux(3,i) = u(3,i,j,k) * u21
+99:                flux(4,i) = u(4,i,j,k) * u21
+100:                flux(5,i) = ( c1 * u(5,i,j,k) - c2 * q ) * u21
+101:             end do
+102: 
+103:             do i = ist, iend
+104:                do m = 1, 5
+105:                   rsd(m,i,j,k) =  rsd(m,i,j,k)  &
+106:      &                 - tx2 * ( flux(m,i+1) - flux(m,i-1) )
+107:                end do
+108:             end do
+109: 
+110:             do i = ist, L2
+111:                tmp = rho_i(i,j,k)
+112: 
+113:                u21i = tmp * u(2,i,j,k)
+114:                u31i = tmp * u(3,i,j,k)
+115:                u41i = tmp * u(4,i,j,k)
+116:                u51i = tmp * u(5,i,j,k)
+117: 
+118:                tmp = rho_i(i-1,j,k)
+119: 
+120:                u21im1 = tmp * u(2,i-1,j,k)
+121:                u31im1 = tmp * u(3,i-1,j,k)
+122:                u41im1 = tmp * u(4,i-1,j,k)
+123:                u51im1 = tmp * u(5,i-1,j,k)
+124: 
+125:                flux(2,i) = (4.0d+00/3.0d+00) * tx3 * (u21i-u21im1)
+126:                flux(3,i) = tx3 * ( u31i - u31im1 )
+127:                flux(4,i) = tx3 * ( u41i - u41im1 )
+[...]
+133:      &              + c1 * c5 * tx3 * ( u51i - u51im1 )
+134:             end do
+135: 
+136:             do i = ist, iend
+137:                rsd(1,i,j,k) = rsd(1,i,j,k)  &
+138:      &              + dx1 * tx1 * (            u(1,i-1,j,k)  &
+139:      &                             - 2.0d+00 * u(1,i,j,k)  &
+140:      &                             +           u(1,i+1,j,k) )
+141:                rsd(2,i,j,k) = rsd(2,i,j,k)  &
+142:      &          + tx3 * c3 * c4 * ( flux(2,i+1) - flux(2,i) )  &
+143:      &              + dx2 * tx1 * (            u(2,i-1,j,k)  &
+144:      &                             - 2.0d+00 * u(2,i,j,k)  &
+145:      &                             +           u(2,i+1,j,k) )
+146:                rsd(3,i,j,k) = rsd(3,i,j,k)  &
+147:      &          + tx3 * c3 * c4 * ( flux(3,i+1) - flux(3,i) )  &
+148:      &              + dx3 * tx1 * (            u(3,i-1,j,k)  &
+149:      &                             - 2.0d+00 * u(3,i,j,k)  &
+150:      &                             +           u(3,i+1,j,k) )
+151:                rsd(4,i,j,k) = rsd(4,i,j,k)  &
+152:      &          + tx3 * c3 * c4 * ( flux(4,i+1) - flux(4,i) )  &
+153:      &              + dx4 * tx1 * (            u(4,i-1,j,k)  &
+154:      &                             - 2.0d+00 * u(4,i,j,k)  &
+155:      &                             +           u(4,i+1,j,k) )
+156:                rsd(5,i,j,k) = rsd(5,i,j,k)  &
+157:      &          + tx3 * c3 * c4 * ( flux(5,i+1) - flux(5,i) )  &
+158:      &              + dx5 * tx1 * (            u(5,i-1,j,k)  &
+159:      &                             - 2.0d+00 * u(5,i,j,k)  &
+160:      &                             +           u(5,i+1,j,k) )
+[...]
+166:             if (north.eq.-1) then
+167:             do m = 1, 5
+168:                rsd(m,2,j,k) = rsd(m,2,j,k)  &
+169:      &           - dssp * ( + 5.0d+00 * u(m,2,j,k)  &
+170:      &                      - 4.0d+00 * u(m,3,j,k)  &
+171:      &                      +           u(m,4,j,k) )
+172:                rsd(m,3,j,k) = rsd(m,3,j,k)  &
+173:      &           - dssp * ( - 4.0d+00 * u(m,2,j,k)  &
+174:      &                      + 6.0d+00 * u(m,3,j,k)  &
+175:      &                      - 4.0d+00 * u(m,4,j,k)  &
+176:      &                      +           u(m,5,j,k) )
+177:             end do
+178:             end if
+179: 
+180:             do i = ist1, iend1
+[...]
+187:      &                        +           u(m,i+2,j,k) )
+188:                end do
+189:             end do
+190: 
+191: 
+192:             if (south.eq.-1) then
+[...]
+198:      &                      - 4.0d+00 * u(m,nx-1,j,k)  )
+199:                rsd(m,nx-1,j,k) = rsd(m,nx-1,j,k)  &
+200:      &           - dssp * (             u(m,nx-3,j,k)  &
+201:      &                      - 4.0d+00 * u(m,nx-2,j,k)  &
+202:      &                      + 5.0d+00 * u(m,nx-1,j,k) )
+[...]
+209: !$OMP BARRIER
+210: !$OMP MASTER
+211:       if (timeron) call timer_stop(t_rhsx)
+212: 
+213:       if (timeron) call timer_start(t_rhsy)
+214: !$OMP END MASTER
+215: !---------------------------------------------------------------------
+216: !   eta-direction flux differences
+217: !---------------------------------------------------------------------
+218: !$OMP DO SCHEDULE(STATIC)
+219:       do k = 2, nz - 1
+220:          do i = ist, iend
+221:             do j = 1, ny
+222:                utmp(1,j) = u(1,i,j,k)
+223:                utmp(2,j) = u(2,i,j,k)
+224:                utmp(3,j) = u(3,i,j,k)
+225:                utmp(4,j) = u(4,i,j,k)
+226:                utmp(5,j) = u(5,i,j,k)
+227:                utmp(6,j) = rho_i(i,j,k)
+228:             end do
+229: 
+230:             do j = 1, ny
+231:                flux(1,j) = utmp(3,j)
+232:                u31 = utmp(3,j) * utmp(6,j)
+233: 
+234:                q = qs(i,j,k)
+235: 
+236:                flux(2,j) = utmp(2,j) * u31 
+237:                flux(3,j) = utmp(3,j) * u31 + c2 * (utmp(5,j)-q)
+238:                flux(4,j) = utmp(4,j) * u31
+239:                flux(5,j) = ( c1 * utmp(5,j) - c2 * q ) * u31
+240:             end do
+241: 
+242:             do j = 2, ny-1
+243:                do m = 1, 5
+244:                   rsd(m,i,j,k) =  rsd(m,i,j,k)  &
+245:      &                   - ty2 * ( flux(m,j+1) - flux(m,j-1) )
+246:                end do
+247:             end do
+248: 
+249:             do j = 2, ny
+250:                tmp = utmp(6,j)
+251: 
+252:                u21j = tmp * utmp(2,j)
+253:                u31j = tmp * utmp(3,j)
+254:                u41j = tmp * utmp(4,j)
+255:                u51j = tmp * utmp(5,j)
+256: 
+257:                tmp = utmp(6,j-1)
+258:                u21jm1 = tmp * utmp(2,j-1)
+259:                u31jm1 = tmp * utmp(3,j-1)
+260:                u41jm1 = tmp * utmp(4,j-1)
+261:                u51jm1 = tmp * utmp(5,j-1)
+262: 
+263:                flux(2,j) = ty3 * ( u21j - u21jm1 )
+264:                flux(3,j) = (4.0d+00/3.0d+00) * ty3 * (u31j-u31jm1)
+265:                flux(4,j) = ty3 * ( u41j - u41jm1 )
+[...]
+271:      &              + c1 * c5 * ty3 * ( u51j - u51jm1 )
+272:             end do
+273: 
+274:             do j = 2, ny-1
+275: 
+276:                rsd(1,i,j,k) = rsd(1,i,j,k)  &
+277:      &              + dy1 * ty1 * (            utmp(1,j-1)  &
+278:      &                             - 2.0d+00 * utmp(1,j)  &
+279:      &                             +           utmp(1,j+1) )
+[...]
+285:      &                             +           utmp(2,j+1) )
+[...]
+291:      &                             +           utmp(3,j+1) )
+[...]
+297:      &                             +           utmp(4,j+1) )
+[...]
+303:      &                             +           utmp(5,j+1) )
+[...]
+314:      &                      +           utmp(m,4) )
+315:                rsd(m,i,3,k) = rsd(m,i,3,k)  &
+316:      &           - dssp * ( - 4.0d+00 * utmp(m,2)  &
+317:      &                      + 6.0d+00 * utmp(m,3)  &
+318:      &                      - 4.0d+00 * utmp(m,4)  &
+319:      &                      +           utmp(m,5) )
+320:             end do
+321: 
+322:             do j = 4, ny - 3
+[...]
+329:      &                        +           utmp(m,j+2) )
+[...]
+338:      &                      - 4.0d+00 * utmp(m,ny-1)  )
+339:                rsd(m,i,ny-1,k) = rsd(m,i,ny-1,k)  &
+340:      &           - dssp * (             utmp(m,ny-3)  &
+341:      &                      - 4.0d+00 * utmp(m,ny-2)  &
+342:      &                      + 5.0d+00 * utmp(m,ny-1) )
+[...]
+348: !$OMP MASTER
+349:       if (timeron) call timer_stop(t_rhsy)
+350: 
+351:       if (timeron) call timer_start(t_rhsz)
+352: !$OMP END MASTER
+353: !---------------------------------------------------------------------
+354: !   zeta-direction flux differences
+355: !---------------------------------------------------------------------
+356: !$OMP DO SCHEDULE(STATIC)
+357:       do j = 2, ny-1
+358:          do i = ist, iend
+359:             do k = 1, nz
+360:                utmp(1,k) = u(1,i,j,k)
+361:                utmp(2,k) = u(2,i,j,k)
+362:                utmp(3,k) = u(3,i,j,k)
+363:                utmp(4,k) = u(4,i,j,k)
+364:                utmp(5,k) = u(5,i,j,k)
+365:                utmp(6,k) = rho_i(i,j,k)
+366:             end do
+367: 
+368:             do k = 1, nz
+369:                flux(1,k) = utmp(4,k)
+370:                u41 = utmp(4,k) * utmp(6,k)
+371: 
+372:                q = qs(i,j,k)
+373: 
+374:                flux(2,k) = utmp(2,k) * u41 
+375:                flux(3,k) = utmp(3,k) * u41 
+376:                flux(4,k) = utmp(4,k) * u41 + c2 * (utmp(5,k)-q)
+377:                flux(5,k) = ( c1 * utmp(5,k) - c2 * q ) * u41
+378:             end do
+379: 
+380:             do k = 2, nz - 1
+381:                do m = 1, 5
+382:                   rtmp(m,k) =  rsd(m,i,j,k)  &
+383:      &                - tz2 * ( flux(m,k+1) - flux(m,k-1) )
+384:                end do
+385:             end do
+386: 
+387:             do k = 2, nz
+388:                tmp = utmp(6,k)
+389: 
+390:                u21k = tmp * utmp(2,k)
+391:                u31k = tmp * utmp(3,k)
+392:                u41k = tmp * utmp(4,k)
+393:                u51k = tmp * utmp(5,k)
+394: 
+395:                tmp = utmp(6,k-1)
+396: 
+397:                u21km1 = tmp * utmp(2,k-1)
+398:                u31km1 = tmp * utmp(3,k-1)
+399:                u41km1 = tmp * utmp(4,k-1)
+400:                u51km1 = tmp * utmp(5,k-1)
+401: 
+402:                flux(2,k) = tz3 * ( u21k - u21km1 )
+403:                flux(3,k) = tz3 * ( u31k - u31km1 )
+404:                flux(4,k) = (4.0d+00/3.0d+00) * tz3 * (u41k-u41km1)
+[...]
+410:      &              + c1 * c5 * tz3 * ( u51k - u51km1 )
+411:             end do
+412: 
+413:             do k = 2, nz - 1
+414:                rtmp(1,k) = rtmp(1,k)  &
+415:      &              + dz1 * tz1 * (            utmp(1,k-1)  &
+416:      &                             - 2.0d+00 * utmp(1,k)  &
+417:      &                             +           utmp(1,k+1) )
+418:                rtmp(2,k) = rtmp(2,k)  &
+419:      &          + tz3 * c3 * c4 * ( flux(2,k+1) - flux(2,k) )  &
+420:      &              + dz2 * tz1 * (            utmp(2,k-1)  &
+421:      &                             - 2.0d+00 * utmp(2,k)  &
+422:      &                             +           utmp(2,k+1) )
+423:                rtmp(3,k) = rtmp(3,k)  &
+424:      &          + tz3 * c3 * c4 * ( flux(3,k+1) - flux(3,k) )  &
+425:      &              + dz3 * tz1 * (            utmp(3,k-1)  &
+426:      &                             - 2.0d+00 * utmp(3,k)  &
+427:      &                             +           utmp(3,k+1) )
+428:                rtmp(4,k) = rtmp(4,k)  &
+429:      &          + tz3 * c3 * c4 * ( flux(4,k+1) - flux(4,k) )  &
+430:      &              + dz4 * tz1 * (            utmp(4,k-1)  &
+431:      &                             - 2.0d+00 * utmp(4,k)  &
+432:      &                             +           utmp(4,k+1) )
+433:                rtmp(5,k) = rtmp(5,k)  &
+434:      &          + tz3 * c3 * c4 * ( flux(5,k+1) - flux(5,k) )  &
+435:      &              + dz5 * tz1 * (            utmp(5,k-1)  &
+436:      &                             - 2.0d+00 * utmp(5,k)  &
+437:      &                             +           utmp(5,k+1) )
+[...]
+447:      &                      +           utmp(m,4) )
+448:                rsd(m,i,j,3) = rtmp(m,3)  &
+449:      &           - dssp * ( - 4.0d+00 * utmp(m,2)  &
+450:      &                      + 6.0d+00 * utmp(m,3)  &
+451:      &                      - 4.0d+00 * utmp(m,4)  &
+452:      &                      +           utmp(m,5) )
+453:             end do
+454: 
+455:             do k = 4, nz - 3
+[...]
+462:      &                        +           utmp(m,k+2) )
+[...]
+471:      &                      - 4.0d+00 * utmp(m,nz-1)  )
+472:                rsd(m,i,j,nz-1) = rtmp(m,nz-1)  &
+473:      &           - dssp * (             utmp(m,nz-3)  &
+474:      &                      - 4.0d+00 * utmp(m,nz-2)  &
+475:      &                      + 5.0d+00 * utmp(m,nz-1) )

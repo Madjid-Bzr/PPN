@@ -1,0 +1,99 @@
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/rhs.f90: 90 - 202
+--------------------------------------------------------------------------------
+
+90:             do i = L1, L2
+91:                flux(1,i) = u(2,i,j,k)
+92:                u21 = u(2,i,j,k) * rho_i(i,j,k)
+93: 
+94:                q = qs(i,j,k)
+95: 
+96:                flux(2,i) = u(2,i,j,k) * u21 + c2 *  &
+97:      &                        ( u(5,i,j,k) - q )
+98:                flux(3,i) = u(3,i,j,k) * u21
+99:                flux(4,i) = u(4,i,j,k) * u21
+100:                flux(5,i) = ( c1 * u(5,i,j,k) - c2 * q ) * u21
+101:             end do
+102: 
+103:             do i = ist, iend
+104:                do m = 1, 5
+105:                   rsd(m,i,j,k) =  rsd(m,i,j,k)  &
+106:      &                 - tx2 * ( flux(m,i+1) - flux(m,i-1) )
+107:                end do
+108:             end do
+109: 
+110:             do i = ist, L2
+111:                tmp = rho_i(i,j,k)
+112: 
+113:                u21i = tmp * u(2,i,j,k)
+114:                u31i = tmp * u(3,i,j,k)
+115:                u41i = tmp * u(4,i,j,k)
+116:                u51i = tmp * u(5,i,j,k)
+117: 
+118:                tmp = rho_i(i-1,j,k)
+119: 
+120:                u21im1 = tmp * u(2,i-1,j,k)
+121:                u31im1 = tmp * u(3,i-1,j,k)
+122:                u41im1 = tmp * u(4,i-1,j,k)
+123:                u51im1 = tmp * u(5,i-1,j,k)
+124: 
+125:                flux(2,i) = (4.0d+00/3.0d+00) * tx3 * (u21i-u21im1)
+126:                flux(3,i) = tx3 * ( u31i - u31im1 )
+127:                flux(4,i) = tx3 * ( u41i - u41im1 )
+[...]
+133:      &              + c1 * c5 * tx3 * ( u51i - u51im1 )
+134:             end do
+135: 
+136:             do i = ist, iend
+137:                rsd(1,i,j,k) = rsd(1,i,j,k)  &
+138:      &              + dx1 * tx1 * (            u(1,i-1,j,k)  &
+139:      &                             - 2.0d+00 * u(1,i,j,k)  &
+140:      &                             +           u(1,i+1,j,k) )
+141:                rsd(2,i,j,k) = rsd(2,i,j,k)  &
+142:      &          + tx3 * c3 * c4 * ( flux(2,i+1) - flux(2,i) )  &
+143:      &              + dx2 * tx1 * (            u(2,i-1,j,k)  &
+144:      &                             - 2.0d+00 * u(2,i,j,k)  &
+145:      &                             +           u(2,i+1,j,k) )
+146:                rsd(3,i,j,k) = rsd(3,i,j,k)  &
+147:      &          + tx3 * c3 * c4 * ( flux(3,i+1) - flux(3,i) )  &
+148:      &              + dx3 * tx1 * (            u(3,i-1,j,k)  &
+149:      &                             - 2.0d+00 * u(3,i,j,k)  &
+150:      &                             +           u(3,i+1,j,k) )
+151:                rsd(4,i,j,k) = rsd(4,i,j,k)  &
+152:      &          + tx3 * c3 * c4 * ( flux(4,i+1) - flux(4,i) )  &
+153:      &              + dx4 * tx1 * (            u(4,i-1,j,k)  &
+154:      &                             - 2.0d+00 * u(4,i,j,k)  &
+155:      &                             +           u(4,i+1,j,k) )
+156:                rsd(5,i,j,k) = rsd(5,i,j,k)  &
+157:      &          + tx3 * c3 * c4 * ( flux(5,i+1) - flux(5,i) )  &
+158:      &              + dx5 * tx1 * (            u(5,i-1,j,k)  &
+159:      &                             - 2.0d+00 * u(5,i,j,k)  &
+160:      &                             +           u(5,i+1,j,k) )
+[...]
+166:             if (north.eq.-1) then
+167:             do m = 1, 5
+168:                rsd(m,2,j,k) = rsd(m,2,j,k)  &
+169:      &           - dssp * ( + 5.0d+00 * u(m,2,j,k)  &
+170:      &                      - 4.0d+00 * u(m,3,j,k)  &
+171:      &                      +           u(m,4,j,k) )
+172:                rsd(m,3,j,k) = rsd(m,3,j,k)  &
+173:      &           - dssp * ( - 4.0d+00 * u(m,2,j,k)  &
+174:      &                      + 6.0d+00 * u(m,3,j,k)  &
+175:      &                      - 4.0d+00 * u(m,4,j,k)  &
+176:      &                      +           u(m,5,j,k) )
+177:             end do
+178:             end if
+179: 
+180:             do i = ist1, iend1
+[...]
+187:      &                        +           u(m,i+2,j,k) )
+188:                end do
+189:             end do
+190: 
+191: 
+192:             if (south.eq.-1) then
+[...]
+198:      &                      - 4.0d+00 * u(m,nx-1,j,k)  )
+199:                rsd(m,nx-1,j,k) = rsd(m,nx-1,j,k)  &
+200:      &           - dssp * (             u(m,nx-3,j,k)  &
+201:      &                      - 4.0d+00 * u(m,nx-2,j,k)  &
+202:      &                      + 5.0d+00 * u(m,nx-1,j,k) )

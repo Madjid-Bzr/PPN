@@ -1,0 +1,19 @@
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/syncs.f90: 54 - 69
+--------------------------------------------------------------------------------
+
+54:       if (iam .gt. 0 .and. iam .le. mthreadnum) then
+55:          neigh = iam - 1
+56: !$omp atomic read
+57:          iv = isync(neigh)
+58:          do while (iv .eq. 0)
+59: !$omp atomic read
+60:             iv = isync(neigh)
+61:          end do
+62: !$omp atomic write
+63:          isync(neigh) = 0
+64:       endif
+65: !$omp flush(isync,v)
+66: 
+67: 
+68:       return
+69:       end

@@ -1,0 +1,9 @@
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/setbv.f90: 33 - 38
+--------------------------------------------------------------------------------
+
+33:          do i = 1, nx
+34:             call exact( i, j, 1, temp1, nx, ny, nz )
+35:             call exact( i, j, nz, temp2, nx, ny, nz )
+36:             do m = 1, 5
+37:                u( m, i, j, 1 ) = temp1(m)
+38:                u( m, i, j, nz ) = temp2(m)

@@ -1,0 +1,406 @@
+address;source_location;insn;indent
+0x16c20;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;PUSH	%RBP;
+0x16c21;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;MOV	%RSP,%RBP;
+0x16c24;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;PUSH	%R15;
+0x16c26;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;PUSH	%R14;
+0x16c28;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;LEA	(%RSI),%R14;
+0x16c2b;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;PUSH	%R13;
+0x16c2d;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;PUSH	%R12;
+0x16c2f;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;PUSH	%RBX;
+0x16c30;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;AND	$-0x20,%RSP;
+0x16c34;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;LEA	-0x240(%RSP),%RSP;
+0x16c3c;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;MOV	(%RCX),%EAX;
+0x16c3e;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;XOR	%ECX,%ECX;
+0x16c40;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;MOV	(%R8),%EBX;
+0x16c43;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;MOV	(%RDX),%R10D;
+0x16c46;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;MOV	(%R9),%R8D;
+0x16c49;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;SUB	$0x1,%EAX;
+0x16c4c;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;CLTQ;
+0x16c4e;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;MOV	$-0x6,%R9;
+0x16c55;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;LEA	0x5(%RAX,%RAX,4),%R13;
+0x16c5a;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;LEA	(%R10),%R11D;
+0x16c5d;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;MOV	0x18(%RBP),%R15;
+0x16c61;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;TEST	%R13,%R13;
+0x16c64;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:104;MOV	0x10(%RBP),%RSI;
+0x16c68;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;CMOVS	%RCX,%R13;
+0x16c6c;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;SUB	$0x1,%EBX;
+0x16c6f;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;MOVSXD	%EBX,%RBX;
+0x16c72;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;ADD	$0x1,%RBX;
+0x16c76;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;IMUL	%R13,%RBX;
+0x16c7a;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;TEST	%RBX,%RBX;
+0x16c7d;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;CMOVS	%RCX,%RBX;
+0x16c81;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;SUB	$0x2,%R11D;
+0x16c85;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;MOVSXD	%R11D,%RDX;
+0x16c88;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;MOV	%RDX,%R12;
+0x16c8b;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;SAL	$0x2,%R12;
+0x16c8f;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;ADD	%RDX,%R12;
+0x16c92;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;CMOVS	%RCX,%R12;
+0x16c96;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;SUB	$0x2,%R8D;
+0x16c9a;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:104;MOV	(%RSI),%ECX;
+0x16c9c;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:96;SUB	%R12,%R9;
+0x16c9f;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;CMPW	$0x6e69,(%R15);
+0x16ca5;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;JNE	16fd9 <copy_y_face_+0x3b9>;
+0x16cab;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;MOV	%RDI,0x10(%RSP);
+0x16cb0;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;MOV	%ECX,0x20(%RSP);
+0x16cb4;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;MOV	%R8D,0x24(%RSP);
+0x16cb9;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;MOV	%R11D,0x28(%RSP);
+0x16cbe;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;MOV	%R10D,0x2c(%RSP);
+0x16cc3;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;MOV	%R9,0x18(%RSP);
+0x16cc8;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;CALL	2060 <@plt_start@+0x40>;
+0x16ccd;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;LEA	(%RAX),%R15D;
+0x16cd0;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;CALL	2120 <@plt_start@+0x100>;
+0x16cd5;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;MOV	0x2c(%RSP),%R10D;
+0x16cda;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;LEA	(%RAX),%R8D;
+0x16cdd;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;MOV	0x24(%RSP),%EAX;
+0x16ce1;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;MOV	0x28(%RSP),%R11D;
+0x16ce6;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;MOV	0x18(%RSP),%RCX;
+0x16ceb;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;MOVSXD	0x20(%RSP),%RSI;
+0x16cf0;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;MOV	%EAX,%EDX;
+0x16cf2;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;SAR	$0x1f,%EDX;
+0x16cf5;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;IDIV	%R15D;
+0x16cf8;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;MOV	0x10(%RSP),%RDI;
+0x16cfd;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;CMP	%EDX,%R8D;
+0x16d00;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;JL	17348 <copy_y_face_+0x728>;
+0x16d06;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;IMUL	%EAX,%R8D;
+0x16d0a;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;ADD	%EDX,%R8D;
+0x16d0d;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;ADD	%R8D,%EAX;
+0x16d10;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;CMP	%EAX,%R8D;
+0x16d13;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;JGE	16fc5 <copy_y_face_+0x3a5>;
+0x16d19;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;IMUL	%RSI,%R13;
+0x16d1d;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;TEST	%R11D,%R11D;
+0x16d20;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	0x1(%R8),%R8D;
+0x16d24;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;JLE	16fc5 <copy_y_face_+0x3a5>;
+0x16d2a;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;MOVSXD	%R8D,%R15;
+0x16d2d;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	(%RBX),%R9;
+0x16d30;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;IMUL	%R15,%R9;
+0x16d34;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	(%R13),%RSI;
+0x16d38;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;SUB	$0x1,%RSI;
+0x16d3c;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	-0x3(%R10),%R13D;
+0x16d40;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	(%R13,%R13,4),%R10;
+0x16d45;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	(%RCX,%R10,1),%RDX;
+0x16d49;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	0x1(%R13),%RCX;
+0x16d4d;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;ADD	%R9,%RSI;
+0x16d50;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	(,%R12,8),%R9;
+0x16d58;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;IMUL	%R15,%R12;
+0x16d5c;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	(%RDX),%R11;
+0x16d5f;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;ADD	%R12,%R11;
+0x16d62;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	0x30(%RDI),%R12;
+0x16d66;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;IMUL	$-0x28,%RCX,%RDI;
+0x16d6a;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	0x58(%R14,%R11,8),%RDX;
+0x16d6f;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	0x1(%RAX),%R14D;
+0x16d73;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;NOPW	%CS:(%RAX,%RAX,1);
+0x16d7e;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;XCHG	%AX,%AX;
+0x16d80;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;MOV	%RDI,%R15;(107) 
+0x16d83;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;MOV	$0xccccccccccccccd,%R13;(107) 
+0x16d8d;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;NEG	%R15;(107) 
+0x16d90;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	(%RDI),%RAX;(107) 
+0x16d93;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;SUB	$0x28,%R15;(107) 
+0x16d97;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;ADD	%RDX,%RAX;(107) 
+0x16d9a;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;SHR	$0x3,%R15;(107) 
+0x16d9e;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	(%R12,%RSI,8),%R10;(107) 
+0x16da2;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;IMUL	%R13,%R15;(107) 
+0x16da6;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;ADD	$0x1,%R15;(107) 
+0x16daa;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;AND	$0x7,%R15D;(107) 
+0x16dae;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;JE	16eb7 <copy_y_face_+0x297>;(107) 
+0x16db4;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;CMP	$0x1,%R15;(107) 
+0x16db8;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;JE	16e92 <copy_y_face_+0x272>;(107) 
+0x16dbe;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;CMP	$0x2,%R15;(107) 
+0x16dc2;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;JE	16e75 <copy_y_face_+0x255>;(107) 
+0x16dc8;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;CMP	$0x3,%R15;(107) 
+0x16dcc;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;JE	16e58 <copy_y_face_+0x238>;(107) 
+0x16dd2;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;CMP	$0x4,%R15;(107) 
+0x16dd6;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;JE	16e3b <copy_y_face_+0x21b>;(107) 
+0x16dd8;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;CMP	$0x5,%R15;(107) 
+0x16ddc;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;JE	16e1e <copy_y_face_+0x1fe>;(107) 
+0x16dde;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;CMP	$0x6,%R15;(107) 
+0x16de2;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;JE	16e01 <copy_y_face_+0x1e1>;(107) 
+0x16de4;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	(%RAX),%YMM14;(107) 
+0x16de8;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	0x28(%R10),%R10;(107) 
+0x16dec;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	0x20(%RAX),%XMM15;(107) 
+0x16df1;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	0x28(%RAX),%RAX;(107) 
+0x16df5;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	%YMM14,-0x28(%R10);(107) 
+0x16dfb;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	%XMM15,-0x8(%R10);(107) 
+0x16e01;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	(%RAX),%YMM2;(107) 
+0x16e05;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	0x28(%R10),%R10;(107) 
+0x16e09;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	0x20(%RAX),%XMM0;(107) 
+0x16e0e;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	0x28(%RAX),%RAX;(107) 
+0x16e12;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	%YMM2,-0x28(%R10);(107) 
+0x16e18;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	%XMM0,-0x8(%R10);(107) 
+0x16e1e;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	(%RAX),%YMM1;(107) 
+0x16e22;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	0x28(%R10),%R10;(107) 
+0x16e26;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	0x20(%RAX),%XMM3;(107) 
+0x16e2b;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	0x28(%RAX),%RAX;(107) 
+0x16e2f;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	%YMM1,-0x28(%R10);(107) 
+0x16e35;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	%XMM3,-0x8(%R10);(107) 
+0x16e3b;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	(%RAX),%YMM4;(107) 
+0x16e3f;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	0x28(%R10),%R10;(107) 
+0x16e43;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	0x20(%RAX),%XMM5;(107) 
+0x16e48;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	0x28(%RAX),%RAX;(107) 
+0x16e4c;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	%YMM4,-0x28(%R10);(107) 
+0x16e52;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	%XMM5,-0x8(%R10);(107) 
+0x16e58;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	(%RAX),%YMM6;(107) 
+0x16e5c;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	0x28(%R10),%R10;(107) 
+0x16e60;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	0x20(%RAX),%XMM7;(107) 
+0x16e65;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	0x28(%RAX),%RAX;(107) 
+0x16e69;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	%YMM6,-0x28(%R10);(107) 
+0x16e6f;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	%XMM7,-0x8(%R10);(107) 
+0x16e75;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	(%RAX),%YMM8;(107) 
+0x16e79;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	0x28(%R10),%R10;(107) 
+0x16e7d;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	0x20(%RAX),%XMM9;(107) 
+0x16e82;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	0x28(%RAX),%RAX;(107) 
+0x16e86;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	%YMM8,-0x28(%R10);(107) 
+0x16e8c;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	%XMM9,-0x8(%R10);(107) 
+0x16e92;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	(%RAX),%YMM10;(107) 
+0x16e96;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	0x28(%RAX),%RAX;(107) 
+0x16e9a;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	-0x8(%RAX),%XMM11;(107) 
+0x16e9f;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:108;CMP	%RAX,%RDX;(107) 
+0x16ea2;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	%YMM10,(%R10);(107) 
+0x16ea7;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	0x28(%R10),%R10;(107) 
+0x16eab;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	%XMM11,-0x8(%R10);(107) 
+0x16eb1;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:108;JE	16fb0 <copy_y_face_+0x390>;(107) 
+0x16eb7;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	(%RAX),%YMM12;  (106) 
+0x16ebb;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	0x140(%RAX),%RAX;  (106) 
+0x16ec2;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	-0x120(%RAX),%XMM13;  (106) 
+0x16eca;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;LEA	0x140(%R10),%R10;  (106) 
+0x16ed1;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	-0x118(%RAX),%YMM14;  (106) 
+0x16ed9;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	-0xf8(%RAX),%XMM15;  (106) 
+0x16ee1;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	-0xf0(%RAX),%YMM2;  (106) 
+0x16ee9;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	-0xd0(%RAX),%XMM0;  (106) 
+0x16ef1;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	-0xc8(%RAX),%YMM1;  (106) 
+0x16ef9;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	-0xa8(%RAX),%XMM3;  (106) 
+0x16f01;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	-0xa0(%RAX),%YMM4;  (106) 
+0x16f09;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	-0x80(%RAX),%XMM5;  (106) 
+0x16f0e;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	-0x78(%RAX),%YMM6;  (106) 
+0x16f13;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	-0x58(%RAX),%XMM7;  (106) 
+0x16f18;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	-0x50(%RAX),%YMM8;  (106) 
+0x16f1d;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	-0x30(%RAX),%XMM9;  (106) 
+0x16f22;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	-0x28(%RAX),%YMM10;  (106) 
+0x16f27;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	-0x8(%RAX),%XMM11;  (106) 
+0x16f2c;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:108;CMP	%RAX,%RDX;  (106) 
+0x16f2f;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	%YMM12,-0x140(%R10);  (106) 
+0x16f38;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	%XMM13,-0x120(%R10);  (106) 
+0x16f41;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	%YMM14,-0x118(%R10);  (106) 
+0x16f4a;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	%XMM15,-0xf8(%R10);  (106) 
+0x16f53;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	%YMM2,-0xf0(%R10);  (106) 
+0x16f5c;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	%XMM0,-0xd0(%R10);  (106) 
+0x16f65;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	%YMM1,-0xc8(%R10);  (106) 
+0x16f6e;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	%XMM3,-0xa8(%R10);  (106) 
+0x16f77;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	%YMM4,-0xa0(%R10);  (106) 
+0x16f80;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	%XMM5,-0x80(%R10);  (106) 
+0x16f86;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	%YMM6,-0x78(%R10);  (106) 
+0x16f8c;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	%XMM7,-0x58(%R10);  (106) 
+0x16f92;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	%YMM8,-0x50(%R10);  (106) 
+0x16f98;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	%XMM9,-0x30(%R10);  (106) 
+0x16f9e;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVUPD	%YMM10,-0x28(%R10);  (106) 
+0x16fa4;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:110;VMOVSD	%XMM11,-0x8(%R10);  (106) 
+0x16faa;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:108;JNE	16eb7 <copy_y_face_+0x297>;  (106) 
+0x16fb0;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:108;LEA	0x1(%R8),%R8D;(107) 
+0x16fb4;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:108;LEA	(%RSI,%RBX,1),%RSI;(107) 
+0x16fb8;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:108;CMP	%R8D,%R14D;(107) 
+0x16fbb;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:108;LEA	(%RDX,%R9,1),%RDX;(107) 
+0x16fbf;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:108;JNE	16d80 <copy_y_face_+0x160>;(107) 
+0x16fc5;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:108;CALL	21b0 <@plt_start@+0x190>;
+0x16fca;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:131;LEA	-0x28(%RBP),%RSP;
+0x16fce;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:131;POP	%RBX;
+0x16fcf;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:131;POP	%R12;
+0x16fd1;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:131;POP	%R13;
+0x16fd3;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:131;POP	%R14;
+0x16fd5;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:131;POP	%R15;
+0x16fd7;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:131;POP	%RBP;
+0x16fd8;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:131;RET;
+0x16fd9;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;MOVZX	0x16e10(%RIP),%EAX;
+0x16fe0;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;CMP	%AX,(%R15);
+0x16fe4;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;JE	1704c <copy_y_face_+0x42c>;
+0x16fe6;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;LEA	0x30(%RSP),%R14;(103) 
+0x16feb;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;LEA	0x16e02(%RIP),%R12;(103) 
+0x16ff2;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;LEA	(%R14),%RDI;(103) 
+0x16ff5;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;MOV	$0x600000080,%R13;(103) 
+0x16fff;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;MOV	%R12,0x38(%RSP);(103) 
+0x17004;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;MOVL	$0x7e,0x40(%RSP);(103) 
+0x1700c;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;MOV	%R13,0x30(%RSP);(103) 
+0x17011;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;CALL	22b0 <@plt_start@+0x290>;(103) 
+0x17016;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;MOV	$0x1c,%EDX;(103) 
+0x1701b;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;LEA	0x16ddf(%RIP),%RSI;(103) 
+0x17022;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;LEA	(%R14),%RDI;(103) 
+0x17025;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;CALL	2180 <@plt_start@+0x160>;(103) 
+0x1702a;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;MOV	0x20(%RBP),%RDX;(103) 
+0x1702e;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;LEA	(%R15),%RSI;(103) 
+0x17031;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;LEA	(%R14),%RDI;(103) 
+0x17034;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;CALL	2180 <@plt_start@+0x160>;(103) 
+0x17039;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;LEA	(%R14),%RDI;(103) 
+0x1703c;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;CALL	2220 <@plt_start@+0x200>;(103) 
+0x17041;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:127;XOR	%EDX,%EDX;(103) 
+0x17043;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:127;XOR	%ESI,%ESI;(103) 
+0x17045;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:127;XOR	%EDI,%EDI;(103) 
+0x17047;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:127;CALL	2040 <@plt_start@+0x20>;(103) 
+0x1704c;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;MOVZX	0x16d9f(%RIP),%EDX;(103) 
+0x17053;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;CMP	%DL,0x2(%R15);(103) 
+0x17057;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;JNE	16fe6 <copy_y_face_+0x3c6>;(103) 
+0x17059;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;MOV	%RDI,0x10(%RSP);
+0x1705e;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;MOV	%ECX,0x20(%RSP);
+0x17062;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;MOV	%R9,0x18(%RSP);
+0x17067;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;MOV	%R8D,0x24(%RSP);
+0x1706c;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;MOV	%R11D,0x28(%RSP);
+0x17071;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;MOV	%R10D,0x2c(%RSP);
+0x17076;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;CALL	2060 <@plt_start@+0x40>;
+0x1707b;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;LEA	(%RAX),%R15D;
+0x1707e;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;CALL	2120 <@plt_start@+0x100>;
+0x17083;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;MOV	0x2c(%RSP),%R10D;
+0x17088;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;LEA	(%RAX),%R8D;
+0x1708b;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;MOV	0x24(%RSP),%EAX;
+0x1708f;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;MOV	0x28(%RSP),%R11D;
+0x17094;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;MOV	0x18(%RSP),%RCX;
+0x17099;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;MOVSXD	0x20(%RSP),%R9;
+0x1709e;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;MOV	%EAX,%EDX;
+0x170a0;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;SAR	$0x1f,%EDX;
+0x170a3;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;IDIV	%R15D;
+0x170a6;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;MOV	0x10(%RSP),%RDI;
+0x170ab;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;CMP	%EDX,%R8D;
+0x170ae;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;JL	17365 <copy_y_face_+0x745>;
+0x170b4;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;IMUL	%EAX,%R8D;
+0x170b8;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;ADD	%EDX,%R8D;
+0x170bb;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;ADD	%R8D,%EAX;
+0x170be;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;CMP	%EAX,%R8D;
+0x170c1;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;JGE	16fc5 <copy_y_face_+0x3a5>;
+0x170c7;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;IMUL	%R9,%R13;
+0x170cb;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;TEST	%R11D,%R11D;
+0x170ce;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	0x1(%R8),%R8D;
+0x170d2;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;JLE	16fc5 <copy_y_face_+0x3a5>;
+0x170d8;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;MOVSXD	%R8D,%RSI;
+0x170db;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	(%R12),%R9;
+0x170df;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;IMUL	%RSI,%R9;
+0x170e3;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	(,%RBX,8),%R15;
+0x170eb;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	-0x3(%R10),%R10D;
+0x170ef;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	0x30(%R14),%R14;
+0x170f3;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;IMUL	%RSI,%RBX;
+0x170f7;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	-0x1(%R10,%R10,4),%R11;
+0x170fc;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	(%R13,%R11,1),%R13;
+0x17101;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	0x1(%RAX),%ESI;
+0x17104;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;ADD	%RCX,%R9;
+0x17107;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	0x1(%R10),%RCX;
+0x1710b;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;ADD	%R13,%RBX;
+0x1710e;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	0x58(%RDI,%RBX,8),%RDI;
+0x17113;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;IMUL	$-0x28,%RCX,%RBX;
+0x17117;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;NOPW	(%RAX,%RAX,1);
+0x17120;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;MOV	%RBX,%R10;(105) 
+0x17123;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;MOV	$0xccccccccccccccd,%R11;(105) 
+0x1712d;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;NEG	%R10;(105) 
+0x17130;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	(%RBX),%RAX;(105) 
+0x17133;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;SUB	$0x28,%R10;(105) 
+0x17137;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;ADD	%RDI,%RAX;(105) 
+0x1713a;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;SHR	$0x3,%R10;(105) 
+0x1713e;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	(%R14,%R9,8),%RDX;(105) 
+0x17142;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;IMUL	%R11,%R10;(105) 
+0x17146;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;ADD	$0x1,%R10;(105) 
+0x1714a;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;AND	$0x7,%R10D;(105) 
+0x1714e;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;JE	17245 <copy_y_face_+0x625>;(105) 
+0x17154;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;CMP	$0x1,%R10;(105) 
+0x17158;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;JE	17222 <copy_y_face_+0x602>;(105) 
+0x1715e;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;CMP	$0x2,%R10;(105) 
+0x17162;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;JE	17207 <copy_y_face_+0x5e7>;(105) 
+0x17168;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;CMP	$0x3,%R10;(105) 
+0x1716c;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;JE	171ec <copy_y_face_+0x5cc>;(105) 
+0x1716e;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;CMP	$0x4,%R10;(105) 
+0x17172;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;JE	171d1 <copy_y_face_+0x5b1>;(105) 
+0x17174;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;CMP	$0x5,%R10;(105) 
+0x17178;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;JE	171b6 <copy_y_face_+0x596>;(105) 
+0x1717a;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;CMP	$0x6,%R10;(105) 
+0x1717e;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;JE	1719b <copy_y_face_+0x57b>;(105) 
+0x17180;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	(%RAX),%YMM2;(105) 
+0x17184;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	0x28(%RDX),%RDX;(105) 
+0x17188;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	0x20(%RAX),%XMM0;(105) 
+0x1718d;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	0x28(%RAX),%RAX;(105) 
+0x17191;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	%YMM2,-0x28(%RDX);(105) 
+0x17196;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	%XMM0,-0x8(%RDX);(105) 
+0x1719b;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	(%RAX),%YMM1;(105) 
+0x1719f;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	0x28(%RDX),%RDX;(105) 
+0x171a3;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	0x20(%RAX),%XMM3;(105) 
+0x171a8;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	0x28(%RAX),%RAX;(105) 
+0x171ac;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	%YMM1,-0x28(%RDX);(105) 
+0x171b1;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	%XMM3,-0x8(%RDX);(105) 
+0x171b6;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	(%RAX),%YMM4;(105) 
+0x171ba;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	0x28(%RDX),%RDX;(105) 
+0x171be;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	0x20(%RAX),%XMM5;(105) 
+0x171c3;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	0x28(%RAX),%RAX;(105) 
+0x171c7;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	%YMM4,-0x28(%RDX);(105) 
+0x171cc;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	%XMM5,-0x8(%RDX);(105) 
+0x171d1;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	(%RAX),%YMM6;(105) 
+0x171d5;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	0x28(%RDX),%RDX;(105) 
+0x171d9;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	0x20(%RAX),%XMM7;(105) 
+0x171de;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	0x28(%RAX),%RAX;(105) 
+0x171e2;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	%YMM6,-0x28(%RDX);(105) 
+0x171e7;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	%XMM7,-0x8(%RDX);(105) 
+0x171ec;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	(%RAX),%YMM8;(105) 
+0x171f0;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	0x28(%RDX),%RDX;(105) 
+0x171f4;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	0x20(%RAX),%XMM9;(105) 
+0x171f9;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	0x28(%RAX),%RAX;(105) 
+0x171fd;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	%YMM8,-0x28(%RDX);(105) 
+0x17202;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	%XMM9,-0x8(%RDX);(105) 
+0x17207;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	(%RAX),%YMM10;(105) 
+0x1720b;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	0x28(%RDX),%RDX;(105) 
+0x1720f;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	0x20(%RAX),%XMM11;(105) 
+0x17214;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	0x28(%RAX),%RAX;(105) 
+0x17218;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	%YMM10,-0x28(%RDX);(105) 
+0x1721d;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	%XMM11,-0x8(%RDX);(105) 
+0x17222;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	(%RAX),%YMM12;(105) 
+0x17226;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	0x28(%RAX),%RAX;(105) 
+0x1722a;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	-0x8(%RAX),%XMM13;(105) 
+0x1722f;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:118;CMP	%RDI,%RAX;(105) 
+0x17232;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	%YMM12,(%RDX);(105) 
+0x17236;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	0x28(%RDX),%RDX;(105) 
+0x1723a;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	%XMM13,-0x8(%RDX);(105) 
+0x1723f;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:118;JE	1732e <copy_y_face_+0x70e>;(105) 
+0x17245;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	(%RAX),%YMM14;  (104) 
+0x17249;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	0x140(%RAX),%RAX;  (104) 
+0x17250;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	-0x120(%RAX),%XMM15;  (104) 
+0x17258;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;LEA	0x140(%RDX),%RDX;  (104) 
+0x1725f;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	-0x118(%RAX),%YMM2;  (104) 
+0x17267;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	-0xf8(%RAX),%XMM0;  (104) 
+0x1726f;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	-0xf0(%RAX),%YMM1;  (104) 
+0x17277;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	-0xd0(%RAX),%XMM3;  (104) 
+0x1727f;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	-0xc8(%RAX),%YMM4;  (104) 
+0x17287;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	-0xa8(%RAX),%XMM5;  (104) 
+0x1728f;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	-0xa0(%RAX),%YMM6;  (104) 
+0x17297;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	-0x80(%RAX),%XMM7;  (104) 
+0x1729c;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	-0x78(%RAX),%YMM8;  (104) 
+0x172a1;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	-0x58(%RAX),%XMM9;  (104) 
+0x172a6;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	-0x50(%RAX),%YMM10;  (104) 
+0x172ab;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	-0x30(%RAX),%XMM11;  (104) 
+0x172b0;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	-0x28(%RAX),%YMM12;  (104) 
+0x172b5;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	-0x8(%RAX),%XMM13;  (104) 
+0x172ba;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:118;CMP	%RDI,%RAX;  (104) 
+0x172bd;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	%YMM14,-0x140(%RDX);  (104) 
+0x172c5;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	%XMM15,-0x120(%RDX);  (104) 
+0x172cd;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	%YMM2,-0x118(%RDX);  (104) 
+0x172d5;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	%XMM0,-0xf8(%RDX);  (104) 
+0x172dd;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	%YMM1,-0xf0(%RDX);  (104) 
+0x172e5;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	%XMM3,-0xd0(%RDX);  (104) 
+0x172ed;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	%YMM4,-0xc8(%RDX);  (104) 
+0x172f5;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	%XMM5,-0xa8(%RDX);  (104) 
+0x172fd;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	%YMM6,-0xa0(%RDX);  (104) 
+0x17305;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	%XMM7,-0x80(%RDX);  (104) 
+0x1730a;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	%YMM8,-0x78(%RDX);  (104) 
+0x1730f;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	%XMM9,-0x58(%RDX);  (104) 
+0x17314;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	%YMM10,-0x50(%RDX);  (104) 
+0x17319;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	%XMM11,-0x30(%RDX);  (104) 
+0x1731e;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVUPD	%YMM12,-0x28(%RDX);  (104) 
+0x17323;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:120;VMOVSD	%XMM13,-0x8(%RDX);  (104) 
+0x17328;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:118;JNE	17245 <copy_y_face_+0x625>;  (104) 
+0x1732e;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:118;LEA	0x1(%R8),%R8D;(105) 
+0x17332;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:118;LEA	(%R9,%R12,1),%R9;(105) 
+0x17336;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:118;CMP	%ESI,%R8D;(105) 
+0x17339;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:118;LEA	(%RDI,%R15,1),%RDI;(105) 
+0x1733d;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:118;JNE	17120 <copy_y_face_+0x500>;(105) 
+0x17343;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:118;JMP	16fc5 <copy_y_face_+0x3a5>;
+0x17348;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:118;LEA	0x1(%RAX),%EAX;
+0x1734b;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;XOR	%EDX,%EDX;
+0x1734d;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;IMUL	%EAX,%R8D;
+0x17351;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;ADD	%EDX,%R8D;
+0x17354;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;ADD	%R8D,%EAX;
+0x17357;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;CMP	%EAX,%R8D;
+0x1735a;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;JGE	16fc5 <copy_y_face_+0x3a5>;
+0x17360;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;JMP	16d19 <copy_y_face_+0xf9>;
+0x17365;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:105;LEA	0x1(%RAX),%EAX;
+0x17368;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;XOR	%EDX,%EDX;
+0x1736a;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;JMP	170b4 <copy_y_face_+0x494>;
+0x1736f;:0;NOP;

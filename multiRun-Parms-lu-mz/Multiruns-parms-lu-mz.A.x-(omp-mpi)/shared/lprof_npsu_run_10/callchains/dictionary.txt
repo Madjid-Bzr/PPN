@@ -1,0 +1,41 @@
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:125
+lu-mz.A.x
+GOMP_parallel - :0
+libgomp.so.1.0.0
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:132
+omp_in_final - :0
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94
+rhs - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/rhs.f90:47
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:115
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:71
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:91
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:135
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setiv.f90:49
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setiv.f90:47
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setiv.f90:46
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setiv.f90:44
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setiv.f90:48
+error_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/error.f90:45
+setbv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setbv.f90:50
+setbv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setbv.f90:34
+setbv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setbv.f90:53
+psiginfo - :0
+libc-2.31.so
+_IO_ungetc - :0
+__isoc99_sscanf - :0
+vscanf - :0
+unknown kernel region
+kernel
+__poll - :0
+omp_get_num_procs - :0
+__lll_lock_wait - :0
+libpthread-2.31.so
+rhs_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/rhs.f90:65
+jacu - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/jacu.f90:134
+__GI___pthread_mutex_unlock - :0
+erhs_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/erhs.f90:59
+rhs_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/rhs.f90:462
+MPL_shm_seg_remove - :0
+libmpich.so.12.1.8
+ngettext - :0

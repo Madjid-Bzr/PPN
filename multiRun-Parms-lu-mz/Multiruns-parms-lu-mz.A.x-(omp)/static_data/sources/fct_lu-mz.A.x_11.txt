@@ -1,0 +1,182 @@
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/lu.f90: 137 - 404
+--------------------------------------------------------------------------------
+
+137:       call init_omp(num_zones, proc_zone_id, proc_num_zones)
+138: 
+139:       nthreads = proc_num_threads(myid+1)
+140: !$    call omp_set_num_threads(nthreads)
+141: 
+142:       do i = 1, t_last
+143:          call timer_clear(i)
+144:       end do
+145: 
+146:       do iz = 1, proc_num_zones
+[...]
+153:      &             nx(zone), nxmax(zone), ny(zone), nz(zone))
+[...]
+159:      &             nx(zone), nxmax(zone), ny(zone), nz(zone))
+[...]
+165:      &            nx(zone), nxmax(zone), ny(zone), nz(zone))
+[...]
+173:      &           nx(zone), nxmax(zone), ny(zone), nz(zone))
+[...]
+185:      &                    a, b, c, d, au, bu, cu, du, tv)
+[...]
+191:      &              proc_zone_id, proc_num_zones)
+192: 
+193:       do iz = 1, proc_num_zones
+[...]
+200:      &            isync)
+[...]
+206:       do iz = 1, proc_num_zones
+207:         zone = proc_zone_id(iz)
+208: 
+209:         call setbv(u(start5(zone)),  &
+210:      &             nx(zone), nxmax(zone), ny(zone), nz(zone))
+211: 
+212:         call setiv(u(start5(zone)),  &
+213:      &             nx(zone), nxmax(zone), ny(zone), nz(zone))
+[...]
+221:      &           nx(zone), nxmax(zone), ny(zone), nz(zone))
+[...]
+229:       do i = 1, t_last
+230:          call timer_clear(i)
+231:       end do
+232: 
+233: !$omp barrier
+234:       call timer_start(1)
+235: 
+236: !---------------------------------------------------------------------
+237: !   the timestep loop
+238: !---------------------------------------------------------------------
+239:       do step = 1, itmax
+240: 
+241: !$omp master
+242:         if (mod(step,20) .eq. 0 .or. step .eq. 1 .or.  &
+243:      &        step .eq. itmax) then
+244:            write( *, 200) step
+[...]
+250:      &                proc_zone_id, proc_num_zones)
+[...]
+256:         do iz = 1, proc_num_zones
+[...]
+263:      &              isync)
+264:         end do
+265: 
+266:       end do
+267: 
+268: !$omp master
+269:       do i = 1, 5
+270:          rsdnm(i) = 0.d0
+271:          errnm(i) = 0.d0
+272:       end do
+273:       frc = 0.d0
+274: !$omp end master
+275: !$omp barrier
+276: 
+277: !---------------------------------------------------------------------
+278: !   compute the max-norms of newton iteration residuals
+279: !---------------------------------------------------------------------
+280:       if (timeron) call timer_start(t_l2norm)
+281:       do iz = 1, proc_num_zones
+282:         zone = proc_zone_id(iz)
+283:         call l2norm(rsd(start5(zone)), rsdnm_aux,  &
+284:      &              nx(zone), nxmax(zone), ny(zone), nz(zone))
+285:         do i = 1, 5
+286: !$omp atomic
+287:           rsdnm(i) = rsdnm(i) + rsdnm_aux(i)
+288:         end do
+289:       end do
+290: 
+291:       if (timeron) call timer_stop(t_l2norm)
+292: 
+293: !$omp barrier
+294:       call timer_stop(1)
+295:       tmax = timer_read(1)
+296: 
+297: !---------------------------------------------------------------------
+298: !   compute the solution error and surface integral
+299: !---------------------------------------------------------------------
+300:       do iz = 1, proc_num_zones
+301:         zone = proc_zone_id(iz)
+302:         call error(u(start5(zone)), errnm_aux,  &
+303:      &             nx(zone), nxmax(zone), ny(zone), nz(zone))
+304:         call pintgr(u(start5(zone)), phi1, phi2, frc_aux,  &
+305:      &              nx(zone), nxmax(zone), ny(zone), nz(zone))
+306:         do i = 1, 5
+307: !$omp atomic
+308:           errnm(i) = errnm(i) + errnm_aux(i)
+309:         end do
+310: !$omp atomic
+[...]
+318: !$omp barrier
+319: !$omp master
+320:       call verify ( rsdnm, errnm, frc, verified )
+321: 
+322: 
+323:       maxtime = tmax
+324:       mflops = 0.d0
+325: 
+326:       if (maxtime .ne. 0.d0) then
+327:         do zone = 1, num_zones
+328:           n3 = dble(nx(zone))*ny(zone)*nz(zone)
+329:           navg = (nx(zone) + ny(zone) + nz(zone))/3.d0
+330:           nsur = (nx(zone)*ny(zone) + nx(zone)*nz(zone) +  &
+331:      &            ny(zone)*nz(zone))/3.d0
+332:           mflops = mflops + float(itmax)*1.0d-6 *  &
+333:      &       (1984.77d0 * n3 - 10923.3d0 * nsur  &
+334:      &         + 27770.9d0 * navg - 144010.d0)  &
+335:      &       / maxtime
+[...]
+343:      &  '(none)')
+344: 
+345: !$omp end master
+346: !$omp barrier
+347: 
+348: !---------------------------------------------------------------------
+349: !      More timers
+350: !---------------------------------------------------------------------
+351:       if (.not.timeron) goto 999
+352: 
+353:       do i=1, t_last
+354:          trecs(i) = timer_read(i)
+355:       end do
+356:       tmax = maxtime
+357:       if (tmax .eq. 0.0) tmax = 1.0
+358: 
+359:       do i=1, t_last
+360: !$omp atomic
+361:          tsum(i) = tsum(i) + trecs(i)
+362: !$omp atomic
+363:          tming(i) = min(tming(i), trecs(i))
+364: !$omp atomic
+365:          tmaxg(i) = max(tmaxg(i), trecs(i))
+366:       end do
+367: !$omp barrier
+368: 
+369: !$omp master
+370: !$    write(*, 700) num_othreads
+371: !$    do i = 1, t_last
+372: !$       tsum(i) = tsum(i) / num_othreads
+373: !$       write(*, 710) i, t_names(i), tming(i), tmaxg(i), tsum(i)
+[...]
+380: !$    if (itimer .lt. 2) goto 999
+381: 
+382: !$omp barrier
+383: !$omp critical (ptime)
+384: !$    write(*,800) myid, nthreads
+385:  800  format(/' myid =',i5,'   num_ithreads =',i4)
+386:       write(*,805)
+387:  805  format('  SECTION   Time (secs)')
+388:       do i=1, t_last
+389:          write(*,810) t_names(i), trecs(i), trecs(i)*100./tmax
+390:          if (i.eq.t_rhs) then
+391:             t = trecs(t_rhsx) + trecs(t_rhsy) + trecs(t_rhsz)
+392:             write(*,820) 'sub-rhs', t, t*100./tmax
+393:             t = trecs(i) - t
+394:             write(*,820) 'rest-rhs', t, t*100./tmax
+395:          elseif (i.eq.t_rdis2) then
+396:             t = trecs(t_rdis1) + trecs(t_rdis2)
+397:             write(*,820) 'exch_qbc', t, t*100./tmax
+[...]
+404:  999  continue

@@ -1,0 +1,104 @@
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/ssor.f90: 37 - 150
+--------------------------------------------------------------------------------
+
+37: !$OMP PARALLEL DEFAULT(SHARED) PRIVATE(m,i,j,k,tmp,mthreadnum,iam)
+38: !$OMP MASTER
+39:       if (timeron) call timer_start(t_rhs)
+40: !$OMP END MASTER
+41:       do k = 2, nz-1
+42: !$OMP DO SCHEDULE(STATIC)
+43:          do j = 2, ny-1
+44:             do i = 2, nx-1
+45:                do m = 1, 5
+46:                   rsd(m,i,j,k) = dt * rsd(m,i,j,k)
+[...]
+52: !$OMP MASTER
+53:       if (timeron) call timer_stop(t_rhs)
+54: !$OMP END MASTER
+55: 
+56: 
+57:       call sync_init( problem_size, iam, mthreadnum, isync )
+58: !$OMP BARRIER
+59: 
+60: 
+61:       do k = 2, nz-1 
+62: !---------------------------------------------------------------------
+63: !   form the lower triangular part of the jacobian matrix
+64: !---------------------------------------------------------------------
+65: !$OMP MASTER
+66:          if (timeron) call timer_start(t_jacld)
+67: !$OMP END MASTER
+68: 
+69:          call jacld(k, u, rho_i, qs, a, b, c, d, nx, nxmax, ny, nz)
+70: 
+71: !$OMP MASTER
+72:          if (timeron) call timer_stop(t_jacld)
+73:  
+74: !---------------------------------------------------------------------
+75: !   perform the lower triangular solution
+76: !---------------------------------------------------------------------
+77:          if (timeron) call timer_start(t_blts)
+78: !$OMP END MASTER
+79: 
+80:          call sync_left( nxmax, ny, nz, rsd, iam, mthreadnum, isync )
+81: 
+82:          call blts( nx, nxmax, ny, nz, k, omega, rsd, a, b, c, d)
+83: 
+84:          call sync_right( nxmax, ny, nz, rsd, iam, mthreadnum, isync )
+85: 
+86: !$OMP MASTER
+87:          if (timeron) call timer_stop(t_blts)
+88: !$OMP END MASTER
+89:       end do
+90:  
+91: !$OMP BARRIER
+92: 
+93: 
+94:       do k = nz-1, 2, -1
+95: !---------------------------------------------------------------------
+96: !   form the strictly upper triangular part of the jacobian matrix
+97: !---------------------------------------------------------------------
+98: !$OMP MASTER
+99:          if (timeron) call timer_start(t_jacu)
+100: !$OMP END MASTER
+101: 
+102:          call jacu(k, u, rho_i, qs, au, bu, cu, du,  &
+103:      &             nx, nxmax, ny, nz)
+104: 
+105: !$OMP MASTER
+106:          if (timeron) call timer_stop(t_jacu)
+107: 
+108: !---------------------------------------------------------------------
+109: !   perform the upper triangular solution
+110: !---------------------------------------------------------------------
+111:          if (timeron) call timer_start(t_buts)
+112: !$OMP END MASTER
+113: 
+114:          call sync_left( nxmax, ny, nz, rsd, iam, mthreadnum, isync )
+115: 
+116:          call buts( nx, nxmax, ny, nz, k, omega, rsd, tv,  &
+117:      &              du, au, bu, cu)
+118: 
+119:          call sync_right( nxmax, ny, nz, rsd, iam, mthreadnum, isync )
+120: 
+121: !$OMP MASTER
+122:          if (timeron) call timer_stop(t_buts)
+123: !$OMP END MASTER
+124:       end do
+125: 
+126: !$OMP BARRIER
+[...]
+133:       tmp = 1.0d0 / ( omega * ( 2.0d0 - omega ) ) 
+134: 
+135: !$OMP MASTER
+136:       if (timeron) call timer_start(t_add)
+137: !$OMP END MASTER
+138:       do k = 2, nz-1
+139: !$OMP DO SCHEDULE(STATIC)
+140:          do j = 2, ny-1
+141:             do i = 2, nx-1
+142:                do m = 1, 5
+143:                   u(m,i,j,k) = u(m,i,j,k) + tmp * rsd(m,i,j,k)
+[...]
+149: !$OMP MASTER
+150:       if (timeron) call timer_stop(t_add)

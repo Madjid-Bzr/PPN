@@ -1,0 +1,148 @@
+********************************************************************************
+
+MAQAO 2.15.5 - 0b66882c33fcd95ef103e22d5fec6c0d2ff1b5e2::20220328-144625 || 2022/03/28
+
+maqao oneview -R1 -WS -xp=raportomp-6 -c=config.lua 
+
+CMD:   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/tools/lprof_npsu_run_0" --mpi-command=""   -- /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/binaries/lu-mz.A.x
+CMD:  OMP_NUM_THREADS=2   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/tools/lprof_npsu_run_1" --mpi-command=""   -- /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/binaries/lu-mz.A.x
+CMD:  OMP_NUM_THREADS=3   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/tools/lprof_npsu_run_2" --mpi-command=""   -- /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/binaries/lu-mz.A.x
+CMD:  OMP_NUM_THREADS=4   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/tools/lprof_npsu_run_3" --mpi-command=""   -- /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/binaries/lu-mz.A.x
+CMD:  OMP_NUM_THREADS=5   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/tools/lprof_npsu_run_4" --mpi-command=""   -- /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/binaries/lu-mz.A.x
+CMD:  OMP_NUM_THREADS=6   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/tools/lprof_npsu_run_5" --mpi-command=""   -- /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/binaries/lu-mz.A.x
+CMD:  OMP_NUM_THREADS=7   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/tools/lprof_npsu_run_6" --mpi-command=""   -- /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/binaries/lu-mz.A.x
+CMD:  OMP_NUM_THREADS=8   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/tools/lprof_npsu_run_7" --mpi-command=""   -- /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/binaries/lu-mz.A.x
+CMD:  OMP_NUM_THREADS=9   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/tools/lprof_npsu_run_8" --mpi-command=""   -- /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/binaries/lu-mz.A.x
+CMD:  OMP_NUM_THREADS=10   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/tools/lprof_npsu_run_9" --mpi-command=""   -- /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/binaries/lu-mz.A.x
+CMD:  OMP_NUM_THREADS=11   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/tools/lprof_npsu_run_10" --mpi-command=""   -- /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/binaries/lu-mz.A.x
+CMD:  OMP_NUM_THREADS=12   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/tools/lprof_npsu_run_11" --mpi-command=""   -- /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/binaries/lu-mz.A.x
+CMD:  OMP_NUM_THREADS=13   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/tools/lprof_npsu_run_12" --mpi-command=""   -- /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/binaries/lu-mz.A.x
+CMD:  OMP_NUM_THREADS=14   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/tools/lprof_npsu_run_13" --mpi-command=""   -- /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/binaries/lu-mz.A.x
+CMD:  OMP_NUM_THREADS=15   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/tools/lprof_npsu_run_14" --mpi-command=""   -- /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/binaries/lu-mz.A.x
+CMD:  OMP_NUM_THREADS=16   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/tools/lprof_npsu_run_15" --mpi-command=""   -- /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/binaries/lu-mz.A.x
+In run , 12 loops were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+8 functions were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+In run , 10 loops were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+4 functions were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+In run , 15 loops were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+In run , 15 loops were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+In run , 9 loops were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+1 functions were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+In run , 9 loops were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+In run , 12 loops were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+In run , 13 loops were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+In run , 12 loops were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+2 functions were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+In run , 11 loops were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+1 functions were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+In run , 8 loops were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+In run , 12 loops were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+In run , 13 loops were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+In run , 7 loops were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+In run , 11 loops were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+In run , 9 loops were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+

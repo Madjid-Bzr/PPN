@@ -1,0 +1,181 @@
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/exch_qbc.f90: 1 - 201
+--------------------------------------------------------------------------------
+
+1:        subroutine exch_qbc(u, qbc_ou, qbc_in, nx, nxmax, ny, nz,  &
+[...]
+22:        if (timeron) call timer_start(t_rdis1)
+23:        do iz = 1, proc_num_zones
+24:            zone_no = proc_zone_id(iz)
+25:            nnx    = nx(zone_no)
+26:            nnxmax = nxmax(zone_no)
+27:            nny    = ny(zone_no)
+28:            nnz    = nz(zone_no)
+29: 
+30:            if (north.eq.-1) then
+31:            call copy_x_face(u(start5(iz)),  &
+32:      &                      qbc_ou(qstart_west(zone_no)),  &
+33:      &                      nnx, nnxmax, nny, nnz, 2, 'out')
+34:            endif
+35: 
+36:            if (south.eq.-1) then
+37:            call copy_x_face(u(start5(iz)),  &
+38:      &                      qbc_ou(qstart_east(zone_no)),  &
+39:      &                      nnx, nnxmax, nny, nnz, nnx-1, 'out')
+[...]
+45:      &                      nnx, nnxmax, nny, nnz, 2, 'out')
+46: 
+47:            call copy_y_face(u(start5(iz)),  &
+48:      &                      qbc_ou(qstart_north(zone_no)),  &
+49:      &                      nnx, nnxmax, nny, nnz, nny-1, 'out')
+50: 
+51:        end do
+52:        if (timeron) call timer_stop(t_rdis1)
+53: 
+54: 
+55: !      exchange qbc buffers
+56:        if (timeron) call timer_start(t_rdis2)
+57: 
+58:        do ig = 1, num_procs
+59:           ip = pcomm_group(ig)
+60: 
+61:           if (mod(myid, 2).eq.0) then
+62:              iodd = 0
+63:              if (mod(ip, 2).eq.0 .and. myid .gt. ip) iodd = 1
+64:           else
+65:              iodd = 1
+66:              if (mod(ip, 2).eq.1 .and. myid .gt. ip) iodd = 0
+67:           endif
+68: 
+69:           if (ip .eq. 0) then
+70:              c_size = qcomm_size(ip+1)
+71:           else
+72:              c_size = qcomm_size(ip+1) - qcomm_size(ip)
+73:           endif
+74: 
+75:           nr = 0
+76:           if (c_size .gt. 0) then
+77:              num_msgs = c_size / MSG_SIZE
+78:              if (num_msgs .eq. 0) num_msgs = 1
+79:              m_size = (c_size + num_msgs - 1)/ num_msgs
+80: 
+81:              if (iprn_msg .gt. 1)  &
+82:      &          write(*,20) myid,ip,num_msgs,m_size
+83:    20        format(' myid,ip,msgs,msg_size:',2(1x,i6),2(1x,i10))
+84: 
+85:              qoffset = qcomm_size(ip+1) - c_size + 1
+86:              tag = MSG_TAG
+87:              do n = 1, num_msgs
+88: 
+89:                if (nr .ge. max_reqs) then
+90:                   call mpi_waitall(nr, requests, statuses, ierror)
+91:                   nr = 0
+92:                   tag = MSG_TAG
+93:                endif
+94: 
+95:                if (qoffset+m_size-1 .gt. qcomm_size(ip+1)) then
+96:                   m_size = qcomm_size(ip+1) - qoffset + 1
+97:                endif
+98: 
+99:                if (iodd .eq. 0) then
+100:                   call mpi_isend(qbc_ou(qoffset), m_size,  &
+101:      &                           dp_type, ip, tag+myid,  &
+102:      &                           comm_setup, requests(nr+1), ierror)
+103: 
+104:                   call mpi_irecv(qbc_in(qoffset), m_size,  &
+105:      &                           dp_type, ip, tag+ip,  &
+106:      &                           comm_setup, requests(nr+2), ierror)
+107:                else
+108:                   call mpi_irecv(qbc_in(qoffset), m_size,  &
+109:      &                           dp_type, ip, tag+ip,  &
+110:      &                           comm_setup, requests(nr+1), ierror)
+111: 
+112:                   call mpi_isend(qbc_ou(qoffset), m_size,  &
+113:      &                           dp_type, ip, tag+myid,  &
+114:      &                           comm_setup, requests(nr+2), ierror)
+115:                endif
+116: 
+117:                nr = nr + 2
+118:                qoffset = qoffset + m_size
+119:                tag = tag + num_procs
+120:              end do
+121:           else if (c_size .lt. 0) then
+122:              write(*,*) 'error: integer overflow', myid, ip, c_size
+123:              call error_cond(0, ' ')
+124:           endif
+125: 
+126:           if (nr .gt. 0) then
+127:              call mpi_waitall(nr, requests, statuses, ierror)
+128:           endif
+129: 
+130:        enddo
+131: 
+132:        if (timeron) call timer_stop(t_rdis2)
+133: 
+134: 
+135: !      copy data from qbc buffer
+136:        if (timeron) call timer_start(t_rdis1)
+137:        do iz = 1, proc_num_zones
+138:            zone_no = proc_zone_id(iz)
+139:            nnx    = nx(zone_no)
+140:            nnxmax = nxmax(zone_no)
+141:            nny    = ny(zone_no)
+142:            nnz    = nz(zone_no)
+143: 
+144:            ip_west   = zone_proc_id(iz_west(zone_no))*xdim + xdim - 1
+145:            ip_east   = zone_proc_id(iz_east(zone_no))*xdim
+146:            ip_south  = zone_proc_id(iz_south(zone_no))*xdim + row
+147:            ip_north  = zone_proc_id(iz_north(zone_no))*xdim + row
+148: 
+149:            if (north .eq. -1) then
+150:            if (ip_west .ne. myid) then
+151:                call copy_x_face(u(start5(iz)),  &
+152:      &                      qbc_in(qstart2_west(zone_no)),  &
+153:      &                      nnx, nnxmax, nny, nnz, 1, 'in')
+154:            else
+155:                izone_west = iz_west(zone_no)
+156:                call copy_x_face(u(start5(iz)),  &
+157:      &                      qbc_ou(qstart_east(izone_west)),  &
+158:      &                      nnx, nnxmax, nny, nnz, 1, 'in')
+159:            endif
+160:            endif
+161: 
+162:            if (south .eq. -1) then
+163:            if (ip_east .ne. myid) then
+164:                call copy_x_face(u(start5(iz)),  &
+165:      &                      qbc_in(qstart2_east(zone_no)),  &
+166:      &                      nnx, nnxmax, nny, nnz, nnx, 'in')
+167:            else
+168:                izone_east = iz_east(zone_no)
+169:                call copy_x_face(u(start5(iz)),  &
+170:      &                      qbc_ou(qstart_west(izone_east)),  &
+171:      &                      nnx, nnxmax, nny, nnz, nnx, 'in')
+172:            endif
+173:            endif
+174: 
+175:            if (ip_south .ne. myid) then
+176:                call copy_y_face(u(start5(iz)),  &
+177:      &                      qbc_in(qstart2_south(zone_no)),  &
+178:      &                      nnx, nnxmax, nny, nnz, 1, 'in')
+179:            else
+180:                jzone_south = iz_south(zone_no)
+181:                call copy_y_face(u(start5(iz)),  &
+182:      &                      qbc_ou(qstart_north(jzone_south)),  &
+183:      &                      nnx, nnxmax, nny, nnz, 1, 'in')
+184:            endif
+185: 
+186:            if (ip_north .ne. myid) then
+187:                call copy_y_face(u(start5(iz)),  &
+188:      &                      qbc_in(qstart2_north(zone_no)),  &
+189:      &                      nnx, nnxmax, nny, nnz, nny, 'in')
+190:            else
+191:                jzone_north = iz_north(zone_no)
+192:                call copy_y_face(u(start5(iz)),  &
+193:      &                      qbc_ou(qstart_south(jzone_north)),  &
+194:      &                      nnx, nnxmax, nny, nnz, nny, 'in')
+195:            endif
+196: 
+197:        end do
+198:        if (timeron) call timer_stop(t_rdis1)
+199: 
+200:        return
+201:        end

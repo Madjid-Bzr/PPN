@@ -1,0 +1,304 @@
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/erhs.f90: 41 - 454
+--------------------------------------------------------------------------------
+
+41: !$OMP& u21,xi,eta,zeta,m,i,j,k)
+42:       do k = 1, nz
+43: !$OMP DO SCHEDULE(STATIC)
+44:          do j = 1, ny
+45:             do i = 1, nx
+46:                do m = 1, 5
+47:                   frct( m, i, j, k ) = 0.0d+00
+[...]
+54:       do k = 1, nz
+55:          zeta = ( dble(k-1) ) / ( nz - 1 )
+56: !$OMP DO SCHEDULE(STATIC)
+57:          do j = 1, ny
+58:             eta = ( dble(j-1) ) / ( ny - 1 )
+59:             do i = 1, nx
+60:                xi = ( dble(i-1) ) / ( nx - 1 )
+[...]
+74:      &                 +  ce(m,13) * zeta) * zeta) * zeta) * zeta
+[...]
+80: !$OMP BARRIER
+[...]
+86:       do k = 2, nz - 1
+87: !$OMP DO SCHEDULE(STATIC)
+88:          do j = 2, ny-1
+89:             do i = 1, nx
+90:                flux(1,i) = rsd(2,i,j,k)
+91:                u21 = rsd(2,i,j,k) / rsd(1,i,j,k)
+92:                q = 0.50d+00 * (  rsd(2,i,j,k) * rsd(2,i,j,k)  &
+93:      &                         + rsd(3,i,j,k) * rsd(3,i,j,k)  &
+94:      &                         + rsd(4,i,j,k) * rsd(4,i,j,k) )  &
+95:      &                      / rsd(1,i,j,k)
+96:                flux(2,i) = rsd(2,i,j,k) * u21 + c2 *  &
+97:      &                         ( rsd(5,i,j,k) - q )
+98:                flux(3,i) = rsd(3,i,j,k) * u21
+99:                flux(4,i) = rsd(4,i,j,k) * u21
+100:                flux(5,i) = ( c1 * rsd(5,i,j,k) - c2 * q ) * u21
+101:             end do
+102: 
+103:             do i = 2, nx-1
+104:                do m = 1, 5
+105:                   frct(m,i,j,k) =  frct(m,i,j,k)  &
+106:      &                   - tx2 * ( flux(m,i+1) - flux(m,i-1) )
+107:                end do
+108:             end do
+109:             do i = 2, nx
+110:                tmp = 1.0d+00 / rsd(1,i,j,k)
+111: 
+112:                u21i = tmp * rsd(2,i,j,k)
+113:                u31i = tmp * rsd(3,i,j,k)
+114:                u41i = tmp * rsd(4,i,j,k)
+115:                u51i = tmp * rsd(5,i,j,k)
+116: 
+117:                tmp = 1.0d+00 / rsd(1,i-1,j,k)
+118: 
+119:                u21im1 = tmp * rsd(2,i-1,j,k)
+120:                u31im1 = tmp * rsd(3,i-1,j,k)
+121:                u41im1 = tmp * rsd(4,i-1,j,k)
+122:                u51im1 = tmp * rsd(5,i-1,j,k)
+123: 
+124:                flux(2,i) = (4.0d+00/3.0d+00) * tx3 *  &
+125:      &                        ( u21i - u21im1 )
+126:                flux(3,i) = tx3 * ( u31i - u31im1 )
+127:                flux(4,i) = tx3 * ( u41i - u41im1 )
+[...]
+133:      &              + c1 * c5 * tx3 * ( u51i - u51im1 )
+134:             end do
+135: 
+136:             do i = 2, nx-1
+137:                frct(1,i,j,k) = frct(1,i,j,k)  &
+138:      &              + dx1 * tx1 * (            rsd(1,i-1,j,k)  &
+139:      &                             - 2.0d+00 * rsd(1,i,j,k)  &
+140:      &                             +           rsd(1,i+1,j,k) )
+141:                frct(2,i,j,k) = frct(2,i,j,k)  &
+142:      &           + tx3 * c3 * c4 * ( flux(2,i+1) - flux(2,i) )  &
+143:      &              + dx2 * tx1 * (            rsd(2,i-1,j,k)  &
+144:      &                             - 2.0d+00 * rsd(2,i,j,k)  &
+145:      &                             +           rsd(2,i+1,j,k) )
+146:                frct(3,i,j,k) = frct(3,i,j,k)  &
+147:      &           + tx3 * c3 * c4 * ( flux(3,i+1) - flux(3,i) )  &
+148:      &              + dx3 * tx1 * (            rsd(3,i-1,j,k)  &
+149:      &                             - 2.0d+00 * rsd(3,i,j,k)  &
+150:      &                             +           rsd(3,i+1,j,k) )
+151:                frct(4,i,j,k) = frct(4,i,j,k)  &
+152:      &            + tx3 * c3 * c4 * ( flux(4,i+1) - flux(4,i) )  &
+153:      &              + dx4 * tx1 * (            rsd(4,i-1,j,k)  &
+154:      &                             - 2.0d+00 * rsd(4,i,j,k)  &
+155:      &                             +           rsd(4,i+1,j,k) )
+156:                frct(5,i,j,k) = frct(5,i,j,k)  &
+157:      &           + tx3 * c3 * c4 * ( flux(5,i+1) - flux(5,i) )  &
+158:      &              + dx5 * tx1 * (            rsd(5,i-1,j,k)  &
+159:      &                             - 2.0d+00 * rsd(5,i,j,k)  &
+160:      &                             +           rsd(5,i+1,j,k) )
+[...]
+170:      &                       +           rsd(m,4,j,k) )
+171:                frct(m,3,j,k) = frct(m,3,j,k)  &
+172:      &           - dssp * ( - 4.0d+00 * rsd(m,2,j,k)  &
+173:      &                       + 6.0d+00 * rsd(m,3,j,k)  &
+174:      &                       - 4.0d+00 * rsd(m,4,j,k)  &
+175:      &                       +           rsd(m,5,j,k) )
+176:             end do
+177: 
+178:             do i = 4, nx - 3
+[...]
+185:      &                         +           rsd(m,i+2,j,k) )
+[...]
+194:      &                       - 4.0d+00 * rsd(m,nx-1,j,k)  )
+195:                frct(m,nx-1,j,k) = frct(m,nx-1,j,k)  &
+196:      &           - dssp * (             rsd(m,nx-3,j,k)  &
+197:      &                       - 4.0d+00 * rsd(m,nx-2,j,k)  &
+198:      &                       + 5.0d+00 * rsd(m,nx-1,j,k) )
+[...]
+204: !$OMP BARRIER
+[...]
+210: !$OMP DO SCHEDULE(STATIC)
+211:       do k = 2, nz - 1
+212:          do i = 2, nx-1
+213:             do j = 1, ny
+214:                flux(1,j) = rsd(3,i,j,k)
+215:                u31 = rsd(3,i,j,k) / rsd(1,i,j,k)
+216:                q = 0.50d+00 * (  rsd(2,i,j,k) * rsd(2,i,j,k)  &
+217:      &                         + rsd(3,i,j,k) * rsd(3,i,j,k)  &
+218:      &                         + rsd(4,i,j,k) * rsd(4,i,j,k) )  &
+219:      &                      / rsd(1,i,j,k)
+220:                flux(2,j) = rsd(2,i,j,k) * u31 
+221:                flux(3,j) = rsd(3,i,j,k) * u31 + c2 *  &
+222:      &                       ( rsd(5,i,j,k) - q )
+223:                flux(4,j) = rsd(4,i,j,k) * u31
+224:                flux(5,j) = ( c1 * rsd(5,i,j,k) - c2 * q ) * u31
+225:             end do
+226: 
+227:             do j = 2, ny-1
+228:                do m = 1, 5
+229:                   frct(m,i,j,k) =  frct(m,i,j,k)  &
+230:      &                 - ty2 * ( flux(m,j+1) - flux(m,j-1) )
+231:                end do
+232:             end do
+233: 
+234:             do j = 2, ny
+235:                tmp = 1.0d+00 / rsd(1,i,j,k)
+236: 
+237:                u21j = tmp * rsd(2,i,j,k)
+238:                u31j = tmp * rsd(3,i,j,k)
+239:                u41j = tmp * rsd(4,i,j,k)
+240:                u51j = tmp * rsd(5,i,j,k)
+241: 
+242:                tmp = 1.0d+00 / rsd(1,i,j-1,k)
+243: 
+244:                u21jm1 = tmp * rsd(2,i,j-1,k)
+245:                u31jm1 = tmp * rsd(3,i,j-1,k)
+246:                u41jm1 = tmp * rsd(4,i,j-1,k)
+247:                u51jm1 = tmp * rsd(5,i,j-1,k)
+248: 
+249:                flux(2,j) = ty3 * ( u21j - u21jm1 )
+250:                flux(3,j) = (4.0d+00/3.0d+00) * ty3 *  &
+251:      &                       ( u31j - u31jm1 )
+252:                flux(4,j) = ty3 * ( u41j - u41jm1 )
+[...]
+258:      &              + c1 * c5 * ty3 * ( u51j - u51jm1 )
+259:             end do
+260: 
+261:             do j = 2, ny-1
+262:                frct(1,i,j,k) = frct(1,i,j,k)  &
+263:      &              + dy1 * ty1 * (            rsd(1,i,j-1,k)  &
+264:      &                             - 2.0d+00 * rsd(1,i,j,k)  &
+265:      &                             +           rsd(1,i,j+1,k) )
+266:                frct(2,i,j,k) = frct(2,i,j,k)  &
+267:      &          + ty3 * c3 * c4 * ( flux(2,j+1) - flux(2,j) )  &
+268:      &              + dy2 * ty1 * (            rsd(2,i,j-1,k)  &
+269:      &                             - 2.0d+00 * rsd(2,i,j,k)  &
+270:      &                             +           rsd(2,i,j+1,k) )
+271:                frct(3,i,j,k) = frct(3,i,j,k)  &
+272:      &          + ty3 * c3 * c4 * ( flux(3,j+1) - flux(3,j) )  &
+273:      &              + dy3 * ty1 * (            rsd(3,i,j-1,k)  &
+274:      &                             - 2.0d+00 * rsd(3,i,j,k)  &
+275:      &                             +           rsd(3,i,j+1,k) )
+276:                frct(4,i,j,k) = frct(4,i,j,k)  &
+277:      &          + ty3 * c3 * c4 * ( flux(4,j+1) - flux(4,j) )  &
+278:      &              + dy4 * ty1 * (            rsd(4,i,j-1,k)  &
+279:      &                             - 2.0d+00 * rsd(4,i,j,k)  &
+280:      &                             +           rsd(4,i,j+1,k) )
+281:                frct(5,i,j,k) = frct(5,i,j,k)  &
+282:      &          + ty3 * c3 * c4 * ( flux(5,j+1) - flux(5,j) )  &
+283:      &              + dy5 * ty1 * (            rsd(5,i,j-1,k)  &
+284:      &                             - 2.0d+00 * rsd(5,i,j,k)  &
+285:      &                             +           rsd(5,i,j+1,k) )
+[...]
+295:      &                       +           rsd(m,i,4,k) )
+296:                frct(m,i,3,k) = frct(m,i,3,k)  &
+297:      &           - dssp * ( - 4.0d+00 * rsd(m,i,2,k)  &
+298:      &                       + 6.0d+00 * rsd(m,i,3,k)  &
+299:      &                       - 4.0d+00 * rsd(m,i,4,k)  &
+300:      &                       +           rsd(m,i,5,k) )
+301:             end do
+302: 
+303:             do j = 4, ny - 3
+[...]
+310:      &                        +           rsd(m,i,j+2,k) )
+[...]
+319:      &                       - 4.0d+00 * rsd(m,i,ny-1,k)  )
+320:                frct(m,i,ny-1,k) = frct(m,i,ny-1,k)  &
+321:      &           - dssp * (             rsd(m,i,ny-3,k)  &
+322:      &                       - 4.0d+00 * rsd(m,i,ny-2,k)  &
+323:      &                       + 5.0d+00 * rsd(m,i,ny-1,k)  )
+[...]
+333: !$OMP DO SCHEDULE(STATIC)
+334:       do j = 2, ny-1
+335:          do i = 2, nx-1
+336:             do k = 1, nz
+337:                rtmp(1,k) = rsd(1,i,j,k)
+338:                rtmp(2,k) = rsd(2,i,j,k)
+339:                rtmp(3,k) = rsd(3,i,j,k)
+340:                rtmp(4,k) = rsd(4,i,j,k)
+341:                rtmp(5,k) = rsd(5,i,j,k)
+342:             end do
+343: 
+344:             do k = 1, nz
+345:                flux(1,k) = rtmp(4,k)
+346:                u41 = rtmp(4,k) / rtmp(1,k)
+347:                q = 0.50d+00 * (  rtmp(2,k) * rtmp(2,k)  &
+348:      &                         + rtmp(3,k) * rtmp(3,k)  &
+349:      &                         + rtmp(4,k) * rtmp(4,k) )  &
+350:      &                      / rtmp(1,k)
+351:                flux(2,k) = rtmp(2,k) * u41 
+352:                flux(3,k) = rtmp(3,k) * u41 
+353:                flux(4,k) = rtmp(4,k) * u41 + c2 *  &
+354:      &                         ( rtmp(5,k) - q )
+355:                flux(5,k) = ( c1 * rtmp(5,k) - c2 * q ) * u41
+356:             end do
+357: 
+358:             do k = 2, nz - 1
+359:                do m = 1, 5
+360:                   utmp(m,k) =  frct(m,i,j,k)  &
+361:      &                  - tz2 * ( flux(m,k+1) - flux(m,k-1) )
+362:                end do
+363:             end do
+364: 
+365:             do k = 2, nz
+366:                tmp = 1.0d+00 / rtmp(1,k)
+367: 
+368:                u21k = tmp * rtmp(2,k)
+369:                u31k = tmp * rtmp(3,k)
+370:                u41k = tmp * rtmp(4,k)
+371:                u51k = tmp * rtmp(5,k)
+372: 
+373:                tmp = 1.0d+00 / rtmp(1,k-1)
+374: 
+375:                u21km1 = tmp * rtmp(2,k-1)
+376:                u31km1 = tmp * rtmp(3,k-1)
+377:                u41km1 = tmp * rtmp(4,k-1)
+378:                u51km1 = tmp * rtmp(5,k-1)
+379: 
+380:                flux(2,k) = tz3 * ( u21k - u21km1 )
+381:                flux(3,k) = tz3 * ( u31k - u31km1 )
+382:                flux(4,k) = (4.0d+00/3.0d+00) * tz3 * ( u41k  &
+383:      &                       - u41km1 )
+[...]
+389:      &              + c1 * c5 * tz3 * ( u51k - u51km1 )
+390:             end do
+391: 
+392:             do k = 2, nz - 1
+393:                utmp(1,k) = utmp(1,k)  &
+394:      &              + dz1 * tz1 * (            rtmp(1,k+1)  &
+395:      &                             - 2.0d+00 * rtmp(1,k)  &
+396:      &                             +           rtmp(1,k-1) )
+397:                utmp(2,k) = utmp(2,k)  &
+398:      &          + tz3 * c3 * c4 * ( flux(2,k+1) - flux(2,k) )  &
+399:      &              + dz2 * tz1 * (            rtmp(2,k+1)  &
+400:      &                             - 2.0d+00 * rtmp(2,k)  &
+401:      &                             +           rtmp(2,k-1) )
+402:                utmp(3,k) = utmp(3,k)  &
+403:      &          + tz3 * c3 * c4 * ( flux(3,k+1) - flux(3,k) )  &
+404:      &              + dz3 * tz1 * (            rtmp(3,k+1)  &
+405:      &                             - 2.0d+00 * rtmp(3,k)  &
+406:      &                             +           rtmp(3,k-1) )
+407:                utmp(4,k) = utmp(4,k)  &
+408:      &          + tz3 * c3 * c4 * ( flux(4,k+1) - flux(4,k) )  &
+409:      &              + dz4 * tz1 * (            rtmp(4,k+1)  &
+410:      &                             - 2.0d+00 * rtmp(4,k)  &
+411:      &                             +           rtmp(4,k-1) )
+412:                utmp(5,k) = utmp(5,k)  &
+413:      &          + tz3 * c3 * c4 * ( flux(5,k+1) - flux(5,k) )  &
+414:      &              + dz5 * tz1 * (            rtmp(5,k+1)  &
+415:      &                             - 2.0d+00 * rtmp(5,k)  &
+416:      &                             +           rtmp(5,k-1) )
+[...]
+426:      &                       +           rtmp(m,4) )
+427:                frct(m,i,j,3) = utmp(m,3)  &
+428:      &           - dssp * (- 4.0d+00 * rtmp(m,2)  &
+429:      &                      + 6.0d+00 * rtmp(m,3)  &
+430:      &                      - 4.0d+00 * rtmp(m,4)  &
+431:      &                      +           rtmp(m,5) )
+432:             end do
+433: 
+434:             do k = 4, nz - 3
+[...]
+441:      &                        +           rtmp(m,k+2) )
+[...]
+450:      &                      - 4.0d+00 * rtmp(m,nz-1)  )
+451:                frct(m,i,j,nz-1) = utmp(m,nz-1)  &
+452:      &           - dssp * (             rtmp(m,nz-3)  &
+453:      &                       - 4.0d+00 * rtmp(m,nz-2)  &
+454:      &                       + 5.0d+00 * rtmp(m,nz-1)  )

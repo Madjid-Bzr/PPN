@@ -1,0 +1,1 @@
+maqao oneview -R1 -WS -xp=raportomp-6 -c=config.lua 

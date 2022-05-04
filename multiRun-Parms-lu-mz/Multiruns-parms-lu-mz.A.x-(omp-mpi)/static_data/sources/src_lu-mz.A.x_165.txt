@@ -1,0 +1,23 @@
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/rhs.f90: 110 - 133
+--------------------------------------------------------------------------------
+
+110:             do i = ist, L2
+111:                tmp = rho_i(i,j,k)
+112: 
+113:                u21i = tmp * u(2,i,j,k)
+114:                u31i = tmp * u(3,i,j,k)
+115:                u41i = tmp * u(4,i,j,k)
+116:                u51i = tmp * u(5,i,j,k)
+117: 
+118:                tmp = rho_i(i-1,j,k)
+119: 
+120:                u21im1 = tmp * u(2,i-1,j,k)
+121:                u31im1 = tmp * u(3,i-1,j,k)
+122:                u41im1 = tmp * u(4,i-1,j,k)
+123:                u51im1 = tmp * u(5,i-1,j,k)
+124: 
+125:                flux(2,i) = (4.0d+00/3.0d+00) * tx3 * (u21i-u21im1)
+126:                flux(3,i) = tx3 * ( u31i - u31im1 )
+127:                flux(4,i) = tx3 * ( u41i - u41im1 )
+[...]
+133:      &              + c1 * c5 * tx3 * ( u51i - u51im1 )

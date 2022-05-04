@@ -1,0 +1,16 @@
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/syncs.f90: 74 - 108
+--------------------------------------------------------------------------------
+
+74:       subroutine sync_right( nxmax, ny, nz, v,  &
+[...]
+94: !$omp flush(isync,v)
+95:       if (iam .lt. mthreadnum) then
+96: !$omp atomic read
+97:          iv = isync(iam)
+98:          do while (iv .eq. 1)
+99: !$omp atomic read
+100:             iv = isync(iam)
+101:          end do
+102: !$omp atomic write
+[...]
+108:       end

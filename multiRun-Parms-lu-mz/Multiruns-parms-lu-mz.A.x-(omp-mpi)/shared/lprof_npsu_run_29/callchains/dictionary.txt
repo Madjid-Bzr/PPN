@@ -1,0 +1,42 @@
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:125
+lu-mz.A.x
+GOMP_parallel - :0
+libgomp.so.1.0.0
+main - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/lu.f90:60
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setiv.f90:46
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setiv.f90:47
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setiv.f90:44
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setiv.f90:48
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setiv.f90:49
+error_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/error.f90:45
+setbv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setbv.f90:68
+setbv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setbv.f90:34
+psiginfo - :0
+libc-2.31.so
+_IO_ungetc - :0
+vscanf - :0
+__isoc99_sscanf - :0
+__isoc99_fscanf - :0
+MPL_shm_seg_remove - :0
+libmpich.so.12.1.8
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:135
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:71
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:91
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:115
+unknown kernel region
+kernel
+omp_get_num_procs - :0
+mpirinitf_ - :0
+erhs_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/erhs.f90:86
+blts - /home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/blts.f90:147
+buts - /home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:206
+jacu - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/jacu.f90:134
+jacld - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/jacld.f90:55
+exact - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/exact.f90:48
+__read - :0
+blts - /home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/blts.f90:174
+setlocale - :0
+MPIR_Dup_fn - :0
+buts - /home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:221
+jacld - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/jacld.f90:121
+setlinebuf - :0

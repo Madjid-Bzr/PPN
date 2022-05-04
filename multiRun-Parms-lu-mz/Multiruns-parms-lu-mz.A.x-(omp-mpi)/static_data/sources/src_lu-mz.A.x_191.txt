@@ -1,0 +1,6 @@
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/syncs.f90: 75 - 77
+--------------------------------------------------------------------------------
+
+75: !$omp atomic read
+76:          iv = isync(neigh)
+77:          do while (iv .eq. 0)

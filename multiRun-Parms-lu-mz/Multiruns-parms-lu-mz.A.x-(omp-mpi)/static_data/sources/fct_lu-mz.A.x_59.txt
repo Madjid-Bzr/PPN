@@ -1,0 +1,70 @@
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/exchange_3.f90: 5 - 171
+--------------------------------------------------------------------------------
+
+5:       subroutine exchange_3(g, nx, nxmax, ny, nz)
+[...]
+35:       if (timeron) call timer_start(t_exch)
+36: 
+37: !---------------------------------------------------------------------
+38: !   communicate in the south and north directions
+39: !---------------------------------------------------------------------
+40:       if (north.ne.-1) then
+[...]
+48:      &                    IERROR )
+[...]
+54:       if (south.ne.-1) then
+55:           do k = 1,nz
+56:             do j = 1,ny
+57:               ipos = (k-1)*ny + j
+58:               buf(1,1,ipos) = g(1,nx-1,j,k) 
+[...]
+66:               buf(4,2,ipos) = g(4,nx,j,k)
+67:               buf(5,2,ipos) = g(5,nx,j,k)
+[...]
+77:      &                   IERROR )
+[...]
+83:       if (north.ne.-1) then
+84:           call MPI_WAIT( mid, STATUS, IERROR )
+85: 
+86:           do k = 1,nz
+87:             do j = 1,ny
+88:               ipos = (k-1)*ny + j
+89:               g(1,-1,j,k) = buf1(1,1,ipos)
+[...]
+97:               g(4, 0,j,k) = buf1(4,2,ipos)
+98:               g(5, 0,j,k) = buf1(5,2,ipos)
+[...]
+104:       if (south.ne.-1) then
+[...]
+112:      &                    IERROR )
+[...]
+118:       if (north.ne.-1) then
+119:           do k = 1,nz
+120:             do j = 1,ny
+121:               ipos = (k-1)*ny + j
+122:               buf(1,1,ipos) = g(1,1,j,k)
+[...]
+130:               buf(4,2,ipos) = g(4,2,j,k)
+131:               buf(5,2,ipos) = g(5,2,j,k)
+[...]
+141:      &                   IERROR )
+[...]
+147:       if (south.ne.-1) then
+148:           call MPI_WAIT( mid, STATUS, IERROR )
+149: 
+150:           do k = 1,nz
+151:             do j = 1,ny
+152:               ipos = (k-1)*ny + j
+153:               g(1,nx+1,j,k) = buf1(1,1,ipos)
+[...]
+161:               g(4,nx+2,j,k) = buf1(4,2,ipos)
+162:               g(5,nx+2,j,k) = buf1(5,2,ipos)
+163:             end do
+164:           end do
+165:       end if
+166: 
+167:       if (timeron) call timer_stop(t_exch)
+168: 
+169: 
+170:       return
+171:       end     

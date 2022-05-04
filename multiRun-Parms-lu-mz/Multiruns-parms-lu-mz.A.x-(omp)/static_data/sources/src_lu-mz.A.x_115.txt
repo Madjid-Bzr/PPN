@@ -1,0 +1,101 @@
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/rhs.f90: 186 - 454
+--------------------------------------------------------------------------------
+
+186: !$OMP BARRIER
+[...]
+241:                flux(2,j) = ty3 * ( u21j - u21jm1 )
+[...]
+337:          do i = 2, nx-1
+338:             do k = 1, nz
+339:                utmp(1,k) = u(1,i,j,k)
+340:                utmp(2,k) = u(2,i,j,k)
+341:                utmp(3,k) = u(3,i,j,k)
+342:                utmp(4,k) = u(4,i,j,k)
+343:                utmp(5,k) = u(5,i,j,k)
+344:                utmp(6,k) = rho_i(i,j,k)
+345:             end do
+346: 
+347:             do k = 1, nz
+348:                flux(1,k) = utmp(4,k)
+349:                u41 = utmp(4,k) * utmp(6,k)
+350: 
+351:                q = qs(i,j,k)
+352: 
+353:                flux(2,k) = utmp(2,k) * u41 
+354:                flux(3,k) = utmp(3,k) * u41 
+355:                flux(4,k) = utmp(4,k) * u41 + c2 * (utmp(5,k)-q)
+356:                flux(5,k) = ( c1 * utmp(5,k) - c2 * q ) * u41
+357:             end do
+358: 
+359:             do k = 2, nz - 1
+360:                do m = 1, 5
+361:                   rtmp(m,k) =  rsd(m,i,j,k)  &
+362:      &                - tz2 * ( flux(m,k+1) - flux(m,k-1) )
+363:                end do
+364:             end do
+365: 
+366:             do k = 2, nz
+367:                tmp = utmp(6,k)
+368: 
+369:                u21k = tmp * utmp(2,k)
+370:                u31k = tmp * utmp(3,k)
+371:                u41k = tmp * utmp(4,k)
+372:                u51k = tmp * utmp(5,k)
+373: 
+374:                tmp = utmp(6,k-1)
+375: 
+376:                u21km1 = tmp * utmp(2,k-1)
+377:                u31km1 = tmp * utmp(3,k-1)
+378:                u41km1 = tmp * utmp(4,k-1)
+379:                u51km1 = tmp * utmp(5,k-1)
+380: 
+381:                flux(2,k) = tz3 * ( u21k - u21km1 )
+382:                flux(3,k) = tz3 * ( u31k - u31km1 )
+383:                flux(4,k) = (4.0d+00/3.0d+00) * tz3 * (u41k-u41km1)
+[...]
+389:      &              + c1 * c5 * tz3 * ( u51k - u51km1 )
+390:             end do
+391: 
+392:             do k = 2, nz - 1
+393:                rtmp(1,k) = rtmp(1,k)  &
+394:      &              + dz1 * tz1 * (            utmp(1,k-1)  &
+395:      &                             - 2.0d+00 * utmp(1,k)  &
+396:      &                             +           utmp(1,k+1) )
+397:                rtmp(2,k) = rtmp(2,k)  &
+398:      &          + tz3 * c3 * c4 * ( flux(2,k+1) - flux(2,k) )  &
+399:      &              + dz2 * tz1 * (            utmp(2,k-1)  &
+400:      &                             - 2.0d+00 * utmp(2,k)  &
+401:      &                             +           utmp(2,k+1) )
+402:                rtmp(3,k) = rtmp(3,k)  &
+403:      &          + tz3 * c3 * c4 * ( flux(3,k+1) - flux(3,k) )  &
+404:      &              + dz3 * tz1 * (            utmp(3,k-1)  &
+405:      &                             - 2.0d+00 * utmp(3,k)  &
+406:      &                             +           utmp(3,k+1) )
+407:                rtmp(4,k) = rtmp(4,k)  &
+408:      &          + tz3 * c3 * c4 * ( flux(4,k+1) - flux(4,k) )  &
+409:      &              + dz4 * tz1 * (            utmp(4,k-1)  &
+410:      &                             - 2.0d+00 * utmp(4,k)  &
+411:      &                             +           utmp(4,k+1) )
+412:                rtmp(5,k) = rtmp(5,k)  &
+413:      &          + tz3 * c3 * c4 * ( flux(5,k+1) - flux(5,k) )  &
+414:      &              + dz5 * tz1 * (            utmp(5,k-1)  &
+415:      &                             - 2.0d+00 * utmp(5,k)  &
+416:      &                             +           utmp(5,k+1) )
+[...]
+426:      &                      +           utmp(m,4) )
+427:                rsd(m,i,j,3) = rtmp(m,3)  &
+428:      &           - dssp * ( - 4.0d+00 * utmp(m,2)  &
+429:      &                      + 6.0d+00 * utmp(m,3)  &
+430:      &                      - 4.0d+00 * utmp(m,4)  &
+431:      &                      +           utmp(m,5) )
+432:             end do
+433: 
+434:             do k = 4, nz - 3
+[...]
+441:      &                        +           utmp(m,k+2) )
+[...]
+450:      &                      - 4.0d+00 * utmp(m,nz-1)  )
+451:                rsd(m,i,j,nz-1) = rtmp(m,nz-1)  &
+452:      &           - dssp * (             utmp(m,nz-3)  &
+453:      &                      - 4.0d+00 * utmp(m,nz-2)  &
+454:      &                      + 5.0d+00 * utmp(m,nz-1) )

@@ -1,0 +1,123 @@
+
+* Info: Detected 10 Lprof instances in knl01: processes-per-node/ppn set accordingly.
+If this is incorrect, rerun with an explicit value for this setting
+
+* Info: Selecting the 'perf-high-ppn' engine for node knl01
+
+* Info: Process launched (host knl01, process 30884)
+* Info: Process launched (host knl01, process 30885)
+* Info: Process launched (host knl01, process 30886)
+* Info: Process launched (host knl01, process 30887)
+* Info: Process launched (host knl01, process 30889)
+* Info: Process launched (host knl01, process 30888)
+* Info: Process launched (host knl01, process 30890)
+* Info: Process launched (host knl01, process 30891)
+* Info: Process launched (host knl01, process 30892)
+* Info: Process launched (host knl01, process 30893)
+
+ NAS Parallel Benchmarks (NPB3.4-MZ MPI+OpenMP) - LU-MZ Benchmark
+
+ Number of zones:   4 x   4
+ Total mesh size:   128 x   128 x  16
+ Iterations: 250    dt:   2.000000
+ Number of active processes:     10
+
+ 2D process grid (NXP x NZP) =     5 x    2
+
+ Use the default load factors
+ Total number of threads:    160  ( 16.0 threads/process)
+
+ Calculated speedup =    146.29
+
+ Time step    1
+ Time step   20
+ Time step   40
+ Time step   60
+ Time step   80
+ Time step  100
+ Time step  120
+ Time step  140
+ Time step  160
+ Time step  180
+ Time step  200
+ Time step  220
+ Time step  240
+ Time step  250
+
+ Verification being performed for class A
+ Accuracy setting for epsilon =  0.1000000000000E-07
+ Comparison of RMS-norms of residual
+           1   0.1131574877175E+04 0.1131574877175E+04 0.4038805534300E-13
+           2   0.7965206944742E+02 0.7965206944742E+02 0.4014261441168E-13
+           3   0.2705587159526E+03 0.2705587159526E+03 0.7416403787702E-13
+           4   0.2129567530746E+03 0.2129567530746E+03 0.9515865794958E-13
+           5   0.2260584655432E+04 0.2260584655432E+04 0.2635243180253E-13
+ Comparison of RMS-norms of solution error
+           1   0.1115694885382E+03 0.1115694885382E+03 0.3431407914866E-12
+           2   0.1089257673798E+02 0.1089257673798E+02 0.1665042511662E-12
+           3   0.2905379922066E+02 0.2905379922066E+02 0.6700972500004E-13
+           4   0.2216126755530E+02 0.2216126755530E+02 0.6220099567567E-13
+           5   0.2501762341026E+03 0.2501762341026E+03 0.7611652396431E-14
+ Comparison of surface integral
+               0.5904992211511E+03 0.5904992211511E+03 0.5968326194402E-13
+ Verification Successful
+
+
+ LU-MZ Benchmark Completed.
+ Class           =                        A
+ Size            =            128x  128x 16
+ Iterations      =                      250
+ Time in seconds =                    34.06
+ Total processes =                       10
+ Total threads   =                      160
+ Mop/s total     =                  3013.41
+ Mop/s/thread    =                    18.83
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.1
+ Compile date    =              03 May 2022
+
+ Compile options:
+    FC           = mpif90
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -Ofast  -funroll-loops  -g -fopenmp -O3  -m...
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = (none)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+
+* Info: Process finished (host knl01, process 30892)
+* Info: Process finished (host knl01, process 30885)
+* Info: Process finished (host knl01, process 30890)
+* Info: Process finished (host knl01, process 30886)
+* Info: Process finished (host knl01, process 30887)
+* Info: Process finished (host knl01, process 30888)
+* Info: Process finished (host knl01, process 30889)
+* Info: Process finished (host knl01, process 30893)
+* Info: Process finished (host knl01, process 30884)
+* Info: Process finished (host knl01, process 30891)
+
+Your experiment path is /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/teste-fin-2/tools/lprof_npsu_run_26
+
+To display your profiling results:
+#########################################################################################################################################
+#    LEVEL    |     REPORT     |                                                COMMAND                                                 #
+#########################################################################################################################################
+#  Functions  |  Cluster-wide  |  maqao lprof -df xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/teste-fin-2/tools/lprof_npsu_run_26      #
+#  Functions  |  Per-node      |  maqao lprof -df -dn xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/teste-fin-2/tools/lprof_npsu_run_26  #
+#  Functions  |  Per-process   |  maqao lprof -df -dp xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/teste-fin-2/tools/lprof_npsu_run_26  #
+#  Functions  |  Per-thread    |  maqao lprof -df -dt xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/teste-fin-2/tools/lprof_npsu_run_26  #
+#  Loops      |  Cluster-wide  |  maqao lprof -dl xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/teste-fin-2/tools/lprof_npsu_run_26      #
+#  Loops      |  Per-node      |  maqao lprof -dl -dn xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/teste-fin-2/tools/lprof_npsu_run_26  #
+#  Loops      |  Per-process   |  maqao lprof -dl -dp xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/teste-fin-2/tools/lprof_npsu_run_26  #
+#  Loops      |  Per-thread    |  maqao lprof -dl -dt xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/teste-fin-2/tools/lprof_npsu_run_26  #
+#########################################################################################################################################
+

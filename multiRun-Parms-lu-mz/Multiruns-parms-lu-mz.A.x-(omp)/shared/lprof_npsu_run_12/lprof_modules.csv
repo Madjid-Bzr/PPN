@@ -1,0 +1,5 @@
+name;time_p;time_s;cpi_ratio;
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/raportomp-6/binaries/lu-mz.A.x;86.77;11.9;;
+/usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0;13.11;1.8;;
+kernel;0.06;0.01;;
+/usr/lib/x86_64-linux-gnu/libc-2.31.so;0.06;0.01;;

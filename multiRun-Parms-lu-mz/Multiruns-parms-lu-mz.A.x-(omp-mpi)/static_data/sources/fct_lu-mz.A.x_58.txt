@@ -1,0 +1,90 @@
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/exchange_1.f90: 5 - 147
+--------------------------------------------------------------------------------
+
+5:       subroutine exchange_1( g, nx, nxmax, ny, nz, k, jst, jend, iex )
+[...]
+33: !$OMP MASTER
+34:       if (timeron) call timer_start(t_exch)
+35: !$OMP END MASTER
+36: 
+37:       if( iex .eq. 0 ) then
+38: 
+39:           if( north .ne. -1 ) then
+[...]
+47:      &                       IERROR )
+48:           endif
+49: 
+50:           call sync_left( nxmax, ny, nz, g )
+51: 
+52:           if( north .ne. -1 ) then
+53:               call MPI_WAIT( mid, STATUS, IERROR )
+54:               do j=jst,jend
+55:                   g(1,0,j,k) = dum(1,j)
+56:                   g(2,0,j,k) = dum(2,j)
+57:                   g(3,0,j,k) = dum(3,j)
+58:                   g(4,0,j,k) = dum(4,j)
+59:                   g(5,0,j,k) = dum(5,j)
+60:               enddo
+61:           endif
+62: 
+63:       else if( iex .eq. 1 ) then
+64: 
+65:           if( south .ne. -1 ) then
+[...]
+73:      &                       IERROR )
+74:           endif
+75: 
+76:           call sync_left( nxmax, ny, nz, g )
+77: 
+78:           if( south .ne. -1 ) then
+79:               call MPI_WAIT( mid, STATUS, IERROR )
+80:               do j=jst,jend
+81:                   g(1,nx+1,j,k) = dum(1,j)
+82:                   g(2,nx+1,j,k) = dum(2,j)
+83:                   g(3,nx+1,j,k) = dum(3,j)
+84:                   g(4,nx+1,j,k) = dum(4,j)
+85:                   g(5,nx+1,j,k) = dum(5,j)
+86:               enddo
+87:           endif
+88: 
+89:       else if( iex .eq. 2 ) then
+90: 
+91:           if( south .ne. -1 ) then
+92:               do j=jst,jend
+93:                   dum(1,j) = g(1,nx,j,k) 
+94:                   dum(2,j) = g(2,nx,j,k) 
+95:                   dum(3,j) = g(3,nx,j,k) 
+96:                   dum(4,j) = g(4,nx,j,k) 
+97:                   dum(5,j) = g(5,nx,j,k) 
+[...]
+106:      &                       IERROR )
+107:           endif
+108: 
+109:           call sync_right( nxmax, ny, nz, g )
+110: 
+111:           if( south .ne. -1 ) then
+112:               call MPI_WAIT( mid, STATUS, IERROR )
+113:           endif
+114: 
+115:       else
+116: 
+117:           if( north .ne. -1 ) then
+118:               do j=jst,jend
+119:                   dum(1,j) = g(1,1,j,k)
+120:                   dum(2,j) = g(2,1,j,k)
+121:                   dum(3,j) = g(3,1,j,k)
+122:                   dum(4,j) = g(4,1,j,k)
+123:                   dum(5,j) = g(5,1,j,k)
+[...]
+132:      &                       IERROR )
+133:           endif
+134: 
+135:           call sync_right( nxmax, ny, nz, g )
+136: 
+137:           if( north .ne. -1 ) then
+[...]
+143: !$OMP MASTER
+144:       if (timeron) call timer_stop(t_exch)
+145: !$OMP END MASTER
+146: 
+147:       end

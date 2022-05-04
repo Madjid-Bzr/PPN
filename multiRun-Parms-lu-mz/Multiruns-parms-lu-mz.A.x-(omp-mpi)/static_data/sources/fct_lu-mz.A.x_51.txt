@@ -1,0 +1,37 @@
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/pintgr.f90: 101 - 147
+--------------------------------------------------------------------------------
+
+101: !$OMP PARALLEL DEFAULT(SHARED) PRIVATE(i,k)
+102: !$OMP DO
+103:       do k = 1,nz
+104:         do i = 1,nx
+105:           phi1(i,k) = 0.
+106:           phi2(i,k) = 0.
+107:         end do
+108:       end do
+109: !$OMP END DO
+110: 
+111: !$OMP DO
+112:       do k = 3, nz-1
+113:          do i = ist, iend
+114:             phi1(i,k) = c2*(u(5,i,2,k) -  &
+115:      &             0.5d0 * (u(2,i,2,k)**2 + u(3,i,2,k)**2 +  &
+116:      &                      u(4,i,2,k)**2 ) / u(1,i,2,k) )
+[...]
+123:          do i = ist, iend
+124:             phi2(i,k) = c2*(u(5,i,ny-2,k) -  &
+125:      &             0.5d0 * (u(2,i,ny-2,k)**2 + u(3,i,ny-2,k)**2 +  &
+126:      &                      u(4,i,ny-2,k)**2 ) / u(1,i,ny-2,k) )
+[...]
+136:       call exchange_4(phi1,phi2,nx,nz)
+137: 
+138:       frc2 = 0.0d0
+139: !$OMP END SINGLE
+140: 
+141: !$OMP DO REDUCTION(+:frc2)
+142:       do k = 3, nz-2
+143:          do i = ist, iend1
+144:             frc2 = frc2 + (phi1(i,k)   + phi1(i+1,k)   +  &
+145:      &                     phi1(i,k+1) + phi1(i+1,k+1) +  &
+146:      &                     phi2(i,k)   + phi2(i+1,k)   +  &
+147:      &                     phi2(i,k+1) + phi2(i+1,k+1))

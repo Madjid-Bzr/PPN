@@ -1,0 +1,26 @@
+address;source_location;insn;indent
+0x16fe6;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;LEA	0x30(%RSP),%R14;
+0x16feb;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;LEA	0x16e02(%RIP),%R12;
+0x16ff2;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;LEA	(%R14),%RDI;
+0x16ff5;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;MOV	$0x600000080,%R13;
+0x16fff;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;MOV	%R12,0x38(%RSP);
+0x17004;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;MOVL	$0x7e,0x40(%RSP);
+0x1700c;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;MOV	%R13,0x30(%RSP);
+0x17011;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;CALL	22b0 <@plt_start@+0x290>;
+0x17016;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;MOV	$0x1c,%EDX;
+0x1701b;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;LEA	0x16ddf(%RIP),%RSI;
+0x17022;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;LEA	(%R14),%RDI;
+0x17025;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;CALL	2180 <@plt_start@+0x160>;
+0x1702a;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;MOV	0x20(%RBP),%RDX;
+0x1702e;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;LEA	(%R15),%RSI;
+0x17031;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;LEA	(%R14),%RDI;
+0x17034;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;CALL	2180 <@plt_start@+0x160>;
+0x17039;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;LEA	(%R14),%RDI;
+0x1703c;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:126;CALL	2220 <@plt_start@+0x200>;
+0x17041;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:127;XOR	%EDX,%EDX;
+0x17043;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:127;XOR	%ESI,%ESI;
+0x17045;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:127;XOR	%EDI,%EDI;
+0x17047;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:127;CALL	2040 <@plt_start@+0x20>;
+0x1704c;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;MOVZX	0x16d9f(%RIP),%EDX;
+0x17053;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;CMP	%DL,0x2(%R15);
+0x17057;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:115;JNE	16fe6 <copy_y_face_+0x3c6>;

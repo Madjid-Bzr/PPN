@@ -1,0 +1,22 @@
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/lu.f90: 433 - 456
+--------------------------------------------------------------------------------
+
+433: !$OMP PARALLEL DEFAULT(SHARED) PRIVATE(m,i,j)
+434: !$OMP DO SCHEDULE(STATIC)
+435:       do j = 2, ny-1
+436:         do i = 2, nx-1
+437:           do m = 1, 25
+438:             a(m,i,j) = 0.d0
+439:             b(m,i,j) = 0.d0
+440:             c(m,i,j) = 0.d0
+441:             d(m,i,j) = 0.d0
+[...]
+448:         do i = nx-1, 2, -1
+449:           do m = 1, 25
+450:             au(m,i,j) = 0.d0
+451:             bu(m,i,j) = 0.d0
+452:             cu(m,i,j) = 0.d0
+453:             du(m,i,j) = 0.d0
+454:           end do
+455:           do m = 1, 5
+456:             tv(m,i,j) = 0.d0

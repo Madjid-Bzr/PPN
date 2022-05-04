@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en-US"><head><title>ONEVIEW</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" media="screen" href="../css/ui.jqgrid.css" />
+<link rel="stylesheet" type="text/css" href="../css/themes/redmond_custom/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="../css/themes/redmond_custom/jquery.jqplot.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/MAQAO_theme.css" />
+<link rel="stylesheet" type="text/css" href="../css/maqao_modal.css" />
+<link rel="stylesheet" type="text/css" href="../css/global.css" />
+<script src="../js/jquery-1.9.0.min.js" ></script>
+<script src="../js/jquery-ui-1.10.3.custom.min.js" ></script>
+<script src="../js/grid.locale-en.js" ></script>
+<script src="../js/jquery.jqGrid.min.js" ></script>
+<script src="../js/d3.min.js" ></script>
+<script class="include" src="../js/jquery.jqplot.min.js"></script>
+<script class="include" src="../js/jqplot.pieRenderer.min.js"></script>
+<script class="include" src="../js/jqplot.barRenderer.min.js"></script>
+<script class="include" src="../js/jqplot.categoryAxisRenderer.min.js"></script>
+<script class="include" src="../js/jqplot.pointLabels.min.js"></script>
+<script class="include" src="../js/jqplot.cursor.min.js"></script>
+<script class="include" src="../js/jqplot.canvasTextRenderer.min.js"></script>
+<script class="include" src="../js/jqplot.canvasAxisTickRenderer.min.js"></script>
+<script class="include" src="../js/jqplot.canvasAxisLabelRenderer.min.js"></script>
+<script class="include" src="../js/jqplot.enhancedLegendRenderer.min.js"></script>
+<script class="include" src="../js/jqplot.highlighter.min.js"></script>
+<script>
+$( function() {
+  $( document ).tooltip({
+    content: function() {
+      if ($(this).hasClass ("tooltip-maqao")
+      ||  $(this).hasClass ("tooltip-maqao-button")) {
+        return tooltips_texts[$(this).attr('tooltip_id')];
+      }
+    },
+    position: {
+      my: "center bottom-20",
+        at: "center top",
+        using: function( position, feedback ) {
+          $( this ).css( position );
+          $( "<div>" )
+            .addClass( "arrow-tt" )
+            .addClass( feedback.vertical )
+            .addClass( feedback.horizontal )
+            .appendTo( this );
+        }
+      }
+  });
+} );
+
+// Code from https://www.htmlgoodies.com/beyond/javascript/article.php/3724571/Using-Multiple-JavaScript-Onload-Functions.htm
+function addLoadEvent(func) {
+  var oldonload = window.onload;
+  if (typeof window.onload != 'function') {
+    window.onload = func;
+  } else {
+    window.onload = function() {
+      if (oldonload) {
+        oldonload();
+      }
+      func();
+    }
+  }
+}
+function loadCSS(filename){ 
+  var file = document.createElement("link");
+  file.setAttribute("rel", "stylesheet");
+  file.setAttribute("type", "text/css");
+  file.setAttribute("href", filename);
+  document.head.appendChild(file);
+}
+addLoadEvent(function(){
+  var theme = localStorage.getItem("__MAQAO_OV_theme__");
+  if (theme) {
+    loadCSS("../css/"+theme+".css");
+  }
+  else {
+    localStorage.setItem("__MAQAO_OV_theme__", "MAQAO_theme");
+    loadCSS("../css/MAQAO_theme.css");
+  }
+});
+</script>
+</head><body>
+<div id="anchor_file_start"></div>
+<div id="maqao_content">
+<div class="_fixed_box" ><h3 class="_header">Loop 157</h3>
+<div class="_content"><div class="_div_table" id="_fixed_374"><div class="_accordion_box" ><h3 id="_accordion_header_1" class="_header" onclick="_click_accordion_header(this)" ><span class="_accordion_box_button">&#x25BC;</span>Colums Filter<span class="tooltip-maqao-button help-maqao" title="" tooltip_id="0" ></span></h3><div id="_accordion_content_1" class="_content"><div style="max-height:165px;"><form>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt1" onclick="click_table_menu('_table374_opt1', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(run_0) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt2" onclick="click_table_menu('_table374_opt2', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(run_0) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt3" onclick="click_table_menu('_table374_opt3', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R2x1) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt4" onclick="click_table_menu('_table374_opt4', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R2x1) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt5" onclick="click_table_menu('_table374_opt5', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R2x2) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt6" onclick="click_table_menu('_table374_opt6', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R2x2) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt7" onclick="click_table_menu('_table374_opt7', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R2x3) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt8" onclick="click_table_menu('_table374_opt8', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R2x3) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt9" onclick="click_table_menu('_table374_opt9', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R2x4) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt10" onclick="click_table_menu('_table374_opt10', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R2x4) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt11" onclick="click_table_menu('_table374_opt11', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R2x5) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt12" onclick="click_table_menu('_table374_opt12', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R2x5) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt13" onclick="click_table_menu('_table374_opt13', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R2x6) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt14" onclick="click_table_menu('_table374_opt14', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R2x6) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt15" onclick="click_table_menu('_table374_opt15', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R2x7) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt16" onclick="click_table_menu('_table374_opt16', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R2x7) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt17" onclick="click_table_menu('_table374_opt17', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R2x8) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt18" onclick="click_table_menu('_table374_opt18', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R2x8) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt19" onclick="click_table_menu('_table374_opt19', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R3x1) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt20" onclick="click_table_menu('_table374_opt20', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R3x1) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt21" onclick="click_table_menu('_table374_opt21', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R3x2) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt22" onclick="click_table_menu('_table374_opt22', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R3x2) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt23" onclick="click_table_menu('_table374_opt23', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R3x3) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt24" onclick="click_table_menu('_table374_opt24', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R3x3) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt25" onclick="click_table_menu('_table374_opt25', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R3x4) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt26" onclick="click_table_menu('_table374_opt26', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R3x4) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt27" onclick="click_table_menu('_table374_opt27', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R3x5) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt28" onclick="click_table_menu('_table374_opt28', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R3x5) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt29" onclick="click_table_menu('_table374_opt29', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R4x1) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt30" onclick="click_table_menu('_table374_opt30', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R4x1) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt31" onclick="click_table_menu('_table374_opt31', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R4x2) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt32" onclick="click_table_menu('_table374_opt32', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R4x2) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt33" onclick="click_table_menu('_table374_opt33', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R4x3) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt34" onclick="click_table_menu('_table374_opt34', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R4x3) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt35" onclick="click_table_menu('_table374_opt35', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R4x4) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt36" onclick="click_table_menu('_table374_opt36', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R4x4) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt37" onclick="click_table_menu('_table374_opt37', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R5x1) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt38" onclick="click_table_menu('_table374_opt38', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R5x1) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt39" onclick="click_table_menu('_table374_opt39', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R5x2) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt40" onclick="click_table_menu('_table374_opt40', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R5x2) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt41" onclick="click_table_menu('_table374_opt41', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R5x3) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt42" onclick="click_table_menu('_table374_opt42', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R5x3) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt43" onclick="click_table_menu('_table374_opt43', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R6x1) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt44" onclick="click_table_menu('_table374_opt44', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R6x1) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt45" onclick="click_table_menu('_table374_opt45', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R6x2) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt46" onclick="click_table_menu('_table374_opt46', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R6x2) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt47" onclick="click_table_menu('_table374_opt47', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R8x1) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt48" onclick="click_table_menu('_table374_opt48', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R8x1) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt49" onclick="click_table_menu('_table374_opt49', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R8x2) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt50" onclick="click_table_menu('_table374_opt50', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R8x2) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt51" onclick="click_table_menu('_table374_opt51', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R9x1) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt52" onclick="click_table_menu('_table374_opt52', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R9x1) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt53" onclick="click_table_menu('_table374_opt53', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R10x16) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt54" onclick="click_table_menu('_table374_opt54', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R10x16) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt55" onclick="click_table_menu('_table374_opt55', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R12x1) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt56" onclick="click_table_menu('_table374_opt56', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R12x1) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt57" onclick="click_table_menu('_table374_opt57', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R16x16) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt58" onclick="click_table_menu('_table374_opt58', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R16x16) Potential Speed-Up (%)</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt59" onclick="click_table_menu('_table374_opt59', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R16x1) Efficiency</span>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table374_opt60" onclick="click_table_menu('_table374_opt60', '_table374_opt_all', 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" checked  >(R16x1) Potential Speed-Up (%)</span>
+<span style='white-space:nowrap;'><input class="input_check_table_menu" type="button" id="_table374_opt_all" onclick="set_all_table_menu(this, 'list_opts_table374')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" value="Select all"></span>
+<span style='white-space:nowrap;'><input class="input_check_table_menu" type="button" id="_table374_opt_select_all_speedups" onclick="select_all_speedups(_fixed_table_374, '_table374', this)" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" value="Deselect All Speed-Ups" data-selected="true" data-text="Select All Speed-Ups" data-text_alt="Deselect All Speed-Ups" ></span>
+<span style='white-space:nowrap;'><input class="input_check_table_menu" type="button" id="_table374_opt_select_all_efficiencies" onclick="select_all_efficiencies(_fixed_table_374, '_table374', this)" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" value="Deselect All Efficiencies" data-selected="true" data-text="Select All Efficiencies" data-text_alt="Deselect All Efficiencies" ></span>
+</form></div>
+</div></div><table class="_fixed_table" id="_fixed_table_374"><tr><th class="_freezed_row  _left _freezed_col _table374_opt1"><span></span>(run_0) Efficiency</th><th class="_freezed_row  _table374_opt2"><span></span>(run_0) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt3"><span></span>(R2x1) Efficiency</th><th class="_freezed_row  _table374_opt4"><span></span>(R2x1) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt5"><span></span>(R2x2) Efficiency</th><th class="_freezed_row  _table374_opt6"><span></span>(R2x2) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt7"><span></span>(R2x3) Efficiency</th><th class="_freezed_row  _table374_opt8"><span></span>(R2x3) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt9"><span></span>(R2x4) Efficiency</th><th class="_freezed_row  _table374_opt10"><span></span>(R2x4) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt11"><span></span>(R2x5) Efficiency</th><th class="_freezed_row  _table374_opt12"><span></span>(R2x5) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt13"><span></span>(R2x6) Efficiency</th><th class="_freezed_row  _table374_opt14"><span></span>(R2x6) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt15"><span></span>(R2x7) Efficiency</th><th class="_freezed_row  _table374_opt16"><span></span>(R2x7) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt17"><span></span>(R2x8) Efficiency</th><th class="_freezed_row  _table374_opt18"><span></span>(R2x8) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt19"><span></span>(R3x1) Efficiency</th><th class="_freezed_row  _table374_opt20"><span></span>(R3x1) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt21"><span></span>(R3x2) Efficiency</th><th class="_freezed_row  _table374_opt22"><span></span>(R3x2) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt23"><span></span>(R3x3) Efficiency</th><th class="_freezed_row  _table374_opt24"><span></span>(R3x3) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt25"><span></span>(R3x4) Efficiency</th><th class="_freezed_row  _table374_opt26"><span></span>(R3x4) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt27"><span></span>(R3x5) Efficiency</th><th class="_freezed_row  _table374_opt28"><span></span>(R3x5) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt29"><span></span>(R4x1) Efficiency</th><th class="_freezed_row  _table374_opt30"><span></span>(R4x1) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt31"><span></span>(R4x2) Efficiency</th><th class="_freezed_row  _table374_opt32"><span></span>(R4x2) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt33"><span></span>(R4x3) Efficiency</th><th class="_freezed_row  _table374_opt34"><span></span>(R4x3) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt35"><span></span>(R4x4) Efficiency</th><th class="_freezed_row  _table374_opt36"><span></span>(R4x4) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt37"><span></span>(R5x1) Efficiency</th><th class="_freezed_row  _table374_opt38"><span></span>(R5x1) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt39"><span></span>(R5x2) Efficiency</th><th class="_freezed_row  _table374_opt40"><span></span>(R5x2) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt41"><span></span>(R5x3) Efficiency</th><th class="_freezed_row  _table374_opt42"><span></span>(R5x3) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt43"><span></span>(R6x1) Efficiency</th><th class="_freezed_row  _table374_opt44"><span></span>(R6x1) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt45"><span></span>(R6x2) Efficiency</th><th class="_freezed_row  _table374_opt46"><span></span>(R6x2) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt47"><span></span>(R8x1) Efficiency</th><th class="_freezed_row  _table374_opt48"><span></span>(R8x1) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt49"><span></span>(R8x2) Efficiency</th><th class="_freezed_row  _table374_opt50"><span></span>(R8x2) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt51"><span></span>(R9x1) Efficiency</th><th class="_freezed_row  _table374_opt52"><span></span>(R9x1) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt53"><span></span>(R10x16) Efficiency</th><th class="_freezed_row  _table374_opt54"><span></span>(R10x16) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt55"><span></span>(R12x1) Efficiency</th><th class="_freezed_row  _table374_opt56"><span></span>(R12x1) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt57"><span></span>(R16x16) Efficiency</th><th class="_freezed_row  _table374_opt58"><span></span>(R16x16) Potential Speed-Up (%)</th><th class="_freezed_row  _table374_opt59"><span></span>(R16x1) Efficiency</th><th class="_freezed_row  _table374_opt60"><span></span>(R16x1) Potential Speed-Up (%)</th></tr><tr id="_tr_374_1" ><td id="_td_374_1_1"  data-_i="1" data-_j="1"  class=" _left _freezed_col  _centered _table374_opt1"  style="background:#579619;" >1</td><td id="_td_374_1_2"  data-_i="1" data-_j="2"  class=" _centered _table374_opt2"  style="background:#458B00;" >0</td><td id="_td_374_1_3"  data-_i="1" data-_j="3"  class=" _centered _table374_opt3"  style="background:#579619;" >0.91</td><td id="_td_374_1_4"  data-_i="1" data-_j="4"  class=" _centered _table374_opt4"  style="background:#579619;" >0.14</td><td id="_td_374_1_5"  data-_i="1" data-_j="5"  class=" _centered _table374_opt5"  style="background:#458B00;" >1.33</td><td id="_td_374_1_6"  data-_i="1" data-_j="6"  class=" _centered _table374_opt6"  style="background:#458B00;" >0</td><td id="_td_374_1_7"  data-_i="1" data-_j="7"  class=" _centered _table374_opt7"  style="background:#458B00;" >1.22</td><td id="_td_374_1_8"  data-_i="1" data-_j="8"  class=" _centered _table374_opt8"  style="background:#458B00;" >0</td><td id="_td_374_1_9"  data-_i="1" data-_j="9"  class=" _centered _table374_opt9"  style="background:#458B00;" >1.28</td><td id="_td_374_1_10"  data-_i="1" data-_j="10"  class=" _centered _table374_opt10"  style="background:#458B00;" >0</td><td id="_td_374_1_11"  data-_i="1" data-_j="11"  class=" _centered _table374_opt11"  style="background:#458B00;" >1.4</td><td id="_td_374_1_12"  data-_i="1" data-_j="12"  class=" _centered _table374_opt12"  style="background:#458B00;" >0</td><td id="_td_374_1_13"  data-_i="1" data-_j="13"  class=" _centered _table374_opt13"  style="background:#458B00;" >1.28</td><td id="_td_374_1_14"  data-_i="1" data-_j="14"  class=" _centered _table374_opt14"  style="background:#458B00;" >0</td><td id="_td_374_1_15"  data-_i="1" data-_j="15"  class=" _centered _table374_opt15"  style="background:#458B00;" >1.22</td><td id="_td_374_1_16"  data-_i="1" data-_j="16"  class=" _centered _table374_opt16"  style="background:#458B00;" >0</td><td id="_td_374_1_17"  data-_i="1" data-_j="17"  class=" _centered _table374_opt17"  style="background:#458B00;" >1.38</td><td id="_td_374_1_18"  data-_i="1" data-_j="18"  class=" _centered _table374_opt18"  style="background:#458B00;" >0</td><td id="_td_374_1_19"  data-_i="1" data-_j="19"  class=" _centered _table374_opt19"  style="background:#458B00;" >2.85</td><td id="_td_374_1_20"  data-_i="1" data-_j="20"  class=" _centered _table374_opt20"  style="background:#458B00;" >0</td><td id="_td_374_1_21"  data-_i="1" data-_j="21"  class=" _centered _table374_opt21"  style="background:#458B00;" >1.51</td><td id="_td_374_1_22"  data-_i="1" data-_j="22"  class=" _centered _table374_opt22"  style="background:#458B00;" >0</td><td id="_td_374_1_23"  data-_i="1" data-_j="23"  class=" _centered _table374_opt23"  style="background:#458B00;" >1.71</td><td id="_td_374_1_24"  data-_i="1" data-_j="24"  class=" _centered _table374_opt24"  style="background:#458B00;" >0</td><td id="_td_374_1_25"  data-_i="1" data-_j="25"  class=" _centered _table374_opt25"  style="background:#458B00;" >1.43</td><td id="_td_374_1_26"  data-_i="1" data-_j="26"  class=" _centered _table374_opt26"  style="background:#458B00;" >0</td><td id="_td_374_1_27"  data-_i="1" data-_j="27"  class=" _centered _table374_opt27"  style="background:#458B00;" >1.47</td><td id="_td_374_1_28"  data-_i="1" data-_j="28"  class=" _centered _table374_opt28"  style="background:#458B00;" >0</td><td id="_td_374_1_29"  data-_i="1" data-_j="29"  class=" _centered _table374_opt29"  style="background:#579619;" >0.94</td><td id="_td_374_1_30"  data-_i="1" data-_j="30"  class=" _centered _table374_opt30"  style="background:#579619;" >0.09</td><td id="_td_374_1_31"  data-_i="1" data-_j="31"  class=" _centered _table374_opt31"  style="background:#458B00;" >1.38</td><td id="_td_374_1_32"  data-_i="1" data-_j="32"  class=" _centered _table374_opt32"  style="background:#458B00;" >0</td><td id="_td_374_1_33"  data-_i="1" data-_j="33"  class=" _centered _table374_opt33"  style="background:#458B00;" >1.43</td><td id="_td_374_1_34"  data-_i="1" data-_j="34"  class=" _centered _table374_opt34"  style="background:#458B00;" >0</td><td id="_td_374_1_35"  data-_i="1" data-_j="35"  class=" _centered _table374_opt35"  style="background:#458B00;" >1.6</td><td id="_td_374_1_36"  data-_i="1" data-_j="36"  class=" _centered _table374_opt36"  style="background:#458B00;" >0</td><td id="_td_374_1_37"  data-_i="1" data-_j="37"  class=" _centered _table374_opt37"  style="background:#458B00;" >2.37</td><td id="_td_374_1_38"  data-_i="1" data-_j="38"  class=" _centered _table374_opt38"  style="background:#458B00;" >0</td><td id="_td_374_1_39"  data-_i="1" data-_j="39"  class=" _centered _table374_opt39"  style="background:#458B00;" >1.54</td><td id="_td_374_1_40"  data-_i="1" data-_j="40"  class=" _centered _table374_opt40"  style="background:#458B00;" >0</td><td id="_td_374_1_41"  data-_i="1" data-_j="41"  class=" _centered _table374_opt41"  style="background:#458B00;" >1.28</td><td id="_td_374_1_42"  data-_i="1" data-_j="42"  class=" _centered _table374_opt42"  style="background:#458B00;" >0</td><td id="_td_374_1_43"  data-_i="1" data-_j="43"  class=" _centered _table374_opt43"  style="background:#458B00;" >2.85</td><td id="_td_374_1_44"  data-_i="1" data-_j="44"  class=" _centered _table374_opt44"  style="background:#458B00;" >0</td><td id="_td_374_1_45"  data-_i="1" data-_j="45"  class=" _centered _table374_opt45"  style="background:#458B00;" >1.6</td><td id="_td_374_1_46"  data-_i="1" data-_j="46"  class=" _centered _table374_opt46"  style="background:#458B00;" >0</td><td id="_td_374_1_47"  data-_i="1" data-_j="47"  class=" _centered _table374_opt47"  style="background:#458B00;" >1.01</td><td id="_td_374_1_48"  data-_i="1" data-_j="48"  class=" _centered _table374_opt48"  style="background:#458B00;" >0</td><td id="_td_374_1_49"  data-_i="1" data-_j="49"  class=" _centered _table374_opt49"  style="background:#458B00;" >1.38</td><td id="_td_374_1_50"  data-_i="1" data-_j="50"  class=" _centered _table374_opt50"  style="background:#458B00;" >0</td><td id="_td_374_1_51"  data-_i="1" data-_j="51"  class=" _centered _table374_opt51"  style="background:#C69E3B;" >0.57</td><td id="_td_374_1_52"  data-_i="1" data-_j="52"  class=" _centered _table374_opt52"  style="background:#579619;" >0.27</td><td id="_td_374_1_53"  data-_i="1" data-_j="53"  class=" _centered _table374_opt53"  style="background:#BF9223;" >0.48</td><td id="_td_374_1_54"  data-_i="1" data-_j="54"  class=" _centered _table374_opt54"  style="background:#579619;" >0.04</td><td id="_td_374_1_55"  data-_i="1" data-_j="55"  class=" _centered _table374_opt55"  style="background:#458B00;" >2.57</td><td id="_td_374_1_56"  data-_i="1" data-_j="56"  class=" _centered _table374_opt56"  style="background:#458B00;" >0</td><td id="_td_374_1_57"  data-_i="1" data-_j="57"  class=" _centered _table374_opt57"  style="background:#8FB966;" >0.6</td><td id="_td_374_1_58"  data-_i="1" data-_j="58"  class=" _centered _table374_opt58"  style="background:#579619;" >0.24</td><td id="_td_374_1_59"  data-_i="1" data-_j="59"  class=" _centered _table374_opt59"  style="background:#579619;" >0.96</td><td id="_td_374_1_60"  data-_i="1" data-_j="60"  class=" _centered _table374_opt60"  style="background:#579619;" >0.05</td></tr>
+</table></div><script>
+var list_opts_table374 = ['_table374_opt1','_table374_opt2','_table374_opt3','_table374_opt4','_table374_opt5','_table374_opt6','_table374_opt7','_table374_opt8','_table374_opt9','_table374_opt10','_table374_opt11','_table374_opt12','_table374_opt13','_table374_opt14','_table374_opt15','_table374_opt16','_table374_opt17','_table374_opt18','_table374_opt19','_table374_opt20','_table374_opt21','_table374_opt22','_table374_opt23','_table374_opt24','_table374_opt25','_table374_opt26','_table374_opt27','_table374_opt28','_table374_opt29','_table374_opt30','_table374_opt31','_table374_opt32','_table374_opt33','_table374_opt34','_table374_opt35','_table374_opt36','_table374_opt37','_table374_opt38','_table374_opt39','_table374_opt40','_table374_opt41','_table374_opt42','_table374_opt43','_table374_opt44','_table374_opt45','_table374_opt46','_table374_opt47','_table374_opt48','_table374_opt49','_table374_opt50','_table374_opt51','_table374_opt52','_table374_opt53','_table374_opt54','_table374_opt55','_table374_opt56','_table374_opt57','_table374_opt58','_table374_opt59','_table374_opt60',];addLoadEvent(function(){
+  var displayed_columns = [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true];
+  // Update initial state using localStorage
+  for (var i = 0; i < displayed_columns.length; i++) {
+    var val = localStorage.getItem("__functions__table374_opt"+(i + 1));
+    if (val) {
+      displayed_columns[i] = (val === "true");
+    }
+    var obj = document.getElementById("_table374_opt"+(i + 1));
+    if (obj) {
+      if (displayed_columns[i] == true) {
+        obj.checked = true;
+      }
+      else {
+        obj.checked = false;
+      }
+    }
+  }
+  // Update table
+  var table = document.getElementById("_fixed_table_374");
+  for (let i in table.rows) {
+    let row = table.rows[i]
+    for (let j in row.cells) {
+      let col = row.cells[j]
+      if (col.classList) {
+        if (displayed_columns[j] == true) {
+          col.classList.remove("_tcol_hidden");
+        }
+        else {
+          col.classList.add("_tcol_hidden");
+        }
+      }
+    }
+  }
+  {
+    var value = localStorage.getItem("_table374_opt_all");
+    if (value) {
+      var obj = document.getElementById ("_table374_opt_all");
+      if (obj) {
+        obj.value = value;
+      }
+    }
+  }
+  _check_all_checkbox_ ("_table374_opt_all", "list_opts_table374");
+  {
+    var text     = localStorage.getItem("_table374_opt_select_all_speedups_value");
+    var selected = localStorage.getItem("_table374_opt_select_all_speedups_selected");
+    if (text && selected) {
+      var checkbox = document.getElementById ("_table374_opt_select_all_speedups");
+      if (checkbox) {
+        checkbox.dataset.selected = selected;
+        checkbox.value            = text;
+      }
+    }
+  }
+  {
+    var text     = localStorage.getItem("_table374_opt_select_all_efficiencies_value");
+    var selected = localStorage.getItem("_table374_opt_select_all_efficiencies_selected");
+    if (text && selected) {
+      var checkbox = document.getElementById ("_table374_opt_select_all_efficiencies");
+      if (checkbox) {
+        checkbox.dataset.selected = selected;
+        checkbox.value            = text;
+      }
+    }
+  }
+});
+</script>
+<script>
+function select_all_speedups(table, id_root, checkbox){
+  for (var j = 0, col; col = table.rows[0].cells[j]; j++) {
+    var regex = /Potential Speed-Up/;
+    if (regex.test(col.innerHTML) == true) {
+      var classes = col.className.split(' ');
+      for (var c = 0; c < classes.length; c++) {
+        if (classes[c].indexOf(id_root) != -1) {
+          if (document.getElementById (classes[c]).checked == false
+          && checkbox.dataset.selected == "false") {
+            document.getElementById (classes[c]).checked = true;
+            click_table_menu (classes[c]);
+          }
+          else if (document.getElementById (classes[c]).checked == true
+          && checkbox.dataset.selected == "true") {
+            document.getElementById (classes[c]).checked = false;
+            click_table_menu (classes[c]);
+          }
+        }
+      }
+    }
+  }
+  if (checkbox.dataset.selected == "true") {
+    checkbox.dataset.selected = "false";
+    checkbox.value = checkbox.dataset.text;
+  }
+  else {
+    checkbox.dataset.selected = "true";
+    checkbox.value = checkbox.dataset.text_alt;
+  }
+  localStorage.setItem(checkbox.id+"_value", checkbox.value);
+  localStorage.setItem(checkbox.id+"_selected", checkbox.dataset.selected);
+  _check_all_checkbox_ (id_root + "_opt_all", "list_opts" + id_root);
+}
+function select_all_efficiencies(table, id_root, checkbox){
+  for (var j = 0, col; col = table.rows[0].cells[j]; j++) {
+    var regex = /Efficiency/;
+    if (regex.test(col.innerHTML) == true) {
+      var classes = col.className.split(' ');
+      for (var c = 0; c < classes.length; c++) {
+        if (classes[c].indexOf(id_root) != -1) {
+          if (document.getElementById (classes[c]).checked == false
+          && checkbox.dataset.selected == "false") {
+            document.getElementById (classes[c]).checked = true;
+            click_table_menu (classes[c]);
+          }
+          else if (document.getElementById (classes[c]).checked == true
+          && checkbox.dataset.selected == "true") {
+            document.getElementById (classes[c]).checked = false;
+            click_table_menu (classes[c]);
+          }
+        }
+      }
+    }
+  }
+  if (checkbox.dataset.selected == "true") {
+    checkbox.dataset.selected = "false";
+    checkbox.value = checkbox.dataset.text;
+  }
+  else {
+    checkbox.dataset.selected = "true";
+    checkbox.value = checkbox.dataset.text_alt;
+  }
+  localStorage.setItem(checkbox.id+"_value", checkbox.value);
+  localStorage.setItem(checkbox.id+"_selected", checkbox.dataset.selected);
+  _check_all_checkbox_ (id_root + "_opt_all", "list_opts" + id_root);
+}
+</script>
+<br><div class="_fixed_box" ><h3 class="_header">Speed-Up and Efficiency</h3>
+<div class="_content"><div style="margin-top: 10px; margin-bottom: 10px; background-color: var(--chart_background); overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_19383" style="height:500px;margin-top:20px;" ></div></div>
+<script class="code" >
+  $(document).ready(function(){
+  var plot19383_data = [[1,0.90588235294118,1.3275862068966,1.2222222222222,1.2833333333333,1.4,1.2833333333333,1.2222222222222,1.375,2.8518518518519,1.5098039215686,1.7111111111111,1.4259259259259,1.4666666666667,0.9390243902439,1.375,1.4259259259259,1.6041666666667,2.3692307692308,1.54,1.2833333333333,2.8518518518519,1.6041666666667,1.0131578947368,1.375,0.57037037037037,0.48125,2.5666666666667,0.6015625,0.9625,],[1,1.8117647058824,5.3103448275862,7.3333333333333,10.266666666667,14,15.4,17.111111111111,22,8.5555555555556,9.0588235294118,15.4,17.111111111111,22,3.7560975609756,11,17.111111111111,25.666666666667,11.846153846154,15.4,19.25,17.111111111111,19.25,8.1052631578947,22,51.333333333333,77,30.8,154,15.4,],[1,2,4,6,8,10,12,14,16,3,6,9,12,15,4,8,12,16,5,10,15,6,12,8,16,90,160,12,256,16,],];
+  var plot19383_ticks = ['run_0','R2x1','R2x2','R2x3','R2x4','R2x5','R2x6','R2x7','R2x8','R3x1','R3x2','R3x3','R3x4','R3x5','R4x1','R4x2','R4x3','R4x4','R5x1','R5x2','R5x3','R6x1','R6x2','R8x1','R8x2','R9x1','R10x16','R12x1','R16x16','R16x1',];
+  var plot19383 = jQuery.jqplot ('chart_cat_19383', plot19383_data, {
+    seriesDefaults: {
+      renderer: jQuery.jqplot.BarRenderer,
+      rendererOptions: {
+      },
+      pointLabels: {
+        show: false
+      },
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer,
+        ticks: plot19383_ticks,
+        label: 'Run',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        tickRenderer: $.jqplot.CanvasAxisTickRenderer ,
+        tickOptions: {
+          angle: -30,
+          fontSize: '10pt'
+        }
+      },
+      yaxis: {
+        label: 'Efficiency (higher is better)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+      },
+      y2axis: {
+        label: 'Speedup (higher is better)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+      }
+    },
+    highlighter: {
+      tooltipContentEditor: function (str, seriesIndex, pointIndex) {
+        return plot19383_ticks[pointIndex]+' - '+plot19383_data[seriesIndex][pointIndex];
+      },
+      show: true,
+      showTooltip: true,
+      sizeAdjust: 10,
+      formatString: '%s',
+      tooltipLocation: 'n',
+      useAxesFormatters: false,
+    },
+    legend: {
+       renderer: $.jqplot.EnhancedLegendRenderer,
+       show: true, 
+       location: 's', 
+       placement: 'outsideGrid',
+       rendererOptions: {
+          numberRows: '1',
+       },
+    },
+    series: [{label:'Efficiency', yaxis:'yaxis', },{label:'Speedup', renderer: $.jqplot.LineRenderer, yaxis:'y2axis', },{label:'Ideal Speedup If Perfect Scaling', renderer: $.jqplot.LineRenderer, linePattern: 'dashed', yaxis:'y2axis', },],
+  });
+  var txts = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30",];
+  var div_chart = document.getElementById ("chart_cat_19383");
+  if (div_chart == null) {
+    return ;
+  }
+  var div_axis  = div_chart.getElementsByClassName ("jqplot-xaxis");
+  if (div_axis.length == 0
+  ||  div_axis[0].children.length == 0) {
+    return ;
+  }
+  for (var i = 1; i < div_axis[0].children.length; i++) {
+    var div_label = div_axis[0].children[i];
+    if (txts[i - 1] != "") {
+      div_label.setAttribute ("title", "");
+      div_label.setAttribute ("tooltip_id", txts[i - 1]);
+      div_label.classList.add ("tooltip-maqao");
+      div_label.style["z-index"] = 999;
+    }
+  }
+  txts = null;
+});
+</script><div class="_accordion_box collapsed" ><h3 id="_accordion_header_2" class="_header collapsed" onclick="_click_accordion_header(this)" ><span class="_accordion_box_button">&#x25B6;</span>Detailed Speed-Up and Efficiency</h3><div id="_accordion_content_2" class="_content collapsed"><div class="_div_table" id="_fixed_375"><table class="_fixed_table" id="_fixed_table_375"><tr><th class="_freezed_row  _left _freezed_col"><span></span>Run</th><th class="_freezed_row "><span></span>Number of threads</th><th class="_freezed_row "><span></span>Efficiency (ideal is 1)</th><th class="_freezed_row "><span></span>Speedup</th><th class="_freezed_row "><span></span>Ideal Speedup</th><th class="_freezed_row "><span></span>Time (s)</th><th class="_freezed_row "><span></span>Coverage (%)</th></tr><tr id="_tr_375_1" ><td id="_td_375_1_1"  data-_i="1" data-_j="1"  title="" tooltip_id="31" class=" _left _freezed_col  _centered tooltip-maqao" >run_0</td><td id="_td_375_1_2"  data-_i="1" data-_j="2"  class=" _centered" >1</td><td id="_td_375_1_3"  data-_i="1" data-_j="3"  class=" _centered"  style="background:#579619;" >1</td><td id="_td_375_1_4"  data-_i="1" data-_j="4"  class=" _centered" >1</td><td id="_td_375_1_5"  data-_i="1" data-_j="5"  class=" _centered" >1</td><td id="_td_375_1_6"  data-_i="1" data-_j="6"  class=" _centered" >1.54</td><td id="_td_375_1_7"  data-_i="1" data-_j="7"  class=" _centered" >1.49</td></tr>
+<tr id="_tr_375_2" ><td id="_td_375_2_1"  data-_i="2" data-_j="1"  title="" tooltip_id="32" class=" _left _freezed_col  _centered tooltip-maqao" >R2x1</td><td id="_td_375_2_2"  data-_i="2" data-_j="2"  class=" _centered" >2</td><td id="_td_375_2_3"  data-_i="2" data-_j="3"  class=" _centered"  style="background:#579619;" >0.91</td><td id="_td_375_2_4"  data-_i="2" data-_j="4"  class=" _centered" >1.81</td><td id="_td_375_2_5"  data-_i="2" data-_j="5"  class=" _centered" >2</td><td id="_td_375_2_6"  data-_i="2" data-_j="6"  class=" _centered" >0.92</td><td id="_td_375_2_7"  data-_i="2" data-_j="7"  class=" _centered" >1.53</td></tr>
+<tr id="_tr_375_3" ><td id="_td_375_3_1"  data-_i="3" data-_j="1"  title="" tooltip_id="33" class=" _left _freezed_col  _centered tooltip-maqao" >R2x2</td><td id="_td_375_3_2"  data-_i="3" data-_j="2"  class=" _centered" >4</td><td id="_td_375_3_3"  data-_i="3" data-_j="3"  class=" _centered"  style="background:#458B00;" >1.33</td><td id="_td_375_3_4"  data-_i="3" data-_j="4"  class=" _centered" >5.31</td><td id="_td_375_3_5"  data-_i="3" data-_j="5"  class=" _centered" >4</td><td id="_td_375_3_6"  data-_i="3" data-_j="6"  class=" _centered" >0.38</td><td id="_td_375_3_7"  data-_i="3" data-_j="7"  class=" _centered" >1.04</td></tr>
+<tr id="_tr_375_4" ><td id="_td_375_4_1"  data-_i="4" data-_j="1"  title="" tooltip_id="34" class=" _left _freezed_col  _centered tooltip-maqao" >R2x3</td><td id="_td_375_4_2"  data-_i="4" data-_j="2"  class=" _centered" >6</td><td id="_td_375_4_3"  data-_i="4" data-_j="3"  class=" _centered"  style="background:#458B00;" >1.22</td><td id="_td_375_4_4"  data-_i="4" data-_j="4"  class=" _centered" >7.33</td><td id="_td_375_4_5"  data-_i="4" data-_j="5"  class=" _centered" >6</td><td id="_td_375_4_6"  data-_i="4" data-_j="6"  class=" _centered" >0.28</td><td id="_td_375_4_7"  data-_i="4" data-_j="7"  class=" _centered" >1.06</td></tr>
+<tr id="_tr_375_5" ><td id="_td_375_5_1"  data-_i="5" data-_j="1"  title="" tooltip_id="35" class=" _left _freezed_col  _centered tooltip-maqao" >R2x4</td><td id="_td_375_5_2"  data-_i="5" data-_j="2"  class=" _centered" >8</td><td id="_td_375_5_3"  data-_i="5" data-_j="3"  class=" _centered"  style="background:#458B00;" >1.28</td><td id="_td_375_5_4"  data-_i="5" data-_j="4"  class=" _centered" >10.27</td><td id="_td_375_5_5"  data-_i="5" data-_j="5"  class=" _centered" >8</td><td id="_td_375_5_6"  data-_i="5" data-_j="6"  class=" _centered" >0.21</td><td id="_td_375_5_7"  data-_i="5" data-_j="7"  class=" _centered" >0.92</td></tr>
+<tr id="_tr_375_6" ><td id="_td_375_6_1"  data-_i="6" data-_j="1"  title="" tooltip_id="36" class=" _left _freezed_col  _centered tooltip-maqao" >R2x5</td><td id="_td_375_6_2"  data-_i="6" data-_j="2"  class=" _centered" >10</td><td id="_td_375_6_3"  data-_i="6" data-_j="3"  class=" _centered"  style="background:#458B00;" >1.4</td><td id="_td_375_6_4"  data-_i="6" data-_j="4"  class=" _centered" >14</td><td id="_td_375_6_5"  data-_i="6" data-_j="5"  class=" _centered" >10</td><td id="_td_375_6_6"  data-_i="6" data-_j="6"  class=" _centered" >0.17</td><td id="_td_375_6_7"  data-_i="6" data-_j="7"  class=" _centered" >0.87</td></tr>
+<tr id="_tr_375_7" ><td id="_td_375_7_1"  data-_i="7" data-_j="1"  title="" tooltip_id="37" class=" _left _freezed_col  _centered tooltip-maqao" >R2x6</td><td id="_td_375_7_2"  data-_i="7" data-_j="2"  class=" _centered" >12</td><td id="_td_375_7_3"  data-_i="7" data-_j="3"  class=" _centered"  style="background:#458B00;" >1.28</td><td id="_td_375_7_4"  data-_i="7" data-_j="4"  class=" _centered" >15.4</td><td id="_td_375_7_5"  data-_i="7" data-_j="5"  class=" _centered" >12</td><td id="_td_375_7_6"  data-_i="7" data-_j="6"  class=" _centered" >0.14</td><td id="_td_375_7_7"  data-_i="7" data-_j="7"  class=" _centered" >0.87</td></tr>
+<tr id="_tr_375_8" ><td id="_td_375_8_1"  data-_i="8" data-_j="1"  title="" tooltip_id="38" class=" _left _freezed_col  _centered tooltip-maqao" >R2x7</td><td id="_td_375_8_2"  data-_i="8" data-_j="2"  class=" _centered" >14</td><td id="_td_375_8_3"  data-_i="8" data-_j="3"  class=" _centered"  style="background:#458B00;" >1.22</td><td id="_td_375_8_4"  data-_i="8" data-_j="4"  class=" _centered" >17.11</td><td id="_td_375_8_5"  data-_i="8" data-_j="5"  class=" _centered" >14</td><td id="_td_375_8_6"  data-_i="8" data-_j="6"  class=" _centered" >0.12</td><td id="_td_375_8_7"  data-_i="8" data-_j="7"  class=" _centered" >0.78</td></tr>
+<tr id="_tr_375_9" ><td id="_td_375_9_1"  data-_i="9" data-_j="1"  title="" tooltip_id="39" class=" _left _freezed_col  _centered tooltip-maqao" >R2x8</td><td id="_td_375_9_2"  data-_i="9" data-_j="2"  class=" _centered" >16</td><td id="_td_375_9_3"  data-_i="9" data-_j="3"  class=" _centered"  style="background:#458B00;" >1.38</td><td id="_td_375_9_4"  data-_i="9" data-_j="4"  class=" _centered" >22</td><td id="_td_375_9_5"  data-_i="9" data-_j="5"  class=" _centered" >16</td><td id="_td_375_9_6"  data-_i="9" data-_j="6"  class=" _centered" >0.1</td><td id="_td_375_9_7"  data-_i="9" data-_j="7"  class=" _centered" >0.77</td></tr>
+<tr id="_tr_375_10" ><td id="_td_375_10_1"  data-_i="10" data-_j="1"  title="" tooltip_id="40" class=" _left _freezed_col  _centered tooltip-maqao" >R3x1</td><td id="_td_375_10_2"  data-_i="10" data-_j="2"  class=" _centered" >3</td><td id="_td_375_10_3"  data-_i="10" data-_j="3"  class=" _centered"  style="background:#458B00;" >2.85</td><td id="_td_375_10_4"  data-_i="10" data-_j="4"  class=" _centered" >8.56</td><td id="_td_375_10_5"  data-_i="10" data-_j="5"  class=" _centered" >3</td><td id="_td_375_10_6"  data-_i="10" data-_j="6"  class=" _centered" >0.24</td><td id="_td_375_10_7"  data-_i="10" data-_j="7"  class=" _centered" >0.44</td></tr>
+<tr id="_tr_375_11" ><td id="_td_375_11_1"  data-_i="11" data-_j="1"  title="" tooltip_id="41" class=" _left _freezed_col  _centered tooltip-maqao" >R3x2</td><td id="_td_375_11_2"  data-_i="11" data-_j="2"  class=" _centered" >6</td><td id="_td_375_11_3"  data-_i="11" data-_j="3"  class=" _centered"  style="background:#458B00;" >1.51</td><td id="_td_375_11_4"  data-_i="11" data-_j="4"  class=" _centered" >9.06</td><td id="_td_375_11_5"  data-_i="11" data-_j="5"  class=" _centered" >6</td><td id="_td_375_11_6"  data-_i="11" data-_j="6"  class=" _centered" >0.21</td><td id="_td_375_11_7"  data-_i="11" data-_j="7"  class=" _centered" >0.66</td></tr>
+<tr id="_tr_375_12" ><td id="_td_375_12_1"  data-_i="12" data-_j="1"  title="" tooltip_id="42" class=" _left _freezed_col  _centered tooltip-maqao" >R3x3</td><td id="_td_375_12_2"  data-_i="12" data-_j="2"  class=" _centered" >9</td><td id="_td_375_12_3"  data-_i="12" data-_j="3"  class=" _centered"  style="background:#458B00;" >1.71</td><td id="_td_375_12_4"  data-_i="12" data-_j="4"  class=" _centered" >15.4</td><td id="_td_375_12_5"  data-_i="12" data-_j="5"  class=" _centered" >9</td><td id="_td_375_12_6"  data-_i="12" data-_j="6"  class=" _centered" >0.15</td><td id="_td_375_12_7"  data-_i="12" data-_j="7"  class=" _centered" >0.5</td></tr>
+<tr id="_tr_375_13" ><td id="_td_375_13_1"  data-_i="13" data-_j="1"  title="" tooltip_id="43" class=" _left _freezed_col  _centered tooltip-maqao" >R3x4</td><td id="_td_375_13_2"  data-_i="13" data-_j="2"  class=" _centered" >12</td><td id="_td_375_13_3"  data-_i="13" data-_j="3"  class=" _centered"  style="background:#458B00;" >1.43</td><td id="_td_375_13_4"  data-_i="13" data-_j="4"  class=" _centered" >17.11</td><td id="_td_375_13_5"  data-_i="13" data-_j="5"  class=" _centered" >12</td><td id="_td_375_13_6"  data-_i="13" data-_j="6"  class=" _centered" >0.14</td><td id="_td_375_13_7"  data-_i="13" data-_j="7"  class=" _centered" >0.48</td></tr>
+<tr id="_tr_375_14" ><td id="_td_375_14_1"  data-_i="14" data-_j="1"  title="" tooltip_id="44" class=" _left _freezed_col  _centered tooltip-maqao" >R3x5</td><td id="_td_375_14_2"  data-_i="14" data-_j="2"  class=" _centered" >15</td><td id="_td_375_14_3"  data-_i="14" data-_j="3"  class=" _centered"  style="background:#458B00;" >1.47</td><td id="_td_375_14_4"  data-_i="14" data-_j="4"  class=" _centered" >22</td><td id="_td_375_14_5"  data-_i="14" data-_j="5"  class=" _centered" >15</td><td id="_td_375_14_6"  data-_i="14" data-_j="6"  class=" _centered" >0.09</td><td id="_td_375_14_7"  data-_i="14" data-_j="7"  class=" _centered" >0.39</td></tr>
+<tr id="_tr_375_15" ><td id="_td_375_15_1"  data-_i="15" data-_j="1"  title="" tooltip_id="45" class=" _left _freezed_col  _centered tooltip-maqao" >R4x1</td><td id="_td_375_15_2"  data-_i="15" data-_j="2"  class=" _centered" >4</td><td id="_td_375_15_3"  data-_i="15" data-_j="3"  class=" _centered"  style="background:#579619;" >0.94</td><td id="_td_375_15_4"  data-_i="15" data-_j="4"  class=" _centered" >3.76</td><td id="_td_375_15_5"  data-_i="15" data-_j="5"  class=" _centered" >4</td><td id="_td_375_15_6"  data-_i="15" data-_j="6"  class=" _centered" >0.45</td><td id="_td_375_15_7"  data-_i="15" data-_j="7"  class=" _centered" >1.47</td></tr>
+<tr id="_tr_375_16" ><td id="_td_375_16_1"  data-_i="16" data-_j="1"  title="" tooltip_id="46" class=" _left _freezed_col  _centered tooltip-maqao" >R4x2</td><td id="_td_375_16_2"  data-_i="16" data-_j="2"  class=" _centered" >8</td><td id="_td_375_16_3"  data-_i="16" data-_j="3"  class=" _centered"  style="background:#458B00;" >1.38</td><td id="_td_375_16_4"  data-_i="16" data-_j="4"  class=" _centered" >11</td><td id="_td_375_16_5"  data-_i="16" data-_j="5"  class=" _centered" >8</td><td id="_td_375_16_6"  data-_i="16" data-_j="6"  class=" _centered" >0.19</td><td id="_td_375_16_7"  data-_i="16" data-_j="7"  class=" _centered" >0.98</td></tr>
+<tr id="_tr_375_17" ><td id="_td_375_17_1"  data-_i="17" data-_j="1"  title="" tooltip_id="47" class=" _left _freezed_col  _centered tooltip-maqao" >R4x3</td><td id="_td_375_17_2"  data-_i="17" data-_j="2"  class=" _centered" >12</td><td id="_td_375_17_3"  data-_i="17" data-_j="3"  class=" _centered"  style="background:#458B00;" >1.43</td><td id="_td_375_17_4"  data-_i="17" data-_j="4"  class=" _centered" >17.11</td><td id="_td_375_17_5"  data-_i="17" data-_j="5"  class=" _centered" >12</td><td id="_td_375_17_6"  data-_i="17" data-_j="6"  class=" _centered" >0.13</td><td id="_td_375_17_7"  data-_i="17" data-_j="7"  class=" _centered" >0.89</td></tr>
+<tr id="_tr_375_18" ><td id="_td_375_18_1"  data-_i="18" data-_j="1"  title="" tooltip_id="48" class=" _left _freezed_col  _centered tooltip-maqao" >R4x4</td><td id="_td_375_18_2"  data-_i="18" data-_j="2"  class=" _centered" >16</td><td id="_td_375_18_3"  data-_i="18" data-_j="3"  class=" _centered"  style="background:#458B00;" >1.6</td><td id="_td_375_18_4"  data-_i="18" data-_j="4"  class=" _centered" >25.67</td><td id="_td_375_18_5"  data-_i="18" data-_j="5"  class=" _centered" >16</td><td id="_td_375_18_6"  data-_i="18" data-_j="6"  class=" _centered" >0.11</td><td id="_td_375_18_7"  data-_i="18" data-_j="7"  class=" _centered" >0.77</td></tr>
+<tr id="_tr_375_19" ><td id="_td_375_19_1"  data-_i="19" data-_j="1"  title="" tooltip_id="49" class=" _left _freezed_col  _centered tooltip-maqao" >R5x1</td><td id="_td_375_19_2"  data-_i="19" data-_j="2"  class=" _centered" >5</td><td id="_td_375_19_3"  data-_i="19" data-_j="3"  class=" _centered"  style="background:#458B00;" >2.37</td><td id="_td_375_19_4"  data-_i="19" data-_j="4"  class=" _centered" >11.85</td><td id="_td_375_19_5"  data-_i="19" data-_j="5"  class=" _centered" >5</td><td id="_td_375_19_6"  data-_i="19" data-_j="6"  class=" _centered" >0.18</td><td id="_td_375_19_7"  data-_i="19" data-_j="7"  class=" _centered" >0.45</td></tr>
+<tr id="_tr_375_20" ><td id="_td_375_20_1"  data-_i="20" data-_j="1"  title="" tooltip_id="50" class=" _left _freezed_col  _centered tooltip-maqao" >R5x2</td><td id="_td_375_20_2"  data-_i="20" data-_j="2"  class=" _centered" >10</td><td id="_td_375_20_3"  data-_i="20" data-_j="3"  class=" _centered"  style="background:#458B00;" >1.54</td><td id="_td_375_20_4"  data-_i="20" data-_j="4"  class=" _centered" >15.4</td><td id="_td_375_20_5"  data-_i="20" data-_j="5"  class=" _centered" >10</td><td id="_td_375_20_6"  data-_i="20" data-_j="6"  class=" _centered" >0.14</td><td id="_td_375_20_7"  data-_i="20" data-_j="7"  class=" _centered" >0.55</td></tr>
+<tr id="_tr_375_21" ><td id="_td_375_21_1"  data-_i="21" data-_j="1"  title="" tooltip_id="51" class=" _left _freezed_col  _centered tooltip-maqao" >R5x3</td><td id="_td_375_21_2"  data-_i="21" data-_j="2"  class=" _centered" >15</td><td id="_td_375_21_3"  data-_i="21" data-_j="3"  class=" _centered"  style="background:#458B00;" >1.28</td><td id="_td_375_21_4"  data-_i="21" data-_j="4"  class=" _centered" >19.25</td><td id="_td_375_21_5"  data-_i="21" data-_j="5"  class=" _centered" >15</td><td id="_td_375_21_6"  data-_i="21" data-_j="6"  class=" _centered" >0.11</td><td id="_td_375_21_7"  data-_i="21" data-_j="7"  class=" _centered" >0.47</td></tr>
+<tr id="_tr_375_22" ><td id="_td_375_22_1"  data-_i="22" data-_j="1"  title="" tooltip_id="52" class=" _left _freezed_col  _centered tooltip-maqao" >R6x1</td><td id="_td_375_22_2"  data-_i="22" data-_j="2"  class=" _centered" >6</td><td id="_td_375_22_3"  data-_i="22" data-_j="3"  class=" _centered"  style="background:#458B00;" >2.85</td><td id="_td_375_22_4"  data-_i="22" data-_j="4"  class=" _centered" >17.11</td><td id="_td_375_22_5"  data-_i="22" data-_j="5"  class=" _centered" >6</td><td id="_td_375_22_6"  data-_i="22" data-_j="6"  class=" _centered" >0.12</td><td id="_td_375_22_7"  data-_i="22" data-_j="7"  class=" _centered" >0.43</td></tr>
+<tr id="_tr_375_23" ><td id="_td_375_23_1"  data-_i="23" data-_j="1"  title="" tooltip_id="53" class=" _left _freezed_col  _centered tooltip-maqao" >R6x2</td><td id="_td_375_23_2"  data-_i="23" data-_j="2"  class=" _centered" >12</td><td id="_td_375_23_3"  data-_i="23" data-_j="3"  class=" _centered"  style="background:#458B00;" >1.6</td><td id="_td_375_23_4"  data-_i="23" data-_j="4"  class=" _centered" >19.25</td><td id="_td_375_23_5"  data-_i="23" data-_j="5"  class=" _centered" >12</td><td id="_td_375_23_6"  data-_i="23" data-_j="6"  class=" _centered" >0.12</td><td id="_td_375_23_7"  data-_i="23" data-_j="7"  class=" _centered" >0.67</td></tr>
+<tr id="_tr_375_24" ><td id="_td_375_24_1"  data-_i="24" data-_j="1"  title="" tooltip_id="54" class=" _left _freezed_col  _centered tooltip-maqao" >R8x1</td><td id="_td_375_24_2"  data-_i="24" data-_j="2"  class=" _centered" >8</td><td id="_td_375_24_3"  data-_i="24" data-_j="3"  class=" _centered"  style="background:#458B00;" >1.01</td><td id="_td_375_24_4"  data-_i="24" data-_j="4"  class=" _centered" >8.11</td><td id="_td_375_24_5"  data-_i="24" data-_j="5"  class=" _centered" >8</td><td id="_td_375_24_6"  data-_i="24" data-_j="6"  class=" _centered" >0.25</td><td id="_td_375_24_7"  data-_i="24" data-_j="7"  class=" _centered" >1.31</td></tr>
+<tr id="_tr_375_25" ><td id="_td_375_25_1"  data-_i="25" data-_j="1"  title="" tooltip_id="55" class=" _left _freezed_col  _centered tooltip-maqao" >R8x2</td><td id="_td_375_25_2"  data-_i="25" data-_j="2"  class=" _centered" >16</td><td id="_td_375_25_3"  data-_i="25" data-_j="3"  class=" _centered"  style="background:#458B00;" >1.38</td><td id="_td_375_25_4"  data-_i="25" data-_j="4"  class=" _centered" >22</td><td id="_td_375_25_5"  data-_i="25" data-_j="5"  class=" _centered" >16</td><td id="_td_375_25_6"  data-_i="25" data-_j="6"  class=" _centered" >0.12</td><td id="_td_375_25_7"  data-_i="25" data-_j="7"  class=" _centered" >1</td></tr>
+<tr id="_tr_375_26" ><td id="_td_375_26_1"  data-_i="26" data-_j="1"  title="" tooltip_id="56" class=" _left _freezed_col  _centered tooltip-maqao" >R9x1</td><td id="_td_375_26_2"  data-_i="26" data-_j="2"  class=" _centered" >89</td><td id="_td_375_26_3"  data-_i="26" data-_j="3"  class=" _centered"  style="background:#C69E3B;" >0.57</td><td id="_td_375_26_4"  data-_i="26" data-_j="4"  class=" _centered" >51.33</td><td id="_td_375_26_5"  data-_i="26" data-_j="5"  class=" _centered" >90</td><td id="_td_375_26_6"  data-_i="26" data-_j="6"  class=" _centered" >0.07</td><td id="_td_375_26_7"  data-_i="26" data-_j="7"  class=" _centered" >0.62</td></tr>
+<tr id="_tr_375_27" ><td id="_td_375_27_1"  data-_i="27" data-_j="1"  title="" tooltip_id="57" class=" _left _freezed_col  _centered tooltip-maqao" >R10x16</td><td id="_td_375_27_2"  data-_i="27" data-_j="2"  class=" _centered" >139</td><td id="_td_375_27_3"  data-_i="27" data-_j="3"  class=" _centered"  style="background:#BF9223;" >0.48</td><td id="_td_375_27_4"  data-_i="27" data-_j="4"  class=" _centered" >77</td><td id="_td_375_27_5"  data-_i="27" data-_j="5"  class=" _centered" >160</td><td id="_td_375_27_6"  data-_i="27" data-_j="6"  class=" _centered" >0.05</td><td id="_td_375_27_7"  data-_i="27" data-_j="7"  class=" _centered" >0.07</td></tr>
+<tr id="_tr_375_28" ><td id="_td_375_28_1"  data-_i="28" data-_j="1"  title="" tooltip_id="58" class=" _left _freezed_col  _centered tooltip-maqao" >R12x1</td><td id="_td_375_28_2"  data-_i="28" data-_j="2"  class=" _centered" >12</td><td id="_td_375_28_3"  data-_i="28" data-_j="3"  class=" _centered"  style="background:#458B00;" >2.57</td><td id="_td_375_28_4"  data-_i="28" data-_j="4"  class=" _centered" >30.8</td><td id="_td_375_28_5"  data-_i="28" data-_j="5"  class=" _centered" >12</td><td id="_td_375_28_6"  data-_i="28" data-_j="6"  class=" _centered" >0.07</td><td id="_td_375_28_7"  data-_i="28" data-_j="7"  class=" _centered" >0.45</td></tr>
+<tr id="_tr_375_29" ><td id="_td_375_29_1"  data-_i="29" data-_j="1"  title="" tooltip_id="59" class=" _left _freezed_col  _centered tooltip-maqao" >R16x16</td><td id="_td_375_29_2"  data-_i="29" data-_j="2"  class=" _centered" >209</td><td id="_td_375_29_3"  data-_i="29" data-_j="3"  class=" _centered"  style="background:#8FB966;" >0.6</td><td id="_td_375_29_4"  data-_i="29" data-_j="4"  class=" _centered" >154</td><td id="_td_375_29_5"  data-_i="29" data-_j="5"  class=" _centered" >256</td><td id="_td_375_29_6"  data-_i="29" data-_j="6"  class=" _centered" >0.05</td><td id="_td_375_29_7"  data-_i="29" data-_j="7"  class=" _centered" >0.6</td></tr>
+<tr id="_tr_375_30" ><td id="_td_375_30_1"  data-_i="30" data-_j="1"  title="" tooltip_id="60" class=" _left _freezed_col  _centered tooltip-maqao" >R16x1</td><td id="_td_375_30_2"  data-_i="30" data-_j="2"  class=" _centered" >16</td><td id="_td_375_30_3"  data-_i="30" data-_j="3"  class=" _centered"  style="background:#579619;" >0.96</td><td id="_td_375_30_4"  data-_i="30" data-_j="4"  class=" _centered" >15.4</td><td id="_td_375_30_5"  data-_i="30" data-_j="5"  class=" _centered" >16</td><td id="_td_375_30_6"  data-_i="30" data-_j="6"  class=" _centered" >0.15</td><td id="_td_375_30_7"  data-_i="30" data-_j="7"  class=" _centered" >1.41</td></tr>
+</table></div></div></div></div></div></div></div>
+  <div id="MaqaoModal" class="maqao_modal">
+    <div class="maqao_modal-content">
+      <div class="maqao_modal-header">
+        <span class="maqao_close">&times;</span>
+      </div>
+      <div id="maqao_modal-body" class="maqao_modal-body">
+      </div>
+    </div>
+  </div>
+</div><script>
+var tooltips_texts = ['A set of filters to display / hide some columns',
+'<br><b>NB processes:</b> 1<br><b>NB nodes:</b> 1<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br>',
+'R2x1<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>',
+'R2x2<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R2x3<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 3<br>',
+'R2x4<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R2x5<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 5<br>',
+'R2x6<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 6<br>',
+'R2x7<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 7<br>',
+'R2x8<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 8<br>',
+'R3x1<br><b>NB processes:</b> 3<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 3<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>',
+'R3x2<br><b>NB processes:</b> 3<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 3<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R3x3<br><b>NB processes:</b> 3<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 3<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 3<br>',
+'R3x4<br><b>NB processes:</b> 3<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 3<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R3x5<br><b>NB processes:</b> 3<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 3<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 5<br>',
+'R4x1<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>',
+'R4x2<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R4x3<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 3<br>',
+'R4x4<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R5x1<br><b>NB processes:</b> 5<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 5<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>',
+'R5x2<br><b>NB processes:</b> 5<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 5<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R5x3<br><b>NB processes:</b> 5<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 5<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 3<br>',
+'R6x1<br><b>NB processes:</b> 6<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 6<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>',
+'R6x2<br><b>NB processes:</b> 6<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 6<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R8x1<br><b>NB processes:</b> 8<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 8<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>',
+'R8x2<br><b>NB processes:</b> 8<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 8<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R9x1<br><b>NB processes:</b> 9<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 9<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 10<br>',
+'R10x16<br><b>NB processes:</b> 10<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 10<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 16<br>',
+'R12x1<br><b>NB processes:</b> 12<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 12<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>',
+'R16x16<br><b>NB processes:</b> 16<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 16<br>',
+'R16x1<br><b>NB processes:</b> 16<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>',
+'<br><b>NB processes:</b> 1<br><b>NB nodes:</b> 1<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br>',
+'R2x1<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>',
+'R2x2<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R2x3<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 3<br>',
+'R2x4<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R2x5<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 5<br>',
+'R2x6<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 6<br>',
+'R2x7<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 7<br>',
+'R2x8<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 8<br>',
+'R3x1<br><b>NB processes:</b> 3<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 3<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>',
+'R3x2<br><b>NB processes:</b> 3<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 3<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R3x3<br><b>NB processes:</b> 3<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 3<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 3<br>',
+'R3x4<br><b>NB processes:</b> 3<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 3<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R3x5<br><b>NB processes:</b> 3<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 3<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 5<br>',
+'R4x1<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>',
+'R4x2<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R4x3<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 3<br>',
+'R4x4<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R5x1<br><b>NB processes:</b> 5<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 5<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>',
+'R5x2<br><b>NB processes:</b> 5<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 5<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R5x3<br><b>NB processes:</b> 5<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 5<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 3<br>',
+'R6x1<br><b>NB processes:</b> 6<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 6<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>',
+'R6x2<br><b>NB processes:</b> 6<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 6<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R8x1<br><b>NB processes:</b> 8<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 8<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>',
+'R8x2<br><b>NB processes:</b> 8<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 8<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R9x1<br><b>NB processes:</b> 9<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 9<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 10<br>',
+'R10x16<br><b>NB processes:</b> 10<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 10<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 16<br>',
+'R12x1<br><b>NB processes:</b> 12<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 12<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>',
+'R16x16<br><b>NB processes:</b> 16<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 16<br>',
+'R16x1<br><b>NB processes:</b> 16<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> mpirun -n &lt;number_processes&gt;<br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>'];
+var modal = document.getElementById('MaqaoModal');
+var span = document.getElementsByClassName("maqao_close")[0];
+span.onclick = function() {
+    modal.style.display = "none";
+}
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
+const comparer = (idx, asc) => (a, b) => ((v1, v2) => 
+    v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v2 - v1 : v1.toString().localeCompare(v2)
+    )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
+addLoadEvent(function(){
+  document.querySelectorAll('._fixed_table th').forEach(th => th.addEventListener('click', (() => {
+    const table = th.closest('table');
+    // Remove all symbols in header
+    table.querySelectorAll('th').forEach(function (e) {
+      e.firstChild.textContent = "";
+    });
+    // Change the symbol on the clicked header
+    if (this.asc != true) {
+      th.firstChild.textContent = "\u25BC";
+    }
+    else {
+      th.firstChild.textContent = "\u25B2";
+    }
+    Array.from(table.querySelectorAll('tr:nth-child(n+2)'))
+        .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
+        .forEach(tr => table.appendChild(tr) );
+  })));
+});
+function _check_all_checkbox_ (obj_id, opts_ids) {
+  var obj   = document.getElementById (obj_id);
+  var opts  = window[opts_ids];
+  var count = 0
+  for (i = 0; i < opts.length; i++) {
+    var obj_s = document.getElementById(opts[i]);
+    if (obj_s.checked) {
+      count ++;
+    }
+  }
+  if (count == 0) {
+    obj.value = "Select all";
+  }
+  else if (count == opts.length) {
+    obj.value = "Select none";
+  }
+}
+// Fonction for table selector
+function click_table_menu (c, obj_id, opt_ids) {
+  var is_checked = document.getElementById (c).checked;
+  localStorage.setItem("__functions_"+c, is_checked);
+  $("."+c).each(function(index, element) {
+    if (is_checked) {
+      element.classList.remove("_tcol_hidden");
+    }
+    else {
+      element.classList.add("_tcol_hidden");
+    }
+  });
+  if (obj_id != undefined) {
+    _check_all_checkbox_ (obj_id, opt_ids)
+  }
+}
+function set_all_table_menu (obj, var_opt_ids) {
+  var opt_ids = window[var_opt_ids];
+  var is_selected = true
+  if (obj.value == "Select all") {
+    is_selected = false;
+  }
+  for (i = 0; i < opt_ids.length; i++) {
+    var obj_s = document.getElementById(opt_ids[i]);
+    if (is_selected == obj_s.checked) {
+      obj_s.checked = !obj_s.checked;
+      click_table_menu (opt_ids[i]);
+    }
+  }
+  if (is_selected == false) {
+    obj.value = "Select none";
+  } else {
+    obj.value = "Select all";
+  }
+  localStorage.setItem(obj.id, obj.value);
+}
+// Script for accordion box
+function _click_accordion_header(obj) {
+  var content = obj.nextSibling;
+  content.classList.toggle('collapsed');
+  obj.classList.toggle('collapsed');
+  obj.parentNode.classList.toggle('collapsed');
+  // Check if the box must be openned ...
+  if (obj.classList.contains ('collapsed'))
+  {
+    obj.firstChild.textContent = "\u25B6";
+  }
+  // or closed.
+  else 
+  {
+    obj.firstChild.textContent = "\u25BC";
+  }
+  if (typeof _onresize === "function") {
+    _onresize ();
+  }
+}
+  // Script for paged table
+function _click_paged_prev(obj) {
+  var pages_content_id = '_paged_tables_page_' + obj.parentNode.parentNode.id.substr (obj.parentNode.parentNode.id.lastIndexOf('_') + 1);
+  var pages_content = document.getElementById(pages_content_id).innerHTML;
+  var max_pages = pages_content.substr (pages_content.lastIndexOf('/') + 1);
+  var cur_page  = pages_content.substring (pages_content.lastIndexOf(' ') + 1, pages_content.lastIndexOf('/'));
+  max_pages = Number (max_pages);
+  cur_page  = Number (cur_page);
+  if (cur_page > 1) {
+    var div_paged = obj.parentNode.parentNode.id;
+    var i;
+    var x = document.getElementsByClassName(div_paged + '_' + (cur_page - 1));
+    for (i = 0; i < x.length; i++) {
+      x[i].classList.toggle('_paged_hidden');
+    }
+    x = document.getElementsByClassName(div_paged + '_' + (cur_page - 2));
+    for (i = 0; i < x.length; i++) {
+      x[i].classList.toggle('_paged_hidden');
+    }
+  document.getElementById(pages_content_id).textContent = "Page " + (cur_page - 1) + "/" + max_pages;
+  }
+}
+function _click_paged_next(obj) {
+  var pages_content_id = '_paged_tables_page_' + obj.parentNode.parentNode.id.substr (obj.parentNode.parentNode.id.lastIndexOf('_') + 1);
+  var pages_content = document.getElementById(pages_content_id).innerHTML;
+  var max_pages = pages_content.substr (pages_content.lastIndexOf('/') + 1);
+  var cur_page  = pages_content.substring (pages_content.lastIndexOf(' ') + 1, pages_content.lastIndexOf('/'));
+  max_pages = Number (max_pages);
+  cur_page  = Number (cur_page);
+  if (cur_page < max_pages) {
+    var div_paged = obj.parentNode.parentNode.id;
+    var i;
+    var x = document.getElementsByClassName(div_paged + '_' + (cur_page - 1));
+    for (i = 0; i < x.length; i++) {
+      x[i].classList.toggle('_paged_hidden');
+    }
+    x = document.getElementsByClassName(div_paged + '_' + cur_page);
+    for (i = 0; i < x.length; i++) {
+      x[i].classList.toggle('_paged_hidden');
+    }
+    document.getElementById(pages_content_id).textContent = "Page " + (cur_page + 1) + "/" + max_pages;
+  }
+}
+// Function for tree table
+function _click_treed(obj) {
+  if (obj.innerHTML == "\u25BA") {
+    obj.textContent = "\u25BC";
+    // Open childs
+    var x = document.getElementsByClassName(obj.parentNode.parentNode.id);
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.toggle('_treed_hidden');
+    }
+  }
+  else if (obj.innerHTML == "\u25BC") {
+    obj.textContent = "\u25BA";
+    // Close all childs
+    var trs = document.getElementsByTagName('tr');
+    var r   = obj.parentNode.parentNode.id+'_';
+    var re  = new RegExp (r, "g");
+    for (var i = 0; i < trs.length; i++) {
+      var s = trs[i].id+""
+      if (s.match(re)) {
+        var o = document.getElementById(s);
+        if (! o.classList.contains('_treed_hidden')) {
+          o.classList.toggle('_treed_hidden');
+        }
+        if (o.firstChild.firstChild.textContent == "\u25BC") {
+          o.firstChild.firstChild.textContent = "\u25BA";
+        }
+        if (o.firstChild.childNodes.length == 3) {
+          o.firstChild.childNodes[2].textContent = '+';
+        }
+      }
+    }
+    if (obj.parentNode.childNodes.length == 3) {
+      obj.parentNode.childNodes[2].textContent = '+';
+    }
+  }
+}
+function _click_expand (obj) {
+  var trs = document.getElementsByTagName('tr');
+  var r   = obj.parentNode.parentNode.id+'_';
+  var re  = new RegExp (r, "g");
+  // Symbole + => expand all
+  if (obj.textContent == "+") {
+    for (var i = 0; i < trs.length; i++) {
+      var s = trs[i].id+"";
+      if (s.match(re)) {
+        var o = document.getElementById(s);
+        if (o.classList.contains('_treed_hidden')) {
+           o.classList.toggle('_treed_hidden');
+        }
+        if (o.firstChild.firstChild.textContent == "\u25BA") {
+          o.firstChild.firstChild.textContent = "\u25BC";
+        }
+        if (o.firstChild.childNodes.length == 3) {
+          o.firstChild.childNodes[2].textContent = '\u2010';
+        }
+      }
+    }
+    var o = obj.parentNode.parentNode;
+    if (o.firstChild.firstChild.textContent == "\u25BA") {
+      o.firstChild.firstChild.textContent = "\u25BC";
+    }
+    obj.textContent = "\u2010";
+  }
+  // Symbole - => collapse all
+  else {
+    for (var i = 0; i < trs.length; i++) {
+      var s = trs[i].id+"";
+      if (s.match(re)) {
+        var o = document.getElementById(s);
+        if (! o.classList.contains('_treed_hidden')) {
+           o.classList.toggle('_treed_hidden');
+        }
+        if (o.firstChild.firstChild.textContent == "\u25BC") {
+          o.firstChild.firstChild.textContent = "\u25BA";
+        }
+        if (o.firstChild.childNodes.length == 3) {
+          o.firstChild.childNodes[2].textContent = '+';
+        }
+      }
+    }
+    var o = obj.parentNode.parentNode;
+    if (o.firstChild.firstChild.textContent == "\u25BC") {
+      o.firstChild.firstChild.textContent = "\u25BA";
+    }
+    obj.textContent = "+";
+  }
+}
+// Hide unselected tabs
+addLoadEvent(function(){
+  var x = document.getElementsByClassName("_tab_header_li");
+  for (var i = 0; i < x.length; i++) {
+    if (x[i].classList.contains("selected_tab") == false) {
+      var e = document.getElementById (x[i].dataset.tab);
+      e.style.display = "none";
+    }
+  }
+});
+// Change tab
+function change_tab (e, baseId) {
+  // Handle tabs
+  var i = 1;
+  while (true) {
+    var id = baseId + i;
+    var t = document.getElementById (id);
+    if (t == null) {
+      break;
+    }
+    if (id == e.dataset.tab) {
+      t.style.removeProperty("display");
+    }
+    else {
+      t.style.display = "none";
+    }
+    i = i + 1;
+  }
+  // Handle headers
+  $(e).siblings().each( function () {
+    this.classList.remove("selected_tab");
+  });
+  e.classList.add("selected_tab");
+}
+function __maqao_legacy_onresize () {
+  var obj = document.getElementById("spacer_page_title");
+  if (obj) {
+    obj.style.height = (document.getElementById("page_title").clientHeight + 20)+"px";
+  }
+  var obj = document.getElementById("page_title");
+  if (obj) {
+    var elems = document.getElementsByClassName ("_first_menu_level")
+    if (obj.clientHeight < 90) {
+      for (var i = 0; i < elems.length; i++) {
+        elems.item(i).style.borderBottomLeftRadius = "";
+        elems.item(i).style.borderBottomRightRadius = "";
+      }
+    }
+    else {
+      for (var i = 0; i < elems.length; i++) {
+        elems.item(i).style.borderBottomLeftRadius = "10px";
+        elems.item(i).style.borderBottomRightRadius = "10px";
+      }
+    }
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/rhs.f90: 71 - 180
+--------------------------------------------------------------------------------
+
+71:             do i = 1, nx
+72:                flux(1,i) = u(2,i,j,k)
+73:                u21 = u(2,i,j,k) * rho_i(i,j,k)
+74: 
+75:                q = qs(i,j,k)
+76: 
+77:                flux(2,i) = u(2,i,j,k) * u21 + c2 *  &
+78:      &                        ( u(5,i,j,k) - q )
+79:                flux(3,i) = u(3,i,j,k) * u21
+80:                flux(4,i) = u(4,i,j,k) * u21
+81:                flux(5,i) = ( c1 * u(5,i,j,k) - c2 * q ) * u21
+82:             end do
+83: 
+84:             do i = 2, nx-1
+85:                do m = 1, 5
+86:                   rsd(m,i,j,k) =  rsd(m,i,j,k)  &
+87:      &                 - tx2 * ( flux(m,i+1) - flux(m,i-1) )
+88:                end do
+89:             end do
+90: 
+91:             do i = 2, nx
+92:                tmp = rho_i(i,j,k)
+93: 
+94:                u21i = tmp * u(2,i,j,k)
+95:                u31i = tmp * u(3,i,j,k)
+96:                u41i = tmp * u(4,i,j,k)
+97:                u51i = tmp * u(5,i,j,k)
+98: 
+99:                tmp = rho_i(i-1,j,k)
+100: 
+101:                u21im1 = tmp * u(2,i-1,j,k)
+102:                u31im1 = tmp * u(3,i-1,j,k)
+103:                u41im1 = tmp * u(4,i-1,j,k)
+104:                u51im1 = tmp * u(5,i-1,j,k)
+105: 
+106:                flux(2,i) = (4.0d+00/3.0d+00) * tx3 * (u21i-u21im1)
+107:                flux(3,i) = tx3 * ( u31i - u31im1 )
+108:                flux(4,i) = tx3 * ( u41i - u41im1 )
+[...]
+114:      &              + c1 * c5 * tx3 * ( u51i - u51im1 )
+115:             end do
+116: 
+117:             do i = 2, nx-1
+118:                rsd(1,i,j,k) = rsd(1,i,j,k)  &
+119:      &              + dx1 * tx1 * (            u(1,i-1,j,k)  &
+120:      &                             - 2.0d+00 * u(1,i,j,k)  &
+121:      &                             +           u(1,i+1,j,k) )
+122:                rsd(2,i,j,k) = rsd(2,i,j,k)  &
+123:      &          + tx3 * c3 * c4 * ( flux(2,i+1) - flux(2,i) )  &
+124:      &              + dx2 * tx1 * (            u(2,i-1,j,k)  &
+125:      &                             - 2.0d+00 * u(2,i,j,k)  &
+126:      &                             +           u(2,i+1,j,k) )
+127:                rsd(3,i,j,k) = rsd(3,i,j,k)  &
+128:      &          + tx3 * c3 * c4 * ( flux(3,i+1) - flux(3,i) )  &
+129:      &              + dx3 * tx1 * (            u(3,i-1,j,k)  &
+130:      &                             - 2.0d+00 * u(3,i,j,k)  &
+131:      &                             +           u(3,i+1,j,k) )
+132:                rsd(4,i,j,k) = rsd(4,i,j,k)  &
+133:      &          + tx3 * c3 * c4 * ( flux(4,i+1) - flux(4,i) )  &
+134:      &              + dx4 * tx1 * (            u(4,i-1,j,k)  &
+135:      &                             - 2.0d+00 * u(4,i,j,k)  &
+136:      &                             +           u(4,i+1,j,k) )
+137:                rsd(5,i,j,k) = rsd(5,i,j,k)  &
+138:      &          + tx3 * c3 * c4 * ( flux(5,i+1) - flux(5,i) )  &
+139:      &              + dx5 * tx1 * (            u(5,i-1,j,k)  &
+140:      &                             - 2.0d+00 * u(5,i,j,k)  &
+141:      &                             +           u(5,i+1,j,k) )
+[...]
+151:      &                      +           u(m,4,j,k) )
+152:                rsd(m,3,j,k) = rsd(m,3,j,k)  &
+153:      &           - dssp * ( - 4.0d+00 * u(m,2,j,k)  &
+154:      &                      + 6.0d+00 * u(m,3,j,k)  &
+155:      &                      - 4.0d+00 * u(m,4,j,k)  &
+156:      &                      +           u(m,5,j,k) )
+157:             end do
+158: 
+159:             do i = 4, nx - 3
+[...]
+166:      &                        +           u(m,i+2,j,k) )
+[...]
+176:      &                      - 4.0d+00 * u(m,nx-1,j,k)  )
+177:                rsd(m,nx-1,j,k) = rsd(m,nx-1,j,k)  &
+178:      &           - dssp * (             u(m,nx-3,j,k)  &
+179:      &                      - 4.0d+00 * u(m,nx-2,j,k)  &
+180:      &                      + 5.0d+00 * u(m,nx-1,j,k) )

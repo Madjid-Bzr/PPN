@@ -1,0 +1,14 @@
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exact.f90: 4 - 52
+--------------------------------------------------------------------------------
+
+4:       subroutine exact( i, j, k, u000ijk, nx, ny, nz)
+[...]
+30:       xi  = ( dble ( i - 1 ) ) / ( nx - 1 )
+31:       eta  = ( dble ( j - 1 ) ) / ( ny - 1 )
+32:       zeta = ( dble ( k - 1 ) ) / ( nz - 1 )
+[...]
+48:      &        +  ce(m,13) * zeta) * zeta) * zeta) * zeta
+49:       end do
+50: 
+51:       return
+52:       end

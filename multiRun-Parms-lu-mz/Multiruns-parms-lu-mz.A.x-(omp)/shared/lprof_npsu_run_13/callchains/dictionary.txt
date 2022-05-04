@@ -1,0 +1,36 @@
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/ssor.f90:106
+lu-mz.A.x
+GOMP_parallel - :0
+libgomp.so.1.0.0
+exch_qbc_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:42
+exch_qbc_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:37
+exch_qbc_._omp_fn.1 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:82
+exch_qbc_._omp_fn.1 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:74
+exch_qbc_._omp_fn.1 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:86
+exch_qbc_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:46
+error_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/error.f90:42
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/setiv.f90:42
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/setiv.f90:46
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/setiv.f90:45
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/setiv.f90:43
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/setiv.f90:44
+setbv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/setbv.f90:35
+setbv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/setbv.f90:51
+setbv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/setbv.f90:69
+unknown kernel region
+kernel
+omp_get_num_procs - :0
+pthread_attr_setschedparam - :0
+libc-2.31.so
+jacu - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/jacu.f90:192
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/ssor.f90:119
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/ssor.f90:46
+blts - /home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/blts.f90:210
+jacld - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/jacld.f90:138
+erhs_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/erhs.f90:74
+jacu - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/jacu.f90:286
+blts - /home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/blts.f90:204
+copy_x_face - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/exch_qbc.f90:158
+buts - /home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/buts.f90:221
+rhs_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/rhs.f90:47
+blts - /home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/blts.f90:206

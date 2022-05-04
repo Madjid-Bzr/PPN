@@ -1,0 +1,19 @@
+address;source_location;insn;indent
+0x27040;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/syncs.f90:54;MOV	(%R8),%EAX;
+0x27043;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/syncs.f90:54;TEST	%EAX,%EAX;
+0x27045;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/syncs.f90:54;JLE	2704c <sync_left_+0xc>;
+0x27047;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/syncs.f90:54;CMP	(%R9),%EAX;
+0x2704a;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/syncs.f90:54;JLE	27050 <sync_left_+0x10>;
+0x2704c;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/syncs.f90:65;MFENCE;
+0x2704f;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/syncs.f90:69;RET;
+0x27050;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/syncs.f90:56;MOV	0x8(%RSP),%RDX;
+0x27055;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/syncs.f90:55;SUB	$0x1,%EAX;
+0x27058;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/syncs.f90:56;CLTQ;
+0x2705a;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/syncs.f90:56;LEA	(%RDX,%RAX,4),%RCX;
+0x2705e;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/syncs.f90:56;XCHG	%AX,%AX;
+0x27060;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/syncs.f90:56;MOV	(%RCX),%ESI;(165) 
+0x27062;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/syncs.f90:58;TEST	%ESI,%ESI;(165) 
+0x27064;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/syncs.f90:58;JE	27060 <sync_left_+0x20>;(165) 
+0x27066;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/syncs.f90:62;MOVL	$0,(%RCX);
+0x2706c;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/syncs.f90:65;MFENCE;
+0x2706f;/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-OMP/LU-MZ/syncs.f90:69;RET;

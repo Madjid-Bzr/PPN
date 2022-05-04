@@ -1,0 +1,10 @@
+name;time_p;time_s;cpi_ratio;
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/teste-fin-2/binaries/lu-mz.A.x;94.82;13.51;;
+/usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0;3.88;0.55;;
+/usr/lib/x86_64-linux-gnu/libmpich.so.12.1.8;0.98;0.14;;
+/usr/lib/x86_64-linux-gnu/libc-2.31.so;0.26;0.04;;
+kernel;0.03;0;;
+/usr/lib/x86_64-linux-gnu/libpthread-2.31.so;0.01;0;;
+/usr/lib/x86_64-linux-gnu/ld-2.31.so;0.01;0;;
+/usr/lib/x86_64-linux-gnu/libgfortran.so.5.0.0;0.01;0;;
+/usr/lib/x86_64-linux-gnu/libquadmath.so.0.0.0;0;0;;

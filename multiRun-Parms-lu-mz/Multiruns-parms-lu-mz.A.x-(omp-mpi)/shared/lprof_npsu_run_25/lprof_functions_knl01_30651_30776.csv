@@ -1,0 +1,11 @@
+function_id;module;function_name;source_info;time_p;time_s;time_s_min;time_s_avg;time_s_max;cov_deviation;nb_threads;cats;
+256;libgomp.so.1.0.0;omp_get_num_procs;;56.65;2.28;;;;;;"0,0,100,0,0,0,0,0,0,0";
+46;lu-mz.A.x;sync_left;syncs.f90:73-88;9.32;0.37;;;;;;"100,0,0,0,0,0,0,0,0,0";
+44;lu-mz.A.x;buts;buts.f90:4-235;7.83;0.31;;;;;;"100,0,0,0,0,0,0,0,0,0";
+37;lu-mz.A.x;rhs_._omp_fn.0;rhs.f90:58-475;7.2;0.29;;;;;;"100,0,0,0,0,0,0,0,0,0";
+42;lu-mz.A.x;blts;blts.f90:4-236;6.34;0.25;;;;;;"100,0,0,0,0,0,0,0,0,0";
+41;lu-mz.A.x;jacld;jacld.f90:5-357;5.71;0.23;;;;;;"100,0,0,0,0,0,0,0,0,0";
+43;lu-mz.A.x;jacu;jacu.f90:5-356;5.22;0.21;;;;;;"100,0,0,0,0,0,0,0,0,0";
+26;lu-mz.A.x;ssor_._omp_fn.0;ssor.f90:39-170;1.49;0.06;;;;;;"100,0,0,0,0,0,0,0,0,0";
+210;libgomp.so.1.0.0;omp_get_thread_num;;0.12;0;;;;;;"0,0,100,0,0,0,0,0,0,0";
+21;lu-mz.A.x;exact;exact.f90:4-52;0.12;0;;;;;;"0,0,100,0,0,0,0,0,0,0";
