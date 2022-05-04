@@ -1,0 +1,14 @@
+/users/user2210/NPB3.4-MZ-MPI/LU-MZ/syncs.f90: 27 - 50
+--------------------------------------------------------------------------------
+
+27:       subroutine sync_init
+[...]
+42:       mthreadnum = 0
+43: !$    mthreadnum = omp_get_num_threads() - 1
+44:       if (mthreadnum .gt. problem_size) mthreadnum = problem_size
+45:       iam = 0
+46: !$    iam = omp_get_thread_num()
+47:       if (iam.le.mthreadnum) isync(iam) = 0
+48: 
+49:       return
+50:       end

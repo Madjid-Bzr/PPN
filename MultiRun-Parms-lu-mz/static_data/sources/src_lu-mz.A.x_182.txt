@@ -1,0 +1,147 @@
+/users/user2210/NPB3.4-MZ-MPI/LU-MZ/blts.f90: 57 - 227
+--------------------------------------------------------------------------------
+
+57:          do i = ist, iend
+[...]
+70:      &           + ldx( m, 5, i, j ) * v( 5, i-1, j, k ) )
+[...]
+80:                tmat( m, 1 ) = d( m, 1, i, j )
+81:                tmat( m, 2 ) = d( m, 2, i, j )
+82:                tmat( m, 3 ) = d( m, 3, i, j )
+83:                tmat( m, 4 ) = d( m, 4, i, j )
+84:                tmat( m, 5 ) = d( m, 5, i, j )
+85:             end do
+86: 
+87:             tmp1 = 1.0d0 / tmat( 1, 1 )
+88:             tmp = tmp1 * tmat( 2, 1 )
+89:             tmat( 2, 2 ) =  tmat( 2, 2 )  &
+90:      &           - tmp * tmat( 1, 2 )
+91:             tmat( 2, 3 ) =  tmat( 2, 3 )  &
+92:      &           - tmp * tmat( 1, 3 )
+93:             tmat( 2, 4 ) =  tmat( 2, 4 )  &
+94:      &           - tmp * tmat( 1, 4 )
+95:             tmat( 2, 5 ) =  tmat( 2, 5 )  &
+96:      &           - tmp * tmat( 1, 5 )
+97:             tv( 2 ) = tv( 2 )  &
+98:      &        - tv( 1 ) * tmp
+99: 
+100:             tmp = tmp1 * tmat( 3, 1 )
+101:             tmat( 3, 2 ) =  tmat( 3, 2 )  &
+102:      &           - tmp * tmat( 1, 2 )
+103:             tmat( 3, 3 ) =  tmat( 3, 3 )  &
+104:      &           - tmp * tmat( 1, 3 )
+105:             tmat( 3, 4 ) =  tmat( 3, 4 )  &
+106:      &           - tmp * tmat( 1, 4 )
+107:             tmat( 3, 5 ) =  tmat( 3, 5 )  &
+108:      &           - tmp * tmat( 1, 5 )
+109:             tv( 3 ) = tv( 3 )  &
+110:      &        - tv( 1 ) * tmp
+111: 
+112:             tmp = tmp1 * tmat( 4, 1 )
+113:             tmat( 4, 2 ) =  tmat( 4, 2 )  &
+114:      &           - tmp * tmat( 1, 2 )
+115:             tmat( 4, 3 ) =  tmat( 4, 3 )  &
+116:      &           - tmp * tmat( 1, 3 )
+117:             tmat( 4, 4 ) =  tmat( 4, 4 )  &
+118:      &           - tmp * tmat( 1, 4 )
+119:             tmat( 4, 5 ) =  tmat( 4, 5 )  &
+120:      &           - tmp * tmat( 1, 5 )
+121:             tv( 4 ) = tv( 4 )  &
+122:      &        - tv( 1 ) * tmp
+123: 
+124:             tmp = tmp1 * tmat( 5, 1 )
+125:             tmat( 5, 2 ) =  tmat( 5, 2 )  &
+126:      &           - tmp * tmat( 1, 2 )
+127:             tmat( 5, 3 ) =  tmat( 5, 3 )  &
+128:      &           - tmp * tmat( 1, 3 )
+129:             tmat( 5, 4 ) =  tmat( 5, 4 )  &
+130:      &           - tmp * tmat( 1, 4 )
+131:             tmat( 5, 5 ) =  tmat( 5, 5 )  &
+132:      &           - tmp * tmat( 1, 5 )
+133:             tv( 5 ) = tv( 5 )  &
+134:      &        - tv( 1 ) * tmp
+135: 
+136: 
+137: 
+138:             tmp1 = 1.0d0 / tmat( 2, 2 )
+139:             tmp = tmp1 * tmat( 3, 2 )
+140:             tmat( 3, 3 ) =  tmat( 3, 3 )  &
+141:      &           - tmp * tmat( 2, 3 )
+142:             tmat( 3, 4 ) =  tmat( 3, 4 )  &
+143:      &           - tmp * tmat( 2, 4 )
+144:             tmat( 3, 5 ) =  tmat( 3, 5 )  &
+145:      &           - tmp * tmat( 2, 5 )
+146:             tv( 3 ) = tv( 3 )  &
+147:      &        - tv( 2 ) * tmp
+148: 
+149:             tmp = tmp1 * tmat( 4, 2 )
+150:             tmat( 4, 3 ) =  tmat( 4, 3 )  &
+151:      &           - tmp * tmat( 2, 3 )
+152:             tmat( 4, 4 ) =  tmat( 4, 4 )  &
+153:      &           - tmp * tmat( 2, 4 )
+154:             tmat( 4, 5 ) =  tmat( 4, 5 )  &
+155:      &           - tmp * tmat( 2, 5 )
+156:             tv( 4 ) = tv( 4 )  &
+157:      &        - tv( 2 ) * tmp
+158: 
+159:             tmp = tmp1 * tmat( 5, 2 )
+160:             tmat( 5, 3 ) =  tmat( 5, 3 )  &
+161:      &           - tmp * tmat( 2, 3 )
+162:             tmat( 5, 4 ) =  tmat( 5, 4 )  &
+163:      &           - tmp * tmat( 2, 4 )
+164:             tmat( 5, 5 ) =  tmat( 5, 5 )  &
+165:      &           - tmp * tmat( 2, 5 )
+166:             tv( 5 ) = tv( 5 )  &
+167:      &        - tv( 2 ) * tmp
+168: 
+169: 
+170: 
+171:             tmp1 = 1.0d0 / tmat( 3, 3 )
+172:             tmp = tmp1 * tmat( 4, 3 )
+173:             tmat( 4, 4 ) =  tmat( 4, 4 )  &
+174:      &           - tmp * tmat( 3, 4 )
+175:             tmat( 4, 5 ) =  tmat( 4, 5 )  &
+176:      &           - tmp * tmat( 3, 5 )
+177:             tv( 4 ) = tv( 4 )  &
+178:      &        - tv( 3 ) * tmp
+179: 
+180:             tmp = tmp1 * tmat( 5, 3 )
+181:             tmat( 5, 4 ) =  tmat( 5, 4 )  &
+182:      &           - tmp * tmat( 3, 4 )
+183:             tmat( 5, 5 ) =  tmat( 5, 5 )  &
+184:      &           - tmp * tmat( 3, 5 )
+185:             tv( 5 ) = tv( 5 )  &
+186:      &        - tv( 3 ) * tmp
+187: 
+188: 
+189: 
+190:             tmp1 = 1.0d0 / tmat( 4, 4 )
+191:             tmp = tmp1 * tmat( 5, 4 )
+192:             tmat( 5, 5 ) =  tmat( 5, 5 )  &
+193:      &           - tmp * tmat( 4, 5 )
+194:             tv( 5 ) = tv( 5 )  &
+195:      &        - tv( 4 ) * tmp
+[...]
+201:      &                      / tmat( 5, 5 )
+202: 
+203:             tv( 4 ) = tv( 4 )  &
+204:      &           - tmat( 4, 5 ) * v( 5, i, j, k )
+205:             v( 4, i, j, k ) = tv( 4 )  &
+206:      &                      / tmat( 4, 4 )
+207: 
+208:             tv( 3 ) = tv( 3 )  &
+209:      &           - tmat( 3, 4 ) * v( 4, i, j, k )  &
+210:      &           - tmat( 3, 5 ) * v( 5, i, j, k )
+211:             v( 3, i, j, k ) = tv( 3 )  &
+212:      &                      / tmat( 3, 3 )
+213: 
+214:             tv( 2 ) = tv( 2 )  &
+215:      &           - tmat( 2, 3 ) * v( 3, i, j, k )  &
+216:      &           - tmat( 2, 4 ) * v( 4, i, j, k )  &
+217:      &           - tmat( 2, 5 ) * v( 5, i, j, k )
+218:             v( 2, i, j, k ) = tv( 2 )  &
+219:      &                      / tmat( 2, 2 )
+[...]
+225:      &           - tmat( 1, 5 ) * v( 5, i, j, k )
+226:             v( 1, i, j, k ) = tv( 1 )  &
+227:      &                      / tmat( 1, 1 )

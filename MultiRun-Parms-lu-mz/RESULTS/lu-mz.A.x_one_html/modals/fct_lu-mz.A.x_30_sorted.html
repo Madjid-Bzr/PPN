@@ -1,0 +1,3379 @@
+<!DOCTYPE html>
+<html lang="en-US"><head><title>ONEVIEW</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" media="screen" href="../css/ui.jqgrid.css" />
+<link rel="stylesheet" type="text/css" href="../css/themes/redmond_custom/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="../css/themes/redmond_custom/jquery.jqplot.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/MAQAO_theme.css" />
+<link rel="stylesheet" type="text/css" href="../css/maqao_modal.css" />
+<link rel="stylesheet" type="text/css" href="../css/global_noheader.css" />
+<script src="../js/jquery-1.9.0.min.js" ></script>
+<script src="../js/jquery-ui-1.10.3.custom.min.js" ></script>
+<script src="../js/grid.locale-en.js" ></script>
+<script src="../js/jquery.jqGrid.min.js" ></script>
+<script src="../js/d3.min.js" ></script>
+<script class="include" src="../js/jquery.jqplot.min.js"></script>
+<script class="include" src="../js/jqplot.pieRenderer.min.js"></script>
+<script class="include" src="../js/jqplot.barRenderer.min.js"></script>
+<script class="include" src="../js/jqplot.categoryAxisRenderer.min.js"></script>
+<script class="include" src="../js/jqplot.pointLabels.min.js"></script>
+<script class="include" src="../js/jqplot.cursor.min.js"></script>
+<script class="include" src="../js/jqplot.canvasTextRenderer.min.js"></script>
+<script class="include" src="../js/jqplot.canvasAxisTickRenderer.min.js"></script>
+<script class="include" src="../js/jqplot.canvasAxisLabelRenderer.min.js"></script>
+<script class="include" src="../js/jqplot.enhancedLegendRenderer.min.js"></script>
+<script class="include" src="../js/jqplot.highlighter.min.js"></script>
+<script>
+$( function() {
+  $( document ).tooltip({
+    content: function() {
+      if ($(this).hasClass ("tooltip-maqao")
+      ||  $(this).hasClass ("tooltip-maqao-button")) {
+        return tooltips_texts[$(this).attr('tooltip_id')];
+      }
+    },
+    position: {
+      my: "center bottom-20",
+        at: "center top",
+        using: function( position, feedback ) {
+          $( this ).css( position );
+          $( "<div>" )
+            .addClass( "arrow-tt" )
+            .addClass( feedback.vertical )
+            .addClass( feedback.horizontal )
+            .appendTo( this );
+        }
+      }
+  });
+} );
+
+// Code from https://www.htmlgoodies.com/beyond/javascript/article.php/3724571/Using-Multiple-JavaScript-Onload-Functions.htm
+function addLoadEvent(func) {
+  var oldonload = window.onload;
+  if (typeof window.onload != 'function') {
+    window.onload = func;
+  } else {
+    window.onload = function() {
+      if (oldonload) {
+        oldonload();
+      }
+      func();
+    }
+  }
+}
+function loadCSS(filename){ 
+  var file = document.createElement("link");
+  file.setAttribute("rel", "stylesheet");
+  file.setAttribute("type", "text/css");
+  file.setAttribute("href", filename);
+  document.head.appendChild(file);
+}
+addLoadEvent(function(){
+  var theme = localStorage.getItem("__MAQAO_OV_theme__");
+  if (theme) {
+    loadCSS("../css/"+theme+".css");
+  }
+  else {
+    localStorage.setItem("__MAQAO_OV_theme__", "MAQAO_theme");
+    loadCSS("../css/MAQAO_theme.css");
+  }
+});
+</script>
+</head><body>
+<div id="anchor_file_start"></div>
+<div id="maqao_content">
+<div class="_fixed_box" ><h3 class="_header">copy_y_face_._omp_fn.0 - Sorted Load Distribution</h3>
+<div class="_content">  <table style="width:100%;text-align:center;">
+    <tr style="height:30px;">
+      <td><button type="button" style="cursor:pointer;" onclick="set_previous_ldbal_input ();">&larr;</button></td>
+      <td style="border-bottom: 1px solid var(--fixed_box_borders); width: 70%;"> 
+        <select id="ldbal_select_run" size="1" onchange="set_ldbal_input ();" autocomplete="off" style="cursor:pointer;">
+           <option value="1">Run 1
+           <option value="2">Run 2
+           <option value="3">Run 3
+           <option value="4">Run 4
+           <option value="5">Run 5
+           <option value="6">Run 6
+           <option value="7">Run 7
+           <option value="8">Run 8
+           <option value="9">Run 9
+        </select>
+      </td>
+      <td><button type="button" style="cursor:pointer;" onclick="set_next_ldbal_input ();">&rarr;</button></td>
+    </tr>
+  </table>
+<div style="margin: 10px; overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_10287" style="height:500px" ></div><div style="text-align:center;"></div></div>
+<script class="code">
+</script>
+<div style="margin: 10px; overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_10288" style="height:500px" ></div><div style="text-align:center;"></div></div>
+<script class="code">
+</script>
+  <script>
+function set_ldbal_input () {
+  var selector_run  = document.getElementById ("ldbal_select_run");
+  // Clear placeholder content and update their size
+  document.getElementById("chart_cat_10287").innerHTML = "";
+  var _width = Math.floor(document.getElementById("chart_cat_10287").getBoundingClientRect().width);
+  document.getElementById("chart_cat_10288").innerHTML = "";
+  var _width = Math.floor(document.getElementById("chart_cat_10288").getBoundingClientRect().width);
+  // According to selector, draw both charts
+  if (selector_run.value  == "1") {
+  $(document).ready(function(){
+    var ordinals = ['knl01_40441_40441'];
+    var data = [{value: 0.07, offset: 0, i: 0, color: "#333399"}];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_10287')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Coverage (%)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_10287')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_10287_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  $("#zoom_chart_10287_0").click( function () {
+    window.open("../topo/run_0_knl01_40441_40441.html");
+  });
+  }
+  if (selector_run.value  == "1") {
+  $(document).ready(function(){
+    var ordinals = ['knl01_40441_40441'];
+    var data = [{value: 0.06, offset: 0, i: 0, color: "#333399"}];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_10288')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Time (s)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_10288')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_10288_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  $("#zoom_chart_10288_0").click( function () {
+    window.open("../topo/run_0_knl01_40441_40441.html");
+  });
+  }
+  if (selector_run.value  == "2") {
+  $(document).ready(function(){
+    var ordinals = ['knl01_40734_40734','knl01_40735_40735','knl01_40735_41253','knl01_40734_41254','knl01_40734_41250','knl01_40734_41252','knl01_40735_41251','knl01_40735_41255'];
+    var data = [{value: 0.1, offset: 0, i: 0, color: "#333399"},{value: 0.07, offset: 0, i: 1, color: "#333399"},{value: 0.07, offset: 0, i: 2, color: "#333399"},{value: 0.07, offset: 0, i: 3, color: "#333399"},{value: 0.07, offset: 0, i: 4, color: "#333399"},{value: 0.07, offset: 0, i: 5, color: "#333399"},{value: 0.04, offset: 0, i: 6, color: "#333399"},{value: 0.03, offset: 0, i: 7, color: "#333399"}];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_10287')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Coverage (%)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_10287')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_10287_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  $("#zoom_chart_10287_0").click( function () {
+    window.open("../topo/run_1_knl01_40734_40734.html");
+  });
+  $("#zoom_chart_10287_1").click( function () {
+    window.open("../topo/run_1_knl01_40735_40735.html");
+  });
+  $("#zoom_chart_10287_2").click( function () {
+    window.open("../topo/run_1_knl01_40735_41253.html");
+  });
+  $("#zoom_chart_10287_3").click( function () {
+    window.open("../topo/run_1_knl01_40734_41254.html");
+  });
+  $("#zoom_chart_10287_4").click( function () {
+    window.open("../topo/run_1_knl01_40734_41250.html");
+  });
+  $("#zoom_chart_10287_5").click( function () {
+    window.open("../topo/run_1_knl01_40734_41252.html");
+  });
+  $("#zoom_chart_10287_6").click( function () {
+    window.open("../topo/run_1_knl01_40735_41251.html");
+  });
+  $("#zoom_chart_10287_7").click( function () {
+    window.open("../topo/run_1_knl01_40735_41255.html");
+  });
+  }
+  if (selector_run.value  == "2") {
+  $(document).ready(function(){
+    var ordinals = ['knl01_40734_40734','knl01_40735_40735','knl01_40735_41253','knl01_40734_41254','knl01_40734_41250','knl01_40734_41252','knl01_40735_41255','knl01_40735_41251'];
+    var data = [{value: 0.01, offset: 0, i: 0, color: "#333399"},{value: 0.01, offset: 0, i: 1, color: "#333399"},{value: 0.01, offset: 0, i: 2, color: "#333399"},{value: 0.01, offset: 0, i: 3, color: "#333399"},{value: 0.01, offset: 0, i: 4, color: "#333399"},{value: 0.01, offset: 0, i: 5, color: "#333399"},{value: 0.01, offset: 0, i: 6, color: "#333399"},{value: 0, offset: 0, i: 7, color: "#333399"}];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_10288')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Time (s)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_10288')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_10288_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  $("#zoom_chart_10288_0").click( function () {
+    window.open("../topo/run_1_knl01_40734_40734.html");
+  });
+  $("#zoom_chart_10288_1").click( function () {
+    window.open("../topo/run_1_knl01_40735_40735.html");
+  });
+  $("#zoom_chart_10288_2").click( function () {
+    window.open("../topo/run_1_knl01_40735_41253.html");
+  });
+  $("#zoom_chart_10288_3").click( function () {
+    window.open("../topo/run_1_knl01_40734_41254.html");
+  });
+  $("#zoom_chart_10288_4").click( function () {
+    window.open("../topo/run_1_knl01_40734_41250.html");
+  });
+  $("#zoom_chart_10288_5").click( function () {
+    window.open("../topo/run_1_knl01_40734_41252.html");
+  });
+  $("#zoom_chart_10288_6").click( function () {
+    window.open("../topo/run_1_knl01_40735_41255.html");
+  });
+  $("#zoom_chart_10288_7").click( function () {
+    window.open("../topo/run_1_knl01_40735_41251.html");
+  });
+  }
+  if (selector_run.value  == "3") {
+  $(document).ready(function(){
+    var ordinals = ['knl01_41272_42048','knl01_41273_42043','knl01_41272_42050','knl01_41272_42045','knl01_41273_42049','knl01_41273_42046','knl01_41274_42044','knl01_41273_41273','knl01_41274_41274','knl01_41272_41272'];
+    var data = [{value: 0.12, offset: 0, i: 0, color: "#333399"},{value: 0.11, offset: 0, i: 1, color: "#333399"},{value: 0.09, offset: 0, i: 2, color: "#333399"},{value: 0.09, offset: 0, i: 3, color: "#333399"},{value: 0.08, offset: 0, i: 4, color: "#333399"},{value: 0.08, offset: 0, i: 5, color: "#333399"},{value: 0.06, offset: 0, i: 6, color: "#333399"},{value: 0.06, offset: 0, i: 7, color: "#333399"},{value: 0.06, offset: 0, i: 8, color: "#333399"},{value: 0.03, offset: 0, i: 9, color: "#333399"}];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_10287')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Coverage (%)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_10287')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_10287_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  $("#zoom_chart_10287_0").click( function () {
+    window.open("../topo/run_2_knl01_41272_42048.html");
+  });
+  $("#zoom_chart_10287_1").click( function () {
+    window.open("../topo/run_2_knl01_41273_42043.html");
+  });
+  $("#zoom_chart_10287_2").click( function () {
+    window.open("../topo/run_2_knl01_41272_42050.html");
+  });
+  $("#zoom_chart_10287_3").click( function () {
+    window.open("../topo/run_2_knl01_41272_42045.html");
+  });
+  $("#zoom_chart_10287_4").click( function () {
+    window.open("../topo/run_2_knl01_41273_42049.html");
+  });
+  $("#zoom_chart_10287_5").click( function () {
+    window.open("../topo/run_2_knl01_41273_42046.html");
+  });
+  $("#zoom_chart_10287_6").click( function () {
+    window.open("../topo/run_2_knl01_41274_42044.html");
+  });
+  $("#zoom_chart_10287_7").click( function () {
+    window.open("../topo/run_2_knl01_41273_41273.html");
+  });
+  $("#zoom_chart_10287_8").click( function () {
+    window.open("../topo/run_2_knl01_41274_41274.html");
+  });
+  $("#zoom_chart_10287_9").click( function () {
+    window.open("../topo/run_2_knl01_41272_41272.html");
+  });
+  }
+  if (selector_run.value  == "3") {
+  $(document).ready(function(){
+    var ordinals = ['knl01_41272_42050','knl01_41273_42043','knl01_41272_42048','knl01_41272_42045','knl01_41273_42049','knl01_41272_41272','knl01_41273_42046','knl01_41273_41273','knl01_41274_41274','knl01_41274_42044'];
+    var data = [{value: 0.02, offset: 0, i: 0, color: "#333399"},{value: 0.02, offset: 0, i: 1, color: "#333399"},{value: 0.02, offset: 0, i: 2, color: "#333399"},{value: 0.02, offset: 0, i: 3, color: "#333399"},{value: 0.01, offset: 0, i: 4, color: "#333399"},{value: 0.01, offset: 0, i: 5, color: "#333399"},{value: 0.01, offset: 0, i: 6, color: "#333399"},{value: 0.01, offset: 0, i: 7, color: "#333399"},{value: 0.01, offset: 0, i: 8, color: "#333399"},{value: 0.01, offset: 0, i: 9, color: "#333399"}];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_10288')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Time (s)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_10288')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_10288_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  $("#zoom_chart_10288_0").click( function () {
+    window.open("../topo/run_2_knl01_41272_42050.html");
+  });
+  $("#zoom_chart_10288_1").click( function () {
+    window.open("../topo/run_2_knl01_41273_42043.html");
+  });
+  $("#zoom_chart_10288_2").click( function () {
+    window.open("../topo/run_2_knl01_41272_42048.html");
+  });
+  $("#zoom_chart_10288_3").click( function () {
+    window.open("../topo/run_2_knl01_41272_42045.html");
+  });
+  $("#zoom_chart_10288_4").click( function () {
+    window.open("../topo/run_2_knl01_41273_42049.html");
+  });
+  $("#zoom_chart_10288_5").click( function () {
+    window.open("../topo/run_2_knl01_41272_41272.html");
+  });
+  $("#zoom_chart_10288_6").click( function () {
+    window.open("../topo/run_2_knl01_41273_42046.html");
+  });
+  $("#zoom_chart_10288_7").click( function () {
+    window.open("../topo/run_2_knl01_41273_41273.html");
+  });
+  $("#zoom_chart_10288_8").click( function () {
+    window.open("../topo/run_2_knl01_41274_41274.html");
+  });
+  $("#zoom_chart_10288_9").click( function () {
+    window.open("../topo/run_2_knl01_41274_42044.html");
+  });
+  }
+  if (selector_run.value  == "4") {
+  $(document).ready(function(){
+    var ordinals = ['knl01_42072_42072','knl01_42075_42075','knl01_42074_42074','knl01_42072_43102','knl01_42073_43101','knl01_42073_42073'];
+    var data = [{value: 0.12, offset: 0, i: 0, color: "#333399"},{value: 0.12, offset: 0, i: 1, color: "#333399"},{value: 0.04, offset: 0, i: 2, color: "#333399"},{value: 0.04, offset: 0, i: 3, color: "#333399"},{value: 0.04, offset: 0, i: 4, color: "#333399"},{value: 0.04, offset: 0, i: 5, color: "#333399"}];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_10287')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Coverage (%)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_10287')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_10287_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  $("#zoom_chart_10287_0").click( function () {
+    window.open("../topo/run_3_knl01_42072_42072.html");
+  });
+  $("#zoom_chart_10287_1").click( function () {
+    window.open("../topo/run_3_knl01_42075_42075.html");
+  });
+  $("#zoom_chart_10287_2").click( function () {
+    window.open("../topo/run_3_knl01_42074_42074.html");
+  });
+  $("#zoom_chart_10287_3").click( function () {
+    window.open("../topo/run_3_knl01_42072_43102.html");
+  });
+  $("#zoom_chart_10287_4").click( function () {
+    window.open("../topo/run_3_knl01_42073_43101.html");
+  });
+  $("#zoom_chart_10287_5").click( function () {
+    window.open("../topo/run_3_knl01_42073_42073.html");
+  });
+  }
+  if (selector_run.value  == "4") {
+  $(document).ready(function(){
+    var ordinals = ['knl01_42072_42072','knl01_42075_42075','knl01_42074_42074','knl01_42072_43102','knl01_42073_43101','knl01_42073_42073'];
+    var data = [{value: 0.01, offset: 0, i: 0, color: "#333399"},{value: 0.01, offset: 0, i: 1, color: "#333399"},{value: 0, offset: 0, i: 2, color: "#333399"},{value: 0, offset: 0, i: 3, color: "#333399"},{value: 0, offset: 0, i: 4, color: "#333399"},{value: 0, offset: 0, i: 5, color: "#333399"}];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_10288')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Time (s)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_10288')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_10288_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  $("#zoom_chart_10288_0").click( function () {
+    window.open("../topo/run_3_knl01_42072_42072.html");
+  });
+  $("#zoom_chart_10288_1").click( function () {
+    window.open("../topo/run_3_knl01_42075_42075.html");
+  });
+  $("#zoom_chart_10288_2").click( function () {
+    window.open("../topo/run_3_knl01_42074_42074.html");
+  });
+  $("#zoom_chart_10288_3").click( function () {
+    window.open("../topo/run_3_knl01_42072_43102.html");
+  });
+  $("#zoom_chart_10288_4").click( function () {
+    window.open("../topo/run_3_knl01_42073_43101.html");
+  });
+  $("#zoom_chart_10288_5").click( function () {
+    window.open("../topo/run_3_knl01_42073_42073.html");
+  });
+  }
+  if (selector_run.value  == "5") {
+  $(document).ready(function(){
+    var ordinals = ['knl01_43130_43130','knl01_43131_43131','knl01_43130_44163','knl01_43128_44158','knl01_43129_43129','knl01_43129_44166','knl01_43131_44156'];
+    var data = [{value: 0.27, offset: 0, i: 0, color: "#333399"},{value: 0.14, offset: 0, i: 1, color: "#333399"},{value: 0.07, offset: 0, i: 2, color: "#333399"},{value: 0.07, offset: 0, i: 3, color: "#333399"},{value: 0.07, offset: 0, i: 4, color: "#333399"},{value: 0.07, offset: 0, i: 5, color: "#333399"},{value: 0.07, offset: 0, i: 6, color: "#333399"}];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_10287')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Coverage (%)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_10287')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_10287_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  $("#zoom_chart_10287_0").click( function () {
+    window.open("../topo/run_4_knl01_43130_43130.html");
+  });
+  $("#zoom_chart_10287_1").click( function () {
+    window.open("../topo/run_4_knl01_43131_43131.html");
+  });
+  $("#zoom_chart_10287_2").click( function () {
+    window.open("../topo/run_4_knl01_43130_44163.html");
+  });
+  $("#zoom_chart_10287_3").click( function () {
+    window.open("../topo/run_4_knl01_43128_44158.html");
+  });
+  $("#zoom_chart_10287_4").click( function () {
+    window.open("../topo/run_4_knl01_43129_43129.html");
+  });
+  $("#zoom_chart_10287_5").click( function () {
+    window.open("../topo/run_4_knl01_43129_44166.html");
+  });
+  $("#zoom_chart_10287_6").click( function () {
+    window.open("../topo/run_4_knl01_43131_44156.html");
+  });
+  }
+  if (selector_run.value  == "5") {
+  $(document).ready(function(){
+    var ordinals = ['knl01_43130_43130','knl01_43131_43131','knl01_43129_44166','knl01_43131_44156','knl01_43129_43129','knl01_43130_44163','knl01_43128_44158'];
+    var data = [{value: 0.02, offset: 0, i: 0, color: "#333399"},{value: 0.01, offset: 0, i: 1, color: "#333399"},{value: 0.01, offset: 0, i: 2, color: "#333399"},{value: 0.01, offset: 0, i: 3, color: "#333399"},{value: 0.01, offset: 0, i: 4, color: "#333399"},{value: 0, offset: 0, i: 5, color: "#333399"},{value: 0, offset: 0, i: 6, color: "#333399"}];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_10288')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Time (s)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_10288')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_10288_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  $("#zoom_chart_10288_0").click( function () {
+    window.open("../topo/run_4_knl01_43130_43130.html");
+  });
+  $("#zoom_chart_10288_1").click( function () {
+    window.open("../topo/run_4_knl01_43131_43131.html");
+  });
+  $("#zoom_chart_10288_2").click( function () {
+    window.open("../topo/run_4_knl01_43129_44166.html");
+  });
+  $("#zoom_chart_10288_3").click( function () {
+    window.open("../topo/run_4_knl01_43131_44156.html");
+  });
+  $("#zoom_chart_10288_4").click( function () {
+    window.open("../topo/run_4_knl01_43129_43129.html");
+  });
+  $("#zoom_chart_10288_5").click( function () {
+    window.open("../topo/run_4_knl01_43130_44163.html");
+  });
+  $("#zoom_chart_10288_6").click( function () {
+    window.open("../topo/run_4_knl01_43128_44158.html");
+  });
+  }
+  if (selector_run.value  == "6") {
+  $(document).ready(function(){
+    var ordinals = ['knl01_44197_44197','knl01_44196_44196','knl01_44195_44195','knl01_44193_44206','knl01_44196_44207','knl01_44192_44192','knl01_44197_44205','knl01_44194_44208','knl01_44194_44194'];
+    var data = [{value: 0.14, offset: 0, i: 0, color: "#333399"},{value: 0.13, offset: 0, i: 1, color: "#333399"},{value: 0.13, offset: 0, i: 2, color: "#333399"},{value: 0.09, offset: 0, i: 3, color: "#333399"},{value: 0.09, offset: 0, i: 4, color: "#333399"},{value: 0.05, offset: 0, i: 5, color: "#333399"},{value: 0.05, offset: 0, i: 6, color: "#333399"},{value: 0.04, offset: 0, i: 7, color: "#333399"},{value: 0.04, offset: 0, i: 8, color: "#333399"}];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_10287')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Coverage (%)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_10287')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_10287_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  $("#zoom_chart_10287_0").click( function () {
+    window.open("../topo/run_5_knl01_44197_44197.html");
+  });
+  $("#zoom_chart_10287_1").click( function () {
+    window.open("../topo/run_5_knl01_44196_44196.html");
+  });
+  $("#zoom_chart_10287_2").click( function () {
+    window.open("../topo/run_5_knl01_44195_44195.html");
+  });
+  $("#zoom_chart_10287_3").click( function () {
+    window.open("../topo/run_5_knl01_44193_44206.html");
+  });
+  $("#zoom_chart_10287_4").click( function () {
+    window.open("../topo/run_5_knl01_44196_44207.html");
+  });
+  $("#zoom_chart_10287_5").click( function () {
+    window.open("../topo/run_5_knl01_44192_44192.html");
+  });
+  $("#zoom_chart_10287_6").click( function () {
+    window.open("../topo/run_5_knl01_44197_44205.html");
+  });
+  $("#zoom_chart_10287_7").click( function () {
+    window.open("../topo/run_5_knl01_44194_44208.html");
+  });
+  $("#zoom_chart_10287_8").click( function () {
+    window.open("../topo/run_5_knl01_44194_44194.html");
+  });
+  }
+  if (selector_run.value  == "6") {
+  $(document).ready(function(){
+    var ordinals = ['knl01_44195_44195','knl01_44196_44196','knl01_44196_44207','knl01_44193_44206','knl01_44197_44197','knl01_44192_44192','knl01_44194_44194','knl01_44194_44208','knl01_44197_44205'];
+    var data = [{value: 0.01, offset: 0, i: 0, color: "#333399"},{value: 0.01, offset: 0, i: 1, color: "#333399"},{value: 0.01, offset: 0, i: 2, color: "#333399"},{value: 0.01, offset: 0, i: 3, color: "#333399"},{value: 0.01, offset: 0, i: 4, color: "#333399"},{value: 0, offset: 0, i: 5, color: "#333399"},{value: 0, offset: 0, i: 6, color: "#333399"},{value: 0, offset: 0, i: 7, color: "#333399"},{value: 0, offset: 0, i: 8, color: "#333399"}];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_10288')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Time (s)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_10288')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_10288_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  $("#zoom_chart_10288_0").click( function () {
+    window.open("../topo/run_5_knl01_44195_44195.html");
+  });
+  $("#zoom_chart_10288_1").click( function () {
+    window.open("../topo/run_5_knl01_44196_44196.html");
+  });
+  $("#zoom_chart_10288_2").click( function () {
+    window.open("../topo/run_5_knl01_44196_44207.html");
+  });
+  $("#zoom_chart_10288_3").click( function () {
+    window.open("../topo/run_5_knl01_44193_44206.html");
+  });
+  $("#zoom_chart_10288_4").click( function () {
+    window.open("../topo/run_5_knl01_44197_44197.html");
+  });
+  $("#zoom_chart_10288_5").click( function () {
+    window.open("../topo/run_5_knl01_44192_44192.html");
+  });
+  $("#zoom_chart_10288_6").click( function () {
+    window.open("../topo/run_5_knl01_44194_44194.html");
+  });
+  $("#zoom_chart_10288_7").click( function () {
+    window.open("../topo/run_5_knl01_44194_44208.html");
+  });
+  $("#zoom_chart_10288_8").click( function () {
+    window.open("../topo/run_5_knl01_44197_44205.html");
+  });
+  }
+  if (selector_run.value  == "7") {
+  $(document).ready(function(){
+    var ordinals = ['knl01_44253_44253','knl01_44259_44259','knl01_44258_44273','knl01_44260_44271','knl01_44259_44272','knl01_44253_44281','knl01_44256_44270','knl01_44255_44255','knl01_44257_44274','knl01_44257_44257'];
+    var data = [{value: 0.15, offset: 0, i: 0, color: "#333399"},{value: 0.15, offset: 0, i: 1, color: "#333399"},{value: 0.15, offset: 0, i: 2, color: "#333399"},{value: 0.08, offset: 0, i: 3, color: "#333399"},{value: 0.07, offset: 0, i: 4, color: "#333399"},{value: 0.07, offset: 0, i: 5, color: "#333399"},{value: 0.07, offset: 0, i: 6, color: "#333399"},{value: 0.07, offset: 0, i: 7, color: "#333399"},{value: 0.07, offset: 0, i: 8, color: "#333399"},{value: 0.07, offset: 0, i: 9, color: "#333399"}];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_10287')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Coverage (%)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_10287')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_10287_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  $("#zoom_chart_10287_0").click( function () {
+    window.open("../topo/run_6_knl01_44253_44253.html");
+  });
+  $("#zoom_chart_10287_1").click( function () {
+    window.open("../topo/run_6_knl01_44259_44259.html");
+  });
+  $("#zoom_chart_10287_2").click( function () {
+    window.open("../topo/run_6_knl01_44258_44273.html");
+  });
+  $("#zoom_chart_10287_3").click( function () {
+    window.open("../topo/run_6_knl01_44260_44271.html");
+  });
+  $("#zoom_chart_10287_4").click( function () {
+    window.open("../topo/run_6_knl01_44259_44272.html");
+  });
+  $("#zoom_chart_10287_5").click( function () {
+    window.open("../topo/run_6_knl01_44253_44281.html");
+  });
+  $("#zoom_chart_10287_6").click( function () {
+    window.open("../topo/run_6_knl01_44256_44270.html");
+  });
+  $("#zoom_chart_10287_7").click( function () {
+    window.open("../topo/run_6_knl01_44255_44255.html");
+  });
+  $("#zoom_chart_10287_8").click( function () {
+    window.open("../topo/run_6_knl01_44257_44274.html");
+  });
+  $("#zoom_chart_10287_9").click( function () {
+    window.open("../topo/run_6_knl01_44257_44257.html");
+  });
+  }
+  if (selector_run.value  == "7") {
+  $(document).ready(function(){
+    var ordinals = ['knl01_44253_44253','knl01_44258_44273','knl01_44259_44259','knl01_44257_44274','knl01_44257_44257','knl01_44256_44270','knl01_44259_44272','knl01_44253_44281','knl01_44255_44255','knl01_44260_44271'];
+    var data = [{value: 0.01, offset: 0, i: 0, color: "#333399"},{value: 0.01, offset: 0, i: 1, color: "#333399"},{value: 0.01, offset: 0, i: 2, color: "#333399"},{value: 0.01, offset: 0, i: 3, color: "#333399"},{value: 0.01, offset: 0, i: 4, color: "#333399"},{value: 0, offset: 0, i: 5, color: "#333399"},{value: 0, offset: 0, i: 6, color: "#333399"},{value: 0, offset: 0, i: 7, color: "#333399"},{value: 0, offset: 0, i: 8, color: "#333399"},{value: 0, offset: 0, i: 9, color: "#333399"}];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_10288')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Time (s)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_10288')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_10288_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  $("#zoom_chart_10288_0").click( function () {
+    window.open("../topo/run_6_knl01_44253_44253.html");
+  });
+  $("#zoom_chart_10288_1").click( function () {
+    window.open("../topo/run_6_knl01_44258_44273.html");
+  });
+  $("#zoom_chart_10288_2").click( function () {
+    window.open("../topo/run_6_knl01_44259_44259.html");
+  });
+  $("#zoom_chart_10288_3").click( function () {
+    window.open("../topo/run_6_knl01_44257_44274.html");
+  });
+  $("#zoom_chart_10288_4").click( function () {
+    window.open("../topo/run_6_knl01_44257_44257.html");
+  });
+  $("#zoom_chart_10288_5").click( function () {
+    window.open("../topo/run_6_knl01_44256_44270.html");
+  });
+  $("#zoom_chart_10288_6").click( function () {
+    window.open("../topo/run_6_knl01_44259_44272.html");
+  });
+  $("#zoom_chart_10288_7").click( function () {
+    window.open("../topo/run_6_knl01_44253_44281.html");
+  });
+  $("#zoom_chart_10288_8").click( function () {
+    window.open("../topo/run_6_knl01_44255_44255.html");
+  });
+  $("#zoom_chart_10288_9").click( function () {
+    window.open("../topo/run_6_knl01_44260_44271.html");
+  });
+  }
+  if (selector_run.value  == "8") {
+  $(document).ready(function(){
+    var ordinals = ['knl01_44343_44729','knl01_44343_44452','knl01_44348_44378','knl01_44344_44746','knl01_44348_44415','knl01_44345_44625','knl01_44352_44416','knl01_44337_44562','knl01_44338_44458','knl01_44352_44532','knl01_44344_44531','knl01_44344_44419','knl01_44353_44501','knl01_44349_44699','knl01_44346_44473','knl01_44348_44742','knl01_44349_44648','knl01_44346_44423','knl01_44348_44651','knl01_44342_44774','knl01_44348_44615','knl01_44342_44743','knl01_44342_44719','knl01_44342_44589','knl01_44352_44749','knl01_44338_44721','knl01_44349_44503','knl01_44353_44373','knl01_44337_44590','knl01_44337_44677','knl01_44337_44469','knl01_44340_44722','knl01_44339_44569','knl01_44349_44451','knl01_44341_44809','knl01_44341_44428','knl01_44341_44538','knl01_44350_44780','knl01_44350_44672','knl01_44352_44682','knl01_44350_44633','knl01_44352_44457','knl01_44350_44439','knl01_44350_44566','knl01_44345_44592','knl01_44337_44426','knl01_44338_44634','knl01_44340_44453','knl01_44338_44610','knl01_44338_44525','knl01_44338_44581','knl01_44349_44396','knl01_44340_44693','knl01_44347_44374','knl01_44343_44600','knl01_44353_44440','knl01_44341_44341','knl01_44348_44348','knl01_44342_44342','knl01_44353_44353','knl01_44349_44349'];
+    var data = [{value: 0.79, offset: 0, i: 0, color: "#333399"},{value: 0.78, offset: 0, i: 1, color: "#333399"},{value: 0.54, offset: 0, i: 2, color: "#333399"},{value: 0.54, offset: 0, i: 3, color: "#333399"},{value: 0.53, offset: 0, i: 4, color: "#333399"},{value: 0.53, offset: 0, i: 5, color: "#333399"},{value: 0.53, offset: 0, i: 6, color: "#333399"},{value: 0.53, offset: 0, i: 7, color: "#333399"},{value: 0.53, offset: 0, i: 8, color: "#333399"},{value: 0.53, offset: 0, i: 9, color: "#333399"},{value: 0.27, offset: 0, i: 10, color: "#333399"},{value: 0.27, offset: 0, i: 11, color: "#333399"},{value: 0.27, offset: 0, i: 12, color: "#333399"},{value: 0.27, offset: 0, i: 13, color: "#333399"},{value: 0.27, offset: 0, i: 14, color: "#333399"},{value: 0.27, offset: 0, i: 15, color: "#333399"},{value: 0.27, offset: 0, i: 16, color: "#333399"},{value: 0.27, offset: 0, i: 17, color: "#333399"},{value: 0.27, offset: 0, i: 18, color: "#333399"},{value: 0.27, offset: 0, i: 19, color: "#333399"},{value: 0.27, offset: 0, i: 20, color: "#333399"},{value: 0.27, offset: 0, i: 21, color: "#333399"},{value: 0.27, offset: 0, i: 22, color: "#333399"},{value: 0.27, offset: 0, i: 23, color: "#333399"},{value: 0.27, offset: 0, i: 24, color: "#333399"},{value: 0.27, offset: 0, i: 25, color: "#333399"},{value: 0.27, offset: 0, i: 26, color: "#333399"},{value: 0.27, offset: 0, i: 27, color: "#333399"},{value: 0.27, offset: 0, i: 28, color: "#333399"},{value: 0.27, offset: 0, i: 29, color: "#333399"},{value: 0.27, offset: 0, i: 30, color: "#333399"},{value: 0.27, offset: 0, i: 31, color: "#333399"},{value: 0.27, offset: 0, i: 32, color: "#333399"},{value: 0.27, offset: 0, i: 33, color: "#333399"},{value: 0.27, offset: 0, i: 34, color: "#333399"},{value: 0.27, offset: 0, i: 35, color: "#333399"},{value: 0.27, offset: 0, i: 36, color: "#333399"},{value: 0.27, offset: 0, i: 37, color: "#333399"},{value: 0.26, offset: 0, i: 38, color: "#333399"},{value: 0.26, offset: 0, i: 39, color: "#333399"},{value: 0.26, offset: 0, i: 40, color: "#333399"},{value: 0.26, offset: 0, i: 41, color: "#333399"},{value: 0.26, offset: 0, i: 42, color: "#333399"},{value: 0.26, offset: 0, i: 43, color: "#333399"},{value: 0.26, offset: 0, i: 44, color: "#333399"},{value: 0.26, offset: 0, i: 45, color: "#333399"},{value: 0.26, offset: 0, i: 46, color: "#333399"},{value: 0.26, offset: 0, i: 47, color: "#333399"},{value: 0.26, offset: 0, i: 48, color: "#333399"},{value: 0.26, offset: 0, i: 49, color: "#333399"},{value: 0.26, offset: 0, i: 50, color: "#333399"},{value: 0.26, offset: 0, i: 51, color: "#333399"},{value: 0.26, offset: 0, i: 52, color: "#333399"},{value: 0.26, offset: 0, i: 53, color: "#333399"},{value: 0.26, offset: 0, i: 54, color: "#333399"},{value: 0.26, offset: 0, i: 55, color: "#333399"},{value: 0.25, offset: 0, i: 56, color: "#333399"},{value: 0.24, offset: 0, i: 57, color: "#333399"},{value: 0.24, offset: 0, i: 58, color: "#333399"},{value: 0.24, offset: 0, i: 59, color: "#333399"},{value: 0.24, offset: 0, i: 60, color: "#333399"}];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_10287')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Coverage (%)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_10287')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_10287_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  $("#zoom_chart_10287_0").click( function () {
+    window.open("../topo/run_7_knl01_44343_44729.html");
+  });
+  $("#zoom_chart_10287_1").click( function () {
+    window.open("../topo/run_7_knl01_44343_44452.html");
+  });
+  $("#zoom_chart_10287_2").click( function () {
+    window.open("../topo/run_7_knl01_44348_44378.html");
+  });
+  $("#zoom_chart_10287_3").click( function () {
+    window.open("../topo/run_7_knl01_44344_44746.html");
+  });
+  $("#zoom_chart_10287_4").click( function () {
+    window.open("../topo/run_7_knl01_44348_44415.html");
+  });
+  $("#zoom_chart_10287_5").click( function () {
+    window.open("../topo/run_7_knl01_44345_44625.html");
+  });
+  $("#zoom_chart_10287_6").click( function () {
+    window.open("../topo/run_7_knl01_44352_44416.html");
+  });
+  $("#zoom_chart_10287_7").click( function () {
+    window.open("../topo/run_7_knl01_44337_44562.html");
+  });
+  $("#zoom_chart_10287_8").click( function () {
+    window.open("../topo/run_7_knl01_44338_44458.html");
+  });
+  $("#zoom_chart_10287_9").click( function () {
+    window.open("../topo/run_7_knl01_44352_44532.html");
+  });
+  $("#zoom_chart_10287_10").click( function () {
+    window.open("../topo/run_7_knl01_44344_44531.html");
+  });
+  $("#zoom_chart_10287_11").click( function () {
+    window.open("../topo/run_7_knl01_44344_44419.html");
+  });
+  $("#zoom_chart_10287_12").click( function () {
+    window.open("../topo/run_7_knl01_44353_44501.html");
+  });
+  $("#zoom_chart_10287_13").click( function () {
+    window.open("../topo/run_7_knl01_44349_44699.html");
+  });
+  $("#zoom_chart_10287_14").click( function () {
+    window.open("../topo/run_7_knl01_44346_44473.html");
+  });
+  $("#zoom_chart_10287_15").click( function () {
+    window.open("../topo/run_7_knl01_44348_44742.html");
+  });
+  $("#zoom_chart_10287_16").click( function () {
+    window.open("../topo/run_7_knl01_44349_44648.html");
+  });
+  $("#zoom_chart_10287_17").click( function () {
+    window.open("../topo/run_7_knl01_44346_44423.html");
+  });
+  $("#zoom_chart_10287_18").click( function () {
+    window.open("../topo/run_7_knl01_44348_44651.html");
+  });
+  $("#zoom_chart_10287_19").click( function () {
+    window.open("../topo/run_7_knl01_44342_44774.html");
+  });
+  $("#zoom_chart_10287_20").click( function () {
+    window.open("../topo/run_7_knl01_44348_44615.html");
+  });
+  $("#zoom_chart_10287_21").click( function () {
+    window.open("../topo/run_7_knl01_44342_44743.html");
+  });
+  $("#zoom_chart_10287_22").click( function () {
+    window.open("../topo/run_7_knl01_44342_44719.html");
+  });
+  $("#zoom_chart_10287_23").click( function () {
+    window.open("../topo/run_7_knl01_44342_44589.html");
+  });
+  $("#zoom_chart_10287_24").click( function () {
+    window.open("../topo/run_7_knl01_44352_44749.html");
+  });
+  $("#zoom_chart_10287_25").click( function () {
+    window.open("../topo/run_7_knl01_44338_44721.html");
+  });
+  $("#zoom_chart_10287_26").click( function () {
+    window.open("../topo/run_7_knl01_44349_44503.html");
+  });
+  $("#zoom_chart_10287_27").click( function () {
+    window.open("../topo/run_7_knl01_44353_44373.html");
+  });
+  $("#zoom_chart_10287_28").click( function () {
+    window.open("../topo/run_7_knl01_44337_44590.html");
+  });
+  $("#zoom_chart_10287_29").click( function () {
+    window.open("../topo/run_7_knl01_44337_44677.html");
+  });
+  $("#zoom_chart_10287_30").click( function () {
+    window.open("../topo/run_7_knl01_44337_44469.html");
+  });
+  $("#zoom_chart_10287_31").click( function () {
+    window.open("../topo/run_7_knl01_44340_44722.html");
+  });
+  $("#zoom_chart_10287_32").click( function () {
+    window.open("../topo/run_7_knl01_44339_44569.html");
+  });
+  $("#zoom_chart_10287_33").click( function () {
+    window.open("../topo/run_7_knl01_44349_44451.html");
+  });
+  $("#zoom_chart_10287_34").click( function () {
+    window.open("../topo/run_7_knl01_44341_44809.html");
+  });
+  $("#zoom_chart_10287_35").click( function () {
+    window.open("../topo/run_7_knl01_44341_44428.html");
+  });
+  $("#zoom_chart_10287_36").click( function () {
+    window.open("../topo/run_7_knl01_44341_44538.html");
+  });
+  $("#zoom_chart_10287_37").click( function () {
+    window.open("../topo/run_7_knl01_44350_44780.html");
+  });
+  $("#zoom_chart_10287_38").click( function () {
+    window.open("../topo/run_7_knl01_44350_44672.html");
+  });
+  $("#zoom_chart_10287_39").click( function () {
+    window.open("../topo/run_7_knl01_44352_44682.html");
+  });
+  $("#zoom_chart_10287_40").click( function () {
+    window.open("../topo/run_7_knl01_44350_44633.html");
+  });
+  $("#zoom_chart_10287_41").click( function () {
+    window.open("../topo/run_7_knl01_44352_44457.html");
+  });
+  $("#zoom_chart_10287_42").click( function () {
+    window.open("../topo/run_7_knl01_44350_44439.html");
+  });
+  $("#zoom_chart_10287_43").click( function () {
+    window.open("../topo/run_7_knl01_44350_44566.html");
+  });
+  $("#zoom_chart_10287_44").click( function () {
+    window.open("../topo/run_7_knl01_44345_44592.html");
+  });
+  $("#zoom_chart_10287_45").click( function () {
+    window.open("../topo/run_7_knl01_44337_44426.html");
+  });
+  $("#zoom_chart_10287_46").click( function () {
+    window.open("../topo/run_7_knl01_44338_44634.html");
+  });
+  $("#zoom_chart_10287_47").click( function () {
+    window.open("../topo/run_7_knl01_44340_44453.html");
+  });
+  $("#zoom_chart_10287_48").click( function () {
+    window.open("../topo/run_7_knl01_44338_44610.html");
+  });
+  $("#zoom_chart_10287_49").click( function () {
+    window.open("../topo/run_7_knl01_44338_44525.html");
+  });
+  $("#zoom_chart_10287_50").click( function () {
+    window.open("../topo/run_7_knl01_44338_44581.html");
+  });
+  $("#zoom_chart_10287_51").click( function () {
+    window.open("../topo/run_7_knl01_44349_44396.html");
+  });
+  $("#zoom_chart_10287_52").click( function () {
+    window.open("../topo/run_7_knl01_44340_44693.html");
+  });
+  $("#zoom_chart_10287_53").click( function () {
+    window.open("../topo/run_7_knl01_44347_44374.html");
+  });
+  $("#zoom_chart_10287_54").click( function () {
+    window.open("../topo/run_7_knl01_44343_44600.html");
+  });
+  $("#zoom_chart_10287_55").click( function () {
+    window.open("../topo/run_7_knl01_44353_44440.html");
+  });
+  $("#zoom_chart_10287_56").click( function () {
+    window.open("../topo/run_7_knl01_44341_44341.html");
+  });
+  $("#zoom_chart_10287_57").click( function () {
+    window.open("../topo/run_7_knl01_44348_44348.html");
+  });
+  $("#zoom_chart_10287_58").click( function () {
+    window.open("../topo/run_7_knl01_44342_44342.html");
+  });
+  $("#zoom_chart_10287_59").click( function () {
+    window.open("../topo/run_7_knl01_44353_44353.html");
+  });
+  $("#zoom_chart_10287_60").click( function () {
+    window.open("../topo/run_7_knl01_44349_44349.html");
+  });
+  }
+  if (selector_run.value  == "8") {
+  $(document).ready(function(){
+    var ordinals = ['knl01_44349_44648','knl01_44343_44452','knl01_44343_44729','knl01_44342_44342','knl01_44341_44341','knl01_44349_44396','knl01_44349_44699','knl01_44349_44451','knl01_44352_44416','knl01_44342_44589','knl01_44352_44532','knl01_44337_44562','knl01_44348_44378','knl01_44345_44625','knl01_44348_44415','knl01_44344_44746','knl01_44338_44458','knl01_44348_44615','knl01_44348_44742','knl01_44349_44349','knl01_44348_44651','knl01_44337_44426','knl01_44348_44348','knl01_44352_44749','knl01_44352_44682','knl01_44353_44353','knl01_44353_44373','knl01_44349_44503','knl01_44352_44457','knl01_44350_44672','knl01_44350_44439','knl01_44350_44780','knl01_44350_44566','knl01_44350_44633','knl01_44347_44374','knl01_44345_44592','knl01_44346_44423','knl01_44338_44634','knl01_44338_44610','knl01_44338_44721','knl01_44339_44569','knl01_44340_44453','knl01_44338_44581','knl01_44337_44677','knl01_44338_44525','knl01_44337_44469','knl01_44337_44590','knl01_44346_44473','knl01_44340_44693','knl01_44341_44428','knl01_44344_44419','knl01_44343_44600','knl01_44344_44531','knl01_44353_44440','knl01_44340_44722','knl01_44342_44774','knl01_44342_44719','knl01_44342_44743','knl01_44341_44538','knl01_44341_44809','knl01_44353_44501'];
+    var data = [{value: 0.01, offset: 0, i: 0, color: "#333399"},{value: 0.01, offset: 0, i: 1, color: "#333399"},{value: 0.01, offset: 0, i: 2, color: "#333399"},{value: 0.01, offset: 0, i: 3, color: "#333399"},{value: 0.01, offset: 0, i: 4, color: "#333399"},{value: 0.01, offset: 0, i: 5, color: "#333399"},{value: 0.01, offset: 0, i: 6, color: "#333399"},{value: 0.01, offset: 0, i: 7, color: "#333399"},{value: 0.01, offset: 0, i: 8, color: "#333399"},{value: 0.01, offset: 0, i: 9, color: "#333399"},{value: 0.01, offset: 0, i: 10, color: "#333399"},{value: 0.01, offset: 0, i: 11, color: "#333399"},{value: 0.01, offset: 0, i: 12, color: "#333399"},{value: 0.01, offset: 0, i: 13, color: "#333399"},{value: 0.01, offset: 0, i: 14, color: "#333399"},{value: 0.01, offset: 0, i: 15, color: "#333399"},{value: 0.01, offset: 0, i: 16, color: "#333399"},{value: 0, offset: 0, i: 17, color: "#333399"},{value: 0, offset: 0, i: 18, color: "#333399"},{value: 0, offset: 0, i: 19, color: "#333399"},{value: 0, offset: 0, i: 20, color: "#333399"},{value: 0, offset: 0, i: 21, color: "#333399"},{value: 0, offset: 0, i: 22, color: "#333399"},{value: 0, offset: 0, i: 23, color: "#333399"},{value: 0, offset: 0, i: 24, color: "#333399"},{value: 0, offset: 0, i: 25, color: "#333399"},{value: 0, offset: 0, i: 26, color: "#333399"},{value: 0, offset: 0, i: 27, color: "#333399"},{value: 0, offset: 0, i: 28, color: "#333399"},{value: 0, offset: 0, i: 29, color: "#333399"},{value: 0, offset: 0, i: 30, color: "#333399"},{value: 0, offset: 0, i: 31, color: "#333399"},{value: 0, offset: 0, i: 32, color: "#333399"},{value: 0, offset: 0, i: 33, color: "#333399"},{value: 0, offset: 0, i: 34, color: "#333399"},{value: 0, offset: 0, i: 35, color: "#333399"},{value: 0, offset: 0, i: 36, color: "#333399"},{value: 0, offset: 0, i: 37, color: "#333399"},{value: 0, offset: 0, i: 38, color: "#333399"},{value: 0, offset: 0, i: 39, color: "#333399"},{value: 0, offset: 0, i: 40, color: "#333399"},{value: 0, offset: 0, i: 41, color: "#333399"},{value: 0, offset: 0, i: 42, color: "#333399"},{value: 0, offset: 0, i: 43, color: "#333399"},{value: 0, offset: 0, i: 44, color: "#333399"},{value: 0, offset: 0, i: 45, color: "#333399"},{value: 0, offset: 0, i: 46, color: "#333399"},{value: 0, offset: 0, i: 47, color: "#333399"},{value: 0, offset: 0, i: 48, color: "#333399"},{value: 0, offset: 0, i: 49, color: "#333399"},{value: 0, offset: 0, i: 50, color: "#333399"},{value: 0, offset: 0, i: 51, color: "#333399"},{value: 0, offset: 0, i: 52, color: "#333399"},{value: 0, offset: 0, i: 53, color: "#333399"},{value: 0, offset: 0, i: 54, color: "#333399"},{value: 0, offset: 0, i: 55, color: "#333399"},{value: 0, offset: 0, i: 56, color: "#333399"},{value: 0, offset: 0, i: 57, color: "#333399"},{value: 0, offset: 0, i: 58, color: "#333399"},{value: 0, offset: 0, i: 59, color: "#333399"},{value: 0, offset: 0, i: 60, color: "#333399"}];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_10288')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Time (s)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_10288')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_10288_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  $("#zoom_chart_10288_0").click( function () {
+    window.open("../topo/run_7_knl01_44349_44648.html");
+  });
+  $("#zoom_chart_10288_1").click( function () {
+    window.open("../topo/run_7_knl01_44343_44452.html");
+  });
+  $("#zoom_chart_10288_2").click( function () {
+    window.open("../topo/run_7_knl01_44343_44729.html");
+  });
+  $("#zoom_chart_10288_3").click( function () {
+    window.open("../topo/run_7_knl01_44342_44342.html");
+  });
+  $("#zoom_chart_10288_4").click( function () {
+    window.open("../topo/run_7_knl01_44341_44341.html");
+  });
+  $("#zoom_chart_10288_5").click( function () {
+    window.open("../topo/run_7_knl01_44349_44396.html");
+  });
+  $("#zoom_chart_10288_6").click( function () {
+    window.open("../topo/run_7_knl01_44349_44699.html");
+  });
+  $("#zoom_chart_10288_7").click( function () {
+    window.open("../topo/run_7_knl01_44349_44451.html");
+  });
+  $("#zoom_chart_10288_8").click( function () {
+    window.open("../topo/run_7_knl01_44352_44416.html");
+  });
+  $("#zoom_chart_10288_9").click( function () {
+    window.open("../topo/run_7_knl01_44342_44589.html");
+  });
+  $("#zoom_chart_10288_10").click( function () {
+    window.open("../topo/run_7_knl01_44352_44532.html");
+  });
+  $("#zoom_chart_10288_11").click( function () {
+    window.open("../topo/run_7_knl01_44337_44562.html");
+  });
+  $("#zoom_chart_10288_12").click( function () {
+    window.open("../topo/run_7_knl01_44348_44378.html");
+  });
+  $("#zoom_chart_10288_13").click( function () {
+    window.open("../topo/run_7_knl01_44345_44625.html");
+  });
+  $("#zoom_chart_10288_14").click( function () {
+    window.open("../topo/run_7_knl01_44348_44415.html");
+  });
+  $("#zoom_chart_10288_15").click( function () {
+    window.open("../topo/run_7_knl01_44344_44746.html");
+  });
+  $("#zoom_chart_10288_16").click( function () {
+    window.open("../topo/run_7_knl01_44338_44458.html");
+  });
+  $("#zoom_chart_10288_17").click( function () {
+    window.open("../topo/run_7_knl01_44348_44615.html");
+  });
+  $("#zoom_chart_10288_18").click( function () {
+    window.open("../topo/run_7_knl01_44348_44742.html");
+  });
+  $("#zoom_chart_10288_19").click( function () {
+    window.open("../topo/run_7_knl01_44349_44349.html");
+  });
+  $("#zoom_chart_10288_20").click( function () {
+    window.open("../topo/run_7_knl01_44348_44651.html");
+  });
+  $("#zoom_chart_10288_21").click( function () {
+    window.open("../topo/run_7_knl01_44337_44426.html");
+  });
+  $("#zoom_chart_10288_22").click( function () {
+    window.open("../topo/run_7_knl01_44348_44348.html");
+  });
+  $("#zoom_chart_10288_23").click( function () {
+    window.open("../topo/run_7_knl01_44352_44749.html");
+  });
+  $("#zoom_chart_10288_24").click( function () {
+    window.open("../topo/run_7_knl01_44352_44682.html");
+  });
+  $("#zoom_chart_10288_25").click( function () {
+    window.open("../topo/run_7_knl01_44353_44353.html");
+  });
+  $("#zoom_chart_10288_26").click( function () {
+    window.open("../topo/run_7_knl01_44353_44373.html");
+  });
+  $("#zoom_chart_10288_27").click( function () {
+    window.open("../topo/run_7_knl01_44349_44503.html");
+  });
+  $("#zoom_chart_10288_28").click( function () {
+    window.open("../topo/run_7_knl01_44352_44457.html");
+  });
+  $("#zoom_chart_10288_29").click( function () {
+    window.open("../topo/run_7_knl01_44350_44672.html");
+  });
+  $("#zoom_chart_10288_30").click( function () {
+    window.open("../topo/run_7_knl01_44350_44439.html");
+  });
+  $("#zoom_chart_10288_31").click( function () {
+    window.open("../topo/run_7_knl01_44350_44780.html");
+  });
+  $("#zoom_chart_10288_32").click( function () {
+    window.open("../topo/run_7_knl01_44350_44566.html");
+  });
+  $("#zoom_chart_10288_33").click( function () {
+    window.open("../topo/run_7_knl01_44350_44633.html");
+  });
+  $("#zoom_chart_10288_34").click( function () {
+    window.open("../topo/run_7_knl01_44347_44374.html");
+  });
+  $("#zoom_chart_10288_35").click( function () {
+    window.open("../topo/run_7_knl01_44345_44592.html");
+  });
+  $("#zoom_chart_10288_36").click( function () {
+    window.open("../topo/run_7_knl01_44346_44423.html");
+  });
+  $("#zoom_chart_10288_37").click( function () {
+    window.open("../topo/run_7_knl01_44338_44634.html");
+  });
+  $("#zoom_chart_10288_38").click( function () {
+    window.open("../topo/run_7_knl01_44338_44610.html");
+  });
+  $("#zoom_chart_10288_39").click( function () {
+    window.open("../topo/run_7_knl01_44338_44721.html");
+  });
+  $("#zoom_chart_10288_40").click( function () {
+    window.open("../topo/run_7_knl01_44339_44569.html");
+  });
+  $("#zoom_chart_10288_41").click( function () {
+    window.open("../topo/run_7_knl01_44340_44453.html");
+  });
+  $("#zoom_chart_10288_42").click( function () {
+    window.open("../topo/run_7_knl01_44338_44581.html");
+  });
+  $("#zoom_chart_10288_43").click( function () {
+    window.open("../topo/run_7_knl01_44337_44677.html");
+  });
+  $("#zoom_chart_10288_44").click( function () {
+    window.open("../topo/run_7_knl01_44338_44525.html");
+  });
+  $("#zoom_chart_10288_45").click( function () {
+    window.open("../topo/run_7_knl01_44337_44469.html");
+  });
+  $("#zoom_chart_10288_46").click( function () {
+    window.open("../topo/run_7_knl01_44337_44590.html");
+  });
+  $("#zoom_chart_10288_47").click( function () {
+    window.open("../topo/run_7_knl01_44346_44473.html");
+  });
+  $("#zoom_chart_10288_48").click( function () {
+    window.open("../topo/run_7_knl01_44340_44693.html");
+  });
+  $("#zoom_chart_10288_49").click( function () {
+    window.open("../topo/run_7_knl01_44341_44428.html");
+  });
+  $("#zoom_chart_10288_50").click( function () {
+    window.open("../topo/run_7_knl01_44344_44419.html");
+  });
+  $("#zoom_chart_10288_51").click( function () {
+    window.open("../topo/run_7_knl01_44343_44600.html");
+  });
+  $("#zoom_chart_10288_52").click( function () {
+    window.open("../topo/run_7_knl01_44344_44531.html");
+  });
+  $("#zoom_chart_10288_53").click( function () {
+    window.open("../topo/run_7_knl01_44353_44440.html");
+  });
+  $("#zoom_chart_10288_54").click( function () {
+    window.open("../topo/run_7_knl01_44340_44722.html");
+  });
+  $("#zoom_chart_10288_55").click( function () {
+    window.open("../topo/run_7_knl01_44342_44774.html");
+  });
+  $("#zoom_chart_10288_56").click( function () {
+    window.open("../topo/run_7_knl01_44342_44719.html");
+  });
+  $("#zoom_chart_10288_57").click( function () {
+    window.open("../topo/run_7_knl01_44342_44743.html");
+  });
+  $("#zoom_chart_10288_58").click( function () {
+    window.open("../topo/run_7_knl01_44341_44538.html");
+  });
+  $("#zoom_chart_10288_59").click( function () {
+    window.open("../topo/run_7_knl01_44341_44809.html");
+  });
+  $("#zoom_chart_10288_60").click( function () {
+    window.open("../topo/run_7_knl01_44353_44501.html");
+  });
+  }
+  if (selector_run.value  == "9") {
+  $(document).ready(function(){
+    var ordinals = ['knl01_44986_44986','knl01_44994_44994','knl01_44996_44996','knl01_44997_44997','knl01_44993_44993','knl01_44990_44990','knl01_44991_44991','knl01_44998_44998'];
+    var data = [{value: 0.07, offset: 0, i: 0, color: "#333399"},{value: 0.07, offset: 0, i: 1, color: "#333399"},{value: 0.07, offset: 0, i: 2, color: "#333399"},{value: 0.07, offset: 0, i: 3, color: "#333399"},{value: 0.07, offset: 0, i: 4, color: "#333399"},{value: 0.07, offset: 0, i: 5, color: "#333399"},{value: 0.07, offset: 0, i: 6, color: "#333399"},{value: 0.07, offset: 0, i: 7, color: "#333399"}];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_10287')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Coverage (%)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_10287')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_10287_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  $("#zoom_chart_10287_0").click( function () {
+    window.open("../topo/run_8_knl01_44986_44986.html");
+  });
+  $("#zoom_chart_10287_1").click( function () {
+    window.open("../topo/run_8_knl01_44994_44994.html");
+  });
+  $("#zoom_chart_10287_2").click( function () {
+    window.open("../topo/run_8_knl01_44996_44996.html");
+  });
+  $("#zoom_chart_10287_3").click( function () {
+    window.open("../topo/run_8_knl01_44997_44997.html");
+  });
+  $("#zoom_chart_10287_4").click( function () {
+    window.open("../topo/run_8_knl01_44993_44993.html");
+  });
+  $("#zoom_chart_10287_5").click( function () {
+    window.open("../topo/run_8_knl01_44990_44990.html");
+  });
+  $("#zoom_chart_10287_6").click( function () {
+    window.open("../topo/run_8_knl01_44991_44991.html");
+  });
+  $("#zoom_chart_10287_7").click( function () {
+    window.open("../topo/run_8_knl01_44998_44998.html");
+  });
+  }
+  if (selector_run.value  == "9") {
+  $(document).ready(function(){
+    var ordinals = ['knl01_44997_44997','knl01_44994_44994','knl01_44996_44996','knl01_44986_44986','knl01_44993_44993','knl01_44990_44990','knl01_44991_44991','knl01_44998_44998'];
+    var data = [{value: 0.01, offset: 0, i: 0, color: "#333399"},{value: 0.01, offset: 0, i: 1, color: "#333399"},{value: 0, offset: 0, i: 2, color: "#333399"},{value: 0, offset: 0, i: 3, color: "#333399"},{value: 0, offset: 0, i: 4, color: "#333399"},{value: 0, offset: 0, i: 5, color: "#333399"},{value: 0, offset: 0, i: 6, color: "#333399"},{value: 0, offset: 0, i: 7, color: "#333399"}];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_10288')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Time (s)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_10288')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_10288_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  $("#zoom_chart_10288_0").click( function () {
+    window.open("../topo/run_8_knl01_44997_44997.html");
+  });
+  $("#zoom_chart_10288_1").click( function () {
+    window.open("../topo/run_8_knl01_44994_44994.html");
+  });
+  $("#zoom_chart_10288_2").click( function () {
+    window.open("../topo/run_8_knl01_44996_44996.html");
+  });
+  $("#zoom_chart_10288_3").click( function () {
+    window.open("../topo/run_8_knl01_44986_44986.html");
+  });
+  $("#zoom_chart_10288_4").click( function () {
+    window.open("../topo/run_8_knl01_44993_44993.html");
+  });
+  $("#zoom_chart_10288_5").click( function () {
+    window.open("../topo/run_8_knl01_44990_44990.html");
+  });
+  $("#zoom_chart_10288_6").click( function () {
+    window.open("../topo/run_8_knl01_44991_44991.html");
+  });
+  $("#zoom_chart_10288_7").click( function () {
+    window.open("../topo/run_8_knl01_44998_44998.html");
+  });
+  }
+}
+function set_previous_ldbal_input () {
+  var selector_run  = document.getElementById ("ldbal_select_run");
+  if (parseInt (selector_run.value) > 1) {
+     selector_run.value = parseInt (selector_run.value) - 1;
+     set_ldbal_input ();
+  }
+}
+function set_next_ldbal_input () {
+  var selector_run  = document.getElementById ("ldbal_select_run");
+  if (parseInt (selector_run.value) < 9) {
+     selector_run.value = parseInt (selector_run.value) + 1;
+     set_ldbal_input ();
+  }
+}
+addLoadEvent(function(){
+  set_ldbal_input ();
+});
+</script>
+
+  <div id="MaqaoModal" class="maqao_modal">
+    <div class="maqao_modal-content">
+      <div class="maqao_modal-header">
+        <span class="maqao_close">&times;</span>
+      </div>
+      <div id="maqao_modal-body" class="maqao_modal-body">
+      </div>
+    </div>
+  </div>
+</div><script>
+var tooltips_texts = [];
+var modal = document.getElementById('MaqaoModal');
+var span = document.getElementsByClassName("maqao_close")[0];
+span.onclick = function() {
+    modal.style.display = "none";
+}
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
+const comparer = (idx, asc) => (a, b) => ((v1, v2) => 
+    v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v2 - v1 : v1.toString().localeCompare(v2)
+    )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
+addLoadEvent(function(){
+  document.querySelectorAll('._fixed_table th').forEach(th => th.addEventListener('click', (() => {
+    const table = th.closest('table');
+    // Remove all symbols in header
+    table.querySelectorAll('th').forEach(function (e) {
+      e.firstChild.textContent = "";
+    });
+    // Change the symbol on the clicked header
+    if (this.asc != true) {
+      th.firstChild.textContent = "\u25BC";
+    }
+    else {
+      th.firstChild.textContent = "\u25B2";
+    }
+    Array.from(table.querySelectorAll('tr:nth-child(n+2)'))
+        .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
+        .forEach(tr => table.appendChild(tr) );
+  })));
+});
+function _check_all_checkbox_ (obj_id, opts_ids) {
+  var obj   = document.getElementById (obj_id);
+  var opts  = window[opts_ids];
+  var count = 0
+  for (i = 0; i < opts.length; i++) {
+    var obj_s = document.getElementById(opts[i]);
+    if (obj_s.checked) {
+      count ++;
+    }
+  }
+  if (count == 0) {
+    obj.value = "Select all";
+  }
+  else if (count == opts.length) {
+    obj.value = "Select none";
+  }
+}
+// Fonction for table selector
+function click_table_menu (c, obj_id, opt_ids) {
+  var is_checked = document.getElementById (c).checked;
+  localStorage.setItem("__functions_"+c, is_checked);
+  $("."+c).each(function(index, element) {
+    if (is_checked) {
+      element.classList.remove("_tcol_hidden");
+    }
+    else {
+      element.classList.add("_tcol_hidden");
+    }
+  });
+  if (obj_id != undefined) {
+    _check_all_checkbox_ (obj_id, opt_ids)
+  }
+}
+function set_all_table_menu (obj, var_opt_ids) {
+  var opt_ids = window[var_opt_ids];
+  var is_selected = true
+  if (obj.value == "Select all") {
+    is_selected = false;
+  }
+  for (i = 0; i < opt_ids.length; i++) {
+    var obj_s = document.getElementById(opt_ids[i]);
+    if (is_selected == obj_s.checked) {
+      obj_s.checked = !obj_s.checked;
+      click_table_menu (opt_ids[i]);
+    }
+  }
+  if (is_selected == false) {
+    obj.value = "Select none";
+  } else {
+    obj.value = "Select all";
+  }
+  localStorage.setItem(obj.id, obj.value);
+}
+// Script for accordion box
+function _click_accordion_header(obj) {
+  var content = obj.nextSibling;
+  content.classList.toggle('collapsed');
+  obj.classList.toggle('collapsed');
+  obj.parentNode.classList.toggle('collapsed');
+  // Check if the box must be openned ...
+  if (obj.classList.contains ('collapsed'))
+  {
+    obj.firstChild.textContent = "\u25B6";
+  }
+  // or closed.
+  else 
+  {
+    obj.firstChild.textContent = "\u25BC";
+  }
+  if (typeof _onresize === "function") {
+    _onresize ();
+  }
+}
+  // Script for paged table
+function _click_paged_prev(obj) {
+  var pages_content_id = '_paged_tables_page_' + obj.parentNode.parentNode.id.substr (obj.parentNode.parentNode.id.lastIndexOf('_') + 1);
+  var pages_content = document.getElementById(pages_content_id).innerHTML;
+  var max_pages = pages_content.substr (pages_content.lastIndexOf('/') + 1);
+  var cur_page  = pages_content.substring (pages_content.lastIndexOf(' ') + 1, pages_content.lastIndexOf('/'));
+  max_pages = Number (max_pages);
+  cur_page  = Number (cur_page);
+  if (cur_page > 1) {
+    var div_paged = obj.parentNode.parentNode.id;
+    var i;
+    var x = document.getElementsByClassName(div_paged + '_' + (cur_page - 1));
+    for (i = 0; i < x.length; i++) {
+      x[i].classList.toggle('_paged_hidden');
+    }
+    x = document.getElementsByClassName(div_paged + '_' + (cur_page - 2));
+    for (i = 0; i < x.length; i++) {
+      x[i].classList.toggle('_paged_hidden');
+    }
+  document.getElementById(pages_content_id).textContent = "Page " + (cur_page - 1) + "/" + max_pages;
+  }
+}
+function _click_paged_next(obj) {
+  var pages_content_id = '_paged_tables_page_' + obj.parentNode.parentNode.id.substr (obj.parentNode.parentNode.id.lastIndexOf('_') + 1);
+  var pages_content = document.getElementById(pages_content_id).innerHTML;
+  var max_pages = pages_content.substr (pages_content.lastIndexOf('/') + 1);
+  var cur_page  = pages_content.substring (pages_content.lastIndexOf(' ') + 1, pages_content.lastIndexOf('/'));
+  max_pages = Number (max_pages);
+  cur_page  = Number (cur_page);
+  if (cur_page < max_pages) {
+    var div_paged = obj.parentNode.parentNode.id;
+    var i;
+    var x = document.getElementsByClassName(div_paged + '_' + (cur_page - 1));
+    for (i = 0; i < x.length; i++) {
+      x[i].classList.toggle('_paged_hidden');
+    }
+    x = document.getElementsByClassName(div_paged + '_' + cur_page);
+    for (i = 0; i < x.length; i++) {
+      x[i].classList.toggle('_paged_hidden');
+    }
+    document.getElementById(pages_content_id).textContent = "Page " + (cur_page + 1) + "/" + max_pages;
+  }
+}
+// Function for tree table
+function _click_treed(obj) {
+  if (obj.innerHTML == "\u25BA") {
+    obj.textContent = "\u25BC";
+    // Open childs
+    var x = document.getElementsByClassName(obj.parentNode.parentNode.id);
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.toggle('_treed_hidden');
+    }
+  }
+  else if (obj.innerHTML == "\u25BC") {
+    obj.textContent = "\u25BA";
+    // Close all childs
+    var trs = document.getElementsByTagName('tr');
+    var r   = obj.parentNode.parentNode.id+'_';
+    var re  = new RegExp (r, "g");
+    for (var i = 0; i < trs.length; i++) {
+      var s = trs[i].id+""
+      if (s.match(re)) {
+        var o = document.getElementById(s);
+        if (! o.classList.contains('_treed_hidden')) {
+          o.classList.toggle('_treed_hidden');
+        }
+        if (o.firstChild.firstChild.textContent == "\u25BC") {
+          o.firstChild.firstChild.textContent = "\u25BA";
+        }
+        if (o.firstChild.childNodes.length == 3) {
+          o.firstChild.childNodes[2].textContent = '+';
+        }
+      }
+    }
+    if (obj.parentNode.childNodes.length == 3) {
+      obj.parentNode.childNodes[2].textContent = '+';
+    }
+  }
+}
+function _click_expand (obj) {
+  var trs = document.getElementsByTagName('tr');
+  var r   = obj.parentNode.parentNode.id+'_';
+  var re  = new RegExp (r, "g");
+  // Symbole + => expand all
+  if (obj.textContent == "+") {
+    for (var i = 0; i < trs.length; i++) {
+      var s = trs[i].id+"";
+      if (s.match(re)) {
+        var o = document.getElementById(s);
+        if (o.classList.contains('_treed_hidden')) {
+           o.classList.toggle('_treed_hidden');
+        }
+        if (o.firstChild.firstChild.textContent == "\u25BA") {
+          o.firstChild.firstChild.textContent = "\u25BC";
+        }
+        if (o.firstChild.childNodes.length == 3) {
+          o.firstChild.childNodes[2].textContent = '\u2010';
+        }
+      }
+    }
+    var o = obj.parentNode.parentNode;
+    if (o.firstChild.firstChild.textContent == "\u25BA") {
+      o.firstChild.firstChild.textContent = "\u25BC";
+    }
+    obj.textContent = "\u2010";
+  }
+  // Symbole - => collapse all
+  else {
+    for (var i = 0; i < trs.length; i++) {
+      var s = trs[i].id+"";
+      if (s.match(re)) {
+        var o = document.getElementById(s);
+        if (! o.classList.contains('_treed_hidden')) {
+           o.classList.toggle('_treed_hidden');
+        }
+        if (o.firstChild.firstChild.textContent == "\u25BC") {
+          o.firstChild.firstChild.textContent = "\u25BA";
+        }
+        if (o.firstChild.childNodes.length == 3) {
+          o.firstChild.childNodes[2].textContent = '+';
+        }
+      }
+    }
+    var o = obj.parentNode.parentNode;
+    if (o.firstChild.firstChild.textContent == "\u25BC") {
+      o.firstChild.firstChild.textContent = "\u25BA";
+    }
+    obj.textContent = "+";
+  }
+}
+// Hide unselected tabs
+addLoadEvent(function(){
+  var x = document.getElementsByClassName("_tab_header_li");
+  for (var i = 0; i < x.length; i++) {
+    if (x[i].classList.contains("selected_tab") == false) {
+      var e = document.getElementById (x[i].dataset.tab);
+      e.style.display = "none";
+    }
+  }
+});
+// Change tab
+function change_tab (e, baseId) {
+  // Handle tabs
+  var i = 1;
+  while (true) {
+    var id = baseId + i;
+    var t = document.getElementById (id);
+    if (t == null) {
+      break;
+    }
+    if (id == e.dataset.tab) {
+      t.style.removeProperty("display");
+    }
+    else {
+      t.style.display = "none";
+    }
+    i = i + 1;
+  }
+  // Handle headers
+  $(e).siblings().each( function () {
+    this.classList.remove("selected_tab");
+  });
+  e.classList.add("selected_tab");
+}
+function __maqao_legacy_onresize () {
+  var obj = document.getElementById("spacer_page_title");
+  if (obj) {
+    obj.style.height = (document.getElementById("page_title").clientHeight + 20)+"px";
+  }
+  var obj = document.getElementById("page_title");
+  if (obj) {
+    var elems = document.getElementsByClassName ("_first_menu_level")
+    if (obj.clientHeight < 90) {
+      for (var i = 0; i < elems.length; i++) {
+        elems.item(i).style.borderBottomLeftRadius = "";
+        elems.item(i).style.borderBottomRightRadius = "";
+      }
+    }
+    else {
+      for (var i = 0; i < elems.length; i++) {
+        elems.item(i).style.borderBottomLeftRadius = "10px";
+        elems.item(i).style.borderBottomRightRadius = "10px";
+      }
+    }
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+/users/user2210/NPB3.4-MZ-MPI/LU-MZ/rhs.f90: 220 - 342
+--------------------------------------------------------------------------------
+
+220:          do i = ist, iend
+221:             do j = 1, ny
+222:                utmp(1,j) = u(1,i,j,k)
+223:                utmp(2,j) = u(2,i,j,k)
+224:                utmp(3,j) = u(3,i,j,k)
+225:                utmp(4,j) = u(4,i,j,k)
+226:                utmp(5,j) = u(5,i,j,k)
+227:                utmp(6,j) = rho_i(i,j,k)
+228:             end do
+229: 
+230:             do j = 1, ny
+231:                flux(1,j) = utmp(3,j)
+232:                u31 = utmp(3,j) * utmp(6,j)
+233: 
+234:                q = qs(i,j,k)
+235: 
+236:                flux(2,j) = utmp(2,j) * u31 
+237:                flux(3,j) = utmp(3,j) * u31 + c2 * (utmp(5,j)-q)
+238:                flux(4,j) = utmp(4,j) * u31
+239:                flux(5,j) = ( c1 * utmp(5,j) - c2 * q ) * u31
+240:             end do
+241: 
+242:             do j = 2, ny-1
+243:                do m = 1, 5
+244:                   rsd(m,i,j,k) =  rsd(m,i,j,k)  &
+245:      &                   - ty2 * ( flux(m,j+1) - flux(m,j-1) )
+246:                end do
+247:             end do
+248: 
+249:             do j = 2, ny
+250:                tmp = utmp(6,j)
+251: 
+252:                u21j = tmp * utmp(2,j)
+253:                u31j = tmp * utmp(3,j)
+254:                u41j = tmp * utmp(4,j)
+255:                u51j = tmp * utmp(5,j)
+256: 
+257:                tmp = utmp(6,j-1)
+258:                u21jm1 = tmp * utmp(2,j-1)
+259:                u31jm1 = tmp * utmp(3,j-1)
+260:                u41jm1 = tmp * utmp(4,j-1)
+261:                u51jm1 = tmp * utmp(5,j-1)
+262: 
+263:                flux(2,j) = ty3 * ( u21j - u21jm1 )
+264:                flux(3,j) = (4.0d+00/3.0d+00) * ty3 * (u31j-u31jm1)
+265:                flux(4,j) = ty3 * ( u41j - u41jm1 )
+[...]
+271:      &              + c1 * c5 * ty3 * ( u51j - u51jm1 )
+272:             end do
+273: 
+274:             do j = 2, ny-1
+275: 
+276:                rsd(1,i,j,k) = rsd(1,i,j,k)  &
+277:      &              + dy1 * ty1 * (            utmp(1,j-1)  &
+278:      &                             - 2.0d+00 * utmp(1,j)  &
+279:      &                             +           utmp(1,j+1) )
+[...]
+285:      &                             +           utmp(2,j+1) )
+[...]
+291:      &                             +           utmp(3,j+1) )
+[...]
+297:      &                             +           utmp(4,j+1) )
+[...]
+303:      &                             +           utmp(5,j+1) )
+[...]
+314:      &                      +           utmp(m,4) )
+315:                rsd(m,i,3,k) = rsd(m,i,3,k)  &
+316:      &           - dssp * ( - 4.0d+00 * utmp(m,2)  &
+317:      &                      + 6.0d+00 * utmp(m,3)  &
+318:      &                      - 4.0d+00 * utmp(m,4)  &
+319:      &                      +           utmp(m,5) )
+320:             end do
+321: 
+322:             do j = 4, ny - 3
+[...]
+329:      &                        +           utmp(m,j+2) )
+[...]
+338:      &                      - 4.0d+00 * utmp(m,ny-1)  )
+339:                rsd(m,i,ny-1,k) = rsd(m,i,ny-1,k)  &
+340:      &           - dssp * (             utmp(m,ny-3)  &
+341:      &                      - 4.0d+00 * utmp(m,ny-2)  &
+342:      &                      + 5.0d+00 * utmp(m,ny-1) )

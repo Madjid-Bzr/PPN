@@ -1,0 +1,21 @@
+/users/user2210/NPB3.4-MZ-MPI/LU-MZ/exch_qbc.f90: 241 - 275
+--------------------------------------------------------------------------------
+
+241:        subroutine copy_x_face(u, qbc, nx, nxmax, ny, nz, iloc, dir)
+[...]
+249:        i = iloc
+250:        if (dir(1:2) .eq. 'in') then
+251: !$OMP PARALLEL DO DEFAULT(SHARED) PRIVATE(m,j,k)
+252:          do k = 1, nz-2
+253:            do j = 1, ny-2
+[...]
+260:        else if (dir(1:3) .eq. 'out') then
+261: !$OMP PARALLEL DO DEFAULT(SHARED) PRIVATE(m,j,k)
+262:          do k = 1, nz-2
+263:            do j = 1, ny-2
+[...]
+271:          call error_cond(2, dir)
+272:        endif
+273: 
+274:        return
+275:        end

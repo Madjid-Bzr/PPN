@@ -1,0 +1,242 @@
+/users/user2210/NPB3.4-MZ-MPI/LU-MZ/lu.f90: 50 - 412
+--------------------------------------------------------------------------------
+
+50:       program LU_MZ
+[...]
+80:       call setup_mpi
+81:       if (.not. active) goto 999
+82: 
+83: !---------------------------------------------------------------------
+84: !   read input data
+85: !---------------------------------------------------------------------
+86:       call read_input(tot_threads, itimer)
+87: 
+88:       if (timeron) then
+89:          t_names(t_total)  = 'total'
+90:          t_names(t_rhsx)   = 'rhsx'
+91:          t_names(t_rhsy)   = 'rhsy'
+92:          t_names(t_rhsz)   = 'rhsz'
+93:          t_names(t_rhs)    = 'rhs'
+94:          t_names(t_jacld)  = 'jacld'
+95:          t_names(t_blts)   = 'blts'
+96:          t_names(t_jacu)   = 'jacu'
+97:          t_names(t_buts)   = 'buts'
+98:          t_names(t_add)    = 'add'
+99:          t_names(t_l2norm) = 'l2norm'
+100:          t_names(t_rdis1)  = 'qbc_copy'
+101:          t_names(t_rdis2)  = 'qbc_comm'
+102:          t_names(t_exch)   = 'qx_exch'
+[...]
+108:       call zone_setup(nx, nxmax, ny, nz, nx1)
+109: 
+110:       num_zones = max_zones
+111:       call map_zones(num_zones, nx1, ny, nz, tot_threads)
+112:       call zone_starts(num_zones, nx, nxmax, ny, nz)
+113: 
+114: !---------------------------------------------------------------------
+115: !   allocate space for fields
+116: !---------------------------------------------------------------------
+117:       ixmax = 1
+118:       iymax = 1
+119:       do iz = 1, proc_num_zones
+120:          zone = proc_zone_id(iz)
+121:          ixmax = max(ixmax, nxmax(zone))
+122:          iymax = max(iymax, ny(zone))
+123:       end do
+124: 
+125:       call alloc_field_space( ixmax, iymax )
+126: 
+127: !---------------------------------------------------------------------
+128: !   set up coefficients
+129: !---------------------------------------------------------------------
+130:       call setcoeff()
+131: 
+132:       do i = 1, t_last
+133:          call timer_clear(i)
+134:       end do
+135: 
+136:       do iz = 1, proc_num_zones
+[...]
+143:      &             nx(zone), nxmax(zone), ny(zone), nz(zone))
+[...]
+149:      &             nx(zone), nxmax(zone), ny(zone), nz(zone))
+[...]
+155:      &            nx(zone), nxmax(zone), ny(zone), nz(zone))
+[...]
+163:      &           nx(zone), nxmax(zone), ny(zone), nz(zone))
+[...]
+175:      &                    a, b, c, d, au, bu, cu, du)
+[...]
+181:      &              npb_verbose)
+182: 
+183:       do iz = 1, proc_num_zones
+[...]
+189:      &            nx(zone), nxmax(zone), ny(zone), nz(zone))
+[...]
+195:       do iz = 1, proc_num_zones
+196:         zone = proc_zone_id(iz)
+197: 
+198:         call setbv(u(start5(iz)),  &
+199:      &             nx(zone), nxmax(zone), ny(zone), nz(zone))
+200: 
+201:         call setiv(u(start5(iz)),  &
+202:      &             nx(zone), nxmax(zone), ny(zone), nz(zone))
+[...]
+210:      &           nx(zone), nxmax(zone), ny(zone), nz(zone))
+[...]
+218:       do i = 1, t_last
+219:          call timer_clear(i)
+220:       end do
+221:       call mpi_barrier(comm_setup, ierror)
+222: 
+223:       call timer_start(1)
+224: 
+225: !---------------------------------------------------------------------
+226: !   the timestep loop
+227: !---------------------------------------------------------------------
+228:       do step = 1, itmax
+229: 
+230:         if (mod(step,20) .eq. 0 .or. step .eq. 1 .or.  &
+231:      &        step .eq. itmax) then
+232:            if (myid .eq. root) write( *, 200) step
+233:  200       format(' Time step ', i4)
+234:         endif
+235: 
+236:         call exch_qbc(u, qbc_ou, qbc_in, nx, nxmax, ny, nz, 0)
+[...]
+242:         do iz = 1, proc_num_zones
+[...]
+248:      &              nx(zone), nxmax(zone), ny(zone), nz(zone))
+[...]
+257:       frc = 0.d0
+258: 
+259: !---------------------------------------------------------------------
+260: !   compute the max-norms of newton iteration residuals
+261: !---------------------------------------------------------------------
+262:       if (timeron) call timer_start(t_l2norm)
+263:       do iz = 1, proc_num_zones
+264:         zone = proc_zone_id(iz)
+265:         call l2norm(rsd(start5(iz)), rsdnm_aux, nx1(zone),  &
+266:      &              nx(zone), nxmax(zone), ny(zone), nz(zone))
+267:         do i = 1, 5
+268:           rsdnm(i) = rsdnm(i) + rsdnm_aux(i)
+269:         end do
+270:       end do
+271: 
+272:       if (timeron) call timer_stop(t_l2norm)
+273: 
+274:       call timer_stop(1)
+275:       maxtime= timer_read(1)
+276: 
+277: !---------------------------------------------------------------------
+278: !   compute the solution error and surface integral
+279: !---------------------------------------------------------------------
+280:       do iz = 1, proc_num_zones
+281:         zone = proc_zone_id(iz)
+282:         call error(u(start5(iz)), errnm_aux, nx1(zone),  &
+283:      &             nx(zone), nxmax(zone), ny(zone), nz(zone))
+284:         call pintgr(u(start5(iz)), phi1, phi2, frc_aux,  &
+285:      &              nx(zone), nxmax(zone), ny(zone), nz(zone))
+286:         do i = 1, 5
+287:           errnm(i) = errnm(i) + errnm_aux(i)
+288:         end do
+289:         frc = frc + frc_aux
+290:       end do
+291: 
+292:       if (row.eq.0) then
+[...]
+299:      &                  root, comm_zpart, ierror)
+300:         call mpi_reduce(errnm_aux, errnm, 5, dp_type, MPI_SUM,  &
+301:      &                  root, comm_zpart, ierror)
+302: 
+303:         frc_aux = frc
+304:         call mpi_reduce(frc_aux, frc, 1, dp_type, MPI_SUM,  &
+305:      &                  root, comm_zpart, ierror)
+[...]
+311:       if (myid .eq. root) then
+312:         call verify ( rsdnm, errnm, frc, verified )
+313:       endif
+314: 
+315:       t = maxtime
+316:       call mpi_reduce(t, maxtime, 1, dp_type, MPI_MAX,  &
+317:      &                root, comm_setup, ierror)
+318: 
+319:       if (myid .ne. root) goto 900
+320: 
+321:       mflops = 0.d0
+322: 
+323:       if (maxtime .ne. 0.d0) then
+324:         do zone = 1, num_zones
+325:           n3 = dble(nx1(zone))*ny(zone)*nz(zone)
+326:           navg = (nx1(zone) + ny(zone) + nz(zone))/3.d0
+327:           nsur = (nx1(zone)*ny(zone) + nx1(zone)*nz(zone) +  &
+328:      &            ny(zone)*nz(zone))/3.d0
+329:           mflops = mflops + float(itmax)*1.0d-6 *  &
+330:      &       (1984.77d0 * n3 - 10923.3d0 * nsur  &
+331:      &         + 27770.9d0 * navg - 144010.d0)  &
+332:      &       / maxtime
+[...]
+340:      &  '(none)')
+341: 
+342: !---------------------------------------------------------------------
+343: !      More timers
+344: !---------------------------------------------------------------------
+345:  900  if (.not.timeron) goto 999
+346: 
+347:       do i=1, t_last
+348:          trecs(i) = timer_read(i)
+349:       end do
+350: 
+351:       call MPI_Reduce(trecs, tsum,  t_last, dp_type, MPI_SUM,  &
+352:      &                0, comm_setup, ierror)
+353:       call MPI_Reduce(trecs, tming, t_last, dp_type, MPI_MIN,  &
+354:      &                0, comm_setup, ierror)
+355:       call MPI_Reduce(trecs, tmaxg, t_last, dp_type, MPI_MAX,  &
+356:      &                0, comm_setup, ierror)
+357: 
+358:       if (myid .eq. 0) then
+359:          write(*, 700) num_procs
+360:          do i = 1, t_last
+361:             tsum(i) = tsum(i) / num_procs
+362:             write(*, 710) i, t_names(i), tming(i), tmaxg(i), tsum(i)
+[...]
+369:       if (itimer .lt. 2) goto 999
+370: 
+371:       if (myid .gt. 0) then
+372:          call mpi_recv(i, 1, MPI_INTEGER, 0, 1000,  &
+373:      &                 comm_setup, statuses, ierror)
+374:          call mpi_send(trecs, t_last, dp_type, 0, 1001,  &
+375:      &                 comm_setup, ierror)
+376:          goto 999
+377:       endif
+378: 
+379:       ip = 0
+380:       tmax = maxtime
+381:       if (tmax .eq. 0.0) tmax = 1.0
+382:  910  write(*,800) ip, proc_num_threads(ip/xdim+1)
+383:  800  format(/' Myid =',i5,'   num_threads =',i4/  &
+384:      &        '  SECTION   Time (secs)')
+385:       do i=1, t_last
+386:          write(*,810) t_names(i), trecs(i), trecs(i)*100./tmax
+387:          if (i.eq.t_rhs) then
+388:             t = trecs(t_rhsx) + trecs(t_rhsy) + trecs(t_rhsz)
+389:             write(*,820) 'sub-rhs', t, t*100./tmax
+390:             t = trecs(i) - t
+391:             write(*,820) 'rest-rhs', t, t*100./tmax
+392:          elseif (i.eq.t_rdis2) then
+393:             t = trecs(t_rdis1) + trecs(t_rdis2)
+394:             write(*,820) 'exch_qbc', t, t*100./tmax
+[...]
+400:       ip = ip + 1
+401:       if (ip .lt. num_procs) then
+402:          call mpi_send(myid, 1, MPI_INTEGER, ip, 1000,  &
+403:      &                 comm_setup, ierror)
+404:          call mpi_recv(trecs, t_last, dp_type, ip, 1001,  &
+405:      &                 comm_setup, statuses, ierror)
+406:          goto 910
+407:       endif
+408: 
+409:  999  continue
+410:       call mpi_barrier(MPI_COMM_WORLD, ierror)
+411:       call mpi_finalize(ierror)
+412:       end

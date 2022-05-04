@@ -1,0 +1,114 @@
+/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90: 39 - 170
+--------------------------------------------------------------------------------
+
+39: !$OMP PARALLEL DEFAULT(SHARED) PRIVATE(m,i,j,k,tmp,jst,jend,iex)
+40: !$OMP MASTER
+41:       if (timeron) call timer_start(t_rhs)
+42: !$OMP END MASTER
+43:       do k = 2, nz-1
+44: !$OMP DO SCHEDULE(STATIC)
+45:          do j = 2, ny-1
+46:             do i = ist, iend
+47:                do m = 1, 5
+48:                   rsd(m,i,j,k) = dt * rsd(m,i,j,k)
+[...]
+54: !$OMP MASTER
+55:       if (timeron) call timer_stop(t_rhs)
+56: !$OMP END MASTER
+57: 
+58:       call sync_init
+59: !$OMP BARRIER
+60: 
+61: 
+62:       jst = ny
+63:       jend = 1
+64: !$OMP DO SCHEDULE(STATIC)
+65:       do j = 2, ny-1
+66:          jst = min(j, jst)
+67:          jend = max(j, jend)
+68:       end do
+69: !$OMP END DO nowait
+70: 
+71:       do k = 2, nz-1 
+72: !---------------------------------------------------------------------
+73: !   form the lower triangular part of the jacobian matrix
+74: !---------------------------------------------------------------------
+75: !$OMP MASTER
+76:          if (timeron) call timer_start(t_jacld)
+77: !$OMP END MASTER
+78:          call jacld(k, u, rho_i, qs, a, b, c, d,  &
+79:      &              nx, nxmax, ny, nz)
+80: !$OMP MASTER
+81:          if (timeron) call timer_stop(t_jacld)
+[...]
+87:          iex = 0
+88:          call exchange_1( rsd, nx, nxmax, ny, nz, k, jst, jend, iex )
+89: 
+90: !$OMP MASTER
+91:          if (timeron) call timer_start(t_blts)
+92: !$OMP END MASTER
+93:          call blts( nx, nxmax, ny, nz, k, ist, iend, omega, rsd,  &
+94:      &              a, b, c, d)
+95: !$OMP MASTER
+96:          if (timeron) call timer_stop(t_blts)
+97: !$OMP END MASTER
+98: 
+99:          iex = 2
+100:          call exchange_1( rsd, nx, nxmax, ny, nz, k, jst, jend, iex )
+101:       end do
+102:  
+103: !$OMP BARRIER
+104: 
+105: 
+106:       jst = ny
+107:       jend = 1
+108: !$OMP DO SCHEDULE(STATIC)
+109:       do j = ny-1, 2, -1
+110:          jst = min(j, jst)
+111:          jend = max(j, jend)
+112:       end do
+113: !$OMP END DO nowait
+114: 
+115:       do k = nz-1, 2, -1
+116: !---------------------------------------------------------------------
+117: !   form the strictly upper triangular part of the jacobian matrix
+118: !---------------------------------------------------------------------
+119: !$OMP MASTER
+120:          if (timeron) call timer_start(t_jacu)
+121: !$OMP END MASTER
+122:          call jacu(k, u, rho_i, qs, au, bu, cu, du,  &
+123:      &             nx, nxmax, ny, nz)
+124: !$OMP MASTER
+125:          if (timeron) call timer_stop(t_jacu)
+[...]
+131:          iex = 1
+132:          call exchange_1( rsd, nx, nxmax, ny, nz, k, jst, jend, iex )
+133: 
+134: !$OMP MASTER
+135:          if (timeron) call timer_start(t_buts)
+136: !$OMP END MASTER
+137:          call buts( nx, nxmax, ny, nz, k, ist, iend, omega, rsd, tv,  &
+138:      &              du, au, bu, cu)
+139: !$OMP MASTER
+140:          if (timeron) call timer_stop(t_buts)
+141: !$OMP END MASTER
+142: 
+143:          iex = 3
+144:          call exchange_1( rsd, nx, nxmax, ny, nz, k, jst, jend, iex )
+145:       end do
+146: 
+147: !$OMP BARRIER
+[...]
+154:       tmp = 1.0d0 / ( omega * ( 2.0d0 - omega ) ) 
+155: !$OMP MASTER
+156:       if (timeron) call timer_start(t_add)
+157: !$OMP END MASTER
+158:       do k = 2, nz-1
+159: !$OMP DO SCHEDULE(STATIC)
+160:          do j = 2, ny-1
+161:             do i = ist, iend
+162:                do m = 1, 5
+163:                   u(m,i,j,k) = u(m,i,j,k) + tmp * rsd(m,i,j,k)
+[...]
+169: !$OMP MASTER
+170:       if (timeron) call timer_stop(t_add)

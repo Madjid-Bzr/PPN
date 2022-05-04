@@ -1,0 +1,1675 @@
+address;source_location;insn;indent
+0x163a0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;PUSH	%RBP;
+0x163a1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;MOV	%RSP,%RBP;
+0x163a4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;PUSH	%R15;
+0x163a6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;PUSH	%R14;
+0x163a8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;PUSH	%R13;
+0x163aa;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;PUSH	%R12;
+0x163ac;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;LEA	(%RDI),%R12;
+0x163af;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;PUSH	%RBX;
+0x163b0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;AND	$-0x40,%RSP;
+0x163b4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;LEA	-0x180(%RSP),%RSP;
+0x163bc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;MOV	0xa8(%RDI),%RDX;
+0x163c3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;MOV	0xa0(%RDI),%RCX;
+0x163ca;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;MOV	0x88(%RDI),%RSI;
+0x163d1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;MOV	0xb0(%RDI),%RAX;
+0x163d8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;MOV	0x90(%RDI),%RBX;
+0x163df;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;MOV	0x80(%RDI),%RDI;
+0x163e6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;MOV	%RDX,0xe0(%RSP);
+0x163ee;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;MOV	%RCX,0x158(%RSP);
+0x163f6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;MOV	%RBX,0x140(%RSP);
+0x163fe;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;MOV	%RSI,0x118(%RSP);
+0x16406;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;MOV	%RDI,0x160(%RSP);
+0x1640e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;MOV	%RAX,0x128(%RSP);
+0x16416;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:40;CALL	2190 <@plt_start@+0x170>;
+0x1641b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:40;LEA	(%RAX),%EBX;
+0x1641d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:40;CALL	2080 <@plt_start@+0x60>;
+0x16422;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:40;MOV	%EAX,0x148(%RSP);
+0x16429;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:40;TEST	%EBX,%EBX;
+0x1642b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:40;JNE	183de <ssor_._omp_fn.0+0x203e>;
+0x16431;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:41;MOV	0x262d0(%RIP),%R9D;
+0x16438;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:41;TEST	%R9D,%R9D;
+0x1643b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:41;JNE	18414 <ssor_._omp_fn.0+0x2074>;
+0x16441;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:43;MOV	0x78(%R12),%R10;
+0x16446;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:43;MOVL	$0x2,0x170(%RSP);
+0x16451;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:43;MOV	(%R10),%R13D;
+0x16454;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:43;CMP	$0x2,%R13D;
+0x16458;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:43;JLE	16fcb <ssor_._omp_fn.0+0xc2b>;
+0x1645e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:44;MOV	0x70(%R12),%R11;
+0x16463;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:44;MOV	0x118(%RSP),%RCX;
+0x1646b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;MOV	0x265a7(%RIP),%ESI;
+0x16471;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;MOV	(%R11),%EAX;
+0x16474;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;MOV	0x140(%RSP),%R11;
+0x1647c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;MOV	0x26582(%RIP),%EDI;
+0x16482;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;MOV	%ESI,0x150(%RSP);
+0x16489;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;SUB	$0x2,%EAX;
+0x1648c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;MOV	0x160(%RSP),%R9;
+0x16494;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;MOV	%EAX,%EDX;
+0x16496;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;SAR	$0x1f,%EDX;
+0x16499;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;IDIVL	0x148(%RSP);
+0x164a0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;MOV	%EDI,0x154(%RSP);
+0x164a7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;MOV	%EBX,0x120(%RSP);
+0x164ae;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;MOV	%EAX,%R15D;
+0x164b1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;ADD	$0x1,%R15D;
+0x164b5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;CMP	%EDX,%EBX;
+0x164b7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;CMOVL	%R15D,%EAX;
+0x164bb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;ADD	%RCX,%R11;
+0x164be;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;ADD	%RCX,%R11;
+0x164c1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;MOV	%EAX,%R14D;
+0x164c4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;LEA	(%RAX),%R15D;
+0x164c7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;IMUL	%EBX,%R14D;
+0x164cb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;CMP	%EDX,%EBX;
+0x164cd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;MOV	0x118(%RSP),%RBX;
+0x164d5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;LEA	(%RDX,%R14,1),%R8D;
+0x164d9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;LEA	(%RSI),%EDX;
+0x164db;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;CMOVGE	%R8D,%R14D;
+0x164df;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;MOVSXD	%EDI,%RSI;
+0x164e2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;SAL	$0x3,%R9;
+0x164e6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;SUB	%EDI,%EDX;
+0x164e8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;MOV	%R14D,%R8D;
+0x164eb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;ADD	%RDX,%RSI;
+0x164ee;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;ADD	$0x2,%R8D;
+0x164f2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;MOV	%RSI,%RCX;
+0x164f5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;MOV	%R8D,0x168(%RSP);
+0x164fd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;MOVSXD	%R8D,%R8;
+0x16500;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;IMUL	0x160(%RSP),%R8;
+0x16509;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;SAL	$0x2,%RCX;
+0x1650d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;ADD	%RSI,%RCX;
+0x16510;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;ADD	%R14D,%R15D;
+0x16513;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;MOV	0x8(%R12),%RSI;
+0x16518;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;LEA	0x1(%RDX),%RDX;
+0x1651c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;IMUL	$-0x28,%RDX,%RDI;
+0x16520;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;LEA	0x2(%R15),%R10D;
+0x16524;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;ADD	%RCX,%R8;
+0x16527;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;MOV	%R8,0x138(%RSP);
+0x1652f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;ADD	$0x30,%RSI;
+0x16533;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;MOV	%RSI,0x130(%RSP);
+0x1653b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;MOV	$0x2,%R8D;
+0x16541;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;JMP	16554 <ssor_._omp_fn.0+0x1b4>;
+0x16543;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;LEA	0x1(%R8),%R8D;(105) 
+0x16547;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;LEA	(%R11,%RBX,1),%R11;(105) 
+0x1654b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:43;CMP	%R8D,%R13D;(105) 
+0x1654e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:43;JLE	1688c <ssor_._omp_fn.0+0x4ec>;(105) 
+0x16554;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:43;CMP	%R14D,%R15D;(105) 
+0x16557;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:43;JLE	16543 <ssor_._omp_fn.0+0x1a3>;(105) 
+0x16559;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:43;MOV	0x150(%RSP),%EAX;(105) 
+0x16560;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:43;CMP	%EAX,0x154(%RSP);(105) 
+0x16567;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:43;JG	16543 <ssor_._omp_fn.0+0x1a3>;(105) 
+0x16569;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:43;MOV	0x138(%RSP),%RCX;(105) 
+0x16571;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:43;MOV	0x130(%RSP),%RAX;(105) 
+0x16579;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;MOV	0x168(%RSP),%ESI;(105) 
+0x16580;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;ADD	%R11,%RCX;(105) 
+0x16583;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;SAL	$0x3,%RCX;(105) 
+0x16587;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;ADD	%RAX,%RCX;(105) 
+0x1658a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;NOPW	(%RAX,%RAX,1);(105) 
+0x16590;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;LEA	(%RDI),%RDX;  (107) 
+0x16593;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;LEA	(%RDI,%RCX,1),%RAX;  (107) 
+0x16597;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;NEG	%RDX;  (107) 
+0x1659a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;SUB	$0x28,%RDX;  (107) 
+0x1659e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;SHR	$0x3,%RDX;  (107) 
+0x165a2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;ADD	$0x1,%RDX;  (107) 
+0x165a6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;AND	$0x3,%EDX;  (107) 
+0x165a9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;JE	166df <ssor_._omp_fn.0+0x33f>;  (107) 
+0x165af;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;CMP	$0x1,%RDX;  (107) 
+0x165b3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;JE	16679 <ssor_._omp_fn.0+0x2d9>;  (107) 
+0x165b9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;CMP	$0x2,%RDX;  (107) 
+0x165bd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;JE	1661c <ssor_._omp_fn.0+0x27c>;  (107) 
+0x165bf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	(%RAX),%XMM0;  (107) 
+0x165c3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;LEA	0x28(%RAX),%RAX;  (107) 
+0x165c7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x264d9(%RIP),%XMM0,%XMM1;  (107) 
+0x165cf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x20(%RAX),%XMM2;  (107) 
+0x165d4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x18(%RAX),%XMM4;  (107) 
+0x165d9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x10(%RAX),%XMM6;  (107) 
+0x165de;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x8(%RAX),%XMM8;  (107) 
+0x165e3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM1,-0x28(%RAX);  (107) 
+0x165e8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x264b8(%RIP),%XMM2,%XMM3;  (107) 
+0x165f0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM3,-0x20(%RAX);  (107) 
+0x165f5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x264ab(%RIP),%XMM4,%XMM5;  (107) 
+0x165fd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM5,-0x18(%RAX);  (107) 
+0x16602;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x2649e(%RIP),%XMM6,%XMM7;  (107) 
+0x1660a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM7,-0x10(%RAX);  (107) 
+0x1660f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x26491(%RIP),%XMM8,%XMM9;  (107) 
+0x16617;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM9,-0x8(%RAX);  (107) 
+0x1661c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	(%RAX),%XMM10;  (107) 
+0x16620;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;LEA	0x28(%RAX),%RAX;  (107) 
+0x16624;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x2647c(%RIP),%XMM10,%XMM11;  (107) 
+0x1662c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x20(%RAX),%XMM12;  (107) 
+0x16631;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x18(%RAX),%XMM14;  (107) 
+0x16636;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x10(%RAX),%XMM0;  (107) 
+0x1663b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x8(%RAX),%XMM2;  (107) 
+0x16640;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM11,-0x28(%RAX);  (107) 
+0x16645;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x2645b(%RIP),%XMM12,%XMM13;  (107) 
+0x1664d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM13,-0x20(%RAX);  (107) 
+0x16652;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x2644e(%RIP),%XMM14,%XMM15;  (107) 
+0x1665a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM15,-0x18(%RAX);  (107) 
+0x1665f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x26441(%RIP),%XMM0,%XMM1;  (107) 
+0x16667;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM1,-0x10(%RAX);  (107) 
+0x1666c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x26434(%RIP),%XMM2,%XMM3;  (107) 
+0x16674;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM3,-0x8(%RAX);  (107) 
+0x16679;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	(%RAX),%XMM4;  (107) 
+0x1667d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;LEA	0x28(%RAX),%RAX;  (107) 
+0x16681;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x2641f(%RIP),%XMM4,%XMM5;  (107) 
+0x16689;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x20(%RAX),%XMM6;  (107) 
+0x1668e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x18(%RAX),%XMM8;  (107) 
+0x16693;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x10(%RAX),%XMM10;  (107) 
+0x16698;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x8(%RAX),%XMM12;  (107) 
+0x1669d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM5,-0x28(%RAX);  (107) 
+0x166a2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x263fe(%RIP),%XMM6,%XMM7;  (107) 
+0x166aa;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM7,-0x20(%RAX);  (107) 
+0x166af;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x263f1(%RIP),%XMM8,%XMM9;  (107) 
+0x166b7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM9,-0x18(%RAX);  (107) 
+0x166bc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x263e4(%RIP),%XMM10,%XMM11;  (107) 
+0x166c4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM11,-0x10(%RAX);  (107) 
+0x166c9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x263d7(%RIP),%XMM12,%XMM13;  (107) 
+0x166d1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM13,-0x8(%RAX);  (107) 
+0x166d6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;CMP	%RCX,%RAX;  (107) 
+0x166d9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;JE	1686b <ssor_._omp_fn.0+0x4cb>;  (107) 
+0x166df;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	(%RAX),%XMM14;    (106) 
+0x166e3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;LEA	0xa0(%RAX),%RAX;    (106) 
+0x166ea;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x263b6(%RIP),%XMM14,%XMM15;    (106) 
+0x166f2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x98(%RAX),%XMM0;    (106) 
+0x166fa;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x90(%RAX),%XMM2;    (106) 
+0x16702;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x88(%RAX),%XMM4;    (106) 
+0x1670a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x80(%RAX),%XMM6;    (106) 
+0x1670f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM15,-0xa0(%RAX);    (106) 
+0x16717;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x26389(%RIP),%XMM0,%XMM1;    (106) 
+0x1671f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x78(%RAX),%XMM8;    (106) 
+0x16724;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x70(%RAX),%XMM10;    (106) 
+0x16729;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x68(%RAX),%XMM12;    (106) 
+0x1672e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x60(%RAX),%XMM14;    (106) 
+0x16733;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM1,-0x98(%RAX);    (106) 
+0x1673b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x26365(%RIP),%XMM2,%XMM3;    (106) 
+0x16743;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x58(%RAX),%XMM0;    (106) 
+0x16748;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x50(%RAX),%XMM2;    (106) 
+0x1674d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM3,-0x90(%RAX);    (106) 
+0x16755;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x2634b(%RIP),%XMM4,%XMM5;    (106) 
+0x1675d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM5,-0x88(%RAX);    (106) 
+0x16765;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x2633b(%RIP),%XMM6,%XMM7;    (106) 
+0x1676d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM7,-0x80(%RAX);    (106) 
+0x16772;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x2632e(%RIP),%XMM8,%XMM9;    (106) 
+0x1677a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM9,-0x78(%RAX);    (106) 
+0x1677f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x26321(%RIP),%XMM10,%XMM11;    (106) 
+0x16787;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM11,-0x70(%RAX);    (106) 
+0x1678c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x26314(%RIP),%XMM12,%XMM13;    (106) 
+0x16794;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM13,-0x68(%RAX);    (106) 
+0x16799;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x26307(%RIP),%XMM14,%XMM15;    (106) 
+0x167a1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM15,-0x60(%RAX);    (106) 
+0x167a6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x262fa(%RIP),%XMM0,%XMM1;    (106) 
+0x167ae;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM1,-0x58(%RAX);    (106) 
+0x167b3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x262ed(%RIP),%XMM2,%XMM3;    (106) 
+0x167bb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM3,-0x50(%RAX);    (106) 
+0x167c0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x48(%RAX),%XMM4;    (106) 
+0x167c5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x262db(%RIP),%XMM4,%XMM5;    (106) 
+0x167cd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x40(%RAX),%XMM6;    (106) 
+0x167d2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x38(%RAX),%XMM8;    (106) 
+0x167d7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x30(%RAX),%XMM10;    (106) 
+0x167dc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x28(%RAX),%XMM12;    (106) 
+0x167e1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM5,-0x48(%RAX);    (106) 
+0x167e6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x262ba(%RIP),%XMM6,%XMM7;    (106) 
+0x167ee;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x20(%RAX),%XMM14;    (106) 
+0x167f3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x18(%RAX),%XMM0;    (106) 
+0x167f8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x10(%RAX),%XMM2;    (106) 
+0x167fd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	-0x8(%RAX),%XMM4;    (106) 
+0x16802;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM7,-0x40(%RAX);    (106) 
+0x16807;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x26299(%RIP),%XMM8,%XMM9;    (106) 
+0x1680f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM9,-0x38(%RAX);    (106) 
+0x16814;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x2628c(%RIP),%XMM10,%XMM11;    (106) 
+0x1681c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM11,-0x30(%RAX);    (106) 
+0x16821;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x2627f(%RIP),%XMM12,%XMM13;    (106) 
+0x16829;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM13,-0x28(%RAX);    (106) 
+0x1682e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x26272(%RIP),%XMM14,%XMM15;    (106) 
+0x16836;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM15,-0x20(%RAX);    (106) 
+0x1683b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x26265(%RIP),%XMM0,%XMM1;    (106) 
+0x16843;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM1,-0x18(%RAX);    (106) 
+0x16848;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x26258(%RIP),%XMM2,%XMM3;    (106) 
+0x16850;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM3,-0x10(%RAX);    (106) 
+0x16855;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMULSD	0x2624b(%RIP),%XMM4,%XMM5;    (106) 
+0x1685d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48;VMOVSD	%XMM5,-0x8(%RAX);    (106) 
+0x16862;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;CMP	%RCX,%RAX;    (106) 
+0x16865;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;JNE	166df <ssor_._omp_fn.0+0x33f>;    (106) 
+0x1686b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;LEA	0x1(%RSI),%ESI;  (107) 
+0x1686e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;LEA	(%RCX,%R9,1),%RCX;  (107) 
+0x16872;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;CMP	%ESI,%R10D;  (107) 
+0x16875;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;JNE	16590 <ssor_._omp_fn.0+0x1f0>;  (107) 
+0x1687b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;LEA	0x1(%R8),%R8D;(105) 
+0x1687f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:46;LEA	(%R11,%RBX,1),%R11;(105) 
+0x16883;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:43;CMP	%R8D,%R13D;(105) 
+0x16886;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:43;JG	16554 <ssor_._omp_fn.0+0x1b4>;(105) 
+0x1688c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:43;MOV	0x120(%RSP),%EBX;
+0x16893;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:43;MOV	%R13D,0x170(%RSP);
+0x1689b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:54;TEST	%EBX,%EBX;
+0x1689d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:54;JE	16fcb <ssor_._omp_fn.0+0xc2b>;
+0x168a3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:58;XOR	%EAX,%EAX;
+0x168a5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:58;CALL	2d400 <sync_init_>;
+0x168aa;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:59;CALL	2220 <@plt_start@+0x200>;
+0x168af;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:62;MOV	0x70(%R12),%R14;
+0x168b4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;MOVL	$0x1,0x178(%RSP);
+0x168bf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:62;MOV	(%R14),%R15D;
+0x168c2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:62;MOV	%R15D,0x174(%RSP);
+0x168ca;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:62;LEA	-0x2(%R15),%EAX;
+0x168ce;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:62;LEA	(%RAX),%EDX;
+0x168d0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:62;SAR	$0x1f,%EDX;
+0x168d3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:62;IDIVL	0x148(%RSP);
+0x168da;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:62;CMP	%EDX,%EBX;
+0x168dc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:62;JL	1840a <ssor_._omp_fn.0+0x206a>;
+0x168e2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:62;MOV	%EAX,%R10D;
+0x168e5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:62;MOV	%EAX,%R8D;
+0x168e8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:62;IMUL	%EBX,%R10D;
+0x168ec;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:62;ADD	%R10D,%EDX;
+0x168ef;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:62;ADD	%EDX,%R8D;
+0x168f2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:62;CMP	%R8D,%EDX;
+0x168f5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:62;JGE	16cca <ssor_._omp_fn.0+0x92a>;
+0x168fb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:62;LEA	-0x1(%RAX),%R9D;
+0x168ff;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:62;LEA	0x2(%RDX),%ESI;
+0x16902;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:62;CMP	$0xe,%R9D;
+0x16906;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:62;LEA	0x2(%R8),%EDI;
+0x1690a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:62;JBE	18462 <ssor_._omp_fn.0+0x20c2>;
+0x16910;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:62;LEA	(%RAX),%R11D;
+0x16913;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:62;VPBROADCASTD	%EDX,%ZMM6;
+0x16919;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:62;SHR	$0x4,%R11D;
+0x1691d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;XOR	%R14D,%R14D;
+0x16920;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;MOV	%R11D,%R13D;
+0x16923;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;VPADDD	0x213d3(%RIP),%ZMM6,%ZMM15;
+0x1692d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;AND	$0x7,%R13D;
+0x16931;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;VPBROADCASTD	%R15D,%ZMM1;
+0x16937;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;VMOVDQA64	0x2137f(%RIP),%ZMM2;
+0x16941;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;VMOVDQA64	0x213f5(%RIP),%ZMM7;
+0x1694b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;JE	16a50 <ssor_._omp_fn.0+0x6b0>;
+0x16951;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;CMP	$0x1,%R13D;
+0x16955;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;JE	16a2b <ssor_._omp_fn.0+0x68b>;
+0x1695b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;CMP	$0x2,%R13D;
+0x1695f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;JE	16a0f <ssor_._omp_fn.0+0x66f>;
+0x16965;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;CMP	$0x3,%R13D;
+0x16969;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;JE	169f3 <ssor_._omp_fn.0+0x653>;
+0x1696f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;CMP	$0x4,%R13D;
+0x16973;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;JE	169d7 <ssor_._omp_fn.0+0x637>;
+0x16975;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;CMP	$0x5,%R13D;
+0x16979;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;JE	169bb <ssor_._omp_fn.0+0x61b>;
+0x1697b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;CMP	$0x6,%R13D;
+0x1697f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;JE	1699f <ssor_._omp_fn.0+0x5ff>;
+0x16981;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;VMOVDQA64	%ZMM15,%ZMM8;
+0x16987;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;MOV	$0x1,%R14D;
+0x1698d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;VPADDD	%ZMM7,%ZMM15,%ZMM15;
+0x16993;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;VPMINSD	%ZMM8,%ZMM1,%ZMM1;
+0x16999;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPMAXSD	%ZMM8,%ZMM2,%ZMM2;
+0x1699f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VMOVDQA64	%ZMM15,%ZMM9;
+0x169a5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;LEA	0x1(%R14),%R14D;
+0x169a9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPADDD	%ZMM7,%ZMM15,%ZMM15;
+0x169af;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;VPMINSD	%ZMM9,%ZMM1,%ZMM1;
+0x169b5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPMAXSD	%ZMM9,%ZMM2,%ZMM2;
+0x169bb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VMOVDQA64	%ZMM15,%ZMM10;
+0x169c1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;LEA	0x1(%R14),%R14D;
+0x169c5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPADDD	%ZMM7,%ZMM15,%ZMM15;
+0x169cb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;VPMINSD	%ZMM10,%ZMM1,%ZMM1;
+0x169d1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPMAXSD	%ZMM10,%ZMM2,%ZMM2;
+0x169d7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VMOVDQA64	%ZMM15,%ZMM11;
+0x169dd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;LEA	0x1(%R14),%R14D;
+0x169e1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPADDD	%ZMM7,%ZMM15,%ZMM15;
+0x169e7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;VPMINSD	%ZMM11,%ZMM1,%ZMM1;
+0x169ed;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPMAXSD	%ZMM11,%ZMM2,%ZMM2;
+0x169f3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VMOVDQA64	%ZMM15,%ZMM12;
+0x169f9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;LEA	0x1(%R14),%R14D;
+0x169fd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPADDD	%ZMM7,%ZMM15,%ZMM15;
+0x16a03;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;VPMINSD	%ZMM12,%ZMM1,%ZMM1;
+0x16a09;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPMAXSD	%ZMM12,%ZMM2,%ZMM2;
+0x16a0f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VMOVDQA64	%ZMM15,%ZMM13;
+0x16a15;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;LEA	0x1(%R14),%R14D;
+0x16a19;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPADDD	%ZMM7,%ZMM15,%ZMM15;
+0x16a1f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;VPMINSD	%ZMM13,%ZMM1,%ZMM1;
+0x16a25;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPMAXSD	%ZMM13,%ZMM2,%ZMM2;
+0x16a2b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;LEA	0x1(%R14),%R14D;
+0x16a2f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VMOVDQA64	%ZMM15,%ZMM14;
+0x16a35;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%R14D,%R11D;
+0x16a38;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPADDD	%ZMM7,%ZMM15,%ZMM15;
+0x16a3e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;VPMINSD	%ZMM14,%ZMM1,%ZMM1;
+0x16a44;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPMAXSD	%ZMM14,%ZMM2,%ZMM2;
+0x16a4a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;JE	16aed <ssor_._omp_fn.0+0x74d>;
+0x16a50;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPADDD	%ZMM7,%ZMM15,%ZMM3;(104) 
+0x16a56;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;VPMINSD	%ZMM15,%ZMM1,%ZMM4;(104) 
+0x16a5c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPMAXSD	%ZMM15,%ZMM2,%ZMM5;(104) 
+0x16a62;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPADDD	%ZMM7,%ZMM3,%ZMM0;(104) 
+0x16a68;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;VPMINSD	%ZMM3,%ZMM4,%ZMM6;(104) 
+0x16a6e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPMAXSD	%ZMM3,%ZMM5,%ZMM8;(104) 
+0x16a74;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPADDD	%ZMM7,%ZMM0,%ZMM9;(104) 
+0x16a7a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;VPMINSD	%ZMM0,%ZMM6,%ZMM10;(104) 
+0x16a80;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPMAXSD	%ZMM0,%ZMM8,%ZMM11;(104) 
+0x16a86;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPADDD	%ZMM7,%ZMM9,%ZMM12;(104) 
+0x16a8c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;VPMINSD	%ZMM9,%ZMM10,%ZMM13;(104) 
+0x16a92;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPMAXSD	%ZMM9,%ZMM11,%ZMM14;(104) 
+0x16a98;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPADDD	%ZMM7,%ZMM12,%ZMM15;(104) 
+0x16a9e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;VPMINSD	%ZMM12,%ZMM13,%ZMM1;(104) 
+0x16aa4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPMAXSD	%ZMM12,%ZMM14,%ZMM2;(104) 
+0x16aaa;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPADDD	%ZMM7,%ZMM15,%ZMM3;(104) 
+0x16ab0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;VPMINSD	%ZMM15,%ZMM1,%ZMM5;(104) 
+0x16ab6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPMAXSD	%ZMM15,%ZMM2,%ZMM0;(104) 
+0x16abc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;LEA	0x8(%R14),%R14D;(104) 
+0x16ac0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPADDD	%ZMM7,%ZMM3,%ZMM4;(104) 
+0x16ac6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;VPMINSD	%ZMM3,%ZMM5,%ZMM6;(104) 
+0x16acc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPMAXSD	%ZMM3,%ZMM0,%ZMM8;(104) 
+0x16ad2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%R14D,%R11D;(104) 
+0x16ad5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPADDD	%ZMM7,%ZMM4,%ZMM15;(104) 
+0x16adb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;VPMINSD	%ZMM4,%ZMM6,%ZMM1;(104) 
+0x16ae1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPMAXSD	%ZMM4,%ZMM8,%ZMM2;(104) 
+0x16ae7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;JNE	16a50 <ssor_._omp_fn.0+0x6b0>;(104) 
+0x16aed;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VEXTRACTI64X4	$0x1,%ZMM2,%YMM7;
+0x16af4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;LEA	(%RAX),%EDX;
+0x16af6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPMAXSD	%YMM2,%YMM7,%YMM9;
+0x16afb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;AND	$-0x10,%EDX;
+0x16afe;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VEXTRACTI64X4	$0x1,%ZMM1,%YMM2;
+0x16b05;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;ADD	%EDX,%ESI;
+0x16b07;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPMINSD	%YMM1,%YMM2,%YMM1;
+0x16b0c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%EDX,%EAX;
+0x16b0e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VEXTRACTI128	$0x1,%YMM9,%XMM10;
+0x16b14;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VEXTRACTI128	$0x1,%YMM1,%XMM3;
+0x16b1a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPMAXSD	%XMM9,%XMM10,%XMM11;
+0x16b1f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPSRLDQ	$0x8,%XMM11,%XMM12;
+0x16b25;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPMINSD	%XMM1,%XMM3,%XMM5;
+0x16b2a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPSRLDQ	$0x8,%XMM5,%XMM0;
+0x16b2f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPMAXSD	%XMM12,%XMM11,%XMM13;
+0x16b34;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPSRLDQ	$0x4,%XMM13,%XMM14;
+0x16b3a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPMINSD	%XMM0,%XMM5,%XMM4;
+0x16b3f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPSRLDQ	$0x4,%XMM4,%XMM6;
+0x16b44;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPMAXSD	%XMM14,%XMM13,%XMM15;
+0x16b49;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VPMINSD	%XMM6,%XMM4,%XMM8;
+0x16b4e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VMOVD	%XMM15,%ECX;
+0x16b52;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;VMOVD	%XMM8,%R15D;
+0x16b57;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;JE	16cbb <ssor_._omp_fn.0+0x91b>;
+0x16b5d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMP	%ESI,%R15D;
+0x16b60;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;LEA	0x1(%RSI),%EAX;
+0x16b63;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMOVG	%ESI,%R15D;
+0x16b67;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%ESI,%ECX;
+0x16b69;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMOVL	%ESI,%ECX;
+0x16b6c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%EAX,%EDI;
+0x16b6e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;JLE	16cbb <ssor_._omp_fn.0+0x91b>;
+0x16b74;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMP	%EAX,%R15D;
+0x16b77;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;LEA	0x2(%RSI),%R10D;
+0x16b7b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMOVG	%EAX,%R15D;
+0x16b7f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%EAX,%ECX;
+0x16b81;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMOVL	%EAX,%ECX;
+0x16b84;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%ESI,%R8D;
+0x16b87;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;JLE	16cbb <ssor_._omp_fn.0+0x91b>;
+0x16b8d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMP	%R10D,%R15D;
+0x16b90;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;LEA	0x3(%RSI),%R8D;
+0x16b94;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMOVG	%R10D,%R15D;
+0x16b98;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%R10D,%ECX;
+0x16b9b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMOVL	%R10D,%ECX;
+0x16b9f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%R8D,%EDI;
+0x16ba2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;JLE	16cbb <ssor_._omp_fn.0+0x91b>;
+0x16ba8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMP	%R8D,%R15D;
+0x16bab;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;LEA	0x4(%RSI),%R9D;
+0x16baf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMOVG	%R8D,%R15D;
+0x16bb3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%R8D,%ECX;
+0x16bb6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMOVL	%R8D,%ECX;
+0x16bba;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%R9D,%EDI;
+0x16bbd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;JLE	16cbb <ssor_._omp_fn.0+0x91b>;
+0x16bc3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMP	%R9D,%R15D;
+0x16bc6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;LEA	0x5(%RSI),%R11D;
+0x16bca;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMOVG	%R9D,%R15D;
+0x16bce;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%R9D,%ECX;
+0x16bd1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMOVL	%R9D,%ECX;
+0x16bd5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%R11D,%EDI;
+0x16bd8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;JLE	16cbb <ssor_._omp_fn.0+0x91b>;
+0x16bde;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMP	%R11D,%R15D;
+0x16be1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;LEA	0x6(%RSI),%R13D;
+0x16be5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMOVG	%R11D,%R15D;
+0x16be9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%R11D,%ECX;
+0x16bec;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMOVL	%R11D,%ECX;
+0x16bf0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%R13D,%EDI;
+0x16bf3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;JLE	16cbb <ssor_._omp_fn.0+0x91b>;
+0x16bf9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMP	%R13D,%R15D;
+0x16bfc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;LEA	0x7(%RSI),%R14D;
+0x16c00;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMOVG	%R13D,%R15D;
+0x16c04;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%R13D,%ECX;
+0x16c07;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMOVL	%R13D,%ECX;
+0x16c0b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%R14D,%EDI;
+0x16c0e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;JLE	16cbb <ssor_._omp_fn.0+0x91b>;
+0x16c14;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMP	%R14D,%R15D;
+0x16c17;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;LEA	0x8(%RSI),%EDX;
+0x16c1a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMOVG	%R14D,%R15D;
+0x16c1e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%R14D,%ECX;
+0x16c21;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMOVL	%R14D,%ECX;
+0x16c25;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%EDX,%EDI;
+0x16c27;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;JLE	16cbb <ssor_._omp_fn.0+0x91b>;
+0x16c2d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMP	%EDX,%R15D;
+0x16c30;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;LEA	0x9(%RSI),%EAX;
+0x16c33;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMOVG	%EDX,%R15D;
+0x16c37;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%EDX,%ECX;
+0x16c39;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMOVL	%EDX,%ECX;
+0x16c3c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%EAX,%EDI;
+0x16c3e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;JLE	16cbb <ssor_._omp_fn.0+0x91b>;
+0x16c40;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMP	%EAX,%R15D;
+0x16c43;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;LEA	0xa(%RSI),%R10D;
+0x16c47;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMOVG	%EAX,%R15D;
+0x16c4b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%EAX,%ECX;
+0x16c4d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMOVL	%EAX,%ECX;
+0x16c50;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%R10D,%EDI;
+0x16c53;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;JLE	16cbb <ssor_._omp_fn.0+0x91b>;
+0x16c55;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMP	%R10D,%R15D;
+0x16c58;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;LEA	0xb(%RSI),%R8D;
+0x16c5c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMOVG	%R10D,%R15D;
+0x16c60;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%R10D,%ECX;
+0x16c63;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMOVL	%R10D,%ECX;
+0x16c67;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%R8D,%EDI;
+0x16c6a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;JLE	16cbb <ssor_._omp_fn.0+0x91b>;
+0x16c6c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMP	%R8D,%R15D;
+0x16c6f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;LEA	0xc(%RSI),%R9D;
+0x16c73;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMOVG	%R8D,%R15D;
+0x16c77;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%R8D,%ECX;
+0x16c7a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMOVL	%R8D,%ECX;
+0x16c7e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%R9D,%EDI;
+0x16c81;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;JLE	16cbb <ssor_._omp_fn.0+0x91b>;
+0x16c83;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMP	%R9D,%R15D;
+0x16c86;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;LEA	0xd(%RSI),%R11D;
+0x16c8a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMOVG	%R9D,%R15D;
+0x16c8e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%R9D,%ECX;
+0x16c91;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMOVL	%R9D,%ECX;
+0x16c95;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%R11D,%EDI;
+0x16c98;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;JLE	16cbb <ssor_._omp_fn.0+0x91b>;
+0x16c9a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMP	%R11D,%R15D;
+0x16c9d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;LEA	0xe(%RSI),%ESI;
+0x16ca0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMOVG	%R11D,%R15D;
+0x16ca4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%R11D,%ECX;
+0x16ca7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMOVL	%R11D,%ECX;
+0x16cab;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%ESI,%EDI;
+0x16cad;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;JLE	16cbb <ssor_._omp_fn.0+0x91b>;
+0x16caf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMP	%ESI,%R15D;
+0x16cb2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:66;CMOVG	%ESI,%R15D;
+0x16cb6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMP	%ESI,%ECX;
+0x16cb8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;CMOVL	%ESI,%ECX;
+0x16cbb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;MOV	%R15D,0x174(%RSP);
+0x16cc3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:67;MOV	%ECX,0x178(%RSP);
+0x16cca;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:71;MOV	0x78(%R12),%R15;
+0x16ccf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:71;MOVL	$0x2,0x170(%RSP);
+0x16cda;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:71;MOV	(%R15),%EDI;
+0x16cdd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:71;MOV	%EDI,0x154(%RSP);
+0x16ce4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:71;CMP	$0x2,%EDI;
+0x16ce7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:71;JLE	17037 <ssor_._omp_fn.0+0xc97>;
+0x16ced;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:71;LEA	0x174(%RSP),%RCX;
+0x16cf5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:71;LEA	0x170(%RSP),%R13;
+0x16cfd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:71;MOV	%EBX,0x168(%RSP);
+0x16d04;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:71;LEA	0x17c(%RSP),%R14;
+0x16d0c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:71;LEA	0x178(%RSP),%R15;
+0x16d14;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:71;LEA	(%RCX),%RBX;
+0x16d17;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:71;JMP	16eb3 <ssor_._omp_fn.0+0xb13>;
+0x16d1c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:76;MOV	0x259e6(%RIP),%EDI;(103) 
+0x16d22;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:76;TEST	%EDI,%EDI;(103) 
+0x16d24;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:76;JNE	1701f <ssor_._omp_fn.0+0xc7f>;(103) 
+0x16d2a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	0x78(%R12),%RSI;(103) 
+0x16d2f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;LEA	(%R13),%RDI;(103) 
+0x16d33;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	0x10(%R12),%RCX;(103) 
+0x16d38;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	0x18(%R12),%RDX;(103) 
+0x16d3d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	%RSI,0x28(%RSP);(103) 
+0x16d42;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	0x70(%R12),%R8;(103) 
+0x16d47;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	%R8,0x20(%RSP);(103) 
+0x16d4c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	0x68(%R12),%R9;(103) 
+0x16d51;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	%R9,0x18(%RSP);(103) 
+0x16d56;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	0x60(%R12),%R11;(103) 
+0x16d5b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	%R11,0x10(%RSP);(103) 
+0x16d60;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	0x38(%R12),%RAX;(103) 
+0x16d65;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	%RAX,0x8(%RSP);(103) 
+0x16d6a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	0x30(%R12),%R10;(103) 
+0x16d6f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	%R10,(%RSP);(103) 
+0x16d73;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	0x28(%R12),%R9;(103) 
+0x16d78;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	0x20(%R12),%R8;(103) 
+0x16d7d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	(%R12),%RSI;(103) 
+0x16d81;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;CALL	24670 <jacld_>;(103) 
+0x16d86;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:81;MOV	0x2597c(%RIP),%ECX;(103) 
+0x16d8c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:81;TEST	%ECX,%ECX;(103) 
+0x16d8e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:81;JNE	1700e <ssor_._omp_fn.0+0xc6e>;(103) 
+0x16d94;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:88;MOV	0x68(%R12),%RDX;(103) 
+0x16d99;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:88;LEA	(%R13),%R9;(103) 
+0x16d9d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:88;MOV	0x70(%R12),%RCX;(103) 
+0x16da2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:88;MOV	0x60(%R12),%RSI;(103) 
+0x16da7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:88;MOV	0x8(%R12),%RDI;(103) 
+0x16dac;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:88;MOV	%R14,0x10(%RSP);(103) 
+0x16db1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:88;MOV	%R15,0x8(%RSP);(103) 
+0x16db6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:88;MOV	%RBX,(%RSP);(103) 
+0x16dba;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:88;MOV	0x78(%R12),%R8;(103) 
+0x16dbf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:87;MOVL	$0,0x17c(%RSP);(103) 
+0x16dca;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:88;CALL	33280 <exchange_1_>;(103) 
+0x16dcf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:91;MOV	0x25933(%RIP),%EDX;(103) 
+0x16dd5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:91;TEST	%EDX,%EDX;(103) 
+0x16dd7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:91;JNE	16ffd <ssor_._omp_fn.0+0xc5d>;(103) 
+0x16ddd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	0x38(%R12),%R8;(103) 
+0x16de2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	0x60(%R12),%RDI;(103) 
+0x16de7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	0x78(%R12),%RCX;(103) 
+0x16dec;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	0x70(%R12),%RDX;(103) 
+0x16df1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	0x68(%R12),%RSI;(103) 
+0x16df6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	%R8,0x30(%RSP);(103) 
+0x16dfb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;LEA	0x25ac6(%RIP),%R8;(103) 
+0x16e02;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	0x30(%R12),%R9;(103) 
+0x16e07;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	%R9,0x28(%RSP);(103) 
+0x16e0c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;LEA	0x25c05(%RIP),%R9;(103) 
+0x16e13;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	0x28(%R12),%R11;(103) 
+0x16e18;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	%R11,0x20(%RSP);(103) 
+0x16e1d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	0x20(%R12),%RAX;(103) 
+0x16e22;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	%RAX,0x18(%RSP);(103) 
+0x16e27;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	0x8(%R12),%R10;(103) 
+0x16e2c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	%R8,0x8(%RSP);(103) 
+0x16e31;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;LEA	(%R13),%R8;(103) 
+0x16e35;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	%R9,(%RSP);(103) 
+0x16e39;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;LEA	0x25bc4(%RIP),%R9;(103) 
+0x16e40;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	%R10,0x10(%RSP);(103) 
+0x16e45;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;CALL	25ab0 <blts_>;(103) 
+0x16e4a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:96;MOV	0x258b8(%RIP),%EDI;(103) 
+0x16e50;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:96;TEST	%EDI,%EDI;(103) 
+0x16e52;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:96;JNE	16fec <ssor_._omp_fn.0+0xc4c>;(103) 
+0x16e58;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:100;MOV	0x68(%R12),%RDX;(103) 
+0x16e5d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:100;LEA	(%R13),%R9;(103) 
+0x16e61;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:100;MOV	0x60(%R12),%RSI;(103) 
+0x16e66;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:100;MOV	0x70(%R12),%RCX;(103) 
+0x16e6b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:100;MOV	0x8(%R12),%RDI;(103) 
+0x16e70;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:100;MOV	%R14,0x10(%RSP);(103) 
+0x16e75;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:100;MOV	%R15,0x8(%RSP);(103) 
+0x16e7a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:100;MOV	%RBX,(%RSP);(103) 
+0x16e7e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:100;MOV	0x78(%R12),%R8;(103) 
+0x16e83;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:99;MOVL	$0x2,0x17c(%RSP);(103) 
+0x16e8e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:100;CALL	33280 <exchange_1_>;(103) 
+0x16e93;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:71;MOV	0x170(%RSP),%EDX;(103) 
+0x16e9a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:71;MOV	%EDX,%ESI;(103) 
+0x16e9c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:71;ADD	$0x1,%ESI;(103) 
+0x16e9f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:71;MOV	%ESI,0x170(%RSP);(103) 
+0x16ea6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:71;CMP	%ESI,0x154(%RSP);(103) 
+0x16ead;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:71;JLE	17030 <ssor_._omp_fn.0+0xc90>;(103) 
+0x16eb3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:75;MOV	0x168(%RSP),%EDX;(103) 
+0x16eba;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:75;TEST	%EDX,%EDX;(103) 
+0x16ebc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:75;JE	16d1c <ssor_._omp_fn.0+0x97c>;(103) 
+0x16ec2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	0x78(%R12),%RAX;(103) 
+0x16ec7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;LEA	(%R13),%RDI;(103) 
+0x16ecb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	0x10(%R12),%RCX;(103) 
+0x16ed0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	0x18(%R12),%RDX;(103) 
+0x16ed5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	%RAX,0x28(%RSP);(103) 
+0x16eda;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	0x70(%R12),%R10;(103) 
+0x16edf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	%R10,0x20(%RSP);(103) 
+0x16ee4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	0x68(%R12),%R8;(103) 
+0x16ee9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	%R8,0x18(%RSP);(103) 
+0x16eee;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	0x60(%R12),%R9;(103) 
+0x16ef3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	%R9,0x10(%RSP);(103) 
+0x16ef8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	0x38(%R12),%R11;(103) 
+0x16efd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	%R11,0x8(%RSP);(103) 
+0x16f02;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	0x30(%R12),%RSI;(103) 
+0x16f07;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	%RSI,(%RSP);(103) 
+0x16f0b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	0x28(%R12),%R9;(103) 
+0x16f10;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	0x20(%R12),%R8;(103) 
+0x16f15;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;MOV	(%R12),%RSI;(103) 
+0x16f19;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:79;CALL	24670 <jacld_>;(103) 
+0x16f1e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:88;MOV	0x70(%R12),%RCX;(103) 
+0x16f23;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:88;LEA	(%R13),%R9;(103) 
+0x16f27;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:88;MOV	0x68(%R12),%RDX;(103) 
+0x16f2c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:88;MOV	0x60(%R12),%RSI;(103) 
+0x16f31;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:88;MOV	0x8(%R12),%RDI;(103) 
+0x16f36;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:88;MOV	%R14,0x10(%RSP);(103) 
+0x16f3b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:88;MOV	%R15,0x8(%RSP);(103) 
+0x16f40;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:88;MOV	%RBX,(%RSP);(103) 
+0x16f44;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:88;MOV	0x78(%R12),%R8;(103) 
+0x16f49;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:87;MOVL	$0,0x17c(%RSP);(103) 
+0x16f54;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:88;CALL	33280 <exchange_1_>;(103) 
+0x16f59;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	0x38(%R12),%RAX;(103) 
+0x16f5e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	0x78(%R12),%RCX;(103) 
+0x16f63;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	0x70(%R12),%RDX;(103) 
+0x16f68;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	0x68(%R12),%RSI;(103) 
+0x16f6d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	0x60(%R12),%RDI;(103) 
+0x16f72;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	%RAX,0x30(%RSP);(103) 
+0x16f77;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;LEA	0x2594a(%RIP),%RAX;(103) 
+0x16f7e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	0x30(%R12),%R10;(103) 
+0x16f83;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	%R10,0x28(%RSP);(103) 
+0x16f88;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;LEA	0x25a89(%RIP),%R10;(103) 
+0x16f8f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	0x28(%R12),%R8;(103) 
+0x16f94;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	%R8,0x20(%RSP);(103) 
+0x16f99;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;LEA	(%R13),%R8;(103) 
+0x16f9d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	0x20(%R12),%R9;(103) 
+0x16fa2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	%R9,0x18(%RSP);(103) 
+0x16fa7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;LEA	0x25a56(%RIP),%R9;(103) 
+0x16fae;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	0x8(%R12),%R11;(103) 
+0x16fb3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	%RAX,0x8(%RSP);(103) 
+0x16fb8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	%R10,(%RSP);(103) 
+0x16fbc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;MOV	%R11,0x10(%RSP);(103) 
+0x16fc1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;CALL	25ab0 <blts_>;(103) 
+0x16fc6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94;JMP	16e58 <ssor_._omp_fn.0+0xab8>;(103) 
+0x16fcb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:55;MOV	0x25736(%RIP),%R13D;
+0x16fd2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:55;TEST	%R13D,%R13D;
+0x16fd5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:55;JE	168a3 <ssor_._omp_fn.0+0x503>;
+0x16fdb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:55;LEA	0x20cb2(%RIP),%RDI;
+0x16fe2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:55;CALL	369d0 <timer_stop_>;
+0x16fe7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:55;JMP	168a3 <ssor_._omp_fn.0+0x503>;
+0x16fec;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:96;LEA	0x20c99(%RIP),%RDI;(103) 
+0x16ff3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:96;CALL	369d0 <timer_stop_>;(103) 
+0x16ff8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:96;JMP	16e58 <ssor_._omp_fn.0+0xab8>;(103) 
+0x16ffd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:91;LEA	0x20c88(%RIP),%RDI;(103) 
+0x17004;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:91;CALL	369b0 <timer_start_>;(103) 
+0x17009;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:91;JMP	16ddd <ssor_._omp_fn.0+0xa3d>;(103) 
+0x1700e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:81;LEA	0x20c7b(%RIP),%RDI;(103) 
+0x17015;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:81;CALL	369d0 <timer_stop_>;(103) 
+0x1701a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:81;JMP	16d94 <ssor_._omp_fn.0+0x9f4>;(103) 
+0x1701f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:76;LEA	0x20c6a(%RIP),%RDI;(103) 
+0x17026;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:76;CALL	369b0 <timer_start_>;(103) 
+0x1702b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:76;JMP	16d2a <ssor_._omp_fn.0+0x98a>;(103) 
+0x17030;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:76;MOV	0x168(%RSP),%EBX;
+0x17037;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:103;CALL	2220 <@plt_start@+0x200>;
+0x1703c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:106;MOV	0x70(%R12),%RCX;
+0x17041;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:107;MOVL	$0x1,0x178(%RSP);
+0x1704c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:106;MOV	(%RCX),%R13D;
+0x1704f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:106;MOV	%R13D,0x174(%RSP);
+0x17057;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:106;LEA	-0x2(%R13),%EAX;
+0x1705b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:106;LEA	(%RAX),%EDX;
+0x1705d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:106;SAR	$0x1f,%EDX;
+0x17060;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:106;IDIVL	0x148(%RSP);
+0x17067;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:106;CMP	%EDX,%EBX;
+0x17069;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:106;JL	18400 <ssor_._omp_fn.0+0x2060>;
+0x1706f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:106;MOV	%EAX,%R14D;
+0x17072;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:106;IMUL	%EBX,%R14D;
+0x17076;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:106;ADD	%R14D,%EDX;
+0x17079;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:106;ADD	%EDX,%EAX;
+0x1707b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:106;CMP	%EAX,%EDX;
+0x1707d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:106;JGE	17471 <ssor_._omp_fn.0+0x10d1>;
+0x17083;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;LEA	-0x1(%R13),%R15D;
+0x17087;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;LEA	(%R15),%R11D;
+0x1708a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;SUB	%EAX,%R15D;
+0x1708d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;SUB	%EDX,%R11D;
+0x17090;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;LEA	-0x1(%R11),%R9D;
+0x17094;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;MOV	%R11D,%R8D;
+0x17097;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;LEA	(%R9),%EDI;
+0x1709a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;SUB	%R15D,%R8D;
+0x1709d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;SUB	%R15D,%EDI;
+0x170a0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;LEA	(%R11),%R10D;
+0x170a3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;CMP	$0xe,%EDI;
+0x170a6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;JBE	1846c <ssor_._omp_fn.0+0x20cc>;
+0x170ac;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;MOV	%R8D,%ESI;
+0x170af;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;VPBROADCASTD	%R11D,%ZMM7;
+0x170b5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;SHR	$0x4,%ESI;
+0x170b8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;VPBROADCASTD	%R13D,%ZMM5;
+0x170be;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;MOV	%ESI,%ECX;
+0x170c0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;XOR	%R13D,%R13D;
+0x170c3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;AND	$0x7,%ECX;
+0x170c6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;VPADDD	0x20cb0(%RIP),%ZMM7,%ZMM2;
+0x170d0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;VMOVDQA64	0x20be6(%RIP),%ZMM1;
+0x170da;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;VMOVDQA64	0x20cdc(%RIP),%ZMM9;
+0x170e4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;JE	171e6 <ssor_._omp_fn.0+0xe46>;
+0x170ea;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;CMP	$0x1,%ECX;
+0x170ed;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;JE	171c1 <ssor_._omp_fn.0+0xe21>;
+0x170f3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;CMP	$0x2,%ECX;
+0x170f6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;JE	171a5 <ssor_._omp_fn.0+0xe05>;
+0x170fc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;CMP	$0x3,%ECX;
+0x170ff;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;NOP;
+0x17100;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;JE	17189 <ssor_._omp_fn.0+0xde9>;
+0x17106;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;CMP	$0x4,%ECX;
+0x17109;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;JE	1716d <ssor_._omp_fn.0+0xdcd>;
+0x1710b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;CMP	$0x5,%ECX;
+0x1710e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;XCHG	%AX,%AX;
+0x17110;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;JE	17151 <ssor_._omp_fn.0+0xdb1>;
+0x17112;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;CMP	$0x6,%ECX;
+0x17115;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;JE	17135 <ssor_._omp_fn.0+0xd95>;
+0x17117;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;VMOVDQA64	%ZMM2,%ZMM10;
+0x1711d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;MOV	$0x1,%R13D;
+0x17123;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;VPADDD	%ZMM9,%ZMM2,%ZMM2;
+0x17129;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;VPMINSD	%ZMM10,%ZMM5,%ZMM5;
+0x1712f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPMAXSD	%ZMM10,%ZMM1,%ZMM1;
+0x17135;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VMOVDQA64	%ZMM2,%ZMM11;
+0x1713b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;LEA	0x1(%R13),%R13D;
+0x1713f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPADDD	%ZMM9,%ZMM2,%ZMM2;
+0x17145;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;VPMINSD	%ZMM11,%ZMM5,%ZMM5;
+0x1714b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPMAXSD	%ZMM11,%ZMM1,%ZMM1;
+0x17151;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VMOVDQA64	%ZMM2,%ZMM12;
+0x17157;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;LEA	0x1(%R13),%R13D;
+0x1715b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPADDD	%ZMM9,%ZMM2,%ZMM2;
+0x17161;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;VPMINSD	%ZMM12,%ZMM5,%ZMM5;
+0x17167;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPMAXSD	%ZMM12,%ZMM1,%ZMM1;
+0x1716d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VMOVDQA64	%ZMM2,%ZMM13;
+0x17173;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;LEA	0x1(%R13),%R13D;
+0x17177;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPADDD	%ZMM9,%ZMM2,%ZMM2;
+0x1717d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;VPMINSD	%ZMM13,%ZMM5,%ZMM5;
+0x17183;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPMAXSD	%ZMM13,%ZMM1,%ZMM1;
+0x17189;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VMOVDQA64	%ZMM2,%ZMM14;
+0x1718f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;LEA	0x1(%R13),%R13D;
+0x17193;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPADDD	%ZMM9,%ZMM2,%ZMM2;
+0x17199;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;VPMINSD	%ZMM14,%ZMM5,%ZMM5;
+0x1719f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPMAXSD	%ZMM14,%ZMM1,%ZMM1;
+0x171a5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VMOVDQA64	%ZMM2,%ZMM15;
+0x171ab;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;LEA	0x1(%R13),%R13D;
+0x171af;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPADDD	%ZMM9,%ZMM2,%ZMM2;
+0x171b5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;VPMINSD	%ZMM15,%ZMM5,%ZMM5;
+0x171bb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPMAXSD	%ZMM15,%ZMM1,%ZMM1;
+0x171c1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;LEA	0x1(%R13),%R13D;
+0x171c5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VMOVDQA64	%ZMM2,%ZMM3;
+0x171cb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%R13D,%ESI;
+0x171ce;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPADDD	%ZMM9,%ZMM2,%ZMM2;
+0x171d4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;VPMINSD	%ZMM3,%ZMM5,%ZMM5;
+0x171da;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPMAXSD	%ZMM3,%ZMM1,%ZMM1;
+0x171e0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;JE	17283 <ssor_._omp_fn.0+0xee3>;
+0x171e6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPADDD	%ZMM9,%ZMM2,%ZMM4;(102) 
+0x171ec;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;VPMINSD	%ZMM2,%ZMM5,%ZMM0;(102) 
+0x171f2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPMAXSD	%ZMM2,%ZMM1,%ZMM6;(102) 
+0x171f8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPADDD	%ZMM9,%ZMM4,%ZMM8;(102) 
+0x171fe;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;VPMINSD	%ZMM4,%ZMM0,%ZMM7;(102) 
+0x17204;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPMAXSD	%ZMM4,%ZMM6,%ZMM10;(102) 
+0x1720a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPADDD	%ZMM9,%ZMM8,%ZMM11;(102) 
+0x17210;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;VPMINSD	%ZMM8,%ZMM7,%ZMM12;(102) 
+0x17216;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPMAXSD	%ZMM8,%ZMM10,%ZMM13;(102) 
+0x1721c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPADDD	%ZMM9,%ZMM11,%ZMM14;(102) 
+0x17222;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;VPMINSD	%ZMM11,%ZMM12,%ZMM15;(102) 
+0x17228;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPMAXSD	%ZMM11,%ZMM13,%ZMM3;(102) 
+0x1722e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPADDD	%ZMM9,%ZMM14,%ZMM5;(102) 
+0x17234;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPMAXSD	%ZMM14,%ZMM3,%ZMM1;(102) 
+0x1723a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;VPMINSD	%ZMM14,%ZMM15,%ZMM4;(102) 
+0x17240;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;VPADDD	%ZMM9,%ZMM5,%ZMM2;(102) 
+0x17246;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPMAXSD	%ZMM5,%ZMM1,%ZMM6;(102) 
+0x1724c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;VPMINSD	%ZMM5,%ZMM4,%ZMM0;(102) 
+0x17252;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;LEA	0x8(%R13),%R13D;(102) 
+0x17256;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;VPADDD	%ZMM9,%ZMM2,%ZMM8;(102) 
+0x1725c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;VPMINSD	%ZMM2,%ZMM0,%ZMM7;(102) 
+0x17262;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPMAXSD	%ZMM2,%ZMM6,%ZMM10;(102) 
+0x17268;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%R13D,%ESI;(102) 
+0x1726b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPADDD	%ZMM9,%ZMM8,%ZMM2;(102) 
+0x17271;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;VPMINSD	%ZMM8,%ZMM7,%ZMM5;(102) 
+0x17277;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPMAXSD	%ZMM8,%ZMM10,%ZMM1;(102) 
+0x1727d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;JNE	171e6 <ssor_._omp_fn.0+0xe46>;(102) 
+0x17283;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VEXTRACTI64X4	$0x1,%ZMM1,%YMM9;
+0x1728a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;LEA	(%R8),%EDX;
+0x1728d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPMAXSD	%YMM1,%YMM9,%YMM11;
+0x17292;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;AND	$-0x10,%EDX;
+0x17295;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VEXTRACTI64X4	$0x1,%ZMM5,%YMM1;
+0x1729c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;SUB	%EDX,%R10D;
+0x1729f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPMINSD	%YMM5,%YMM1,%YMM5;
+0x172a4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%EDX,%R8D;
+0x172a7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VEXTRACTI128	$0x1,%YMM11,%XMM12;
+0x172ad;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VEXTRACTI128	$0x1,%YMM5,%XMM2;
+0x172b3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPMAXSD	%XMM11,%XMM12,%XMM13;
+0x172b8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPSRLDQ	$0x8,%XMM13,%XMM14;
+0x172be;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPMINSD	%XMM5,%XMM2,%XMM0;
+0x172c3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPSRLDQ	$0x8,%XMM0,%XMM6;
+0x172c8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPMAXSD	%XMM14,%XMM13,%XMM15;
+0x172cd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPSRLDQ	$0x4,%XMM15,%XMM3;
+0x172d3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPMINSD	%XMM6,%XMM0,%XMM8;
+0x172d8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPSRLDQ	$0x4,%XMM8,%XMM7;
+0x172de;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPMAXSD	%XMM3,%XMM15,%XMM4;
+0x172e3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VPMINSD	%XMM7,%XMM8,%XMM10;
+0x172e8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VMOVD	%XMM4,%EAX;
+0x172ec;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;VMOVD	%XMM10,%R13D;
+0x172f1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;JE	17462 <ssor_._omp_fn.0+0x10c2>;
+0x172f7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;LEA	(%R10),%R9D;
+0x172fa;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;SUB	$0x1,%R9D;
+0x172fe;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMP	%R10D,%R13D;
+0x17301;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMOVG	%R10D,%R13D;
+0x17305;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%R10D,%EAX;
+0x17308;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMOVL	%R10D,%EAX;
+0x1730c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%R9D,%R15D;
+0x1730f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;JGE	17462 <ssor_._omp_fn.0+0x10c2>;
+0x17315;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMP	%R9D,%R13D;
+0x17318;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;LEA	-0x2(%R10),%R14D;
+0x1731c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMOVG	%R9D,%R13D;
+0x17320;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%R9D,%EAX;
+0x17323;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMOVL	%R9D,%EAX;
+0x17327;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%R14D,%R15D;
+0x1732a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;JGE	17462 <ssor_._omp_fn.0+0x10c2>;
+0x17330;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMP	%R14D,%R13D;
+0x17333;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;LEA	-0x3(%R10),%R11D;
+0x17337;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMOVG	%R14D,%R13D;
+0x1733b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%R14D,%EAX;
+0x1733e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMOVL	%R14D,%EAX;
+0x17342;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%R11D,%R15D;
+0x17345;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;JGE	17462 <ssor_._omp_fn.0+0x10c2>;
+0x1734b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMP	%R11D,%R13D;
+0x1734e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;LEA	-0x4(%R10),%R8D;
+0x17352;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMOVG	%R11D,%R13D;
+0x17356;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%R11D,%EAX;
+0x17359;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMOVL	%R11D,%EAX;
+0x1735d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%R8D,%R15D;
+0x17360;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;JGE	17462 <ssor_._omp_fn.0+0x10c2>;
+0x17366;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMP	%R8D,%R13D;
+0x17369;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;LEA	-0x5(%R10),%R9D;
+0x1736d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMOVG	%R8D,%R13D;
+0x17371;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%R8D,%EAX;
+0x17374;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMOVL	%R8D,%EAX;
+0x17378;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%R9D,%R15D;
+0x1737b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;JGE	17462 <ssor_._omp_fn.0+0x10c2>;
+0x17381;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMP	%R9D,%R13D;
+0x17384;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;LEA	-0x6(%R10),%EDI;
+0x17388;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMOVG	%R9D,%R13D;
+0x1738c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%R9D,%EAX;
+0x1738f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMOVL	%R9D,%EAX;
+0x17393;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%EDI,%R15D;
+0x17396;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;JGE	17462 <ssor_._omp_fn.0+0x10c2>;
+0x1739c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMP	%EDI,%R13D;
+0x1739f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;LEA	-0x7(%R10),%ESI;
+0x173a3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMOVG	%EDI,%R13D;
+0x173a7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%EDI,%EAX;
+0x173a9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMOVL	%EDI,%EAX;
+0x173ac;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%ESI,%R15D;
+0x173af;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;JGE	17462 <ssor_._omp_fn.0+0x10c2>;
+0x173b5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMP	%ESI,%R13D;
+0x173b8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;LEA	-0x8(%R10),%ECX;
+0x173bc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMOVG	%ESI,%R13D;
+0x173c0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%ESI,%EAX;
+0x173c2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMOVL	%ESI,%EAX;
+0x173c5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%ECX,%R15D;
+0x173c8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;JGE	17462 <ssor_._omp_fn.0+0x10c2>;
+0x173ce;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMP	%ECX,%R13D;
+0x173d1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;LEA	-0x9(%R10),%EDX;
+0x173d5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMOVG	%ECX,%R13D;
+0x173d9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%ECX,%EAX;
+0x173db;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMOVL	%ECX,%EAX;
+0x173de;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%EDX,%R15D;
+0x173e1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;JGE	17462 <ssor_._omp_fn.0+0x10c2>;
+0x173e3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMP	%EDX,%R13D;
+0x173e6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;LEA	-0xa(%R10),%R14D;
+0x173ea;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMOVG	%EDX,%R13D;
+0x173ee;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%EDX,%EAX;
+0x173f0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMOVL	%EDX,%EAX;
+0x173f3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%R14D,%R15D;
+0x173f6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;JGE	17462 <ssor_._omp_fn.0+0x10c2>;
+0x173f8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMP	%R14D,%R13D;
+0x173fb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;LEA	-0xb(%R10),%R11D;
+0x173ff;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMOVG	%R14D,%R13D;
+0x17403;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%R14D,%EAX;
+0x17406;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMOVL	%R14D,%EAX;
+0x1740a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%R11D,%R15D;
+0x1740d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;JGE	17462 <ssor_._omp_fn.0+0x10c2>;
+0x1740f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMP	%R11D,%R13D;
+0x17412;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;LEA	-0xc(%R10),%R8D;
+0x17416;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMOVG	%R11D,%R13D;
+0x1741a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%R11D,%EAX;
+0x1741d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMOVL	%R11D,%EAX;
+0x17421;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%R8D,%R15D;
+0x17424;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;JGE	17462 <ssor_._omp_fn.0+0x10c2>;
+0x17426;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMP	%R8D,%R13D;
+0x17429;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;LEA	-0xd(%R10),%R9D;
+0x1742d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMOVG	%R8D,%R13D;
+0x17431;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%R8D,%EAX;
+0x17434;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMOVL	%R8D,%EAX;
+0x17438;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%R9D,%R15D;
+0x1743b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;JGE	17462 <ssor_._omp_fn.0+0x10c2>;
+0x1743d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMP	%R9D,%R13D;
+0x17440;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;LEA	-0xe(%R10),%R10D;
+0x17444;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMOVG	%R9D,%R13D;
+0x17448;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%R9D,%EAX;
+0x1744b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMOVL	%R9D,%EAX;
+0x1744f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%R10D,%R15D;
+0x17452;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;JGE	17462 <ssor_._omp_fn.0+0x10c2>;
+0x17454;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMP	%R10D,%R13D;
+0x17457;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:110;CMOVG	%R10D,%R13D;
+0x1745b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMP	%R10D,%EAX;
+0x1745e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;CMOVL	%R10D,%EAX;
+0x17462;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;MOV	%R13D,0x174(%RSP);
+0x1746a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:111;MOV	%EAX,0x178(%RSP);
+0x17471;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:115;MOV	0x78(%R12),%R15;
+0x17476;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:115;MOV	(%R15),%R13D;
+0x17479;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:115;SUB	$0x1,%R13D;
+0x1747d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:115;MOV	%R13D,0x170(%RSP);
+0x17485;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:115;CMP	$0x1,%R13D;
+0x17489;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:115;JLE	177d0 <ssor_._omp_fn.0+0x1430>;
+0x1748f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:115;LEA	0x174(%RSP),%RAX;
+0x17497;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:115;LEA	0x170(%RSP),%R13;
+0x1749f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:115;MOV	%EBX,0x168(%RSP);
+0x174a6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:115;LEA	0x17c(%RSP),%R14;
+0x174ae;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:115;LEA	0x178(%RSP),%R15;
+0x174b6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:115;LEA	(%RAX),%RBX;
+0x174b9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:115;JMP	17660 <ssor_._omp_fn.0+0x12c0>;
+0x174be;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:120;MOV	0x25244(%RIP),%ECX;(101) 
+0x174c4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:120;TEST	%ECX,%ECX;(101) 
+0x174c6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:120;JNE	177b8 <ssor_._omp_fn.0+0x1418>;(101) 
+0x174cc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	0x78(%R12),%RDI;(101) 
+0x174d1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	0x18(%R12),%RDX;(101) 
+0x174d6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	0x10(%R12),%RCX;(101) 
+0x174db;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	%RDI,0x28(%RSP);(101) 
+0x174e0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;LEA	(%R13),%RDI;(101) 
+0x174e4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	0x70(%R12),%RSI;(101) 
+0x174e9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	%RSI,0x20(%RSP);(101) 
+0x174ee;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	0x68(%R12),%R10;(101) 
+0x174f3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	%R10,0x18(%RSP);(101) 
+0x174f8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	0x60(%R12),%RAX;(101) 
+0x174fd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	%RAX,0x10(%RSP);(101) 
+0x17502;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	0x58(%R12),%R11;(101) 
+0x17507;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	%R11,0x8(%RSP);(101) 
+0x1750c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	0x50(%R12),%R8;(101) 
+0x17511;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	%R8,(%RSP);(101) 
+0x17515;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	0x48(%R12),%R9;(101) 
+0x1751a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	0x40(%R12),%R8;(101) 
+0x1751f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	(%R12),%RSI;(101) 
+0x17523;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;CALL	263c0 <jacu_>;(101) 
+0x17528;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:125;MOV	0x251da(%RIP),%EDX;(101) 
+0x1752e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:125;TEST	%EDX,%EDX;(101) 
+0x17530;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:125;JNE	177a7 <ssor_._omp_fn.0+0x1407>;(101) 
+0x17536;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:132;MOV	0x70(%R12),%RCX;(101) 
+0x1753b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:132;LEA	(%R13),%R9;(101) 
+0x1753f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:132;MOV	0x68(%R12),%RDX;(101) 
+0x17544;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:132;MOV	0x60(%R12),%RSI;(101) 
+0x17549;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:132;MOV	0x8(%R12),%RDI;(101) 
+0x1754e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:132;MOV	%R14,0x10(%RSP);(101) 
+0x17553;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:132;MOV	%R15,0x8(%RSP);(101) 
+0x17558;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:132;MOV	%RBX,(%RSP);(101) 
+0x1755c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:132;MOV	0x78(%R12),%R8;(101) 
+0x17561;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:131;MOVL	$0x1,0x17c(%RSP);(101) 
+0x1756c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:132;CALL	33280 <exchange_1_>;(101) 
+0x17571;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:135;MOV	0x25190(%RIP),%R9D;(101) 
+0x17578;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:135;TEST	%R9D,%R9D;(101) 
+0x1757b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:135;JNE	17796 <ssor_._omp_fn.0+0x13f6>;(101) 
+0x17581;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	0x50(%R12),%R10;(101) 
+0x17586;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	0x78(%R12),%RCX;(101) 
+0x1758b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	0x70(%R12),%RDX;(101) 
+0x17590;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	0x68(%R12),%RSI;(101) 
+0x17595;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	0x60(%R12),%RDI;(101) 
+0x1759a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	%R10,0x38(%RSP);(101) 
+0x1759f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	0x48(%R12),%RAX;(101) 
+0x175a4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	%RAX,0x30(%RSP);(101) 
+0x175a9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;LEA	0x25318(%RIP),%RAX;(101) 
+0x175b0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	0x40(%R12),%R11;(101) 
+0x175b5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	%R11,0x28(%RSP);(101) 
+0x175ba;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;LEA	0x25457(%RIP),%R11;(101) 
+0x175c1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	0x58(%R12),%R8;(101) 
+0x175c6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	%R8,0x20(%RSP);(101) 
+0x175cb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;LEA	(%R13),%R8;(101) 
+0x175cf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	0x98(%R12),%R9;(101) 
+0x175d7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	%R9,0x18(%RSP);(101) 
+0x175dc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;LEA	0x25421(%RIP),%R9;(101) 
+0x175e3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	0x8(%R12),%R10;(101) 
+0x175e8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	%RAX,0x8(%RSP);(101) 
+0x175ed;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	%R11,(%RSP);(101) 
+0x175f1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	%R10,0x10(%RSP);(101) 
+0x175f6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;CALL	2b8a0 <buts_>;(101) 
+0x175fb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:140;MOV	0x25107(%RIP),%ECX;(101) 
+0x17601;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:140;TEST	%ECX,%ECX;(101) 
+0x17603;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:140;JNE	17785 <ssor_._omp_fn.0+0x13e5>;(101) 
+0x17609;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:144;MOV	0x68(%R12),%RDX;(101) 
+0x1760e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:144;LEA	(%R13),%R9;(101) 
+0x17612;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:144;MOV	0x8(%R12),%RDI;(101) 
+0x17617;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:144;MOV	0x70(%R12),%RCX;(101) 
+0x1761c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:144;MOV	0x60(%R12),%RSI;(101) 
+0x17621;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:144;MOV	%R14,0x10(%RSP);(101) 
+0x17626;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:144;MOV	%R15,0x8(%RSP);(101) 
+0x1762b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:144;MOV	%RBX,(%RSP);(101) 
+0x1762f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:144;MOV	0x78(%R12),%R8;(101) 
+0x17634;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:143;MOVL	$0x3,0x17c(%RSP);(101) 
+0x1763f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:144;CALL	33280 <exchange_1_>;(101) 
+0x17644;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:115;MOV	0x170(%RSP),%EDX;(101) 
+0x1764b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:115;MOV	%EDX,%EDI;(101) 
+0x1764d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:115;SUB	$0x1,%EDI;(101) 
+0x17650;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:115;MOV	%EDI,0x170(%RSP);(101) 
+0x17657;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:115;CMP	$0x1,%EDI;(101) 
+0x1765a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:115;JLE	177c9 <ssor_._omp_fn.0+0x1429>;(101) 
+0x17660;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:119;MOV	0x168(%RSP),%EDI;(101) 
+0x17667;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:119;TEST	%EDI,%EDI;(101) 
+0x17669;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:119;JE	174be <ssor_._omp_fn.0+0x111e>;(101) 
+0x1766f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	0x78(%R12),%RSI;(101) 
+0x17674;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;LEA	(%R13),%RDI;(101) 
+0x17678;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	0x10(%R12),%RCX;(101) 
+0x1767d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	0x18(%R12),%RDX;(101) 
+0x17682;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	%RSI,0x28(%RSP);(101) 
+0x17687;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	0x70(%R12),%R11;(101) 
+0x1768c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	%R11,0x20(%RSP);(101) 
+0x17691;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	0x68(%R12),%R8;(101) 
+0x17696;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	%R8,0x18(%RSP);(101) 
+0x1769b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	0x60(%R12),%R9;(101) 
+0x176a0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	%R9,0x10(%RSP);(101) 
+0x176a5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	0x58(%R12),%R10;(101) 
+0x176aa;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	%R10,0x8(%RSP);(101) 
+0x176af;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	0x50(%R12),%RAX;(101) 
+0x176b4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	%RAX,(%RSP);(101) 
+0x176b8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	0x48(%R12),%R9;(101) 
+0x176bd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	0x40(%R12),%R8;(101) 
+0x176c2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;MOV	(%R12),%RSI;(101) 
+0x176c6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:123;CALL	263c0 <jacu_>;(101) 
+0x176cb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:132;MOV	0x70(%R12),%RCX;(101) 
+0x176d0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:132;LEA	(%R13),%R9;(101) 
+0x176d4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:132;MOV	0x68(%R12),%RDX;(101) 
+0x176d9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:132;MOV	0x60(%R12),%RSI;(101) 
+0x176de;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:132;MOV	0x8(%R12),%RDI;(101) 
+0x176e3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:132;MOV	%R14,0x10(%RSP);(101) 
+0x176e8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:132;MOV	%R15,0x8(%RSP);(101) 
+0x176ed;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:132;MOV	%RBX,(%RSP);(101) 
+0x176f1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:132;MOV	0x78(%R12),%R8;(101) 
+0x176f6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:131;MOVL	$0x1,0x17c(%RSP);(101) 
+0x17701;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:132;CALL	33280 <exchange_1_>;(101) 
+0x17706;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	0x50(%R12),%R11;(101) 
+0x1770b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	0x78(%R12),%RCX;(101) 
+0x17710;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	0x70(%R12),%RDX;(101) 
+0x17715;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	0x68(%R12),%RSI;(101) 
+0x1771a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	0x60(%R12),%RDI;(101) 
+0x1771f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	%R11,0x38(%RSP);(101) 
+0x17724;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	0x48(%R12),%R8;(101) 
+0x17729;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	%R8,0x30(%RSP);(101) 
+0x1772e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;LEA	0x25193(%RIP),%R8;(101) 
+0x17735;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	0x40(%R12),%R9;(101) 
+0x1773a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	%R9,0x28(%RSP);(101) 
+0x1773f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;LEA	0x252d2(%RIP),%R9;(101) 
+0x17746;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	0x58(%R12),%R10;(101) 
+0x1774b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	%R10,0x20(%RSP);(101) 
+0x17750;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	0x98(%R12),%RAX;(101) 
+0x17758;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	%RAX,0x18(%RSP);(101) 
+0x1775d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	0x8(%R12),%R11;(101) 
+0x17762;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	%R8,0x8(%RSP);(101) 
+0x17767;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;LEA	(%R13),%R8;(101) 
+0x1776b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	%R9,(%RSP);(101) 
+0x1776f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;LEA	0x2528e(%RIP),%R9;(101) 
+0x17776;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;MOV	%R11,0x10(%RSP);(101) 
+0x1777b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;CALL	2b8a0 <buts_>;(101) 
+0x17780;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138;JMP	17609 <ssor_._omp_fn.0+0x1269>;(101) 
+0x17785;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:140;LEA	0x204f8(%RIP),%RDI;(101) 
+0x1778c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:140;CALL	369d0 <timer_stop_>;(101) 
+0x17791;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:140;JMP	17609 <ssor_._omp_fn.0+0x1269>;(101) 
+0x17796;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:135;LEA	0x204e7(%RIP),%RDI;(101) 
+0x1779d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:135;CALL	369b0 <timer_start_>;(101) 
+0x177a2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:135;JMP	17581 <ssor_._omp_fn.0+0x11e1>;(101) 
+0x177a7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:125;LEA	0x204da(%RIP),%RDI;(101) 
+0x177ae;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:125;CALL	369d0 <timer_stop_>;(101) 
+0x177b3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:125;JMP	17536 <ssor_._omp_fn.0+0x1196>;(101) 
+0x177b8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:120;LEA	0x204c9(%RIP),%RDI;(101) 
+0x177bf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:120;CALL	369b0 <timer_start_>;(101) 
+0x177c4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:120;JMP	174cc <ssor_._omp_fn.0+0x112c>;(101) 
+0x177c9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:120;MOV	0x168(%RSP),%EBX;
+0x177d0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:147;CALL	2220 <@plt_start@+0x200>;
+0x177d5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:154;VMOVSD	0x250eb(%RIP),%XMM9;
+0x177dd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:155;TEST	%EBX,%EBX;
+0x177df;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:154;VMOVSD	0x1fd11(%RIP),%XMM11;
+0x177e7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:154;VSUBSD	%XMM9,%XMM11,%XMM12;
+0x177ec;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:154;VMOVSD	0x1fa54(%RIP),%XMM14;
+0x177f4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:154;VMULSD	%XMM9,%XMM12,%XMM13;
+0x177f9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:154;VDIVSD	%XMM13,%XMM14,%XMM15;
+0x177fe;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:155;JNE	183b4 <ssor_._omp_fn.0+0x2014>;
+0x17804;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:156;MOV	0x24efd(%RIP),%R14D;
+0x1780b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:156;TEST	%R14D,%R14D;
+0x1780e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:156;JNE	18425 <ssor_._omp_fn.0+0x2085>;
+0x17814;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:158;MOV	0x78(%R12),%R15;
+0x17819;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:158;MOVL	$0x2,0x170(%RSP);
+0x17824;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:158;MOV	(%R15),%R8D;
+0x17827;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:158;MOV	%R8D,0x110(%RSP);
+0x1782f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:158;CMP	$0x2,%R8D;
+0x17833;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:158;JLE	180d9 <ssor_._omp_fn.0+0x1d39>;
+0x17839;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:159;MOV	0x70(%R12),%R9;
+0x1783e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:159;VBROADCASTSD	%XMM15,%ZMM1;
+0x17844;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:159;MOV	0x118(%RSP),%RSI;
+0x1784c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:159;MOV	0xe0(%RSP),%R14;
+0x17854;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:159;MOV	(%R9),%EAX;
+0x17857;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:159;MOV	0x128(%RSP),%R13;
+0x1785f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	0x8(%R12),%R9;
+0x17864;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;MOV	0x251ad(%RIP),%R11D;
+0x1786b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;SUB	$0x2,%EAX;
+0x1786e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;MOV	0x25190(%RIP),%EDI;
+0x17874;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;MOV	%EAX,%EDX;
+0x17876;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;SAR	$0x1f,%EDX;
+0x17879;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;IDIVL	0x148(%RSP);
+0x17880;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;MOV	%EDI,0x98(%RSP);
+0x17887;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;MOV	%EAX,%R10D;
+0x1788a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;ADD	$0x1,%R10D;
+0x1788e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;CMP	%EDX,%EBX;
+0x17890;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;CMOVL	%R10D,%EAX;
+0x17894;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;ADD	%R14,%R13;
+0x17897;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	(%R12),%R10;
+0x1789b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%R14,%R13;
+0x1789e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	0x140(%RSP),%R12;
+0x178a6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%RAX),%ECX;
+0x178a8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;IMUL	%EBX,%ECX;
+0x178ab;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%R13,0xf0(%RSP);
+0x178b3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%RSI,%R12;
+0x178b6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%RSI,%R12;
+0x178b9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;CMP	%EDX,%EBX;
+0x178bb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%R12,0xf8(%RSP);
+0x178c3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%RDX,%RCX,1),%R15D;
+0x178c7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;CMOVL	%ECX,%R15D;
+0x178cb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOVSXD	%EDI,%RDX;
+0x178ce;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	0x160(%RSP),%R12;
+0x178d6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%R15D,%EAX;
+0x178d9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	0x2(%R15),%ECX;
+0x178dd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%R15D,0xd0(%RSP);
+0x178e5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOVSXD	%ECX,%R14;
+0x178e8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	0x158(%RSP),%R15;
+0x178f0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	0x2(%RAX),%R8D;
+0x178f4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%EAX,0xd4(%RSP);
+0x178fb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%R12),%RAX;
+0x178ff;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%ECX,0x9c(%RSP);
+0x17906;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;IMUL	%R14,%R12;
+0x1790a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SAL	$0x3,%RAX;
+0x1790e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%R15),%RCX;
+0x17911;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SAL	$0x3,%RCX;
+0x17915;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;IMUL	%R15,%R14;
+0x17919;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%RCX,0x140(%RSP);
+0x17921;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%R11),%ECX;
+0x17924;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%R12,0x90(%RSP);
+0x1792c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SUB	%EDI,%ECX;
+0x1792e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%RAX,0x148(%RSP);
+0x17936;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%RDI),%R12D;
+0x17939;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%R8D,0x154(%RSP);
+0x17941;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%ECX,%EDI;
+0x17943;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	$0x1,%EDI;
+0x17946;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%RDX),%R8;
+0x17949;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%EDI,0x130(%RSP);
+0x17950;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%EDI,%EAX;
+0x17952;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SHR	$0x3,%EAX;
+0x17955;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SAL	$0x2,%R8;
+0x17959;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%RAX,%R15;
+0x1795c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SAL	$0x2,%R15;
+0x17960;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%RDX,%R8;
+0x17963;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%R8,0x88(%RSP);
+0x1796b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%RAX,%R15;
+0x1796e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%RDI),%EAX;
+0x17970;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	0x1(%R14,%R8,1),%R8;
+0x17975;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%R14,0xa0(%RSP);
+0x1797d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;AND	$-0x8,%EAX;
+0x17980;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%EAX,0x138(%RSP);
+0x17987;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%R12D,%EAX;
+0x1798a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOVSXD	%EAX,%RSI;
+0x1798d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;LEA	0x1(%RAX),%EDX;
+0x17990;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%RSI,%RDI;
+0x17993;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOVSXD	%EDX,%R12;
+0x17996;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SAL	$0x2,%RDI;
+0x1799a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;MOV	%EDX,0x128(%RSP);
+0x179a1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%RSI,%RDI;
+0x179a4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%RDI,0x120(%RSP);
+0x179ac;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%R12),%RDI;
+0x179b0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SAL	$0x2,%RDI;
+0x179b4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;LEA	0x2(%RAX),%EDX;
+0x179b7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOVSXD	%EDX,%R13;
+0x179ba;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%R12,%RDI;
+0x179bd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%RDI,0x108(%RSP);
+0x179c5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%R13,%RDI;
+0x179c8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%ECX,0x150(%RSP);
+0x179cf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%RCX),%ECX;
+0x179d1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;MOV	%EDX,0x114(%RSP);
+0x179d8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;LEA	0x3(%RAX),%EDX;
+0x179db;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SAL	$0x2,%RDI;
+0x179df;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOVSXD	%EDX,%RSI;
+0x179e2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%R13,%RDI;
+0x179e5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	0x5(%RCX,%RCX,4),%R14;
+0x179ea;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%RDI,0xe8(%RSP);
+0x179f2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%RSI,%RDI;
+0x179f5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;MOV	%EDX,0x104(%RSP);
+0x179fc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;LEA	0x4(%RAX),%EDX;
+0x179ff;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SAL	$0x2,%RDI;
+0x17a03;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOVSXD	%EDX,%R12;
+0x17a06;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;MOV	%EDX,0x100(%RSP);
+0x17a0d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%RSI,%RDI;
+0x17a10;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%RDI,0xd8(%RSP);
+0x17a18;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%R12),%RDI;
+0x17a1c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SAL	$0x2,%RDI;
+0x17a20;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;LEA	0x5(%RAX),%EDX;
+0x17a23;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;LEA	0x6(%RAX),%EAX;
+0x17a26;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOVSXD	%EDX,%R13;
+0x17a29;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;MOV	%EAX,0xc8(%RSP);
+0x17a30;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%R12,%RDI;
+0x17a33;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%RDI,0xc0(%RSP);
+0x17a3b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;CLTQ;
+0x17a3d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;MOV	%EDX,0xcc(%RSP);
+0x17a44;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%R13),%RDI;
+0x17a48;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SAL	$0x2,%RDI;
+0x17a4c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%RAX),%RDX;
+0x17a4f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SAL	$0x2,%RDX;
+0x17a53;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%R13,%RDI;
+0x17a56;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SAL	$0x3,%R14;
+0x17a5a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%RAX,%RDX;
+0x17a5d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SAL	$0x6,%R15;
+0x17a61;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%RDI,0xb8(%RSP);
+0x17a69;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%RDX,0xb0(%RSP);
+0x17a71;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOVL	$0x2,0x168(%RSP);
+0x17a7c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%R8,0x80(%RSP);
+0x17a84;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%R14,0xa8(%RSP);
+0x17a8c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%EBX,0x7c(%RSP);
+0x17a90;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;JMP	17ad0 <ssor_._omp_fn.0+0x1730>;
+0x17a92;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	0x118(%RSP),%R13;(97) 
+0x17a9a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADDL	$0x1,0x168(%RSP);(97) 
+0x17aa2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	0x168(%RSP),%R14D;(97) 
+0x17aaa;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	0xe0(%RSP),%RBX;(97) 
+0x17ab2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%R13,0xf8(%RSP);(97) 
+0x17aba;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%RBX,0xf0(%RSP);(97) 
+0x17ac2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:158;CMP	%R14D,0x110(%RSP);(97) 
+0x17aca;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:158;JLE	180c3 <ssor_._omp_fn.0+0x1d23>;(97) 
+0x17ad0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:158;MOV	0xd0(%RSP),%EBX;(97) 
+0x17ad7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:158;CMP	%EBX,0xd4(%RSP);(97) 
+0x17ade;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:158;JLE	17a92 <ssor_._omp_fn.0+0x16f2>;(97) 
+0x17ae0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:158;CMP	%R11D,0x98(%RSP);(97) 
+0x17ae8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:158;JG	17a92 <ssor_._omp_fn.0+0x16f2>;(97) 
+0x17aea;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:158;MOV	0xf8(%RSP),%RDI;(97) 
+0x17af2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:158;MOV	0x88(%RSP),%RSI;(97) 
+0x17afa;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:158;MOV	0xf0(%RSP),%R8;(97) 
+0x17b02;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:158;MOV	0x80(%RSP),%RCX;(97) 
+0x17b0a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:158;ADD	0x90(%RSP),%RDI;(97) 
+0x17b12;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	0x9c(%RSP),%R12D;(97) 
+0x17b1a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%RDI,%RSI;(97) 
+0x17b1d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%R8,%RCX;(97) 
+0x17b20;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	$0x1,%RSI;(97) 
+0x17b24;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	0xa0(%RSP),%R8;(97) 
+0x17b2c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SAL	$0x3,%RSI;(97) 
+0x17b30;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SAL	$0x3,%RCX;(97) 
+0x17b34;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%R9,%RSI;(97) 
+0x17b37;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%R10,%RCX;(97) 
+0x17b3a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;NOPW	(%RAX,%RAX,1);(97) 
+0x17b40;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	0x140(%RSI),%R13;  (99) 
+0x17b47;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	0x140(%RCX),%R14;  (99) 
+0x17b4e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;CMP	%R13,%RCX;  (99) 
+0x17b51;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SETAE	%BL;  (99) 
+0x17b54;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;CMP	%R14,%RSI;  (99) 
+0x17b57;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SETAE	%DL;  (99) 
+0x17b5a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;OR	%DL,%BL;  (99) 
+0x17b5c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;JE	180f6 <ssor_._omp_fn.0+0x1d56>;  (99) 
+0x17b62;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;CMPL	$0x6,0x150(%RSP);  (99) 
+0x17b6a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;JBE	180f6 <ssor_._omp_fn.0+0x1d56>;  (99) 
+0x17b70;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;TEST	$0x40,%R15B;  (99) 
+0x17b74;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%R15,%RCX,1),%RBX;  (99) 
+0x17b78;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%RSI),%RDX;  (99) 
+0x17b7b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%RCX),%RAX;  (99) 
+0x17b7e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;JE	17c00 <ssor_._omp_fn.0+0x1860>;  (99) 
+0x17b84;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	(%RSI),%ZMM0;  (99) 
+0x17b8a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;CMP	%RBX,%R14;  (99) 
+0x17b8d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	0x40(%RSI),%ZMM5;  (99) 
+0x17b94;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213PD	(%RCX),%ZMM1,%ZMM0;  (99) 
+0x17b9a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	0x80(%RSI),%ZMM4;  (99) 
+0x17ba1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213PD	0x40(%RCX),%ZMM1,%ZMM5;  (99) 
+0x17ba8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	0xc0(%RSI),%ZMM3;  (99) 
+0x17baf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213PD	0x80(%RCX),%ZMM1,%ZMM4;  (99) 
+0x17bb6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	0x100(%RSI),%ZMM2;  (99) 
+0x17bbd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213PD	0xc0(%RCX),%ZMM1,%ZMM3;  (99) 
+0x17bc4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213PD	0x100(%RCX),%ZMM1,%ZMM2;  (99) 
+0x17bcb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	%ZMM0,(%RCX);  (99) 
+0x17bd1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	%ZMM5,0x40(%RCX);  (99) 
+0x17bd8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%R14),%RAX;  (99) 
+0x17bdb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	%ZMM4,0x80(%RCX);  (99) 
+0x17be2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%R13),%RDX;  (99) 
+0x17be6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	%ZMM3,0xc0(%RCX);  (99) 
+0x17bed;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	%ZMM2,0x100(%RCX);  (99) 
+0x17bf4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;JE	17ce8 <ssor_._omp_fn.0+0x1948>;  (99) 
+0x17bfa;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;NOPW	(%RAX,%RAX,1);  (99) 
+0x17c00;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	(%RDX),%ZMM6;    (100) 
+0x17c06;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	0x280(%RAX),%RAX;    (100) 
+0x17c0d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	0x40(%RDX),%ZMM8;    (100) 
+0x17c14;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213PD	-0x280(%RAX),%ZMM1,%ZMM6;    (100) 
+0x17c1b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	0x80(%RDX),%ZMM7;    (100) 
+0x17c22;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213PD	-0x240(%RAX),%ZMM1,%ZMM8;    (100) 
+0x17c29;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	0xc0(%RDX),%ZMM10;    (100) 
+0x17c30;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213PD	-0x200(%RAX),%ZMM1,%ZMM7;    (100) 
+0x17c37;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	0x100(%RDX),%ZMM9;    (100) 
+0x17c3e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213PD	-0x1c0(%RAX),%ZMM1,%ZMM10;    (100) 
+0x17c45;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	%ZMM6,-0x280(%RAX);    (100) 
+0x17c4c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213PD	-0x180(%RAX),%ZMM1,%ZMM9;    (100) 
+0x17c53;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	%ZMM8,-0x240(%RAX);    (100) 
+0x17c5a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	0x280(%RDX),%RDX;    (100) 
+0x17c61;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	%ZMM7,-0x200(%RAX);    (100) 
+0x17c68;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	%ZMM10,-0x1c0(%RAX);    (100) 
+0x17c6f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	%ZMM9,-0x180(%RAX);    (100) 
+0x17c76;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	-0x140(%RDX),%ZMM11;    (100) 
+0x17c7d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	-0x100(%RDX),%ZMM12;    (100) 
+0x17c84;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213PD	-0x140(%RAX),%ZMM1,%ZMM11;    (100) 
+0x17c8b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	-0xc0(%RDX),%ZMM13;    (100) 
+0x17c92;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213PD	-0x100(%RAX),%ZMM1,%ZMM12;    (100) 
+0x17c99;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	-0x80(%RDX),%ZMM14;    (100) 
+0x17ca0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213PD	-0xc0(%RAX),%ZMM1,%ZMM13;    (100) 
+0x17ca7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	-0x40(%RDX),%ZMM0;    (100) 
+0x17cae;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213PD	-0x80(%RAX),%ZMM1,%ZMM14;    (100) 
+0x17cb5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213PD	-0x40(%RAX),%ZMM1,%ZMM0;    (100) 
+0x17cbc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	%ZMM11,-0x140(%RAX);    (100) 
+0x17cc3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	%ZMM12,-0x100(%RAX);    (100) 
+0x17cca;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	%ZMM13,-0xc0(%RAX);    (100) 
+0x17cd1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	%ZMM14,-0x80(%RAX);    (100) 
+0x17cd8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVUPD	%ZMM0,-0x40(%RAX);    (100) 
+0x17cdf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;CMP	%RBX,%RAX;    (100) 
+0x17ce2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;JNE	17c00 <ssor_._omp_fn.0+0x1860>;    (100) 
+0x17ce8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	0x130(%RSP),%R13D;  (99) 
+0x17cf0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;CMP	%R13D,0x138(%RSP);  (99) 
+0x17cf8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;JE	1808b <ssor_._omp_fn.0+0x1ceb>;  (99) 
+0x17cfe;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	0x120(%RSP),%RBX;  (99) 
+0x17d06;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%RBX,%RAX;  (99) 
+0x17d09;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%RBX,%RDI,1),%RDX;  (99) 
+0x17d0d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%R8,%RAX;  (99) 
+0x17d10;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%R9,%RDX,8),%RBX;  (99) 
+0x17d14;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x8(%RBX),%XMM5;  (99) 
+0x17d19;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%RAX,%R13;  (99) 
+0x17d1c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SAL	$0x3,%R13;  (99) 
+0x17d20;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%R10,%R13;  (99) 
+0x17d23;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x8(%R13),%XMM15,%XMM5;  (99) 
+0x17d29;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM5,0x8(%R13);  (99) 
+0x17d2f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;CMP	0x128(%RSP),%R11D;  (99) 
+0x17d37;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x10(%RBX),%XMM4;  (99) 
+0x17d3c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x10(%R13),%XMM15,%XMM4;  (99) 
+0x17d42;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM4,0x10(%R13);  (99) 
+0x17d48;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x18(%RBX),%XMM3;  (99) 
+0x17d4d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x18(%R13),%XMM15,%XMM3;  (99) 
+0x17d53;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM3,0x18(%R13);  (99) 
+0x17d59;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x20(%RBX),%XMM2;  (99) 
+0x17d5e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x20(%R13),%XMM15,%XMM2;  (99) 
+0x17d64;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM2,0x20(%R13);  (99) 
+0x17d6a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x28(%RBX),%XMM6;  (99) 
+0x17d6f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x28(%R13),%XMM15,%XMM6;  (99) 
+0x17d75;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM6,0x28(%R13);  (99) 
+0x17d7b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;JL	1808b <ssor_._omp_fn.0+0x1ceb>;  (99) 
+0x17d81;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	0x108(%RSP),%R14;  (99) 
+0x17d89;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%R8),%RAX;  (99) 
+0x17d8c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%R14,%RAX;  (99) 
+0x17d8f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%RDI,%R14,1),%RDX;  (99) 
+0x17d93;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%RAX,%RBX;  (99) 
+0x17d96;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%R9,%RDX,8),%R14;  (99) 
+0x17d9a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SAL	$0x3,%RBX;  (99) 
+0x17d9e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x8(%R14),%XMM8;  (99) 
+0x17da4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%R10,%RBX;  (99) 
+0x17da7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x8(%RBX),%XMM15,%XMM8;  (99) 
+0x17dad;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM8,0x8(%RBX);  (99) 
+0x17db2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x10(%R14),%XMM7;  (99) 
+0x17db8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;CMP	0x114(%RSP),%R11D;  (99) 
+0x17dc0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x10(%RBX),%XMM15,%XMM7;  (99) 
+0x17dc6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM7,0x10(%RBX);  (99) 
+0x17dcb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x18(%R14),%XMM10;  (99) 
+0x17dd1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x18(%RBX),%XMM15,%XMM10;  (99) 
+0x17dd7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM10,0x18(%RBX);  (99) 
+0x17ddc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x20(%R14),%XMM9;  (99) 
+0x17de2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x20(%RBX),%XMM15,%XMM9;  (99) 
+0x17de8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM9,0x20(%RBX);  (99) 
+0x17ded;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x28(%R14),%XMM11;  (99) 
+0x17df3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x28(%RBX),%XMM15,%XMM11;  (99) 
+0x17df9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM11,0x28(%RBX);  (99) 
+0x17dfe;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;JL	1808b <ssor_._omp_fn.0+0x1ceb>;  (99) 
+0x17e04;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	0xe8(%RSP),%R13;  (99) 
+0x17e0c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%R8),%RAX;  (99) 
+0x17e0f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%R13,%RAX;  (99) 
+0x17e12;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%RDI,%R13,1),%RDX;  (99) 
+0x17e16;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%RAX,%R14;  (99) 
+0x17e19;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%R9,%RDX,8),%R13;  (99) 
+0x17e1d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SAL	$0x3,%R14;  (99) 
+0x17e21;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x8(%R13),%XMM12;  (99) 
+0x17e27;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%R10,%R14;  (99) 
+0x17e2a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x8(%R14),%XMM15,%XMM12;  (99) 
+0x17e30;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM12,0x8(%R14);  (99) 
+0x17e36;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x10(%R13),%XMM13;  (99) 
+0x17e3c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;CMP	0x104(%RSP),%R11D;  (99) 
+0x17e44;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x10(%R14),%XMM15,%XMM13;  (99) 
+0x17e4a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM13,0x10(%R14);  (99) 
+0x17e50;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x18(%R13),%XMM14;  (99) 
+0x17e56;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x18(%R14),%XMM15,%XMM14;  (99) 
+0x17e5c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM14,0x18(%R14);  (99) 
+0x17e62;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x20(%R13),%XMM0;  (99) 
+0x17e68;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x20(%R14),%XMM15,%XMM0;  (99) 
+0x17e6e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM0,0x20(%R14);  (99) 
+0x17e74;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x28(%R13),%XMM5;  (99) 
+0x17e7a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x28(%R14),%XMM15,%XMM5;  (99) 
+0x17e80;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM5,0x28(%R14);  (99) 
+0x17e86;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;JL	1808b <ssor_._omp_fn.0+0x1ceb>;  (99) 
+0x17e8c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	0xd8(%RSP),%RBX;  (99) 
+0x17e94;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%R8),%RAX;  (99) 
+0x17e97;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%RBX,%RAX;  (99) 
+0x17e9a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%RDI,%RBX,1),%RDX;  (99) 
+0x17e9e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%RAX,%R13;  (99) 
+0x17ea1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%R9,%RDX,8),%RBX;  (99) 
+0x17ea5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SAL	$0x3,%R13;  (99) 
+0x17ea9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x8(%RBX),%XMM4;  (99) 
+0x17eae;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%R10,%R13;  (99) 
+0x17eb1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x8(%R13),%XMM15,%XMM4;  (99) 
+0x17eb7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM4,0x8(%R13);  (99) 
+0x17ebd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x10(%RBX),%XMM3;  (99) 
+0x17ec2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;CMP	0x100(%RSP),%R11D;  (99) 
+0x17eca;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x10(%R13),%XMM15,%XMM3;  (99) 
+0x17ed0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM3,0x10(%R13);  (99) 
+0x17ed6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x18(%RBX),%XMM2;  (99) 
+0x17edb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x18(%R13),%XMM15,%XMM2;  (99) 
+0x17ee1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM2,0x18(%R13);  (99) 
+0x17ee7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x20(%RBX),%XMM6;  (99) 
+0x17eec;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x20(%R13),%XMM15,%XMM6;  (99) 
+0x17ef2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM6,0x20(%R13);  (99) 
+0x17ef8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x28(%RBX),%XMM8;  (99) 
+0x17efd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x28(%R13),%XMM15,%XMM8;  (99) 
+0x17f03;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM8,0x28(%R13);  (99) 
+0x17f09;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;JL	1808b <ssor_._omp_fn.0+0x1ceb>;  (99) 
+0x17f0f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	0xc0(%RSP),%R14;  (99) 
+0x17f17;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%R8),%RAX;  (99) 
+0x17f1a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%R14,%RAX;  (99) 
+0x17f1d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%RDI,%R14,1),%RDX;  (99) 
+0x17f21;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%RAX,%RBX;  (99) 
+0x17f24;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%R9,%RDX,8),%R14;  (99) 
+0x17f28;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SAL	$0x3,%RBX;  (99) 
+0x17f2c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x8(%R14),%XMM7;  (99) 
+0x17f32;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%R10,%RBX;  (99) 
+0x17f35;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x8(%RBX),%XMM15,%XMM7;  (99) 
+0x17f3b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM7,0x8(%RBX);  (99) 
+0x17f40;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x10(%R14),%XMM10;  (99) 
+0x17f46;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;CMP	0xcc(%RSP),%R11D;  (99) 
+0x17f4e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x10(%RBX),%XMM15,%XMM10;  (99) 
+0x17f54;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM10,0x10(%RBX);  (99) 
+0x17f59;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x18(%R14),%XMM9;  (99) 
+0x17f5f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x18(%RBX),%XMM15,%XMM9;  (99) 
+0x17f65;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM9,0x18(%RBX);  (99) 
+0x17f6a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x20(%R14),%XMM11;  (99) 
+0x17f70;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x20(%RBX),%XMM15,%XMM11;  (99) 
+0x17f76;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM11,0x20(%RBX);  (99) 
+0x17f7b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x28(%R14),%XMM12;  (99) 
+0x17f81;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x28(%RBX),%XMM15,%XMM12;  (99) 
+0x17f87;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM12,0x28(%RBX);  (99) 
+0x17f8c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;JL	1808b <ssor_._omp_fn.0+0x1ceb>;  (99) 
+0x17f92;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	0xb8(%RSP),%R13;  (99) 
+0x17f9a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%R8),%RAX;  (99) 
+0x17f9d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%R13,%RAX;  (99) 
+0x17fa0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%RDI,%R13,1),%RDX;  (99) 
+0x17fa4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%RAX,%R14;  (99) 
+0x17fa7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%R9,%RDX,8),%R13;  (99) 
+0x17fab;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SAL	$0x3,%R14;  (99) 
+0x17faf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x8(%R13),%XMM13;  (99) 
+0x17fb5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%R10,%R14;  (99) 
+0x17fb8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x8(%R14),%XMM15,%XMM13;  (99) 
+0x17fbe;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM13,0x8(%R14);  (99) 
+0x17fc4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x10(%R13),%XMM14;  (99) 
+0x17fca;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;CMP	0xc8(%RSP),%R11D;  (99) 
+0x17fd2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x10(%R14),%XMM15,%XMM14;  (99) 
+0x17fd8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM14,0x10(%R14);  (99) 
+0x17fde;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x18(%R13),%XMM0;  (99) 
+0x17fe4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x18(%R14),%XMM15,%XMM0;  (99) 
+0x17fea;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM0,0x18(%R14);  (99) 
+0x17ff0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x20(%R13),%XMM5;  (99) 
+0x17ff6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x20(%R14),%XMM15,%XMM5;  (99) 
+0x17ffc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM5,0x20(%R14);  (99) 
+0x18002;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x28(%R13),%XMM4;  (99) 
+0x18008;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x28(%R14),%XMM15,%XMM4;  (99) 
+0x1800e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM4,0x28(%R14);  (99) 
+0x18014;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;JL	1808b <ssor_._omp_fn.0+0x1ceb>;  (99) 
+0x18016;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	0xb0(%RSP),%RBX;  (99) 
+0x1801e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%RBX,%RAX;  (99) 
+0x18021;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%RBX,%RDI,1),%RDX;  (99) 
+0x18025;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%R8,%RAX;  (99) 
+0x18028;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%R9,%RDX,8),%RBX;  (99) 
+0x1802c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x8(%RBX),%XMM3;  (99) 
+0x18031;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	%RAX,%R13;  (99) 
+0x18034;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SAL	$0x3,%R13;  (99) 
+0x18038;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%R10,%R13;  (99) 
+0x1803b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x8(%R13),%XMM15,%XMM3;  (99) 
+0x18041;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM3,0x8(%R13);  (99) 
+0x18047;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x10(%RBX),%XMM2;  (99) 
+0x1804c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x10(%R13),%XMM15,%XMM2;  (99) 
+0x18052;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM2,0x10(%R13);  (99) 
+0x18058;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x18(%RBX),%XMM6;  (99) 
+0x1805d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x18(%R13),%XMM15,%XMM6;  (99) 
+0x18063;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM6,0x18(%R13);  (99) 
+0x18069;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x20(%RBX),%XMM8;  (99) 
+0x1806e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x20(%R13),%XMM15,%XMM8;  (99) 
+0x18074;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM8,0x20(%R13);  (99) 
+0x1807a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x28(%RBX),%XMM7;  (99) 
+0x1807f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x28(%R13),%XMM15,%XMM7;  (99) 
+0x18085;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM7,0x28(%R13);  (99) 
+0x1808b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	0x1(%R12),%R12D;  (99) 
+0x18090;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	0x148(%RSP),%RSI;  (99) 
+0x18098;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	0x140(%RSP),%RCX;  (99) 
+0x180a0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	0x158(%RSP),%R8;  (99) 
+0x180a8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	0x160(%RSP),%RDI;  (99) 
+0x180b0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;CMP	%R12D,0x154(%RSP);  (99) 
+0x180b8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;JNE	17b40 <ssor_._omp_fn.0+0x17a0>;  (99) 
+0x180be;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;JMP	17a92 <ssor_._omp_fn.0+0x16f2>;(97) 
+0x180c3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	0x7c(%RSP),%EDX;
+0x180c7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;MOV	0x110(%RSP),%EAX;
+0x180ce;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:169;TEST	%EDX,%EDX;
+0x180d0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:169;MOV	%EAX,0x170(%RSP);
+0x180d7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:169;JNE	180e7 <ssor_._omp_fn.0+0x1d47>;
+0x180d9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:170;MOV	0x24629(%RIP),%ECX;
+0x180df;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:170;TEST	%ECX,%ECX;
+0x180e1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:170;JNE	18448 <ssor_._omp_fn.0+0x20a8>;
+0x180e7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;LEA	-0x28(%RBP),%RSP;
+0x180eb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;POP	%RBX;
+0x180ec;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;POP	%R12;
+0x180ee;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;POP	%R13;
+0x180f0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;POP	%R14;
+0x180f2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;POP	%R15;
+0x180f4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;POP	%RBP;
+0x180f5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;RET;
+0x180f6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;MOV	0xa8(%RSP),%R14;  (99) 
+0x180fe;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;LEA	(%RCX),%R13;  (99) 
+0x18101;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%RSI),%RDX;  (99) 
+0x18104;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	(%RCX),%RAX;  (99) 
+0x18107;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	-0x28(%R14),%RBX;  (99) 
+0x1810b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	%R14,%R13;  (99) 
+0x1810e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;SHR	$0x3,%RBX;  (99) 
+0x18112;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;ADD	$0x1,%RBX;  (99) 
+0x18116;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;AND	$0x3,%EBX;  (99) 
+0x18119;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;JE	1823b <ssor_._omp_fn.0+0x1e9b>;  (99) 
+0x1811f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;CMP	$0x1,%RBX;  (99) 
+0x18123;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;JE	181db <ssor_._omp_fn.0+0x1e3b>;  (99) 
+0x18129;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;CMP	$0x2,%RBX;  (99) 
+0x1812d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;JE	18184 <ssor_._omp_fn.0+0x1de4>;  (99) 
+0x1812f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	(%RSI),%XMM10;  (99) 
+0x18133;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	0x28(%RCX),%RAX;  (99) 
+0x18137;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	(%RCX),%XMM15,%XMM10;  (99) 
+0x1813c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM10,(%RCX);  (99) 
+0x18140;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x8(%RSI),%XMM9;  (99) 
+0x18145;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	0x28(%RSI),%RDX;  (99) 
+0x18149;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x8(%RCX),%XMM15,%XMM9;  (99) 
+0x1814f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM9,0x8(%RCX);  (99) 
+0x18154;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x10(%RSI),%XMM11;  (99) 
+0x18159;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x10(%RCX),%XMM15,%XMM11;  (99) 
+0x1815f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM11,0x10(%RCX);  (99) 
+0x18164;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x18(%RSI),%XMM12;  (99) 
+0x18169;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x18(%RCX),%XMM15,%XMM12;  (99) 
+0x1816f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM12,0x18(%RCX);  (99) 
+0x18174;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x20(%RSI),%XMM13;  (99) 
+0x18179;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	0x20(%RCX),%XMM15,%XMM13;  (99) 
+0x1817f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM13,0x20(%RCX);  (99) 
+0x18184;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	(%RDX),%XMM14;  (99) 
+0x18188;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	0x28(%RAX),%RAX;  (99) 
+0x1818c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x28(%RAX),%XMM15,%XMM14;  (99) 
+0x18192;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM14,-0x28(%RAX);  (99) 
+0x18197;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x8(%RDX),%XMM0;  (99) 
+0x1819c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	0x28(%RDX),%RDX;  (99) 
+0x181a0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x20(%RAX),%XMM15,%XMM0;  (99) 
+0x181a6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM0,-0x20(%RAX);  (99) 
+0x181ab;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	-0x18(%RDX),%XMM5;  (99) 
+0x181b0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x18(%RAX),%XMM15,%XMM5;  (99) 
+0x181b6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM5,-0x18(%RAX);  (99) 
+0x181bb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	-0x10(%RDX),%XMM4;  (99) 
+0x181c0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x10(%RAX),%XMM15,%XMM4;  (99) 
+0x181c6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM4,-0x10(%RAX);  (99) 
+0x181cb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	-0x8(%RDX),%XMM3;  (99) 
+0x181d0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x8(%RAX),%XMM15,%XMM3;  (99) 
+0x181d6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM3,-0x8(%RAX);  (99) 
+0x181db;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	(%RDX),%XMM2;  (99) 
+0x181df;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	0x28(%RAX),%RAX;  (99) 
+0x181e3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x28(%RAX),%XMM15,%XMM2;  (99) 
+0x181e9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM2,-0x28(%RAX);  (99) 
+0x181ee;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x8(%RDX),%XMM6;  (99) 
+0x181f3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	0x28(%RDX),%RDX;  (99) 
+0x181f7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x20(%RAX),%XMM15,%XMM6;  (99) 
+0x181fd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM6,-0x20(%RAX);  (99) 
+0x18202;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	-0x18(%RDX),%XMM8;  (99) 
+0x18207;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x18(%RAX),%XMM15,%XMM8;  (99) 
+0x1820d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM8,-0x18(%RAX);  (99) 
+0x18212;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	-0x10(%RDX),%XMM7;  (99) 
+0x18217;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x10(%RAX),%XMM15,%XMM7;  (99) 
+0x1821d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM7,-0x10(%RAX);  (99) 
+0x18222;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	-0x8(%RDX),%XMM10;  (99) 
+0x18227;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x8(%RAX),%XMM15,%XMM10;  (99) 
+0x1822d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM10,-0x8(%RAX);  (99) 
+0x18232;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;CMP	%R13,%RAX;  (99) 
+0x18235;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;JE	1808b <ssor_._omp_fn.0+0x1ceb>;  (99) 
+0x1823b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	(%RDX),%XMM9;    (98) 
+0x1823f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	0xa0(%RAX),%RAX;    (98) 
+0x18246;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0xa0(%RAX),%XMM15,%XMM9;    (98) 
+0x1824f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM9,-0xa0(%RAX);    (98) 
+0x18257;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	0x8(%RDX),%XMM11;    (98) 
+0x1825c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;LEA	0xa0(%RDX),%RDX;    (98) 
+0x18263;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x98(%RAX),%XMM15,%XMM11;    (98) 
+0x1826c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM11,-0x98(%RAX);    (98) 
+0x18274;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	-0x90(%RDX),%XMM12;    (98) 
+0x1827c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x90(%RAX),%XMM15,%XMM12;    (98) 
+0x18285;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM12,-0x90(%RAX);    (98) 
+0x1828d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	-0x88(%RDX),%XMM13;    (98) 
+0x18295;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x88(%RAX),%XMM15,%XMM13;    (98) 
+0x1829e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM13,-0x88(%RAX);    (98) 
+0x182a6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	-0x80(%RDX),%XMM14;    (98) 
+0x182ab;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x80(%RAX),%XMM15,%XMM14;    (98) 
+0x182b1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM14,-0x80(%RAX);    (98) 
+0x182b6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	-0x78(%RDX),%XMM0;    (98) 
+0x182bb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x78(%RAX),%XMM15,%XMM0;    (98) 
+0x182c1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM0,-0x78(%RAX);    (98) 
+0x182c6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	-0x70(%RDX),%XMM5;    (98) 
+0x182cb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x70(%RAX),%XMM15,%XMM5;    (98) 
+0x182d1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM5,-0x70(%RAX);    (98) 
+0x182d6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	-0x68(%RDX),%XMM4;    (98) 
+0x182db;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x68(%RAX),%XMM15,%XMM4;    (98) 
+0x182e1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM4,-0x68(%RAX);    (98) 
+0x182e6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	-0x60(%RDX),%XMM3;    (98) 
+0x182eb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x60(%RAX),%XMM15,%XMM3;    (98) 
+0x182f1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM3,-0x60(%RAX);    (98) 
+0x182f6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	-0x58(%RDX),%XMM2;    (98) 
+0x182fb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x58(%RAX),%XMM15,%XMM2;    (98) 
+0x18301;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM2,-0x58(%RAX);    (98) 
+0x18306;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	-0x50(%RDX),%XMM6;    (98) 
+0x1830b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x50(%RAX),%XMM15,%XMM6;    (98) 
+0x18311;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM6,-0x50(%RAX);    (98) 
+0x18316;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	-0x48(%RDX),%XMM8;    (98) 
+0x1831b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x48(%RAX),%XMM15,%XMM8;    (98) 
+0x18321;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM8,-0x48(%RAX);    (98) 
+0x18326;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	-0x40(%RDX),%XMM7;    (98) 
+0x1832b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x40(%RAX),%XMM15,%XMM7;    (98) 
+0x18331;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM7,-0x40(%RAX);    (98) 
+0x18336;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	-0x38(%RDX),%XMM10;    (98) 
+0x1833b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x38(%RAX),%XMM15,%XMM10;    (98) 
+0x18341;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM10,-0x38(%RAX);    (98) 
+0x18346;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	-0x30(%RDX),%XMM9;    (98) 
+0x1834b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x30(%RAX),%XMM15,%XMM9;    (98) 
+0x18351;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM9,-0x30(%RAX);    (98) 
+0x18356;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	-0x28(%RDX),%XMM11;    (98) 
+0x1835b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x28(%RAX),%XMM15,%XMM11;    (98) 
+0x18361;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM11,-0x28(%RAX);    (98) 
+0x18366;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	-0x20(%RDX),%XMM12;    (98) 
+0x1836b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x20(%RAX),%XMM15,%XMM12;    (98) 
+0x18371;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM12,-0x20(%RAX);    (98) 
+0x18376;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	-0x18(%RDX),%XMM13;    (98) 
+0x1837b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x18(%RAX),%XMM15,%XMM13;    (98) 
+0x18381;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM13,-0x18(%RAX);    (98) 
+0x18386;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	-0x10(%RDX),%XMM14;    (98) 
+0x1838b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x10(%RAX),%XMM15,%XMM14;    (98) 
+0x18391;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM14,-0x10(%RAX);    (98) 
+0x18396;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	-0x8(%RDX),%XMM0;    (98) 
+0x1839b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VFMADD213SD	-0x8(%RAX),%XMM15,%XMM0;    (98) 
+0x183a1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:163;VMOVSD	%XMM0,-0x8(%RAX);    (98) 
+0x183a6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;CMP	%R13,%RAX;    (98) 
+0x183a9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;JNE	1823b <ssor_._omp_fn.0+0x1e9b>;    (98) 
+0x183af;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:161;JMP	1808b <ssor_._omp_fn.0+0x1ceb>;  (99) 
+0x183b4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:158;MOV	0x78(%R12),%RSI;
+0x183b9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:158;MOVL	$0x2,0x170(%RSP);
+0x183c4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:158;MOV	(%RSI),%R13D;
+0x183c7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:158;MOV	%R13D,0x110(%RSP);
+0x183cf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:158;CMP	$0x2,%R13D;
+0x183d3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:158;JG	17839 <ssor_._omp_fn.0+0x1499>;
+0x183d9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:158;JMP	180e7 <ssor_._omp_fn.0+0x1d47>;
+0x183de;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:43;MOV	0x78(%R12),%R8;
+0x183e3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:43;MOVL	$0x2,0x170(%RSP);
+0x183ee;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:43;MOV	(%R8),%R13D;
+0x183f1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:43;CMP	$0x2,%R13D;
+0x183f5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:43;JG	1645e <ssor_._omp_fn.0+0xbe>;
+0x183fb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:43;JMP	168a3 <ssor_._omp_fn.0+0x503>;
+0x18400;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:43;ADD	$0x1,%EAX;
+0x18403;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:107;XOR	%EDX,%EDX;
+0x18405;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:107;JMP	1706f <ssor_._omp_fn.0+0xccf>;
+0x1840a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:107;ADD	$0x1,%EAX;
+0x1840d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;XOR	%EDX,%EDX;
+0x1840f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;JMP	168e2 <ssor_._omp_fn.0+0x542>;
+0x18414;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:41;LEA	0x1f879(%RIP),%RDI;
+0x1841b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:41;CALL	369b0 <timer_start_>;
+0x18420;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:41;JMP	16441 <ssor_._omp_fn.0+0xa1>;
+0x18425;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:41;VMOVSD	%XMM15,0x168(%RSP);
+0x1842e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:156;LEA	0x1f84b(%RIP),%RDI;
+0x18435;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:156;CALL	369b0 <timer_start_>;
+0x1843a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:156;VMOVSD	0x168(%RSP),%XMM15;
+0x18443;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:156;JMP	17814 <ssor_._omp_fn.0+0x1474>;
+0x18448;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;LEA	-0x28(%RBP),%RSP;
+0x1844c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:170;LEA	0x1f82d(%RIP),%RDI;
+0x18453;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;POP	%RBX;
+0x18454;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;POP	%R12;
+0x18456;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;POP	%R13;
+0x18458;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;POP	%R14;
+0x1845a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;POP	%R15;
+0x1845c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:39;POP	%RBP;
+0x1845d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:170;JMP	369d0 <timer_stop_>;
+0x18462;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;MOV	$0x1,%ECX;
+0x18467;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:63;JMP	16b5d <ssor_._omp_fn.0+0x7bd>;
+0x1846c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;MOV	$0x1,%EAX;
+0x18471;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:108;JMP	172fe <ssor_._omp_fn.0+0xf5e>;
+0x18476;:0;NOPW	%CS:(%RAX,%RAX,1);

@@ -1,0 +1,29 @@
+/users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90: 71 - 100
+--------------------------------------------------------------------------------
+
+71:       do k = 2, nz-1 
+72: !---------------------------------------------------------------------
+73: !   form the lower triangular part of the jacobian matrix
+74: !---------------------------------------------------------------------
+75: !$OMP MASTER
+76:          if (timeron) call timer_start(t_jacld)
+77: !$OMP END MASTER
+78:          call jacld(k, u, rho_i, qs, a, b, c, d,  &
+79:      &              nx, nxmax, ny, nz)
+80: !$OMP MASTER
+81:          if (timeron) call timer_stop(t_jacld)
+[...]
+87:          iex = 0
+88:          call exchange_1( rsd, nx, nxmax, ny, nz, k, jst, jend, iex )
+89: 
+90: !$OMP MASTER
+91:          if (timeron) call timer_start(t_blts)
+92: !$OMP END MASTER
+93:          call blts( nx, nxmax, ny, nz, k, ist, iend, omega, rsd,  &
+94:      &              a, b, c, d)
+95: !$OMP MASTER
+96:          if (timeron) call timer_stop(t_blts)
+97: !$OMP END MASTER
+98: 
+99:          iex = 2
+100:          call exchange_1( rsd, nx, nxmax, ny, nz, k, jst, jend, iex )
