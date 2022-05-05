@@ -1,4 +1,4 @@
-experiment_name = "Scalability analysis on class A lu-mz on cluster fob1  (MPI-OMP)"
+experiment_name = "Analyse de code lu-mz CLASS=A en mode scalabilité sur le cluster FOB1"
 executable = "./lu-mz.A.x"
 number_processes = 1
 number_processes_nodes = 1
