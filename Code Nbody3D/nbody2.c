@@ -21,7 +21,7 @@ typedef struct particle_s {
 void init(particle_t p, u64 n)
 {   
  
-  for (u64 i = 0; i < n; i+=4)
+  for (u64 i = 0; i < n; i++)
     {
       //
       u64 r1 = (u64)rand();
@@ -38,36 +38,6 @@ void init(particle_t p, u64 n)
       p.vy[i] = sign * (f32)rand() * (1/(f32)RAND_MAX);
       p.vz[i]= (f32)rand() * (1/(f32)RAND_MAX);
 
-      //
-      p.x[i+1] = sign * (f32)rand() * (1/(f32)RAND_MAX);
-      p.y[i+1] = (f32)rand() * (1/(f32)RAND_MAX);
-      p.z[i+1] = sign * (f32)rand() * (1/(f32)RAND_MAX);
-
-      //
-      p.vx[i+1] = (f32)rand() * (1/(f32)RAND_MAX);
-      p.vy[i+1] = sign * (f32)rand() * (1/(f32)RAND_MAX);
-      p.vz[i+1]= (f32)rand() * (1/(f32)RAND_MAX);
-
-      //
-      p.x[i+2] = sign * (f32)rand() * (1/(f32)RAND_MAX);
-      p.y[i+2] = (f32)rand() * (1/(f32)RAND_MAX);
-      p.z[i+2] = sign * (f32)rand() * (1/(f32)RAND_MAX);
-
-      //
-      p.vx[i+2] = (f32)rand() * (1/(f32)RAND_MAX);
-      p.vy[i+2] = sign * (f32)rand() * (1/(f32)RAND_MAX);
-      p.vz[i+2]= (f32)rand() * (1/(f32)RAND_MAX);
-
-
-      //
-      p.x[i+3] = sign * (f32)rand() * (1/(f32)RAND_MAX);
-      p.y[i+3] = (f32)rand() * (1/(f32)RAND_MAX);
-      p.z[i+3] = sign * (f32)rand() * (1/(f32)RAND_MAX);
-
-      //
-      p.vx[i+3] = (f32)rand() * (1/(f32)RAND_MAX);
-      p.vy[i+3] = sign * (f32)rand() * (1/(f32)RAND_MAX);
-      p.vz[i+3]= (f32)rand() * (1/(f32)RAND_MAX);
     }
 }
 
@@ -117,23 +87,13 @@ void move_particles(particle_t p, const f32 dt, u64 n)
 
   //3 floating-point operations
     
-  for (u64 i = 0; i < n; i+=4)
+  for (u64 i = 0; i < n; i++)
     {
       p.x[i] += (dt * p.vx[i]);
       p.y[i] += (dt * p.vy[i]);
       p.z[i] += (dt * p.vz[i]);
 
-      p.x[i+1] += (dt * p.vx[i+1]);
-      p.y[i+1] += (dt * p.vy[i+1]);
-      p.z[i+1] += (dt * p.vz[i+1]);
-
-      p.x[i+2] += (dt * p.vx[i+2]);
-      p.y[i+2] += (dt * p.vy[i+2]);
-      p.z[i+2] += (dt * p.vz[i+2]);
-
-            p.x[i+3] += (dt * p.vx[i+3]);
-      p.y[i+3] += (dt * p.vy[i+3]);
-      p.z[i+3] += (dt * p.vz[i+3]);
+    
 
     }
 }
@@ -142,7 +102,7 @@ void move_particles(particle_t p, const f32 dt, u64 n)
 int main(int argc, char **argv)
 {
   //
-  const u64 n = (argc > 1) ? atoll(argv[1]) : 225536;
+  const u64 n = (argc > 1) ? atoll(argv[1]) : 100000;
   const u64 steps= 10;
   const f32 dt = 0.01;
 
@@ -236,7 +196,23 @@ int main(int argc, char **argv)
   printf("\033[1m%s %4s \033[42m%10.1lf +- %.1lf GFLOP/s\033[0m\n",
    "Average performance:", "", rate, drate);
   printf("-----------------------------------------------------\n");
-  
+  f64 somme_x = 0, somme_y = 0, somme_z = 0, somme_vx = 0, somme_vy = 0, somme_vz = 0;
+  for (int i = 0; i < n; i++)
+  {
+
+    somme_x += p.x[i];
+    somme_y += p.y[i];
+    somme_z += p.z[i];
+    somme_vx += p.vx[i];
+    somme_vy += p.vy[i];
+    somme_vz += p.vz[i];
+  }
+  printf("Somme X = %f \n", somme_x);
+  printf("Somme Y = %f \n", somme_y);
+  printf("Somme Z = %f \n", somme_z);
+  printf("Somme VX = %f \n", somme_vx);
+  printf("Somme VY = %f \n", somme_vy);
+  printf("Somme VZ = %f \n", somme_vz);
   //
  
   free(p.x);
