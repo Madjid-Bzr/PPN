@@ -4,14 +4,14 @@ If this is incorrect, rerun with an explicit value for this setting
 
 * Info: Selecting the 'perf-high-ppn' engine for node knl01
 
-* Info: Process launched (host knl01, process 44253)
-* Info: Process launched (host knl01, process 44254)
-* Info: Process launched (host knl01, process 44255)
-* Info: Process launched (host knl01, process 44256)
-* Info: Process launched (host knl01, process 44257)
-* Info: Process launched (host knl01, process 44259)
-* Info: Process launched (host knl01, process 44258)
-* Info: Process launched (host knl01, process 44260)
+* Info: Process launched (host knl01, process 12486)
+* Info: Process launched (host knl01, process 12487)
+* Info: Process launched (host knl01, process 12488)
+* Info: Process launched (host knl01, process 12489)
+* Info: Process launched (host knl01, process 12490)
+* Info: Process launched (host knl01, process 12491)
+* Info: Process launched (host knl01, process 12492)
+* Info: Process launched (host knl01, process 12493)
 
  NAS Parallel Benchmarks (NPB3.4-MZ MPI+OpenMP) - LU-MZ Benchmark
 
@@ -44,16 +44,16 @@ If this is incorrect, rerun with an explicit value for this setting
  Accuracy setting for epsilon =  0.1000000000000E-07
  Comparison of RMS-norms of residual
            1   0.1131574877175E+04 0.1131574877175E+04 0.4018711974428E-13
-           2   0.7965206944742E+02 0.7965206944742E+02 0.3978579117247E-13
+           2   0.7965206944742E+02 0.7965206944742E+02 0.4032102603129E-13
            3   0.2705587159526E+03 0.2705587159526E+03 0.7500442357534E-13
-           4   0.2129567530746E+03 0.2129567530746E+03 0.9542558265631E-13
-           5   0.2260584655432E+04 0.2260584655432E+04 0.2554777739635E-13
+           4   0.2129567530746E+03 0.2129567530746E+03 0.9502519559621E-13
+           5   0.2260584655432E+04 0.2260584655432E+04 0.2574894099790E-13
  Comparison of RMS-norms of solution error
-           1   0.1115694885382E+03 0.1115694885382E+03 0.3423765580980E-12
+           1   0.1115694885382E+03 0.1115694885382E+03 0.3422491858666E-12
            2   0.1089257673798E+02 0.1089257673798E+02 0.1673196490661E-12
            3   0.2905379922066E+02 0.2905379922066E+02 0.6676516395989E-13
            4   0.2216126755530E+02 0.2216126755530E+02 0.6236130752020E-13
-           5   0.2501762341026E+03 0.2501762341026E+03 0.7952472652987E-14
+           5   0.2501762341026E+03 0.2501762341026E+03 0.8066079405173E-14
  Comparison of surface integral
                0.5904992211511E+03 0.5904992211511E+03 0.5968326194402E-13
  Verification Successful
@@ -63,22 +63,22 @@ If this is incorrect, rerun with an explicit value for this setting
  Class           =                        A
  Size            =            128x  128x 16
  Iterations      =                      250
- Time in seconds =                     6.78
+ Time in seconds =                     7.31
  Total processes =                        8
  Total threads   =                       16
- Mop/s total     =                 15126.59
- Mop/s/thread    =                   945.41
+ Mop/s total     =                 14038.41
+ Mop/s/thread    =                   877.40
  Operation type  =           floating point
  Verification    =               SUCCESSFUL
  Version         =                    3.4.1
- Compile date    =              04 May 2022
+ Compile date    =              03 May 2022
 
  Compile options:
     FC           = mpif90
     FLINK        = $(FC)
     F_LIB        = (none)
-    F_INC        = -march=native -funroll-loops
-    FFLAGS       = -O3 -g -fopenmp
+    F_INC        = (none)
+    FFLAGS       = -Ofast  -funroll-loops  -g -fopenmp -O3  -m...
     FLINKFLAGS   = $(FFLAGS)
     RAND         = (none)
 
@@ -90,28 +90,28 @@ If this is incorrect, rerun with an explicit value for this setting
 
 
 
-* Info: Process finished (host knl01, process 44258)
-* Info: Process finished (host knl01, process 44253)
-* Info: Process finished (host knl01, process 44259)
-* Info: Process finished (host knl01, process 44256)
-* Info: Process finished (host knl01, process 44260)
-* Info: Process finished (host knl01, process 44257)
-* Info: Process finished (host knl01, process 44254)
-* Info: Process finished (host knl01, process 44255)
+* Info: Process finished (host knl01, process 12491)
+* Info: Process finished (host knl01, process 12488)
+* Info: Process finished (host knl01, process 12490)
+* Info: Process finished (host knl01, process 12493)
+* Info: Process finished (host knl01, process 12489)
+* Info: Process finished (host knl01, process 12486)
+* Info: Process finished (host knl01, process 12487)
+* Info: Process finished (host knl01, process 12492)
 
-Your experiment path is /users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_6
+Your experiment path is /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_6
 
 To display your profiling results:
-##########################################################################################################################
-#    LEVEL    |     REPORT     |                                         COMMAND                                         #
-##########################################################################################################################
-#  Functions  |  Cluster-wide  |  maqao lprof -df xp=/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_6      #
-#  Functions  |  Per-node      |  maqao lprof -df -dn xp=/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_6  #
-#  Functions  |  Per-process   |  maqao lprof -df -dp xp=/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_6  #
-#  Functions  |  Per-thread    |  maqao lprof -df -dt xp=/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_6  #
-#  Loops      |  Cluster-wide  |  maqao lprof -dl xp=/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_6      #
-#  Loops      |  Per-node      |  maqao lprof -dl -dn xp=/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_6  #
-#  Loops      |  Per-process   |  maqao lprof -dl -dp xp=/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_6  #
-#  Loops      |  Per-thread    |  maqao lprof -dl -dt xp=/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_6  #
-##########################################################################################################################
+#######################################################################################################################################
+#    LEVEL    |     REPORT     |                                               COMMAND                                                #
+#######################################################################################################################################
+#  Functions  |  Cluster-wide  |  maqao lprof -df xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_6      #
+#  Functions  |  Per-node      |  maqao lprof -df -dn xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_6  #
+#  Functions  |  Per-process   |  maqao lprof -df -dp xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_6  #
+#  Functions  |  Per-thread    |  maqao lprof -df -dt xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_6  #
+#  Loops      |  Cluster-wide  |  maqao lprof -dl xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_6      #
+#  Loops      |  Per-node      |  maqao lprof -dl -dn xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_6  #
+#  Loops      |  Per-process   |  maqao lprof -dl -dp xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_6  #
+#  Loops      |  Per-thread    |  maqao lprof -dl -dt xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_6  #
+#######################################################################################################################################
 

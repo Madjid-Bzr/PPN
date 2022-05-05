@@ -1,1 +1,1 @@
-maqao oneview -R1 -WS -xp=lu-mz -c=file.lua 
+maqao oneview -R1 -WS -xp=mpi-raport -c=conf.lua -dbg=1 --replace 

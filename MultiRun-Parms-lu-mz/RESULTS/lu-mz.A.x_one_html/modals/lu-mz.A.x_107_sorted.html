@@ -97,30 +97,31 @@ addLoadEvent(function(){
            <option value="7">Run 7
            <option value="8">Run 8
            <option value="9">Run 9
+           <option value="10">Run 10
         </select>
       </td>
       <td><button type="button" style="cursor:pointer;" onclick="set_next_ldbal_input ();">&rarr;</button></td>
     </tr>
   </table>
-<div style="margin: 10px; overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_8335" style="height:500px" ></div><div style="text-align:center;"></div></div>
+<div style="margin: 10px; overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_8244" style="height:500px" ></div><div style="text-align:center;"></div></div>
 <script class="code">
 </script>
-<div style="margin: 10px; overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_8336" style="height:500px" ></div><div style="text-align:center;"></div></div>
+<div style="margin: 10px; overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_8245" style="height:500px" ></div><div style="text-align:center;"></div></div>
 <script class="code">
 </script>
   <script>
 function set_ldbal_input () {
   var selector_run  = document.getElementById ("ldbal_select_run");
   // Clear placeholder content and update their size
-  document.getElementById("chart_cat_8335").innerHTML = "";
-  var _width = Math.floor(document.getElementById("chart_cat_8335").getBoundingClientRect().width);
-  document.getElementById("chart_cat_8336").innerHTML = "";
-  var _width = Math.floor(document.getElementById("chart_cat_8336").getBoundingClientRect().width);
+  document.getElementById("chart_cat_8244").innerHTML = "";
+  var _width = Math.floor(document.getElementById("chart_cat_8244").getBoundingClientRect().width);
+  document.getElementById("chart_cat_8245").innerHTML = "";
+  var _width = Math.floor(document.getElementById("chart_cat_8245").getBoundingClientRect().width);
   // According to selector, draw both charts
   if (selector_run.value  == "1") {
   $(document).ready(function(){
-    var ordinals = ['knl01_40441_40441'];
-    var data = [{value: 0.12, offset: 0, i: 0, color: "#333399"}];
+    var ordinals = ['knl01_8689_8689'];
+    var data = [{value: 0.15, offset: 0, i: 0, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -135,7 +136,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_8335')
+    const svg = d3.select('#chart_cat_8244')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -191,13 +192,13 @@ function set_ldbal_input () {
       .text("Coverage (%)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_8335')
+      .attr('id', 'zoom_chart_8244')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_8335_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_8244_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -239,14 +240,14 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
-  $("#zoom_chart_8335_0").click( function () {
-    window.open("../topo/run_0_knl01_40441_40441.html");
+  $("#zoom_chart_8244_0").click( function () {
+    window.open("../topo/run_0_knl01_8689_8689.html");
   });
   }
   if (selector_run.value  == "1") {
   $(document).ready(function(){
-    var ordinals = ['knl01_40441_40441'];
-    var data = [{value: 0.11, offset: 0, i: 0, color: "#333399"}];
+    var ordinals = ['knl01_8689_8689'];
+    var data = [{value: 0.15, offset: 0, i: 0, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -261,7 +262,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_8336')
+    const svg = d3.select('#chart_cat_8245')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -317,13 +318,13 @@ function set_ldbal_input () {
       .text("Time (s)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_8336')
+      .attr('id', 'zoom_chart_8245')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_8336_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_8245_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -365,14 +366,14 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
-  $("#zoom_chart_8336_0").click( function () {
-    window.open("../topo/run_0_knl01_40441_40441.html");
+  $("#zoom_chart_8245_0").click( function () {
+    window.open("../topo/run_0_knl01_8689_8689.html");
   });
   }
   if (selector_run.value  == "2") {
   $(document).ready(function(){
-    var ordinals = ['knl01_40734_41254','knl01_40735_40735','knl01_40735_41253','knl01_40734_40734','knl01_40735_41255','knl01_40734_41252','knl01_40735_41251','knl01_40734_41250'];
-    var data = [{value: 0.24, offset: 0, i: 0, color: "#333399"},{value: 0.21, offset: 0, i: 1, color: "#333399"},{value: 0.1, offset: 0, i: 2, color: "#333399"},{value: 0.1, offset: 0, i: 3, color: "#333399"},{value: 0.1, offset: 0, i: 4, color: "#333399"},{value: 0.07, offset: 0, i: 5, color: "#333399"},{value: 0.07, offset: 0, i: 6, color: "#333399"},{value: 0.07, offset: 0, i: 7, color: "#333399"}];
+    var ordinals = ['knl01_8960_9479','knl01_8960_9475','knl01_8960_9477','knl01_8960_8960','knl01_8961_9474','knl01_8961_8961','knl01_8961_9476'];
+    var data = [{value: 0.19, offset: 0, i: 0, color: "#333399"},{value: 0.16, offset: 0, i: 1, color: "#333399"},{value: 0.12, offset: 0, i: 2, color: "#333399"},{value: 0.12, offset: 0, i: 3, color: "#333399"},{value: 0.09, offset: 0, i: 4, color: "#333399"},{value: 0.06, offset: 0, i: 5, color: "#333399"},{value: 0.03, offset: 0, i: 6, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -387,7 +388,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_8335')
+    const svg = d3.select('#chart_cat_8244')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -443,13 +444,13 @@ function set_ldbal_input () {
       .text("Coverage (%)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_8335')
+      .attr('id', 'zoom_chart_8244')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_8335_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_8244_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -491,35 +492,32 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
-  $("#zoom_chart_8335_0").click( function () {
-    window.open("../topo/run_1_knl01_40734_41254.html");
+  $("#zoom_chart_8244_0").click( function () {
+    window.open("../topo/run_1_knl01_8960_9479.html");
   });
-  $("#zoom_chart_8335_1").click( function () {
-    window.open("../topo/run_1_knl01_40735_40735.html");
+  $("#zoom_chart_8244_1").click( function () {
+    window.open("../topo/run_1_knl01_8960_9475.html");
   });
-  $("#zoom_chart_8335_2").click( function () {
-    window.open("../topo/run_1_knl01_40735_41253.html");
+  $("#zoom_chart_8244_2").click( function () {
+    window.open("../topo/run_1_knl01_8960_9477.html");
   });
-  $("#zoom_chart_8335_3").click( function () {
-    window.open("../topo/run_1_knl01_40734_40734.html");
+  $("#zoom_chart_8244_3").click( function () {
+    window.open("../topo/run_1_knl01_8960_8960.html");
   });
-  $("#zoom_chart_8335_4").click( function () {
-    window.open("../topo/run_1_knl01_40735_41255.html");
+  $("#zoom_chart_8244_4").click( function () {
+    window.open("../topo/run_1_knl01_8961_9474.html");
   });
-  $("#zoom_chart_8335_5").click( function () {
-    window.open("../topo/run_1_knl01_40734_41252.html");
+  $("#zoom_chart_8244_5").click( function () {
+    window.open("../topo/run_1_knl01_8961_8961.html");
   });
-  $("#zoom_chart_8335_6").click( function () {
-    window.open("../topo/run_1_knl01_40735_41251.html");
-  });
-  $("#zoom_chart_8335_7").click( function () {
-    window.open("../topo/run_1_knl01_40734_41250.html");
+  $("#zoom_chart_8244_6").click( function () {
+    window.open("../topo/run_1_knl01_8961_9476.html");
   });
   }
   if (selector_run.value  == "2") {
   $(document).ready(function(){
-    var ordinals = ['knl01_40734_41254','knl01_40735_40735','knl01_40735_41253','knl01_40735_41251','knl01_40734_40734','knl01_40734_41250','knl01_40734_41252','knl01_40735_41255'];
-    var data = [{value: 0.03, offset: 0, i: 0, color: "#333399"},{value: 0.03, offset: 0, i: 1, color: "#333399"},{value: 0.02, offset: 0, i: 2, color: "#333399"},{value: 0.01, offset: 0, i: 3, color: "#333399"},{value: 0.01, offset: 0, i: 4, color: "#333399"},{value: 0.01, offset: 0, i: 5, color: "#333399"},{value: 0.01, offset: 0, i: 6, color: "#333399"},{value: 0.01, offset: 0, i: 7, color: "#333399"}];
+    var ordinals = ['knl01_8960_9479','knl01_8960_9477','knl01_8960_8960','knl01_8960_9475','knl01_8961_9474','knl01_8961_8961','knl01_8961_9476'];
+    var data = [{value: 0.03, offset: 0, i: 0, color: "#333399"},{value: 0.02, offset: 0, i: 1, color: "#333399"},{value: 0.02, offset: 0, i: 2, color: "#333399"},{value: 0.02, offset: 0, i: 3, color: "#333399"},{value: 0.01, offset: 0, i: 4, color: "#333399"},{value: 0.01, offset: 0, i: 5, color: "#333399"},{value: 0.01, offset: 0, i: 6, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -534,7 +532,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_8336')
+    const svg = d3.select('#chart_cat_8245')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -590,13 +588,13 @@ function set_ldbal_input () {
       .text("Time (s)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_8336')
+      .attr('id', 'zoom_chart_8245')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_8336_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_8245_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -638,35 +636,32 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
-  $("#zoom_chart_8336_0").click( function () {
-    window.open("../topo/run_1_knl01_40734_41254.html");
+  $("#zoom_chart_8245_0").click( function () {
+    window.open("../topo/run_1_knl01_8960_9479.html");
   });
-  $("#zoom_chart_8336_1").click( function () {
-    window.open("../topo/run_1_knl01_40735_40735.html");
+  $("#zoom_chart_8245_1").click( function () {
+    window.open("../topo/run_1_knl01_8960_9477.html");
   });
-  $("#zoom_chart_8336_2").click( function () {
-    window.open("../topo/run_1_knl01_40735_41253.html");
+  $("#zoom_chart_8245_2").click( function () {
+    window.open("../topo/run_1_knl01_8960_8960.html");
   });
-  $("#zoom_chart_8336_3").click( function () {
-    window.open("../topo/run_1_knl01_40735_41251.html");
+  $("#zoom_chart_8245_3").click( function () {
+    window.open("../topo/run_1_knl01_8960_9475.html");
   });
-  $("#zoom_chart_8336_4").click( function () {
-    window.open("../topo/run_1_knl01_40734_40734.html");
+  $("#zoom_chart_8245_4").click( function () {
+    window.open("../topo/run_1_knl01_8961_9474.html");
   });
-  $("#zoom_chart_8336_5").click( function () {
-    window.open("../topo/run_1_knl01_40734_41250.html");
+  $("#zoom_chart_8245_5").click( function () {
+    window.open("../topo/run_1_knl01_8961_8961.html");
   });
-  $("#zoom_chart_8336_6").click( function () {
-    window.open("../topo/run_1_knl01_40734_41252.html");
-  });
-  $("#zoom_chart_8336_7").click( function () {
-    window.open("../topo/run_1_knl01_40735_41255.html");
+  $("#zoom_chart_8245_6").click( function () {
+    window.open("../topo/run_1_knl01_8961_9476.html");
   });
   }
   if (selector_run.value  == "3") {
   $(document).ready(function(){
-    var ordinals = ['knl01_41274_41274','knl01_41272_42045','knl01_41274_42047','knl01_41274_42051','knl01_41274_42044','knl01_41273_41273','knl01_41273_42046','knl01_41272_41272','knl01_41273_42043','knl01_41272_42048','knl01_41272_42050','knl01_41273_42049'];
-    var data = [{value: 0.37, offset: 0, i: 0, color: "#333399"},{value: 0.29, offset: 0, i: 1, color: "#333399"},{value: 0.28, offset: 0, i: 2, color: "#333399"},{value: 0.18, offset: 0, i: 3, color: "#333399"},{value: 0.15, offset: 0, i: 4, color: "#333399"},{value: 0.14, offset: 0, i: 5, color: "#333399"},{value: 0.14, offset: 0, i: 6, color: "#333399"},{value: 0.12, offset: 0, i: 7, color: "#333399"},{value: 0.11, offset: 0, i: 8, color: "#333399"},{value: 0.09, offset: 0, i: 9, color: "#333399"},{value: 0.09, offset: 0, i: 10, color: "#333399"},{value: 0.08, offset: 0, i: 11, color: "#333399"}];
+    var ordinals = ['knl01_9495_9495','knl01_9495_10265','knl01_9496_10270','knl01_9495_10271','knl01_9496_10267','knl01_9494_10266','knl01_9495_10268','knl01_9494_9494','knl01_9496_9496','knl01_9494_10269','knl01_9494_10272','knl01_9496_10273'];
+    var data = [{value: 0.38, offset: 0, i: 0, color: "#333399"},{value: 0.37, offset: 0, i: 1, color: "#333399"},{value: 0.34, offset: 0, i: 2, color: "#333399"},{value: 0.26, offset: 0, i: 3, color: "#333399"},{value: 0.26, offset: 0, i: 4, color: "#333399"},{value: 0.25, offset: 0, i: 5, color: "#333399"},{value: 0.25, offset: 0, i: 6, color: "#333399"},{value: 0.23, offset: 0, i: 7, color: "#333399"},{value: 0.22, offset: 0, i: 8, color: "#333399"},{value: 0.19, offset: 0, i: 9, color: "#333399"},{value: 0.14, offset: 0, i: 10, color: "#333399"},{value: 0.13, offset: 0, i: 11, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -681,7 +676,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_8335')
+    const svg = d3.select('#chart_cat_8244')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -737,13 +732,13 @@ function set_ldbal_input () {
       .text("Coverage (%)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_8335')
+      .attr('id', 'zoom_chart_8244')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_8335_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_8244_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -785,47 +780,47 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
-  $("#zoom_chart_8335_0").click( function () {
-    window.open("../topo/run_2_knl01_41274_41274.html");
+  $("#zoom_chart_8244_0").click( function () {
+    window.open("../topo/run_2_knl01_9495_9495.html");
   });
-  $("#zoom_chart_8335_1").click( function () {
-    window.open("../topo/run_2_knl01_41272_42045.html");
+  $("#zoom_chart_8244_1").click( function () {
+    window.open("../topo/run_2_knl01_9495_10265.html");
   });
-  $("#zoom_chart_8335_2").click( function () {
-    window.open("../topo/run_2_knl01_41274_42047.html");
+  $("#zoom_chart_8244_2").click( function () {
+    window.open("../topo/run_2_knl01_9496_10270.html");
   });
-  $("#zoom_chart_8335_3").click( function () {
-    window.open("../topo/run_2_knl01_41274_42051.html");
+  $("#zoom_chart_8244_3").click( function () {
+    window.open("../topo/run_2_knl01_9495_10271.html");
   });
-  $("#zoom_chart_8335_4").click( function () {
-    window.open("../topo/run_2_knl01_41274_42044.html");
+  $("#zoom_chart_8244_4").click( function () {
+    window.open("../topo/run_2_knl01_9496_10267.html");
   });
-  $("#zoom_chart_8335_5").click( function () {
-    window.open("../topo/run_2_knl01_41273_41273.html");
+  $("#zoom_chart_8244_5").click( function () {
+    window.open("../topo/run_2_knl01_9494_10266.html");
   });
-  $("#zoom_chart_8335_6").click( function () {
-    window.open("../topo/run_2_knl01_41273_42046.html");
+  $("#zoom_chart_8244_6").click( function () {
+    window.open("../topo/run_2_knl01_9495_10268.html");
   });
-  $("#zoom_chart_8335_7").click( function () {
-    window.open("../topo/run_2_knl01_41272_41272.html");
+  $("#zoom_chart_8244_7").click( function () {
+    window.open("../topo/run_2_knl01_9494_9494.html");
   });
-  $("#zoom_chart_8335_8").click( function () {
-    window.open("../topo/run_2_knl01_41273_42043.html");
+  $("#zoom_chart_8244_8").click( function () {
+    window.open("../topo/run_2_knl01_9496_9496.html");
   });
-  $("#zoom_chart_8335_9").click( function () {
-    window.open("../topo/run_2_knl01_41272_42048.html");
+  $("#zoom_chart_8244_9").click( function () {
+    window.open("../topo/run_2_knl01_9494_10269.html");
   });
-  $("#zoom_chart_8335_10").click( function () {
-    window.open("../topo/run_2_knl01_41272_42050.html");
+  $("#zoom_chart_8244_10").click( function () {
+    window.open("../topo/run_2_knl01_9494_10272.html");
   });
-  $("#zoom_chart_8335_11").click( function () {
-    window.open("../topo/run_2_knl01_41273_42049.html");
+  $("#zoom_chart_8244_11").click( function () {
+    window.open("../topo/run_2_knl01_9496_10273.html");
   });
   }
   if (selector_run.value  == "3") {
   $(document).ready(function(){
-    var ordinals = ['knl01_41274_41274','knl01_41272_42045','knl01_41274_42047','knl01_41274_42051','knl01_41273_42046','knl01_41274_42044','knl01_41273_42043','knl01_41272_41272','knl01_41273_41273','knl01_41272_42048','knl01_41272_42050','knl01_41273_42049'];
-    var data = [{value: 0.06, offset: 0, i: 0, color: "#333399"},{value: 0.05, offset: 0, i: 1, color: "#333399"},{value: 0.04, offset: 0, i: 2, color: "#333399"},{value: 0.03, offset: 0, i: 3, color: "#333399"},{value: 0.02, offset: 0, i: 4, color: "#333399"},{value: 0.02, offset: 0, i: 5, color: "#333399"},{value: 0.02, offset: 0, i: 6, color: "#333399"},{value: 0.02, offset: 0, i: 7, color: "#333399"},{value: 0.02, offset: 0, i: 8, color: "#333399"},{value: 0.02, offset: 0, i: 9, color: "#333399"},{value: 0.02, offset: 0, i: 10, color: "#333399"},{value: 0.01, offset: 0, i: 11, color: "#333399"}];
+    var ordinals = ['knl01_9495_9495','knl01_9495_10265','knl01_9496_10270','knl01_9496_10267','knl01_9494_10266','knl01_9495_10271','knl01_9495_10268','knl01_9494_9494','knl01_9496_9496','knl01_9496_10273','knl01_9494_10269','knl01_9494_10272'];
+    var data = [{value: 0.06, offset: 0, i: 0, color: "#333399"},{value: 0.06, offset: 0, i: 1, color: "#333399"},{value: 0.06, offset: 0, i: 2, color: "#333399"},{value: 0.05, offset: 0, i: 3, color: "#333399"},{value: 0.04, offset: 0, i: 4, color: "#333399"},{value: 0.04, offset: 0, i: 5, color: "#333399"},{value: 0.04, offset: 0, i: 6, color: "#333399"},{value: 0.04, offset: 0, i: 7, color: "#333399"},{value: 0.04, offset: 0, i: 8, color: "#333399"},{value: 0.03, offset: 0, i: 9, color: "#333399"},{value: 0.03, offset: 0, i: 10, color: "#333399"},{value: 0.02, offset: 0, i: 11, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -840,7 +835,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_8336')
+    const svg = d3.select('#chart_cat_8245')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -896,13 +891,13 @@ function set_ldbal_input () {
       .text("Time (s)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_8336')
+      .attr('id', 'zoom_chart_8245')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_8336_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_8245_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -944,47 +939,47 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
-  $("#zoom_chart_8336_0").click( function () {
-    window.open("../topo/run_2_knl01_41274_41274.html");
+  $("#zoom_chart_8245_0").click( function () {
+    window.open("../topo/run_2_knl01_9495_9495.html");
   });
-  $("#zoom_chart_8336_1").click( function () {
-    window.open("../topo/run_2_knl01_41272_42045.html");
+  $("#zoom_chart_8245_1").click( function () {
+    window.open("../topo/run_2_knl01_9495_10265.html");
   });
-  $("#zoom_chart_8336_2").click( function () {
-    window.open("../topo/run_2_knl01_41274_42047.html");
+  $("#zoom_chart_8245_2").click( function () {
+    window.open("../topo/run_2_knl01_9496_10270.html");
   });
-  $("#zoom_chart_8336_3").click( function () {
-    window.open("../topo/run_2_knl01_41274_42051.html");
+  $("#zoom_chart_8245_3").click( function () {
+    window.open("../topo/run_2_knl01_9496_10267.html");
   });
-  $("#zoom_chart_8336_4").click( function () {
-    window.open("../topo/run_2_knl01_41273_42046.html");
+  $("#zoom_chart_8245_4").click( function () {
+    window.open("../topo/run_2_knl01_9494_10266.html");
   });
-  $("#zoom_chart_8336_5").click( function () {
-    window.open("../topo/run_2_knl01_41274_42044.html");
+  $("#zoom_chart_8245_5").click( function () {
+    window.open("../topo/run_2_knl01_9495_10271.html");
   });
-  $("#zoom_chart_8336_6").click( function () {
-    window.open("../topo/run_2_knl01_41273_42043.html");
+  $("#zoom_chart_8245_6").click( function () {
+    window.open("../topo/run_2_knl01_9495_10268.html");
   });
-  $("#zoom_chart_8336_7").click( function () {
-    window.open("../topo/run_2_knl01_41272_41272.html");
+  $("#zoom_chart_8245_7").click( function () {
+    window.open("../topo/run_2_knl01_9494_9494.html");
   });
-  $("#zoom_chart_8336_8").click( function () {
-    window.open("../topo/run_2_knl01_41273_41273.html");
+  $("#zoom_chart_8245_8").click( function () {
+    window.open("../topo/run_2_knl01_9496_9496.html");
   });
-  $("#zoom_chart_8336_9").click( function () {
-    window.open("../topo/run_2_knl01_41272_42048.html");
+  $("#zoom_chart_8245_9").click( function () {
+    window.open("../topo/run_2_knl01_9496_10273.html");
   });
-  $("#zoom_chart_8336_10").click( function () {
-    window.open("../topo/run_2_knl01_41272_42050.html");
+  $("#zoom_chart_8245_10").click( function () {
+    window.open("../topo/run_2_knl01_9494_10269.html");
   });
-  $("#zoom_chart_8336_11").click( function () {
-    window.open("../topo/run_2_knl01_41273_42049.html");
+  $("#zoom_chart_8245_11").click( function () {
+    window.open("../topo/run_2_knl01_9494_10272.html");
   });
   }
   if (selector_run.value  == "4") {
   $(document).ready(function(){
-    var ordinals = ['knl01_42074_42074','knl01_42074_43100','knl01_42075_43103','knl01_42072_42072','knl01_42073_43101','knl01_42072_43102','knl01_42075_42075','knl01_42073_42073'];
-    var data = [{value: 0.32, offset: 0, i: 0, color: "#333399"},{value: 0.28, offset: 0, i: 1, color: "#333399"},{value: 0.2, offset: 0, i: 2, color: "#333399"},{value: 0.16, offset: 0, i: 3, color: "#333399"},{value: 0.12, offset: 0, i: 4, color: "#333399"},{value: 0.12, offset: 0, i: 5, color: "#333399"},{value: 0.08, offset: 0, i: 6, color: "#333399"},{value: 0.08, offset: 0, i: 7, color: "#333399"}];
+    var ordinals = ['knl01_10296_10296','knl01_10295_10295','knl01_10293_11324','knl01_10296_11323','knl01_10294_11322','knl01_10295_11321','knl01_10293_10293','knl01_10294_10294'];
+    var data = [{value: 0.28, offset: 0, i: 0, color: "#333399"},{value: 0.18, offset: 0, i: 1, color: "#333399"},{value: 0.18, offset: 0, i: 2, color: "#333399"},{value: 0.14, offset: 0, i: 3, color: "#333399"},{value: 0.14, offset: 0, i: 4, color: "#333399"},{value: 0.11, offset: 0, i: 5, color: "#333399"},{value: 0.11, offset: 0, i: 6, color: "#333399"},{value: 0.07, offset: 0, i: 7, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -999,7 +994,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_8335')
+    const svg = d3.select('#chart_cat_8244')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -1055,13 +1050,13 @@ function set_ldbal_input () {
       .text("Coverage (%)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_8335')
+      .attr('id', 'zoom_chart_8244')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_8335_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_8244_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -1103,35 +1098,35 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
-  $("#zoom_chart_8335_0").click( function () {
-    window.open("../topo/run_3_knl01_42074_42074.html");
+  $("#zoom_chart_8244_0").click( function () {
+    window.open("../topo/run_3_knl01_10296_10296.html");
   });
-  $("#zoom_chart_8335_1").click( function () {
-    window.open("../topo/run_3_knl01_42074_43100.html");
+  $("#zoom_chart_8244_1").click( function () {
+    window.open("../topo/run_3_knl01_10295_10295.html");
   });
-  $("#zoom_chart_8335_2").click( function () {
-    window.open("../topo/run_3_knl01_42075_43103.html");
+  $("#zoom_chart_8244_2").click( function () {
+    window.open("../topo/run_3_knl01_10293_11324.html");
   });
-  $("#zoom_chart_8335_3").click( function () {
-    window.open("../topo/run_3_knl01_42072_42072.html");
+  $("#zoom_chart_8244_3").click( function () {
+    window.open("../topo/run_3_knl01_10296_11323.html");
   });
-  $("#zoom_chart_8335_4").click( function () {
-    window.open("../topo/run_3_knl01_42073_43101.html");
+  $("#zoom_chart_8244_4").click( function () {
+    window.open("../topo/run_3_knl01_10294_11322.html");
   });
-  $("#zoom_chart_8335_5").click( function () {
-    window.open("../topo/run_3_knl01_42072_43102.html");
+  $("#zoom_chart_8244_5").click( function () {
+    window.open("../topo/run_3_knl01_10295_11321.html");
   });
-  $("#zoom_chart_8335_6").click( function () {
-    window.open("../topo/run_3_knl01_42075_42075.html");
+  $("#zoom_chart_8244_6").click( function () {
+    window.open("../topo/run_3_knl01_10293_10293.html");
   });
-  $("#zoom_chart_8335_7").click( function () {
-    window.open("../topo/run_3_knl01_42073_42073.html");
+  $("#zoom_chart_8244_7").click( function () {
+    window.open("../topo/run_3_knl01_10294_10294.html");
   });
   }
   if (selector_run.value  == "4") {
   $(document).ready(function(){
-    var ordinals = ['knl01_42074_42074','knl01_42074_43100','knl01_42075_43103','knl01_42072_42072','knl01_42073_42073','knl01_42075_42075','knl01_42072_43102','knl01_42073_43101'];
-    var data = [{value: 0.04, offset: 0, i: 0, color: "#333399"},{value: 0.04, offset: 0, i: 1, color: "#333399"},{value: 0.03, offset: 0, i: 2, color: "#333399"},{value: 0.02, offset: 0, i: 3, color: "#333399"},{value: 0.01, offset: 0, i: 4, color: "#333399"},{value: 0.01, offset: 0, i: 5, color: "#333399"},{value: 0.01, offset: 0, i: 6, color: "#333399"},{value: 0.01, offset: 0, i: 7, color: "#333399"}];
+    var ordinals = ['knl01_10296_10296','knl01_10295_10295','knl01_10296_11323','knl01_10294_11322','knl01_10293_11324','knl01_10294_10294','knl01_10295_11321','knl01_10293_10293'];
+    var data = [{value: 0.04, offset: 0, i: 0, color: "#333399"},{value: 0.02, offset: 0, i: 1, color: "#333399"},{value: 0.02, offset: 0, i: 2, color: "#333399"},{value: 0.02, offset: 0, i: 3, color: "#333399"},{value: 0.02, offset: 0, i: 4, color: "#333399"},{value: 0.01, offset: 0, i: 5, color: "#333399"},{value: 0.01, offset: 0, i: 6, color: "#333399"},{value: 0.01, offset: 0, i: 7, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -1146,7 +1141,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_8336')
+    const svg = d3.select('#chart_cat_8245')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -1202,13 +1197,13 @@ function set_ldbal_input () {
       .text("Time (s)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_8336')
+      .attr('id', 'zoom_chart_8245')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_8336_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_8245_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -1250,35 +1245,35 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
-  $("#zoom_chart_8336_0").click( function () {
-    window.open("../topo/run_3_knl01_42074_42074.html");
+  $("#zoom_chart_8245_0").click( function () {
+    window.open("../topo/run_3_knl01_10296_10296.html");
   });
-  $("#zoom_chart_8336_1").click( function () {
-    window.open("../topo/run_3_knl01_42074_43100.html");
+  $("#zoom_chart_8245_1").click( function () {
+    window.open("../topo/run_3_knl01_10295_10295.html");
   });
-  $("#zoom_chart_8336_2").click( function () {
-    window.open("../topo/run_3_knl01_42075_43103.html");
+  $("#zoom_chart_8245_2").click( function () {
+    window.open("../topo/run_3_knl01_10296_11323.html");
   });
-  $("#zoom_chart_8336_3").click( function () {
-    window.open("../topo/run_3_knl01_42072_42072.html");
+  $("#zoom_chart_8245_3").click( function () {
+    window.open("../topo/run_3_knl01_10294_11322.html");
   });
-  $("#zoom_chart_8336_4").click( function () {
-    window.open("../topo/run_3_knl01_42073_42073.html");
+  $("#zoom_chart_8245_4").click( function () {
+    window.open("../topo/run_3_knl01_10293_11324.html");
   });
-  $("#zoom_chart_8336_5").click( function () {
-    window.open("../topo/run_3_knl01_42075_42075.html");
+  $("#zoom_chart_8245_5").click( function () {
+    window.open("../topo/run_3_knl01_10294_10294.html");
   });
-  $("#zoom_chart_8336_6").click( function () {
-    window.open("../topo/run_3_knl01_42072_43102.html");
+  $("#zoom_chart_8245_6").click( function () {
+    window.open("../topo/run_3_knl01_10295_11321.html");
   });
-  $("#zoom_chart_8336_7").click( function () {
-    window.open("../topo/run_3_knl01_42073_43101.html");
+  $("#zoom_chart_8245_7").click( function () {
+    window.open("../topo/run_3_knl01_10293_10293.html");
   });
   }
   if (selector_run.value  == "5") {
   $(document).ready(function(){
-    var ordinals = ['knl01_43128_44160','knl01_43130_44159','knl01_43131_44164','knl01_43128_43128','knl01_43130_43130','knl01_43128_44165','knl01_43131_44161','knl01_43129_44162','knl01_43131_44156','knl01_43131_43131','knl01_43130_44163','knl01_43129_43129','knl01_43130_44167','knl01_43129_44157'];
-    var data = [{value: 0.41, offset: 0, i: 0, color: "#333399"},{value: 0.34, offset: 0, i: 1, color: "#333399"},{value: 0.21, offset: 0, i: 2, color: "#333399"},{value: 0.2, offset: 0, i: 3, color: "#333399"},{value: 0.14, offset: 0, i: 4, color: "#333399"},{value: 0.14, offset: 0, i: 5, color: "#333399"},{value: 0.14, offset: 0, i: 6, color: "#333399"},{value: 0.14, offset: 0, i: 7, color: "#333399"},{value: 0.07, offset: 0, i: 8, color: "#333399"},{value: 0.07, offset: 0, i: 9, color: "#333399"},{value: 0.07, offset: 0, i: 10, color: "#333399"},{value: 0.07, offset: 0, i: 11, color: "#333399"},{value: 0.07, offset: 0, i: 12, color: "#333399"},{value: 0.07, offset: 0, i: 13, color: "#333399"}];
+    var ordinals = ['knl01_11358_12385','knl01_11356_12390','knl01_11358_12389','knl01_11358_11358','knl01_11356_11356','knl01_11357_12394','knl01_11359_12392','knl01_11357_12391','knl01_11357_11357','knl01_11356_12387','knl01_11357_12386','knl01_11356_12393','knl01_11358_12384','knl01_11359_12395'];
+    var data = [{value: 0.18, offset: 0, i: 0, color: "#333399"},{value: 0.18, offset: 0, i: 1, color: "#333399"},{value: 0.18, offset: 0, i: 2, color: "#333399"},{value: 0.12, offset: 0, i: 3, color: "#333399"},{value: 0.12, offset: 0, i: 4, color: "#333399"},{value: 0.12, offset: 0, i: 5, color: "#333399"},{value: 0.12, offset: 0, i: 6, color: "#333399"},{value: 0.12, offset: 0, i: 7, color: "#333399"},{value: 0.12, offset: 0, i: 8, color: "#333399"},{value: 0.12, offset: 0, i: 9, color: "#333399"},{value: 0.12, offset: 0, i: 10, color: "#333399"},{value: 0.12, offset: 0, i: 11, color: "#333399"},{value: 0.06, offset: 0, i: 12, color: "#333399"},{value: 0.06, offset: 0, i: 13, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -1293,7 +1288,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_8335')
+    const svg = d3.select('#chart_cat_8244')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -1349,13 +1344,13 @@ function set_ldbal_input () {
       .text("Coverage (%)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_8335')
+      .attr('id', 'zoom_chart_8244')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_8335_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_8244_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -1397,53 +1392,53 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
-  $("#zoom_chart_8335_0").click( function () {
-    window.open("../topo/run_4_knl01_43128_44160.html");
+  $("#zoom_chart_8244_0").click( function () {
+    window.open("../topo/run_4_knl01_11358_12385.html");
   });
-  $("#zoom_chart_8335_1").click( function () {
-    window.open("../topo/run_4_knl01_43130_44159.html");
+  $("#zoom_chart_8244_1").click( function () {
+    window.open("../topo/run_4_knl01_11356_12390.html");
   });
-  $("#zoom_chart_8335_2").click( function () {
-    window.open("../topo/run_4_knl01_43131_44164.html");
+  $("#zoom_chart_8244_2").click( function () {
+    window.open("../topo/run_4_knl01_11358_12389.html");
   });
-  $("#zoom_chart_8335_3").click( function () {
-    window.open("../topo/run_4_knl01_43128_43128.html");
+  $("#zoom_chart_8244_3").click( function () {
+    window.open("../topo/run_4_knl01_11358_11358.html");
   });
-  $("#zoom_chart_8335_4").click( function () {
-    window.open("../topo/run_4_knl01_43130_43130.html");
+  $("#zoom_chart_8244_4").click( function () {
+    window.open("../topo/run_4_knl01_11356_11356.html");
   });
-  $("#zoom_chart_8335_5").click( function () {
-    window.open("../topo/run_4_knl01_43128_44165.html");
+  $("#zoom_chart_8244_5").click( function () {
+    window.open("../topo/run_4_knl01_11357_12394.html");
   });
-  $("#zoom_chart_8335_6").click( function () {
-    window.open("../topo/run_4_knl01_43131_44161.html");
+  $("#zoom_chart_8244_6").click( function () {
+    window.open("../topo/run_4_knl01_11359_12392.html");
   });
-  $("#zoom_chart_8335_7").click( function () {
-    window.open("../topo/run_4_knl01_43129_44162.html");
+  $("#zoom_chart_8244_7").click( function () {
+    window.open("../topo/run_4_knl01_11357_12391.html");
   });
-  $("#zoom_chart_8335_8").click( function () {
-    window.open("../topo/run_4_knl01_43131_44156.html");
+  $("#zoom_chart_8244_8").click( function () {
+    window.open("../topo/run_4_knl01_11357_11357.html");
   });
-  $("#zoom_chart_8335_9").click( function () {
-    window.open("../topo/run_4_knl01_43131_43131.html");
+  $("#zoom_chart_8244_9").click( function () {
+    window.open("../topo/run_4_knl01_11356_12387.html");
   });
-  $("#zoom_chart_8335_10").click( function () {
-    window.open("../topo/run_4_knl01_43130_44163.html");
+  $("#zoom_chart_8244_10").click( function () {
+    window.open("../topo/run_4_knl01_11357_12386.html");
   });
-  $("#zoom_chart_8335_11").click( function () {
-    window.open("../topo/run_4_knl01_43129_43129.html");
+  $("#zoom_chart_8244_11").click( function () {
+    window.open("../topo/run_4_knl01_11356_12393.html");
   });
-  $("#zoom_chart_8335_12").click( function () {
-    window.open("../topo/run_4_knl01_43130_44167.html");
+  $("#zoom_chart_8244_12").click( function () {
+    window.open("../topo/run_4_knl01_11358_12384.html");
   });
-  $("#zoom_chart_8335_13").click( function () {
-    window.open("../topo/run_4_knl01_43129_44157.html");
+  $("#zoom_chart_8244_13").click( function () {
+    window.open("../topo/run_4_knl01_11359_12395.html");
   });
   }
   if (selector_run.value  == "5") {
   $(document).ready(function(){
-    var ordinals = ['knl01_43128_44160','knl01_43130_44159','knl01_43128_43128','knl01_43131_43131','knl01_43131_44156','knl01_43131_44161','knl01_43130_43130','knl01_43129_44157','knl01_43128_44165','knl01_43129_44162','knl01_43129_43129','knl01_43131_44164','knl01_43130_44167','knl01_43130_44163'];
-    var data = [{value: 0.03, offset: 0, i: 0, color: "#333399"},{value: 0.02, offset: 0, i: 1, color: "#333399"},{value: 0.01, offset: 0, i: 2, color: "#333399"},{value: 0.01, offset: 0, i: 3, color: "#333399"},{value: 0.01, offset: 0, i: 4, color: "#333399"},{value: 0.01, offset: 0, i: 5, color: "#333399"},{value: 0.01, offset: 0, i: 6, color: "#333399"},{value: 0.01, offset: 0, i: 7, color: "#333399"},{value: 0.01, offset: 0, i: 8, color: "#333399"},{value: 0.01, offset: 0, i: 9, color: "#333399"},{value: 0.01, offset: 0, i: 10, color: "#333399"},{value: 0.01, offset: 0, i: 11, color: "#333399"},{value: 0, offset: 0, i: 12, color: "#333399"},{value: 0, offset: 0, i: 13, color: "#333399"}];
+    var ordinals = ['knl01_11356_11356','knl01_11358_11358','knl01_11357_12394','knl01_11358_12385','knl01_11358_12389','knl01_11359_12392','knl01_11357_12391','knl01_11357_11357','knl01_11356_12387','knl01_11357_12386','knl01_11356_12390','knl01_11356_12393','knl01_11358_12384','knl01_11359_12395'];
+    var data = [{value: 0.01, offset: 0, i: 0, color: "#333399"},{value: 0.01, offset: 0, i: 1, color: "#333399"},{value: 0.01, offset: 0, i: 2, color: "#333399"},{value: 0.01, offset: 0, i: 3, color: "#333399"},{value: 0.01, offset: 0, i: 4, color: "#333399"},{value: 0.01, offset: 0, i: 5, color: "#333399"},{value: 0.01, offset: 0, i: 6, color: "#333399"},{value: 0.01, offset: 0, i: 7, color: "#333399"},{value: 0.01, offset: 0, i: 8, color: "#333399"},{value: 0.01, offset: 0, i: 9, color: "#333399"},{value: 0.01, offset: 0, i: 10, color: "#333399"},{value: 0.01, offset: 0, i: 11, color: "#333399"},{value: 0, offset: 0, i: 12, color: "#333399"},{value: 0, offset: 0, i: 13, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -1458,7 +1453,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_8336')
+    const svg = d3.select('#chart_cat_8245')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -1514,13 +1509,13 @@ function set_ldbal_input () {
       .text("Time (s)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_8336')
+      .attr('id', 'zoom_chart_8245')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_8336_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_8245_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -1562,53 +1557,53 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
-  $("#zoom_chart_8336_0").click( function () {
-    window.open("../topo/run_4_knl01_43128_44160.html");
+  $("#zoom_chart_8245_0").click( function () {
+    window.open("../topo/run_4_knl01_11356_11356.html");
   });
-  $("#zoom_chart_8336_1").click( function () {
-    window.open("../topo/run_4_knl01_43130_44159.html");
+  $("#zoom_chart_8245_1").click( function () {
+    window.open("../topo/run_4_knl01_11358_11358.html");
   });
-  $("#zoom_chart_8336_2").click( function () {
-    window.open("../topo/run_4_knl01_43128_43128.html");
+  $("#zoom_chart_8245_2").click( function () {
+    window.open("../topo/run_4_knl01_11357_12394.html");
   });
-  $("#zoom_chart_8336_3").click( function () {
-    window.open("../topo/run_4_knl01_43131_43131.html");
+  $("#zoom_chart_8245_3").click( function () {
+    window.open("../topo/run_4_knl01_11358_12385.html");
   });
-  $("#zoom_chart_8336_4").click( function () {
-    window.open("../topo/run_4_knl01_43131_44156.html");
+  $("#zoom_chart_8245_4").click( function () {
+    window.open("../topo/run_4_knl01_11358_12389.html");
   });
-  $("#zoom_chart_8336_5").click( function () {
-    window.open("../topo/run_4_knl01_43131_44161.html");
+  $("#zoom_chart_8245_5").click( function () {
+    window.open("../topo/run_4_knl01_11359_12392.html");
   });
-  $("#zoom_chart_8336_6").click( function () {
-    window.open("../topo/run_4_knl01_43130_43130.html");
+  $("#zoom_chart_8245_6").click( function () {
+    window.open("../topo/run_4_knl01_11357_12391.html");
   });
-  $("#zoom_chart_8336_7").click( function () {
-    window.open("../topo/run_4_knl01_43129_44157.html");
+  $("#zoom_chart_8245_7").click( function () {
+    window.open("../topo/run_4_knl01_11357_11357.html");
   });
-  $("#zoom_chart_8336_8").click( function () {
-    window.open("../topo/run_4_knl01_43128_44165.html");
+  $("#zoom_chart_8245_8").click( function () {
+    window.open("../topo/run_4_knl01_11356_12387.html");
   });
-  $("#zoom_chart_8336_9").click( function () {
-    window.open("../topo/run_4_knl01_43129_44162.html");
+  $("#zoom_chart_8245_9").click( function () {
+    window.open("../topo/run_4_knl01_11357_12386.html");
   });
-  $("#zoom_chart_8336_10").click( function () {
-    window.open("../topo/run_4_knl01_43129_43129.html");
+  $("#zoom_chart_8245_10").click( function () {
+    window.open("../topo/run_4_knl01_11356_12390.html");
   });
-  $("#zoom_chart_8336_11").click( function () {
-    window.open("../topo/run_4_knl01_43131_44164.html");
+  $("#zoom_chart_8245_11").click( function () {
+    window.open("../topo/run_4_knl01_11356_12393.html");
   });
-  $("#zoom_chart_8336_12").click( function () {
-    window.open("../topo/run_4_knl01_43130_44167.html");
+  $("#zoom_chart_8245_12").click( function () {
+    window.open("../topo/run_4_knl01_11358_12384.html");
   });
-  $("#zoom_chart_8336_13").click( function () {
-    window.open("../topo/run_4_knl01_43130_44163.html");
+  $("#zoom_chart_8245_13").click( function () {
+    window.open("../topo/run_4_knl01_11359_12395.html");
   });
   }
   if (selector_run.value  == "6") {
   $(document).ready(function(){
-    var ordinals = ['knl01_44195_44195','knl01_44194_44208','knl01_44194_44194','knl01_44196_44196','knl01_44197_44205','knl01_44196_44207','knl01_44197_44197','knl01_44192_44192','knl01_44192_44204','knl01_44193_44206','knl01_44195_44209','knl01_44193_44193'];
-    var data = [{value: 0.49, offset: 0, i: 0, color: "#333399"},{value: 0.45, offset: 0, i: 1, color: "#333399"},{value: 0.45, offset: 0, i: 2, color: "#333399"},{value: 0.36, offset: 0, i: 3, color: "#333399"},{value: 0.36, offset: 0, i: 4, color: "#333399"},{value: 0.31, offset: 0, i: 5, color: "#333399"},{value: 0.27, offset: 0, i: 6, color: "#333399"},{value: 0.27, offset: 0, i: 7, color: "#333399"},{value: 0.22, offset: 0, i: 8, color: "#333399"},{value: 0.14, offset: 0, i: 9, color: "#333399"},{value: 0.13, offset: 0, i: 10, color: "#333399"},{value: 0.05, offset: 0, i: 11, color: "#333399"}];
+    var ordinals = ['knl01_12421_12437','knl01_12425_12434','knl01_12422_12422','knl01_12421_12421','knl01_12424_12424','knl01_12426_12426','knl01_12424_12433','knl01_12426_12435','knl01_12422_12436','knl01_12423_12423','knl01_12423_12438','knl01_12425_12425'];
+    var data = [{value: 0.33, offset: 0, i: 0, color: "#333399"},{value: 0.32, offset: 0, i: 1, color: "#333399"},{value: 0.25, offset: 0, i: 2, color: "#333399"},{value: 0.25, offset: 0, i: 3, color: "#333399"},{value: 0.24, offset: 0, i: 4, color: "#333399"},{value: 0.24, offset: 0, i: 5, color: "#333399"},{value: 0.2, offset: 0, i: 6, color: "#333399"},{value: 0.2, offset: 0, i: 7, color: "#333399"},{value: 0.2, offset: 0, i: 8, color: "#333399"},{value: 0.16, offset: 0, i: 9, color: "#333399"},{value: 0.16, offset: 0, i: 10, color: "#333399"},{value: 0.08, offset: 0, i: 11, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -1623,7 +1618,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_8335')
+    const svg = d3.select('#chart_cat_8244')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -1679,13 +1674,13 @@ function set_ldbal_input () {
       .text("Coverage (%)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_8335')
+      .attr('id', 'zoom_chart_8244')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_8335_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_8244_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -1727,47 +1722,47 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
-  $("#zoom_chart_8335_0").click( function () {
-    window.open("../topo/run_5_knl01_44195_44195.html");
+  $("#zoom_chart_8244_0").click( function () {
+    window.open("../topo/run_5_knl01_12421_12437.html");
   });
-  $("#zoom_chart_8335_1").click( function () {
-    window.open("../topo/run_5_knl01_44194_44208.html");
+  $("#zoom_chart_8244_1").click( function () {
+    window.open("../topo/run_5_knl01_12425_12434.html");
   });
-  $("#zoom_chart_8335_2").click( function () {
-    window.open("../topo/run_5_knl01_44194_44194.html");
+  $("#zoom_chart_8244_2").click( function () {
+    window.open("../topo/run_5_knl01_12422_12422.html");
   });
-  $("#zoom_chart_8335_3").click( function () {
-    window.open("../topo/run_5_knl01_44196_44196.html");
+  $("#zoom_chart_8244_3").click( function () {
+    window.open("../topo/run_5_knl01_12421_12421.html");
   });
-  $("#zoom_chart_8335_4").click( function () {
-    window.open("../topo/run_5_knl01_44197_44205.html");
+  $("#zoom_chart_8244_4").click( function () {
+    window.open("../topo/run_5_knl01_12424_12424.html");
   });
-  $("#zoom_chart_8335_5").click( function () {
-    window.open("../topo/run_5_knl01_44196_44207.html");
+  $("#zoom_chart_8244_5").click( function () {
+    window.open("../topo/run_5_knl01_12426_12426.html");
   });
-  $("#zoom_chart_8335_6").click( function () {
-    window.open("../topo/run_5_knl01_44197_44197.html");
+  $("#zoom_chart_8244_6").click( function () {
+    window.open("../topo/run_5_knl01_12424_12433.html");
   });
-  $("#zoom_chart_8335_7").click( function () {
-    window.open("../topo/run_5_knl01_44192_44192.html");
+  $("#zoom_chart_8244_7").click( function () {
+    window.open("../topo/run_5_knl01_12426_12435.html");
   });
-  $("#zoom_chart_8335_8").click( function () {
-    window.open("../topo/run_5_knl01_44192_44204.html");
+  $("#zoom_chart_8244_8").click( function () {
+    window.open("../topo/run_5_knl01_12422_12436.html");
   });
-  $("#zoom_chart_8335_9").click( function () {
-    window.open("../topo/run_5_knl01_44193_44206.html");
+  $("#zoom_chart_8244_9").click( function () {
+    window.open("../topo/run_5_knl01_12423_12423.html");
   });
-  $("#zoom_chart_8335_10").click( function () {
-    window.open("../topo/run_5_knl01_44195_44209.html");
+  $("#zoom_chart_8244_10").click( function () {
+    window.open("../topo/run_5_knl01_12423_12438.html");
   });
-  $("#zoom_chart_8335_11").click( function () {
-    window.open("../topo/run_5_knl01_44193_44193.html");
+  $("#zoom_chart_8244_11").click( function () {
+    window.open("../topo/run_5_knl01_12425_12425.html");
   });
   }
   if (selector_run.value  == "6") {
   $(document).ready(function(){
-    var ordinals = ['knl01_44194_44208','knl01_44195_44195','knl01_44194_44194','knl01_44196_44196','knl01_44197_44205','knl01_44197_44197','knl01_44196_44207','knl01_44192_44192','knl01_44192_44204','knl01_44195_44209','knl01_44193_44206','knl01_44193_44193'];
-    var data = [{value: 0.05, offset: 0, i: 0, color: "#333399"},{value: 0.05, offset: 0, i: 1, color: "#333399"},{value: 0.05, offset: 0, i: 2, color: "#333399"},{value: 0.04, offset: 0, i: 3, color: "#333399"},{value: 0.04, offset: 0, i: 4, color: "#333399"},{value: 0.03, offset: 0, i: 5, color: "#333399"},{value: 0.03, offset: 0, i: 6, color: "#333399"},{value: 0.03, offset: 0, i: 7, color: "#333399"},{value: 0.02, offset: 0, i: 8, color: "#333399"},{value: 0.01, offset: 0, i: 9, color: "#333399"},{value: 0.01, offset: 0, i: 10, color: "#333399"},{value: 0, offset: 0, i: 11, color: "#333399"}];
+    var ordinals = ['knl01_12425_12434','knl01_12421_12437','knl01_12424_12433','knl01_12426_12426','knl01_12421_12421','knl01_12422_12422','knl01_12424_12424','knl01_12423_12438','knl01_12426_12435','knl01_12423_12423','knl01_12422_12436','knl01_12425_12425'];
+    var data = [{value: 0.04, offset: 0, i: 0, color: "#333399"},{value: 0.04, offset: 0, i: 1, color: "#333399"},{value: 0.03, offset: 0, i: 2, color: "#333399"},{value: 0.03, offset: 0, i: 3, color: "#333399"},{value: 0.03, offset: 0, i: 4, color: "#333399"},{value: 0.03, offset: 0, i: 5, color: "#333399"},{value: 0.03, offset: 0, i: 6, color: "#333399"},{value: 0.02, offset: 0, i: 7, color: "#333399"},{value: 0.02, offset: 0, i: 8, color: "#333399"},{value: 0.02, offset: 0, i: 9, color: "#333399"},{value: 0.02, offset: 0, i: 10, color: "#333399"},{value: 0.01, offset: 0, i: 11, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -1782,7 +1777,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_8336')
+    const svg = d3.select('#chart_cat_8245')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -1838,13 +1833,13 @@ function set_ldbal_input () {
       .text("Time (s)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_8336')
+      .attr('id', 'zoom_chart_8245')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_8336_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_8245_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -1886,47 +1881,47 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
-  $("#zoom_chart_8336_0").click( function () {
-    window.open("../topo/run_5_knl01_44194_44208.html");
+  $("#zoom_chart_8245_0").click( function () {
+    window.open("../topo/run_5_knl01_12425_12434.html");
   });
-  $("#zoom_chart_8336_1").click( function () {
-    window.open("../topo/run_5_knl01_44195_44195.html");
+  $("#zoom_chart_8245_1").click( function () {
+    window.open("../topo/run_5_knl01_12421_12437.html");
   });
-  $("#zoom_chart_8336_2").click( function () {
-    window.open("../topo/run_5_knl01_44194_44194.html");
+  $("#zoom_chart_8245_2").click( function () {
+    window.open("../topo/run_5_knl01_12424_12433.html");
   });
-  $("#zoom_chart_8336_3").click( function () {
-    window.open("../topo/run_5_knl01_44196_44196.html");
+  $("#zoom_chart_8245_3").click( function () {
+    window.open("../topo/run_5_knl01_12426_12426.html");
   });
-  $("#zoom_chart_8336_4").click( function () {
-    window.open("../topo/run_5_knl01_44197_44205.html");
+  $("#zoom_chart_8245_4").click( function () {
+    window.open("../topo/run_5_knl01_12421_12421.html");
   });
-  $("#zoom_chart_8336_5").click( function () {
-    window.open("../topo/run_5_knl01_44197_44197.html");
+  $("#zoom_chart_8245_5").click( function () {
+    window.open("../topo/run_5_knl01_12422_12422.html");
   });
-  $("#zoom_chart_8336_6").click( function () {
-    window.open("../topo/run_5_knl01_44196_44207.html");
+  $("#zoom_chart_8245_6").click( function () {
+    window.open("../topo/run_5_knl01_12424_12424.html");
   });
-  $("#zoom_chart_8336_7").click( function () {
-    window.open("../topo/run_5_knl01_44192_44192.html");
+  $("#zoom_chart_8245_7").click( function () {
+    window.open("../topo/run_5_knl01_12423_12438.html");
   });
-  $("#zoom_chart_8336_8").click( function () {
-    window.open("../topo/run_5_knl01_44192_44204.html");
+  $("#zoom_chart_8245_8").click( function () {
+    window.open("../topo/run_5_knl01_12426_12435.html");
   });
-  $("#zoom_chart_8336_9").click( function () {
-    window.open("../topo/run_5_knl01_44195_44209.html");
+  $("#zoom_chart_8245_9").click( function () {
+    window.open("../topo/run_5_knl01_12423_12423.html");
   });
-  $("#zoom_chart_8336_10").click( function () {
-    window.open("../topo/run_5_knl01_44193_44206.html");
+  $("#zoom_chart_8245_10").click( function () {
+    window.open("../topo/run_5_knl01_12422_12436.html");
   });
-  $("#zoom_chart_8336_11").click( function () {
-    window.open("../topo/run_5_knl01_44193_44193.html");
+  $("#zoom_chart_8245_11").click( function () {
+    window.open("../topo/run_5_knl01_12425_12425.html");
   });
   }
   if (selector_run.value  == "7") {
   $(document).ready(function(){
-    var ordinals = ['knl01_44260_44271','knl01_44255_44255','knl01_44254_44254','knl01_44260_44260','knl01_44259_44272','knl01_44257_44274','knl01_44258_44258','knl01_44256_44270','knl01_44253_44253','knl01_44253_44281','knl01_44257_44257','knl01_44258_44273','knl01_44254_44269','knl01_44256_44256'];
-    var data = [{value: 0.3, offset: 0, i: 0, color: "#333399"},{value: 0.22, offset: 0, i: 1, color: "#333399"},{value: 0.22, offset: 0, i: 2, color: "#333399"},{value: 0.22, offset: 0, i: 3, color: "#333399"},{value: 0.15, offset: 0, i: 4, color: "#333399"},{value: 0.15, offset: 0, i: 5, color: "#333399"},{value: 0.15, offset: 0, i: 6, color: "#333399"},{value: 0.15, offset: 0, i: 7, color: "#333399"},{value: 0.15, offset: 0, i: 8, color: "#333399"},{value: 0.15, offset: 0, i: 9, color: "#333399"},{value: 0.07, offset: 0, i: 10, color: "#333399"},{value: 0.07, offset: 0, i: 11, color: "#333399"},{value: 0.07, offset: 0, i: 12, color: "#333399"},{value: 0.07, offset: 0, i: 13, color: "#333399"}];
+    var ordinals = ['knl01_12488_12488','knl01_12489_12507','knl01_12488_12506','knl01_12493_12493','knl01_12492_12508','knl01_12490_12505','knl01_12486_12486','knl01_12487_12503','knl01_12490_12490','knl01_12491_12491','knl01_12486_12511','knl01_12492_12492','knl01_12491_12502','knl01_12487_12487','knl01_12489_12489','knl01_12493_12504'];
+    var data = [{value: 0.41, offset: 0, i: 0, color: "#333399"},{value: 0.28, offset: 0, i: 1, color: "#333399"},{value: 0.21, offset: 0, i: 2, color: "#333399"},{value: 0.2, offset: 0, i: 3, color: "#333399"},{value: 0.14, offset: 0, i: 4, color: "#333399"},{value: 0.14, offset: 0, i: 5, color: "#333399"},{value: 0.14, offset: 0, i: 6, color: "#333399"},{value: 0.14, offset: 0, i: 7, color: "#333399"},{value: 0.13, offset: 0, i: 8, color: "#333399"},{value: 0.13, offset: 0, i: 9, color: "#333399"},{value: 0.07, offset: 0, i: 10, color: "#333399"},{value: 0.07, offset: 0, i: 11, color: "#333399"},{value: 0.07, offset: 0, i: 12, color: "#333399"},{value: 0.07, offset: 0, i: 13, color: "#333399"},{value: 0.07, offset: 0, i: 14, color: "#333399"},{value: 0.07, offset: 0, i: 15, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -1941,7 +1936,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_8335')
+    const svg = d3.select('#chart_cat_8244')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -1997,13 +1992,13 @@ function set_ldbal_input () {
       .text("Coverage (%)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_8335')
+      .attr('id', 'zoom_chart_8244')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_8335_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_8244_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -2045,53 +2040,59 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
-  $("#zoom_chart_8335_0").click( function () {
-    window.open("../topo/run_6_knl01_44260_44271.html");
+  $("#zoom_chart_8244_0").click( function () {
+    window.open("../topo/run_6_knl01_12488_12488.html");
   });
-  $("#zoom_chart_8335_1").click( function () {
-    window.open("../topo/run_6_knl01_44255_44255.html");
+  $("#zoom_chart_8244_1").click( function () {
+    window.open("../topo/run_6_knl01_12489_12507.html");
   });
-  $("#zoom_chart_8335_2").click( function () {
-    window.open("../topo/run_6_knl01_44254_44254.html");
+  $("#zoom_chart_8244_2").click( function () {
+    window.open("../topo/run_6_knl01_12488_12506.html");
   });
-  $("#zoom_chart_8335_3").click( function () {
-    window.open("../topo/run_6_knl01_44260_44260.html");
+  $("#zoom_chart_8244_3").click( function () {
+    window.open("../topo/run_6_knl01_12493_12493.html");
   });
-  $("#zoom_chart_8335_4").click( function () {
-    window.open("../topo/run_6_knl01_44259_44272.html");
+  $("#zoom_chart_8244_4").click( function () {
+    window.open("../topo/run_6_knl01_12492_12508.html");
   });
-  $("#zoom_chart_8335_5").click( function () {
-    window.open("../topo/run_6_knl01_44257_44274.html");
+  $("#zoom_chart_8244_5").click( function () {
+    window.open("../topo/run_6_knl01_12490_12505.html");
   });
-  $("#zoom_chart_8335_6").click( function () {
-    window.open("../topo/run_6_knl01_44258_44258.html");
+  $("#zoom_chart_8244_6").click( function () {
+    window.open("../topo/run_6_knl01_12486_12486.html");
   });
-  $("#zoom_chart_8335_7").click( function () {
-    window.open("../topo/run_6_knl01_44256_44270.html");
+  $("#zoom_chart_8244_7").click( function () {
+    window.open("../topo/run_6_knl01_12487_12503.html");
   });
-  $("#zoom_chart_8335_8").click( function () {
-    window.open("../topo/run_6_knl01_44253_44253.html");
+  $("#zoom_chart_8244_8").click( function () {
+    window.open("../topo/run_6_knl01_12490_12490.html");
   });
-  $("#zoom_chart_8335_9").click( function () {
-    window.open("../topo/run_6_knl01_44253_44281.html");
+  $("#zoom_chart_8244_9").click( function () {
+    window.open("../topo/run_6_knl01_12491_12491.html");
   });
-  $("#zoom_chart_8335_10").click( function () {
-    window.open("../topo/run_6_knl01_44257_44257.html");
+  $("#zoom_chart_8244_10").click( function () {
+    window.open("../topo/run_6_knl01_12486_12511.html");
   });
-  $("#zoom_chart_8335_11").click( function () {
-    window.open("../topo/run_6_knl01_44258_44273.html");
+  $("#zoom_chart_8244_11").click( function () {
+    window.open("../topo/run_6_knl01_12492_12492.html");
   });
-  $("#zoom_chart_8335_12").click( function () {
-    window.open("../topo/run_6_knl01_44254_44269.html");
+  $("#zoom_chart_8244_12").click( function () {
+    window.open("../topo/run_6_knl01_12491_12502.html");
   });
-  $("#zoom_chart_8335_13").click( function () {
-    window.open("../topo/run_6_knl01_44256_44256.html");
+  $("#zoom_chart_8244_13").click( function () {
+    window.open("../topo/run_6_knl01_12487_12487.html");
+  });
+  $("#zoom_chart_8244_14").click( function () {
+    window.open("../topo/run_6_knl01_12489_12489.html");
+  });
+  $("#zoom_chart_8244_15").click( function () {
+    window.open("../topo/run_6_knl01_12493_12504.html");
   });
   }
   if (selector_run.value  == "7") {
   $(document).ready(function(){
-    var ordinals = ['knl01_44260_44271','knl01_44257_44274','knl01_44257_44257','knl01_44258_44258','knl01_44259_44272','knl01_44260_44260','knl01_44256_44270','knl01_44255_44255','knl01_44253_44281','knl01_44254_44254','knl01_44253_44253','knl01_44254_44269','knl01_44256_44256','knl01_44258_44273'];
-    var data = [{value: 0.02, offset: 0, i: 0, color: "#333399"},{value: 0.01, offset: 0, i: 1, color: "#333399"},{value: 0.01, offset: 0, i: 2, color: "#333399"},{value: 0.01, offset: 0, i: 3, color: "#333399"},{value: 0.01, offset: 0, i: 4, color: "#333399"},{value: 0.01, offset: 0, i: 5, color: "#333399"},{value: 0.01, offset: 0, i: 6, color: "#333399"},{value: 0.01, offset: 0, i: 7, color: "#333399"},{value: 0.01, offset: 0, i: 8, color: "#333399"},{value: 0.01, offset: 0, i: 9, color: "#333399"},{value: 0.01, offset: 0, i: 10, color: "#333399"},{value: 0, offset: 0, i: 11, color: "#333399"},{value: 0, offset: 0, i: 12, color: "#333399"},{value: 0, offset: 0, i: 13, color: "#333399"}];
+    var ordinals = ['knl01_12488_12488','knl01_12489_12507','knl01_12490_12490','knl01_12490_12505','knl01_12492_12508','knl01_12491_12491','knl01_12493_12493','knl01_12486_12486','knl01_12488_12506','knl01_12487_12503','knl01_12486_12511','knl01_12492_12492','knl01_12491_12502','knl01_12487_12487','knl01_12489_12489','knl01_12493_12504'];
+    var data = [{value: 0.03, offset: 0, i: 0, color: "#333399"},{value: 0.02, offset: 0, i: 1, color: "#333399"},{value: 0.01, offset: 0, i: 2, color: "#333399"},{value: 0.01, offset: 0, i: 3, color: "#333399"},{value: 0.01, offset: 0, i: 4, color: "#333399"},{value: 0.01, offset: 0, i: 5, color: "#333399"},{value: 0.01, offset: 0, i: 6, color: "#333399"},{value: 0.01, offset: 0, i: 7, color: "#333399"},{value: 0.01, offset: 0, i: 8, color: "#333399"},{value: 0.01, offset: 0, i: 9, color: "#333399"},{value: 0, offset: 0, i: 10, color: "#333399"},{value: 0, offset: 0, i: 11, color: "#333399"},{value: 0, offset: 0, i: 12, color: "#333399"},{value: 0, offset: 0, i: 13, color: "#333399"},{value: 0, offset: 0, i: 14, color: "#333399"},{value: 0, offset: 0, i: 15, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -2106,7 +2107,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_8336')
+    const svg = d3.select('#chart_cat_8245')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -2162,13 +2163,13 @@ function set_ldbal_input () {
       .text("Time (s)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_8336')
+      .attr('id', 'zoom_chart_8245')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_8336_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_8245_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -2210,53 +2211,59 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
-  $("#zoom_chart_8336_0").click( function () {
-    window.open("../topo/run_6_knl01_44260_44271.html");
+  $("#zoom_chart_8245_0").click( function () {
+    window.open("../topo/run_6_knl01_12488_12488.html");
   });
-  $("#zoom_chart_8336_1").click( function () {
-    window.open("../topo/run_6_knl01_44257_44274.html");
+  $("#zoom_chart_8245_1").click( function () {
+    window.open("../topo/run_6_knl01_12489_12507.html");
   });
-  $("#zoom_chart_8336_2").click( function () {
-    window.open("../topo/run_6_knl01_44257_44257.html");
+  $("#zoom_chart_8245_2").click( function () {
+    window.open("../topo/run_6_knl01_12490_12490.html");
   });
-  $("#zoom_chart_8336_3").click( function () {
-    window.open("../topo/run_6_knl01_44258_44258.html");
+  $("#zoom_chart_8245_3").click( function () {
+    window.open("../topo/run_6_knl01_12490_12505.html");
   });
-  $("#zoom_chart_8336_4").click( function () {
-    window.open("../topo/run_6_knl01_44259_44272.html");
+  $("#zoom_chart_8245_4").click( function () {
+    window.open("../topo/run_6_knl01_12492_12508.html");
   });
-  $("#zoom_chart_8336_5").click( function () {
-    window.open("../topo/run_6_knl01_44260_44260.html");
+  $("#zoom_chart_8245_5").click( function () {
+    window.open("../topo/run_6_knl01_12491_12491.html");
   });
-  $("#zoom_chart_8336_6").click( function () {
-    window.open("../topo/run_6_knl01_44256_44270.html");
+  $("#zoom_chart_8245_6").click( function () {
+    window.open("../topo/run_6_knl01_12493_12493.html");
   });
-  $("#zoom_chart_8336_7").click( function () {
-    window.open("../topo/run_6_knl01_44255_44255.html");
+  $("#zoom_chart_8245_7").click( function () {
+    window.open("../topo/run_6_knl01_12486_12486.html");
   });
-  $("#zoom_chart_8336_8").click( function () {
-    window.open("../topo/run_6_knl01_44253_44281.html");
+  $("#zoom_chart_8245_8").click( function () {
+    window.open("../topo/run_6_knl01_12488_12506.html");
   });
-  $("#zoom_chart_8336_9").click( function () {
-    window.open("../topo/run_6_knl01_44254_44254.html");
+  $("#zoom_chart_8245_9").click( function () {
+    window.open("../topo/run_6_knl01_12487_12503.html");
   });
-  $("#zoom_chart_8336_10").click( function () {
-    window.open("../topo/run_6_knl01_44253_44253.html");
+  $("#zoom_chart_8245_10").click( function () {
+    window.open("../topo/run_6_knl01_12486_12511.html");
   });
-  $("#zoom_chart_8336_11").click( function () {
-    window.open("../topo/run_6_knl01_44254_44269.html");
+  $("#zoom_chart_8245_11").click( function () {
+    window.open("../topo/run_6_knl01_12492_12492.html");
   });
-  $("#zoom_chart_8336_12").click( function () {
-    window.open("../topo/run_6_knl01_44256_44256.html");
+  $("#zoom_chart_8245_12").click( function () {
+    window.open("../topo/run_6_knl01_12491_12502.html");
   });
-  $("#zoom_chart_8336_13").click( function () {
-    window.open("../topo/run_6_knl01_44258_44273.html");
+  $("#zoom_chart_8245_13").click( function () {
+    window.open("../topo/run_6_knl01_12487_12487.html");
+  });
+  $("#zoom_chart_8245_14").click( function () {
+    window.open("../topo/run_6_knl01_12489_12489.html");
+  });
+  $("#zoom_chart_8245_15").click( function () {
+    window.open("../topo/run_6_knl01_12493_12504.html");
   });
   }
   if (selector_run.value  == "8") {
   $(document).ready(function(){
-    var ordinals = ['knl01_44347_44662','knl01_44348_44378','knl01_44341_44847','knl01_44339_44505','knl01_44340_44518','knl01_44338_44721','knl01_44340_44640','knl01_44353_44425','knl01_44347_44530','knl01_44346_44768','knl01_44353_44567','knl01_44346_44667','knl01_44345_44760','knl01_44348_44415','knl01_44346_44371','knl01_44346_44646','knl01_44346_44614','knl01_44348_44561','knl01_44348_44678','knl01_44348_44651','knl01_44349_44761','knl01_44349_44676','knl01_44350_44702','knl01_44353_44373','knl01_44348_44615','knl01_44349_44648','knl01_44349_44503','knl01_44353_44501','knl01_44349_44563','knl01_44348_44827','knl01_44349_44427','knl01_44345_44393','knl01_44345_44656','knl01_44339_44474','knl01_44341_44480','knl01_44341_44428','knl01_44341_44564','knl01_44341_44595','knl01_44339_44369','knl01_44340_44808','knl01_44340_44550','knl01_44344_44830','knl01_44339_44602','knl01_44339_44784','knl01_44341_44740','knl01_44341_44631','knl01_44342_44589','knl01_44337_44677','knl01_44344_44531','knl01_44337_44469','knl01_44342_44527','knl01_44338_44525','knl01_44352_44778','knl01_44338_44458','knl01_44350_44741','knl01_44350_44529','knl01_44350_44566','knl01_44345_44472','knl01_44340_44693','knl01_44349_44396','knl01_44349_44621','knl01_44343_44659','knl01_44345_44535','knl01_44343_44600','knl01_44343_44452','knl01_44343_44485','knl01_44346_44709','knl01_44344_44344','knl01_44352_44352','knl01_44353_44353','knl01_44337_44337'];
-    var data = [{value: 0.79, offset: 0, i: 0, color: "#333399"},{value: 0.54, offset: 0, i: 1, color: "#333399"},{value: 0.54, offset: 0, i: 2, color: "#333399"},{value: 0.53, offset: 0, i: 3, color: "#333399"},{value: 0.53, offset: 0, i: 4, color: "#333399"},{value: 0.53, offset: 0, i: 5, color: "#333399"},{value: 0.53, offset: 0, i: 6, color: "#333399"},{value: 0.53, offset: 0, i: 7, color: "#333399"},{value: 0.27, offset: 0, i: 8, color: "#333399"},{value: 0.27, offset: 0, i: 9, color: "#333399"},{value: 0.27, offset: 0, i: 10, color: "#333399"},{value: 0.27, offset: 0, i: 11, color: "#333399"},{value: 0.27, offset: 0, i: 12, color: "#333399"},{value: 0.27, offset: 0, i: 13, color: "#333399"},{value: 0.27, offset: 0, i: 14, color: "#333399"},{value: 0.27, offset: 0, i: 15, color: "#333399"},{value: 0.27, offset: 0, i: 16, color: "#333399"},{value: 0.27, offset: 0, i: 17, color: "#333399"},{value: 0.27, offset: 0, i: 18, color: "#333399"},{value: 0.27, offset: 0, i: 19, color: "#333399"},{value: 0.27, offset: 0, i: 20, color: "#333399"},{value: 0.27, offset: 0, i: 21, color: "#333399"},{value: 0.27, offset: 0, i: 22, color: "#333399"},{value: 0.27, offset: 0, i: 23, color: "#333399"},{value: 0.27, offset: 0, i: 24, color: "#333399"},{value: 0.27, offset: 0, i: 25, color: "#333399"},{value: 0.27, offset: 0, i: 26, color: "#333399"},{value: 0.27, offset: 0, i: 27, color: "#333399"},{value: 0.27, offset: 0, i: 28, color: "#333399"},{value: 0.27, offset: 0, i: 29, color: "#333399"},{value: 0.27, offset: 0, i: 30, color: "#333399"},{value: 0.27, offset: 0, i: 31, color: "#333399"},{value: 0.27, offset: 0, i: 32, color: "#333399"},{value: 0.27, offset: 0, i: 33, color: "#333399"},{value: 0.27, offset: 0, i: 34, color: "#333399"},{value: 0.27, offset: 0, i: 35, color: "#333399"},{value: 0.27, offset: 0, i: 36, color: "#333399"},{value: 0.27, offset: 0, i: 37, color: "#333399"},{value: 0.27, offset: 0, i: 38, color: "#333399"},{value: 0.27, offset: 0, i: 39, color: "#333399"},{value: 0.27, offset: 0, i: 40, color: "#333399"},{value: 0.27, offset: 0, i: 41, color: "#333399"},{value: 0.27, offset: 0, i: 42, color: "#333399"},{value: 0.27, offset: 0, i: 43, color: "#333399"},{value: 0.27, offset: 0, i: 44, color: "#333399"},{value: 0.27, offset: 0, i: 45, color: "#333399"},{value: 0.27, offset: 0, i: 46, color: "#333399"},{value: 0.27, offset: 0, i: 47, color: "#333399"},{value: 0.27, offset: 0, i: 48, color: "#333399"},{value: 0.27, offset: 0, i: 49, color: "#333399"},{value: 0.27, offset: 0, i: 50, color: "#333399"},{value: 0.26, offset: 0, i: 51, color: "#333399"},{value: 0.26, offset: 0, i: 52, color: "#333399"},{value: 0.26, offset: 0, i: 53, color: "#333399"},{value: 0.26, offset: 0, i: 54, color: "#333399"},{value: 0.26, offset: 0, i: 55, color: "#333399"},{value: 0.26, offset: 0, i: 56, color: "#333399"},{value: 0.26, offset: 0, i: 57, color: "#333399"},{value: 0.26, offset: 0, i: 58, color: "#333399"},{value: 0.26, offset: 0, i: 59, color: "#333399"},{value: 0.26, offset: 0, i: 60, color: "#333399"},{value: 0.26, offset: 0, i: 61, color: "#333399"},{value: 0.26, offset: 0, i: 62, color: "#333399"},{value: 0.26, offset: 0, i: 63, color: "#333399"},{value: 0.26, offset: 0, i: 64, color: "#333399"},{value: 0.26, offset: 0, i: 65, color: "#333399"},{value: 0.26, offset: 0, i: 66, color: "#333399"},{value: 0.24, offset: 0, i: 67, color: "#333399"},{value: 0.24, offset: 0, i: 68, color: "#333399"},{value: 0.24, offset: 0, i: 69, color: "#333399"},{value: 0.24, offset: 0, i: 70, color: "#333399"}];
+    var ordinals = ['knl01_12588_12819','knl01_12584_12662','knl01_12573_12729','knl01_12576_12841','knl01_12575_12660','knl01_12577_12920','knl01_12581_12894','knl01_12581_12824','knl01_12585_12921','knl01_12581_12654','knl01_12579_12926','knl01_12585_12890','knl01_12585_12734','knl01_12580_12915','knl01_12580_13077','knl01_12584_12898','knl01_12580_12884','knl01_12578_13009','knl01_12587_12840','knl01_12587_12896','knl01_12587_13081','knl01_12575_12708','knl01_12587_12763','knl01_12576_12970','knl01_12587_13083','knl01_12586_12723','knl01_12588_12628','knl01_12583_12834','knl01_12583_12607','knl01_12583_12807','knl01_12583_12732','knl01_12586_12696','knl01_12583_12919','knl01_12585_13046','knl01_12585_12624','knl01_12582_13034','knl01_12586_12774','knl01_12583_12858','knl01_12584_12794','knl01_12586_13004','knl01_12586_12802','knl01_12584_12631','knl01_12582_12883','knl01_12581_12864','knl01_12582_12715','knl01_12576_13002','knl01_12576_12730','knl01_12577_12695','knl01_12578_12714','knl01_12577_12742','knl01_12582_12787','knl01_12575_12808','knl01_12574_12900','knl01_12573_12765','knl01_12574_13033','knl01_12573_12835','knl01_12574_12694','knl01_12578_12975','knl01_12578_12944','knl01_12579_12615','knl01_12581_12613','knl01_12578_13054','knl01_12581_12788','knl01_12581_13068','knl01_12581_12925','knl01_12580_12950','knl01_12580_12979','knl01_12588_13008','knl01_12579_12683','knl01_12580_12731','knl01_12579_12961','knl01_12577_12577','knl01_12584_12584','knl01_12583_12583','knl01_12575_12575'];
+    var data = [{value: 0.48, offset: 0, i: 0, color: "#333399"},{value: 0.47, offset: 0, i: 1, color: "#333399"},{value: 0.47, offset: 0, i: 2, color: "#333399"},{value: 0.47, offset: 0, i: 3, color: "#333399"},{value: 0.47, offset: 0, i: 4, color: "#333399"},{value: 0.47, offset: 0, i: 5, color: "#333399"},{value: 0.47, offset: 0, i: 6, color: "#333399"},{value: 0.47, offset: 0, i: 7, color: "#333399"},{value: 0.46, offset: 0, i: 8, color: "#333399"},{value: 0.46, offset: 0, i: 9, color: "#333399"},{value: 0.46, offset: 0, i: 10, color: "#333399"},{value: 0.46, offset: 0, i: 11, color: "#333399"},{value: 0.46, offset: 0, i: 12, color: "#333399"},{value: 0.24, offset: 0, i: 13, color: "#333399"},{value: 0.24, offset: 0, i: 14, color: "#333399"},{value: 0.24, offset: 0, i: 15, color: "#333399"},{value: 0.24, offset: 0, i: 16, color: "#333399"},{value: 0.24, offset: 0, i: 17, color: "#333399"},{value: 0.24, offset: 0, i: 18, color: "#333399"},{value: 0.24, offset: 0, i: 19, color: "#333399"},{value: 0.24, offset: 0, i: 20, color: "#333399"},{value: 0.24, offset: 0, i: 21, color: "#333399"},{value: 0.24, offset: 0, i: 22, color: "#333399"},{value: 0.24, offset: 0, i: 23, color: "#333399"},{value: 0.24, offset: 0, i: 24, color: "#333399"},{value: 0.24, offset: 0, i: 25, color: "#333399"},{value: 0.23, offset: 0, i: 26, color: "#333399"},{value: 0.23, offset: 0, i: 27, color: "#333399"},{value: 0.23, offset: 0, i: 28, color: "#333399"},{value: 0.23, offset: 0, i: 29, color: "#333399"},{value: 0.23, offset: 0, i: 30, color: "#333399"},{value: 0.23, offset: 0, i: 31, color: "#333399"},{value: 0.23, offset: 0, i: 32, color: "#333399"},{value: 0.23, offset: 0, i: 33, color: "#333399"},{value: 0.23, offset: 0, i: 34, color: "#333399"},{value: 0.23, offset: 0, i: 35, color: "#333399"},{value: 0.23, offset: 0, i: 36, color: "#333399"},{value: 0.23, offset: 0, i: 37, color: "#333399"},{value: 0.23, offset: 0, i: 38, color: "#333399"},{value: 0.23, offset: 0, i: 39, color: "#333399"},{value: 0.23, offset: 0, i: 40, color: "#333399"},{value: 0.23, offset: 0, i: 41, color: "#333399"},{value: 0.23, offset: 0, i: 42, color: "#333399"},{value: 0.23, offset: 0, i: 43, color: "#333399"},{value: 0.23, offset: 0, i: 44, color: "#333399"},{value: 0.23, offset: 0, i: 45, color: "#333399"},{value: 0.23, offset: 0, i: 46, color: "#333399"},{value: 0.23, offset: 0, i: 47, color: "#333399"},{value: 0.23, offset: 0, i: 48, color: "#333399"},{value: 0.23, offset: 0, i: 49, color: "#333399"},{value: 0.23, offset: 0, i: 50, color: "#333399"},{value: 0.23, offset: 0, i: 51, color: "#333399"},{value: 0.23, offset: 0, i: 52, color: "#333399"},{value: 0.23, offset: 0, i: 53, color: "#333399"},{value: 0.23, offset: 0, i: 54, color: "#333399"},{value: 0.23, offset: 0, i: 55, color: "#333399"},{value: 0.23, offset: 0, i: 56, color: "#333399"},{value: 0.23, offset: 0, i: 57, color: "#333399"},{value: 0.23, offset: 0, i: 58, color: "#333399"},{value: 0.23, offset: 0, i: 59, color: "#333399"},{value: 0.23, offset: 0, i: 60, color: "#333399"},{value: 0.23, offset: 0, i: 61, color: "#333399"},{value: 0.23, offset: 0, i: 62, color: "#333399"},{value: 0.23, offset: 0, i: 63, color: "#333399"},{value: 0.23, offset: 0, i: 64, color: "#333399"},{value: 0.23, offset: 0, i: 65, color: "#333399"},{value: 0.23, offset: 0, i: 66, color: "#333399"},{value: 0.23, offset: 0, i: 67, color: "#333399"},{value: 0.23, offset: 0, i: 68, color: "#333399"},{value: 0.23, offset: 0, i: 69, color: "#333399"},{value: 0.23, offset: 0, i: 70, color: "#333399"},{value: 0.21, offset: 0, i: 71, color: "#333399"},{value: 0.21, offset: 0, i: 72, color: "#333399"},{value: 0.21, offset: 0, i: 73, color: "#333399"},{value: 0.21, offset: 0, i: 74, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -2271,7 +2278,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_8335')
+    const svg = d3.select('#chart_cat_8244')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -2327,13 +2334,13 @@ function set_ldbal_input () {
       .text("Coverage (%)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_8335')
+      .attr('id', 'zoom_chart_8244')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_8335_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_8244_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -2375,224 +2382,236 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
-  $("#zoom_chart_8335_0").click( function () {
-    window.open("../topo/run_7_knl01_44347_44662.html");
+  $("#zoom_chart_8244_0").click( function () {
+    window.open("../topo/run_7_knl01_12588_12819.html");
   });
-  $("#zoom_chart_8335_1").click( function () {
-    window.open("../topo/run_7_knl01_44348_44378.html");
+  $("#zoom_chart_8244_1").click( function () {
+    window.open("../topo/run_7_knl01_12584_12662.html");
   });
-  $("#zoom_chart_8335_2").click( function () {
-    window.open("../topo/run_7_knl01_44341_44847.html");
+  $("#zoom_chart_8244_2").click( function () {
+    window.open("../topo/run_7_knl01_12573_12729.html");
   });
-  $("#zoom_chart_8335_3").click( function () {
-    window.open("../topo/run_7_knl01_44339_44505.html");
+  $("#zoom_chart_8244_3").click( function () {
+    window.open("../topo/run_7_knl01_12576_12841.html");
   });
-  $("#zoom_chart_8335_4").click( function () {
-    window.open("../topo/run_7_knl01_44340_44518.html");
+  $("#zoom_chart_8244_4").click( function () {
+    window.open("../topo/run_7_knl01_12575_12660.html");
   });
-  $("#zoom_chart_8335_5").click( function () {
-    window.open("../topo/run_7_knl01_44338_44721.html");
+  $("#zoom_chart_8244_5").click( function () {
+    window.open("../topo/run_7_knl01_12577_12920.html");
   });
-  $("#zoom_chart_8335_6").click( function () {
-    window.open("../topo/run_7_knl01_44340_44640.html");
+  $("#zoom_chart_8244_6").click( function () {
+    window.open("../topo/run_7_knl01_12581_12894.html");
   });
-  $("#zoom_chart_8335_7").click( function () {
-    window.open("../topo/run_7_knl01_44353_44425.html");
+  $("#zoom_chart_8244_7").click( function () {
+    window.open("../topo/run_7_knl01_12581_12824.html");
   });
-  $("#zoom_chart_8335_8").click( function () {
-    window.open("../topo/run_7_knl01_44347_44530.html");
+  $("#zoom_chart_8244_8").click( function () {
+    window.open("../topo/run_7_knl01_12585_12921.html");
   });
-  $("#zoom_chart_8335_9").click( function () {
-    window.open("../topo/run_7_knl01_44346_44768.html");
+  $("#zoom_chart_8244_9").click( function () {
+    window.open("../topo/run_7_knl01_12581_12654.html");
   });
-  $("#zoom_chart_8335_10").click( function () {
-    window.open("../topo/run_7_knl01_44353_44567.html");
+  $("#zoom_chart_8244_10").click( function () {
+    window.open("../topo/run_7_knl01_12579_12926.html");
   });
-  $("#zoom_chart_8335_11").click( function () {
-    window.open("../topo/run_7_knl01_44346_44667.html");
+  $("#zoom_chart_8244_11").click( function () {
+    window.open("../topo/run_7_knl01_12585_12890.html");
   });
-  $("#zoom_chart_8335_12").click( function () {
-    window.open("../topo/run_7_knl01_44345_44760.html");
+  $("#zoom_chart_8244_12").click( function () {
+    window.open("../topo/run_7_knl01_12585_12734.html");
   });
-  $("#zoom_chart_8335_13").click( function () {
-    window.open("../topo/run_7_knl01_44348_44415.html");
+  $("#zoom_chart_8244_13").click( function () {
+    window.open("../topo/run_7_knl01_12580_12915.html");
   });
-  $("#zoom_chart_8335_14").click( function () {
-    window.open("../topo/run_7_knl01_44346_44371.html");
+  $("#zoom_chart_8244_14").click( function () {
+    window.open("../topo/run_7_knl01_12580_13077.html");
   });
-  $("#zoom_chart_8335_15").click( function () {
-    window.open("../topo/run_7_knl01_44346_44646.html");
+  $("#zoom_chart_8244_15").click( function () {
+    window.open("../topo/run_7_knl01_12584_12898.html");
   });
-  $("#zoom_chart_8335_16").click( function () {
-    window.open("../topo/run_7_knl01_44346_44614.html");
+  $("#zoom_chart_8244_16").click( function () {
+    window.open("../topo/run_7_knl01_12580_12884.html");
   });
-  $("#zoom_chart_8335_17").click( function () {
-    window.open("../topo/run_7_knl01_44348_44561.html");
+  $("#zoom_chart_8244_17").click( function () {
+    window.open("../topo/run_7_knl01_12578_13009.html");
   });
-  $("#zoom_chart_8335_18").click( function () {
-    window.open("../topo/run_7_knl01_44348_44678.html");
+  $("#zoom_chart_8244_18").click( function () {
+    window.open("../topo/run_7_knl01_12587_12840.html");
   });
-  $("#zoom_chart_8335_19").click( function () {
-    window.open("../topo/run_7_knl01_44348_44651.html");
+  $("#zoom_chart_8244_19").click( function () {
+    window.open("../topo/run_7_knl01_12587_12896.html");
   });
-  $("#zoom_chart_8335_20").click( function () {
-    window.open("../topo/run_7_knl01_44349_44761.html");
+  $("#zoom_chart_8244_20").click( function () {
+    window.open("../topo/run_7_knl01_12587_13081.html");
   });
-  $("#zoom_chart_8335_21").click( function () {
-    window.open("../topo/run_7_knl01_44349_44676.html");
+  $("#zoom_chart_8244_21").click( function () {
+    window.open("../topo/run_7_knl01_12575_12708.html");
   });
-  $("#zoom_chart_8335_22").click( function () {
-    window.open("../topo/run_7_knl01_44350_44702.html");
+  $("#zoom_chart_8244_22").click( function () {
+    window.open("../topo/run_7_knl01_12587_12763.html");
   });
-  $("#zoom_chart_8335_23").click( function () {
-    window.open("../topo/run_7_knl01_44353_44373.html");
+  $("#zoom_chart_8244_23").click( function () {
+    window.open("../topo/run_7_knl01_12576_12970.html");
   });
-  $("#zoom_chart_8335_24").click( function () {
-    window.open("../topo/run_7_knl01_44348_44615.html");
+  $("#zoom_chart_8244_24").click( function () {
+    window.open("../topo/run_7_knl01_12587_13083.html");
   });
-  $("#zoom_chart_8335_25").click( function () {
-    window.open("../topo/run_7_knl01_44349_44648.html");
+  $("#zoom_chart_8244_25").click( function () {
+    window.open("../topo/run_7_knl01_12586_12723.html");
   });
-  $("#zoom_chart_8335_26").click( function () {
-    window.open("../topo/run_7_knl01_44349_44503.html");
+  $("#zoom_chart_8244_26").click( function () {
+    window.open("../topo/run_7_knl01_12588_12628.html");
   });
-  $("#zoom_chart_8335_27").click( function () {
-    window.open("../topo/run_7_knl01_44353_44501.html");
+  $("#zoom_chart_8244_27").click( function () {
+    window.open("../topo/run_7_knl01_12583_12834.html");
   });
-  $("#zoom_chart_8335_28").click( function () {
-    window.open("../topo/run_7_knl01_44349_44563.html");
+  $("#zoom_chart_8244_28").click( function () {
+    window.open("../topo/run_7_knl01_12583_12607.html");
   });
-  $("#zoom_chart_8335_29").click( function () {
-    window.open("../topo/run_7_knl01_44348_44827.html");
+  $("#zoom_chart_8244_29").click( function () {
+    window.open("../topo/run_7_knl01_12583_12807.html");
   });
-  $("#zoom_chart_8335_30").click( function () {
-    window.open("../topo/run_7_knl01_44349_44427.html");
+  $("#zoom_chart_8244_30").click( function () {
+    window.open("../topo/run_7_knl01_12583_12732.html");
   });
-  $("#zoom_chart_8335_31").click( function () {
-    window.open("../topo/run_7_knl01_44345_44393.html");
+  $("#zoom_chart_8244_31").click( function () {
+    window.open("../topo/run_7_knl01_12586_12696.html");
   });
-  $("#zoom_chart_8335_32").click( function () {
-    window.open("../topo/run_7_knl01_44345_44656.html");
+  $("#zoom_chart_8244_32").click( function () {
+    window.open("../topo/run_7_knl01_12583_12919.html");
   });
-  $("#zoom_chart_8335_33").click( function () {
-    window.open("../topo/run_7_knl01_44339_44474.html");
+  $("#zoom_chart_8244_33").click( function () {
+    window.open("../topo/run_7_knl01_12585_13046.html");
   });
-  $("#zoom_chart_8335_34").click( function () {
-    window.open("../topo/run_7_knl01_44341_44480.html");
+  $("#zoom_chart_8244_34").click( function () {
+    window.open("../topo/run_7_knl01_12585_12624.html");
   });
-  $("#zoom_chart_8335_35").click( function () {
-    window.open("../topo/run_7_knl01_44341_44428.html");
+  $("#zoom_chart_8244_35").click( function () {
+    window.open("../topo/run_7_knl01_12582_13034.html");
   });
-  $("#zoom_chart_8335_36").click( function () {
-    window.open("../topo/run_7_knl01_44341_44564.html");
+  $("#zoom_chart_8244_36").click( function () {
+    window.open("../topo/run_7_knl01_12586_12774.html");
   });
-  $("#zoom_chart_8335_37").click( function () {
-    window.open("../topo/run_7_knl01_44341_44595.html");
+  $("#zoom_chart_8244_37").click( function () {
+    window.open("../topo/run_7_knl01_12583_12858.html");
   });
-  $("#zoom_chart_8335_38").click( function () {
-    window.open("../topo/run_7_knl01_44339_44369.html");
+  $("#zoom_chart_8244_38").click( function () {
+    window.open("../topo/run_7_knl01_12584_12794.html");
   });
-  $("#zoom_chart_8335_39").click( function () {
-    window.open("../topo/run_7_knl01_44340_44808.html");
+  $("#zoom_chart_8244_39").click( function () {
+    window.open("../topo/run_7_knl01_12586_13004.html");
   });
-  $("#zoom_chart_8335_40").click( function () {
-    window.open("../topo/run_7_knl01_44340_44550.html");
+  $("#zoom_chart_8244_40").click( function () {
+    window.open("../topo/run_7_knl01_12586_12802.html");
   });
-  $("#zoom_chart_8335_41").click( function () {
-    window.open("../topo/run_7_knl01_44344_44830.html");
+  $("#zoom_chart_8244_41").click( function () {
+    window.open("../topo/run_7_knl01_12584_12631.html");
   });
-  $("#zoom_chart_8335_42").click( function () {
-    window.open("../topo/run_7_knl01_44339_44602.html");
+  $("#zoom_chart_8244_42").click( function () {
+    window.open("../topo/run_7_knl01_12582_12883.html");
   });
-  $("#zoom_chart_8335_43").click( function () {
-    window.open("../topo/run_7_knl01_44339_44784.html");
+  $("#zoom_chart_8244_43").click( function () {
+    window.open("../topo/run_7_knl01_12581_12864.html");
   });
-  $("#zoom_chart_8335_44").click( function () {
-    window.open("../topo/run_7_knl01_44341_44740.html");
+  $("#zoom_chart_8244_44").click( function () {
+    window.open("../topo/run_7_knl01_12582_12715.html");
   });
-  $("#zoom_chart_8335_45").click( function () {
-    window.open("../topo/run_7_knl01_44341_44631.html");
+  $("#zoom_chart_8244_45").click( function () {
+    window.open("../topo/run_7_knl01_12576_13002.html");
   });
-  $("#zoom_chart_8335_46").click( function () {
-    window.open("../topo/run_7_knl01_44342_44589.html");
+  $("#zoom_chart_8244_46").click( function () {
+    window.open("../topo/run_7_knl01_12576_12730.html");
   });
-  $("#zoom_chart_8335_47").click( function () {
-    window.open("../topo/run_7_knl01_44337_44677.html");
+  $("#zoom_chart_8244_47").click( function () {
+    window.open("../topo/run_7_knl01_12577_12695.html");
   });
-  $("#zoom_chart_8335_48").click( function () {
-    window.open("../topo/run_7_knl01_44344_44531.html");
+  $("#zoom_chart_8244_48").click( function () {
+    window.open("../topo/run_7_knl01_12578_12714.html");
   });
-  $("#zoom_chart_8335_49").click( function () {
-    window.open("../topo/run_7_knl01_44337_44469.html");
+  $("#zoom_chart_8244_49").click( function () {
+    window.open("../topo/run_7_knl01_12577_12742.html");
   });
-  $("#zoom_chart_8335_50").click( function () {
-    window.open("../topo/run_7_knl01_44342_44527.html");
+  $("#zoom_chart_8244_50").click( function () {
+    window.open("../topo/run_7_knl01_12582_12787.html");
   });
-  $("#zoom_chart_8335_51").click( function () {
-    window.open("../topo/run_7_knl01_44338_44525.html");
+  $("#zoom_chart_8244_51").click( function () {
+    window.open("../topo/run_7_knl01_12575_12808.html");
   });
-  $("#zoom_chart_8335_52").click( function () {
-    window.open("../topo/run_7_knl01_44352_44778.html");
+  $("#zoom_chart_8244_52").click( function () {
+    window.open("../topo/run_7_knl01_12574_12900.html");
   });
-  $("#zoom_chart_8335_53").click( function () {
-    window.open("../topo/run_7_knl01_44338_44458.html");
+  $("#zoom_chart_8244_53").click( function () {
+    window.open("../topo/run_7_knl01_12573_12765.html");
   });
-  $("#zoom_chart_8335_54").click( function () {
-    window.open("../topo/run_7_knl01_44350_44741.html");
+  $("#zoom_chart_8244_54").click( function () {
+    window.open("../topo/run_7_knl01_12574_13033.html");
   });
-  $("#zoom_chart_8335_55").click( function () {
-    window.open("../topo/run_7_knl01_44350_44529.html");
+  $("#zoom_chart_8244_55").click( function () {
+    window.open("../topo/run_7_knl01_12573_12835.html");
   });
-  $("#zoom_chart_8335_56").click( function () {
-    window.open("../topo/run_7_knl01_44350_44566.html");
+  $("#zoom_chart_8244_56").click( function () {
+    window.open("../topo/run_7_knl01_12574_12694.html");
   });
-  $("#zoom_chart_8335_57").click( function () {
-    window.open("../topo/run_7_knl01_44345_44472.html");
+  $("#zoom_chart_8244_57").click( function () {
+    window.open("../topo/run_7_knl01_12578_12975.html");
   });
-  $("#zoom_chart_8335_58").click( function () {
-    window.open("../topo/run_7_knl01_44340_44693.html");
+  $("#zoom_chart_8244_58").click( function () {
+    window.open("../topo/run_7_knl01_12578_12944.html");
   });
-  $("#zoom_chart_8335_59").click( function () {
-    window.open("../topo/run_7_knl01_44349_44396.html");
+  $("#zoom_chart_8244_59").click( function () {
+    window.open("../topo/run_7_knl01_12579_12615.html");
   });
-  $("#zoom_chart_8335_60").click( function () {
-    window.open("../topo/run_7_knl01_44349_44621.html");
+  $("#zoom_chart_8244_60").click( function () {
+    window.open("../topo/run_7_knl01_12581_12613.html");
   });
-  $("#zoom_chart_8335_61").click( function () {
-    window.open("../topo/run_7_knl01_44343_44659.html");
+  $("#zoom_chart_8244_61").click( function () {
+    window.open("../topo/run_7_knl01_12578_13054.html");
   });
-  $("#zoom_chart_8335_62").click( function () {
-    window.open("../topo/run_7_knl01_44345_44535.html");
+  $("#zoom_chart_8244_62").click( function () {
+    window.open("../topo/run_7_knl01_12581_12788.html");
   });
-  $("#zoom_chart_8335_63").click( function () {
-    window.open("../topo/run_7_knl01_44343_44600.html");
+  $("#zoom_chart_8244_63").click( function () {
+    window.open("../topo/run_7_knl01_12581_13068.html");
   });
-  $("#zoom_chart_8335_64").click( function () {
-    window.open("../topo/run_7_knl01_44343_44452.html");
+  $("#zoom_chart_8244_64").click( function () {
+    window.open("../topo/run_7_knl01_12581_12925.html");
   });
-  $("#zoom_chart_8335_65").click( function () {
-    window.open("../topo/run_7_knl01_44343_44485.html");
+  $("#zoom_chart_8244_65").click( function () {
+    window.open("../topo/run_7_knl01_12580_12950.html");
   });
-  $("#zoom_chart_8335_66").click( function () {
-    window.open("../topo/run_7_knl01_44346_44709.html");
+  $("#zoom_chart_8244_66").click( function () {
+    window.open("../topo/run_7_knl01_12580_12979.html");
   });
-  $("#zoom_chart_8335_67").click( function () {
-    window.open("../topo/run_7_knl01_44344_44344.html");
+  $("#zoom_chart_8244_67").click( function () {
+    window.open("../topo/run_7_knl01_12588_13008.html");
   });
-  $("#zoom_chart_8335_68").click( function () {
-    window.open("../topo/run_7_knl01_44352_44352.html");
+  $("#zoom_chart_8244_68").click( function () {
+    window.open("../topo/run_7_knl01_12579_12683.html");
   });
-  $("#zoom_chart_8335_69").click( function () {
-    window.open("../topo/run_7_knl01_44353_44353.html");
+  $("#zoom_chart_8244_69").click( function () {
+    window.open("../topo/run_7_knl01_12580_12731.html");
   });
-  $("#zoom_chart_8335_70").click( function () {
-    window.open("../topo/run_7_knl01_44337_44337.html");
+  $("#zoom_chart_8244_70").click( function () {
+    window.open("../topo/run_7_knl01_12579_12961.html");
+  });
+  $("#zoom_chart_8244_71").click( function () {
+    window.open("../topo/run_7_knl01_12577_12577.html");
+  });
+  $("#zoom_chart_8244_72").click( function () {
+    window.open("../topo/run_7_knl01_12584_12584.html");
+  });
+  $("#zoom_chart_8244_73").click( function () {
+    window.open("../topo/run_7_knl01_12583_12583.html");
+  });
+  $("#zoom_chart_8244_74").click( function () {
+    window.open("../topo/run_7_knl01_12575_12575.html");
   });
   }
   if (selector_run.value  == "8") {
   $(document).ready(function(){
-    var ordinals = ['knl01_44347_44662','knl01_44349_44648','knl01_44342_44527','knl01_44340_44640','knl01_44341_44480','knl01_44349_44396','knl01_44349_44621','knl01_44342_44589','knl01_44341_44847','knl01_44340_44518','knl01_44338_44721','knl01_44353_44425','knl01_44348_44378','knl01_44339_44505','knl01_44346_44768','knl01_44348_44827','knl01_44346_44709','knl01_44347_44530','knl01_44348_44561','knl01_44348_44678','knl01_44348_44415','knl01_44348_44615','knl01_44348_44651','knl01_44337_44337','knl01_44349_44563','knl01_44349_44503','knl01_44352_44352','knl01_44350_44741','knl01_44352_44778','knl01_44353_44373','knl01_44353_44353','knl01_44349_44427','knl01_44350_44702','knl01_44350_44529','knl01_44346_44667','knl01_44350_44566','knl01_44349_44676','knl01_44349_44761','knl01_44346_44646','knl01_44345_44656','knl01_44346_44371','knl01_44340_44550','knl01_44339_44784','knl01_44340_44693','knl01_44341_44428','knl01_44340_44808','knl01_44341_44564','knl01_44339_44602','knl01_44339_44369','knl01_44337_44469','knl01_44339_44474','knl01_44337_44677','knl01_44338_44525','knl01_44338_44458','knl01_44346_44614','knl01_44341_44595','knl01_44341_44740','knl01_44345_44472','knl01_44345_44393','knl01_44345_44535','knl01_44345_44760','knl01_44353_44501','knl01_44341_44631','knl01_44344_44830','knl01_44344_44344','knl01_44343_44452','knl01_44344_44531','knl01_44343_44485','knl01_44343_44659','knl01_44343_44600','knl01_44353_44567'];
-    var data = [{value: 0.02, offset: 0, i: 0, color: "#333399"},{value: 0.01, offset: 0, i: 1, color: "#333399"},{value: 0.01, offset: 0, i: 2, color: "#333399"},{value: 0.01, offset: 0, i: 3, color: "#333399"},{value: 0.01, offset: 0, i: 4, color: "#333399"},{value: 0.01, offset: 0, i: 5, color: "#333399"},{value: 0.01, offset: 0, i: 6, color: "#333399"},{value: 0.01, offset: 0, i: 7, color: "#333399"},{value: 0.01, offset: 0, i: 8, color: "#333399"},{value: 0.01, offset: 0, i: 9, color: "#333399"},{value: 0.01, offset: 0, i: 10, color: "#333399"},{value: 0.01, offset: 0, i: 11, color: "#333399"},{value: 0.01, offset: 0, i: 12, color: "#333399"},{value: 0.01, offset: 0, i: 13, color: "#333399"},{value: 0, offset: 0, i: 14, color: "#333399"},{value: 0, offset: 0, i: 15, color: "#333399"},{value: 0, offset: 0, i: 16, color: "#333399"},{value: 0, offset: 0, i: 17, color: "#333399"},{value: 0, offset: 0, i: 18, color: "#333399"},{value: 0, offset: 0, i: 19, color: "#333399"},{value: 0, offset: 0, i: 20, color: "#333399"},{value: 0, offset: 0, i: 21, color: "#333399"},{value: 0, offset: 0, i: 22, color: "#333399"},{value: 0, offset: 0, i: 23, color: "#333399"},{value: 0, offset: 0, i: 24, color: "#333399"},{value: 0, offset: 0, i: 25, color: "#333399"},{value: 0, offset: 0, i: 26, color: "#333399"},{value: 0, offset: 0, i: 27, color: "#333399"},{value: 0, offset: 0, i: 28, color: "#333399"},{value: 0, offset: 0, i: 29, color: "#333399"},{value: 0, offset: 0, i: 30, color: "#333399"},{value: 0, offset: 0, i: 31, color: "#333399"},{value: 0, offset: 0, i: 32, color: "#333399"},{value: 0, offset: 0, i: 33, color: "#333399"},{value: 0, offset: 0, i: 34, color: "#333399"},{value: 0, offset: 0, i: 35, color: "#333399"},{value: 0, offset: 0, i: 36, color: "#333399"},{value: 0, offset: 0, i: 37, color: "#333399"},{value: 0, offset: 0, i: 38, color: "#333399"},{value: 0, offset: 0, i: 39, color: "#333399"},{value: 0, offset: 0, i: 40, color: "#333399"},{value: 0, offset: 0, i: 41, color: "#333399"},{value: 0, offset: 0, i: 42, color: "#333399"},{value: 0, offset: 0, i: 43, color: "#333399"},{value: 0, offset: 0, i: 44, color: "#333399"},{value: 0, offset: 0, i: 45, color: "#333399"},{value: 0, offset: 0, i: 46, color: "#333399"},{value: 0, offset: 0, i: 47, color: "#333399"},{value: 0, offset: 0, i: 48, color: "#333399"},{value: 0, offset: 0, i: 49, color: "#333399"},{value: 0, offset: 0, i: 50, color: "#333399"},{value: 0, offset: 0, i: 51, color: "#333399"},{value: 0, offset: 0, i: 52, color: "#333399"},{value: 0, offset: 0, i: 53, color: "#333399"},{value: 0, offset: 0, i: 54, color: "#333399"},{value: 0, offset: 0, i: 55, color: "#333399"},{value: 0, offset: 0, i: 56, color: "#333399"},{value: 0, offset: 0, i: 57, color: "#333399"},{value: 0, offset: 0, i: 58, color: "#333399"},{value: 0, offset: 0, i: 59, color: "#333399"},{value: 0, offset: 0, i: 60, color: "#333399"},{value: 0, offset: 0, i: 61, color: "#333399"},{value: 0, offset: 0, i: 62, color: "#333399"},{value: 0, offset: 0, i: 63, color: "#333399"},{value: 0, offset: 0, i: 64, color: "#333399"},{value: 0, offset: 0, i: 65, color: "#333399"},{value: 0, offset: 0, i: 66, color: "#333399"},{value: 0, offset: 0, i: 67, color: "#333399"},{value: 0, offset: 0, i: 68, color: "#333399"},{value: 0, offset: 0, i: 69, color: "#333399"},{value: 0, offset: 0, i: 70, color: "#333399"}];
+    var ordinals = ['knl01_12573_12729','knl01_12584_12662','knl01_12576_12841','knl01_12576_12730','knl01_12585_12921','knl01_12585_12890','knl01_12577_12920','knl01_12585_12734','knl01_12581_12654','knl01_12579_12926','knl01_12575_12660','knl01_12587_13083','knl01_12588_12819','knl01_12581_12894','knl01_12581_12824','knl01_12582_13034','knl01_12583_12919','knl01_12583_12807','knl01_12584_12584','knl01_12583_12858','knl01_12582_12883','knl01_12583_12583','knl01_12583_12732','knl01_12583_12834','knl01_12583_12607','knl01_12585_12624','knl01_12584_12794','knl01_12587_12840','knl01_12587_12763','knl01_12586_13004','knl01_12587_12896','knl01_12588_12628','knl01_12587_13081','knl01_12584_12631','knl01_12586_12802','knl01_12586_12723','knl01_12584_12898','knl01_12586_12774','knl01_12582_12787','knl01_12586_12696','knl01_12585_13046','knl01_12582_12715','knl01_12581_12864','knl01_12581_12925','knl01_12576_13002','knl01_12576_12970','knl01_12575_12808','knl01_12577_12577','knl01_12577_12742','knl01_12577_12695','knl01_12578_12714','knl01_12575_12708','knl01_12574_13033','knl01_12573_12765','knl01_12575_12575','knl01_12573_12835','knl01_12574_12900','knl01_12574_12694','knl01_12581_13068','knl01_12578_12944','knl01_12578_13009','knl01_12580_12979','knl01_12580_12950','knl01_12580_13077','knl01_12581_12788','knl01_12581_12613','knl01_12578_12975','knl01_12580_12915','knl01_12580_12731','knl01_12578_13054','knl01_12580_12884','knl01_12579_12615','knl01_12579_12961','knl01_12579_12683','knl01_12588_13008'];
+    var data = [{value: 0.01, offset: 0, i: 0, color: "#333399"},{value: 0.01, offset: 0, i: 1, color: "#333399"},{value: 0.01, offset: 0, i: 2, color: "#333399"},{value: 0.01, offset: 0, i: 3, color: "#333399"},{value: 0.01, offset: 0, i: 4, color: "#333399"},{value: 0.01, offset: 0, i: 5, color: "#333399"},{value: 0.01, offset: 0, i: 6, color: "#333399"},{value: 0.01, offset: 0, i: 7, color: "#333399"},{value: 0.01, offset: 0, i: 8, color: "#333399"},{value: 0.01, offset: 0, i: 9, color: "#333399"},{value: 0.01, offset: 0, i: 10, color: "#333399"},{value: 0.01, offset: 0, i: 11, color: "#333399"},{value: 0.01, offset: 0, i: 12, color: "#333399"},{value: 0.01, offset: 0, i: 13, color: "#333399"},{value: 0.01, offset: 0, i: 14, color: "#333399"},{value: 0.01, offset: 0, i: 15, color: "#333399"},{value: 0, offset: 0, i: 16, color: "#333399"},{value: 0, offset: 0, i: 17, color: "#333399"},{value: 0, offset: 0, i: 18, color: "#333399"},{value: 0, offset: 0, i: 19, color: "#333399"},{value: 0, offset: 0, i: 20, color: "#333399"},{value: 0, offset: 0, i: 21, color: "#333399"},{value: 0, offset: 0, i: 22, color: "#333399"},{value: 0, offset: 0, i: 23, color: "#333399"},{value: 0, offset: 0, i: 24, color: "#333399"},{value: 0, offset: 0, i: 25, color: "#333399"},{value: 0, offset: 0, i: 26, color: "#333399"},{value: 0, offset: 0, i: 27, color: "#333399"},{value: 0, offset: 0, i: 28, color: "#333399"},{value: 0, offset: 0, i: 29, color: "#333399"},{value: 0, offset: 0, i: 30, color: "#333399"},{value: 0, offset: 0, i: 31, color: "#333399"},{value: 0, offset: 0, i: 32, color: "#333399"},{value: 0, offset: 0, i: 33, color: "#333399"},{value: 0, offset: 0, i: 34, color: "#333399"},{value: 0, offset: 0, i: 35, color: "#333399"},{value: 0, offset: 0, i: 36, color: "#333399"},{value: 0, offset: 0, i: 37, color: "#333399"},{value: 0, offset: 0, i: 38, color: "#333399"},{value: 0, offset: 0, i: 39, color: "#333399"},{value: 0, offset: 0, i: 40, color: "#333399"},{value: 0, offset: 0, i: 41, color: "#333399"},{value: 0, offset: 0, i: 42, color: "#333399"},{value: 0, offset: 0, i: 43, color: "#333399"},{value: 0, offset: 0, i: 44, color: "#333399"},{value: 0, offset: 0, i: 45, color: "#333399"},{value: 0, offset: 0, i: 46, color: "#333399"},{value: 0, offset: 0, i: 47, color: "#333399"},{value: 0, offset: 0, i: 48, color: "#333399"},{value: 0, offset: 0, i: 49, color: "#333399"},{value: 0, offset: 0, i: 50, color: "#333399"},{value: 0, offset: 0, i: 51, color: "#333399"},{value: 0, offset: 0, i: 52, color: "#333399"},{value: 0, offset: 0, i: 53, color: "#333399"},{value: 0, offset: 0, i: 54, color: "#333399"},{value: 0, offset: 0, i: 55, color: "#333399"},{value: 0, offset: 0, i: 56, color: "#333399"},{value: 0, offset: 0, i: 57, color: "#333399"},{value: 0, offset: 0, i: 58, color: "#333399"},{value: 0, offset: 0, i: 59, color: "#333399"},{value: 0, offset: 0, i: 60, color: "#333399"},{value: 0, offset: 0, i: 61, color: "#333399"},{value: 0, offset: 0, i: 62, color: "#333399"},{value: 0, offset: 0, i: 63, color: "#333399"},{value: 0, offset: 0, i: 64, color: "#333399"},{value: 0, offset: 0, i: 65, color: "#333399"},{value: 0, offset: 0, i: 66, color: "#333399"},{value: 0, offset: 0, i: 67, color: "#333399"},{value: 0, offset: 0, i: 68, color: "#333399"},{value: 0, offset: 0, i: 69, color: "#333399"},{value: 0, offset: 0, i: 70, color: "#333399"},{value: 0, offset: 0, i: 71, color: "#333399"},{value: 0, offset: 0, i: 72, color: "#333399"},{value: 0, offset: 0, i: 73, color: "#333399"},{value: 0, offset: 0, i: 74, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -2607,7 +2626,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_8336')
+    const svg = d3.select('#chart_cat_8245')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -2663,13 +2682,13 @@ function set_ldbal_input () {
       .text("Time (s)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_8336')
+      .attr('id', 'zoom_chart_8245')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_8336_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_8245_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -2711,224 +2730,236 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
-  $("#zoom_chart_8336_0").click( function () {
-    window.open("../topo/run_7_knl01_44347_44662.html");
+  $("#zoom_chart_8245_0").click( function () {
+    window.open("../topo/run_7_knl01_12573_12729.html");
   });
-  $("#zoom_chart_8336_1").click( function () {
-    window.open("../topo/run_7_knl01_44349_44648.html");
+  $("#zoom_chart_8245_1").click( function () {
+    window.open("../topo/run_7_knl01_12584_12662.html");
   });
-  $("#zoom_chart_8336_2").click( function () {
-    window.open("../topo/run_7_knl01_44342_44527.html");
+  $("#zoom_chart_8245_2").click( function () {
+    window.open("../topo/run_7_knl01_12576_12841.html");
   });
-  $("#zoom_chart_8336_3").click( function () {
-    window.open("../topo/run_7_knl01_44340_44640.html");
+  $("#zoom_chart_8245_3").click( function () {
+    window.open("../topo/run_7_knl01_12576_12730.html");
   });
-  $("#zoom_chart_8336_4").click( function () {
-    window.open("../topo/run_7_knl01_44341_44480.html");
+  $("#zoom_chart_8245_4").click( function () {
+    window.open("../topo/run_7_knl01_12585_12921.html");
   });
-  $("#zoom_chart_8336_5").click( function () {
-    window.open("../topo/run_7_knl01_44349_44396.html");
+  $("#zoom_chart_8245_5").click( function () {
+    window.open("../topo/run_7_knl01_12585_12890.html");
   });
-  $("#zoom_chart_8336_6").click( function () {
-    window.open("../topo/run_7_knl01_44349_44621.html");
+  $("#zoom_chart_8245_6").click( function () {
+    window.open("../topo/run_7_knl01_12577_12920.html");
   });
-  $("#zoom_chart_8336_7").click( function () {
-    window.open("../topo/run_7_knl01_44342_44589.html");
+  $("#zoom_chart_8245_7").click( function () {
+    window.open("../topo/run_7_knl01_12585_12734.html");
   });
-  $("#zoom_chart_8336_8").click( function () {
-    window.open("../topo/run_7_knl01_44341_44847.html");
+  $("#zoom_chart_8245_8").click( function () {
+    window.open("../topo/run_7_knl01_12581_12654.html");
   });
-  $("#zoom_chart_8336_9").click( function () {
-    window.open("../topo/run_7_knl01_44340_44518.html");
+  $("#zoom_chart_8245_9").click( function () {
+    window.open("../topo/run_7_knl01_12579_12926.html");
   });
-  $("#zoom_chart_8336_10").click( function () {
-    window.open("../topo/run_7_knl01_44338_44721.html");
+  $("#zoom_chart_8245_10").click( function () {
+    window.open("../topo/run_7_knl01_12575_12660.html");
   });
-  $("#zoom_chart_8336_11").click( function () {
-    window.open("../topo/run_7_knl01_44353_44425.html");
+  $("#zoom_chart_8245_11").click( function () {
+    window.open("../topo/run_7_knl01_12587_13083.html");
   });
-  $("#zoom_chart_8336_12").click( function () {
-    window.open("../topo/run_7_knl01_44348_44378.html");
+  $("#zoom_chart_8245_12").click( function () {
+    window.open("../topo/run_7_knl01_12588_12819.html");
   });
-  $("#zoom_chart_8336_13").click( function () {
-    window.open("../topo/run_7_knl01_44339_44505.html");
+  $("#zoom_chart_8245_13").click( function () {
+    window.open("../topo/run_7_knl01_12581_12894.html");
   });
-  $("#zoom_chart_8336_14").click( function () {
-    window.open("../topo/run_7_knl01_44346_44768.html");
+  $("#zoom_chart_8245_14").click( function () {
+    window.open("../topo/run_7_knl01_12581_12824.html");
   });
-  $("#zoom_chart_8336_15").click( function () {
-    window.open("../topo/run_7_knl01_44348_44827.html");
+  $("#zoom_chart_8245_15").click( function () {
+    window.open("../topo/run_7_knl01_12582_13034.html");
   });
-  $("#zoom_chart_8336_16").click( function () {
-    window.open("../topo/run_7_knl01_44346_44709.html");
+  $("#zoom_chart_8245_16").click( function () {
+    window.open("../topo/run_7_knl01_12583_12919.html");
   });
-  $("#zoom_chart_8336_17").click( function () {
-    window.open("../topo/run_7_knl01_44347_44530.html");
+  $("#zoom_chart_8245_17").click( function () {
+    window.open("../topo/run_7_knl01_12583_12807.html");
   });
-  $("#zoom_chart_8336_18").click( function () {
-    window.open("../topo/run_7_knl01_44348_44561.html");
+  $("#zoom_chart_8245_18").click( function () {
+    window.open("../topo/run_7_knl01_12584_12584.html");
   });
-  $("#zoom_chart_8336_19").click( function () {
-    window.open("../topo/run_7_knl01_44348_44678.html");
+  $("#zoom_chart_8245_19").click( function () {
+    window.open("../topo/run_7_knl01_12583_12858.html");
   });
-  $("#zoom_chart_8336_20").click( function () {
-    window.open("../topo/run_7_knl01_44348_44415.html");
+  $("#zoom_chart_8245_20").click( function () {
+    window.open("../topo/run_7_knl01_12582_12883.html");
   });
-  $("#zoom_chart_8336_21").click( function () {
-    window.open("../topo/run_7_knl01_44348_44615.html");
+  $("#zoom_chart_8245_21").click( function () {
+    window.open("../topo/run_7_knl01_12583_12583.html");
   });
-  $("#zoom_chart_8336_22").click( function () {
-    window.open("../topo/run_7_knl01_44348_44651.html");
+  $("#zoom_chart_8245_22").click( function () {
+    window.open("../topo/run_7_knl01_12583_12732.html");
   });
-  $("#zoom_chart_8336_23").click( function () {
-    window.open("../topo/run_7_knl01_44337_44337.html");
+  $("#zoom_chart_8245_23").click( function () {
+    window.open("../topo/run_7_knl01_12583_12834.html");
   });
-  $("#zoom_chart_8336_24").click( function () {
-    window.open("../topo/run_7_knl01_44349_44563.html");
+  $("#zoom_chart_8245_24").click( function () {
+    window.open("../topo/run_7_knl01_12583_12607.html");
   });
-  $("#zoom_chart_8336_25").click( function () {
-    window.open("../topo/run_7_knl01_44349_44503.html");
+  $("#zoom_chart_8245_25").click( function () {
+    window.open("../topo/run_7_knl01_12585_12624.html");
   });
-  $("#zoom_chart_8336_26").click( function () {
-    window.open("../topo/run_7_knl01_44352_44352.html");
+  $("#zoom_chart_8245_26").click( function () {
+    window.open("../topo/run_7_knl01_12584_12794.html");
   });
-  $("#zoom_chart_8336_27").click( function () {
-    window.open("../topo/run_7_knl01_44350_44741.html");
+  $("#zoom_chart_8245_27").click( function () {
+    window.open("../topo/run_7_knl01_12587_12840.html");
   });
-  $("#zoom_chart_8336_28").click( function () {
-    window.open("../topo/run_7_knl01_44352_44778.html");
+  $("#zoom_chart_8245_28").click( function () {
+    window.open("../topo/run_7_knl01_12587_12763.html");
   });
-  $("#zoom_chart_8336_29").click( function () {
-    window.open("../topo/run_7_knl01_44353_44373.html");
+  $("#zoom_chart_8245_29").click( function () {
+    window.open("../topo/run_7_knl01_12586_13004.html");
   });
-  $("#zoom_chart_8336_30").click( function () {
-    window.open("../topo/run_7_knl01_44353_44353.html");
+  $("#zoom_chart_8245_30").click( function () {
+    window.open("../topo/run_7_knl01_12587_12896.html");
   });
-  $("#zoom_chart_8336_31").click( function () {
-    window.open("../topo/run_7_knl01_44349_44427.html");
+  $("#zoom_chart_8245_31").click( function () {
+    window.open("../topo/run_7_knl01_12588_12628.html");
   });
-  $("#zoom_chart_8336_32").click( function () {
-    window.open("../topo/run_7_knl01_44350_44702.html");
+  $("#zoom_chart_8245_32").click( function () {
+    window.open("../topo/run_7_knl01_12587_13081.html");
   });
-  $("#zoom_chart_8336_33").click( function () {
-    window.open("../topo/run_7_knl01_44350_44529.html");
+  $("#zoom_chart_8245_33").click( function () {
+    window.open("../topo/run_7_knl01_12584_12631.html");
   });
-  $("#zoom_chart_8336_34").click( function () {
-    window.open("../topo/run_7_knl01_44346_44667.html");
+  $("#zoom_chart_8245_34").click( function () {
+    window.open("../topo/run_7_knl01_12586_12802.html");
   });
-  $("#zoom_chart_8336_35").click( function () {
-    window.open("../topo/run_7_knl01_44350_44566.html");
+  $("#zoom_chart_8245_35").click( function () {
+    window.open("../topo/run_7_knl01_12586_12723.html");
   });
-  $("#zoom_chart_8336_36").click( function () {
-    window.open("../topo/run_7_knl01_44349_44676.html");
+  $("#zoom_chart_8245_36").click( function () {
+    window.open("../topo/run_7_knl01_12584_12898.html");
   });
-  $("#zoom_chart_8336_37").click( function () {
-    window.open("../topo/run_7_knl01_44349_44761.html");
+  $("#zoom_chart_8245_37").click( function () {
+    window.open("../topo/run_7_knl01_12586_12774.html");
   });
-  $("#zoom_chart_8336_38").click( function () {
-    window.open("../topo/run_7_knl01_44346_44646.html");
+  $("#zoom_chart_8245_38").click( function () {
+    window.open("../topo/run_7_knl01_12582_12787.html");
   });
-  $("#zoom_chart_8336_39").click( function () {
-    window.open("../topo/run_7_knl01_44345_44656.html");
+  $("#zoom_chart_8245_39").click( function () {
+    window.open("../topo/run_7_knl01_12586_12696.html");
   });
-  $("#zoom_chart_8336_40").click( function () {
-    window.open("../topo/run_7_knl01_44346_44371.html");
+  $("#zoom_chart_8245_40").click( function () {
+    window.open("../topo/run_7_knl01_12585_13046.html");
   });
-  $("#zoom_chart_8336_41").click( function () {
-    window.open("../topo/run_7_knl01_44340_44550.html");
+  $("#zoom_chart_8245_41").click( function () {
+    window.open("../topo/run_7_knl01_12582_12715.html");
   });
-  $("#zoom_chart_8336_42").click( function () {
-    window.open("../topo/run_7_knl01_44339_44784.html");
+  $("#zoom_chart_8245_42").click( function () {
+    window.open("../topo/run_7_knl01_12581_12864.html");
   });
-  $("#zoom_chart_8336_43").click( function () {
-    window.open("../topo/run_7_knl01_44340_44693.html");
+  $("#zoom_chart_8245_43").click( function () {
+    window.open("../topo/run_7_knl01_12581_12925.html");
   });
-  $("#zoom_chart_8336_44").click( function () {
-    window.open("../topo/run_7_knl01_44341_44428.html");
+  $("#zoom_chart_8245_44").click( function () {
+    window.open("../topo/run_7_knl01_12576_13002.html");
   });
-  $("#zoom_chart_8336_45").click( function () {
-    window.open("../topo/run_7_knl01_44340_44808.html");
+  $("#zoom_chart_8245_45").click( function () {
+    window.open("../topo/run_7_knl01_12576_12970.html");
   });
-  $("#zoom_chart_8336_46").click( function () {
-    window.open("../topo/run_7_knl01_44341_44564.html");
+  $("#zoom_chart_8245_46").click( function () {
+    window.open("../topo/run_7_knl01_12575_12808.html");
   });
-  $("#zoom_chart_8336_47").click( function () {
-    window.open("../topo/run_7_knl01_44339_44602.html");
+  $("#zoom_chart_8245_47").click( function () {
+    window.open("../topo/run_7_knl01_12577_12577.html");
   });
-  $("#zoom_chart_8336_48").click( function () {
-    window.open("../topo/run_7_knl01_44339_44369.html");
+  $("#zoom_chart_8245_48").click( function () {
+    window.open("../topo/run_7_knl01_12577_12742.html");
   });
-  $("#zoom_chart_8336_49").click( function () {
-    window.open("../topo/run_7_knl01_44337_44469.html");
+  $("#zoom_chart_8245_49").click( function () {
+    window.open("../topo/run_7_knl01_12577_12695.html");
   });
-  $("#zoom_chart_8336_50").click( function () {
-    window.open("../topo/run_7_knl01_44339_44474.html");
+  $("#zoom_chart_8245_50").click( function () {
+    window.open("../topo/run_7_knl01_12578_12714.html");
   });
-  $("#zoom_chart_8336_51").click( function () {
-    window.open("../topo/run_7_knl01_44337_44677.html");
+  $("#zoom_chart_8245_51").click( function () {
+    window.open("../topo/run_7_knl01_12575_12708.html");
   });
-  $("#zoom_chart_8336_52").click( function () {
-    window.open("../topo/run_7_knl01_44338_44525.html");
+  $("#zoom_chart_8245_52").click( function () {
+    window.open("../topo/run_7_knl01_12574_13033.html");
   });
-  $("#zoom_chart_8336_53").click( function () {
-    window.open("../topo/run_7_knl01_44338_44458.html");
+  $("#zoom_chart_8245_53").click( function () {
+    window.open("../topo/run_7_knl01_12573_12765.html");
   });
-  $("#zoom_chart_8336_54").click( function () {
-    window.open("../topo/run_7_knl01_44346_44614.html");
+  $("#zoom_chart_8245_54").click( function () {
+    window.open("../topo/run_7_knl01_12575_12575.html");
   });
-  $("#zoom_chart_8336_55").click( function () {
-    window.open("../topo/run_7_knl01_44341_44595.html");
+  $("#zoom_chart_8245_55").click( function () {
+    window.open("../topo/run_7_knl01_12573_12835.html");
   });
-  $("#zoom_chart_8336_56").click( function () {
-    window.open("../topo/run_7_knl01_44341_44740.html");
+  $("#zoom_chart_8245_56").click( function () {
+    window.open("../topo/run_7_knl01_12574_12900.html");
   });
-  $("#zoom_chart_8336_57").click( function () {
-    window.open("../topo/run_7_knl01_44345_44472.html");
+  $("#zoom_chart_8245_57").click( function () {
+    window.open("../topo/run_7_knl01_12574_12694.html");
   });
-  $("#zoom_chart_8336_58").click( function () {
-    window.open("../topo/run_7_knl01_44345_44393.html");
+  $("#zoom_chart_8245_58").click( function () {
+    window.open("../topo/run_7_knl01_12581_13068.html");
   });
-  $("#zoom_chart_8336_59").click( function () {
-    window.open("../topo/run_7_knl01_44345_44535.html");
+  $("#zoom_chart_8245_59").click( function () {
+    window.open("../topo/run_7_knl01_12578_12944.html");
   });
-  $("#zoom_chart_8336_60").click( function () {
-    window.open("../topo/run_7_knl01_44345_44760.html");
+  $("#zoom_chart_8245_60").click( function () {
+    window.open("../topo/run_7_knl01_12578_13009.html");
   });
-  $("#zoom_chart_8336_61").click( function () {
-    window.open("../topo/run_7_knl01_44353_44501.html");
+  $("#zoom_chart_8245_61").click( function () {
+    window.open("../topo/run_7_knl01_12580_12979.html");
   });
-  $("#zoom_chart_8336_62").click( function () {
-    window.open("../topo/run_7_knl01_44341_44631.html");
+  $("#zoom_chart_8245_62").click( function () {
+    window.open("../topo/run_7_knl01_12580_12950.html");
   });
-  $("#zoom_chart_8336_63").click( function () {
-    window.open("../topo/run_7_knl01_44344_44830.html");
+  $("#zoom_chart_8245_63").click( function () {
+    window.open("../topo/run_7_knl01_12580_13077.html");
   });
-  $("#zoom_chart_8336_64").click( function () {
-    window.open("../topo/run_7_knl01_44344_44344.html");
+  $("#zoom_chart_8245_64").click( function () {
+    window.open("../topo/run_7_knl01_12581_12788.html");
   });
-  $("#zoom_chart_8336_65").click( function () {
-    window.open("../topo/run_7_knl01_44343_44452.html");
+  $("#zoom_chart_8245_65").click( function () {
+    window.open("../topo/run_7_knl01_12581_12613.html");
   });
-  $("#zoom_chart_8336_66").click( function () {
-    window.open("../topo/run_7_knl01_44344_44531.html");
+  $("#zoom_chart_8245_66").click( function () {
+    window.open("../topo/run_7_knl01_12578_12975.html");
   });
-  $("#zoom_chart_8336_67").click( function () {
-    window.open("../topo/run_7_knl01_44343_44485.html");
+  $("#zoom_chart_8245_67").click( function () {
+    window.open("../topo/run_7_knl01_12580_12915.html");
   });
-  $("#zoom_chart_8336_68").click( function () {
-    window.open("../topo/run_7_knl01_44343_44659.html");
+  $("#zoom_chart_8245_68").click( function () {
+    window.open("../topo/run_7_knl01_12580_12731.html");
   });
-  $("#zoom_chart_8336_69").click( function () {
-    window.open("../topo/run_7_knl01_44343_44600.html");
+  $("#zoom_chart_8245_69").click( function () {
+    window.open("../topo/run_7_knl01_12578_13054.html");
   });
-  $("#zoom_chart_8336_70").click( function () {
-    window.open("../topo/run_7_knl01_44353_44567.html");
+  $("#zoom_chart_8245_70").click( function () {
+    window.open("../topo/run_7_knl01_12580_12884.html");
+  });
+  $("#zoom_chart_8245_71").click( function () {
+    window.open("../topo/run_7_knl01_12579_12615.html");
+  });
+  $("#zoom_chart_8245_72").click( function () {
+    window.open("../topo/run_7_knl01_12579_12961.html");
+  });
+  $("#zoom_chart_8245_73").click( function () {
+    window.open("../topo/run_7_knl01_12579_12683.html");
+  });
+  $("#zoom_chart_8245_74").click( function () {
+    window.open("../topo/run_7_knl01_12588_13008.html");
   });
   }
   if (selector_run.value  == "9") {
   $(document).ready(function(){
-    var ordinals = ['knl01_44984_44984','knl01_44986_44986','knl01_44998_44998','knl01_44987_44987','knl01_44997_44997','knl01_44995_44995','knl01_44991_44991','knl01_44990_44990','knl01_44996_44996','knl01_44985_44985','knl01_44988_44988','knl01_44993_44993','knl01_44992_44992'];
-    var data = [{value: 0.29, offset: 0, i: 0, color: "#333399"},{value: 0.29, offset: 0, i: 1, color: "#333399"},{value: 0.29, offset: 0, i: 2, color: "#333399"},{value: 0.22, offset: 0, i: 3, color: "#333399"},{value: 0.15, offset: 0, i: 4, color: "#333399"},{value: 0.14, offset: 0, i: 5, color: "#333399"},{value: 0.14, offset: 0, i: 6, color: "#333399"},{value: 0.14, offset: 0, i: 7, color: "#333399"},{value: 0.07, offset: 0, i: 8, color: "#333399"},{value: 0.07, offset: 0, i: 9, color: "#333399"},{value: 0.07, offset: 0, i: 10, color: "#333399"},{value: 0.07, offset: 0, i: 11, color: "#333399"},{value: 0.07, offset: 0, i: 12, color: "#333399"}];
+    var ordinals = ['knl01_13214_13247','knl01_13214_13230','knl01_13213_13334','knl01_13214_13287','knl01_13212_13267','knl01_13206_13268','knl01_13206_13314','knl01_13210_13244','knl01_13210_13226','knl01_13212_13235','knl01_13205_13279','knl01_13206_13343','knl01_13209_13350','knl01_13206_13246','knl01_13213_13213','knl01_13210_13277','knl01_13207_13332','knl01_13212_13288','knl01_13214_13214','knl01_13212_13225','knl01_13206_13232','knl01_13214_13301','knl01_13208_13296','knl01_13208_13258','knl01_13210_13257','knl01_13212_13253','knl01_13209_13249','knl01_13209_13209','knl01_13208_13280','knl01_13213_13276','knl01_13206_13206','knl01_13206_13291','knl01_13214_13274','knl01_13211_13315','knl01_13205_13254','knl01_13205_13312','knl01_13209_13227','knl01_13210_13297','knl01_13205_13362','knl01_13212_13309','knl01_13212_13331','knl01_13207_13207','knl01_13211_13228','knl01_13208_13233','knl01_13213_13346','knl01_13211_13338','knl01_13207_13349','knl01_13214_13339','knl01_13206_13328','knl01_13205_13333','knl01_13209_13269','knl01_13210_13318','knl01_13205_13231','knl01_13209_13316','knl01_13208_13208','knl01_13207_13294','knl01_13208_13251','knl01_13211_13271','knl01_13211_13359','knl01_13213_13252','knl01_13211_13211','knl01_13205_13205','knl01_13212_13212','knl01_13209_13290','knl01_13209_13337','knl01_13207_13229','knl01_13208_13308','knl01_13211_13245','knl01_13207_13248','knl01_13208_13273','knl01_13210_13330','knl01_13207_13270','knl01_13213_13317','knl01_13213_13356','knl01_13210_13210','knl01_13214_13321','knl01_13205_13351','knl01_13213_13298'];
+    var data = [{value: 0.35, offset: 0, i: 0, color: "#333399"},{value: 0.35, offset: 0, i: 1, color: "#333399"},{value: 0.34, offset: 0, i: 2, color: "#333399"},{value: 0.33, offset: 0, i: 3, color: "#333399"},{value: 0.33, offset: 0, i: 4, color: "#333399"},{value: 0.33, offset: 0, i: 5, color: "#333399"},{value: 0.32, offset: 0, i: 6, color: "#333399"},{value: 0.3, offset: 0, i: 7, color: "#333399"},{value: 0.3, offset: 0, i: 8, color: "#333399"},{value: 0.29, offset: 0, i: 9, color: "#333399"},{value: 0.28, offset: 0, i: 10, color: "#333399"},{value: 0.26, offset: 0, i: 11, color: "#333399"},{value: 0.26, offset: 0, i: 12, color: "#333399"},{value: 0.25, offset: 0, i: 13, color: "#333399"},{value: 0.25, offset: 0, i: 14, color: "#333399"},{value: 0.25, offset: 0, i: 15, color: "#333399"},{value: 0.23, offset: 0, i: 16, color: "#333399"},{value: 0.23, offset: 0, i: 17, color: "#333399"},{value: 0.22, offset: 0, i: 18, color: "#333399"},{value: 0.21, offset: 0, i: 19, color: "#333399"},{value: 0.21, offset: 0, i: 20, color: "#333399"},{value: 0.2, offset: 0, i: 21, color: "#333399"},{value: 0.2, offset: 0, i: 22, color: "#333399"},{value: 0.18, offset: 0, i: 23, color: "#333399"},{value: 0.17, offset: 0, i: 24, color: "#333399"},{value: 0.17, offset: 0, i: 25, color: "#333399"},{value: 0.17, offset: 0, i: 26, color: "#333399"},{value: 0.17, offset: 0, i: 27, color: "#333399"},{value: 0.17, offset: 0, i: 28, color: "#333399"},{value: 0.17, offset: 0, i: 29, color: "#333399"},{value: 0.17, offset: 0, i: 30, color: "#333399"},{value: 0.17, offset: 0, i: 31, color: "#333399"},{value: 0.17, offset: 0, i: 32, color: "#333399"},{value: 0.17, offset: 0, i: 33, color: "#333399"},{value: 0.17, offset: 0, i: 34, color: "#333399"},{value: 0.16, offset: 0, i: 35, color: "#333399"},{value: 0.16, offset: 0, i: 36, color: "#333399"},{value: 0.16, offset: 0, i: 37, color: "#333399"},{value: 0.15, offset: 0, i: 38, color: "#333399"},{value: 0.15, offset: 0, i: 39, color: "#333399"},{value: 0.15, offset: 0, i: 40, color: "#333399"},{value: 0.15, offset: 0, i: 41, color: "#333399"},{value: 0.15, offset: 0, i: 42, color: "#333399"},{value: 0.14, offset: 0, i: 43, color: "#333399"},{value: 0.13, offset: 0, i: 44, color: "#333399"},{value: 0.13, offset: 0, i: 45, color: "#333399"},{value: 0.13, offset: 0, i: 46, color: "#333399"},{value: 0.12, offset: 0, i: 47, color: "#333399"},{value: 0.12, offset: 0, i: 48, color: "#333399"},{value: 0.12, offset: 0, i: 49, color: "#333399"},{value: 0.12, offset: 0, i: 50, color: "#333399"},{value: 0.12, offset: 0, i: 51, color: "#333399"},{value: 0.12, offset: 0, i: 52, color: "#333399"},{value: 0.12, offset: 0, i: 53, color: "#333399"},{value: 0.11, offset: 0, i: 54, color: "#333399"},{value: 0.11, offset: 0, i: 55, color: "#333399"},{value: 0.11, offset: 0, i: 56, color: "#333399"},{value: 0.11, offset: 0, i: 57, color: "#333399"},{value: 0.1, offset: 0, i: 58, color: "#333399"},{value: 0.1, offset: 0, i: 59, color: "#333399"},{value: 0.08, offset: 0, i: 60, color: "#333399"},{value: 0.08, offset: 0, i: 61, color: "#333399"},{value: 0.08, offset: 0, i: 62, color: "#333399"},{value: 0.08, offset: 0, i: 63, color: "#333399"},{value: 0.08, offset: 0, i: 64, color: "#333399"},{value: 0.07, offset: 0, i: 65, color: "#333399"},{value: 0.07, offset: 0, i: 66, color: "#333399"},{value: 0.07, offset: 0, i: 67, color: "#333399"},{value: 0.07, offset: 0, i: 68, color: "#333399"},{value: 0.07, offset: 0, i: 69, color: "#333399"},{value: 0.07, offset: 0, i: 70, color: "#333399"},{value: 0.07, offset: 0, i: 71, color: "#333399"},{value: 0.07, offset: 0, i: 72, color: "#333399"},{value: 0.06, offset: 0, i: 73, color: "#333399"},{value: 0.04, offset: 0, i: 74, color: "#333399"},{value: 0.04, offset: 0, i: 75, color: "#333399"},{value: 0.04, offset: 0, i: 76, color: "#333399"},{value: 0.03, offset: 0, i: 77, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -2943,7 +2974,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_8335')
+    const svg = d3.select('#chart_cat_8244')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -2999,13 +3030,13 @@ function set_ldbal_input () {
       .text("Coverage (%)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_8335')
+      .attr('id', 'zoom_chart_8244')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_8335_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_8244_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -3047,50 +3078,245 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
-  $("#zoom_chart_8335_0").click( function () {
-    window.open("../topo/run_8_knl01_44984_44984.html");
+  $("#zoom_chart_8244_0").click( function () {
+    window.open("../topo/run_8_knl01_13214_13247.html");
   });
-  $("#zoom_chart_8335_1").click( function () {
-    window.open("../topo/run_8_knl01_44986_44986.html");
+  $("#zoom_chart_8244_1").click( function () {
+    window.open("../topo/run_8_knl01_13214_13230.html");
   });
-  $("#zoom_chart_8335_2").click( function () {
-    window.open("../topo/run_8_knl01_44998_44998.html");
+  $("#zoom_chart_8244_2").click( function () {
+    window.open("../topo/run_8_knl01_13213_13334.html");
   });
-  $("#zoom_chart_8335_3").click( function () {
-    window.open("../topo/run_8_knl01_44987_44987.html");
+  $("#zoom_chart_8244_3").click( function () {
+    window.open("../topo/run_8_knl01_13214_13287.html");
   });
-  $("#zoom_chart_8335_4").click( function () {
-    window.open("../topo/run_8_knl01_44997_44997.html");
+  $("#zoom_chart_8244_4").click( function () {
+    window.open("../topo/run_8_knl01_13212_13267.html");
   });
-  $("#zoom_chart_8335_5").click( function () {
-    window.open("../topo/run_8_knl01_44995_44995.html");
+  $("#zoom_chart_8244_5").click( function () {
+    window.open("../topo/run_8_knl01_13206_13268.html");
   });
-  $("#zoom_chart_8335_6").click( function () {
-    window.open("../topo/run_8_knl01_44991_44991.html");
+  $("#zoom_chart_8244_6").click( function () {
+    window.open("../topo/run_8_knl01_13206_13314.html");
   });
-  $("#zoom_chart_8335_7").click( function () {
-    window.open("../topo/run_8_knl01_44990_44990.html");
+  $("#zoom_chart_8244_7").click( function () {
+    window.open("../topo/run_8_knl01_13210_13244.html");
   });
-  $("#zoom_chart_8335_8").click( function () {
-    window.open("../topo/run_8_knl01_44996_44996.html");
+  $("#zoom_chart_8244_8").click( function () {
+    window.open("../topo/run_8_knl01_13210_13226.html");
   });
-  $("#zoom_chart_8335_9").click( function () {
-    window.open("../topo/run_8_knl01_44985_44985.html");
+  $("#zoom_chart_8244_9").click( function () {
+    window.open("../topo/run_8_knl01_13212_13235.html");
   });
-  $("#zoom_chart_8335_10").click( function () {
-    window.open("../topo/run_8_knl01_44988_44988.html");
+  $("#zoom_chart_8244_10").click( function () {
+    window.open("../topo/run_8_knl01_13205_13279.html");
   });
-  $("#zoom_chart_8335_11").click( function () {
-    window.open("../topo/run_8_knl01_44993_44993.html");
+  $("#zoom_chart_8244_11").click( function () {
+    window.open("../topo/run_8_knl01_13206_13343.html");
   });
-  $("#zoom_chart_8335_12").click( function () {
-    window.open("../topo/run_8_knl01_44992_44992.html");
+  $("#zoom_chart_8244_12").click( function () {
+    window.open("../topo/run_8_knl01_13209_13350.html");
+  });
+  $("#zoom_chart_8244_13").click( function () {
+    window.open("../topo/run_8_knl01_13206_13246.html");
+  });
+  $("#zoom_chart_8244_14").click( function () {
+    window.open("../topo/run_8_knl01_13213_13213.html");
+  });
+  $("#zoom_chart_8244_15").click( function () {
+    window.open("../topo/run_8_knl01_13210_13277.html");
+  });
+  $("#zoom_chart_8244_16").click( function () {
+    window.open("../topo/run_8_knl01_13207_13332.html");
+  });
+  $("#zoom_chart_8244_17").click( function () {
+    window.open("../topo/run_8_knl01_13212_13288.html");
+  });
+  $("#zoom_chart_8244_18").click( function () {
+    window.open("../topo/run_8_knl01_13214_13214.html");
+  });
+  $("#zoom_chart_8244_19").click( function () {
+    window.open("../topo/run_8_knl01_13212_13225.html");
+  });
+  $("#zoom_chart_8244_20").click( function () {
+    window.open("../topo/run_8_knl01_13206_13232.html");
+  });
+  $("#zoom_chart_8244_21").click( function () {
+    window.open("../topo/run_8_knl01_13214_13301.html");
+  });
+  $("#zoom_chart_8244_22").click( function () {
+    window.open("../topo/run_8_knl01_13208_13296.html");
+  });
+  $("#zoom_chart_8244_23").click( function () {
+    window.open("../topo/run_8_knl01_13208_13258.html");
+  });
+  $("#zoom_chart_8244_24").click( function () {
+    window.open("../topo/run_8_knl01_13210_13257.html");
+  });
+  $("#zoom_chart_8244_25").click( function () {
+    window.open("../topo/run_8_knl01_13212_13253.html");
+  });
+  $("#zoom_chart_8244_26").click( function () {
+    window.open("../topo/run_8_knl01_13209_13249.html");
+  });
+  $("#zoom_chart_8244_27").click( function () {
+    window.open("../topo/run_8_knl01_13209_13209.html");
+  });
+  $("#zoom_chart_8244_28").click( function () {
+    window.open("../topo/run_8_knl01_13208_13280.html");
+  });
+  $("#zoom_chart_8244_29").click( function () {
+    window.open("../topo/run_8_knl01_13213_13276.html");
+  });
+  $("#zoom_chart_8244_30").click( function () {
+    window.open("../topo/run_8_knl01_13206_13206.html");
+  });
+  $("#zoom_chart_8244_31").click( function () {
+    window.open("../topo/run_8_knl01_13206_13291.html");
+  });
+  $("#zoom_chart_8244_32").click( function () {
+    window.open("../topo/run_8_knl01_13214_13274.html");
+  });
+  $("#zoom_chart_8244_33").click( function () {
+    window.open("../topo/run_8_knl01_13211_13315.html");
+  });
+  $("#zoom_chart_8244_34").click( function () {
+    window.open("../topo/run_8_knl01_13205_13254.html");
+  });
+  $("#zoom_chart_8244_35").click( function () {
+    window.open("../topo/run_8_knl01_13205_13312.html");
+  });
+  $("#zoom_chart_8244_36").click( function () {
+    window.open("../topo/run_8_knl01_13209_13227.html");
+  });
+  $("#zoom_chart_8244_37").click( function () {
+    window.open("../topo/run_8_knl01_13210_13297.html");
+  });
+  $("#zoom_chart_8244_38").click( function () {
+    window.open("../topo/run_8_knl01_13205_13362.html");
+  });
+  $("#zoom_chart_8244_39").click( function () {
+    window.open("../topo/run_8_knl01_13212_13309.html");
+  });
+  $("#zoom_chart_8244_40").click( function () {
+    window.open("../topo/run_8_knl01_13212_13331.html");
+  });
+  $("#zoom_chart_8244_41").click( function () {
+    window.open("../topo/run_8_knl01_13207_13207.html");
+  });
+  $("#zoom_chart_8244_42").click( function () {
+    window.open("../topo/run_8_knl01_13211_13228.html");
+  });
+  $("#zoom_chart_8244_43").click( function () {
+    window.open("../topo/run_8_knl01_13208_13233.html");
+  });
+  $("#zoom_chart_8244_44").click( function () {
+    window.open("../topo/run_8_knl01_13213_13346.html");
+  });
+  $("#zoom_chart_8244_45").click( function () {
+    window.open("../topo/run_8_knl01_13211_13338.html");
+  });
+  $("#zoom_chart_8244_46").click( function () {
+    window.open("../topo/run_8_knl01_13207_13349.html");
+  });
+  $("#zoom_chart_8244_47").click( function () {
+    window.open("../topo/run_8_knl01_13214_13339.html");
+  });
+  $("#zoom_chart_8244_48").click( function () {
+    window.open("../topo/run_8_knl01_13206_13328.html");
+  });
+  $("#zoom_chart_8244_49").click( function () {
+    window.open("../topo/run_8_knl01_13205_13333.html");
+  });
+  $("#zoom_chart_8244_50").click( function () {
+    window.open("../topo/run_8_knl01_13209_13269.html");
+  });
+  $("#zoom_chart_8244_51").click( function () {
+    window.open("../topo/run_8_knl01_13210_13318.html");
+  });
+  $("#zoom_chart_8244_52").click( function () {
+    window.open("../topo/run_8_knl01_13205_13231.html");
+  });
+  $("#zoom_chart_8244_53").click( function () {
+    window.open("../topo/run_8_knl01_13209_13316.html");
+  });
+  $("#zoom_chart_8244_54").click( function () {
+    window.open("../topo/run_8_knl01_13208_13208.html");
+  });
+  $("#zoom_chart_8244_55").click( function () {
+    window.open("../topo/run_8_knl01_13207_13294.html");
+  });
+  $("#zoom_chart_8244_56").click( function () {
+    window.open("../topo/run_8_knl01_13208_13251.html");
+  });
+  $("#zoom_chart_8244_57").click( function () {
+    window.open("../topo/run_8_knl01_13211_13271.html");
+  });
+  $("#zoom_chart_8244_58").click( function () {
+    window.open("../topo/run_8_knl01_13211_13359.html");
+  });
+  $("#zoom_chart_8244_59").click( function () {
+    window.open("../topo/run_8_knl01_13213_13252.html");
+  });
+  $("#zoom_chart_8244_60").click( function () {
+    window.open("../topo/run_8_knl01_13211_13211.html");
+  });
+  $("#zoom_chart_8244_61").click( function () {
+    window.open("../topo/run_8_knl01_13205_13205.html");
+  });
+  $("#zoom_chart_8244_62").click( function () {
+    window.open("../topo/run_8_knl01_13212_13212.html");
+  });
+  $("#zoom_chart_8244_63").click( function () {
+    window.open("../topo/run_8_knl01_13209_13290.html");
+  });
+  $("#zoom_chart_8244_64").click( function () {
+    window.open("../topo/run_8_knl01_13209_13337.html");
+  });
+  $("#zoom_chart_8244_65").click( function () {
+    window.open("../topo/run_8_knl01_13207_13229.html");
+  });
+  $("#zoom_chart_8244_66").click( function () {
+    window.open("../topo/run_8_knl01_13208_13308.html");
+  });
+  $("#zoom_chart_8244_67").click( function () {
+    window.open("../topo/run_8_knl01_13211_13245.html");
+  });
+  $("#zoom_chart_8244_68").click( function () {
+    window.open("../topo/run_8_knl01_13207_13248.html");
+  });
+  $("#zoom_chart_8244_69").click( function () {
+    window.open("../topo/run_8_knl01_13208_13273.html");
+  });
+  $("#zoom_chart_8244_70").click( function () {
+    window.open("../topo/run_8_knl01_13210_13330.html");
+  });
+  $("#zoom_chart_8244_71").click( function () {
+    window.open("../topo/run_8_knl01_13207_13270.html");
+  });
+  $("#zoom_chart_8244_72").click( function () {
+    window.open("../topo/run_8_knl01_13213_13317.html");
+  });
+  $("#zoom_chart_8244_73").click( function () {
+    window.open("../topo/run_8_knl01_13213_13356.html");
+  });
+  $("#zoom_chart_8244_74").click( function () {
+    window.open("../topo/run_8_knl01_13210_13210.html");
+  });
+  $("#zoom_chart_8244_75").click( function () {
+    window.open("../topo/run_8_knl01_13214_13321.html");
+  });
+  $("#zoom_chart_8244_76").click( function () {
+    window.open("../topo/run_8_knl01_13205_13351.html");
+  });
+  $("#zoom_chart_8244_77").click( function () {
+    window.open("../topo/run_8_knl01_13213_13298.html");
   });
   }
   if (selector_run.value  == "9") {
   $(document).ready(function(){
-    var ordinals = ['knl01_44984_44984','knl01_44986_44986','knl01_44998_44998','knl01_44987_44987','knl01_44995_44995','knl01_44997_44997','knl01_44991_44991','knl01_44988_44988','knl01_44990_44990','knl01_44996_44996','knl01_44985_44985','knl01_44993_44993','knl01_44992_44992'];
-    var data = [{value: 0.02, offset: 0, i: 0, color: "#333399"},{value: 0.02, offset: 0, i: 1, color: "#333399"},{value: 0.02, offset: 0, i: 2, color: "#333399"},{value: 0.01, offset: 0, i: 3, color: "#333399"},{value: 0.01, offset: 0, i: 4, color: "#333399"},{value: 0.01, offset: 0, i: 5, color: "#333399"},{value: 0.01, offset: 0, i: 6, color: "#333399"},{value: 0.01, offset: 0, i: 7, color: "#333399"},{value: 0.01, offset: 0, i: 8, color: "#333399"},{value: 0, offset: 0, i: 9, color: "#333399"},{value: 0, offset: 0, i: 10, color: "#333399"},{value: 0, offset: 0, i: 11, color: "#333399"},{value: 0, offset: 0, i: 12, color: "#333399"}];
+    var ordinals = ['knl01_13213_13334','knl01_13210_13226','knl01_13214_13287','knl01_13214_13247','knl01_13210_13244','knl01_13206_13268','knl01_13206_13314','knl01_13212_13267','knl01_13213_13213','knl01_13214_13230','knl01_13205_13279','knl01_13207_13332','knl01_13208_13296','knl01_13212_13288','knl01_13209_13350','knl01_13206_13343','knl01_13206_13246','knl01_13210_13277','knl01_13212_13235','knl01_13209_13249','knl01_13211_13315','knl01_13209_13227','knl01_13213_13276','knl01_13212_13225','knl01_13212_13331','knl01_13212_13309','knl01_13210_13297','knl01_13210_13257','knl01_13212_13253','knl01_13211_13228','knl01_13209_13209','knl01_13208_13258','knl01_13208_13280','knl01_13214_13301','knl01_13205_13362','knl01_13206_13206','knl01_13206_13232','knl01_13205_13333','knl01_13205_13254','knl01_13205_13312','knl01_13205_13231','knl01_13207_13207','knl01_13206_13291','knl01_13214_13274','knl01_13208_13233','knl01_13207_13349','knl01_13211_13338','knl01_13214_13214','knl01_13213_13346','knl01_13212_13212','knl01_13213_13252','knl01_13213_13356','knl01_13213_13317','knl01_13211_13359','knl01_13205_13205','knl01_13211_13245','knl01_13207_13294','knl01_13208_13208','knl01_13208_13251','knl01_13208_13273','knl01_13207_13270','knl01_13207_13229','knl01_13207_13248','knl01_13206_13328','knl01_13211_13271','knl01_13208_13308','knl01_13209_13269','knl01_13210_13330','knl01_13211_13211','knl01_13210_13318','knl01_13214_13339','knl01_13209_13290','knl01_13209_13316','knl01_13209_13337','knl01_13205_13351','knl01_13213_13298','knl01_13214_13321','knl01_13210_13210'];
+    var data = [{value: 0.05, offset: 0, i: 0, color: "#333399"},{value: 0.04, offset: 0, i: 1, color: "#333399"},{value: 0.04, offset: 0, i: 2, color: "#333399"},{value: 0.04, offset: 0, i: 3, color: "#333399"},{value: 0.04, offset: 0, i: 4, color: "#333399"},{value: 0.04, offset: 0, i: 5, color: "#333399"},{value: 0.04, offset: 0, i: 6, color: "#333399"},{value: 0.04, offset: 0, i: 7, color: "#333399"},{value: 0.04, offset: 0, i: 8, color: "#333399"},{value: 0.04, offset: 0, i: 9, color: "#333399"},{value: 0.04, offset: 0, i: 10, color: "#333399"},{value: 0.04, offset: 0, i: 11, color: "#333399"},{value: 0.03, offset: 0, i: 12, color: "#333399"},{value: 0.03, offset: 0, i: 13, color: "#333399"},{value: 0.03, offset: 0, i: 14, color: "#333399"},{value: 0.03, offset: 0, i: 15, color: "#333399"},{value: 0.03, offset: 0, i: 16, color: "#333399"},{value: 0.03, offset: 0, i: 17, color: "#333399"},{value: 0.03, offset: 0, i: 18, color: "#333399"},{value: 0.02, offset: 0, i: 19, color: "#333399"},{value: 0.02, offset: 0, i: 20, color: "#333399"},{value: 0.02, offset: 0, i: 21, color: "#333399"},{value: 0.02, offset: 0, i: 22, color: "#333399"},{value: 0.02, offset: 0, i: 23, color: "#333399"},{value: 0.02, offset: 0, i: 24, color: "#333399"},{value: 0.02, offset: 0, i: 25, color: "#333399"},{value: 0.02, offset: 0, i: 26, color: "#333399"},{value: 0.02, offset: 0, i: 27, color: "#333399"},{value: 0.02, offset: 0, i: 28, color: "#333399"},{value: 0.02, offset: 0, i: 29, color: "#333399"},{value: 0.02, offset: 0, i: 30, color: "#333399"},{value: 0.02, offset: 0, i: 31, color: "#333399"},{value: 0.02, offset: 0, i: 32, color: "#333399"},{value: 0.02, offset: 0, i: 33, color: "#333399"},{value: 0.02, offset: 0, i: 34, color: "#333399"},{value: 0.02, offset: 0, i: 35, color: "#333399"},{value: 0.02, offset: 0, i: 36, color: "#333399"},{value: 0.02, offset: 0, i: 37, color: "#333399"},{value: 0.02, offset: 0, i: 38, color: "#333399"},{value: 0.02, offset: 0, i: 39, color: "#333399"},{value: 0.02, offset: 0, i: 40, color: "#333399"},{value: 0.02, offset: 0, i: 41, color: "#333399"},{value: 0.02, offset: 0, i: 42, color: "#333399"},{value: 0.02, offset: 0, i: 43, color: "#333399"},{value: 0.02, offset: 0, i: 44, color: "#333399"},{value: 0.02, offset: 0, i: 45, color: "#333399"},{value: 0.02, offset: 0, i: 46, color: "#333399"},{value: 0.02, offset: 0, i: 47, color: "#333399"},{value: 0.02, offset: 0, i: 48, color: "#333399"},{value: 0.01, offset: 0, i: 49, color: "#333399"},{value: 0.01, offset: 0, i: 50, color: "#333399"},{value: 0.01, offset: 0, i: 51, color: "#333399"},{value: 0.01, offset: 0, i: 52, color: "#333399"},{value: 0.01, offset: 0, i: 53, color: "#333399"},{value: 0.01, offset: 0, i: 54, color: "#333399"},{value: 0.01, offset: 0, i: 55, color: "#333399"},{value: 0.01, offset: 0, i: 56, color: "#333399"},{value: 0.01, offset: 0, i: 57, color: "#333399"},{value: 0.01, offset: 0, i: 58, color: "#333399"},{value: 0.01, offset: 0, i: 59, color: "#333399"},{value: 0.01, offset: 0, i: 60, color: "#333399"},{value: 0.01, offset: 0, i: 61, color: "#333399"},{value: 0.01, offset: 0, i: 62, color: "#333399"},{value: 0.01, offset: 0, i: 63, color: "#333399"},{value: 0.01, offset: 0, i: 64, color: "#333399"},{value: 0.01, offset: 0, i: 65, color: "#333399"},{value: 0.01, offset: 0, i: 66, color: "#333399"},{value: 0.01, offset: 0, i: 67, color: "#333399"},{value: 0.01, offset: 0, i: 68, color: "#333399"},{value: 0.01, offset: 0, i: 69, color: "#333399"},{value: 0.01, offset: 0, i: 70, color: "#333399"},{value: 0.01, offset: 0, i: 71, color: "#333399"},{value: 0.01, offset: 0, i: 72, color: "#333399"},{value: 0.01, offset: 0, i: 73, color: "#333399"},{value: 0, offset: 0, i: 74, color: "#333399"},{value: 0, offset: 0, i: 75, color: "#333399"},{value: 0, offset: 0, i: 76, color: "#333399"},{value: 0, offset: 0, i: 77, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -3105,7 +3331,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_8336')
+    const svg = d3.select('#chart_cat_8245')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -3161,13 +3387,13 @@ function set_ldbal_input () {
       .text("Time (s)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_8336')
+      .attr('id', 'zoom_chart_8245')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_8336_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_8245_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -3209,44 +3435,569 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
-  $("#zoom_chart_8336_0").click( function () {
-    window.open("../topo/run_8_knl01_44984_44984.html");
+  $("#zoom_chart_8245_0").click( function () {
+    window.open("../topo/run_8_knl01_13213_13334.html");
   });
-  $("#zoom_chart_8336_1").click( function () {
-    window.open("../topo/run_8_knl01_44986_44986.html");
+  $("#zoom_chart_8245_1").click( function () {
+    window.open("../topo/run_8_knl01_13210_13226.html");
   });
-  $("#zoom_chart_8336_2").click( function () {
-    window.open("../topo/run_8_knl01_44998_44998.html");
+  $("#zoom_chart_8245_2").click( function () {
+    window.open("../topo/run_8_knl01_13214_13287.html");
   });
-  $("#zoom_chart_8336_3").click( function () {
-    window.open("../topo/run_8_knl01_44987_44987.html");
+  $("#zoom_chart_8245_3").click( function () {
+    window.open("../topo/run_8_knl01_13214_13247.html");
   });
-  $("#zoom_chart_8336_4").click( function () {
-    window.open("../topo/run_8_knl01_44995_44995.html");
+  $("#zoom_chart_8245_4").click( function () {
+    window.open("../topo/run_8_knl01_13210_13244.html");
   });
-  $("#zoom_chart_8336_5").click( function () {
-    window.open("../topo/run_8_knl01_44997_44997.html");
+  $("#zoom_chart_8245_5").click( function () {
+    window.open("../topo/run_8_knl01_13206_13268.html");
   });
-  $("#zoom_chart_8336_6").click( function () {
-    window.open("../topo/run_8_knl01_44991_44991.html");
+  $("#zoom_chart_8245_6").click( function () {
+    window.open("../topo/run_8_knl01_13206_13314.html");
   });
-  $("#zoom_chart_8336_7").click( function () {
-    window.open("../topo/run_8_knl01_44988_44988.html");
+  $("#zoom_chart_8245_7").click( function () {
+    window.open("../topo/run_8_knl01_13212_13267.html");
   });
-  $("#zoom_chart_8336_8").click( function () {
-    window.open("../topo/run_8_knl01_44990_44990.html");
+  $("#zoom_chart_8245_8").click( function () {
+    window.open("../topo/run_8_knl01_13213_13213.html");
   });
-  $("#zoom_chart_8336_9").click( function () {
-    window.open("../topo/run_8_knl01_44996_44996.html");
+  $("#zoom_chart_8245_9").click( function () {
+    window.open("../topo/run_8_knl01_13214_13230.html");
   });
-  $("#zoom_chart_8336_10").click( function () {
-    window.open("../topo/run_8_knl01_44985_44985.html");
+  $("#zoom_chart_8245_10").click( function () {
+    window.open("../topo/run_8_knl01_13205_13279.html");
   });
-  $("#zoom_chart_8336_11").click( function () {
-    window.open("../topo/run_8_knl01_44993_44993.html");
+  $("#zoom_chart_8245_11").click( function () {
+    window.open("../topo/run_8_knl01_13207_13332.html");
   });
-  $("#zoom_chart_8336_12").click( function () {
-    window.open("../topo/run_8_knl01_44992_44992.html");
+  $("#zoom_chart_8245_12").click( function () {
+    window.open("../topo/run_8_knl01_13208_13296.html");
+  });
+  $("#zoom_chart_8245_13").click( function () {
+    window.open("../topo/run_8_knl01_13212_13288.html");
+  });
+  $("#zoom_chart_8245_14").click( function () {
+    window.open("../topo/run_8_knl01_13209_13350.html");
+  });
+  $("#zoom_chart_8245_15").click( function () {
+    window.open("../topo/run_8_knl01_13206_13343.html");
+  });
+  $("#zoom_chart_8245_16").click( function () {
+    window.open("../topo/run_8_knl01_13206_13246.html");
+  });
+  $("#zoom_chart_8245_17").click( function () {
+    window.open("../topo/run_8_knl01_13210_13277.html");
+  });
+  $("#zoom_chart_8245_18").click( function () {
+    window.open("../topo/run_8_knl01_13212_13235.html");
+  });
+  $("#zoom_chart_8245_19").click( function () {
+    window.open("../topo/run_8_knl01_13209_13249.html");
+  });
+  $("#zoom_chart_8245_20").click( function () {
+    window.open("../topo/run_8_knl01_13211_13315.html");
+  });
+  $("#zoom_chart_8245_21").click( function () {
+    window.open("../topo/run_8_knl01_13209_13227.html");
+  });
+  $("#zoom_chart_8245_22").click( function () {
+    window.open("../topo/run_8_knl01_13213_13276.html");
+  });
+  $("#zoom_chart_8245_23").click( function () {
+    window.open("../topo/run_8_knl01_13212_13225.html");
+  });
+  $("#zoom_chart_8245_24").click( function () {
+    window.open("../topo/run_8_knl01_13212_13331.html");
+  });
+  $("#zoom_chart_8245_25").click( function () {
+    window.open("../topo/run_8_knl01_13212_13309.html");
+  });
+  $("#zoom_chart_8245_26").click( function () {
+    window.open("../topo/run_8_knl01_13210_13297.html");
+  });
+  $("#zoom_chart_8245_27").click( function () {
+    window.open("../topo/run_8_knl01_13210_13257.html");
+  });
+  $("#zoom_chart_8245_28").click( function () {
+    window.open("../topo/run_8_knl01_13212_13253.html");
+  });
+  $("#zoom_chart_8245_29").click( function () {
+    window.open("../topo/run_8_knl01_13211_13228.html");
+  });
+  $("#zoom_chart_8245_30").click( function () {
+    window.open("../topo/run_8_knl01_13209_13209.html");
+  });
+  $("#zoom_chart_8245_31").click( function () {
+    window.open("../topo/run_8_knl01_13208_13258.html");
+  });
+  $("#zoom_chart_8245_32").click( function () {
+    window.open("../topo/run_8_knl01_13208_13280.html");
+  });
+  $("#zoom_chart_8245_33").click( function () {
+    window.open("../topo/run_8_knl01_13214_13301.html");
+  });
+  $("#zoom_chart_8245_34").click( function () {
+    window.open("../topo/run_8_knl01_13205_13362.html");
+  });
+  $("#zoom_chart_8245_35").click( function () {
+    window.open("../topo/run_8_knl01_13206_13206.html");
+  });
+  $("#zoom_chart_8245_36").click( function () {
+    window.open("../topo/run_8_knl01_13206_13232.html");
+  });
+  $("#zoom_chart_8245_37").click( function () {
+    window.open("../topo/run_8_knl01_13205_13333.html");
+  });
+  $("#zoom_chart_8245_38").click( function () {
+    window.open("../topo/run_8_knl01_13205_13254.html");
+  });
+  $("#zoom_chart_8245_39").click( function () {
+    window.open("../topo/run_8_knl01_13205_13312.html");
+  });
+  $("#zoom_chart_8245_40").click( function () {
+    window.open("../topo/run_8_knl01_13205_13231.html");
+  });
+  $("#zoom_chart_8245_41").click( function () {
+    window.open("../topo/run_8_knl01_13207_13207.html");
+  });
+  $("#zoom_chart_8245_42").click( function () {
+    window.open("../topo/run_8_knl01_13206_13291.html");
+  });
+  $("#zoom_chart_8245_43").click( function () {
+    window.open("../topo/run_8_knl01_13214_13274.html");
+  });
+  $("#zoom_chart_8245_44").click( function () {
+    window.open("../topo/run_8_knl01_13208_13233.html");
+  });
+  $("#zoom_chart_8245_45").click( function () {
+    window.open("../topo/run_8_knl01_13207_13349.html");
+  });
+  $("#zoom_chart_8245_46").click( function () {
+    window.open("../topo/run_8_knl01_13211_13338.html");
+  });
+  $("#zoom_chart_8245_47").click( function () {
+    window.open("../topo/run_8_knl01_13214_13214.html");
+  });
+  $("#zoom_chart_8245_48").click( function () {
+    window.open("../topo/run_8_knl01_13213_13346.html");
+  });
+  $("#zoom_chart_8245_49").click( function () {
+    window.open("../topo/run_8_knl01_13212_13212.html");
+  });
+  $("#zoom_chart_8245_50").click( function () {
+    window.open("../topo/run_8_knl01_13213_13252.html");
+  });
+  $("#zoom_chart_8245_51").click( function () {
+    window.open("../topo/run_8_knl01_13213_13356.html");
+  });
+  $("#zoom_chart_8245_52").click( function () {
+    window.open("../topo/run_8_knl01_13213_13317.html");
+  });
+  $("#zoom_chart_8245_53").click( function () {
+    window.open("../topo/run_8_knl01_13211_13359.html");
+  });
+  $("#zoom_chart_8245_54").click( function () {
+    window.open("../topo/run_8_knl01_13205_13205.html");
+  });
+  $("#zoom_chart_8245_55").click( function () {
+    window.open("../topo/run_8_knl01_13211_13245.html");
+  });
+  $("#zoom_chart_8245_56").click( function () {
+    window.open("../topo/run_8_knl01_13207_13294.html");
+  });
+  $("#zoom_chart_8245_57").click( function () {
+    window.open("../topo/run_8_knl01_13208_13208.html");
+  });
+  $("#zoom_chart_8245_58").click( function () {
+    window.open("../topo/run_8_knl01_13208_13251.html");
+  });
+  $("#zoom_chart_8245_59").click( function () {
+    window.open("../topo/run_8_knl01_13208_13273.html");
+  });
+  $("#zoom_chart_8245_60").click( function () {
+    window.open("../topo/run_8_knl01_13207_13270.html");
+  });
+  $("#zoom_chart_8245_61").click( function () {
+    window.open("../topo/run_8_knl01_13207_13229.html");
+  });
+  $("#zoom_chart_8245_62").click( function () {
+    window.open("../topo/run_8_knl01_13207_13248.html");
+  });
+  $("#zoom_chart_8245_63").click( function () {
+    window.open("../topo/run_8_knl01_13206_13328.html");
+  });
+  $("#zoom_chart_8245_64").click( function () {
+    window.open("../topo/run_8_knl01_13211_13271.html");
+  });
+  $("#zoom_chart_8245_65").click( function () {
+    window.open("../topo/run_8_knl01_13208_13308.html");
+  });
+  $("#zoom_chart_8245_66").click( function () {
+    window.open("../topo/run_8_knl01_13209_13269.html");
+  });
+  $("#zoom_chart_8245_67").click( function () {
+    window.open("../topo/run_8_knl01_13210_13330.html");
+  });
+  $("#zoom_chart_8245_68").click( function () {
+    window.open("../topo/run_8_knl01_13211_13211.html");
+  });
+  $("#zoom_chart_8245_69").click( function () {
+    window.open("../topo/run_8_knl01_13210_13318.html");
+  });
+  $("#zoom_chart_8245_70").click( function () {
+    window.open("../topo/run_8_knl01_13214_13339.html");
+  });
+  $("#zoom_chart_8245_71").click( function () {
+    window.open("../topo/run_8_knl01_13209_13290.html");
+  });
+  $("#zoom_chart_8245_72").click( function () {
+    window.open("../topo/run_8_knl01_13209_13316.html");
+  });
+  $("#zoom_chart_8245_73").click( function () {
+    window.open("../topo/run_8_knl01_13209_13337.html");
+  });
+  $("#zoom_chart_8245_74").click( function () {
+    window.open("../topo/run_8_knl01_13205_13351.html");
+  });
+  $("#zoom_chart_8245_75").click( function () {
+    window.open("../topo/run_8_knl01_13213_13298.html");
+  });
+  $("#zoom_chart_8245_76").click( function () {
+    window.open("../topo/run_8_knl01_13214_13321.html");
+  });
+  $("#zoom_chart_8245_77").click( function () {
+    window.open("../topo/run_8_knl01_13210_13210.html");
+  });
+  }
+  if (selector_run.value  == "10") {
+  $(document).ready(function(){
+    var ordinals = ['knl01_13432_13432','knl01_13428_13428','knl01_13425_13425','knl01_13427_13427','knl01_13424_13424','knl01_13431_13431','knl01_13430_13430','knl01_13429_13429','knl01_13426_13426','knl01_13437_13437','knl01_13436_13436','knl01_13433_13433','knl01_13435_13435','knl01_13434_13434'];
+    var data = [{value: 0.19, offset: 0, i: 0, color: "#333399"},{value: 0.19, offset: 0, i: 1, color: "#333399"},{value: 0.19, offset: 0, i: 2, color: "#333399"},{value: 0.19, offset: 0, i: 3, color: "#333399"},{value: 0.13, offset: 0, i: 4, color: "#333399"},{value: 0.13, offset: 0, i: 5, color: "#333399"},{value: 0.13, offset: 0, i: 6, color: "#333399"},{value: 0.13, offset: 0, i: 7, color: "#333399"},{value: 0.13, offset: 0, i: 8, color: "#333399"},{value: 0.13, offset: 0, i: 9, color: "#333399"},{value: 0.06, offset: 0, i: 10, color: "#333399"},{value: 0.06, offset: 0, i: 11, color: "#333399"},{value: 0.06, offset: 0, i: 12, color: "#333399"},{value: 0.06, offset: 0, i: 13, color: "#333399"}];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_8244')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Coverage (%)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_8244')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_8244_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  $("#zoom_chart_8244_0").click( function () {
+    window.open("../topo/run_9_knl01_13432_13432.html");
+  });
+  $("#zoom_chart_8244_1").click( function () {
+    window.open("../topo/run_9_knl01_13428_13428.html");
+  });
+  $("#zoom_chart_8244_2").click( function () {
+    window.open("../topo/run_9_knl01_13425_13425.html");
+  });
+  $("#zoom_chart_8244_3").click( function () {
+    window.open("../topo/run_9_knl01_13427_13427.html");
+  });
+  $("#zoom_chart_8244_4").click( function () {
+    window.open("../topo/run_9_knl01_13424_13424.html");
+  });
+  $("#zoom_chart_8244_5").click( function () {
+    window.open("../topo/run_9_knl01_13431_13431.html");
+  });
+  $("#zoom_chart_8244_6").click( function () {
+    window.open("../topo/run_9_knl01_13430_13430.html");
+  });
+  $("#zoom_chart_8244_7").click( function () {
+    window.open("../topo/run_9_knl01_13429_13429.html");
+  });
+  $("#zoom_chart_8244_8").click( function () {
+    window.open("../topo/run_9_knl01_13426_13426.html");
+  });
+  $("#zoom_chart_8244_9").click( function () {
+    window.open("../topo/run_9_knl01_13437_13437.html");
+  });
+  $("#zoom_chart_8244_10").click( function () {
+    window.open("../topo/run_9_knl01_13436_13436.html");
+  });
+  $("#zoom_chart_8244_11").click( function () {
+    window.open("../topo/run_9_knl01_13433_13433.html");
+  });
+  $("#zoom_chart_8244_12").click( function () {
+    window.open("../topo/run_9_knl01_13435_13435.html");
+  });
+  $("#zoom_chart_8244_13").click( function () {
+    window.open("../topo/run_9_knl01_13434_13434.html");
+  });
+  }
+  if (selector_run.value  == "10") {
+  $(document).ready(function(){
+    var ordinals = ['knl01_13424_13424','knl01_13429_13429','knl01_13431_13431','knl01_13432_13432','knl01_13428_13428','knl01_13430_13430','knl01_13437_13437','knl01_13427_13427','knl01_13425_13425','knl01_13426_13426','knl01_13435_13435','knl01_13433_13433','knl01_13434_13434','knl01_13436_13436'];
+    var data = [{value: 0.01, offset: 0, i: 0, color: "#333399"},{value: 0.01, offset: 0, i: 1, color: "#333399"},{value: 0.01, offset: 0, i: 2, color: "#333399"},{value: 0.01, offset: 0, i: 3, color: "#333399"},{value: 0.01, offset: 0, i: 4, color: "#333399"},{value: 0.01, offset: 0, i: 5, color: "#333399"},{value: 0.01, offset: 0, i: 6, color: "#333399"},{value: 0.01, offset: 0, i: 7, color: "#333399"},{value: 0.01, offset: 0, i: 8, color: "#333399"},{value: 0.01, offset: 0, i: 9, color: "#333399"},{value: 0, offset: 0, i: 10, color: "#333399"},{value: 0, offset: 0, i: 11, color: "#333399"},{value: 0, offset: 0, i: 12, color: "#333399"},{value: 0, offset: 0, i: 13, color: "#333399"}];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_8245')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Time (s)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_8245')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_8245_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  $("#zoom_chart_8245_0").click( function () {
+    window.open("../topo/run_9_knl01_13424_13424.html");
+  });
+  $("#zoom_chart_8245_1").click( function () {
+    window.open("../topo/run_9_knl01_13429_13429.html");
+  });
+  $("#zoom_chart_8245_2").click( function () {
+    window.open("../topo/run_9_knl01_13431_13431.html");
+  });
+  $("#zoom_chart_8245_3").click( function () {
+    window.open("../topo/run_9_knl01_13432_13432.html");
+  });
+  $("#zoom_chart_8245_4").click( function () {
+    window.open("../topo/run_9_knl01_13428_13428.html");
+  });
+  $("#zoom_chart_8245_5").click( function () {
+    window.open("../topo/run_9_knl01_13430_13430.html");
+  });
+  $("#zoom_chart_8245_6").click( function () {
+    window.open("../topo/run_9_knl01_13437_13437.html");
+  });
+  $("#zoom_chart_8245_7").click( function () {
+    window.open("../topo/run_9_knl01_13427_13427.html");
+  });
+  $("#zoom_chart_8245_8").click( function () {
+    window.open("../topo/run_9_knl01_13425_13425.html");
+  });
+  $("#zoom_chart_8245_9").click( function () {
+    window.open("../topo/run_9_knl01_13426_13426.html");
+  });
+  $("#zoom_chart_8245_10").click( function () {
+    window.open("../topo/run_9_knl01_13435_13435.html");
+  });
+  $("#zoom_chart_8245_11").click( function () {
+    window.open("../topo/run_9_knl01_13433_13433.html");
+  });
+  $("#zoom_chart_8245_12").click( function () {
+    window.open("../topo/run_9_knl01_13434_13434.html");
+  });
+  $("#zoom_chart_8245_13").click( function () {
+    window.open("../topo/run_9_knl01_13436_13436.html");
   });
   }
 }
@@ -3259,7 +4010,7 @@ function set_previous_ldbal_input () {
 }
 function set_next_ldbal_input () {
   var selector_run  = document.getElementById ("ldbal_select_run");
-  if (parseInt (selector_run.value) < 9) {
+  if (parseInt (selector_run.value) < 10) {
      selector_run.value = parseInt (selector_run.value) + 1;
      set_ldbal_input ();
   }

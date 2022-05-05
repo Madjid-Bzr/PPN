@@ -1,10 +1,9 @@
 name;time_p;time_s;cpi_ratio;
-/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/binaries/lu-mz.A.x;80.45;9.07;;
-/usr/lib/x86_64-linux-gnu/libmpich.so.12.1.8;10.99;1.24;;
-/usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0;6.8;0.77;;
-/usr/lib/x86_64-linux-gnu/libc-2.31.so;1.07;0.12;;
-/usr/lib/x86_64-linux-gnu/libpthread-2.31.so;0.4;0.04;;
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/binaries/lu-mz.A.x;80.65;10.11;;
+/usr/lib/x86_64-linux-gnu/libmpich.so.12.1.8;10.57;1.33;;
+/usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0;6.92;0.87;;
+/usr/lib/x86_64-linux-gnu/libc-2.31.so;1.06;0.13;;
+/usr/lib/x86_64-linux-gnu/libpthread-2.31.so;0.47;0.06;;
 /usr/lib/x86_64-linux-gnu/libmpichfort.so.12.1.8;0.24;0.03;;
-kernel;0.06;0.01;;
-/usr/lib/x86_64-linux-gnu/ld-2.31.so;0.01;0;;
+kernel;0.08;0.01;;
 /usr/lib/x86_64-linux-gnu/libgfortran.so.5.0.0;0;0;;

@@ -1,4 +1,4 @@
-/users/user2210/NPB3.4-MZ-MPI/LU-MZ/syncs.f90: 27 - 50
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/syncs.f90: 27 - 50
 --------------------------------------------------------------------------------
 
 27:       subroutine sync_init

@@ -1,37 +1,33 @@
 
-* Info: Detected 16 Lprof instances in knl01: processes-per-node/ppn set accordingly.
+* Info: Detected 10 Lprof instances in knl01: processes-per-node/ppn set accordingly.
 If this is incorrect, rerun with an explicit value for this setting
 
 * Info: Selecting the 'perf-high-ppn' engine for node knl01
 
-* Info: Process launched (host knl01, process 44984)
-* Info: Process launched (host knl01, process 44985)
-* Info: Process launched (host knl01, process 44986)
-* Info: Process launched (host knl01, process 44987)
-* Info: Process launched (host knl01, process 44988)
-* Info: Process launched (host knl01, process 44989)
-* Info: Process launched (host knl01, process 44990)
-* Info: Process launched (host knl01, process 44991)
-* Info: Process launched (host knl01, process 44992)
-* Info: Process launched (host knl01, process 44993)
-* Info: Process launched (host knl01, process 44994)
-* Info: Process launched (host knl01, process 44995)
-* Info: Process launched (host knl01, process 44996)
-* Info: Process launched (host knl01, process 44997)
-* Info: Process launched (host knl01, process 44998)
-* Info: Process launched (host knl01, process 44999)
+* Info: Process launched (host knl01, process 13205)
+* Info: Process launched (host knl01, process 13207)
+* Info: Process launched (host knl01, process 13206)
+* Info: Process launched (host knl01, process 13208)
+* Info: Process launched (host knl01, process 13210)
+* Info: Process launched (host knl01, process 13209)
+* Info: Process launched (host knl01, process 13211)
+* Info: Process launched (host knl01, process 13212)
+* Info: Process launched (host knl01, process 13213)
+* Info: Process launched (host knl01, process 13214)
 
  NAS Parallel Benchmarks (NPB3.4-MZ MPI+OpenMP) - LU-MZ Benchmark
 
  Number of zones:   4 x   4
  Total mesh size:   128 x   128 x  16
  Iterations: 250    dt:   2.000000
- Number of active processes:     16
+ Number of active processes:     10
+
+ 2D process grid (NXP x NZP) =     5 x    2
 
  Use the default load factors
- Total number of threads:     16  (  1.0 threads/process)
+ Total number of threads:     80  (  8.0 threads/process)
 
- Calculated speedup =     16.00
+ Calculated speedup =     73.14
 
  Time step    1
  Time step   20
@@ -51,19 +47,19 @@ If this is incorrect, rerun with an explicit value for this setting
  Verification being performed for class A
  Accuracy setting for epsilon =  0.1000000000000E-07
  Comparison of RMS-norms of residual
-           1   0.1131574877175E+04 0.1131574877175E+04 0.3978524854683E-13
-           2   0.7965206944742E+02 0.7965206944742E+02 0.3978579117247E-13
-           3   0.2705587159526E+03 0.2705587159526E+03 0.7248326648037E-13
-           4   0.2129567530746E+03 0.2129567530746E+03 0.9395749676929E-13
-           5   0.2260584655432E+04 0.2260584655432E+04 0.2514545019326E-13
+           1   0.1131574877175E+04 0.1131574877175E+04 0.4038805534300E-13
+           2   0.7965206944742E+02 0.7965206944742E+02 0.3996420279208E-13
+           3   0.2705587159526E+03 0.2705587159526E+03 0.7416403787702E-13
+           4   0.2129567530746E+03 0.2129567530746E+03 0.9529212030294E-13
+           5   0.2260584655432E+04 0.2260584655432E+04 0.2655359540408E-13
  Comparison of RMS-norms of solution error
-           1   0.1115694885382E+03 0.1115694885382E+03 0.3413575802465E-12
-           2   0.1089257673798E+02 0.1089257673798E+02 0.1692766040260E-12
-           3   0.2905379922066E+02 0.2905379922066E+02 0.6749884708033E-13
-           4   0.2216126755530E+02 0.2216126755530E+02 0.6172006014210E-13
+           1   0.1115694885382E+03 0.1115694885382E+03 0.3431407914866E-12
+           2   0.1089257673798E+02 0.1089257673798E+02 0.1665042511662E-12
+           3   0.2905379922066E+02 0.2905379922066E+02 0.6700972500004E-13
+           4   0.2216126755530E+02 0.2216126755530E+02 0.6220099567567E-13
            5   0.2501762341026E+03 0.2501762341026E+03 0.7611652396431E-14
  Comparison of surface integral
-               0.5904992211511E+03 0.5904992211511E+03 0.6006831524688E-13
+               0.5904992211511E+03 0.5904992211511E+03 0.5987578859545E-13
  Verification Successful
 
 
@@ -71,22 +67,22 @@ If this is incorrect, rerun with an explicit value for this setting
  Class           =                        A
  Size            =            128x  128x 16
  Iterations      =                      250
- Time in seconds =                     6.72
- Total processes =                       16
- Total threads   =                       16
- Mop/s total     =                 15262.81
- Mop/s/thread    =                   953.93
+ Time in seconds =                    19.07
+ Total processes =                       10
+ Total threads   =                       80
+ Mop/s total     =                  5380.97
+ Mop/s/thread    =                    67.26
  Operation type  =           floating point
  Verification    =               SUCCESSFUL
  Version         =                    3.4.1
- Compile date    =              04 May 2022
+ Compile date    =              03 May 2022
 
  Compile options:
     FC           = mpif90
     FLINK        = $(FC)
     F_LIB        = (none)
-    F_INC        = -march=native -funroll-loops
-    FFLAGS       = -O3 -g -fopenmp
+    F_INC        = (none)
+    FFLAGS       = -Ofast  -funroll-loops  -g -fopenmp -O3  -m...
     FLINKFLAGS   = $(FFLAGS)
     RAND         = (none)
 
@@ -98,42 +94,30 @@ If this is incorrect, rerun with an explicit value for this setting
 
 
 
-* Info: Process finished (host knl01, process 44984)
-* Info: Process finished (host knl01, process 44990)
-* Info: Process finished (host knl01, process 44997)
-* Info: Process finished (host knl01, process 44996)
-* Info: Process finished (host knl01, process 44991)
-* Info: Process finished (host knl01, process 44994)
-* Info: Process finished (host knl01, process 44986)
-* Info: Process finished (host knl01, process 44985)
-* Info: Process finished (host knl01, process 44987)
-* Info: Process finished (host knl01, process 44993)
-* Info: Process finished (host knl01, process 44992)
-* Info: Process finished (host knl01, process 44988)
-* Info: Process finished (host knl01, process 44995)
-* Info: Process finished (host knl01, process 44998)
-* Info: Process finished (host knl01, process 44999)
-* Info: Process finished (host knl01, process 44989)
+* Info: Process finished (host knl01, process 13211)
+* Info: Process finished (host knl01, process 13212)
+* Info: Process finished (host knl01, process 13206)
+* Info: Process finished (host knl01, process 13205)
+* Info: Process finished (host knl01, process 13207)
+* Info: Process finished (host knl01, process 13209)
+* Info: Process finished (host knl01, process 13210)
+* Info: Process finished (host knl01, process 13214)
+* Info: Process finished (host knl01, process 13208)
+* Info: Process finished (host knl01, process 13213)
 
-Info: 8/16 lprof instances finished
-
-
-Info: 13/16 lprof instances finished
-
-
-Your experiment path is /users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_8
+Your experiment path is /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_8
 
 To display your profiling results:
-##########################################################################################################################
-#    LEVEL    |     REPORT     |                                         COMMAND                                         #
-##########################################################################################################################
-#  Functions  |  Cluster-wide  |  maqao lprof -df xp=/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_8      #
-#  Functions  |  Per-node      |  maqao lprof -df -dn xp=/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_8  #
-#  Functions  |  Per-process   |  maqao lprof -df -dp xp=/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_8  #
-#  Functions  |  Per-thread    |  maqao lprof -df -dt xp=/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_8  #
-#  Loops      |  Cluster-wide  |  maqao lprof -dl xp=/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_8      #
-#  Loops      |  Per-node      |  maqao lprof -dl -dn xp=/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_8  #
-#  Loops      |  Per-process   |  maqao lprof -dl -dp xp=/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_8  #
-#  Loops      |  Per-thread    |  maqao lprof -dl -dt xp=/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_8  #
-##########################################################################################################################
+#######################################################################################################################################
+#    LEVEL    |     REPORT     |                                               COMMAND                                                #
+#######################################################################################################################################
+#  Functions  |  Cluster-wide  |  maqao lprof -df xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_8      #
+#  Functions  |  Per-node      |  maqao lprof -df -dn xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_8  #
+#  Functions  |  Per-process   |  maqao lprof -df -dp xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_8  #
+#  Functions  |  Per-thread    |  maqao lprof -df -dt xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_8  #
+#  Loops      |  Cluster-wide  |  maqao lprof -dl xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_8      #
+#  Loops      |  Per-node      |  maqao lprof -dl -dn xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_8  #
+#  Loops      |  Per-process   |  maqao lprof -dl -dp xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_8  #
+#  Loops      |  Per-thread    |  maqao lprof -dl -dt xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_8  #
+#######################################################################################################################################
 

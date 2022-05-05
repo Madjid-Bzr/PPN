@@ -4,7 +4,7 @@ __fct = {
       src = "jacu.f90:39-356",
       src_regions = {
         {
-          path = "/users/user2210/NPB3.4-MZ-MPI/LU-MZ/jacu.f90",
+          path = "/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/jacu.f90",
           regions = {
             {39, 59},
             {65, 73},
@@ -25,7 +25,7 @@ __fct = {
         src = "jacu.f90:44-349",
         src_regions = {
           {
-            path = "/users/user2210/NPB3.4-MZ-MPI/LU-MZ/jacu.f90",
+            path = "/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/jacu.f90",
             regions = {
               {44, 59},
               {65, 73},
@@ -46,7 +46,7 @@ __fct = {
         src = "jacu.f90:39-349",
         src_regions = {
           {
-            path = "/users/user2210/NPB3.4-MZ-MPI/LU-MZ/jacu.f90",
+            path = "/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/jacu.f90",
             regions = {
               {39, 59},
               {65, 73},

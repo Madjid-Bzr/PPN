@@ -1,5 +1,5 @@
-experiment_name = "Scalability analysis on class A lu-mz on cluster fob1  (MPI-OMP)"
-executable     = "./lu-mz.A.x"
+experiment_name = "Analyse de code lu-mz CLASS=A en mode scalabilité sur le cluster FOB1"
+executable     = "./bin/lu-mz.A.x"
 run_command    = "<executable>"
 batch_script    = ""
 batch_command   = ""

@@ -19,7 +19,7 @@ _cqa_text_report = {
       expert = {
         {
           title = "General properties",
-          txt = "nb instructions    : 3\nloop length        : 6\nused x86 registers : 2\nused mmx registers : 0\nused xmm registers : 0\nused ymm registers : 0\nused zmm registers : 0\nnb stack references: 0\n",
+          txt = "nb instructions    : 3\nloop length        : 8\nused x86 registers : 3\nused mmx registers : 0\nused xmm registers : 0\nused ymm registers : 0\nused zmm registers : 0\nnb stack references: 0\n",
         },
         {
           title = "Front-end",
@@ -51,7 +51,7 @@ _cqa_text_report = {
         },
         {
           title = "ASM code",
-          txt = "In the binary file, the address of the loop is: 2d4a0\n\nInstruction                | Nb FU | P0 | P1 | P2 | P3 | P4   | P5   | P6 | Latency | Recip. throughput\n-------------------------------------------------------------------------------------------------------\nMOV (%RCX),%ESI            | 1     | 0  | 0  | 1  | 0  | 0    | 0    | 0  | 4       | 1\nTEST %ESI,%ESI             | 1     | 0  | 0  | 0  | 0  | 0.50 | 0.50 | 0  | 1       | 0.50\nJE 2d4a0 <sync_left_+0x30> | 1     | 0  | 0  | 0  | 0  | 0    | 1    | 0  | 0       | 1-2\n",
+          txt = "In the binary file, the address of the loop is: 2cd20\n\nInstruction                 | Nb FU | P0 | P1 | P2 | P3 | P4   | P5   | P6 | Latency | Recip. throughput\n--------------------------------------------------------------------------------------------------------\nMOV (%RCX,%RDX,4),%EAX      | 1     | 0  | 0  | 1  | 0  | 0    | 0    | 0  | 4       | 1\nCMP $0x1,%EAX               | 1     | 0  | 0  | 0  | 0  | 0.50 | 0.50 | 0  | 1       | 0.50\nJE 2cd20 <sync_right_+0x30> | 1     | 0  | 0  | 0  | 0  | 0    | 1    | 0  | 0       | 1-2\n",
         },
       },
       header = {
@@ -93,7 +93,7 @@ _cqa_text_report = {
       expert = {
         {
           title = "General properties",
-          txt = "nb instructions    : 3\nloop length        : 6\nused x86 registers : 2\nused mmx registers : 0\nused xmm registers : 0\nused ymm registers : 0\nused zmm registers : 0\nnb stack references: 0\n",
+          txt = "nb instructions    : 3\nloop length        : 8\nused x86 registers : 3\nused mmx registers : 0\nused xmm registers : 0\nused ymm registers : 0\nused zmm registers : 0\nnb stack references: 0\n",
         },
         {
           title = "Front-end",
@@ -125,7 +125,7 @@ _cqa_text_report = {
         },
         {
           title = "ASM code",
-          txt = "In the binary file, the address of the loop is: 2d4a0\n\nInstruction                | Nb FU | P0 | P1 | P2 | P3 | P4   | P5   | P6 | Latency | Recip. throughput\n-------------------------------------------------------------------------------------------------------\nMOV (%RCX),%ESI            | 1     | 0  | 0  | 1  | 0  | 0    | 0    | 0  | 4       | 1\nTEST %ESI,%ESI             | 1     | 0  | 0  | 0  | 0  | 0.50 | 0.50 | 0  | 1       | 0.50\nJE 2d4a0 <sync_left_+0x30> | 1     | 0  | 0  | 0  | 0  | 0    | 1    | 0  | 0       | 1-2\n",
+          txt = "In the binary file, the address of the loop is: 2cd20\n\nInstruction                 | Nb FU | P0 | P1 | P2 | P3 | P4   | P5   | P6 | Latency | Recip. throughput\n--------------------------------------------------------------------------------------------------------\nMOV (%RCX,%RDX,4),%EAX      | 1     | 0  | 0  | 1  | 0  | 0    | 0    | 0  | 4       | 1\nCMP $0x1,%EAX               | 1     | 0  | 0  | 0  | 0  | 0.50 | 0.50 | 0  | 1       | 0.50\nJE 2cd20 <sync_right_+0x30> | 1     | 0  | 0  | 0  | 0  | 0    | 1    | 0  | 0       | 1-2\n",
         },
       },
       header = {
@@ -149,7 +149,7 @@ _cqa_text_report = {
     },
   common = {
     header = {
-      "The loop is defined in /users/user2210/NPB3.4-MZ-MPI/LU-MZ/syncs.f90:75-77.\n",
+      "The loop is defined in /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/syncs.f90:113-115.\n",
       "The related source loop is not unrolled or unrolled with no peel/tail loop.",
     },
     nb_paths = 1,

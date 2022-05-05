@@ -1,4 +1,4 @@
-/users/user2210/NPB3.4-MZ-MPI/LU-MZ/rhs.f90: 5 - 484
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/rhs.f90: 5 - 484
 --------------------------------------------------------------------------------
 
 5:       subroutine rhs(u, rsd, frct, qs, rho_i, nx, nxmax, ny, nz)

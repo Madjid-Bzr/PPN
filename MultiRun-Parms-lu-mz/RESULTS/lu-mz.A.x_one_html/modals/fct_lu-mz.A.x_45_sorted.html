@@ -97,25 +97,26 @@ addLoadEvent(function(){
            <option value="7">Run 7
            <option value="8">Run 8
            <option value="9">Run 9
+           <option value="10">Run 10
         </select>
       </td>
       <td><button type="button" style="cursor:pointer;" onclick="set_next_ldbal_input ();">&rarr;</button></td>
     </tr>
   </table>
-<div style="margin: 10px; overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_12422" style="height:500px" ></div><div style="text-align:center;"></div></div>
+<div style="margin: 10px; overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_13135" style="height:500px" ></div><div style="text-align:center;"></div></div>
 <script class="code">
 </script>
-<div style="margin: 10px; overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_12423" style="height:500px" ></div><div style="text-align:center;"></div></div>
+<div style="margin: 10px; overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_13136" style="height:500px" ></div><div style="text-align:center;"></div></div>
 <script class="code">
 </script>
   <script>
 function set_ldbal_input () {
   var selector_run  = document.getElementById ("ldbal_select_run");
   // Clear placeholder content and update their size
-  document.getElementById("chart_cat_12422").innerHTML = "";
-  var _width = Math.floor(document.getElementById("chart_cat_12422").getBoundingClientRect().width);
-  document.getElementById("chart_cat_12423").innerHTML = "";
-  var _width = Math.floor(document.getElementById("chart_cat_12423").getBoundingClientRect().width);
+  document.getElementById("chart_cat_13135").innerHTML = "";
+  var _width = Math.floor(document.getElementById("chart_cat_13135").getBoundingClientRect().width);
+  document.getElementById("chart_cat_13136").innerHTML = "";
+  var _width = Math.floor(document.getElementById("chart_cat_13136").getBoundingClientRect().width);
   // According to selector, draw both charts
   if (selector_run.value  == "1") {
   $(document).ready(function(){
@@ -135,7 +136,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_12422')
+    const svg = d3.select('#chart_cat_13135')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -191,13 +192,13 @@ function set_ldbal_input () {
       .text("Coverage (%)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_12422')
+      .attr('id', 'zoom_chart_13135')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_12422_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_13135_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -258,7 +259,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_12423')
+    const svg = d3.select('#chart_cat_13136')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -314,13 +315,13 @@ function set_ldbal_input () {
       .text("Time (s)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_12423')
+      .attr('id', 'zoom_chart_13136')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_12423_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_13136_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -365,8 +366,8 @@ function set_ldbal_input () {
   }
   if (selector_run.value  == "2") {
   $(document).ready(function(){
-    var ordinals = ['knl01_40734_41252','knl01_40735_41251','knl01_40735_41253'];
-    var data = [{value: 0.1, offset: 0, i: 0, color: "#333399"},{value: 0.07, offset: 0, i: 1, color: "#333399"},{value: 0.03, offset: 0, i: 2, color: "#333399"}];
+    var ordinals = ['knl01_8960_8960','knl01_8961_8961'];
+    var data = [{value: 0.03, offset: 0, i: 0, color: "#333399"},{value: 0.03, offset: 0, i: 1, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -381,7 +382,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_12422')
+    const svg = d3.select('#chart_cat_13135')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -437,13 +438,13 @@ function set_ldbal_input () {
       .text("Coverage (%)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_12422')
+      .attr('id', 'zoom_chart_13135')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_12422_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_13135_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -485,20 +486,17 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
-  $("#zoom_chart_12422_0").click( function () {
-    window.open("../topo/run_1_knl01_40734_41252.html");
+  $("#zoom_chart_13135_0").click( function () {
+    window.open("../topo/run_1_knl01_8960_8960.html");
   });
-  $("#zoom_chart_12422_1").click( function () {
-    window.open("../topo/run_1_knl01_40735_41251.html");
-  });
-  $("#zoom_chart_12422_2").click( function () {
-    window.open("../topo/run_1_knl01_40735_41253.html");
+  $("#zoom_chart_13135_1").click( function () {
+    window.open("../topo/run_1_knl01_8961_8961.html");
   });
   }
   if (selector_run.value  == "2") {
   $(document).ready(function(){
-    var ordinals = ['knl01_40734_41252','knl01_40735_41251','knl01_40735_41253'];
-    var data = [{value: 0.01, offset: 0, i: 0, color: "#333399"},{value: 0.01, offset: 0, i: 1, color: "#333399"},{value: 0.01, offset: 0, i: 2, color: "#333399"}];
+    var ordinals = ['knl01_8960_8960','knl01_8961_8961'];
+    var data = [{value: 0, offset: 0, i: 0, color: "#333399"},{value: 0, offset: 0, i: 1, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -513,7 +511,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_12423')
+    const svg = d3.select('#chart_cat_13136')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -569,13 +567,13 @@ function set_ldbal_input () {
       .text("Time (s)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_12423')
+      .attr('id', 'zoom_chart_13136')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_12423_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_13136_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -617,20 +615,17 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
-  $("#zoom_chart_12423_0").click( function () {
-    window.open("../topo/run_1_knl01_40734_41252.html");
+  $("#zoom_chart_13136_0").click( function () {
+    window.open("../topo/run_1_knl01_8960_8960.html");
   });
-  $("#zoom_chart_12423_1").click( function () {
-    window.open("../topo/run_1_knl01_40735_41251.html");
-  });
-  $("#zoom_chart_12423_2").click( function () {
-    window.open("../topo/run_1_knl01_40735_41253.html");
+  $("#zoom_chart_13136_1").click( function () {
+    window.open("../topo/run_1_knl01_8961_8961.html");
   });
   }
   if (selector_run.value  == "3") {
   $(document).ready(function(){
-    var ordinals = ['knl01_41273_42043'];
-    var data = [{value: 0.05, offset: 0, i: 0, color: "#333399"}];
+    var ordinals = ['knl01_9494_10266','knl01_9495_10268','knl01_9495_10265','knl01_9494_10269','knl01_9496_10267'];
+    var data = [{value: 0.08, offset: 0, i: 0, color: "#333399"},{value: 0.03, offset: 0, i: 1, color: "#333399"},{value: 0.03, offset: 0, i: 2, color: "#333399"},{value: 0.03, offset: 0, i: 3, color: "#333399"},{value: 0.03, offset: 0, i: 4, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -645,7 +640,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_12422')
+    const svg = d3.select('#chart_cat_13135')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -701,13 +696,13 @@ function set_ldbal_input () {
       .text("Coverage (%)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_12422')
+      .attr('id', 'zoom_chart_13135')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_12422_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_13135_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -749,14 +744,26 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
-  $("#zoom_chart_12422_0").click( function () {
-    window.open("../topo/run_2_knl01_41273_42043.html");
+  $("#zoom_chart_13135_0").click( function () {
+    window.open("../topo/run_2_knl01_9494_10266.html");
+  });
+  $("#zoom_chart_13135_1").click( function () {
+    window.open("../topo/run_2_knl01_9495_10268.html");
+  });
+  $("#zoom_chart_13135_2").click( function () {
+    window.open("../topo/run_2_knl01_9495_10265.html");
+  });
+  $("#zoom_chart_13135_3").click( function () {
+    window.open("../topo/run_2_knl01_9494_10269.html");
+  });
+  $("#zoom_chart_13135_4").click( function () {
+    window.open("../topo/run_2_knl01_9496_10267.html");
   });
   }
   if (selector_run.value  == "3") {
   $(document).ready(function(){
-    var ordinals = ['knl01_41273_42043'];
-    var data = [{value: 0.01, offset: 0, i: 0, color: "#333399"}];
+    var ordinals = ['knl01_9494_10266','knl01_9495_10268','knl01_9495_10265','knl01_9494_10269','knl01_9496_10267'];
+    var data = [{value: 0.01, offset: 0, i: 0, color: "#333399"},{value: 0, offset: 0, i: 1, color: "#333399"},{value: 0, offset: 0, i: 2, color: "#333399"},{value: 0, offset: 0, i: 3, color: "#333399"},{value: 0, offset: 0, i: 4, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -771,7 +778,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_12423')
+    const svg = d3.select('#chart_cat_13136')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -827,13 +834,13 @@ function set_ldbal_input () {
       .text("Time (s)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_12423')
+      .attr('id', 'zoom_chart_13136')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_12423_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_13136_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -875,14 +882,26 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
-  $("#zoom_chart_12423_0").click( function () {
-    window.open("../topo/run_2_knl01_41273_42043.html");
+  $("#zoom_chart_13136_0").click( function () {
+    window.open("../topo/run_2_knl01_9494_10266.html");
+  });
+  $("#zoom_chart_13136_1").click( function () {
+    window.open("../topo/run_2_knl01_9495_10268.html");
+  });
+  $("#zoom_chart_13136_2").click( function () {
+    window.open("../topo/run_2_knl01_9495_10265.html");
+  });
+  $("#zoom_chart_13136_3").click( function () {
+    window.open("../topo/run_2_knl01_9494_10269.html");
+  });
+  $("#zoom_chart_13136_4").click( function () {
+    window.open("../topo/run_2_knl01_9496_10267.html");
   });
   }
   if (selector_run.value  == "4") {
   $(document).ready(function(){
-    var ordinals = ['knl01_42073_42073'];
-    var data = [{value: 0.04, offset: 0, i: 0, color: "#333399"}];
+    var ordinals = [];
+    var data = [];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -897,7 +916,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_12422')
+    const svg = d3.select('#chart_cat_13135')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -953,13 +972,13 @@ function set_ldbal_input () {
       .text("Coverage (%)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_12422')
+      .attr('id', 'zoom_chart_13135')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_12422_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_13135_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -1001,13 +1020,763 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
-  $("#zoom_chart_12422_0").click( function () {
-    window.open("../topo/run_3_knl01_42073_42073.html");
-  });
   }
   if (selector_run.value  == "4") {
   $(document).ready(function(){
-    var ordinals = ['knl01_42073_42073'];
+    var ordinals = [];
+    var data = [];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_13136')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Time (s)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_13136')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_13136_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  }
+  if (selector_run.value  == "5") {
+  $(document).ready(function(){
+    var ordinals = [];
+    var data = [];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_13135')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Coverage (%)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_13135')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_13135_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  }
+  if (selector_run.value  == "5") {
+  $(document).ready(function(){
+    var ordinals = [];
+    var data = [];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_13136')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Time (s)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_13136')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_13136_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  }
+  if (selector_run.value  == "6") {
+  $(document).ready(function(){
+    var ordinals = ['knl01_12421_12437','knl01_12422_12436'];
+    var data = [{value: 0.04, offset: 0, i: 0, color: "#333399"},{value: 0.04, offset: 0, i: 1, color: "#333399"}];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_13135')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Coverage (%)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_13135')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_13135_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  $("#zoom_chart_13135_0").click( function () {
+    window.open("../topo/run_5_knl01_12421_12437.html");
+  });
+  $("#zoom_chart_13135_1").click( function () {
+    window.open("../topo/run_5_knl01_12422_12436.html");
+  });
+  }
+  if (selector_run.value  == "6") {
+  $(document).ready(function(){
+    var ordinals = ['knl01_12421_12437','knl01_12422_12436'];
+    var data = [{value: 0.01, offset: 0, i: 0, color: "#333399"},{value: 0, offset: 0, i: 1, color: "#333399"}];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_13136')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Time (s)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_13136')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_13136_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  $("#zoom_chart_13136_0").click( function () {
+    window.open("../topo/run_5_knl01_12421_12437.html");
+  });
+  $("#zoom_chart_13136_1").click( function () {
+    window.open("../topo/run_5_knl01_12422_12436.html");
+  });
+  }
+  if (selector_run.value  == "7") {
+  $(document).ready(function(){
+    var ordinals = ['knl01_12489_12489'];
+    var data = [{value: 0.07, offset: 0, i: 0, color: "#333399"}];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_13135')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Coverage (%)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_13135')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_13135_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  $("#zoom_chart_13135_0").click( function () {
+    window.open("../topo/run_6_knl01_12489_12489.html");
+  });
+  }
+  if (selector_run.value  == "7") {
+  $(document).ready(function(){
+    var ordinals = ['knl01_12489_12489'];
     var data = [{value: 0, offset: 0, i: 0, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
@@ -1023,7 +1792,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_12423')
+    const svg = d3.select('#chart_cat_13136')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -1079,13 +1848,13 @@ function set_ldbal_input () {
       .text("Time (s)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_12423')
+      .attr('id', 'zoom_chart_13136')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_12423_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_13136_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -1127,794 +1896,14 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
-  $("#zoom_chart_12423_0").click( function () {
-    window.open("../topo/run_3_knl01_42073_42073.html");
-  });
-  }
-  if (selector_run.value  == "5") {
-  $(document).ready(function(){
-    var ordinals = ['knl01_43130_44159','knl01_43131_44156','knl01_43131_43131','knl01_43130_44167','knl01_43131_44161'];
-    var data = [{value: 0.07, offset: 0, i: 0, color: "#333399"},{value: 0.07, offset: 0, i: 1, color: "#333399"},{value: 0.07, offset: 0, i: 2, color: "#333399"},{value: 0.07, offset: 0, i: 3, color: "#333399"},{value: 0.07, offset: 0, i: 4, color: "#333399"}];
-    var widthgl  = _width;
-    var widthin  = _width;
-    var heightgl = 480;
-    var heightin = 495;
-    let margin = {
-      top:    10,
-      right:  30,
-      bottom: 30,
-      left:   50
-    },
-    width = widthgl - margin.left - margin.right,
-    height = heightgl - margin.top - margin.bottom,
-    radius = (Math.min(width, height) / 2) - 10,
-    node;
-    const svg = d3.select('#chart_cat_12422')
-        .append('svg')
-        .attr('width', widthin)
-        .attr('height', heightin)
-        .append('g')
-        .attr('transform', `translate(${margin.left}, ${margin.top})`)
-        .call(
-          d3.zoom()
-            .translateExtent([[0,0], [width, height] ])
-            .extent([[0, 0], [width, height] ])
-          .on('zoom', zoom)
-        ).on("dblclick.zoom", null);
-    let x = d3.scaleLinear().range([0, width])
-    let y = d3.scaleLinear().range([height, 0])
-    let color = d3.scaleOrdinal(d3.schemeCategory10)
-    let xScale = x.domain([-1, ordinals.length])
-    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
-    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
-    svg.append('rect')
-      .attr('class', 'zoom-panel')
-      .attr('width', width)
-      .attr('height', height)
-      .style('fill', 'var(--background)')
-    let xAxis = svg.append('g')
-      .attr('class', 'xAxis')
-      .attr('transform', `translate(0, ${height})`)
-      .call(
-        d3.axisBottom(xScale).tickFormat((d, e) => {
-          return ordinals[d]
-        })
-      );
-    svg.append("text")
-      .attr("transform",
-            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
-      .style("text-anchor", "middle")
-      .style("fill", "var(--font)")
-      .text("MAQAO thread rank");
-    let yAxis = svg.append('g')
-      .attr('class', 'yAxis')
-      .call(d3.axisLeft(yScale));
-    yAxis.selectAll(".tick text").attr("fill","var(--font)");
-    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
-    yAxis.selectAll(".domain").attr("stroke","var(--font)");
-    xAxis.selectAll(".tick text").attr("fill","var(--font)");
-    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
-    xAxis.selectAll(".domain").attr("stroke","var(--font)");
-    svg.append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left)
-      .attr("x",0 - (height / 2))
-      .attr("dy", "1em")
-      .style("text-anchor", "middle")
-      .style("fill", "var(--font)")
-      .text("Coverage (%)");
-    let bars = svg.append('g')
-      .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_12422')
-      .selectAll('.bar')
-      .data(data)
-      .enter()
-      .append('rect')
-      .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_12422_'+i;})
-      .attr('x', function(d, i){
-        return xScale(d.i) - xBand.bandwidth()*0.9/2
-      })
-      .attr('y', function(d, i){
-        return yScale(d.value + d.offset)
-      })
-      .attr('width', xBand.bandwidth()*0.9)
-      .attr('height', function(d){
-        return height - yScale(d.value)
-      })
-      .style("fill", function(d){
-        return d.color
-      })
-    let defs = svg.append('defs')
-      defs.append('clipPath')
-        .attr('id', 'my-clip-path')
-        .append('rect')
-        .attr('width', width)
-        .attr('height', height)
-      let hideTicksWithoutLabel = function() {
-        d3.selectAll('.xAxis .tick text').each(function(d){
-          if(this.innerHTML === '') {
-            this.parentNode.style.display = 'none';
-          }
-        })
-      }
-      function zoom() {
-        if (d3.event.transform.k < 1) {
-          d3.event.transform.k = 1;
-          return;
-        }
-      xAxis.call(
-        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
-          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
-            return ordinals[d];
-        })
-      )
-      hideTicksWithoutLabel()
-        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
-    }
-  });
-  $("#zoom_chart_12422_0").click( function () {
-    window.open("../topo/run_4_knl01_43130_44159.html");
-  });
-  $("#zoom_chart_12422_1").click( function () {
-    window.open("../topo/run_4_knl01_43131_44156.html");
-  });
-  $("#zoom_chart_12422_2").click( function () {
-    window.open("../topo/run_4_knl01_43131_43131.html");
-  });
-  $("#zoom_chart_12422_3").click( function () {
-    window.open("../topo/run_4_knl01_43130_44167.html");
-  });
-  $("#zoom_chart_12422_4").click( function () {
-    window.open("../topo/run_4_knl01_43131_44161.html");
-  });
-  }
-  if (selector_run.value  == "5") {
-  $(document).ready(function(){
-    var ordinals = ['knl01_43131_44161','knl01_43131_44156','knl01_43131_43131','knl01_43130_44167','knl01_43130_44159'];
-    var data = [{value: 0.01, offset: 0, i: 0, color: "#333399"},{value: 0.01, offset: 0, i: 1, color: "#333399"},{value: 0.01, offset: 0, i: 2, color: "#333399"},{value: 0, offset: 0, i: 3, color: "#333399"},{value: 0, offset: 0, i: 4, color: "#333399"}];
-    var widthgl  = _width;
-    var widthin  = _width;
-    var heightgl = 480;
-    var heightin = 495;
-    let margin = {
-      top:    10,
-      right:  30,
-      bottom: 30,
-      left:   50
-    },
-    width = widthgl - margin.left - margin.right,
-    height = heightgl - margin.top - margin.bottom,
-    radius = (Math.min(width, height) / 2) - 10,
-    node;
-    const svg = d3.select('#chart_cat_12423')
-        .append('svg')
-        .attr('width', widthin)
-        .attr('height', heightin)
-        .append('g')
-        .attr('transform', `translate(${margin.left}, ${margin.top})`)
-        .call(
-          d3.zoom()
-            .translateExtent([[0,0], [width, height] ])
-            .extent([[0, 0], [width, height] ])
-          .on('zoom', zoom)
-        ).on("dblclick.zoom", null);
-    let x = d3.scaleLinear().range([0, width])
-    let y = d3.scaleLinear().range([height, 0])
-    let color = d3.scaleOrdinal(d3.schemeCategory10)
-    let xScale = x.domain([-1, ordinals.length])
-    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
-    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
-    svg.append('rect')
-      .attr('class', 'zoom-panel')
-      .attr('width', width)
-      .attr('height', height)
-      .style('fill', 'var(--background)')
-    let xAxis = svg.append('g')
-      .attr('class', 'xAxis')
-      .attr('transform', `translate(0, ${height})`)
-      .call(
-        d3.axisBottom(xScale).tickFormat((d, e) => {
-          return ordinals[d]
-        })
-      );
-    svg.append("text")
-      .attr("transform",
-            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
-      .style("text-anchor", "middle")
-      .style("fill", "var(--font)")
-      .text("MAQAO thread rank");
-    let yAxis = svg.append('g')
-      .attr('class', 'yAxis')
-      .call(d3.axisLeft(yScale));
-    yAxis.selectAll(".tick text").attr("fill","var(--font)");
-    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
-    yAxis.selectAll(".domain").attr("stroke","var(--font)");
-    xAxis.selectAll(".tick text").attr("fill","var(--font)");
-    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
-    xAxis.selectAll(".domain").attr("stroke","var(--font)");
-    svg.append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left)
-      .attr("x",0 - (height / 2))
-      .attr("dy", "1em")
-      .style("text-anchor", "middle")
-      .style("fill", "var(--font)")
-      .text("Time (s)");
-    let bars = svg.append('g')
-      .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_12423')
-      .selectAll('.bar')
-      .data(data)
-      .enter()
-      .append('rect')
-      .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_12423_'+i;})
-      .attr('x', function(d, i){
-        return xScale(d.i) - xBand.bandwidth()*0.9/2
-      })
-      .attr('y', function(d, i){
-        return yScale(d.value + d.offset)
-      })
-      .attr('width', xBand.bandwidth()*0.9)
-      .attr('height', function(d){
-        return height - yScale(d.value)
-      })
-      .style("fill", function(d){
-        return d.color
-      })
-    let defs = svg.append('defs')
-      defs.append('clipPath')
-        .attr('id', 'my-clip-path')
-        .append('rect')
-        .attr('width', width)
-        .attr('height', height)
-      let hideTicksWithoutLabel = function() {
-        d3.selectAll('.xAxis .tick text').each(function(d){
-          if(this.innerHTML === '') {
-            this.parentNode.style.display = 'none';
-          }
-        })
-      }
-      function zoom() {
-        if (d3.event.transform.k < 1) {
-          d3.event.transform.k = 1;
-          return;
-        }
-      xAxis.call(
-        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
-          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
-            return ordinals[d];
-        })
-      )
-      hideTicksWithoutLabel()
-        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
-    }
-  });
-  $("#zoom_chart_12423_0").click( function () {
-    window.open("../topo/run_4_knl01_43131_44161.html");
-  });
-  $("#zoom_chart_12423_1").click( function () {
-    window.open("../topo/run_4_knl01_43131_44156.html");
-  });
-  $("#zoom_chart_12423_2").click( function () {
-    window.open("../topo/run_4_knl01_43131_43131.html");
-  });
-  $("#zoom_chart_12423_3").click( function () {
-    window.open("../topo/run_4_knl01_43130_44167.html");
-  });
-  $("#zoom_chart_12423_4").click( function () {
-    window.open("../topo/run_4_knl01_43130_44159.html");
-  });
-  }
-  if (selector_run.value  == "6") {
-  $(document).ready(function(){
-    var ordinals = ['knl01_44197_44205','knl01_44196_44196'];
-    var data = [{value: 0.05, offset: 0, i: 0, color: "#333399"},{value: 0.04, offset: 0, i: 1, color: "#333399"}];
-    var widthgl  = _width;
-    var widthin  = _width;
-    var heightgl = 480;
-    var heightin = 495;
-    let margin = {
-      top:    10,
-      right:  30,
-      bottom: 30,
-      left:   50
-    },
-    width = widthgl - margin.left - margin.right,
-    height = heightgl - margin.top - margin.bottom,
-    radius = (Math.min(width, height) / 2) - 10,
-    node;
-    const svg = d3.select('#chart_cat_12422')
-        .append('svg')
-        .attr('width', widthin)
-        .attr('height', heightin)
-        .append('g')
-        .attr('transform', `translate(${margin.left}, ${margin.top})`)
-        .call(
-          d3.zoom()
-            .translateExtent([[0,0], [width, height] ])
-            .extent([[0, 0], [width, height] ])
-          .on('zoom', zoom)
-        ).on("dblclick.zoom", null);
-    let x = d3.scaleLinear().range([0, width])
-    let y = d3.scaleLinear().range([height, 0])
-    let color = d3.scaleOrdinal(d3.schemeCategory10)
-    let xScale = x.domain([-1, ordinals.length])
-    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
-    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
-    svg.append('rect')
-      .attr('class', 'zoom-panel')
-      .attr('width', width)
-      .attr('height', height)
-      .style('fill', 'var(--background)')
-    let xAxis = svg.append('g')
-      .attr('class', 'xAxis')
-      .attr('transform', `translate(0, ${height})`)
-      .call(
-        d3.axisBottom(xScale).tickFormat((d, e) => {
-          return ordinals[d]
-        })
-      );
-    svg.append("text")
-      .attr("transform",
-            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
-      .style("text-anchor", "middle")
-      .style("fill", "var(--font)")
-      .text("MAQAO thread rank");
-    let yAxis = svg.append('g')
-      .attr('class', 'yAxis')
-      .call(d3.axisLeft(yScale));
-    yAxis.selectAll(".tick text").attr("fill","var(--font)");
-    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
-    yAxis.selectAll(".domain").attr("stroke","var(--font)");
-    xAxis.selectAll(".tick text").attr("fill","var(--font)");
-    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
-    xAxis.selectAll(".domain").attr("stroke","var(--font)");
-    svg.append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left)
-      .attr("x",0 - (height / 2))
-      .attr("dy", "1em")
-      .style("text-anchor", "middle")
-      .style("fill", "var(--font)")
-      .text("Coverage (%)");
-    let bars = svg.append('g')
-      .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_12422')
-      .selectAll('.bar')
-      .data(data)
-      .enter()
-      .append('rect')
-      .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_12422_'+i;})
-      .attr('x', function(d, i){
-        return xScale(d.i) - xBand.bandwidth()*0.9/2
-      })
-      .attr('y', function(d, i){
-        return yScale(d.value + d.offset)
-      })
-      .attr('width', xBand.bandwidth()*0.9)
-      .attr('height', function(d){
-        return height - yScale(d.value)
-      })
-      .style("fill", function(d){
-        return d.color
-      })
-    let defs = svg.append('defs')
-      defs.append('clipPath')
-        .attr('id', 'my-clip-path')
-        .append('rect')
-        .attr('width', width)
-        .attr('height', height)
-      let hideTicksWithoutLabel = function() {
-        d3.selectAll('.xAxis .tick text').each(function(d){
-          if(this.innerHTML === '') {
-            this.parentNode.style.display = 'none';
-          }
-        })
-      }
-      function zoom() {
-        if (d3.event.transform.k < 1) {
-          d3.event.transform.k = 1;
-          return;
-        }
-      xAxis.call(
-        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
-          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
-            return ordinals[d];
-        })
-      )
-      hideTicksWithoutLabel()
-        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
-    }
-  });
-  $("#zoom_chart_12422_0").click( function () {
-    window.open("../topo/run_5_knl01_44197_44205.html");
-  });
-  $("#zoom_chart_12422_1").click( function () {
-    window.open("../topo/run_5_knl01_44196_44196.html");
-  });
-  }
-  if (selector_run.value  == "6") {
-  $(document).ready(function(){
-    var ordinals = ['knl01_44196_44196','knl01_44197_44205'];
-    var data = [{value: 0, offset: 0, i: 0, color: "#333399"},{value: 0, offset: 0, i: 1, color: "#333399"}];
-    var widthgl  = _width;
-    var widthin  = _width;
-    var heightgl = 480;
-    var heightin = 495;
-    let margin = {
-      top:    10,
-      right:  30,
-      bottom: 30,
-      left:   50
-    },
-    width = widthgl - margin.left - margin.right,
-    height = heightgl - margin.top - margin.bottom,
-    radius = (Math.min(width, height) / 2) - 10,
-    node;
-    const svg = d3.select('#chart_cat_12423')
-        .append('svg')
-        .attr('width', widthin)
-        .attr('height', heightin)
-        .append('g')
-        .attr('transform', `translate(${margin.left}, ${margin.top})`)
-        .call(
-          d3.zoom()
-            .translateExtent([[0,0], [width, height] ])
-            .extent([[0, 0], [width, height] ])
-          .on('zoom', zoom)
-        ).on("dblclick.zoom", null);
-    let x = d3.scaleLinear().range([0, width])
-    let y = d3.scaleLinear().range([height, 0])
-    let color = d3.scaleOrdinal(d3.schemeCategory10)
-    let xScale = x.domain([-1, ordinals.length])
-    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
-    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
-    svg.append('rect')
-      .attr('class', 'zoom-panel')
-      .attr('width', width)
-      .attr('height', height)
-      .style('fill', 'var(--background)')
-    let xAxis = svg.append('g')
-      .attr('class', 'xAxis')
-      .attr('transform', `translate(0, ${height})`)
-      .call(
-        d3.axisBottom(xScale).tickFormat((d, e) => {
-          return ordinals[d]
-        })
-      );
-    svg.append("text")
-      .attr("transform",
-            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
-      .style("text-anchor", "middle")
-      .style("fill", "var(--font)")
-      .text("MAQAO thread rank");
-    let yAxis = svg.append('g')
-      .attr('class', 'yAxis')
-      .call(d3.axisLeft(yScale));
-    yAxis.selectAll(".tick text").attr("fill","var(--font)");
-    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
-    yAxis.selectAll(".domain").attr("stroke","var(--font)");
-    xAxis.selectAll(".tick text").attr("fill","var(--font)");
-    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
-    xAxis.selectAll(".domain").attr("stroke","var(--font)");
-    svg.append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left)
-      .attr("x",0 - (height / 2))
-      .attr("dy", "1em")
-      .style("text-anchor", "middle")
-      .style("fill", "var(--font)")
-      .text("Time (s)");
-    let bars = svg.append('g')
-      .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_12423')
-      .selectAll('.bar')
-      .data(data)
-      .enter()
-      .append('rect')
-      .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_12423_'+i;})
-      .attr('x', function(d, i){
-        return xScale(d.i) - xBand.bandwidth()*0.9/2
-      })
-      .attr('y', function(d, i){
-        return yScale(d.value + d.offset)
-      })
-      .attr('width', xBand.bandwidth()*0.9)
-      .attr('height', function(d){
-        return height - yScale(d.value)
-      })
-      .style("fill", function(d){
-        return d.color
-      })
-    let defs = svg.append('defs')
-      defs.append('clipPath')
-        .attr('id', 'my-clip-path')
-        .append('rect')
-        .attr('width', width)
-        .attr('height', height)
-      let hideTicksWithoutLabel = function() {
-        d3.selectAll('.xAxis .tick text').each(function(d){
-          if(this.innerHTML === '') {
-            this.parentNode.style.display = 'none';
-          }
-        })
-      }
-      function zoom() {
-        if (d3.event.transform.k < 1) {
-          d3.event.transform.k = 1;
-          return;
-        }
-      xAxis.call(
-        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
-          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
-            return ordinals[d];
-        })
-      )
-      hideTicksWithoutLabel()
-        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
-    }
-  });
-  $("#zoom_chart_12423_0").click( function () {
-    window.open("../topo/run_5_knl01_44196_44196.html");
-  });
-  $("#zoom_chart_12423_1").click( function () {
-    window.open("../topo/run_5_knl01_44197_44205.html");
-  });
-  }
-  if (selector_run.value  == "7") {
-  $(document).ready(function(){
-    var ordinals = [];
-    var data = [];
-    var widthgl  = _width;
-    var widthin  = _width;
-    var heightgl = 480;
-    var heightin = 495;
-    let margin = {
-      top:    10,
-      right:  30,
-      bottom: 30,
-      left:   50
-    },
-    width = widthgl - margin.left - margin.right,
-    height = heightgl - margin.top - margin.bottom,
-    radius = (Math.min(width, height) / 2) - 10,
-    node;
-    const svg = d3.select('#chart_cat_12422')
-        .append('svg')
-        .attr('width', widthin)
-        .attr('height', heightin)
-        .append('g')
-        .attr('transform', `translate(${margin.left}, ${margin.top})`)
-        .call(
-          d3.zoom()
-            .translateExtent([[0,0], [width, height] ])
-            .extent([[0, 0], [width, height] ])
-          .on('zoom', zoom)
-        ).on("dblclick.zoom", null);
-    let x = d3.scaleLinear().range([0, width])
-    let y = d3.scaleLinear().range([height, 0])
-    let color = d3.scaleOrdinal(d3.schemeCategory10)
-    let xScale = x.domain([-1, ordinals.length])
-    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
-    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
-    svg.append('rect')
-      .attr('class', 'zoom-panel')
-      .attr('width', width)
-      .attr('height', height)
-      .style('fill', 'var(--background)')
-    let xAxis = svg.append('g')
-      .attr('class', 'xAxis')
-      .attr('transform', `translate(0, ${height})`)
-      .call(
-        d3.axisBottom(xScale).tickFormat((d, e) => {
-          return ordinals[d]
-        })
-      );
-    svg.append("text")
-      .attr("transform",
-            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
-      .style("text-anchor", "middle")
-      .style("fill", "var(--font)")
-      .text("MAQAO thread rank");
-    let yAxis = svg.append('g')
-      .attr('class', 'yAxis')
-      .call(d3.axisLeft(yScale));
-    yAxis.selectAll(".tick text").attr("fill","var(--font)");
-    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
-    yAxis.selectAll(".domain").attr("stroke","var(--font)");
-    xAxis.selectAll(".tick text").attr("fill","var(--font)");
-    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
-    xAxis.selectAll(".domain").attr("stroke","var(--font)");
-    svg.append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left)
-      .attr("x",0 - (height / 2))
-      .attr("dy", "1em")
-      .style("text-anchor", "middle")
-      .style("fill", "var(--font)")
-      .text("Coverage (%)");
-    let bars = svg.append('g')
-      .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_12422')
-      .selectAll('.bar')
-      .data(data)
-      .enter()
-      .append('rect')
-      .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_12422_'+i;})
-      .attr('x', function(d, i){
-        return xScale(d.i) - xBand.bandwidth()*0.9/2
-      })
-      .attr('y', function(d, i){
-        return yScale(d.value + d.offset)
-      })
-      .attr('width', xBand.bandwidth()*0.9)
-      .attr('height', function(d){
-        return height - yScale(d.value)
-      })
-      .style("fill", function(d){
-        return d.color
-      })
-    let defs = svg.append('defs')
-      defs.append('clipPath')
-        .attr('id', 'my-clip-path')
-        .append('rect')
-        .attr('width', width)
-        .attr('height', height)
-      let hideTicksWithoutLabel = function() {
-        d3.selectAll('.xAxis .tick text').each(function(d){
-          if(this.innerHTML === '') {
-            this.parentNode.style.display = 'none';
-          }
-        })
-      }
-      function zoom() {
-        if (d3.event.transform.k < 1) {
-          d3.event.transform.k = 1;
-          return;
-        }
-      xAxis.call(
-        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
-          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
-            return ordinals[d];
-        })
-      )
-      hideTicksWithoutLabel()
-        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
-    }
-  });
-  }
-  if (selector_run.value  == "7") {
-  $(document).ready(function(){
-    var ordinals = [];
-    var data = [];
-    var widthgl  = _width;
-    var widthin  = _width;
-    var heightgl = 480;
-    var heightin = 495;
-    let margin = {
-      top:    10,
-      right:  30,
-      bottom: 30,
-      left:   50
-    },
-    width = widthgl - margin.left - margin.right,
-    height = heightgl - margin.top - margin.bottom,
-    radius = (Math.min(width, height) / 2) - 10,
-    node;
-    const svg = d3.select('#chart_cat_12423')
-        .append('svg')
-        .attr('width', widthin)
-        .attr('height', heightin)
-        .append('g')
-        .attr('transform', `translate(${margin.left}, ${margin.top})`)
-        .call(
-          d3.zoom()
-            .translateExtent([[0,0], [width, height] ])
-            .extent([[0, 0], [width, height] ])
-          .on('zoom', zoom)
-        ).on("dblclick.zoom", null);
-    let x = d3.scaleLinear().range([0, width])
-    let y = d3.scaleLinear().range([height, 0])
-    let color = d3.scaleOrdinal(d3.schemeCategory10)
-    let xScale = x.domain([-1, ordinals.length])
-    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
-    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
-    svg.append('rect')
-      .attr('class', 'zoom-panel')
-      .attr('width', width)
-      .attr('height', height)
-      .style('fill', 'var(--background)')
-    let xAxis = svg.append('g')
-      .attr('class', 'xAxis')
-      .attr('transform', `translate(0, ${height})`)
-      .call(
-        d3.axisBottom(xScale).tickFormat((d, e) => {
-          return ordinals[d]
-        })
-      );
-    svg.append("text")
-      .attr("transform",
-            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
-      .style("text-anchor", "middle")
-      .style("fill", "var(--font)")
-      .text("MAQAO thread rank");
-    let yAxis = svg.append('g')
-      .attr('class', 'yAxis')
-      .call(d3.axisLeft(yScale));
-    yAxis.selectAll(".tick text").attr("fill","var(--font)");
-    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
-    yAxis.selectAll(".domain").attr("stroke","var(--font)");
-    xAxis.selectAll(".tick text").attr("fill","var(--font)");
-    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
-    xAxis.selectAll(".domain").attr("stroke","var(--font)");
-    svg.append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left)
-      .attr("x",0 - (height / 2))
-      .attr("dy", "1em")
-      .style("text-anchor", "middle")
-      .style("fill", "var(--font)")
-      .text("Time (s)");
-    let bars = svg.append('g')
-      .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_12423')
-      .selectAll('.bar')
-      .data(data)
-      .enter()
-      .append('rect')
-      .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_12423_'+i;})
-      .attr('x', function(d, i){
-        return xScale(d.i) - xBand.bandwidth()*0.9/2
-      })
-      .attr('y', function(d, i){
-        return yScale(d.value + d.offset)
-      })
-      .attr('width', xBand.bandwidth()*0.9)
-      .attr('height', function(d){
-        return height - yScale(d.value)
-      })
-      .style("fill", function(d){
-        return d.color
-      })
-    let defs = svg.append('defs')
-      defs.append('clipPath')
-        .attr('id', 'my-clip-path')
-        .append('rect')
-        .attr('width', width)
-        .attr('height', height)
-      let hideTicksWithoutLabel = function() {
-        d3.selectAll('.xAxis .tick text').each(function(d){
-          if(this.innerHTML === '') {
-            this.parentNode.style.display = 'none';
-          }
-        })
-      }
-      function zoom() {
-        if (d3.event.transform.k < 1) {
-          d3.event.transform.k = 1;
-          return;
-        }
-      xAxis.call(
-        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
-          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
-            return ordinals[d];
-        })
-      )
-      hideTicksWithoutLabel()
-        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
-    }
+  $("#zoom_chart_13136_0").click( function () {
+    window.open("../topo/run_6_knl01_12489_12489.html");
   });
   }
   if (selector_run.value  == "8") {
   $(document).ready(function(){
-    var ordinals = ['knl01_44341_44595','knl01_44345_44345'];
-    var data = [{value: 0.27, offset: 0, i: 0, color: "#333399"},{value: 0.24, offset: 0, i: 1, color: "#333399"}];
+    var ordinals = ['knl01_12575_12785','knl01_12576_12942','knl01_12579_12651','knl01_12578_12913','knl01_12578_12714','knl01_12576_12730','knl01_12579_12821','knl01_12579_12926'];
+    var data = [{value: 0.24, offset: 0, i: 0, color: "#333399"},{value: 0.24, offset: 0, i: 1, color: "#333399"},{value: 0.23, offset: 0, i: 2, color: "#333399"},{value: 0.23, offset: 0, i: 3, color: "#333399"},{value: 0.23, offset: 0, i: 4, color: "#333399"},{value: 0.23, offset: 0, i: 5, color: "#333399"},{value: 0.23, offset: 0, i: 6, color: "#333399"},{value: 0.23, offset: 0, i: 7, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -1929,7 +1918,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_12422')
+    const svg = d3.select('#chart_cat_13135')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -1985,13 +1974,13 @@ function set_ldbal_input () {
       .text("Coverage (%)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_12422')
+      .attr('id', 'zoom_chart_13135')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_12422_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_13135_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -2033,17 +2022,35 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
-  $("#zoom_chart_12422_0").click( function () {
-    window.open("../topo/run_7_knl01_44341_44595.html");
+  $("#zoom_chart_13135_0").click( function () {
+    window.open("../topo/run_7_knl01_12575_12785.html");
   });
-  $("#zoom_chart_12422_1").click( function () {
-    window.open("../topo/run_7_knl01_44345_44345.html");
+  $("#zoom_chart_13135_1").click( function () {
+    window.open("../topo/run_7_knl01_12576_12942.html");
+  });
+  $("#zoom_chart_13135_2").click( function () {
+    window.open("../topo/run_7_knl01_12579_12651.html");
+  });
+  $("#zoom_chart_13135_3").click( function () {
+    window.open("../topo/run_7_knl01_12578_12913.html");
+  });
+  $("#zoom_chart_13135_4").click( function () {
+    window.open("../topo/run_7_knl01_12578_12714.html");
+  });
+  $("#zoom_chart_13135_5").click( function () {
+    window.open("../topo/run_7_knl01_12576_12730.html");
+  });
+  $("#zoom_chart_13135_6").click( function () {
+    window.open("../topo/run_7_knl01_12579_12821.html");
+  });
+  $("#zoom_chart_13135_7").click( function () {
+    window.open("../topo/run_7_knl01_12579_12926.html");
   });
   }
   if (selector_run.value  == "8") {
   $(document).ready(function(){
-    var ordinals = ['knl01_44341_44595','knl01_44345_44345'];
-    var data = [{value: 0, offset: 0, i: 0, color: "#333399"},{value: 0, offset: 0, i: 1, color: "#333399"}];
+    var ordinals = ['knl01_12576_12942','knl01_12576_12730','knl01_12579_12651','knl01_12575_12785','knl01_12578_12913','knl01_12578_12714','knl01_12579_12821','knl01_12579_12926'];
+    var data = [{value: 0.01, offset: 0, i: 0, color: "#333399"},{value: 0.01, offset: 0, i: 1, color: "#333399"},{value: 0, offset: 0, i: 2, color: "#333399"},{value: 0, offset: 0, i: 3, color: "#333399"},{value: 0, offset: 0, i: 4, color: "#333399"},{value: 0, offset: 0, i: 5, color: "#333399"},{value: 0, offset: 0, i: 6, color: "#333399"},{value: 0, offset: 0, i: 7, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -2058,7 +2065,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_12423')
+    const svg = d3.select('#chart_cat_13136')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -2114,13 +2121,13 @@ function set_ldbal_input () {
       .text("Time (s)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_12423')
+      .attr('id', 'zoom_chart_13136')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_12423_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_13136_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -2162,17 +2169,35 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
-  $("#zoom_chart_12423_0").click( function () {
-    window.open("../topo/run_7_knl01_44341_44595.html");
+  $("#zoom_chart_13136_0").click( function () {
+    window.open("../topo/run_7_knl01_12576_12942.html");
   });
-  $("#zoom_chart_12423_1").click( function () {
-    window.open("../topo/run_7_knl01_44345_44345.html");
+  $("#zoom_chart_13136_1").click( function () {
+    window.open("../topo/run_7_knl01_12576_12730.html");
+  });
+  $("#zoom_chart_13136_2").click( function () {
+    window.open("../topo/run_7_knl01_12579_12651.html");
+  });
+  $("#zoom_chart_13136_3").click( function () {
+    window.open("../topo/run_7_knl01_12575_12785.html");
+  });
+  $("#zoom_chart_13136_4").click( function () {
+    window.open("../topo/run_7_knl01_12578_12913.html");
+  });
+  $("#zoom_chart_13136_5").click( function () {
+    window.open("../topo/run_7_knl01_12578_12714.html");
+  });
+  $("#zoom_chart_13136_6").click( function () {
+    window.open("../topo/run_7_knl01_12579_12821.html");
+  });
+  $("#zoom_chart_13136_7").click( function () {
+    window.open("../topo/run_7_knl01_12579_12926.html");
   });
   }
   if (selector_run.value  == "9") {
   $(document).ready(function(){
-    var ordinals = [];
-    var data = [];
+    var ordinals = ['knl01_13214_13274','knl01_13210_13297','knl01_13205_13231','knl01_13209_13269','knl01_13210_13257','knl01_13214_13287','knl01_13208_13258','knl01_13213_13298','knl01_13213_13276','knl01_13207_13349'];
+    var data = [{value: 0.09, offset: 0, i: 0, color: "#333399"},{value: 0.08, offset: 0, i: 1, color: "#333399"},{value: 0.04, offset: 0, i: 2, color: "#333399"},{value: 0.04, offset: 0, i: 3, color: "#333399"},{value: 0.04, offset: 0, i: 4, color: "#333399"},{value: 0.04, offset: 0, i: 5, color: "#333399"},{value: 0.04, offset: 0, i: 6, color: "#333399"},{value: 0.03, offset: 0, i: 7, color: "#333399"},{value: 0.03, offset: 0, i: 8, color: "#333399"},{value: 0.03, offset: 0, i: 9, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -2187,7 +2212,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_12422')
+    const svg = d3.select('#chart_cat_13135')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -2243,13 +2268,13 @@ function set_ldbal_input () {
       .text("Coverage (%)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_12422')
+      .attr('id', 'zoom_chart_13135')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_12422_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_13135_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -2291,11 +2316,41 @@ function set_ldbal_input () {
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
   });
+  $("#zoom_chart_13135_0").click( function () {
+    window.open("../topo/run_8_knl01_13214_13274.html");
+  });
+  $("#zoom_chart_13135_1").click( function () {
+    window.open("../topo/run_8_knl01_13210_13297.html");
+  });
+  $("#zoom_chart_13135_2").click( function () {
+    window.open("../topo/run_8_knl01_13205_13231.html");
+  });
+  $("#zoom_chart_13135_3").click( function () {
+    window.open("../topo/run_8_knl01_13209_13269.html");
+  });
+  $("#zoom_chart_13135_4").click( function () {
+    window.open("../topo/run_8_knl01_13210_13257.html");
+  });
+  $("#zoom_chart_13135_5").click( function () {
+    window.open("../topo/run_8_knl01_13214_13287.html");
+  });
+  $("#zoom_chart_13135_6").click( function () {
+    window.open("../topo/run_8_knl01_13208_13258.html");
+  });
+  $("#zoom_chart_13135_7").click( function () {
+    window.open("../topo/run_8_knl01_13213_13298.html");
+  });
+  $("#zoom_chart_13135_8").click( function () {
+    window.open("../topo/run_8_knl01_13213_13276.html");
+  });
+  $("#zoom_chart_13135_9").click( function () {
+    window.open("../topo/run_8_knl01_13207_13349.html");
+  });
   }
   if (selector_run.value  == "9") {
   $(document).ready(function(){
-    var ordinals = [];
-    var data = [];
+    var ordinals = ['knl01_13214_13274','knl01_13210_13297','knl01_13213_13276','knl01_13213_13298','knl01_13205_13231','knl01_13210_13257','knl01_13208_13258','knl01_13209_13269','knl01_13207_13349','knl01_13214_13287'];
+    var data = [{value: 0.01, offset: 0, i: 0, color: "#333399"},{value: 0.01, offset: 0, i: 1, color: "#333399"},{value: 0, offset: 0, i: 2, color: "#333399"},{value: 0, offset: 0, i: 3, color: "#333399"},{value: 0, offset: 0, i: 4, color: "#333399"},{value: 0, offset: 0, i: 5, color: "#333399"},{value: 0, offset: 0, i: 6, color: "#333399"},{value: 0, offset: 0, i: 7, color: "#333399"},{value: 0, offset: 0, i: 8, color: "#333399"},{value: 0, offset: 0, i: 9, color: "#333399"}];
     var widthgl  = _width;
     var widthin  = _width;
     var heightgl = 480;
@@ -2310,7 +2365,7 @@ function set_ldbal_input () {
     height = heightgl - margin.top - margin.bottom,
     radius = (Math.min(width, height) / 2) - 10,
     node;
-    const svg = d3.select('#chart_cat_12423')
+    const svg = d3.select('#chart_cat_13136')
         .append('svg')
         .attr('width', widthin)
         .attr('height', heightin)
@@ -2366,13 +2421,13 @@ function set_ldbal_input () {
       .text("Time (s)");
     let bars = svg.append('g')
       .attr('clip-path','url(#my-clip-path)')
-      .attr('id', 'zoom_chart_12423')
+      .attr('id', 'zoom_chart_13136')
       .selectAll('.bar')
       .data(data)
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('id', function (d, i){ return 'zoom_chart_12423_'+i;})
+      .attr('id', function (d, i){ return 'zoom_chart_13136_'+i;})
       .attr('x', function(d, i){
         return xScale(d.i) - xBand.bandwidth()*0.9/2
       })
@@ -2413,6 +2468,288 @@ function set_ldbal_input () {
       hideTicksWithoutLabel()
         bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
     }
+  });
+  $("#zoom_chart_13136_0").click( function () {
+    window.open("../topo/run_8_knl01_13214_13274.html");
+  });
+  $("#zoom_chart_13136_1").click( function () {
+    window.open("../topo/run_8_knl01_13210_13297.html");
+  });
+  $("#zoom_chart_13136_2").click( function () {
+    window.open("../topo/run_8_knl01_13213_13276.html");
+  });
+  $("#zoom_chart_13136_3").click( function () {
+    window.open("../topo/run_8_knl01_13213_13298.html");
+  });
+  $("#zoom_chart_13136_4").click( function () {
+    window.open("../topo/run_8_knl01_13205_13231.html");
+  });
+  $("#zoom_chart_13136_5").click( function () {
+    window.open("../topo/run_8_knl01_13210_13257.html");
+  });
+  $("#zoom_chart_13136_6").click( function () {
+    window.open("../topo/run_8_knl01_13208_13258.html");
+  });
+  $("#zoom_chart_13136_7").click( function () {
+    window.open("../topo/run_8_knl01_13209_13269.html");
+  });
+  $("#zoom_chart_13136_8").click( function () {
+    window.open("../topo/run_8_knl01_13207_13349.html");
+  });
+  $("#zoom_chart_13136_9").click( function () {
+    window.open("../topo/run_8_knl01_13214_13287.html");
+  });
+  }
+  if (selector_run.value  == "10") {
+  $(document).ready(function(){
+    var ordinals = ['knl01_13429_13429'];
+    var data = [{value: 0.06, offset: 0, i: 0, color: "#333399"}];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_13135')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Coverage (%)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_13135')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_13135_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  $("#zoom_chart_13135_0").click( function () {
+    window.open("../topo/run_9_knl01_13429_13429.html");
+  });
+  }
+  if (selector_run.value  == "10") {
+  $(document).ready(function(){
+    var ordinals = ['knl01_13429_13429'];
+    var data = [{value: 0.01, offset: 0, i: 0, color: "#333399"}];
+    var widthgl  = _width;
+    var widthin  = _width;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_13136')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Time (s)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_13136')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_13136_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  $("#zoom_chart_13136_0").click( function () {
+    window.open("../topo/run_9_knl01_13429_13429.html");
   });
   }
 }
@@ -2425,7 +2762,7 @@ function set_previous_ldbal_input () {
 }
 function set_next_ldbal_input () {
   var selector_run  = document.getElementById ("ldbal_select_run");
-  if (parseInt (selector_run.value) < 9) {
+  if (parseInt (selector_run.value) < 10) {
      selector_run.value = parseInt (selector_run.value) + 1;
      set_ldbal_input ();
   }

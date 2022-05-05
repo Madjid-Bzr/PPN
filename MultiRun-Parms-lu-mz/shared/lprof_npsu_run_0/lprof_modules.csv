@@ -1,7 +1,6 @@
 name;time_p;time_s;cpi_ratio;
-/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/binaries/lu-mz.A.x;99.45;91.42;;
-/usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0;0.38;0.35;;
-/usr/lib/x86_64-linux-gnu/libc-2.31.so;0.09;0.08;;
-kernel;0.07;0.06;;
-/usr/lib/x86_64-linux-gnu/libmpich.so.12.1.8;0.02;0.02;;
-/usr/lib/x86_64-linux-gnu/libgfortran.so.5.0.0;0.01;0;;
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/binaries/lu-mz.A.x;99.43;102.88;;
+/usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0;0.37;0.38;;
+/usr/lib/x86_64-linux-gnu/libc-2.31.so;0.12;0.12;;
+kernel;0.07;0.07;;
+/usr/lib/x86_64-linux-gnu/libmpich.so.12.1.8;0.01;0.01;;

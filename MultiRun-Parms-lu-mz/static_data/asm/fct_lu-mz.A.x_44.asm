@@ -1,1085 +1,810 @@
 address;source_location;insn;indent
-0x2b8a0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;PUSH	%RBP;
-0x2b8a1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;MOV	%RSP,%RBP;
-0x2b8a4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;PUSH	%R15;
-0x2b8a6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;PUSH	%R14;
-0x2b8a8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;LEA	(%RSI),%R14;
-0x2b8ab;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;PUSH	%R13;
-0x2b8ad;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;PUSH	%R12;
-0x2b8af;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;PUSH	%RBX;
-0x2b8b0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;AND	$-0x40,%RSP;
-0x2b8b4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;LEA	-0x1c0(%RSP),%RSP;
-0x2b8bc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	(%RDX),%R12D;
-0x2b8bf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;MOV	%R8,0x1b8(%RSP);
-0x2b8c7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;MOV	%R9,0x1b0(%RSP);
-0x2b8cf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;CALL	2080 <@plt_start@+0x60>;
-0x2b8d4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;MOV	0x38(%RBP),%R15;
-0x2b8d8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;LEA	(%RAX),%EBX;
-0x2b8da;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;CALL	2190 <@plt_start@+0x170>;
-0x2b8df;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;MOV	0x40(%RBP),%R13;
-0x2b8e3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;LEA	(%RAX),%ECX;
-0x2b8e5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;LEA	(%R12),%EAX;
-0x2b8e9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;SUB	$0x2,%EAX;
-0x2b8ec;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;MOV	%EAX,%EDX;
-0x2b8ee;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;SAR	$0x1f,%EDX;
-0x2b8f1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;IDIV	%EBX;
-0x2b8f3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;CMP	%EDX,%ECX;
-0x2b8f5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;JL	2d3ed <buts_+0x1b4d>;
-0x2b8fb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;IMUL	%EAX,%ECX;
-0x2b8fe;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;ADD	%ECX,%EDX;
-0x2b900;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;ADD	%EDX,%EAX;
-0x2b902;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;CMP	%EAX,%EDX;
-0x2b904;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;JGE	2d3de <buts_+0x1b3e>;
-0x2b90a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOVSXD	(%R14),%RSI;
-0x2b90d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;XOR	%R10D,%R10D;
-0x2b910;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	%R10,%RDI;
-0x2b913;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	$-0x6,%R8;
-0x2b91a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	$-0x1f,%R14;
-0x2b921;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOVSXD	%R12D,%RBX;
-0x2b924;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;LEA	(%RSI),%R9;
-0x2b927;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:38;LEA	-0x1(%R12),%R12D;
-0x2b92c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;SAL	$0x2,%R9;
-0x2b930;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	$0x4,%ECX;
-0x2b935;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;ADD	%RSI,%R9;
-0x2b938;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;TEST	%R9,%R9;
-0x2b93b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;LEA	(%R9,%R9,4),%R11;
-0x2b93f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;CMOVNS	%R9,%RDI;
-0x2b943;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	%RDI,0xb0(%RSP);
-0x2b94b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;SUB	%RDI,%R8;
-0x2b94e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	%R8,0x40(%RSP);
-0x2b953;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;TEST	%R11,%R11;
-0x2b956;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;CMOVS	%R10,%R11;
-0x2b95a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	%R11,0xa8(%RSP);
-0x2b962;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;SUB	%R11,%R14;
-0x2b965;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	%R14,0x50(%RSP);
-0x2b96a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;ADD	$0x14,%R9;
-0x2b96e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;CMOVS	%R10,%R9;
-0x2b972;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;IMUL	%R9,%RBX;
-0x2b976;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	%R9,%RSI;
-0x2b979;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	%R9,0xe8(%RSP);
-0x2b981;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;TEST	%RBX,%RBX;
-0x2b984;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;CMOVNS	%RBX,%R10;
-0x2b988;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;SUB	%R9,%RCX;
-0x2b98b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;LEA	(%R12),%R9D;
-0x2b98f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;SUB	%EAX,%R12D;
-0x2b992;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;SUB	%EDX,%R9D;
-0x2b995;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;SUB	%R10,%RCX;
-0x2b998;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x10(%RBP),%RAX;
-0x2b99c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x1b0(%RSP),%RDX;
-0x2b9a4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%R12D,0xf0(%RSP);
-0x2b9ac;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	(%RAX),%EBX;
-0x2b9ae;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	(%RDX),%R12D;
-0x2b9b1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	%R10,0x20(%RSP);
-0x2b9b6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	%RCX,0x48(%RSP);
-0x2b9bb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	%R9D,0x70(%RSP);
-0x2b9c0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;CMP	%R12D,%EBX;
-0x2b9c3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%EBX,0x3c(%RSP);
-0x2b9c7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%R12D,0xa4(%RSP);
-0x2b9cf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;JL	2d3de <buts_+0x1b3e>;
-0x2b9d5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOVSXD	%R9D,%RDX;
-0x2b9d8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	(%R11),%RCX;
-0x2b9db;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;IMUL	%RDX,%RCX;
-0x2b9df;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	(%RSI),%R14;
-0x2b9e2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%RDX,0x30(%RSP);
-0x2b9e7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	(%RDX),%RAX;
-0x2b9ea;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;IMUL	%RDX,%RSI;
-0x2b9ee;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x50(%RSP),%RDX;
-0x2b9f3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%R9D,0xf4(%RSP);
-0x2b9fb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x18(%RBP),%R9;
-0x2b9ff;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%R15,0x38(%RBP);
-0x2ba03;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADD	%RCX,%RDX;
-0x2ba06;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%RSI,0xe0(%RSP);
-0x2ba0e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	(%R11),%RSI;
-0x2ba11;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%RDX,0xd8(%RSP);
-0x2ba19;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;NEG	%R11;
-0x2ba1c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;SAL	$0x3,%R11;
-0x2ba20;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	(%RDI),%RDX;
-0x2ba23;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;IMUL	%RAX,%RDX;
-0x2ba27;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSXD	%EBX,%RAX;
-0x2ba2a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%R11,0x90(%RSP);
-0x2ba32;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	(%RAX,%RAX,4),%R11;
-0x2ba36;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%RAX,0x28(%RSP);
-0x2ba3b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	(%R11,%R11,4),%RAX;
-0x2ba3f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%R11,0x68(%RSP);
-0x2ba44;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;SUB	%RSI,%RAX;
-0x2ba47;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADD	%RCX,%RAX;
-0x2ba4a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADD	%RDX,%R8;
-0x2ba4d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x1b8(%RSP),%RCX;
-0x2ba55;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%RAX,%RSI;
-0x2ba58;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%R8,0xd0(%RSP);
-0x2ba60;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	(%RDI),%RAX;
-0x2ba63;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x48(%RBP),%R8;
-0x2ba67;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;NEG	%RAX;
-0x2ba6a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;SAL	$0x3,%RAX;
-0x2ba6e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%RAX,0x88(%RSP);
-0x2ba76;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	(%RCX),%EAX;
-0x2ba78;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;SAL	$0x3,%RSI;
-0x2ba7c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	(%R9),%XMM13;
-0x2ba81;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADD	%R8,%RSI;
-0x2ba84;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%EAX,0x38(%RSP);
-0x2ba88;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADD	$0x1,%EAX;
-0x2ba8b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;CLTQ;
-0x2ba8d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	(%R11),%R8;
-0x2ba90;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;IMUL	%R10,%RAX;
-0x2ba94;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;SUB	%RDI,%R8;
-0x2ba97;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%RSI,0xc8(%RSP);
-0x2ba9f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADD	%RDX,%R8;
-0x2baa2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x48(%RSP),%RSI;
-0x2baa7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%R8,%RDX;
-0x2baaa;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x28(%RBP),%R11;
-0x2baae;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	(%RBX),%R8D;
-0x2bab1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;SAL	$0x3,%RDX;
-0x2bab5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;SUB	%R12D,%EBX;
-0x2bab8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADD	%RAX,%RSI;
-0x2babb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%EBX,%R12D;
-0x2babe;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;SUB	%R14,%RAX;
-0x2bac1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADD	%R11,%RDX;
-0x2bac4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%EBX,0xa0(%RSP);
-0x2bacb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	0x1(%RBX),%EBX;
-0x2bace;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%EBX,0x74(%RSP);
-0x2bad2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;SUB	%R10,%RAX;
-0x2bad5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%RAX,0x80(%RSP);
-0x2badd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	(%RBX),%R10D;
-0x2bae0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;SHR	$0x3,%R10D;
-0x2bae4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;AND	$-0x8,%EBX;
-0x2bae7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	(%R8),%EAX;
-0x2baea;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;IMUL	$-0x640,%R10,%R14;
-0x2baf1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%RDX,0xc0(%RSP);
-0x2baf9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;SUB	%EBX,%EAX;
-0x2bafb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%RSI,0x98(%RSP);
-0x2bb03;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;CMP	$0x6,%R12D;
-0x2bb07;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%EBX,0x7c(%RSP);
-0x2bb0b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%R14,0xf8(%RSP);
-0x2bb13;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;CMOVBE	%R8D,%EAX;
-0x2bb17;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%R13,0x40(%RBP);
-0x2bb1b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%EAX,0x78(%RSP);
-0x2bb1f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;CLTQ;
-0x2bb21;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%RAX,%R11;
-0x2bb24;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;SAL	$0x2,%R11;
-0x2bb28;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADD	%RAX,%R11;
-0x2bb2b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%R11,%RDI;
-0x2bb2e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	0x1(%R11),%RDX;
-0x2bb32;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;SAL	$0x2,%RDI;
-0x2bb36;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%RDX,0x58(%RSP);
-0x2bb3b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADD	%R11,%RDI;
-0x2bb3e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%RDI,0x60(%RSP);
-0x2bb43;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;NOPW	%CS:(%RAX,%RAX,1);
-0x2bb4e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;XCHG	%AX,%AX;
-0x2bb50;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x98(%RSP),%R15;(188) 
-0x2bb58;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	%XMM13,%XMM13,%XMM7;(188) 
-0x2bb5c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0xe0(%RSP),%RAX;(188) 
-0x2bb64;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADD	%RAX,%R15;(188) 
-0x2bb67;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;CMPL	$0x6,0xa0(%RSP);(188) 
-0x2bb6f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%R15,0xb8(%RSP);(188) 
-0x2bb77;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;JBE	2cb95 <buts_+0x12f5>;(188) 
-0x2bb7d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0xc8(%RSP),%R8;(188) 
-0x2bb85;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADD	0x80(%RSP),%RAX;(188) 
-0x2bb8d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0xc0(%RSP),%RDX;(188) 
-0x2bb95;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VBROADCASTSD	%XMM13,%ZMM8;(188) 
-0x2bb9b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0xa0(%R8),%RCX;(188) 
-0x2bba2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x78(%R8),%RSI;(188) 
-0x2bba6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%RCX,0x188(%RSP);(188) 
-0x2bbae;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x68(%R8),%RCX;(188) 
-0x2bbb2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x28(%R8),%R10;(188) 
-0x2bbb6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x20(%RDX),%RDI;(188) 
-0x2bbba;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%RSI,0x180(%RSP);(188) 
-0x2bbc2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x40(%R8),%RSI;(188) 
-0x2bbc6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%RCX,0x150(%RSP);(188) 
-0x2bbce;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x10(%R8),%RCX;(188) 
-0x2bbd2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	(%RDX),%R14;(188) 
-0x2bbd5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADD	0x68(%RSP),%RAX;(188) 
-0x2bbda;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%R10,0x170(%RSP);(188) 
-0x2bbe2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x18(%RDX),%R10;(188) 
-0x2bbe6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%RSI,0x148(%RSP);(188) 
-0x2bbee;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x10(%RDX),%RSI;(188) 
-0x2bbf2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%RCX,0x138(%RSP);(188) 
-0x2bbfa;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x8(%RDX),%RDX;(188) 
-0x2bbfe;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x80(%R8),%RCX;(188) 
-0x2bc02;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	(%R8),%R13;(188) 
-0x2bc05;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%RDI,0x1a0(%RSP);(188) 
-0x2bc0d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x38(%R8),%RDI;(188) 
-0x2bc11;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%RCX,0x128(%RSP);(188) 
-0x2bc19;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x50(%R8),%R12;(188) 
-0x2bc1d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x20(%RBP),%RCX;(188) 
-0x2bc21;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x20(%R8),%R11;(188) 
-0x2bc25;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%RDX,0x198(%RSP);(188) 
-0x2bc2d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0xb8(%R8),%R9;(188) 
-0x2bc34;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x20(%RBP),%RDX;(188) 
-0x2bc38;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x90(%R8),%RBX;(188) 
-0x2bc3f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;SUB	$0xc8,%R13;(188) 
-0x2bc46;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;SUB	$0x28,%R14;(188) 
-0x2bc4a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%RDI,0x140(%RSP);(188) 
-0x2bc52;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0xa8(%R8),%RDI;(188) 
-0x2bc59;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%R13,0x190(%RSP);(188) 
-0x2bc61;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0xc0(%R8),%R15;(188) 
-0x2bc68;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%R12,0x178(%RSP);(188) 
-0x2bc70;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x70(%R8),%R13;(188) 
-0x2bc74;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%R14,0x1b0(%RSP);(188) 
-0x2bc7c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x48(%R8),%R12;(188) 
-0x2bc80;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%R11,0x168(%RSP);(188) 
-0x2bc88;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x98(%R8),%R14;(188) 
-0x2bc8f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%R9,0x160(%RSP);(188) 
-0x2bc97;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0xb0(%R8),%R11;(188) 
-0x2bc9e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%RBX,0x158(%RSP);(188) 
-0x2bca6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x60(%R8),%R9;(188) 
-0x2bcaa;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%R10,0x1b8(%RSP);(188) 
-0x2bcb2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x18(%R8),%RBX;(188) 
-0x2bcb6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%RSI,0x1a8(%RSP);(188) 
-0x2bcbe;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x88(%R8),%R10;(188) 
-0x2bcc5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%RDI,0x130(%RSP);(188) 
-0x2bccd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x58(%R8),%RSI;(188) 
-0x2bcd1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%RSI,0x120(%RSP);(188) 
-0x2bcd9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x30(%R8),%RDI;(188) 
-0x2bcdd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x8(%R8),%R8;(188) 
-0x2bce1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	0x38(%RCX,%RAX,8),%RSI;(188) 
-0x2bce6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%RDI,0x118(%RSP);(188) 
-0x2bcee;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	0x40(%RCX,%RAX,8),%RDI;(188) 
-0x2bcf3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%R8,0x110(%RSP);(188) 
-0x2bcfb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	0x48(%RCX,%RAX,8),%R8;(188) 
-0x2bd00;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%R13,0x108(%RSP);(188) 
-0x2bd08;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	0x30(%RDX,%RAX,8),%RCX;(188) 
-0x2bd0d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x20(%RBP),%RDX;(188) 
-0x2bd11;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%R12,0x100(%RSP);(188) 
-0x2bd19;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	0x28(%RDX,%RAX,8),%RDX;(188) 
-0x2bd1e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;XOR	%EAX,%EAX;(188) 
-0x2bd20;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x190(%RSP),%R13;  (191) 
-0x2bd28;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x640(%R9),%R9;  (191) 
-0x2bd2f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0xf0(%RDX),%XMM0;  (191) 
-0x2bd37;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x640(%R10),%R10;  (191) 
-0x2bd3e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0xa0(%RDX),%XMM2;  (191) 
-0x2bd46;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x118(%RDX),%XMM0,%XMM1;  (191) 
-0x2bd4e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x50(%RDX),%XMM5;  (191) 
-0x2bd53;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0xc8(%RDX),%XMM2,%XMM3;  (191) 
-0x2bd5b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	(%RDX),%XMM6;  (191) 
-0x2bd5f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x78(%RDX),%XMM5,%XMM4;  (191) 
-0x2bd64;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x28(%RDX),%XMM6,%XMM9;  (191) 
-0x2bd69;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM1,%YMM3,%YMM11;  (191) 
-0x2bd6f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x188(%RSP),%R12;  (191) 
-0x2bd77;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM4,%YMM9,%YMM10;  (191) 
-0x2bd7d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0xf0(%RCX),%XMM13;  (191) 
-0x2bd85;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM11,%ZMM10,%ZMM12;  (191) 
-0x2bd8c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0xa0(%RCX),%XMM15;  (191) 
-0x2bd94;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x118(%RCX),%XMM13,%XMM14;  (191) 
-0x2bd9c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x50(%RCX),%XMM1;  (191) 
-0x2bda1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0xc8(%RCX),%XMM15,%XMM0;  (191) 
-0x2bda9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	(%RCX),%XMM3;  (191) 
-0x2bdad;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x78(%RCX),%XMM1,%XMM2;  (191) 
-0x2bdb2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x28(%RCX),%XMM3,%XMM5;  (191) 
-0x2bdb7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM14,%YMM0,%YMM6;  (191) 
-0x2bdbd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x4b0(%R13,%RAX,1),%XMM9;  (191) 
-0x2bdc7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM2,%YMM5,%YMM4;  (191) 
-0x2bdcd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x320(%R13,%RAX,1),%XMM11;  (191) 
-0x2bdd7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x578(%R13,%RAX,1),%XMM9,%XMM10;  (191) 
-0x2bde1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x3e8(%R13,%RAX,1),%XMM11,%XMM14;  (191) 
-0x2bdeb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM6,%ZMM4,%ZMM13;  (191) 
-0x2bdf2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x190(%R13,%RAX,1),%XMM15;  (191) 
-0x2bdfc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM10,%YMM14,%YMM5;  (191) 
-0x2be02;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	(%R13,%RAX,1),%XMM1;  (191) 
-0x2be09;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x258(%R13,%RAX,1),%XMM15,%XMM0;  (191) 
-0x2be13;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0xc8(%R13,%RAX,1),%XMM1,%XMM2;  (191) 
-0x2be1d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x640(%R11),%R11;  (191) 
-0x2be24;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x4b0(%R12,%RAX,1),%XMM6;  (191) 
-0x2be2e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM0,%YMM2,%YMM3;  (191) 
-0x2be34;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x320(%R12,%RAX,1),%XMM10;  (191) 
-0x2be3e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x578(%R12,%RAX,1),%XMM6,%XMM9;  (191) 
-0x2be48;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x190(%R12,%RAX,1),%XMM14;  (191) 
-0x2be52;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x3e8(%R12,%RAX,1),%XMM10,%XMM11;  (191) 
-0x2be5c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x258(%R12,%RAX,1),%XMM14,%XMM15;  (191) 
-0x2be66;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM5,%ZMM3,%ZMM4;  (191) 
-0x2be6d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	(%R12,%RAX,1),%XMM0;  (191) 
-0x2be73;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM9,%YMM11,%YMM3;  (191) 
-0x2be79;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0xc8(%R12,%RAX,1),%XMM0,%XMM1;  (191) 
-0x2be83;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x640(%RBX),%RBX;  (191) 
-0x2be8a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM15,%YMM1,%YMM2;  (191) 
-0x2be90;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x140(%R8),%R8;  (191) 
-0x2be97;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM3,%ZMM2,%ZMM5;  (191) 
-0x2be9e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x140(%RDI),%RDI;  (191) 
-0x2bea5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMULPD	%ZMM13,%ZMM5,%ZMM6;  (191) 
-0x2beab;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x140(%RSI),%RSI;  (191) 
-0x2beb2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x180(%RSP),%R13;  (191) 
-0x2beba;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x140(%RCX),%RCX;  (191) 
-0x2bec1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0xa0(%RSI),%XMM10;  (191) 
-0x2bec9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x140(%RDX),%RDX;  (191) 
-0x2bed0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0xf0(%RSI),%XMM14;  (191) 
-0x2bed8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0x78(%RSI),%XMM10,%XMM11;  (191) 
-0x2bedd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0x140(%RSI),%XMM0;  (191) 
-0x2bee5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0xc8(%RSI),%XMM14,%XMM15;  (191) 
-0x2beed;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD231PD	%ZMM4,%ZMM12,%ZMM6;  (191) 
-0x2bef3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0x50(%RSI),%XMM4;  (191) 
-0x2bef8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0x28(%RSI),%XMM4,%XMM9;  (191) 
-0x2befd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0x118(%RSI),%XMM0,%XMM1;  (191) 
-0x2bf05;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x4b0(%R13,%RAX,1),%XMM5;  (191) 
-0x2bf0f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM9,%YMM11,%YMM3;  (191) 
-0x2bf15;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x190(%R13,%RAX,1),%XMM14;  (191) 
-0x2bf1f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x578(%R13,%RAX,1),%XMM5,%XMM10;  (191) 
-0x2bf29;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x320(%R13,%RAX,1),%XMM9;  (191) 
-0x2bf33;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM15,%YMM1,%YMM2;  (191) 
-0x2bf39;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	(%R13,%RAX,1),%XMM0;  (191) 
-0x2bf40;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x3e8(%R13,%RAX,1),%XMM9,%XMM11;  (191) 
-0x2bf4a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x258(%R13,%RAX,1),%XMM14,%XMM15;  (191) 
-0x2bf54;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0xc8(%R13,%RAX,1),%XMM0,%XMM1;  (191) 
-0x2bf5e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x178(%RSP),%R12;  (191) 
-0x2bf66;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM3,%ZMM2,%ZMM4;  (191) 
-0x2bf6d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM15,%YMM1,%YMM2;  (191) 
-0x2bf73;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM10,%YMM11,%YMM3;  (191) 
-0x2bf79;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0xa0(%RDI),%XMM9;  (191) 
-0x2bf81;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM3,%ZMM2,%ZMM5;  (191) 
-0x2bf88;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD132PD	%ZMM4,%ZMM6,%ZMM5;  (191) 
-0x2bf8e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0x50(%RDI),%XMM6;  (191) 
-0x2bf93;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0x28(%RDI),%XMM6,%XMM10;  (191) 
-0x2bf98;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0x78(%RDI),%XMM9,%XMM11;  (191) 
-0x2bf9d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0xf0(%RDI),%XMM14;  (191) 
-0x2bfa5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM10,%YMM11,%YMM3;  (191) 
-0x2bfab;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0x140(%RDI),%XMM0;  (191) 
-0x2bfb3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0xc8(%RDI),%XMM14,%XMM15;  (191) 
-0x2bfbb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x4b0(%R12,%RAX,1),%XMM6;  (191) 
-0x2bfc5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0x118(%RDI),%XMM0,%XMM1;  (191) 
-0x2bfcd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x320(%R12,%RAX,1),%XMM10;  (191) 
-0x2bfd7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x578(%R12,%RAX,1),%XMM6,%XMM9;  (191) 
-0x2bfe1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x3e8(%R12,%RAX,1),%XMM10,%XMM11;  (191) 
-0x2bfeb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM15,%YMM1,%YMM2;  (191) 
-0x2bff1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x190(%R12,%RAX,1),%XMM15;  (191) 
-0x2bffb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM3,%ZMM2,%ZMM14;  (191) 
-0x2c002;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	(%R12,%RAX,1),%XMM0;  (191) 
-0x2c008;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x258(%R12,%RAX,1),%XMM15,%XMM1;  (191) 
-0x2c012;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0xc8(%R12,%RAX,1),%XMM0,%XMM2;  (191) 
-0x2c01c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM9,%YMM11,%YMM6;  (191) 
-0x2c022;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0x50(%R8),%XMM10;  (191) 
-0x2c028;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM1,%YMM2,%YMM3;  (191) 
-0x2c02e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0xa0(%R8),%XMM15;  (191) 
-0x2c037;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0x28(%R8),%XMM10,%XMM11;  (191) 
-0x2c03d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0xf0(%R8),%XMM0;  (191) 
-0x2c046;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0x78(%R8),%XMM15,%XMM1;  (191) 
-0x2c04c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0x140(%R8),%XMM2;  (191) 
-0x2c055;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM6,%ZMM3,%ZMM9;  (191) 
-0x2c05c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x170(%RSP),%R13;  (191) 
-0x2c064;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0xc8(%R8),%XMM0,%XMM3;  (191) 
-0x2c06d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0x118(%R8),%XMM2,%XMM6;  (191) 
-0x2c076;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM11,%YMM1,%YMM10;  (191) 
-0x2c07c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD231PD	%ZMM9,%ZMM14,%ZMM5;  (191) 
-0x2c082;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x1b0(%RSP),%R12;  (191) 
-0x2c08a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x4b0(%R13,%RAX,1),%XMM11;  (191) 
-0x2c094;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM3,%YMM6,%YMM9;  (191) 
-0x2c09a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x320(%R13,%RAX,1),%XMM1;  (191) 
-0x2c0a4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM10,%ZMM9,%ZMM15;  (191) 
-0x2c0ab;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x190(%R13,%RAX,1),%XMM2;  (191) 
-0x2c0b5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x3e8(%R13,%RAX,1),%XMM1,%XMM3;  (191) 
-0x2c0bf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	(%R13,%RAX,1),%XMM9;  (191) 
-0x2c0c6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x258(%R13,%RAX,1),%XMM2,%XMM6;  (191) 
-0x2c0d0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0xc8(%R13,%RAX,1),%XMM9,%XMM10;  (191) 
-0x2c0da;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x578(%R13,%RAX,1),%XMM11,%XMM0;  (191) 
-0x2c0e4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM0,%YMM3,%YMM0;  (191) 
-0x2c0ea;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM6,%YMM10,%YMM11;  (191) 
-0x2c0f0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM0,%ZMM11,%ZMM1;  (191) 
-0x2c0f7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD132PD	%ZMM15,%ZMM5,%ZMM1;  (191) 
-0x2c0fd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMULPD	%ZMM1,%ZMM8,%ZMM5;  (191) 
-0x2c103;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VEXTRACTF64X4	$0x1,%ZMM5,%YMM9;  (191) 
-0x2c10a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VEXTRACTF128	$0x1,%YMM5,%XMM6;  (191) 
-0x2c110;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VEXTRACTF128	$0x1,%YMM9,%XMM11;  (191) 
-0x2c116;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVLPD	%XMM6,-0x50(%R12);  (191) 
-0x2c11d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	%XMM6,-0x78(%R12);  (191) 
-0x2c124;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVLPD	%XMM9,-0xa0(%R12);  (191) 
-0x2c12e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	%XMM9,-0xc8(%R12);  (191) 
-0x2c138;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVLPD	%XMM11,-0xf0(%R12);  (191) 
-0x2c142;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	%XMM11,-0x118(%R12);  (191) 
-0x2c14c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVLPD	%XMM5,(%R12);  (191) 
-0x2c152;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	%XMM5,-0x28(%R12);  (191) 
-0x2c159;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x4b0(%R15,%RAX,1),%XMM0;  (191) 
-0x2c163;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x578(%R15,%RAX,1),%XMM0,%XMM5;  (191) 
-0x2c16d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x320(%R15,%RAX,1),%XMM1;  (191) 
-0x2c177;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x190(%R15,%RAX,1),%XMM2;  (191) 
-0x2c181;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x3e8(%R15,%RAX,1),%XMM1,%XMM3;  (191) 
-0x2c18b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	(%R15,%RAX,1),%XMM9;  (191) 
-0x2c191;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x258(%R15,%RAX,1),%XMM2,%XMM6;  (191) 
-0x2c19b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0xc8(%R15,%RAX,1),%XMM9,%XMM10;  (191) 
-0x2c1a5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM5,%YMM3,%YMM0;  (191) 
-0x2c1ab;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x4b0(%R14,%RAX,1),%XMM1;  (191) 
-0x2c1b5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM6,%YMM10,%YMM11;  (191) 
-0x2c1bb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x320(%R14,%RAX,1),%XMM2;  (191) 
-0x2c1c5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM0,%ZMM11,%ZMM5;  (191) 
-0x2c1cc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x190(%R14,%RAX,1),%XMM9;  (191) 
-0x2c1d6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x3e8(%R14,%RAX,1),%XMM2,%XMM6;  (191) 
-0x2c1e0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	(%R14,%RAX,1),%XMM11;  (191) 
-0x2c1e6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x258(%R14,%RAX,1),%XMM9,%XMM10;  (191) 
-0x2c1f0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0xc8(%R14,%RAX,1),%XMM11,%XMM0;  (191) 
-0x2c1fa;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x578(%R14,%RAX,1),%XMM1,%XMM3;  (191) 
-0x2c204;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM3,%YMM6,%YMM3;  (191) 
-0x2c20a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM10,%YMM0,%YMM1;  (191) 
-0x2c210;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x108(%RSP),%R13;  (191) 
-0x2c218;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM3,%ZMM1,%ZMM2;  (191) 
-0x2c21f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMULPD	%ZMM13,%ZMM2,%ZMM6;  (191) 
-0x2c225;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x100(%RSP),%R12;  (191) 
-0x2c22d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x4b0(%R13,%RAX,1),%XMM9;  (191) 
-0x2c237;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x320(%R13,%RAX,1),%XMM11;  (191) 
-0x2c241;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x578(%R13,%RAX,1),%XMM9,%XMM10;  (191) 
-0x2c24b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x190(%R13,%RAX,1),%XMM1;  (191) 
-0x2c255;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x3e8(%R13,%RAX,1),%XMM11,%XMM0;  (191) 
-0x2c25f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	(%R13,%RAX,1),%XMM2;  (191) 
-0x2c266;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x258(%R13,%RAX,1),%XMM1,%XMM3;  (191) 
-0x2c270;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD132PD	%ZMM12,%ZMM6,%ZMM5;  (191) 
-0x2c276;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0xc8(%R13,%RAX,1),%XMM2,%XMM6;  (191) 
-0x2c280;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM3,%YMM6,%YMM11;  (191) 
-0x2c286;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM10,%YMM0,%YMM9;  (191) 
-0x2c28c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x320(%R12,%RAX,1),%XMM3;  (191) 
-0x2c296;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM9,%ZMM11,%ZMM10;  (191) 
-0x2c29d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x4b0(%R12,%RAX,1),%XMM0;  (191) 
-0x2c2a7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x3e8(%R12,%RAX,1),%XMM3,%XMM2;  (191) 
-0x2c2b1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x190(%R12,%RAX,1),%XMM6;  (191) 
-0x2c2bb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x578(%R12,%RAX,1),%XMM0,%XMM1;  (191) 
-0x2c2c5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	(%R12,%RAX,1),%XMM9;  (191) 
-0x2c2cb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x258(%R12,%RAX,1),%XMM6,%XMM11;  (191) 
-0x2c2d5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD231PD	%ZMM4,%ZMM10,%ZMM5;  (191) 
-0x2c2db;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0xc8(%R12,%RAX,1),%XMM9,%XMM10;  (191) 
-0x2c2e5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x168(%RSP),%R13;  (191) 
-0x2c2ed;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM11,%YMM10,%YMM0;  (191) 
-0x2c2f3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x1a0(%RSP),%R12;  (191) 
-0x2c2fb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM1,%YMM2,%YMM1;  (191) 
-0x2c301;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM1,%ZMM0,%ZMM3;  (191) 
-0x2c308;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x320(%R13,%RAX,1),%XMM2;  (191) 
-0x2c312;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD132PD	%ZMM14,%ZMM5,%ZMM3;  (191) 
-0x2c318;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x190(%R13,%RAX,1),%XMM11;  (191) 
-0x2c322;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x3e8(%R13,%RAX,1),%XMM2,%XMM9;  (191) 
-0x2c32c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x4b0(%R13,%RAX,1),%XMM5;  (191) 
-0x2c336;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x258(%R13,%RAX,1),%XMM11,%XMM10;  (191) 
-0x2c340;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	(%R13,%RAX,1),%XMM0;  (191) 
-0x2c347;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x578(%R13,%RAX,1),%XMM5,%XMM6;  (191) 
-0x2c351;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0xc8(%R13,%RAX,1),%XMM0,%XMM1;  (191) 
-0x2c35b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM6,%YMM9,%YMM6;  (191) 
-0x2c361;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM10,%YMM1,%YMM5;  (191) 
-0x2c367;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x140(%R12),%R12;  (191) 
-0x2c36f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x160(%RSP),%R13;  (191) 
-0x2c377;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM6,%ZMM5,%ZMM2;  (191) 
-0x2c37e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD132PD	%ZMM15,%ZMM3,%ZMM2;  (191) 
-0x2c384;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMULPD	%ZMM8,%ZMM2,%ZMM3;  (191) 
-0x2c38a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VEXTRACTF64X4	$0x1,%ZMM3,%YMM0;  (191) 
-0x2c391;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VEXTRACTF128	$0x1,%YMM3,%XMM10;  (191) 
-0x2c397;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VEXTRACTF128	$0x1,%YMM0,%XMM5;  (191) 
-0x2c39d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVLPD	%XMM5,0x50(%R12);  (191) 
-0x2c3a4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	%XMM5,0x28(%R12);  (191) 
-0x2c3ab;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVLPD	%XMM3,0x140(%R12);  (191) 
-0x2c3b5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	%XMM3,0x118(%R12);  (191) 
-0x2c3bf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVLPD	%XMM10,0xf0(%R12);  (191) 
-0x2c3c9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	%XMM10,0xc8(%R12);  (191) 
-0x2c3d3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVLPD	%XMM0,0xa0(%R12);  (191) 
-0x2c3dd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	%XMM0,0x78(%R12);  (191) 
-0x2c3e4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x4b0(%R13,%RAX,1),%XMM6;  (191) 
-0x2c3ee;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x320(%R13,%RAX,1),%XMM3;  (191) 
-0x2c3f8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x578(%R13,%RAX,1),%XMM6,%XMM2;  (191) 
-0x2c402;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x190(%R13,%RAX,1),%XMM9;  (191) 
-0x2c40c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x3e8(%R13,%RAX,1),%XMM3,%XMM11;  (191) 
-0x2c416;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	(%R13,%RAX,1),%XMM0;  (191) 
-0x2c41d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x258(%R13,%RAX,1),%XMM9,%XMM10;  (191) 
-0x2c427;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0xc8(%R13,%RAX,1),%XMM0,%XMM1;  (191) 
-0x2c431;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM2,%YMM11,%YMM6;  (191) 
-0x2c437;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x158(%RSP),%R13;  (191) 
-0x2c43f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM10,%YMM1,%YMM5;  (191) 
-0x2c445;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM6,%ZMM5,%ZMM3;  (191) 
-0x2c44c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x4b0(%R13,%RAX,1),%XMM2;  (191) 
-0x2c456;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x320(%R13,%RAX,1),%XMM11;  (191) 
-0x2c460;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x578(%R13,%RAX,1),%XMM2,%XMM10;  (191) 
-0x2c46a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x3e8(%R13,%RAX,1),%XMM11,%XMM9;  (191) 
-0x2c474;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x190(%R13,%RAX,1),%XMM0;  (191) 
-0x2c47e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM10,%YMM9,%YMM10;  (191) 
-0x2c484;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	(%R13,%RAX,1),%XMM5;  (191) 
-0x2c48b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x258(%R13,%RAX,1),%XMM0,%XMM1;  (191) 
-0x2c495;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0xc8(%R13,%RAX,1),%XMM5,%XMM6;  (191) 
-0x2c49f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x150(%RSP),%R13;  (191) 
-0x2c4a7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM1,%YMM6,%YMM2;  (191) 
-0x2c4ad;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM10,%ZMM2,%ZMM11;  (191) 
-0x2c4b4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMULPD	%ZMM13,%ZMM11,%ZMM9;  (191) 
-0x2c4ba;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x4b0(%R13,%RAX,1),%XMM0;  (191) 
-0x2c4c4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x320(%R13,%RAX,1),%XMM5;  (191) 
-0x2c4ce;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x578(%R13,%RAX,1),%XMM0,%XMM1;  (191) 
-0x2c4d8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x190(%R13,%RAX,1),%XMM2;  (191) 
-0x2c4e2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x3e8(%R13,%RAX,1),%XMM5,%XMM6;  (191) 
-0x2c4ec;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	(%R13,%RAX,1),%XMM11;  (191) 
-0x2c4f3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x258(%R13,%RAX,1),%XMM2,%XMM10;  (191) 
-0x2c4fd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD132PD	%ZMM12,%ZMM9,%ZMM3;  (191) 
-0x2c503;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0xc8(%R13,%RAX,1),%XMM11,%XMM9;  (191) 
-0x2c50d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x148(%RSP),%R13;  (191) 
-0x2c515;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM10,%YMM9,%YMM0;  (191) 
-0x2c51b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM1,%YMM6,%YMM1;  (191) 
-0x2c521;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM1,%ZMM0,%ZMM5;  (191) 
-0x2c528;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x4b0(%R13,%RAX,1),%XMM6;  (191) 
-0x2c532;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD231PD	%ZMM4,%ZMM5,%ZMM3;  (191) 
-0x2c538;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x320(%R13,%RAX,1),%XMM2;  (191) 
-0x2c542;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x578(%R13,%RAX,1),%XMM6,%XMM10;  (191) 
-0x2c54c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x190(%R13,%RAX,1),%XMM11;  (191) 
-0x2c556;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x3e8(%R13,%RAX,1),%XMM2,%XMM0;  (191) 
-0x2c560;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	(%R13,%RAX,1),%XMM9;  (191) 
-0x2c567;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x258(%R13,%RAX,1),%XMM11,%XMM1;  (191) 
-0x2c571;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0xc8(%R13,%RAX,1),%XMM9,%XMM5;  (191) 
-0x2c57b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM10,%YMM0,%YMM10;  (191) 
-0x2c581;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0x320(%RBX),%XMM2;  (191) 
-0x2c589;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM1,%YMM5,%YMM6;  (191) 
-0x2c58f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM10,%ZMM6,%ZMM0;  (191) 
-0x2c596;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0x258(%RBX),%XMM2,%XMM1;  (191) 
-0x2c59e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0x4b0(%RBX),%XMM11;  (191) 
-0x2c5a6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD132PD	%ZMM14,%ZMM3,%ZMM0;  (191) 
-0x2c5ac;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0x640(%RBX),%XMM6;  (191) 
-0x2c5b4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0x3e8(%RBX),%XMM11,%XMM5;  (191) 
-0x2c5bc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0x190(%RBX),%XMM3;  (191) 
-0x2c5c4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0x578(%RBX),%XMM6,%XMM10;  (191) 
-0x2c5cc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x1b8(%RSP),%R13;  (191) 
-0x2c5d4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0xc8(%RBX),%XMM3,%XMM9;  (191) 
-0x2c5dc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM9,%YMM1,%YMM9;  (191) 
-0x2c5e2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM5,%YMM10,%YMM3;  (191) 
-0x2c5e8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM9,%ZMM3,%ZMM2;  (191) 
-0x2c5ef;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD132PD	%ZMM15,%ZMM0,%ZMM2;  (191) 
-0x2c5f5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMULPD	%ZMM8,%ZMM2,%ZMM0;  (191) 
-0x2c5fb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VEXTRACTF64X4	$0x1,%ZMM0,%YMM6;  (191) 
-0x2c602;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VEXTRACTF128	$0x1,%YMM0,%XMM5;  (191) 
-0x2c608;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VEXTRACTF128	$0x1,%YMM6,%XMM3;  (191) 
-0x2c60e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVLPD	%XMM0,(%R13);  (191) 
-0x2c614;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	%XMM0,-0x28(%R13);  (191) 
-0x2c61a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVLPD	%XMM3,-0xf0(%R13);  (191) 
-0x2c623;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	%XMM3,-0x118(%R13);  (191) 
-0x2c62c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVLPD	%XMM5,-0x50(%R13);  (191) 
-0x2c632;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	%XMM5,-0x78(%R13);  (191) 
-0x2c638;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVLPD	%XMM6,-0xa0(%R13);  (191) 
-0x2c641;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	%XMM6,-0xc8(%R13);  (191) 
-0x2c64a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0x190(%R11),%XMM9;  (191) 
-0x2c653;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0x320(%R11),%XMM0;  (191) 
-0x2c65c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0xc8(%R11),%XMM9,%XMM2;  (191) 
-0x2c665;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0x4b0(%R11),%XMM1;  (191) 
-0x2c66e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0x258(%R11),%XMM0,%XMM11;  (191) 
-0x2c677;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0x640(%R11),%XMM6;  (191) 
-0x2c680;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0x3e8(%R11),%XMM1,%XMM5;  (191) 
-0x2c689;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0x578(%R11),%XMM6,%XMM10;  (191) 
-0x2c692;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM2,%YMM11,%YMM9;  (191) 
-0x2c698;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0x4b0(%R10),%XMM6;  (191) 
-0x2c6a1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM5,%YMM10,%YMM3;  (191) 
-0x2c6a7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0x190(%R10),%XMM2;  (191) 
-0x2c6b0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM9,%ZMM3,%ZMM0;  (191) 
-0x2c6b7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0x320(%R10),%XMM11;  (191) 
-0x2c6c0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0x3e8(%R10),%XMM6,%XMM10;  (191) 
-0x2c6c9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0x640(%R10),%XMM3;  (191) 
-0x2c6d2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0x258(%R10),%XMM11,%XMM5;  (191) 
-0x2c6db;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0x578(%R10),%XMM3,%XMM9;  (191) 
-0x2c6e4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0xc8(%R10),%XMM2,%XMM1;  (191) 
-0x2c6ed;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM1,%YMM5,%YMM1;  (191) 
-0x2c6f3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM10,%YMM9,%YMM2;  (191) 
-0x2c6f9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x140(%RSP),%R13;  (191) 
-0x2c701;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM1,%ZMM2,%ZMM11;  (191) 
-0x2c708;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMULPD	%ZMM13,%ZMM11,%ZMM5;  (191) 
-0x2c70e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0x190(%R9),%XMM6;  (191) 
-0x2c717;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0x320(%R9),%XMM3;  (191) 
-0x2c720;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0xc8(%R9),%XMM6,%XMM10;  (191) 
-0x2c729;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0x4b0(%R9),%XMM2;  (191) 
-0x2c732;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0x258(%R9),%XMM3,%XMM9;  (191) 
-0x2c73b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0x640(%R9),%XMM11;  (191) 
-0x2c744;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0x3e8(%R9),%XMM2,%XMM1;  (191) 
-0x2c74d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD132PD	%ZMM12,%ZMM5,%ZMM0;  (191) 
-0x2c753;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	0x578(%R9),%XMM11,%XMM5;  (191) 
-0x2c75c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM1,%YMM5,%YMM6;  (191) 
-0x2c762;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM10,%YMM9,%YMM10;  (191) 
-0x2c768;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x4b0(%R13,%RAX,1),%XMM9;  (191) 
-0x2c772;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM10,%ZMM6,%ZMM3;  (191) 
-0x2c779;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x578(%R13,%RAX,1),%XMM9,%XMM1;  (191) 
-0x2c783;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD231PD	%ZMM3,%ZMM4,%ZMM0;  (191) 
-0x2c789;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x320(%R13,%RAX,1),%XMM2;  (191) 
-0x2c793;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x190(%R13,%RAX,1),%XMM11;  (191) 
-0x2c79d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x3e8(%R13,%RAX,1),%XMM2,%XMM5;  (191) 
-0x2c7a7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	(%R13,%RAX,1),%XMM10;  (191) 
-0x2c7ae;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x258(%R13,%RAX,1),%XMM11,%XMM6;  (191) 
-0x2c7b8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0xc8(%R13,%RAX,1),%XMM10,%XMM3;  (191) 
-0x2c7c2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM1,%YMM5,%YMM1;  (191) 
-0x2c7c8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x138(%RSP),%R13;  (191) 
-0x2c7d0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM6,%YMM3,%YMM9;  (191) 
-0x2c7d6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM1,%ZMM9,%ZMM5;  (191) 
-0x2c7dd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD132PD	%ZMM14,%ZMM0,%ZMM5;  (191) 
-0x2c7e3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x320(%R13,%RAX,1),%XMM2;  (191) 
-0x2c7ed;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x4b0(%R13,%RAX,1),%XMM0;  (191) 
-0x2c7f7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x3e8(%R13,%RAX,1),%XMM2,%XMM10;  (191) 
-0x2c801;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x190(%R13,%RAX,1),%XMM11;  (191) 
-0x2c80b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x578(%R13,%RAX,1),%XMM0,%XMM6;  (191) 
-0x2c815;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	(%R13,%RAX,1),%XMM9;  (191) 
-0x2c81c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x258(%R13,%RAX,1),%XMM11,%XMM3;  (191) 
-0x2c826;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0xc8(%R13,%RAX,1),%XMM9,%XMM1;  (191) 
-0x2c830;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM6,%YMM10,%YMM6;  (191) 
-0x2c836;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x1a8(%RSP),%R13;  (191) 
-0x2c83e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM3,%YMM1,%YMM0;  (191) 
-0x2c844;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM6,%ZMM0,%ZMM2;  (191) 
-0x2c84b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD132PD	%ZMM15,%ZMM5,%ZMM2;  (191) 
-0x2c851;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMULPD	%ZMM2,%ZMM8,%ZMM5;  (191) 
-0x2c857;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VEXTRACTF64X4	$0x1,%ZMM5,%YMM9;  (191) 
-0x2c85e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VEXTRACTF128	$0x1,%YMM5,%XMM3;  (191) 
-0x2c864;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VEXTRACTF128	$0x1,%YMM9,%XMM0;  (191) 
-0x2c86a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVLPD	%XMM0,-0xf0(%R13);  (191) 
-0x2c873;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	%XMM0,-0x118(%R13);  (191) 
-0x2c87c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVLPD	%XMM5,(%R13);  (191) 
-0x2c882;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	%XMM5,-0x28(%R13);  (191) 
-0x2c888;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVLPD	%XMM3,-0x50(%R13);  (191) 
-0x2c88e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	%XMM3,-0x78(%R13);  (191) 
-0x2c894;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVLPD	%XMM9,-0xa0(%R13);  (191) 
-0x2c89d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	%XMM9,-0xc8(%R13);  (191) 
-0x2c8a6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x130(%RSP),%R13;  (191) 
-0x2c8ae;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x4b0(%R13,%RAX,1),%XMM6;  (191) 
-0x2c8b8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x320(%R13,%RAX,1),%XMM2;  (191) 
-0x2c8c2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x578(%R13,%RAX,1),%XMM6,%XMM5;  (191) 
-0x2c8cc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x190(%R13,%RAX,1),%XMM10;  (191) 
-0x2c8d6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x3e8(%R13,%RAX,1),%XMM2,%XMM11;  (191) 
-0x2c8e0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x258(%R13,%RAX,1),%XMM10,%XMM3;  (191) 
-0x2c8ea;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM5,%YMM11,%YMM6;  (191) 
-0x2c8f0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	(%R13,%RAX,1),%XMM9;  (191) 
-0x2c8f7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0xc8(%R13,%RAX,1),%XMM9,%XMM1;  (191) 
-0x2c901;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x128(%RSP),%R13;  (191) 
-0x2c909;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM3,%YMM1,%YMM0;  (191) 
-0x2c90f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM6,%ZMM0,%ZMM5;  (191) 
-0x2c916;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x4b0(%R13,%RAX,1),%XMM2;  (191) 
-0x2c920;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x320(%R13,%RAX,1),%XMM11;  (191) 
-0x2c92a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x578(%R13,%RAX,1),%XMM2,%XMM10;  (191) 
-0x2c934;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x190(%R13,%RAX,1),%XMM9;  (191) 
-0x2c93e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x3e8(%R13,%RAX,1),%XMM11,%XMM3;  (191) 
-0x2c948;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	(%R13,%RAX,1),%XMM1;  (191) 
-0x2c94f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x258(%R13,%RAX,1),%XMM9,%XMM0;  (191) 
-0x2c959;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0xc8(%R13,%RAX,1),%XMM1,%XMM6;  (191) 
-0x2c963;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM10,%YMM3,%YMM10;  (191) 
-0x2c969;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x120(%RSP),%R13;  (191) 
-0x2c971;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM0,%YMM6,%YMM2;  (191) 
-0x2c977;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM10,%ZMM2,%ZMM11;  (191) 
-0x2c97e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMULPD	%ZMM13,%ZMM11,%ZMM13;  (191) 
-0x2c984;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x190(%R13,%RAX,1),%XMM9;  (191) 
-0x2c98e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	(%R13,%RAX,1),%XMM1;  (191) 
-0x2c995;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x258(%R13,%RAX,1),%XMM9,%XMM6;  (191) 
-0x2c99f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0xc8(%R13,%RAX,1),%XMM1,%XMM2;  (191) 
-0x2c9a9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM6,%YMM2,%YMM10;  (191) 
-0x2c9af;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD231PD	%ZMM5,%ZMM12,%ZMM13;  (191) 
-0x2c9b5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x4b0(%R13,%RAX,1),%XMM12;  (191) 
-0x2c9bf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x320(%R13,%RAX,1),%XMM5;  (191) 
-0x2c9c9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x578(%R13,%RAX,1),%XMM12,%XMM3;  (191) 
-0x2c9d3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x3e8(%R13,%RAX,1),%XMM5,%XMM0;  (191) 
-0x2c9dd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x118(%RSP),%R13;  (191) 
-0x2c9e5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM3,%YMM0,%YMM11;  (191) 
-0x2c9eb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM11,%ZMM10,%ZMM12;  (191) 
-0x2c9f2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD132PD	%ZMM12,%ZMM13,%ZMM4;  (191) 
-0x2c9f8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x320(%R13,%RAX,1),%XMM5;  (191) 
-0x2ca02;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x4b0(%R13,%RAX,1),%XMM13;  (191) 
-0x2ca0c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x3e8(%R13,%RAX,1),%XMM5,%XMM0;  (191) 
-0x2ca16;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x190(%R13,%RAX,1),%XMM9;  (191) 
-0x2ca20;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x578(%R13,%RAX,1),%XMM13,%XMM3;  (191) 
-0x2ca2a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	(%R13,%RAX,1),%XMM1;  (191) 
-0x2ca31;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x258(%R13,%RAX,1),%XMM9,%XMM6;  (191) 
-0x2ca3b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0xc8(%R13,%RAX,1),%XMM1,%XMM2;  (191) 
-0x2ca45;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM3,%YMM0,%YMM11;  (191) 
-0x2ca4b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x110(%RSP),%R13;  (191) 
-0x2ca53;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM6,%YMM2,%YMM10;  (191) 
-0x2ca59;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM11,%ZMM10,%ZMM12;  (191) 
-0x2ca60;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD132PD	%ZMM12,%ZMM4,%ZMM14;  (191) 
-0x2ca66;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x4b0(%R13,%RAX,1),%XMM4;  (191) 
-0x2ca70;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x578(%R13,%RAX,1),%XMM4,%XMM13;  (191) 
-0x2ca7a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x320(%R13,%RAX,1),%XMM3;  (191) 
-0x2ca84;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;SUBQ	$0x140,0x1b8(%RSP);  (191) 
-0x2ca90;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	-0x190(%R13,%RAX,1),%XMM5;  (191) 
-0x2ca9a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x3e8(%R13,%RAX,1),%XMM3,%XMM0;  (191) 
-0x2caa4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	(%R13,%RAX,1),%XMM6;  (191) 
-0x2caab;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0x258(%R13,%RAX,1),%XMM5,%XMM9;  (191) 
-0x2cab5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	-0xc8(%R13,%RAX,1),%XMM6,%XMM1;  (191) 
-0x2cabf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM13,%YMM0,%YMM2;  (191) 
-0x2cac5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF128	$0x1,%XMM9,%YMM1,%YMM10;  (191) 
-0x2cacb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x640(%RAX),%RAX;  (191) 
-0x2cad2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VINSERTF64X4	$0x1,%YMM2,%ZMM10,%ZMM11;  (191) 
-0x2cad9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;SUBQ	$0x140,0x1b0(%RSP);  (191) 
-0x2cae5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD132PD	%ZMM11,%ZMM14,%ZMM15;  (191) 
-0x2caeb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMULPD	%ZMM15,%ZMM8,%ZMM14;  (191) 
-0x2caf1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x198(%RSP),%R13;  (191) 
-0x2caf9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;SUBQ	$0x140,0x1a8(%RSP);  (191) 
-0x2cb05;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%R12,0x1a0(%RSP);  (191) 
-0x2cb0d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;CMP	0xf8(%RSP),%RAX;  (191) 
-0x2cb15;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x140(%R13),%R13;  (191) 
-0x2cb1c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VEXTRACTF64X4	$0x1,%ZMM14,%YMM13;  (191) 
-0x2cb23;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VEXTRACTF128	$0x1,%YMM14,%XMM4;  (191) 
-0x2cb29;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VEXTRACTF128	$0x1,%YMM13,%XMM0;  (191) 
-0x2cb2f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVLPD	%XMM14,0x140(%R13);  (191) 
-0x2cb38;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	%XMM14,0x118(%R13);  (191) 
-0x2cb41;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVLPD	%XMM4,0xf0(%R13);  (191) 
-0x2cb4a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	%XMM4,0xc8(%R13);  (191) 
-0x2cb53;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVLPD	%XMM13,0xa0(%R13);  (191) 
-0x2cb5c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	%XMM13,0x78(%R13);  (191) 
-0x2cb62;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVLPD	%XMM0,0x50(%R13);  (191) 
-0x2cb68;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVHPD	%XMM0,0x28(%R13);  (191) 
-0x2cb6e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%R13,0x198(%RSP);  (191) 
-0x2cb76;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;JNE	2bd20 <buts_+0x480>;  (191) 
-0x2cb7c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x74(%RSP),%R15D;(188) 
-0x2cb81;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x18(%RBP),%R14;(188) 
-0x2cb85;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;CMP	%R15D,0x7c(%RSP);(188) 
-0x2cb8a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	(%R14),%XMM13;(188) 
-0x2cb8f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;JE	2cd34 <buts_+0x1494>;(188) 
-0x2cb95;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x60(%RSP),%RAX;(188) 
-0x2cb9a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x58(%RSP),%R10;(188) 
-0x2cb9f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0xb8(%RSP),%RCX;(188) 
-0x2cba7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x48(%RBP),%R15;(188) 
-0x2cbab;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADD	0xd8(%RSP),%RAX;(188) 
-0x2cbb3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x20(%RBP),%RDX;(188) 
-0x2cbb7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x28(%RBP),%RSI;(188) 
-0x2cbbb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADD	%R10,%RCX;(188) 
-0x2cbbe;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADD	0xd0(%RSP),%R10;(188) 
-0x2cbc6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	(%RAX),%R14;(188) 
-0x2cbc9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;SAL	$0x3,%R14;(188) 
-0x2cbcd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	(%RCX),%RAX;(188) 
-0x2cbd0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;SAL	$0x3,%RAX;(188) 
-0x2cbd4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADD	%R15,%R14;(188) 
-0x2cbd7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	(%R10),%R15;(188) 
-0x2cbda;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADD	%RDX,%RAX;(188) 
-0x2cbdd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;SAL	$0x3,%R15;(188) 
-0x2cbe1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x78(%RSP),%R13D;(188) 
-0x2cbe6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;ADD	%RSI,%R15;(188) 
-0x2cbe9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0xa4(%RSP),%EDI;(188) 
-0x2cbf0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0x8(%RAX),%XMM5;  (187) 
-0x2cbf5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	-0x1(%R13),%R13D;  (187) 
-0x2cbf9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMULSD	0x58(%R14),%XMM5,%XMM9;  (187) 
-0x2cbff;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;CMP	%R13D,%EDI;  (187) 
-0x2cc02;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	(%RAX),%XMM8;  (187) 
-0x2cc06;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0xc8(%R14),%R14;  (187) 
-0x2cc0d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMULSD	0x128(%R14),%XMM5,%XMM11;  (187) 
-0x2cc16;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x28(%RAX),%RAX;  (187) 
-0x2cc1a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0x38(%RAX),%XMM6;  (187) 
-0x2cc1f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	-0x28(%R15),%R15;  (187) 
-0x2cc23;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMULSD	0x130(%R14),%XMM5,%XMM15;  (187) 
-0x2cc2c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0x48(%RAX),%XMM1;  (187) 
-0x2cc31;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD231SD	0xf8(%R14),%XMM8,%XMM9;  (187) 
-0x2cc3a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMULSD	0x138(%R14),%XMM5,%XMM4;  (187) 
-0x2cc43;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD231SD	0x148(%R14),%XMM6,%XMM9;  (187) 
-0x2cc4c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	0x40(%RAX),%XMM10;  (187) 
-0x2cc51;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD231SD	0x100(%R14),%XMM8,%XMM11;  (187) 
-0x2cc5a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD231SD	0x170(%R14),%XMM10,%XMM9;  (187) 
-0x2cc63;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD231SD	0x150(%R14),%XMM6,%XMM11;  (187) 
-0x2cc6c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD231SD	0x198(%R14),%XMM1,%XMM9;  (187) 
-0x2cc75;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD231SD	0x108(%R14),%XMM8,%XMM15;  (187) 
-0x2cc7e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD231SD	0x178(%R14),%XMM10,%XMM11;  (187) 
-0x2cc87;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD231SD	0x158(%R14),%XMM6,%XMM15;  (187) 
-0x2cc90;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD231SD	0x1a0(%R14),%XMM1,%XMM11;  (187) 
-0x2cc99;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD231SD	0x110(%R14),%XMM8,%XMM4;  (187) 
-0x2cca2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD231SD	0x180(%R14),%XMM10,%XMM15;  (187) 
-0x2ccab;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD231SD	0x160(%R14),%XMM6,%XMM4;  (187) 
-0x2ccb4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD231SD	0x1a8(%R14),%XMM1,%XMM15;  (187) 
-0x2ccbd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD231SD	0x188(%R14),%XMM10,%XMM4;  (187) 
-0x2ccc6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMULSD	0x140(%R14),%XMM5,%XMM0;  (187) 
-0x2cccf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD231SD	0x1b0(%R14),%XMM1,%XMM4;  (187) 
-0x2ccd8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMULSD	%XMM7,%XMM9,%XMM2;  (187) 
-0x2ccdc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMULSD	%XMM7,%XMM11,%XMM14;  (187) 
-0x2cce0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD132SD	0x118(%R14),%XMM0,%XMM8;  (187) 
-0x2cce9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD132SD	0x168(%R14),%XMM8,%XMM6;  (187) 
-0x2ccf2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMULSD	%XMM7,%XMM15,%XMM12;  (187) 
-0x2ccf6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	%XMM2,0x28(%R15);  (187) 
-0x2ccfc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMULSD	%XMM7,%XMM4,%XMM3;  (187) 
-0x2cd00;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	%XMM14,0x30(%R15);  (187) 
-0x2cd06;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	%XMM12,0x38(%R15);  (187) 
-0x2cd0c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	%XMM3,0x40(%R15);  (187) 
-0x2cd12;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD132SD	0x190(%R14),%XMM6,%XMM10;  (187) 
-0x2cd1b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VFMADD132SD	0x1b8(%R14),%XMM10,%XMM1;  (187) 
-0x2cd24;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMULSD	%XMM7,%XMM1,%XMM8;  (187) 
-0x2cd28;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;VMOVSD	%XMM8,0x48(%R15);  (187) 
-0x2cd2e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;JLE	2cbf0 <buts_+0x1350>;  (187) 
-0x2cd34;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0xe8(%RSP),%RCX;(188) 
-0x2cd3c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;SUBL	$0x1,0xf4(%RSP);(188) 
-0x2cd44;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0xf4(%RSP),%R9D;(188) 
-0x2cd4c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0xa8(%RSP),%R10;(188) 
-0x2cd54;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0xb0(%RSP),%RDX;(188) 
-0x2cd5c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;SUB	%RCX,0xe0(%RSP);(188) 
-0x2cd64;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x90(%RSP),%R11;(188) 
-0x2cd6c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x88(%RSP),%RBX;(188) 
-0x2cd74;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;SUB	%R10,0xd8(%RSP);(188) 
-0x2cd7c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;SUB	%RDX,0xd0(%RSP);(188) 
-0x2cd84;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;ADD	%R11,0xc8(%RSP);(188) 
-0x2cd8c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;ADD	%RBX,0xc0(%RSP);(188) 
-0x2cd94;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;CMP	%R9D,0xf0(%RSP);(188) 
-0x2cd9c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;JL	2bb50 <buts_+0x2b0>;(188) 
-0x2cda2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0xb0(%RSP),%RDI;
-0x2cdaa;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;VBROADCASTSD	%XMM13,%YMM7;
-0x2cdaf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x30(%RSP),%RSI;
-0x2cdb4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x28(%RSP),%RDX;
-0x2cdb9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%RDI,%R8;
-0x2cdbc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	(%RDI),%R14;
-0x2cdbf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0xa8(%RSP),%R9;
-0x2cdc7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;IMUL	%RSI,%R14;
-0x2cdcb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;NEG	%R8;
-0x2cdce;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	(%RSI),%R11;
-0x2cdd1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;SAL	$0x3,%R8;
-0x2cdd5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;ADD	$0x1,%R11;
-0x2cdd9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%R8,0x198(%RSP);
-0x2cde1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	(%RDX),%R8;
-0x2cde4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;SAL	$0x2,%R8;
-0x2cde8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	(%R9),%R10;
-0x2cdeb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;ADD	%RDX,%R8;
-0x2cdee;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;SUB	%RDI,%R14;
-0x2cdf1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;NEG	%R10;
-0x2cdf4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;ADD	%R8,%R14;
-0x2cdf7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;SAL	$0x3,%R10;
-0x2cdfb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%R14,%RBX;
-0x2cdfe;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%R10,0x188(%RSP);
-0x2ce06;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	(%R9),%R14;
-0x2ce09;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x50(%RSP),%R10;
-0x2ce0e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;IMUL	%RSI,%R14;
-0x2ce12;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0xe8(%RSP),%R12;
-0x2ce1a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	(%R8,%R8,4),%RDX;
-0x2ce1e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x28(%RBP),%RCX;
-0x2ce22;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	0x1(%RDI),%RDI;
-0x2ce26;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;SAL	$0x3,%RBX;
-0x2ce2a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;ADD	%RDX,%R10;
-0x2ce2d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x3c(%RSP),%EAX;
-0x2ce31;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;IMUL	%R12,%R11;
-0x2ce35;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;ADD	%RCX,%RBX;
-0x2ce38;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;ADD	$0x6,%R10;
-0x2ce3c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;IMUL	%R12,%RSI;
-0x2ce40;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x30(%RBP),%RCX;
-0x2ce44;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;ADD	%R14,%R10;
-0x2ce47;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;SUB	0xa4(%RSP),%EAX;
-0x2ce4e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSXD	0x38(%RSP),%R14;
-0x2ce53;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	(%RDX),%R12;
-0x2ce56;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SAL	$0x3,%R10;
-0x2ce5a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SUB	%R9,%R12;
-0x2ce5d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	(%RCX,%RDX,8),%R9;
-0x2ce61;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SUB	%R11,%RSI;
-0x2ce64;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x50(%RSP),%RDX;
-0x2ce69;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;IMUL	0x20(%RSP),%R14;
-0x2ce6f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SAL	$0x3,%R12;
-0x2ce73;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	%RCX,%R10;
-0x2ce76;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%RSI,0x1b8(%RSP);
-0x2ce7e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SUB	%R9,%R12;
-0x2ce81;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x40(%RSP),%RSI;
-0x2ce86;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	(%RAX),%R9;
-0x2ce89;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	(%RDX),%RCX;
-0x2ce8c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	0x48(%RSP),%R14;
-0x2ce91;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SAL	$0x2,%R9;
-0x2ce95;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x20(%RBP),%RDX;
-0x2ce99;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	%RAX,%R9;
-0x2ce9c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SAL	$0x3,%RCX;
-0x2cea0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	$-0x30,%RAX;
-0x2cea7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SAL	$0x3,%R9;
-0x2ceab;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SUB	%RCX,%R12;
-0x2ceae;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	%RSI,%RDI;
-0x2ceb1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SUB	0x30(%RBP),%RAX;
-0x2ceb5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SUB	$0x20,%RDX;
-0x2ceb9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	-0xf8(%R12),%R12;
-0x2cec1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%R8,0x190(%RSP);
-0x2cec9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	(,%RDI,8),%RCX;
-0x2ced1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	0x1(%R8),%R8;
-0x2ced5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SUB	%R9,%RDX;
-0x2ced8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%R14,0x170(%RSP);
-0x2cee0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x38(%RBP),%R15;
-0x2cee4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x40(%RBP),%R13;
-0x2cee8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%R8,0x180(%RSP);
-0x2cef0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%R12,0x178(%RSP);
-0x2cef8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VMOVSD	0xa348(%RIP),%XMM12;
-0x2cf00;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%RCX,0x1b0(%RSP);
-0x2cf08;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%RAX,0x1a8(%RSP);
-0x2cf10;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%RDX,0x1a0(%RSP);
-0x2cf18;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x70(%RSP),%R14D;
-0x2cf1d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;NOPL	(%RAX);
-0x2cf20;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x1b8(%RSP),%R12;(190) 
-0x2cf28;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	(%R11),%R8;(190) 
-0x2cf2b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x170(%RSP),%R9;(190) 
-0x2cf33;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x180(%RSP),%RDX;(190) 
-0x2cf3b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x20(%RBP),%RSI;(190) 
-0x2cf3f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	%R11,%R12;(190) 
-0x2cf42;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	%R9,%R12;(190) 
-0x2cf45;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	%R9,%R8;(190) 
-0x2cf48;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	(%RDX),%RAX;(190) 
-0x2cf4b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	%RDX,%R8;(190) 
-0x2cf4e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	%R12,%RAX;(190) 
-0x2cf51;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	0x190(%RSP),%R12;(190) 
-0x2cf59;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%RAX,%RDX;(190) 
-0x2cf5c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	(%RBX),%R9;(190) 
-0x2cf5f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SAL	$0x3,%R8;(190) 
-0x2cf63;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SAL	$0x3,%RDX;(190) 
-0x2cf67;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	%RSI,%R8;(190) 
-0x2cf6a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x1a0(%RSP),%RAX;(190) 
-0x2cf72;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	%RSI,%RDX;(190) 
-0x2cf75;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x1b0(%RSP),%RDI;(190) 
-0x2cf7d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x1a8(%RSP),%RSI;(190) 
-0x2cf85;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x178(%RSP),%RCX;(190) 
-0x2cf8d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SAL	$0x3,%R12;(190) 
-0x2cf91;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	%RBX,%RDI;(190) 
-0x2cf94;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	%RAX,%R12;(190) 
-0x2cf97;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	%R10,%RSI;(190) 
-0x2cf9a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	%R10,%RCX;(190) 
-0x2cf9d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	(%R10),%RAX;(190) 
-0x2cfa0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VMOVSD	0x28(%RDX),%XMM5;  (189) 
-0x2cfa5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	-0x28(%RDX),%RDX;  (189) 
-0x2cfa9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VBROADCASTSD	%XMM5,%YMM1;  (189) 
-0x2cfae;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	-0x28(%R8),%R8;  (189) 
-0x2cfb2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VMULPD	(%R15,%RCX,1),%YMM1,%YMM1;  (189) 
-0x2cfb8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	-0x28(%R9),%R9;  (189) 
-0x2cfbc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VMOVSD	0x58(%RDX),%XMM20;  (189) 
-0x2cfc3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	-0x28(%RDI),%RDI;  (189) 
-0x2cfc7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VMOVSD	0x60(%RDX),%XMM18;  (189) 
-0x2cfce;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VBROADCASTSD	%XMM20,%ZMM14;  (189) 
-0x2cfd4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VMOVSD	0x68(%RDX),%XMM16;  (189) 
-0x2cfdb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VBROADCASTSD	%XMM18,%ZMM10;  (189) 
-0x2cfe1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VMOVSD	0x70(%RDX),%XMM3;  (189) 
-0x2cfe6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VBROADCASTSD	%XMM16,%ZMM8;  (189) 
-0x2cfec;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VMOVSD	0x28(%R8),%XMM22;  (189) 
-0x2cff3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VBROADCASTSD	%XMM3,%YMM0;  (189) 
-0x2cff8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VMOVSD	0x30(%R8),%XMM21;  (189) 
-0x2cfff;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VBROADCASTSD	%XMM22,%ZMM2;  (189) 
-0x2d005;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VMOVSD	0x38(%R8),%XMM19;  (189) 
-0x2d00c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VBROADCASTSD	%XMM21,%ZMM15;  (189) 
-0x2d012;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VMOVSD	0x40(%R8),%XMM17;  (189) 
-0x2d019;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VBROADCASTSD	%XMM19,%ZMM11;  (189) 
-0x2d01f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VMOVSD	0x48(%R8),%XMM4;  (189) 
-0x2d025;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VBROADCASTSD	%XMM17,%ZMM9;  (189) 
-0x2d02b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VBROADCASTSD	%XMM4,%YMM6;  (189) 
-0x2d030;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VFMADD231PD	(%R13,%RCX,1),%YMM2,%YMM1;  (189) 
-0x2d037;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VFMADD231PD	0x28(%R13,%RCX,1),%YMM15,%YMM1;  (189) 
-0x2d03e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VFMADD231PD	0x28(%R15,%RCX,1),%YMM14,%YMM1;  (189) 
-0x2d045;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VFMADD231PD	0x50(%R13,%RCX,1),%YMM11,%YMM1;  (189) 
-0x2d04c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VFMADD231PD	0x50(%R15,%RCX,1),%YMM10,%YMM1;  (189) 
-0x2d053;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VFMADD231PD	0x78(%R13,%RCX,1),%YMM9,%YMM1;  (189) 
-0x2d05a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VFMADD231PD	0x78(%R15,%RCX,1),%YMM8,%YMM1;  (189) 
-0x2d061;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VFMADD132PD	0xa0(%R13,%RCX,1),%YMM1,%YMM6;  (189) 
-0x2d06b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VFMADD132PD	0xa0(%R15,%RCX,1),%YMM6,%YMM0;  (189) 
-0x2d075;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VMULSD	0x50(%R15,%RSI,1),%XMM5,%XMM6;  (189) 
-0x2d07c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VFMADD213PD	(%R9),%YMM7,%YMM0;  (189) 
-0x2d081;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VMOVUPD	%YMM0,(%R9);  (189) 
-0x2d086;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	-0xc8(%RAX),%RAX;  (189) 
-0x2d08d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	-0xc8(%RCX),%RCX;  (189) 
-0x2d094;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VFMADD231SD	0x50(%R13,%RSI,1),%XMM22,%XMM6;  (189) 
-0x2d09c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VFMADD231SD	0x78(%R13,%RSI,1),%XMM21,%XMM6;  (189) 
-0x2d0a4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VFMADD231SD	0x78(%R15,%RSI,1),%XMM20,%XMM6;  (189) 
-0x2d0ac;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VFMADD231SD	0xa0(%R13,%RSI,1),%XMM19,%XMM6;  (189) 
-0x2d0b4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VFMADD231SD	0xa0(%R15,%RSI,1),%XMM18,%XMM6;  (189) 
-0x2d0bc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VFMADD231SD	0xc8(%R13,%RSI,1),%XMM17,%XMM6;  (189) 
-0x2d0c4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VFMADD231SD	0xc8(%R15,%RSI,1),%XMM16,%XMM6;  (189) 
-0x2d0cc;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VFMADD231SD	0xf0(%R13,%RSI,1),%XMM4,%XMM6;  (189) 
-0x2d0d6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VFMADD231SD	0xf0(%R15,%RSI,1),%XMM3,%XMM6;  (189) 
-0x2d0e0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;VFMADD213SD	0x48(%RDI),%XMM13,%XMM6;  (189) 
-0x2d0e6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:74;VMOVSD	0xc8(%RAX),%XMM14;  (189) 
-0x2d0ee;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:74;LEA	-0xc8(%RSI),%RSI;  (189) 
-0x2d0f5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:81;VDIVSD	%XMM14,%XMM12,%XMM5;  (189) 
-0x2d0fa;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:75;VMOVSD	0xf0(%RAX),%XMM16;  (189) 
-0x2d101;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:92;VMOVSD	0x28(%RDI),%XMM17;  (189) 
-0x2d108;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:77;VMOVSD	0x140(%RAX),%XMM4;  (189) 
-0x2d110;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:76;VMOVSD	0x118(%RAX),%XMM15;  (189) 
-0x2d118;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:78;VMOVSD	0x168(%RAX),%XMM11;  (189) 
-0x2d120;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:82;VMULSD	0xd0(%RAX),%XMM5,%XMM19;  (189) 
-0x2d127;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:94;VMULSD	0xd8(%RAX),%XMM5,%XMM31;  (189) 
-0x2d12e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:106;VMULSD	0xe0(%RAX),%XMM5,%XMM29;  (189) 
-0x2d135;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:84;VMOVAPD	%ZMM19,%ZMM18;  (189) 
-0x2d13b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:86;VMOVAPD	%ZMM19,%ZMM21;  (189) 
-0x2d141;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:84;VFNMADD213SD	0xf8(%RAX),%XMM16,%XMM18;  (189) 
-0x2d148;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:132;VDIVSD	%XMM18,%XMM12,%XMM2;  (189) 
-0x2d14e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:96;VMOVAPD	%ZMM31,%ZMM0;  (189) 
-0x2d154;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:88;VMOVAPD	%ZMM19,%ZMM20;  (189) 
-0x2d15a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:96;VFNMADD213SD	0x100(%RAX),%XMM16,%XMM0;  (189) 
-0x2d161;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:90;VMOVAPD	%ZMM19,%ZMM10;  (189) 
-0x2d167;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:108;VMOVAPD	%ZMM29,%ZMM27;  (189) 
-0x2d16d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:98;VMOVAPD	%ZMM31,%ZMM23;  (189) 
-0x2d173;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:108;VFNMADD213SD	0x108(%RAX),%XMM16,%XMM27;  (189) 
-0x2d17a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:110;VMOVAPD	%ZMM29,%ZMM8;  (189) 
-0x2d180;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:112;VMOVAPD	%ZMM29,%ZMM30;  (189) 
-0x2d186;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:114;VMOVAPD	%ZMM29,%ZMM28;  (189) 
-0x2d18c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:86;VFNMADD213SD	0x120(%RAX),%XMM15,%XMM21;  (189) 
-0x2d193;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:88;VFNMADD213SD	0x148(%RAX),%XMM4,%XMM20;  (189) 
-0x2d19a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:90;VFNMADD213SD	0x170(%RAX),%XMM11,%XMM10;  (189) 
-0x2d1a3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:92;VFNMADD213SD	0x30(%RDI),%XMM17,%XMM19;  (189) 
-0x2d1aa;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:116;VFNMADD213SD	0x40(%RDI),%XMM17,%XMM29;  (189) 
-0x2d1b1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:98;VFNMADD213SD	0x128(%RAX),%XMM15,%XMM23;  (189) 
-0x2d1b8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:110;VFNMADD213SD	0x130(%RAX),%XMM15,%XMM8;  (189) 
-0x2d1c1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:112;VFNMADD213SD	0x158(%RAX),%XMM4,%XMM30;  (189) 
-0x2d1c8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:114;VFNMADD213SD	0x180(%RAX),%XMM11,%XMM28;  (189) 
-0x2d1cf;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:100;VMOVAPD	%ZMM31,%ZMM24;  (189) 
-0x2d1d5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:118;VMULSD	0xe8(%RAX),%XMM5,%XMM5;  (189) 
-0x2d1dd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:102;VMOVAPD	%ZMM31,%ZMM3;  (189) 
-0x2d1e3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:100;VFNMADD213SD	0x150(%RAX),%XMM4,%XMM24;  (189) 
-0x2d1ea;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:102;VFNMADD213SD	0x178(%RAX),%XMM11,%XMM3;  (189) 
-0x2d1f3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:143;VMULSD	%XMM2,%XMM27,%XMM26;  (189) 
-0x2d1f9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:104;VFNMADD213SD	0x38(%RDI),%XMM17,%XMM31;  (189) 
-0x2d200;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:120;VMOVAPD	%ZMM5,%ZMM22;  (189) 
-0x2d206;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:122;VMOVAPD	%ZMM5,%ZMM25;  (189) 
-0x2d20c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:124;VMOVSD	%XMM5,%XMM5,%XMM1;  (189) 
-0x2d210;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:126;VMOVSD	%XMM5,%XMM5,%XMM9;  (189) 
-0x2d214;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:128;VFNMADD132SD	%XMM17,%XMM6,%XMM5;  (189) 
-0x2d21a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:133;VMULSD	%XMM2,%XMM0,%XMM6;  (189) 
-0x2d21e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:145;VFNMADD231SD	%XMM26,%XMM21,%XMM8;  (189) 
-0x2d224;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:149;VFNMADD231SD	%XMM26,%XMM10,%XMM28;  (189) 
-0x2d22a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:147;VFNMADD231SD	%XMM26,%XMM20,%XMM30;  (189) 
-0x2d230;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:151;VFNMADD132SD	%XMM19,%XMM29,%XMM26;  (189) 
-0x2d236;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:120;VFNMADD213SD	0x110(%RAX),%XMM16,%XMM22;  (189) 
-0x2d23d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:122;VFNMADD213SD	0x138(%RAX),%XMM15,%XMM25;  (189) 
-0x2d244;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:124;VFNMADD213SD	0x160(%RAX),%XMM4,%XMM1;  (189) 
-0x2d24d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:126;VFNMADD213SD	0x188(%RAX),%XMM11,%XMM9;  (189) 
-0x2d256;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:135;VFNMADD231SD	%XMM6,%XMM21,%XMM23;  (189) 
-0x2d25c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:165;VDIVSD	%XMM23,%XMM12,%XMM29;  (189) 
-0x2d262;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:139;VFNMADD231SD	%XMM6,%XMM10,%XMM3;  (189) 
-0x2d267;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:137;VFNMADD231SD	%XMM6,%XMM20,%XMM24;  (189) 
-0x2d26d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:141;VFNMADD132SD	%XMM19,%XMM31,%XMM6;  (189) 
-0x2d273;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:153;VMULSD	%XMM2,%XMM22,%XMM31;  (189) 
-0x2d279;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:166;VMULSD	%XMM29,%XMM8,%XMM0;  (189) 
-0x2d27f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:155;VFNMADD231SD	%XMM31,%XMM21,%XMM25;  (189) 
-0x2d285;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:174;VMULSD	%XMM29,%XMM25,%XMM8;  (189) 
-0x2d28b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:157;VFNMADD231SD	%XMM31,%XMM20,%XMM1;  (189) 
-0x2d291;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:157;VMOVSD	%XMM1,%XMM1,%XMM2;  (189) 
-0x2d295;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:159;VFNMADD231SD	%XMM31,%XMM10,%XMM9;  (189) 
-0x2d29b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:168;VFNMADD231SD	%XMM0,%XMM24,%XMM30;  (189) 
-0x2d2a1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:161;VFNMADD231SD	%XMM31,%XMM19,%XMM5;  (189) 
-0x2d2a7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:170;VMOVAPD	%ZMM28,%ZMM1;  (189) 
-0x2d2ad;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:170;VFNMADD231SD	%XMM0,%XMM3,%XMM1;  (189) 
-0x2d2b2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:172;VFNMADD132SD	%XMM6,%XMM26,%XMM0;  (189) 
-0x2d2b8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:176;VFNMADD231SD	%XMM8,%XMM24,%XMM2;  (189) 
-0x2d2be;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:176;VMOVAPD	%ZMM2,%ZMM27;  (189) 
-0x2d2c4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:178;VMOVSD	%XMM9,%XMM9,%XMM2;  (189) 
-0x2d2c8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:178;VFNMADD231SD	%XMM8,%XMM3,%XMM2;  (189) 
-0x2d2cd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:180;VFNMADD132SD	%XMM6,%XMM5,%XMM8;  (189) 
-0x2d2d2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:184;VDIVSD	%XMM30,%XMM12,%XMM5;  (189) 
-0x2d2d8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:185;VMULSD	%XMM27,%XMM5,%XMM9;  (189) 
-0x2d2de;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:189;VFNMADD231SD	%XMM9,%XMM0,%XMM8;  (189) 
-0x2d2e3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:187;VFNMADD231SD	%XMM9,%XMM1,%XMM2;  (189) 
-0x2d2e8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:195;VDIVSD	%XMM2,%XMM8,%XMM2;  (189) 
-0x2d2ec;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:219;VMOVAPD	%ZMM16,%ZMM8;  (189) 
-0x2d2f2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:198;VFNMADD231SD	%XMM2,%XMM1,%XMM0;  (189) 
-0x2d2f7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:200;VDIVSD	%XMM30,%XMM0,%XMM0;  (189) 
-0x2d2fd;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:195;VMOVSD	%XMM2,0x48(%RDI);  (189) 
-0x2d302;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:204;VMOVAPD	%ZMM24,%ZMM1;  (189) 
-0x2d308;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:204;VFNMADD132SD	%XMM0,%XMM6,%XMM1;  (189) 
-0x2d30d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:204;VFNMADD231SD	%XMM2,%XMM3,%XMM1;  (189) 
-0x2d312;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:206;VDIVSD	%XMM23,%XMM1,%XMM9;  (189) 
-0x2d318;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:211;VMOVAPD	%ZMM21,%ZMM6;  (189) 
-0x2d31e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:200;VMOVSD	%XMM0,0x40(%RDI);  (189) 
-0x2d323;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:211;VFNMADD132SD	%XMM9,%XMM19,%XMM6;  (189) 
-0x2d329;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:211;VFNMADD231SD	%XMM0,%XMM20,%XMM6;  (189) 
-0x2d32f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:211;VFNMADD132SD	%XMM2,%XMM6,%XMM10;  (189) 
-0x2d334;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:213;VDIVSD	%XMM18,%XMM10,%XMM3;  (189) 
-0x2d33a;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:206;VMOVSD	%XMM9,0x38(%RDI);  (189) 
-0x2d33f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:224;VMOVSD	0x30(%RDX),%XMM1;  (189) 
-0x2d344;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:225;VMOVSD	0x38(%RDX),%XMM10;  (189) 
-0x2d349;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:219;VFNMADD132SD	%XMM3,%XMM17,%XMM8;  (189) 
-0x2d34f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:219;VFNMADD132SD	%XMM9,%XMM8,%XMM15;  (189) 
-0x2d354;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:219;VFNMADD231SD	%XMM4,%XMM0,%XMM15;  (189) 
-0x2d359;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:219;VFNMADD132SD	%XMM2,%XMM15,%XMM11;  (189) 
-0x2d35e;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:221;VDIVSD	%XMM14,%XMM11,%XMM14;  (189) 
-0x2d363;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:224;VSUBSD	%XMM3,%XMM1,%XMM6;  (189) 
-0x2d367;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:223;VMOVSD	0x28(%RDX),%XMM4;  (189) 
-0x2d36c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:225;VSUBSD	%XMM9,%XMM10,%XMM9;  (189) 
-0x2d371;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:227;VMOVSD	0x48(%RDX),%XMM8;  (189) 
-0x2d376;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:213;VMOVSD	%XMM3,0x30(%RDI);  (189) 
-0x2d37b;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:227;VSUBSD	%XMM2,%XMM8,%XMM2;  (189) 
-0x2d37f;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:226;VMOVSD	0x40(%RDX),%XMM3;  (189) 
-0x2d384;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:226;VSUBSD	%XMM0,%XMM3,%XMM0;  (189) 
-0x2d388;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:224;VMOVSD	%XMM6,0x30(%RDX);  (189) 
-0x2d38d;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:225;VMOVSD	%XMM9,0x38(%RDX);  (189) 
-0x2d392;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:227;VMOVSD	%XMM2,0x48(%RDX);  (189) 
-0x2d397;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:226;VMOVSD	%XMM0,0x40(%RDX);  (189) 
-0x2d39c;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:223;VSUBSD	%XMM14,%XMM4,%XMM5;  (189) 
-0x2d3a1;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:221;VMOVSD	%XMM14,0x28(%RDI);  (189) 
-0x2d3a6;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:223;VMOVSD	%XMM5,0x28(%RDX);  (189) 
-0x2d3ab;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;CMP	%RDX,%R12;  (189) 
-0x2d3ae;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;JNE	2cfa0 <buts_+0x1700>;  (189) 
-0x2d3b4;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;LEA	-0x1(%R14),%R14D;(190) 
-0x2d3b8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;SUB	0xe8(%RSP),%R11;(190) 
-0x2d3c0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;ADD	0x198(%RSP),%RBX;(190) 
-0x2d3c8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;ADD	0x188(%RSP),%R10;(190) 
-0x2d3d0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;CMP	%R14D,0xf0(%RSP);(190) 
-0x2d3d8;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;JL	2cf20 <buts_+0x1680>;(190) 
-0x2d3de;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:235;LEA	-0x28(%RBP),%RSP;
-0x2d3e2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:235;POP	%RBX;
-0x2d3e3;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:235;POP	%R12;
-0x2d3e5;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:235;POP	%R13;
-0x2d3e7;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:235;POP	%R14;
-0x2d3e9;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:235;POP	%R15;
-0x2d3eb;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:235;POP	%RBP;
-0x2d3ec;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:235;RET;
-0x2d3ed;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:235;ADD	$0x1,%EAX;
-0x2d3f0;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;XOR	%EDX,%EDX;
-0x2d3f2;/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;JMP	2b8fb <buts_+0x5b>;
-0x2d3f7;:0;NOPW	(%RAX,%RAX,1);
+0x2bbd0;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;PUSH	%R15;
+0x2bbd2;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;PUSH	%R14;
+0x2bbd4;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;PUSH	%R13;
+0x2bbd6;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;PUSH	%R12;
+0x2bbd8;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;MOV	%RSI,%R12;
+0x2bbdb;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;PUSH	%RBP;
+0x2bbdc;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;PUSH	%RBX;
+0x2bbdd;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;MOV	%R9,%RBX;
+0x2bbe0;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;SUB	$0x178,%RSP;
+0x2bbe7;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	(%RDX),%R13D;
+0x2bbea;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;MOV	%R8,0x8(%RSP);
+0x2bbef;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;MOV	0x1d8(%RSP),%R14;
+0x2bbf7;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;CALL	2080 <@plt_start@+0x60>;
+0x2bbfc;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;MOV	%EAX,%EBP;
+0x2bbfe;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;MOV	0x1e0(%RSP),%R15;
+0x2bc06;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;CALL	2190 <@plt_start@+0x170>;
+0x2bc0b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;MOV	%EAX,%ECX;
+0x2bc0d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;LEA	-0x2(%R13),%EAX;
+0x2bc11;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;CLTD;
+0x2bc12;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;IDIV	%EBP;
+0x2bc14;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;CMP	%EDX,%ECX;
+0x2bc16;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;JGE	2bc1d <buts_+0x4d>;
+0x2bc18;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:4;ADD	$0x1,%EAX;
+0x2bc1b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;XOR	%EDX,%EDX;
+0x2bc1d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;IMUL	%EAX,%ECX;
+0x2bc20;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;ADD	%EDX,%ECX;
+0x2bc22;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;ADD	%ECX,%EAX;
+0x2bc24;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;CMP	%EAX,%ECX;
+0x2bc26;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;JGE	2cc2b <buts_+0x105b>;
+0x2bc2c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOVSXD	(%R12),%RDX;
+0x2bc30;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;XOR	%ESI,%ESI;
+0x2bc32;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	$-0x6,%RDI;
+0x2bc39;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	%RSI,%R11;
+0x2bc3c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	(%RBX),%EBX;
+0x2bc3e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;LEA	(%RDX,%RDX,4),%RDX;
+0x2bc42;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	%EBX,0x28(%RSP);
+0x2bc46;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;TEST	%RDX,%RDX;
+0x2bc49;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;CMOVNS	%RDX,%R11;
+0x2bc4d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;SUB	%R11,%RDI;
+0x2bc50;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	%R11,0xd0(%RSP);
+0x2bc58;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	%RDI,%R8;
+0x2bc5b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	%RDI,0x30(%RSP);
+0x2bc60;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;LEA	(%RDX,%RDX,4),%RDI;
+0x2bc64;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;TEST	%RDI,%RDI;
+0x2bc67;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	%RDI,%R10;
+0x2bc6a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	$-0x1f,%RDI;
+0x2bc71;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;CMOVS	%RSI,%R10;
+0x2bc75;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;SUB	%R10,%RDI;
+0x2bc78;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;ADD	$0x14,%RDX;
+0x2bc7c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	%R10,0x118(%RSP);
+0x2bc84;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	%RDI,0x18(%RSP);
+0x2bc89;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	%RDX,%RDI;
+0x2bc8c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOVSXD	%R13D,%RDX;
+0x2bc8f;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;CMOVS	%RSI,%RDI;
+0x2bc93;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;IMUL	%RDI,%RDX;
+0x2bc97;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;TEST	%RDX,%RDX;
+0x2bc9a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	%RDX,%RBP;
+0x2bc9d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	$0x4,%EDX;
+0x2bca2;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;CMOVS	%RSI,%RBP;
+0x2bca6;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:38;SUB	$0x1,%R13D;
+0x2bcaa;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;SUB	%RDI,%RDX;
+0x2bcad;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	%RDI,%RSI;
+0x2bcb0;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	%R13D,%EDI;
+0x2bcb3;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;SUB	%EAX,%R13D;
+0x2bcb6;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x1b0(%RSP),%RAX;
+0x2bcbe;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;SUB	%RBP,%RDX;
+0x2bcc1;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;SUB	%ECX,%EDI;
+0x2bcc3;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	%RDX,0x20(%RSP);
+0x2bcc8;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	%EDI,0x120(%RSP);
+0x2bccf;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:5;MOV	%R13D,0x124(%RSP);
+0x2bcd7;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOVSXD	(%RAX),%RAX;
+0x2bcda;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;CMP	%EBX,%EAX;
+0x2bcdc;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%EAX,0x38(%RSP);
+0x2bce0;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;JL	2cc2b <buts_+0x105b>;
+0x2bce6;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%RSI,0x110(%RSP);
+0x2bcee;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%RSI,%R9;
+0x2bcf1;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%RAX,0x48(%RSP);
+0x2bcf6;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%EAX,%ESI;
+0x2bcf8;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	(%RAX,%RAX,4),%RAX;
+0x2bcfc;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOVSXD	%EDI,%R12;
+0x2bcff;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%R11,%R13;
+0x2bd02;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%RBP,0xa0(%RSP);
+0x2bd0a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%R14,0x1d8(%RSP);
+0x2bd12;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;IMUL	%R12,%R11;
+0x2bd16;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	0x1(%RAX),%RBX;
+0x2bd1a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%R15,0x1e0(%RSP);
+0x2bd22;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;IMUL	%R12,%R9;
+0x2bd26;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x1c0(%RSP),%R14;
+0x2bd2e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;NEG	%R13;
+0x2bd31;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	(%R8,%RBX,1),%RDX;
+0x2bd35;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;SAL	$0x3,%R13;
+0x2bd39;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;ADD	%R11,%RDX;
+0x2bd3c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x1c8(%RSP),%R11;
+0x2bd44;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	(%R11,%RDX,8),%R8;
+0x2bd48;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%R10,%RDX;
+0x2bd4b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;NEG	%RDX;
+0x2bd4e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	(,%RDX,8),%R11;
+0x2bd56;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;IMUL	%R12,%R10;
+0x2bd5a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%R11,0x40(%RSP);
+0x2bd5f;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%ESI,%R11D;
+0x2bd62;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;SUB	0x28(%RSP),%R11D;
+0x2bd67;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x40(%RSP),%R15;
+0x2bd6c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%R12,0x40(%RSP);
+0x2bd71;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x124(%RSP),%R12D;
+0x2bd79;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	(%R11,%R11,4),%RDX;
+0x2bd7d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	(%RDX,%RDX,4),%RDX;
+0x2bd81;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	(,%RDX,8),%RCX;
+0x2bd89;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	(%RAX,%RAX,4),%RDX;
+0x2bd8d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x1e8(%RSP),%RAX;
+0x2bd95;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;ADD	0x18(%RSP),%RDX;
+0x2bd9a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;SUB	$0x98,%RAX;
+0x2bda0;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;SUB	%RCX,%RAX;
+0x2bda3;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;ADD	%R10,%RDX;
+0x2bda6;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	0xc8(%RCX),%R10;
+0x2bdad;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	(%RAX,%RDX,8),%RSI;
+0x2bdb1;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x1b8(%RSP),%RAX;
+0x2bdb9;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	(%RAX),%XMM5;
+0x2bdbd;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x8(%RSP),%RAX;
+0x2bdc2;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	%XMM5,0x10(%RSP);
+0x2bdc8;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	(%RAX),%EAX;
+0x2bdca;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	0x1(%RAX),%R11D;
+0x2bdce;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%EAX,0x8(%RSP);
+0x2bdd2;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSXD	%R11D,%R11;
+0x2bdd5;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;IMUL	%RBP,%R11;
+0x2bdd9;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	0x110(%RSP),%RBP;
+0x2bde1;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADD	0x20(%RSP),%R11;
+0x2bde6;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;NOPW	%CS:(%RAX,%RAX,1);
+0x2bdf0;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	(%R9,%R11,1),%RDX;(188) 
+0x2bdf4;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	(%R10,%RSI,1),%RAX;(188) 
+0x2bdf8;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADD	%RBX,%RDX;(188) 
+0x2bdfb;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;LEA	(%R14,%RDX,8),%RCX;(188) 
+0x2bdff;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOV	%R8,%RDX;(188) 
+0x2be02;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;NOPW	(%RAX,%RAX,1);(188) 
+0x2be08;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	(%RCX),%XMM4;  (187) 
+0x2be0c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;SUB	$0xc8,%RAX;  (187) 
+0x2be12;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;SUB	$0x28,%RCX;  (187) 
+0x2be16;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	0x30(%RCX),%XMM3;  (187) 
+0x2be1b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;SUB	$0x28,%RDX;  (187) 
+0x2be1f;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	0xc8(%RAX),%XMM7;  (187) 
+0x2be27;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	0xf0(%RAX),%XMM6;  (187) 
+0x2be2f;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	%XMM4,%XMM7;  (187) 
+0x2be33;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	%XMM3,%XMM6;  (187) 
+0x2be37;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	0x38(%RCX),%XMM2;  (187) 
+0x2be3c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	0x40(%RCX),%XMM1;  (187) 
+0x2be41;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	0x48(%RCX),%XMM0;  (187) 
+0x2be46;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADDSD	%XMM7,%XMM6;  (187) 
+0x2be4a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	0x118(%RAX),%XMM7;  (187) 
+0x2be52;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	%XMM2,%XMM7;  (187) 
+0x2be56;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADDSD	%XMM7,%XMM6;  (187) 
+0x2be5a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	0x140(%RAX),%XMM7;  (187) 
+0x2be62;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	%XMM1,%XMM7;  (187) 
+0x2be66;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADDSD	%XMM7,%XMM6;  (187) 
+0x2be6a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	0x168(%RAX),%XMM7;  (187) 
+0x2be72;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	%XMM0,%XMM7;  (187) 
+0x2be76;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADDSD	%XMM7,%XMM6;  (187) 
+0x2be7a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	0xd0(%RAX),%XMM7;  (187) 
+0x2be82;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	%XMM4,%XMM7;  (187) 
+0x2be86;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	%XMM5,%XMM6;  (187) 
+0x2be8a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	%XMM6,0x28(%RDX);  (187) 
+0x2be8f;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	0xf8(%RAX),%XMM6;  (187) 
+0x2be97;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	%XMM3,%XMM6;  (187) 
+0x2be9b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADDSD	%XMM7,%XMM6;  (187) 
+0x2be9f;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	0x120(%RAX),%XMM7;  (187) 
+0x2bea7;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	%XMM2,%XMM7;  (187) 
+0x2beab;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADDSD	%XMM7,%XMM6;  (187) 
+0x2beaf;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	0x148(%RAX),%XMM7;  (187) 
+0x2beb7;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	%XMM1,%XMM7;  (187) 
+0x2bebb;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADDSD	%XMM7,%XMM6;  (187) 
+0x2bebf;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	0x170(%RAX),%XMM7;  (187) 
+0x2bec7;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	%XMM0,%XMM7;  (187) 
+0x2becb;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADDSD	%XMM7,%XMM6;  (187) 
+0x2becf;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	0xd8(%RAX),%XMM7;  (187) 
+0x2bed7;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	%XMM4,%XMM7;  (187) 
+0x2bedb;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	%XMM5,%XMM6;  (187) 
+0x2bedf;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	%XMM6,0x30(%RDX);  (187) 
+0x2bee4;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	0x100(%RAX),%XMM6;  (187) 
+0x2beec;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	%XMM3,%XMM6;  (187) 
+0x2bef0;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADDSD	%XMM7,%XMM6;  (187) 
+0x2bef4;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	0x128(%RAX),%XMM7;  (187) 
+0x2befc;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	%XMM2,%XMM7;  (187) 
+0x2bf00;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADDSD	%XMM7,%XMM6;  (187) 
+0x2bf04;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	0x150(%RAX),%XMM7;  (187) 
+0x2bf0c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	%XMM1,%XMM7;  (187) 
+0x2bf10;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADDSD	%XMM7,%XMM6;  (187) 
+0x2bf14;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	0x178(%RAX),%XMM7;  (187) 
+0x2bf1c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	%XMM0,%XMM7;  (187) 
+0x2bf20;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADDSD	%XMM7,%XMM6;  (187) 
+0x2bf24;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	0xe0(%RAX),%XMM7;  (187) 
+0x2bf2c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	%XMM4,%XMM7;  (187) 
+0x2bf30;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	0xe8(%RAX),%XMM4;  (187) 
+0x2bf38;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	%XMM5,%XMM6;  (187) 
+0x2bf3c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	%XMM6,0x38(%RDX);  (187) 
+0x2bf41;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	0x108(%RAX),%XMM6;  (187) 
+0x2bf49;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	%XMM3,%XMM6;  (187) 
+0x2bf4d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	0x110(%RAX),%XMM3;  (187) 
+0x2bf55;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADDSD	%XMM7,%XMM6;  (187) 
+0x2bf59;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	0x130(%RAX),%XMM7;  (187) 
+0x2bf61;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	%XMM2,%XMM7;  (187) 
+0x2bf65;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	0x138(%RAX),%XMM2;  (187) 
+0x2bf6d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADDSD	%XMM4,%XMM3;  (187) 
+0x2bf71;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADDSD	%XMM7,%XMM6;  (187) 
+0x2bf75;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	0x158(%RAX),%XMM7;  (187) 
+0x2bf7d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	%XMM1,%XMM7;  (187) 
+0x2bf81;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADDSD	%XMM3,%XMM2;  (187) 
+0x2bf85;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADDSD	%XMM7,%XMM6;  (187) 
+0x2bf89;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	0x180(%RAX),%XMM7;  (187) 
+0x2bf91;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	%XMM0,%XMM7;  (187) 
+0x2bf95;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADDSD	%XMM7,%XMM6;  (187) 
+0x2bf99;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	%XMM5,%XMM6;  (187) 
+0x2bf9d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	%XMM6,0x40(%RDX);  (187) 
+0x2bfa2;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	0x160(%RAX),%XMM1;  (187) 
+0x2bfaa;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	0x188(%RAX),%XMM0;  (187) 
+0x2bfb2;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADDSD	%XMM2,%XMM1;  (187) 
+0x2bfb6;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;ADDSD	%XMM1,%XMM0;  (187) 
+0x2bfba;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MULSD	%XMM5,%XMM0;  (187) 
+0x2bfbe;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:47;MOVSD	%XMM0,0x48(%RDX);  (187) 
+0x2bfc3;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;CMP	%RAX,%RSI;  (187) 
+0x2bfc6;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;JNE	2be08 <buts_+0x238>;  (187) 
+0x2bfcc;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;SUB	$0x1,%EDI;(188) 
+0x2bfcf;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;SUB	%RBP,%R9;(188) 
+0x2bfd2;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;ADD	%R13,%R8;(188) 
+0x2bfd5;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;ADD	%R15,%RSI;(188) 
+0x2bfd8;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;CMP	%EDI,%R12D;(188) 
+0x2bfdb;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;JL	2bdf0 <buts_+0x220>;(188) 
+0x2bfe1;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x40(%RSP),%R12;
+0x2bfe6;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x110(%RSP),%R8;
+0x2bfee;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x118(%RSP),%R11;
+0x2bff6;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x18(%RSP),%R9;
+0x2bffb;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x1d0(%RSP),%RSI;
+0x2c003;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0xa0(%RSP),%RBP;
+0x2c00b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	0x1(%R12),%RAX;
+0x2c010;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x1d8(%RSP),%R14;
+0x2c018;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x1e0(%RSP),%R15;
+0x2c020;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%R11,%RDI;
+0x2c023;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;IMUL	%R8,%RAX;
+0x2c027;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;IMUL	%R12,%RDI;
+0x2c02b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%RAX,%R10;
+0x2c02e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%RAX,0x108(%RSP);
+0x2c036;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%R11,%RAX;
+0x2c039;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;NEG	%RAX;
+0x2c03c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;SAL	$0x3,%RAX;
+0x2c040;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%RAX,0x148(%RSP);
+0x2c048;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x48(%RSP),%RAX;
+0x2c04d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	(%RAX,%RAX,4),%RAX;
+0x2c051;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	(%RAX,%RAX,4),%RCX;
+0x2c055;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	0x6(%R9,%RCX,1),%RDX;
+0x2c05a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;ADD	%RDI,%RDX;
+0x2c05d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	(%RSI,%RDX,8),%RBX;
+0x2c061;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	(%R9,%RDI,1),%RDX;
+0x2c065;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0x30(%RSP),%RSI;
+0x2c06a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%RBX,0x100(%RSP);
+0x2c072;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	(%RCX,%RDX,1),%RBX;
+0x2c076;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%RBX,0xf8(%RSP);
+0x2c07e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	0xd0(%RSP),%RBX;
+0x2c086;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%RBX,%RDX;
+0x2c089;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%RBX,%RCX;
+0x2c08c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;IMUL	%R12,%RDX;
+0x2c090;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;ADD	%RDX,%RSI;
+0x2c093;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%RDX,%R13;
+0x2c096;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%RDX,0xe8(%RSP);
+0x2c09e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%RBX,%RDX;
+0x2c0a1;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%RSI,0xf0(%RSP);
+0x2c0a9;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;NEG	%RDX;
+0x2c0ac;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;SAL	$0x3,%RDX;
+0x2c0b0;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%RDX,0x150(%RSP);
+0x2c0b8;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	(%RDX,%R13,8),%RDX;
+0x2c0bc;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%RDX,0xe0(%RSP);
+0x2c0c4;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;LEA	(,%RSI,8),%RDX;
+0x2c0cc;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:40;MOV	%RDX,0xd8(%RSP);
+0x2c0d4;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSXD	0x8(%RSP),%RDX;
+0x2c0d9;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;IMUL	%RBP,%RDX;
+0x2c0dd;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	0x20(%RSP),%RDX;
+0x2c0e2;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%RDX,0x128(%RSP);
+0x2c0ea;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%R8,%RDX;
+0x2c0ed;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;IMUL	%R12,%RDX;
+0x2c0f1;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SUB	%R10,%RDX;
+0x2c0f4;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%RDX,%RSI;
+0x2c0f7;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%RDX,0x140(%RSP);
+0x2c0ff;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	-0x1(%R12),%RDX;
+0x2c104;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;NEG	%RSI;
+0x2c107;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;IMUL	%RDX,%RCX;
+0x2c10b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%RSI,%RBP;
+0x2c10e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;IMUL	%R11,%RDX;
+0x2c112;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SUB	%R13,%RCX;
+0x2c115;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%R14,%R13;
+0x2c118;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%R15,%R14;
+0x2c11b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	%RAX,%RCX;
+0x2c11e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SUB	%R9,%RDX;
+0x2c121;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%RCX,0x138(%RSP);
+0x2c129;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x38(%RSP),%ECX;
+0x2c12d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SUB	%RDI,%RDX;
+0x2c130;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SUB	0x28(%RSP),%ECX;
+0x2c134;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%RDX,0x130(%RSP);
+0x2c13c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%RCX,%RDX;
+0x2c13f;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;NEG	%RDX;
+0x2c142;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	(%RAX,%RDX,4),%RDX;
+0x2c146;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SUB	%RCX,%RDX;
+0x2c149;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SUB	%RBX,%RDX;
+0x2c14c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	0x1(%RAX),%RBX;
+0x2c150;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%RBX,0x168(%RSP);
+0x2c158;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x1c8(%RSP),%RBX;
+0x2c160;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	0x8(%RBX,%RAX,8),%RAX;
+0x2c165;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%RAX,0x160(%RSP);
+0x2c16d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	-0x5(%RDX),%RAX;
+0x2c171;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%RAX,0x158(%RSP);
+0x2c179;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSD	0x10(%RSP),%XMM2;
+0x2c17f;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;UNPCKLPD	%XMM2,%XMM2;
+0x2c183;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVAPS	%XMM2,0xc0(%RSP);
+0x2c18b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;NOPL	(%RAX,%RAX,1);
+0x2c190;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x140(%RSP),%RAX;(190) 
+0x2c198;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	0x108(%RSP),%RAX;(190) 
+0x2c1a0;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	0x128(%RSP),%RAX;(190) 
+0x2c1a8;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x1c0(%RSP),%RBX;(190) 
+0x2c1b0;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	0x168(%RSP),%RAX;(190) 
+0x2c1b8;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0xf8(%RSP),%R15;(190) 
+0x2c1c0;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0xf0(%RSP),%RCX;(190) 
+0x2c1c8;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0xd0(%RSP),%RSI;(190) 
+0x2c1d0;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0xe8(%RSP),%RDI;(190) 
+0x2c1d8;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0xd8(%RSP),%R11;(190) 
+0x2c1e0;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x138(%RSP),%R12;(190) 
+0x2c1e8;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	(%RBX,%RAX,8),%RDX;(190) 
+0x2c1ec;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x130(%RSP),%RAX;(190) 
+0x2c1f4;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	%RCX,%RSI;(190) 
+0x2c1f7;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0xe0(%RSP),%RCX;(190) 
+0x2c1ff;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x160(%RSP),%RBX;(190) 
+0x2c207;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SUB	%RDI,%RSI;(190) 
+0x2c20a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	%RDI,%R12;(190) 
+0x2c20d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%RSI,0xb0(%RSP);(190) 
+0x2c215;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	%R15,%RAX;(190) 
+0x2c218;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%RAX,0xa0(%RSP);(190) 
+0x2c220;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x158(%RSP),%RAX;(190) 
+0x2c228;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SUB	$0x30,%RCX;(190) 
+0x2c22c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SUB	%R11,%RCX;(190) 
+0x2c22f;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	%R11,%RBX;(190) 
+0x2c232;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%RBP,%R11;(190) 
+0x2c235;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%RCX,0xb8(%RSP);(190) 
+0x2c23d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%R12,%RBP;(190) 
+0x2c240;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%R15,%R12;(190) 
+0x2c243;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	%RDI,%RAX;(190) 
+0x2c246;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%R13,%R15;(190) 
+0x2c249;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%RAX,0xa8(%RSP);(190) 
+0x2c251;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x100(%RSP),%RAX;(190) 
+0x2c259;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;NOPL	(%RAX);(190) 
+0x2c260;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0xb0(%RSP),%RDI;  (189) 
+0x2c268;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSD	0x28(%RDX),%XMM0;  (189) 
+0x2c26d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSD	(%RDX,%R11,8),%XMM10;  (189) 
+0x2c273;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSD	%XMM0,0x8(%RSP);  (189) 
+0x2c279;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	(%RDI,%RBP,1),%R13;  (189) 
+0x2c27d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0xb8(%RSP),%RDI;  (189) 
+0x2c285;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSD	0x8(%RDX,%R11,8),%XMM9;  (189) 
+0x2c28c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSD	0x30(%RDX),%XMM8;  (189) 
+0x2c292;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	(%RDI,%RBX,1),%RCX;  (189) 
+0x2c296;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSD	0x10(%RDX,%R11,8),%XMM7;  (189) 
+0x2c29d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSD	0x38(%RDX),%XMM6;  (189) 
+0x2c2a2;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SHR	$0x3,%RCX;  (189) 
+0x2c2a6;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSD	0x18(%RDX,%R11,8),%XMM5;  (189) 
+0x2c2ad;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%ECX,%EDI;  (189) 
+0x2c2af;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSD	0x40(%RDX),%XMM4;  (189) 
+0x2c2b4;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;AND	$0x1,%EDI;  (189) 
+0x2c2b7;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSD	0x20(%RDX,%R11,8),%XMM3;  (189) 
+0x2c2be;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSD	0x48(%RDX),%XMM2;  (189) 
+0x2c2c3;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%EDI,0x48(%RSP);  (189) 
+0x2c2c7;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;JE	2c391 <buts_+0x7c1>;  (189) 
+0x2c2cd;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSD	0x30(%R15,%R12,8),%XMM1;  (189) 
+0x2c2d4;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSD	0x30(%R14,%R12,8),%XMM11;  (189) 
+0x2c2db;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULSD	%XMM0,%XMM1;  (189) 
+0x2c2df;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULSD	%XMM10,%XMM11;  (189) 
+0x2c2e4;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDSD	%XMM11,%XMM1;  (189) 
+0x2c2e9;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSD	0x58(%R14,%R12,8),%XMM11;  (189) 
+0x2c2f0;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULSD	%XMM9,%XMM11;  (189) 
+0x2c2f5;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDSD	%XMM11,%XMM1;  (189) 
+0x2c2fa;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSD	0x58(%R15,%R12,8),%XMM11;  (189) 
+0x2c301;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULSD	%XMM8,%XMM11;  (189) 
+0x2c306;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDSD	%XMM11,%XMM1;  (189) 
+0x2c30b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSD	0x80(%R14,%R12,8),%XMM11;  (189) 
+0x2c315;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULSD	%XMM7,%XMM11;  (189) 
+0x2c31a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDSD	%XMM11,%XMM1;  (189) 
+0x2c31f;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSD	0x80(%R15,%R12,8),%XMM11;  (189) 
+0x2c329;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULSD	%XMM6,%XMM11;  (189) 
+0x2c32e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDSD	%XMM11,%XMM1;  (189) 
+0x2c333;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSD	0xa8(%R14,%R12,8),%XMM11;  (189) 
+0x2c33d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULSD	%XMM5,%XMM11;  (189) 
+0x2c342;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDSD	%XMM11,%XMM1;  (189) 
+0x2c347;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSD	0xa8(%R15,%R12,8),%XMM11;  (189) 
+0x2c351;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULSD	%XMM4,%XMM11;  (189) 
+0x2c356;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDSD	%XMM11,%XMM1;  (189) 
+0x2c35b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSD	0xd0(%R14,%R12,8),%XMM11;  (189) 
+0x2c365;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULSD	%XMM3,%XMM11;  (189) 
+0x2c36a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDSD	%XMM11,%XMM1;  (189) 
+0x2c36f;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSD	0xd0(%R15,%R12,8),%XMM11;  (189) 
+0x2c379;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULSD	%XMM2,%XMM11;  (189) 
+0x2c37e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDSD	%XMM11,%XMM1;  (189) 
+0x2c383;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULSD	0x10(%RSP),%XMM1;  (189) 
+0x2c389;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDSD	(%RBX),%XMM1;  (189) 
+0x2c38d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSD	%XMM1,(%RBX);  (189) 
+0x2c391;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x48(%RSP),%ECX;  (189) 
+0x2c395;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x1c8(%RSP),%R10;  (189) 
+0x2c39d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVAPD	%XMM10,%XMM14;  (189) 
+0x2c3a2;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSD	0x8(%RSP),%XMM15;  (189) 
+0x2c3a9;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVAPD	%XMM9,%XMM13;  (189) 
+0x2c3ae;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;UNPCKLPD	%XMM14,%XMM14;  (189) 
+0x2c3b3;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVAPD	%XMM8,%XMM12;  (189) 
+0x2c3b8;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	(%RBP,%RCX,1),%RSI;  (189) 
+0x2c3bd;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	0xa0(%RSP),%RCX;  (189) 
+0x2c3c5;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;UNPCKLPD	%XMM15,%XMM15;  (189) 
+0x2c3ca;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	-0x28(%R10,%RSI,8),%R10;  (189) 
+0x2c3cf;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;UNPCKLPD	%XMM13,%XMM13;  (189) 
+0x2c3d4;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;UNPCKLPD	%XMM12,%XMM12;  (189) 
+0x2c3d9;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SAL	$0x3,%RCX;  (189) 
+0x2c3dd;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	-0xc8(%RCX),%R9;  (189) 
+0x2c3e4;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	-0x78(%RCX),%RDI;  (189) 
+0x2c3e8;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVAPS	%XMM14,0x60(%RSP);  (189) 
+0x2c3ee;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	(%R15,%R9,1),%R8;  (189) 
+0x2c3f2;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	(%R14,%R9,1),%RSI;  (189) 
+0x2c3f6;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	(%R15,%RDI,1),%R9;  (189) 
+0x2c3fa;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVAPS	%XMM12,0x70(%RSP);  (189) 
+0x2c400;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%R8,0x50(%RSP);  (189) 
+0x2c405;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	-0xa0(%RCX),%R8;  (189) 
+0x2c40c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%RSI,0x40(%RSP);  (189) 
+0x2c411;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%R9,0x28(%RSP);  (189) 
+0x2c416;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	(%R14,%R8,1),%RSI;  (189) 
+0x2c41a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	%R15,%R8;  (189) 
+0x2c41d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%R8,0x30(%RSP);  (189) 
+0x2c422;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	(%R14,%RDI,1),%R8;  (189) 
+0x2c426;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%RSI,0x38(%RSP);  (189) 
+0x2c42b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	-0x50(%RCX),%RSI;  (189) 
+0x2c42f;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;SUB	$0x28,%RCX;  (189) 
+0x2c433;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	(%R14,%RCX,1),%R9;  (189) 
+0x2c437;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	%R15,%RCX;  (189) 
+0x2c43a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	(%R14,%RSI,1),%RDI;  (189) 
+0x2c43e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	%R15,%RSI;  (189) 
+0x2c441;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%RSI,0x20(%RSP);  (189) 
+0x2c446;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x40(%RSP),%RSI;  (189) 
+0x2c44b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	%R9,0x18(%RSP);  (189) 
+0x2c450;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x38(%RSP),%R9;  (189) 
+0x2c455;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVUPD	(%RSI),%XMM1;  (189) 
+0x2c459;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x50(%RSP),%RSI;  (189) 
+0x2c45e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULPD	%XMM14,%XMM1;  (189) 
+0x2c463;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVAPD	%XMM7,%XMM14;  (189) 
+0x2c468;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVAPS	%XMM13,0x50(%RSP);  (189) 
+0x2c46e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;UNPCKLPD	%XMM14,%XMM14;  (189) 
+0x2c473;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVAPD	%XMM1,%XMM11;  (189) 
+0x2c478;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVUPD	(%RSI),%XMM1;  (189) 
+0x2c47c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULPD	%XMM15,%XMM1;  (189) 
+0x2c481;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVAPS	%XMM14,0x80(%RSP);  (189) 
+0x2c48a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDPD	%XMM11,%XMM1;  (189) 
+0x2c48f;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVUPD	(%R9),%XMM11;  (189) 
+0x2c494;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x30(%RSP),%R9;  (189) 
+0x2c499;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULPD	%XMM13,%XMM11;  (189) 
+0x2c49e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVAPD	%XMM6,%XMM13;  (189) 
+0x2c4a3;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;UNPCKLPD	%XMM13,%XMM13;  (189) 
+0x2c4a8;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDPD	%XMM11,%XMM1;  (189) 
+0x2c4ad;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVUPD	(%R9),%XMM11;  (189) 
+0x2c4b2;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x28(%RSP),%R9;  (189) 
+0x2c4b7;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULPD	%XMM12,%XMM11;  (189) 
+0x2c4bc;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVAPD	%XMM5,%XMM12;  (189) 
+0x2c4c1;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVAPS	%XMM13,0x90(%RSP);  (189) 
+0x2c4ca;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;UNPCKLPD	%XMM12,%XMM12;  (189) 
+0x2c4cf;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDPD	%XMM11,%XMM1;  (189) 
+0x2c4d4;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVUPD	(%R8),%XMM11;  (189) 
+0x2c4d9;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULPD	%XMM14,%XMM11;  (189) 
+0x2c4de;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVAPD	%XMM12,%XMM14;  (189) 
+0x2c4e3;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDPD	%XMM11,%XMM1;  (189) 
+0x2c4e8;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVUPD	(%R9),%XMM11;  (189) 
+0x2c4ed;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x20(%RSP),%R9;  (189) 
+0x2c4f2;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULPD	%XMM13,%XMM11;  (189) 
+0x2c4f7;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDPD	%XMM11,%XMM1;  (189) 
+0x2c4fc;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVUPD	(%RDI),%XMM11;  (189) 
+0x2c501;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULPD	%XMM12,%XMM11;  (189) 
+0x2c506;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVAPD	%XMM4,%XMM12;  (189) 
+0x2c50b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;UNPCKLPD	%XMM12,%XMM12;  (189) 
+0x2c510;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDPD	%XMM11,%XMM1;  (189) 
+0x2c515;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVUPD	(%R9),%XMM11;  (189) 
+0x2c51a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVAPD	%XMM12,%XMM13;  (189) 
+0x2c51f;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x18(%RSP),%R9;  (189) 
+0x2c524;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULPD	%XMM12,%XMM11;  (189) 
+0x2c529;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVAPD	%XMM3,%XMM12;  (189) 
+0x2c52e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;UNPCKLPD	%XMM12,%XMM12;  (189) 
+0x2c533;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDPD	%XMM11,%XMM1;  (189) 
+0x2c538;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVUPD	(%R9),%XMM11;  (189) 
+0x2c53d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULPD	%XMM12,%XMM11;  (189) 
+0x2c542;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVUPD	(%RCX),%XMM0;  (189) 
+0x2c546;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x30(%RSP),%R9;  (189) 
+0x2c54b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDPD	%XMM11,%XMM1;  (189) 
+0x2c550;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVAPD	%XMM2,%XMM11;  (189) 
+0x2c555;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;UNPCKLPD	%XMM11,%XMM11;  (189) 
+0x2c55a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULPD	%XMM11,%XMM0;  (189) 
+0x2c55f;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDPD	%XMM0,%XMM1;  (189) 
+0x2c563;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVAPD	0xc0(%RSP),%XMM0;  (189) 
+0x2c56c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULPD	%XMM0,%XMM1;  (189) 
+0x2c570;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDPD	(%R10),%XMM1;  (189) 
+0x2c575;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVAPS	%XMM1,(%R10);  (189) 
+0x2c579;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVUPD	0x10(%RSI),%XMM1;  (189) 
+0x2c57e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x40(%RSP),%RSI;  (189) 
+0x2c583;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULPD	%XMM1,%XMM15;  (189) 
+0x2c588;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVUPD	0x10(%RSI),%XMM1;  (189) 
+0x2c58d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x38(%RSP),%RSI;  (189) 
+0x2c592;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULPD	0x60(%RSP),%XMM1;  (189) 
+0x2c598;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDPD	%XMM15,%XMM1;  (189) 
+0x2c59d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVUPD	0x10(%RSI),%XMM15;  (189) 
+0x2c5a3;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULPD	0x50(%RSP),%XMM15;  (189) 
+0x2c5aa;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDPD	%XMM15,%XMM1;  (189) 
+0x2c5af;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVUPD	0x10(%R9),%XMM15;  (189) 
+0x2c5b5;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x28(%RSP),%R9;  (189) 
+0x2c5ba;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULPD	0x70(%RSP),%XMM15;  (189) 
+0x2c5c1;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDPD	%XMM15,%XMM1;  (189) 
+0x2c5c6;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVUPD	0x10(%R8),%XMM15;  (189) 
+0x2c5cc;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULPD	0x80(%RSP),%XMM15;  (189) 
+0x2c5d6;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDPD	%XMM15,%XMM1;  (189) 
+0x2c5db;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVUPD	0x10(%R9),%XMM15;  (189) 
+0x2c5e1;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x20(%RSP),%R9;  (189) 
+0x2c5e6;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULPD	0x90(%RSP),%XMM15;  (189) 
+0x2c5f0;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDPD	%XMM15,%XMM1;  (189) 
+0x2c5f5;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVUPD	0x10(%RDI),%XMM15;  (189) 
+0x2c5fb;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x18(%RSP),%RDI;  (189) 
+0x2c600;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULPD	%XMM15,%XMM14;  (189) 
+0x2c605;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDPD	%XMM14,%XMM1;  (189) 
+0x2c60a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVUPD	0x10(%R9),%XMM14;  (189) 
+0x2c610;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULPD	%XMM14,%XMM13;  (189) 
+0x2c615;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVUPD	0x10(%RDI),%XMM14;  (189) 
+0x2c61b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULPD	%XMM14,%XMM12;  (189) 
+0x2c620;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDPD	%XMM13,%XMM1;  (189) 
+0x2c625;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDPD	%XMM12,%XMM1;  (189) 
+0x2c62a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVUPD	0x10(%RCX),%XMM12;  (189) 
+0x2c630;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x48(%RSP),%ECX;  (189) 
+0x2c634;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULPD	%XMM12,%XMM11;  (189) 
+0x2c639;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;TEST	%ECX,%ECX;  (189) 
+0x2c63b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDPD	%XMM1,%XMM11;  (189) 
+0x2c640;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULPD	%XMM0,%XMM11;  (189) 
+0x2c645;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDPD	0x10(%R10),%XMM11;  (189) 
+0x2c64b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVAPS	%XMM11,0x10(%R10);  (189) 
+0x2c650;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;JNE	2c6ef <buts_+0xb1f>;  (189) 
+0x2c656;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	0x28(,%R12,8),%RCX;  (189) 
+0x2c65e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSD	0x8(%RSP),%XMM0;  (189) 
+0x2c664;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	(%R14,%RCX,1),%RSI;  (189) 
+0x2c668;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADD	%R15,%RCX;  (189) 
+0x2c66b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOV	0x1c8(%RSP),%RDI;  (189) 
+0x2c673;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULSD	0x28(%RCX),%XMM0;  (189) 
+0x2c678;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULSD	0x28(%RSI),%XMM10;  (189) 
+0x2c67e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULSD	0x50(%RSI),%XMM9;  (189) 
+0x2c684;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;LEA	0x28(%RDI,%R13,8),%RDI;  (189) 
+0x2c689;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULSD	0x50(%RCX),%XMM8;  (189) 
+0x2c68f;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULSD	0x78(%RSI),%XMM7;  (189) 
+0x2c694;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULSD	0x78(%RCX),%XMM6;  (189) 
+0x2c699;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULSD	0xa0(%RSI),%XMM5;  (189) 
+0x2c6a1;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDSD	%XMM0,%XMM10;  (189) 
+0x2c6a6;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULSD	0xa0(%RCX),%XMM4;  (189) 
+0x2c6ae;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULSD	0xc8(%RSI),%XMM3;  (189) 
+0x2c6b6;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULSD	0xc8(%RCX),%XMM2;  (189) 
+0x2c6be;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDSD	%XMM10,%XMM9;  (189) 
+0x2c6c3;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDSD	%XMM9,%XMM8;  (189) 
+0x2c6c8;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDSD	%XMM8,%XMM7;  (189) 
+0x2c6cd;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDSD	%XMM7,%XMM6;  (189) 
+0x2c6d1;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDSD	%XMM6,%XMM5;  (189) 
+0x2c6d5;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDSD	%XMM5,%XMM4;  (189) 
+0x2c6d9;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDSD	%XMM4,%XMM3;  (189) 
+0x2c6dd;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDSD	%XMM3,%XMM2;  (189) 
+0x2c6e1;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MULSD	0x10(%RSP),%XMM2;  (189) 
+0x2c6e7;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;ADDSD	(%RDI),%XMM2;  (189) 
+0x2c6eb;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:67;MOVSD	%XMM2,(%RDI);  (189) 
+0x2c6ef;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:81;MOVSD	0xab61(%RIP),%XMM3;  (189) 
+0x2c6f7;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:81;SUB	$0x28,%RDX;  (189) 
+0x2c6fb;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:81;SUB	$0xc8,%RAX;  (189) 
+0x2c701;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:82;MOVSD	0xd0(%RAX),%XMM0;  (189) 
+0x2c709;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:82;SUB	$0x28,%RBX;  (189) 
+0x2c70d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:81;DIVSD	0xc8(%RAX),%XMM3;  (189) 
+0x2c715;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:81;SUB	$0x19,%R12;  (189) 
+0x2c719;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:81;SUB	$0x5,%RBP;  (189) 
+0x2c71d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:84;MOVSD	0xf0(%RAX),%XMM1;  (189) 
+0x2c725;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:84;MOVSD	0xf8(%RAX),%XMM2;  (189) 
+0x2c72d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:86;MOVSD	0x120(%RAX),%XMM11;  (189) 
+0x2c736;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:88;MOVSD	0x148(%RAX),%XMM10;  (189) 
+0x2c73f;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:96;MOVSD	0x100(%RAX),%XMM4;  (189) 
+0x2c747;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:82;MULSD	%XMM3,%XMM0;  (189) 
+0x2c74b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:108;MOVSD	0xf0(%RAX),%XMM5;  (189) 
+0x2c753;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:108;MOVSD	0x108(%RAX),%XMM7;  (189) 
+0x2c75b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:120;MOVSD	0x110(%RAX),%XMM6;  (189) 
+0x2c763;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:84;MULSD	%XMM0,%XMM1;  (189) 
+0x2c767;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:98;MOVSD	0x118(%RAX),%XMM9;  (189) 
+0x2c770;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:98;MOVSD	0x128(%RAX),%XMM8;  (189) 
+0x2c779;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:102;MOVSD	0x168(%RAX),%XMM12;  (189) 
+0x2c782;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:84;SUBSD	%XMM1,%XMM2;  (189) 
+0x2c786;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:86;MOVSD	0x118(%RAX),%XMM1;  (189) 
+0x2c78e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:86;MULSD	%XMM0,%XMM1;  (189) 
+0x2c792;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:84;MOVAPD	%XMM2,%XMM14;  (189) 
+0x2c797;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:90;MOVSD	0x170(%RAX),%XMM2;  (189) 
+0x2c79f;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:86;SUBSD	%XMM1,%XMM11;  (189) 
+0x2c7a4;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:88;MOVSD	0x140(%RAX),%XMM1;  (189) 
+0x2c7ac;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:132;MOVSD	%XMM14,0x18(%RSP);  (189) 
+0x2c7b3;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:88;MULSD	%XMM0,%XMM1;  (189) 
+0x2c7b7;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:88;SUBSD	%XMM1,%XMM10;  (189) 
+0x2c7bc;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:90;MOVSD	0x168(%RAX),%XMM1;  (189) 
+0x2c7c4;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:90;MULSD	%XMM0,%XMM1;  (189) 
+0x2c7c8;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:92;MULSD	0x28(%RBX),%XMM0;  (189) 
+0x2c7cd;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:90;SUBSD	%XMM1,%XMM2;  (189) 
+0x2c7d1;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:94;MOVSD	0xd8(%RAX),%XMM1;  (189) 
+0x2c7d9;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:94;MULSD	%XMM3,%XMM1;  (189) 
+0x2c7dd;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:90;MOVAPD	%XMM2,%XMM13;  (189) 
+0x2c7e2;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:92;MOVSD	0x30(%RBX),%XMM2;  (189) 
+0x2c7e7;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:98;MULSD	%XMM1,%XMM9;  (189) 
+0x2c7ec;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:139;MOVSD	%XMM13,0x8(%RSP);  (189) 
+0x2c7f3;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:92;SUBSD	%XMM0,%XMM2;  (189) 
+0x2c7f7;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:96;MOVSD	0xf0(%RAX),%XMM0;  (189) 
+0x2c7ff;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:102;MULSD	%XMM1,%XMM12;  (189) 
+0x2c804;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:96;MULSD	%XMM1,%XMM0;  (189) 
+0x2c808;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:98;SUBSD	%XMM9,%XMM8;  (189) 
+0x2c80d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:135;MOVAPD	%XMM11,%XMM9;  (189) 
+0x2c812;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:96;SUBSD	%XMM0,%XMM4;  (189) 
+0x2c816;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:106;MOVSD	0xe0(%RAX),%XMM0;  (189) 
+0x2c81e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:106;MULSD	%XMM3,%XMM0;  (189) 
+0x2c822;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:118;MULSD	0xe8(%RAX),%XMM3;  (189) 
+0x2c82a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:108;MULSD	%XMM0,%XMM5;  (189) 
+0x2c82e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:108;SUBSD	%XMM5,%XMM7;  (189) 
+0x2c832;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:120;MOVSD	0xf0(%RAX),%XMM5;  (189) 
+0x2c83a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:120;MULSD	%XMM3,%XMM5;  (189) 
+0x2c83e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:120;SUBSD	%XMM5,%XMM6;  (189) 
+0x2c842;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:132;MOVSD	0xaa0e(%RIP),%XMM5;  (189) 
+0x2c84a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:132;DIVSD	%XMM14,%XMM5;  (189) 
+0x2c84f;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:133;MULSD	%XMM5,%XMM4;  (189) 
+0x2c853;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:143;MULSD	%XMM5,%XMM7;  (189) 
+0x2c857;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:153;MULSD	%XMM5,%XMM6;  (189) 
+0x2c85b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:135;MULSD	%XMM4,%XMM9;  (189) 
+0x2c860;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:135;SUBSD	%XMM9,%XMM8;  (189) 
+0x2c865;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:100;MOVSD	0x150(%RAX),%XMM9;  (189) 
+0x2c86e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:135;MOVAPD	%XMM8,%XMM15;  (189) 
+0x2c873;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:100;MOVSD	0x140(%RAX),%XMM8;  (189) 
+0x2c87c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:100;MULSD	%XMM1,%XMM8;  (189) 
+0x2c881;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:104;MULSD	0x28(%RBX),%XMM1;  (189) 
+0x2c886;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:100;SUBSD	%XMM8,%XMM9;  (189) 
+0x2c88b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:137;MOVAPD	%XMM10,%XMM8;  (189) 
+0x2c890;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:137;MULSD	%XMM4,%XMM8;  (189) 
+0x2c895;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:137;SUBSD	%XMM8,%XMM9;  (189) 
+0x2c89a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:102;MOVSD	0x178(%RAX),%XMM8;  (189) 
+0x2c8a3;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:102;SUBSD	%XMM12,%XMM8;  (189) 
+0x2c8a8;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:139;MOVAPD	%XMM13,%XMM12;  (189) 
+0x2c8ad;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:139;MULSD	%XMM4,%XMM12;  (189) 
+0x2c8b2;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:141;MULSD	%XMM2,%XMM4;  (189) 
+0x2c8b6;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:139;SUBSD	%XMM12,%XMM8;  (189) 
+0x2c8bb;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:104;MOVSD	0x38(%RBX),%XMM12;  (189) 
+0x2c8c1;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:122;MOVSD	0x118(%RAX),%XMM5;  (189) 
+0x2c8c9;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:122;MOVSD	0x138(%RAX),%XMM14;  (189) 
+0x2c8d2;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:104;SUBSD	%XMM1,%XMM12;  (189) 
+0x2c8d7;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:122;MULSD	%XMM3,%XMM5;  (189) 
+0x2c8db;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:165;MOVSD	%XMM15,0x20(%RSP);  (189) 
+0x2c8e2;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:104;MOVAPD	%XMM12,%XMM1;  (189) 
+0x2c8e7;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:122;SUBSD	%XMM5,%XMM14;  (189) 
+0x2c8ec;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:155;MOVAPD	%XMM11,%XMM5;  (189) 
+0x2c8f1;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:141;SUBSD	%XMM4,%XMM1;  (189) 
+0x2c8f5;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:110;MOVSD	0x118(%RAX),%XMM4;  (189) 
+0x2c8fd;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:155;MULSD	%XMM6,%XMM5;  (189) 
+0x2c901;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:110;MULSD	%XMM0,%XMM4;  (189) 
+0x2c905;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:155;SUBSD	%XMM5,%XMM14;  (189) 
+0x2c90a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:165;MOVSD	0xa946(%RIP),%XMM5;  (189) 
+0x2c912;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:110;MOVAPD	%XMM4,%XMM12;  (189) 
+0x2c917;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:165;DIVSD	%XMM15,%XMM5;  (189) 
+0x2c91c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:110;MOVSD	0x130(%RAX),%XMM4;  (189) 
+0x2c924;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:110;SUBSD	%XMM12,%XMM4;  (189) 
+0x2c929;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:145;MOVAPD	%XMM11,%XMM12;  (189) 
+0x2c92e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:165;MOVAPD	%XMM5,%XMM13;  (189) 
+0x2c933;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:145;MULSD	%XMM7,%XMM12;  (189) 
+0x2c938;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:174;MULSD	%XMM14,%XMM13;  (189) 
+0x2c93d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:145;SUBSD	%XMM12,%XMM4;  (189) 
+0x2c942;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:112;MOVSD	0x158(%RAX),%XMM12;  (189) 
+0x2c94b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:166;MULSD	%XMM5,%XMM4;  (189) 
+0x2c94f;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:112;MOVSD	0x140(%RAX),%XMM5;  (189) 
+0x2c957;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:112;MULSD	%XMM0,%XMM5;  (189) 
+0x2c95b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:112;SUBSD	%XMM5,%XMM12;  (189) 
+0x2c960;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:147;MOVAPD	%XMM10,%XMM5;  (189) 
+0x2c965;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:147;MULSD	%XMM7,%XMM5;  (189) 
+0x2c969;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:147;SUBSD	%XMM5,%XMM12;  (189) 
+0x2c96e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:168;MOVAPD	%XMM9,%XMM5;  (189) 
+0x2c973;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:168;MULSD	%XMM4,%XMM5;  (189) 
+0x2c977;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:168;SUBSD	%XMM5,%XMM12;  (189) 
+0x2c97c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:114;MOVSD	0x168(%RAX),%XMM5;  (189) 
+0x2c984;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:114;MULSD	%XMM0,%XMM5;  (189) 
+0x2c988;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:116;MULSD	0x28(%RBX),%XMM0;  (189) 
+0x2c98d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:114;MOVAPD	%XMM5,%XMM15;  (189) 
+0x2c992;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:114;MOVSD	0x180(%RAX),%XMM5;  (189) 
+0x2c99a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:114;SUBSD	%XMM15,%XMM5;  (189) 
+0x2c99f;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:149;MOVSD	0x8(%RSP),%XMM15;  (189) 
+0x2c9a6;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:149;MULSD	%XMM7,%XMM15;  (189) 
+0x2c9ab;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:151;MULSD	%XMM2,%XMM7;  (189) 
+0x2c9af;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:149;SUBSD	%XMM15,%XMM5;  (189) 
+0x2c9b4;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:170;MOVAPD	%XMM8,%XMM15;  (189) 
+0x2c9b9;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:170;MULSD	%XMM4,%XMM15;  (189) 
+0x2c9be;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:172;MULSD	%XMM1,%XMM4;  (189) 
+0x2c9c2;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:170;SUBSD	%XMM15,%XMM5;  (189) 
+0x2c9c7;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:116;MOVAPD	%XMM0,%XMM15;  (189) 
+0x2c9cc;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:116;MOVSD	0x40(%RBX),%XMM0;  (189) 
+0x2c9d1;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:116;SUBSD	%XMM15,%XMM0;  (189) 
+0x2c9d6;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:124;MOVSD	0x160(%RAX),%XMM15;  (189) 
+0x2c9df;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:151;SUBSD	%XMM7,%XMM0;  (189) 
+0x2c9e3;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:128;MOVSD	0x28(%RBX),%XMM7;  (189) 
+0x2c9e8;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:128;MULSD	%XMM3,%XMM7;  (189) 
+0x2c9ec;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:172;SUBSD	%XMM4,%XMM0;  (189) 
+0x2c9f0;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:124;MOVSD	0x140(%RAX),%XMM4;  (189) 
+0x2c9f8;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:124;MULSD	%XMM3,%XMM4;  (189) 
+0x2c9fc;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:126;MULSD	0x168(%RAX),%XMM3;  (189) 
+0x2ca04;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:124;SUBSD	%XMM4,%XMM15;  (189) 
+0x2ca09;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:157;MOVAPD	%XMM10,%XMM4;  (189) 
+0x2ca0e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:157;MULSD	%XMM6,%XMM4;  (189) 
+0x2ca12;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:157;SUBSD	%XMM4,%XMM15;  (189) 
+0x2ca17;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:176;MOVAPD	%XMM9,%XMM4;  (189) 
+0x2ca1c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:176;MULSD	%XMM13,%XMM4;  (189) 
+0x2ca21;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:176;SUBSD	%XMM4,%XMM15;  (189) 
+0x2ca26;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:184;MOVSD	0xa82a(%RIP),%XMM4;  (189) 
+0x2ca2e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:184;DIVSD	%XMM12,%XMM4;  (189) 
+0x2ca33;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:185;MULSD	%XMM4,%XMM15;  (189) 
+0x2ca38;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:128;MOVSD	0x48(%RBX),%XMM4;  (189) 
+0x2ca3d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:128;SUBSD	%XMM7,%XMM4;  (189) 
+0x2ca41;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:161;MOVAPD	%XMM2,%XMM7;  (189) 
+0x2ca45;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:161;MULSD	%XMM6,%XMM7;  (189) 
+0x2ca49;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:161;SUBSD	%XMM7,%XMM4;  (189) 
+0x2ca4d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:180;MOVAPD	%XMM1,%XMM7;  (189) 
+0x2ca51;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:180;MULSD	%XMM13,%XMM7;  (189) 
+0x2ca56;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:178;MULSD	%XMM8,%XMM13;  (189) 
+0x2ca5b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:180;SUBSD	%XMM7,%XMM4;  (189) 
+0x2ca5f;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:189;MOVAPD	%XMM0,%XMM7;  (189) 
+0x2ca63;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:189;MULSD	%XMM15,%XMM7;  (189) 
+0x2ca68;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:187;MULSD	%XMM5,%XMM15;  (189) 
+0x2ca6d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:189;SUBSD	%XMM7,%XMM4;  (189) 
+0x2ca71;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:126;MOVSD	0x188(%RAX),%XMM7;  (189) 
+0x2ca79;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:126;SUBSD	%XMM3,%XMM7;  (189) 
+0x2ca7d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:159;MOVSD	0x8(%RSP),%XMM3;  (189) 
+0x2ca83;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:159;MULSD	%XMM3,%XMM6;  (189) 
+0x2ca87;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:159;SUBSD	%XMM6,%XMM7;  (189) 
+0x2ca8b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:219;MOVSD	0x28(%RBX),%XMM6;  (189) 
+0x2ca90;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:178;SUBSD	%XMM13,%XMM7;  (189) 
+0x2ca95;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:187;SUBSD	%XMM15,%XMM7;  (189) 
+0x2ca9a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:195;DIVSD	%XMM7,%XMM4;  (189) 
+0x2ca9e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:198;MULSD	%XMM4,%XMM5;  (189) 
+0x2caa2;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:195;MOVSD	%XMM4,0x48(%RBX);  (189) 
+0x2caa7;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:204;MULSD	%XMM4,%XMM8;  (189) 
+0x2caac;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:211;MULSD	%XMM4,%XMM3;  (189) 
+0x2cab0;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:198;SUBSD	%XMM5,%XMM0;  (189) 
+0x2cab4;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:219;MOVSD	0x118(%RAX),%XMM5;  (189) 
+0x2cabc;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:200;DIVSD	%XMM12,%XMM0;  (189) 
+0x2cac1;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:204;MULSD	%XMM0,%XMM9;  (189) 
+0x2cac6;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:200;MOVSD	%XMM0,0x40(%RBX);  (189) 
+0x2cacb;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:211;MULSD	%XMM0,%XMM10;  (189) 
+0x2cad0;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:204;SUBSD	%XMM9,%XMM1;  (189) 
+0x2cad5;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:204;SUBSD	%XMM8,%XMM1;  (189) 
+0x2cada;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:206;DIVSD	0x20(%RSP),%XMM1;  (189) 
+0x2cae0;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:211;MULSD	%XMM1,%XMM11;  (189) 
+0x2cae5;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:206;MOVSD	%XMM1,0x38(%RBX);  (189) 
+0x2caea;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:219;MULSD	%XMM1,%XMM5;  (189) 
+0x2caee;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:211;SUBSD	%XMM11,%XMM2;  (189) 
+0x2caf3;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:211;SUBSD	%XMM10,%XMM2;  (189) 
+0x2caf8;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:211;SUBSD	%XMM3,%XMM2;  (189) 
+0x2cafc;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:219;MOVSD	0xf0(%RAX),%XMM3;  (189) 
+0x2cb04;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:213;DIVSD	0x18(%RSP),%XMM2;  (189) 
+0x2cb0a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:219;MULSD	%XMM2,%XMM3;  (189) 
+0x2cb0e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:213;MOVSD	%XMM2,0x30(%RBX);  (189) 
+0x2cb13;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:219;SUBSD	%XMM3,%XMM6;  (189) 
+0x2cb17;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:219;MOVAPD	%XMM6,%XMM3;  (189) 
+0x2cb1b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:219;SUBSD	%XMM5,%XMM3;  (189) 
+0x2cb1f;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:219;MOVSD	0x140(%RAX),%XMM5;  (189) 
+0x2cb27;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:219;MULSD	%XMM0,%XMM5;  (189) 
+0x2cb2b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:219;SUBSD	%XMM5,%XMM3;  (189) 
+0x2cb2f;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:219;MOVSD	0x168(%RAX),%XMM5;  (189) 
+0x2cb37;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:219;SUBQ	$0x19,0xa0(%RSP);  (189) 
+0x2cb40;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:219;MULSD	%XMM4,%XMM5;  (189) 
+0x2cb44;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:219;SUBSD	%XMM5,%XMM3;  (189) 
+0x2cb48;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:223;MOVSD	0x28(%RDX),%XMM5;  (189) 
+0x2cb4d;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:221;DIVSD	0xc8(%RAX),%XMM3;  (189) 
+0x2cb55;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:221;MOVSD	%XMM3,0x28(%RBX);  (189) 
+0x2cb5a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:223;SUBSD	%XMM3,%XMM5;  (189) 
+0x2cb5e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:224;MOVSD	0x30(%RDX),%XMM3;  (189) 
+0x2cb63;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:224;SUBSD	%XMM2,%XMM3;  (189) 
+0x2cb67;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:225;MOVSD	0x38(%RDX),%XMM2;  (189) 
+0x2cb6c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:223;MOVSD	%XMM5,0x28(%RDX);  (189) 
+0x2cb71;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:225;SUBSD	%XMM1,%XMM2;  (189) 
+0x2cb75;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:226;MOVSD	0x40(%RDX),%XMM1;  (189) 
+0x2cb7a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:226;SUBSD	%XMM0,%XMM1;  (189) 
+0x2cb7e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:227;MOVSD	0x48(%RDX),%XMM0;  (189) 
+0x2cb83;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:224;MOVSD	%XMM3,0x30(%RDX);  (189) 
+0x2cb88;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:227;SUBSD	%XMM4,%XMM0;  (189) 
+0x2cb8c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:225;MOVSD	%XMM2,0x38(%RDX);  (189) 
+0x2cb91;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:226;MOVSD	%XMM1,0x40(%RDX);  (189) 
+0x2cb96;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:227;MOVSD	%XMM0,0x48(%RDX);  (189) 
+0x2cb9b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;CMP	%RBP,0xa8(%RSP);  (189) 
+0x2cba3;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;JNE	2c260 <buts_+0x690>;  (189) 
+0x2cba9;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;SUBL	$0x1,0x120(%RSP);(190) 
+0x2cbb1;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;MOV	0x110(%RSP),%RDX;(190) 
+0x2cbb9;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;MOV	%R11,%RBP;(190) 
+0x2cbbc;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;SUB	%RDX,0x108(%RSP);(190) 
+0x2cbc4;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;MOV	0x120(%RSP),%EAX;(190) 
+0x2cbcb;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;MOV	%R15,%R13;(190) 
+0x2cbce;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;MOV	0x148(%RSP),%RDX;(190) 
+0x2cbd6;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;ADD	%RDX,0x100(%RSP);(190) 
+0x2cbde;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;MOV	0x118(%RSP),%RDX;(190) 
+0x2cbe6;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;SUB	%RDX,0xf8(%RSP);(190) 
+0x2cbee;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;MOV	0xd0(%RSP),%RDX;(190) 
+0x2cbf6;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;SUB	%RDX,0xf0(%RSP);(190) 
+0x2cbfe;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;SUB	%RDX,0xe8(%RSP);(190) 
+0x2cc06;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;MOV	0x150(%RSP),%RDX;(190) 
+0x2cc0e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;ADD	%RDX,0xe0(%RSP);(190) 
+0x2cc16;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;ADD	%RDX,0xd8(%RSP);(190) 
+0x2cc1e;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;CMP	%EAX,0x124(%RSP);(190) 
+0x2cc25;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:55;JL	2c190 <buts_+0x5c0>;(190) 
+0x2cc2b;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:235;ADD	$0x178,%RSP;
+0x2cc32;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:235;POP	%RBX;
+0x2cc33;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:235;POP	%RBP;
+0x2cc34;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:235;POP	%R12;
+0x2cc36;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:235;POP	%R13;
+0x2cc38;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:235;POP	%R14;
+0x2cc3a;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:235;POP	%R15;
+0x2cc3c;/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:235;RET;
+0x2cc3d;:0;NOPL	(%RAX);

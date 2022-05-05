@@ -1,1 +1,1 @@
-max_nb_threads = 1
+max_nb_threads = 8

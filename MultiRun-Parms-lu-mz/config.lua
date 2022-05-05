@@ -1,9 +1,9 @@
 experiment_name = "Analyse de code lu-mz CLASS=A en mode scalabilité sur le cluster FOB1"
-executable = "./lu-mz.A.x"
+executable = "./bin/lu-mz.A.x"
 number_processes = 1
 number_processes_nodes = 1
 mpi_command = "mpirun -n <number_processes>"
-envv_OMP_NUM_THREADS= 1
+OMP_NUM_THREADS= 1
 
 multiruns_params = {
 {name="R2x4",envv_OMP_NUM_THREADS="4", number_processes=2, number_processes_per_node = 2},
@@ -13,5 +13,8 @@ multiruns_params = {
 {name="R6x2",envv_OMP_NUM_THREADS="2", number_processes=6, number_processes_per_node = 6},
 {name="R8x2",envv_OMP_NUM_THREADS="2", number_processes=8, number_processes_per_node = 8},
 {name="R16x16",envv_OMP_NUM_THREADS="16", number_processes=16, number_processes_per_node = 16},
+{name="R10x8",envv_OMP_NUM_THREADS="8", number_processes=10, number_processes_per_node = 16},
 {name="R16x1",envv_OMP_NUM_THREADS="1", number_processes=16, number_processes_per_node = 16},
 }
+
+

@@ -1,4 +1,4 @@
-/users/user2210/NPB3.4-MZ-MPI/LU-MZ/setiv.f90: 34 - 60
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setiv.f90: 34 - 60
 --------------------------------------------------------------------------------
 
 34: !$OMP& ue_ij1,ue_iny0k,ue_i1k,ue_nx0jk,ue_1jk,xi,i,eta,j,zeta,k,ig)

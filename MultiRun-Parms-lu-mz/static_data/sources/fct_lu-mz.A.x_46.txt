@@ -1,4 +1,4 @@
-/users/user2210/NPB3.4-MZ-MPI/LU-MZ/syncs.f90: 73 - 88
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/syncs.f90: 73 - 88
 --------------------------------------------------------------------------------
 
 73:       if (iam .gt. 0 .and. iam .le. mthreadnum) then

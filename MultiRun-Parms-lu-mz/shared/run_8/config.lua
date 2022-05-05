@@ -1,9 +1,9 @@
-experiment_name = "Scalability analysis on class A lu-mz on cluster fob1  (MPI-OMP)"
-executable     = "./lu-mz.A.x"
+experiment_name = "Analyse de code lu-mz CLASS=A en mode scalabilité sur le cluster FOB1"
+executable     = "./bin/lu-mz.A.x"
 run_command    = "<executable>"
 batch_script    = ""
 batch_command   = ""
-number_processes = 16
+number_processes = 10
 number_nodes = 1
 mpi_command    = "mpirun -n <number_processes>"
 filter = {
@@ -33,9 +33,9 @@ multiruns_params = {
 --  {},
 }
 scalability_reference = "main"
-base_run_name = "R16x1"
+base_run_name = "R10x8"
 environment_variables = {
-  {name = "OMP_NUM_THREADS", value = "1"},
+  {name = "OMP_NUM_THREADS", value = "8"},
 }
 script_variables = {
 }

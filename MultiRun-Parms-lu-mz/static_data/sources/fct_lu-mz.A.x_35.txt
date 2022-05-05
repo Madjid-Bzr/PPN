@@ -1,4 +1,4 @@
-/users/user2210/NPB3.4-MZ-MPI/LU-MZ/exch_qbc.f90: 241 - 275
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/exch_qbc.f90: 241 - 275
 --------------------------------------------------------------------------------
 
 241:        subroutine copy_x_face(u, qbc, nx, nxmax, ny, nz, iloc, dir)

@@ -4,7 +4,7 @@ __fct = {
       src = "jacld.f90:40-350",
       src_regions = {
         {
-          path = "/users/user2210/NPB3.4-MZ-MPI/LU-MZ/jacld.f90",
+          path = "/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/jacld.f90",
           regions = {
             {40, 60},
             {66, 74},
@@ -25,7 +25,7 @@ __fct = {
         src = "jacld.f90:40-350",
         src_regions = {
           {
-            path = "/users/user2210/NPB3.4-MZ-MPI/LU-MZ/jacld.f90",
+            path = "/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/jacld.f90",
             regions = {
               {40, 60},
               {66, 74},

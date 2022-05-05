@@ -4,7 +4,7 @@ __fct = {
       src = "blts.f90:40-48",
       src_regions = {
         {
-          path = "/users/user2210/NPB3.4-MZ-MPI/LU-MZ/blts.f90",
+          path = "/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/blts.f90",
           regions = {
             {40, 40},
             {48, 48},
@@ -15,7 +15,7 @@ __fct = {
         src = "blts.f90:40-48",
         src_regions = {
           {
-            path = "/users/user2210/NPB3.4-MZ-MPI/LU-MZ/blts.f90",
+            path = "/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/blts.f90",
             regions = {
               {40, 40},
               {48, 48},
@@ -28,11 +28,11 @@ __fct = {
       src = "blts.f90:57-227",
       src_regions = {
         {
-          path = "/users/user2210/NPB3.4-MZ-MPI/LU-MZ/blts.f90",
+          path = "/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/blts.f90",
           regions = {
             {57, 57},
             {70, 70},
-            {80, 195},
+            {87, 195},
             {201, 219},
             {225, 227},
           },
@@ -42,11 +42,11 @@ __fct = {
         src = "blts.f90:57-227",
         src_regions = {
           {
-            path = "/users/user2210/NPB3.4-MZ-MPI/LU-MZ/blts.f90",
+            path = "/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/blts.f90",
             regions = {
               {57, 57},
               {70, 70},
-              {80, 195},
+              {87, 195},
               {201, 219},
               {225, 227},
             },

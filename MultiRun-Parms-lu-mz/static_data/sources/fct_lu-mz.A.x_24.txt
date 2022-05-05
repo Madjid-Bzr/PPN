@@ -1,4 +1,4 @@
-/users/user2210/NPB3.4-MZ-MPI/LU-MZ/erhs.f90: 53 - 484
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/erhs.f90: 53 - 484
 --------------------------------------------------------------------------------
 
 53: !$OMP& u21,xi,eta,zeta,m,i,j,k)

@@ -1,4 +1,4 @@
-/users/user2210/NPB3.4-MZ-MPI/LU-MZ/jacu.f90: 5 - 356
+/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/jacu.f90: 5 - 356
 --------------------------------------------------------------------------------
 
 5:       subroutine jacu(k, u, rho_i, qs, a, b, c, d,  &

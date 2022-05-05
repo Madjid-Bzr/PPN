@@ -1,45 +1,46 @@
-ssor_._omp_fn.0 - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:125
 lu-mz.A.x
-omp_in_final - :0
-libgomp.so.1.0.0
-ssor_._omp_fn.0 - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:140
 GOMP_parallel - :0
-ssor_._omp_fn.0 - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:96
-ssor_._omp_fn.0 - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94
-ssor_._omp_fn.0 - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:125
-ssor_._omp_fn.0 - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:132
-ssor_._omp_fn.0 - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:71
-ssor_._omp_fn.0 - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:115
-main - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/lu.f90:60
-setiv_._omp_fn.0 - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/setiv.f90:44
-setiv_._omp_fn.0 - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/setiv.f90:49
-setiv_._omp_fn.0 - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/setiv.f90:48
-setiv_._omp_fn.0 - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/setiv.f90:47
-setiv_._omp_fn.0 - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/setiv.f90:46
-error_._omp_fn.0 - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/error.f90:45
-setbv_._omp_fn.0 - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/setbv.f90:34
+libgomp.so.1.0.0
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:132
+omp_in_final - :0
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:138
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:94
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:115
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:71
+main - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/lu.f90:60
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setiv.f90:49
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setiv.f90:44
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setiv.f90:47
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setiv.f90:46
+setiv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setiv.f90:48
+error_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/error.f90:45
+setbv_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/setbv.f90:34
 psiginfo - :0
 libc-2.31.so
-_IO_ungetc - :0
-__isoc99_sscanf - :0
 vscanf - :0
-__isoc99_fscanf - :0
-MPL_shm_seg_remove - :0
-libmpich.so.12.1.8
+__isoc99_sscanf - :0
+_IO_ungetc - :0
 unknown kernel region
 kernel
 omp_get_num_procs - :0
-jacld - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/jacld.f90:209
-rhs_._omp_fn.0 - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/rhs.f90:65
-ssor_._omp_fn.0 - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48
-copy_x_face_._omp_fn.1 - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/exch_qbc.f90:265
-rhs_._omp_fn.0 - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/rhs.f90:297
 openat - :0
-jacld - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/jacld.f90:53
-blts - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/blts.f90:210
-mpirinitf_ - :0
-blts - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/blts.f90:48
-setbv_._omp_fn.0 - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/setbv.f90:52
-ssor_._omp_fn.0 - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:91
-ssor_._omp_fn.0 - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:135
-rhs - /users/user2210/NPB3.4-MZ-MPI/LU-MZ/rhs.f90:47
+blts - /home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/blts.f90:171
+jacu - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/jacu.f90:323
+__nss_database_lookup - :0
+jacld - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/jacld.f90:60
+jacu - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/jacu.f90:53
+jacu - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/jacu.f90:51
+sync_left - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/syncs.f90:75
+jacld - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/jacld.f90:166
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:48
+buts - /home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90:221
+copy_y_face_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/exch_qbc.f90:218
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:135
+ssor_._omp_fn.0 - /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/ssor.f90:91
+MPL_shm_seg_remove - :0
+libmpich.so.12.1.8
+__nss_lookup_function - :0
+__nss_lookup - :0
+gethostbyname2_r - :0
+__clock_gettime - :0

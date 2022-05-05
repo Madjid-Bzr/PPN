@@ -1,5 +1,5 @@
-experiment_name = "Scalability analysis on class A lu-mz on cluster fob1  (MPI-OMP)"
-executable     = "./lu-mz.A.x"
+experiment_name = "Analyse de code lu-mz CLASS=A en mode scalabilité sur le cluster FOB1"
+executable     = "./bin/lu-mz.A.x"
 run_command    = "<executable>"
 batch_script    = ""
 batch_command   = ""
@@ -37,13 +37,12 @@ multiruns_params = {
   {number_processes = 6,number_processes_per_node = 6,environment_variables = {{name = "OMP_NUM_THREADS", value = "2",},},name = "R6x2",},
   {number_processes = 8,number_processes_per_node = 8,environment_variables = {{name = "OMP_NUM_THREADS", value = "2",},},name = "R8x2",},
   {number_processes = 16,number_processes_per_node = 16,environment_variables = {{name = "OMP_NUM_THREADS", value = "16",},},name = "R16x16",},
+  {number_processes = 10,number_processes_per_node = 16,environment_variables = {{name = "OMP_NUM_THREADS", value = "8",},},name = "R10x8",},
   {number_processes = 16,number_processes_per_node = 16,environment_variables = {{name = "OMP_NUM_THREADS", value = "1",},},name = "R16x1",},
 }
 scalability_reference = "main"
 base_run_name = ""
-environment_variables = {
-  {name = "OMP_NUM_THREADS", value = "1"},
-}
+environment_variables = {}
 script_variables = {
 }
 qplot_script = nil

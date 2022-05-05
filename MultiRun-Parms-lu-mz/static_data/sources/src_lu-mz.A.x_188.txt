@@ -1,6 +1,6 @@
-/users/user2210/NPB3.4-MZ-MPI/LU-MZ/buts.f90: 40 - 47
+/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90: 40 - 40
 --------------------------------------------------------------------------------
 
-40:          do i = iend, ist, -1
-[...]
-47:      &               + udz( m, 5, i, j ) * v( 5, i, j, k+1 ) )
+/home/arezki/Téléchargements/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/buts.f90: 47 - 47
+--------------------------------------------------------------------------------
+

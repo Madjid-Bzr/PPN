@@ -4,22 +4,22 @@ If this is incorrect, rerun with an explicit value for this setting
 
 * Info: Selecting the 'perf-high-ppn' engine for node knl01
 
-* Info: Process launched (host knl01, process 44338)
-* Info: Process launched (host knl01, process 44337)
-* Info: Process launched (host knl01, process 44339)
-* Info: Process launched (host knl01, process 44340)
-* Info: Process launched (host knl01, process 44341)
-* Info: Process launched (host knl01, process 44342)
-* Info: Process launched (host knl01, process 44343)
-* Info: Process launched (host knl01, process 44344)
-* Info: Process launched (host knl01, process 44346)
-* Info: Process launched (host knl01, process 44345)
-* Info: Process launched (host knl01, process 44347)
-* Info: Process launched (host knl01, process 44348)
-* Info: Process launched (host knl01, process 44349)
-* Info: Process launched (host knl01, process 44350)
-* Info: Process launched (host knl01, process 44352)
-* Info: Process launched (host knl01, process 44353)
+* Info: Process launched (host knl01, process 12573)
+* Info: Process launched (host knl01, process 12574)
+* Info: Process launched (host knl01, process 12575)
+* Info: Process launched (host knl01, process 12576)
+* Info: Process launched (host knl01, process 12577)
+* Info: Process launched (host knl01, process 12578)
+* Info: Process launched (host knl01, process 12579)
+* Info: Process launched (host knl01, process 12580)
+* Info: Process launched (host knl01, process 12581)
+* Info: Process launched (host knl01, process 12582)
+* Info: Process launched (host knl01, process 12583)
+* Info: Process launched (host knl01, process 12584)
+* Info: Process launched (host knl01, process 12585)
+* Info: Process launched (host knl01, process 12586)
+* Info: Process launched (host knl01, process 12587)
+* Info: Process launched (host knl01, process 12588)
 
  NAS Parallel Benchmarks (NPB3.4-MZ MPI+OpenMP) - LU-MZ Benchmark
 
@@ -51,13 +51,13 @@ If this is incorrect, rerun with an explicit value for this setting
  Verification being performed for class A
  Accuracy setting for epsilon =  0.1000000000000E-07
  Comparison of RMS-norms of residual
-           1   0.1131574877175E+04 0.1131574877175E+04 0.4018711974428E-13
-           2   0.7965206944742E+02 0.7965206944742E+02 0.3978579117247E-13
+           1   0.1131574877175E+04 0.1131574877175E+04 0.4038805534300E-13
+           2   0.7965206944742E+02 0.7965206944742E+02 0.4014261441168E-13
            3   0.2705587159526E+03 0.2705587159526E+03 0.7395394145243E-13
            4   0.2129567530746E+03 0.2129567530746E+03 0.9529212030294E-13
            5   0.2260584655432E+04 0.2260584655432E+04 0.2635243180253E-13
  Comparison of RMS-norms of solution error
-           1   0.1115694885382E+03 0.1115694885382E+03 0.3432681637180E-12
+           1   0.1115694885382E+03 0.1115694885382E+03 0.3431407914866E-12
            2   0.1089257673798E+02 0.1089257673798E+02 0.1663411715862E-12
            3   0.2905379922066E+02 0.2905379922066E+02 0.6737656656025E-13
            4   0.2216126755530E+02 0.2216126755530E+02 0.6220099567567E-13
@@ -71,22 +71,22 @@ If this is incorrect, rerun with an explicit value for this setting
  Class           =                        A
  Size            =            128x  128x 16
  Iterations      =                      250
- Time in seconds =                     1.97
+ Time in seconds =                     2.24
  Total processes =                       16
  Total threads   =                      256
- Mop/s total     =                 51995.72
- Mop/s/thread    =                   203.11
+ Mop/s total     =                 45825.70
+ Mop/s/thread    =                   179.01
  Operation type  =           floating point
  Verification    =               SUCCESSFUL
  Version         =                    3.4.1
- Compile date    =              04 May 2022
+ Compile date    =              03 May 2022
 
  Compile options:
     FC           = mpif90
     FLINK        = $(FC)
     F_LIB        = (none)
-    F_INC        = -march=native -funroll-loops
-    FFLAGS       = -O3 -g -fopenmp
+    F_INC        = (none)
+    FFLAGS       = -Ofast  -funroll-loops  -g -fopenmp -O3  -m...
     FLINKFLAGS   = $(FFLAGS)
     RAND         = (none)
 
@@ -98,36 +98,36 @@ If this is incorrect, rerun with an explicit value for this setting
 
 
 
-* Info: Process finished (host knl01, process 44343)
-* Info: Process finished (host knl01, process 44340)
-* Info: Process finished (host knl01, process 44352)
-* Info: Process finished (host knl01, process 44338)
-* Info: Process finished (host knl01, process 44346)
-* Info: Process finished (host knl01, process 44339)
-* Info: Process finished (host knl01, process 44342)
-* Info: Process finished (host knl01, process 44337)
-* Info: Process finished (host knl01, process 44348)
-* Info: Process finished (host knl01, process 44345)
-* Info: Process finished (host knl01, process 44344)
-* Info: Process finished (host knl01, process 44341)
-* Info: Process finished (host knl01, process 44350)
-* Info: Process finished (host knl01, process 44347)
-* Info: Process finished (host knl01, process 44353)
-* Info: Process finished (host knl01, process 44349)
+* Info: Process finished (host knl01, process 12578)
+* Info: Process finished (host knl01, process 12573)
+* Info: Process finished (host knl01, process 12585)
+* Info: Process finished (host knl01, process 12579)
+* Info: Process finished (host knl01, process 12575)
+* Info: Process finished (host knl01, process 12588)
+* Info: Process finished (host knl01, process 12587)
+* Info: Process finished (host knl01, process 12584)
+* Info: Process finished (host knl01, process 12586)
+* Info: Process finished (host knl01, process 12580)
+* Info: Process finished (host knl01, process 12581)
+* Info: Process finished (host knl01, process 12574)
+* Info: Process finished (host knl01, process 12582)
+* Info: Process finished (host knl01, process 12576)
+* Info: Process finished (host knl01, process 12583)
+* Info: Process finished (host knl01, process 12577)
 
-Your experiment path is /users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_7
+Your experiment path is /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_7
 
 To display your profiling results:
-##########################################################################################################################
-#    LEVEL    |     REPORT     |                                         COMMAND                                         #
-##########################################################################################################################
-#  Functions  |  Cluster-wide  |  maqao lprof -df xp=/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_7      #
-#  Functions  |  Per-node      |  maqao lprof -df -dn xp=/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_7  #
-#  Functions  |  Per-process   |  maqao lprof -df -dp xp=/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_7  #
-#  Functions  |  Per-thread    |  maqao lprof -df -dt xp=/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_7  #
-#  Loops      |  Cluster-wide  |  maqao lprof -dl xp=/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_7      #
-#  Loops      |  Per-node      |  maqao lprof -dl -dn xp=/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_7  #
-#  Loops      |  Per-process   |  maqao lprof -dl -dp xp=/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_7  #
-#  Loops      |  Per-thread    |  maqao lprof -dl -dt xp=/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_7  #
-##########################################################################################################################
+#######################################################################################################################################
+#    LEVEL    |     REPORT     |                                               COMMAND                                                #
+#######################################################################################################################################
+#  Functions  |  Cluster-wide  |  maqao lprof -df xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_7      #
+#  Functions  |  Per-node      |  maqao lprof -df -dn xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_7  #
+#  Functions  |  Per-process   |  maqao lprof -df -dp xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_7  #
+#  Functions  |  Per-thread    |  maqao lprof -df -dt xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_7  #
+#  Loops      |  Cluster-wide  |  maqao lprof -dl xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_7      #
+#  Loops      |  Per-node      |  maqao lprof -dl -dn xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_7  #
+#  Loops      |  Per-process   |  maqao lprof -dl -dp xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_7  #
+#  Loops      |  Per-thread    |  maqao lprof -dl -dt xp=/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_7  #
+#######################################################################################################################################
 

@@ -1,2 +1,2 @@
-time = 7.990375995636
-profiled_time = 6.89
+time = 8.807825088501
+profiled_time = 7.42

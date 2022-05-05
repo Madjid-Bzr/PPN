@@ -46,7 +46,7 @@ _cqa_text_report = {
         },
         {
           title = "ASM code",
-          txt = "In the binary file, the address of the function is: 2d4b0\n\nInstruction                 | Nb FU | P0 | P1 | P2   | P3   | P4   | P5   | P6 | Latency | Recip. throughput\n------------------------------------------------------------------------------------------------------------\nMFENCE\nMOVSXD %FS:-0xc,%RSI        | 1     | 0  | 0  | 1    | 0    | 0    | 0    | 0  | 4       | 1\nCMP %FS:-0x10,%ESI          | 1     | 0  | 0  | 1    | 0    | 0.50 | 0.50 | 0  | 1       | 1\nJL 2d4c8 <sync_right_+0x18> | 1     | 0  | 0  | 0    | 0    | 0    | 1    | 0  | 0       | 1-2\nRET\nNOP                         | 1     | 0  | 0  | 0    | 0    | 0.50 | 0.50 | 0  | 0       | 0.50\nMOVSXD %ESI,%RDX            | 1     | 0  | 0  | 0    | 0    | 1    | 0    | 0  | 1       | 1\nLEA 0x2382e(%RIP),%RCX      | 1     | 0  | 0  | 0    | 0    | 0.50 | 0.50 | 0  | 1       | 0.50\nNOPW %CS:(%RAX,%RAX,1)      | 1     | 0  | 0  | 0    | 0    | 0.50 | 0.50 | 0  | 0       | 0.50\nNOPL (%RAX)                 | 1     | 0  | 0  | 0    | 0    | 0.50 | 0.50 | 0  | 0       | 0.50\nMOVL $0x1,(%RCX,%RSI,4)     | 1     | 0  | 0  | 0.50 | 0.50 | 0    | 0    | 1  | 1       | 1\nRET\n",
+          txt = "In the binary file, the address of the function is: 2ccf0\n\nInstruction                 | Nb FU | P0 | P1 | P2   | P3   | P4   | P5   | P6 | Latency | Recip. throughput\n------------------------------------------------------------------------------------------------------------\nMFENCE\nMOVSXD %FS:-0xc,%RSI        | 1     | 0  | 0  | 1    | 0    | 0    | 0    | 0  | 4       | 1\nCMP %FS:-0x10,%ESI          | 1     | 0  | 0  | 1    | 0    | 0.50 | 0.50 | 0  | 1       | 1\nJL 2cd08 <sync_right_+0x18> | 1     | 0  | 0  | 0    | 0    | 0    | 1    | 0  | 0       | 1-2\nRET\nNOP                         | 1     | 0  | 0  | 0    | 0    | 0.50 | 0.50 | 0  | 0       | 0.50\nMOVSXD %ESI,%RDX            | 1     | 0  | 0  | 0    | 0    | 1    | 0    | 0  | 1       | 1\nLEA 0x23fee(%RIP),%RCX      | 1     | 0  | 0  | 0    | 0    | 0.50 | 0.50 | 0  | 1       | 0.50\nNOPW %CS:(%RAX,%RAX,1)      | 1     | 0  | 0  | 0    | 0    | 0.50 | 0.50 | 0  | 0       | 0.50\nNOPL (%RAX)                 | 1     | 0  | 0  | 0    | 0    | 0.50 | 0.50 | 0  | 0       | 0.50\nMOVL $0x1,(%RCX,%RSI,4)     | 1     | 0  | 0  | 0.50 | 0.50 | 0    | 0    | 1  | 1       | 1\nRET\n",
         },
       },
       header = {
@@ -116,7 +116,7 @@ _cqa_text_report = {
         },
         {
           title = "ASM code",
-          txt = "In the binary file, the address of the function is: 2d4b0\n\nInstruction                 | Nb FU | P0 | P1 | P2   | P3   | P4   | P5   | P6 | Latency | Recip. throughput\n------------------------------------------------------------------------------------------------------------\nMFENCE\nMOVSXD %FS:-0xc,%RSI        | 1     | 0  | 0  | 1    | 0    | 0    | 0    | 0  | 4       | 1\nCMP %FS:-0x10,%ESI          | 1     | 0  | 0  | 1    | 0    | 0.50 | 0.50 | 0  | 1       | 1\nJL 2d4c8 <sync_right_+0x18> | 1     | 0  | 0  | 0    | 0    | 0    | 1    | 0  | 0       | 1-2\nRET\nNOP                         | 1     | 0  | 0  | 0    | 0    | 0.50 | 0.50 | 0  | 0       | 0.50\nMOVSXD %ESI,%RDX            | 1     | 0  | 0  | 0    | 0    | 1    | 0    | 0  | 1       | 1\nLEA 0x2382e(%RIP),%RCX      | 1     | 0  | 0  | 0    | 0    | 0.50 | 0.50 | 0  | 1       | 0.50\nNOPW %CS:(%RAX,%RAX,1)      | 1     | 0  | 0  | 0    | 0    | 0.50 | 0.50 | 0  | 0       | 0.50\nNOPL (%RAX)                 | 1     | 0  | 0  | 0    | 0    | 0.50 | 0.50 | 0  | 0       | 0.50\nMOVL $0x1,(%RCX,%RSI,4)     | 1     | 0  | 0  | 0.50 | 0.50 | 0    | 0    | 1  | 1       | 1\nRET\n",
+          txt = "In the binary file, the address of the function is: 2ccf0\n\nInstruction                 | Nb FU | P0 | P1 | P2   | P3   | P4   | P5   | P6 | Latency | Recip. throughput\n------------------------------------------------------------------------------------------------------------\nMFENCE\nMOVSXD %FS:-0xc,%RSI        | 1     | 0  | 0  | 1    | 0    | 0    | 0    | 0  | 4       | 1\nCMP %FS:-0x10,%ESI          | 1     | 0  | 0  | 1    | 0    | 0.50 | 0.50 | 0  | 1       | 1\nJL 2cd08 <sync_right_+0x18> | 1     | 0  | 0  | 0    | 0    | 0    | 1    | 0  | 0       | 1-2\nRET\nNOP                         | 1     | 0  | 0  | 0    | 0    | 0.50 | 0.50 | 0  | 0       | 0.50\nMOVSXD %ESI,%RDX            | 1     | 0  | 0  | 0    | 0    | 1    | 0    | 0  | 1       | 1\nLEA 0x23fee(%RIP),%RCX      | 1     | 0  | 0  | 0    | 0    | 0.50 | 0.50 | 0  | 1       | 0.50\nNOPW %CS:(%RAX,%RAX,1)      | 1     | 0  | 0  | 0    | 0    | 0.50 | 0.50 | 0  | 0       | 0.50\nNOPL (%RAX)                 | 1     | 0  | 0  | 0    | 0    | 0.50 | 0.50 | 0  | 0       | 0.50\nMOVL $0x1,(%RCX,%RSI,4)     | 1     | 0  | 0  | 0.50 | 0.50 | 0    | 0    | 1  | 1       | 1\nRET\n",
         },
       },
       header = {
@@ -141,8 +141,8 @@ _cqa_text_report = {
     },
   common = {
     header = {
-      "The function is defined in /users/user2210/NPB3.4-MZ-MPI/LU-MZ/syncs.f90:111-119,125.\n",
-      "Warnings:\nIgnoring paths for analysis",
+      "The function is defined in /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/LU-MZ/syncs.f90:111-119,125.\n",
+      "Warnings:\nget_cqa_results:\n - Ignoring paths for analysis\n",
     },
   },
 }

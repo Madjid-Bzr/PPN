@@ -2,90 +2,19 @@
 
 MAQAO 2.15.5 - 0b66882c33fcd95ef103e22d5fec6c0d2ff1b5e2::20220328-144625 || 2022/03/28
 
-maqao oneview -R1 -WS -xp=lu-mz -c=file.lua 
+maqao oneview -R1 -WS -xp=mpi-raport -c=conf.lua -dbg=1 --replace 
 
-CMD:  OMP_NUM_THREADS=1   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_0" --mpi-command="mpirun -n 1"   -- /users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/binaries/lu-mz.A.x
-CMD:  OMP_NUM_THREADS=4   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_1" --mpi-command="mpirun -n 2"   -- /users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/binaries/lu-mz.A.x
-CMD:  OMP_NUM_THREADS=4   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_2" --mpi-command="mpirun -n 3"   -- /users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/binaries/lu-mz.A.x
-CMD:  OMP_NUM_THREADS=2   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_3" --mpi-command="mpirun -n 4"   -- /users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/binaries/lu-mz.A.x
-CMD:  OMP_NUM_THREADS=4   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_4" --mpi-command="mpirun -n 4"   -- /users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/binaries/lu-mz.A.x
-CMD:  OMP_NUM_THREADS=2   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_5" --mpi-command="mpirun -n 6"   -- /users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/binaries/lu-mz.A.x
-CMD:  OMP_NUM_THREADS=2   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_6" --mpi-command="mpirun -n 8"   -- /users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/binaries/lu-mz.A.x
-CMD:  OMP_NUM_THREADS=16   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_7" --mpi-command="mpirun -n 16"   -- /users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/binaries/lu-mz.A.x
-CMD:  OMP_NUM_THREADS=1   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_8" --mpi-command="mpirun -n 16"   -- /users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/binaries/lu-mz.A.x
-In run , 13 loops were discarded from static analysis because their coverage
-are lower than object_coverage_threshold value (0.01%).
-That represents 0% of the execution time. To include them, change the value
-in the experiment directory configuration file, then rerun the command with the additionnal parameter
---force-static-analysis
-
-8 functions were discarded from static analysis because their coverage
-are lower than object_coverage_threshold value (0.01%).
-That represents 0% of the execution time. To include them, change the value
-in the experiment directory configuration file, then rerun the command with the additionnal parameter
---force-static-analysis
-
-In run , 19 loops were discarded from static analysis because their coverage
-are lower than object_coverage_threshold value (0.01%).
-That represents 0% of the execution time. To include them, change the value
-in the experiment directory configuration file, then rerun the command with the additionnal parameter
---force-static-analysis
-
-16 functions were discarded from static analysis because their coverage
-are lower than object_coverage_threshold value (0.01%).
-That represents 0% of the execution time. To include them, change the value
-in the experiment directory configuration file, then rerun the command with the additionnal parameter
---force-static-analysis
-
-In run , 16 loops were discarded from static analysis because their coverage
-are lower than object_coverage_threshold value (0.01%).
-That represents 0% of the execution time. To include them, change the value
-in the experiment directory configuration file, then rerun the command with the additionnal parameter
---force-static-analysis
-
-2 functions were discarded from static analysis because their coverage
-are lower than object_coverage_threshold value (0.01%).
-That represents 0% of the execution time. To include them, change the value
-in the experiment directory configuration file, then rerun the command with the additionnal parameter
---force-static-analysis
-
-In run , 9 loops were discarded from static analysis because their coverage
-are lower than object_coverage_threshold value (0.01%).
-That represents 0% of the execution time. To include them, change the value
-in the experiment directory configuration file, then rerun the command with the additionnal parameter
---force-static-analysis
-
-7 functions were discarded from static analysis because their coverage
-are lower than object_coverage_threshold value (0.01%).
-That represents 0% of the execution time. To include them, change the value
-in the experiment directory configuration file, then rerun the command with the additionnal parameter
---force-static-analysis
-
-In run , 12 loops were discarded from static analysis because their coverage
-are lower than object_coverage_threshold value (0.01%).
-That represents 0% of the execution time. To include them, change the value
-in the experiment directory configuration file, then rerun the command with the additionnal parameter
---force-static-analysis
-
-12 functions were discarded from static analysis because their coverage
-are lower than object_coverage_threshold value (0.01%).
-That represents 0% of the execution time. To include them, change the value
-in the experiment directory configuration file, then rerun the command with the additionnal parameter
---force-static-analysis
-
-In run , 13 loops were discarded from static analysis because their coverage
-are lower than object_coverage_threshold value (0.01%).
-That represents 0% of the execution time. To include them, change the value
-in the experiment directory configuration file, then rerun the command with the additionnal parameter
---force-static-analysis
-
-3 functions were discarded from static analysis because their coverage
-are lower than object_coverage_threshold value (0.01%).
-That represents 0% of the execution time. To include them, change the value
-in the experiment directory configuration file, then rerun the command with the additionnal parameter
---force-static-analysis
-
-In run , 22 loops were discarded from static analysis because their coverage
+CMD:   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_0" --mpi-command="mpirun -n 1"   -- /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/binaries/lu-mz.A.x
+CMD:  OMP_NUM_THREADS=4   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_1" --mpi-command="mpirun -n 2"   -- /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/binaries/lu-mz.A.x
+CMD:  OMP_NUM_THREADS=4   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_2" --mpi-command="mpirun -n 3"   -- /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/binaries/lu-mz.A.x
+CMD:  OMP_NUM_THREADS=2   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_3" --mpi-command="mpirun -n 4"   -- /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/binaries/lu-mz.A.x
+CMD:  OMP_NUM_THREADS=4   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_4" --mpi-command="mpirun -n 4"   -- /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/binaries/lu-mz.A.x
+CMD:  OMP_NUM_THREADS=2   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_5" --mpi-command="mpirun -n 6"   -- /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/binaries/lu-mz.A.x
+CMD:  OMP_NUM_THREADS=2   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_6" --mpi-command="mpirun -n 8"   -- /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/binaries/lu-mz.A.x
+CMD:  OMP_NUM_THREADS=16   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_7" --mpi-command="mpirun -n 16"   -- /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/binaries/lu-mz.A.x
+CMD:  OMP_NUM_THREADS=8   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_8" --mpi-command="mpirun -n 10"   -- /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/binaries/lu-mz.A.x
+CMD:  OMP_NUM_THREADS=1   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_9" --mpi-command="mpirun -n 16"   -- /users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/binaries/lu-mz.A.x
+In run , 15 loops were discarded from static analysis because their coverage
 are lower than object_coverage_threshold value (0.01%).
 That represents 0% of the execution time. To include them, change the value
 in the experiment directory configuration file, then rerun the command with the additionnal parameter
@@ -97,13 +26,109 @@ That represents 0% of the execution time. To include them, change the value
 in the experiment directory configuration file, then rerun the command with the additionnal parameter
 --force-static-analysis
 
-In run , 12 loops were discarded from static analysis because their coverage
+In run , 10 loops were discarded from static analysis because their coverage
 are lower than object_coverage_threshold value (0.01%).
 That represents 0% of the execution time. To include them, change the value
 in the experiment directory configuration file, then rerun the command with the additionnal parameter
 --force-static-analysis
 
-7 functions were discarded from static analysis because their coverage
+11 functions were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+In run , 16 loops were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+10 functions were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+In run , 10 loops were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+4 functions were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+In run , 13 loops were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+11 functions were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+In run , 20 loops were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+5 functions were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+In run , 16 loops were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+4 functions were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+In run , 28 loops were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+9 functions were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+In run , 41 loops were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+5 functions were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+In run , 16 loops were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+
+4 functions were discarded from static analysis because their coverage
 are lower than object_coverage_threshold value (0.01%).
 That represents 0% of the execution time. To include them, change the value
 in the experiment directory configuration file, then rerun the command with the additionnal parameter

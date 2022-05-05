@@ -18,7 +18,7 @@ Table:new({
 	["libs_to_disass"] = "off";
 	["keep_ext_threads"] = false;
 	["kill_signals"] = "";
-	["exe_path"] = "/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/binaries/lu-mz.A.x";
+	["exe_path"] = "/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/binaries/lu-mz.A.x";
 	["lcore-flow-all"] = false;
 	["max_processes"] = 0;
 	["use_OS_timers"] = false;
@@ -31,7 +31,7 @@ Table:new({
 	["backtrace_mode"] = 1;
 	["user_guided"] = -1;
 	["evts_profiles"] = "";
-	["experiment_path"] = "/users/user2210/NPB3.4-MZ-MPI/bin/lu-mz/tools/lprof_npsu_run_1";
+	["experiment_path"] = "/users/user2222/NPB3.4.1-MZ/NPB3.4-MZ-MPI/mpi-raport/tools/lprof_npsu_run_1";
 	["ign_signals"] = "";
 	["cpu_clock_rate"] = 0;
 	["max_callchain_len"] = 20;
