@@ -95,7 +95,7 @@ void move_particles(particle_t p, const f32 dt, u64 n)
 int main(int argc, char **argv)
 {
   //
-  const u64 n = (argc > 1) ? atoll(argv[1]) : 16384;
+  const u64 n = (argc > 1) ? atoll(argv[1]) : 100000;
   const u64 steps= 10;
   const f32 dt = 0.01;
 
@@ -199,3 +199,4 @@ int main(int argc, char **argv)
   //
   return 0;
 }
+
