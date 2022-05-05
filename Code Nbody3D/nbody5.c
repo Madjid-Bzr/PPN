@@ -96,7 +96,7 @@ int main(int argc, char **argv)
   MPI_Comm_size(MPI_COMM_WORLD, &mpi_world_size);
   MPI_Comm_rank(MPI_COMM_WORLD, &mpi_rank);
 
-  const u64 n = (argc > 1) ? atoll(argv[1]) : 16384;
+  const u64 n = (argc > 1) ? atoll(argv[1]) : 100000;
   
   const int particles = n / mpi_world_size;
   const u64 steps = 10;
@@ -228,4 +228,3 @@ int main(int argc, char **argv)
   MPI_Finalize();
   return 0;
 }
-
