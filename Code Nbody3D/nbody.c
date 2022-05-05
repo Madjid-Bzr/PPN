@@ -117,7 +117,7 @@ int main(int argc, char **argv)
   
   
   //
-  const u64 n = (argc > 1) ? atoll(argv[1]) : 16384;
+  const u64 n = (argc > 1) ? atoll(argv[1]) : 100000;
   const u64 steps= 10;
   const f32 dt = 0.01;
 

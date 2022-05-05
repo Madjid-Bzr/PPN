@@ -1,30 +1,26 @@
-all: nbody.g nbody.g1 nbody.g2 nbody.g3 nbody.g4 nbody.g5
+all: nbody  nbody_opt nbody_omp nbody_pthread nbody_mpi
 
-nbody.g: nbody.c
+nbody: nbody.c
 	gcc -g -mavx2 -Ofast -march=native -fopt-info-all=nbody.gcc.optrpt $< -o $@ -lm -fopenmp
 
-nbody.g1: nbody1.c
-	gcc  -mavx2 -funroll-loops -march=native -mtune=generic -finline-functions -fno-omit-frame-pointer  -ftree-vectorize -Ofast -g -fopt-info-all=nbody.gcc.optrpt $< -o $@ -lm -fopenmp
+nbody_opt: nbody_opt.c
+	gcc -g -Ofast -funroll-loops -march=native -mtune=generic -finline-functions -fno-omit-frame-pointer  -ftree-vectorize -fopt-info-all=nbody.gcc.optrpt $< -o $@ -lm -fopenmp
+nbody_omp: nbody_omp.c
+	gcc -g -Ofast -funroll-loops -march=native -mtune=generic -finline-functions -fno-omit-frame-pointer -ftree-vectorize -fopt-info-all=nbody.gcc.optrpt $< -o $@ -lm -fopenmp
+nbody_pthread: nbody_pthread.c
+	gcc -g -Ofast -funroll-loops -march=native -mtune=generic -finline-functions -fno-omit-frame-pointer  -ftree-vectorize -fopt-info-all=nbody.gcc.optrpt $< -o $@ -lm -fopenmp
 
-nbody.g2: nbody2.c
-	gcc   -funroll-loops -march=native -mtune=generic -finline-functions -fno-omit-frame-pointer  -ftree-vectorize -Ofast -g -fopt-info-all=nbody.gcc.optrpt $< -o $@ -lm -fopenmp
-nbody.g3: nbody3.c
-	gcc   -funroll-loops -march=native -mtune=generic -finline-functions -fno-omit-frame-pointer  -ftree-vectorize -Ofast -g -fopt-info-all=nbody.gcc.optrpt $< -o $@ -lm -fopenmp
-nbody.g4: nbody4.c
-	gcc   -funroll-loops -march=native -mtune=generic -finline-functions -fno-omit-frame-pointer  -ftree-vectorize -Ofast -g -fopt-info-all=nbody.gcc.optrpt $< -o $@ -lm -fopenmp
-
-nbody.g5: nbody5.c
-	mpicc   -funroll-loops -march=native -mtune=generic -finline-functions -fno-omit-frame-pointer  -ftree-vectorize -Ofast -g -fopt-info-all=nbody.gcc.optrpt $< -o $@ -lm -fopenmp
+nbody_mpi: nbody_mpi.c
+	mpicc -g -Ofast -funroll-loops -march=native -mtune=generic -finline-functions -fno-omit-frame-pointer -ftree-vectorize -fopt-info-all=nbody.gcc.optrpt $< -o $@ -lm -fopenmp
 
 
 run: 
-	./nbody.g 16384
-	./nbody.g1 16384
-	./nbody.g2 16384
-	./nbody.g3 16384
-	./nbody.g4 16384
-	./nbody.g5 16384
+	./nbody 16384
+	./nbody_opt 16384
+	./nbody_omp 16384
+	./nbody_pthread 16384
+	mpirun -np 4 ./nbody_mpi 16384
 
 clean:
-	rm -Rf *~ nbody.g nbody.g1 nbody.g2 nbody.g3 nbody.g4 nbody.g5 *.optrpt 
+	rm -Rf *~ nbody nbody_opt nbody_omp nbody_pthread nbody_mpi *.optrpt 
 

@@ -1,1 +1,0 @@
-# VersionFinaleNbody3D
