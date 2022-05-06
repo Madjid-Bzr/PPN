@@ -1,0 +1,1 @@
+maqao oneview -R1 -WS -xp=rapport_openMP -c=config_openMP.lua -dbg=1 

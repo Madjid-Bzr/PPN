@@ -1,0 +1,9 @@
+/users/user2234/Code_Nbody3D/nbody_omp.c: 91 - 96
+--------------------------------------------------------------------------------
+
+91: #pragma omp parallel for
+92:   for (u64 i = 0; i < n; i ++)
+93:   {
+94:     p.x[i] += (dt * p.vx[i]);
+95:     p.y[i] += (dt * p.vy[i]);
+96:     p.z[i] += (dt * p.vz[i]);

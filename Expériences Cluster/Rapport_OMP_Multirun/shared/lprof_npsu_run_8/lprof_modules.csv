@@ -1,0 +1,5 @@
+name;time_p;time_s;cpi_ratio;
+/users/user2234/Code_Nbody3D/rapport_openMP/binaries/nbody_omp;99.38;5.42;;
+/usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0;0.53;0.03;;
+kernel;0.06;0;;
+/usr/lib/x86_64-linux-gnu/libc-2.31.so;0.02;0;;

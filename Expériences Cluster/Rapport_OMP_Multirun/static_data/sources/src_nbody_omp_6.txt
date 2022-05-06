@@ -1,0 +1,17 @@
+/users/user2234/Code_Nbody3D/nbody_omp.c: 68 - 81
+--------------------------------------------------------------------------------
+
+68:       const f32 dx = p.x[j] - p_xi; // 1
+69:       const f32 dy = p.y[j] - p_yi; // 2
+70:       const f32 dz = p.z[j] - p_zi; // 3
+71:       const f32 d_2 = (dz * dz) + softening;
+72:       const f32 d_3 = (dx * dx) + d_2;
+73:       const f32 d_4 = (dy * dy) + d_3;
+74:       const f32 t = sqrtf(d_4);
+75: 
+76:       const f32 d_3_over_2 = 1.0f / (d_4 * t); // 11
+77: 
+78:       // Net force
+79:       fx += (dx * d_3_over_2); // 13
+80:       fy += (dy * d_3_over_2); // 15
+81:       fz += (dz * d_3_over_2); // 17

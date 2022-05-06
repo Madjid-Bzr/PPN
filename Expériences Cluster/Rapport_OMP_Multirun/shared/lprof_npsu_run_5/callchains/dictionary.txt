@@ -1,0 +1,18 @@
+omp_in_final - :0
+libgomp.so.1.0.0
+GOMP_parallel - :0
+main - /users/user2234/Code_Nbody3D/nbody_omp.c:131
+nbody_omp
+__libc_start_main - :0
+libc-2.31.so
+unknown kernel region
+kernel
+move_particles._omp_fn.0 - /users/user2234/Code_Nbody3D/nbody_omp.c:72
+move_particles._omp_fn.0 - /users/user2234/Code_Nbody3D/nbody_omp.c:70
+move_particles._omp_fn.0 - /users/user2234/Code_Nbody3D/nbody_omp.c:73
+move_particles._omp_fn.0 - /users/user2234/Code_Nbody3D/nbody_omp.c:76
+move_particles._omp_fn.0 - /users/user2234/Code_Nbody3D/nbody_omp.c:69
+move_particles._omp_fn.0 - /users/user2234/Code_Nbody3D/nbody_omp.c:68
+move_particles._omp_fn.0 - /users/user2234/Code_Nbody3D/nbody_omp.c:74
+move_particles._omp_fn.0 - /users/user2234/Code_Nbody3D/nbody_omp.c:80
+move_particles._omp_fn.0 - /users/user2234/Code_Nbody3D/nbody_omp.c:79

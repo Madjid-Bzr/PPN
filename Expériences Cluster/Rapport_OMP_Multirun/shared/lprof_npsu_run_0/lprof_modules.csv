@@ -1,0 +1,4 @@
+name;time_p;time_s;cpi_ratio;
+/users/user2234/Code_Nbody3D/rapport_openMP/binaries/nbody_omp;99.94;131.88;;
+kernel;0.03;0.04;;
+/usr/lib/x86_64-linux-gnu/libc-2.31.so;0.03;0.04;;
