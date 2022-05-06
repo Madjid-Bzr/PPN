@@ -1,0 +1,6 @@
+loop_id;module;function_name;function_id;source_info;level;time_p;time_s;time_s_min;time_s_avg;time_s_max;cov_deviation;nb_threads;
+7;nbody_mpi;move_particles;8;nbody_mpi.c:45-61;Innermost;46.41;0.28;0.23;0.28;0.32;5.0654368400574;20;
+0;nbody_mpi;main;1;nbody_mpi.c:122-137;Single;3.15;0.02;0.01;0.02;0.03;1.1899348497391;20;
+5;nbody_mpi;move_particles;8;nbody_mpi.c:35-67;Outermost;2.44;0.01;0;0.02;0.05;1.7349874973297;19;
+6;nbody_mpi;move_particles;8;nbody_mpi.c:45-61;Innermost;0.76;0;0;0.01;0.01;0.52784383296967;14;
+4;nbody_mpi;move_particles;8;nbody_mpi.c:72-77;Single;0.17;0;0;0;0;0.017720988020301;4;

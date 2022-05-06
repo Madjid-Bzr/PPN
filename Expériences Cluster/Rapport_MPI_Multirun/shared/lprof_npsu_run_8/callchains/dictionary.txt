@@ -1,0 +1,19 @@
+main - /users/user2234/Code_Nbody3D/nbody_mpi.c:165
+nbody_mpi
+__libc_start_main - :0
+libc-2.31.so
+MPL_shm_seg_remove - :0
+libmpich.so.12.1.8
+__isoc99_sscanf - :0
+_IO_ungetc - :0
+__isoc99_fscanf - :0
+vscanf - :0
+unknown kernel region
+kernel
+openat - :0
+mpirinitf_ - :0
+__read - :0
+__close - :0
+main - /users/user2234/Code_Nbody3D/nbody_mpi.c:136
+.text@start - :0
+ld-2.31.so

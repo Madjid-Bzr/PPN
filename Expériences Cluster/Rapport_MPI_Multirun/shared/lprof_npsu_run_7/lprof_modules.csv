@@ -1,0 +1,9 @@
+name;time_p;time_s;cpi_ratio;
+/users/user2234/Code_Nbody3D/rapport/binaries/nbody_mpi;53.21;0.32;;
+/usr/lib/x86_64-linux-gnu/libmpich.so.12.1.8;23.48;0.14;;
+/usr/lib/x86_64-linux-gnu/libc-2.31.so;22.85;0.14;;
+kernel;0.25;0;;
+/usr/lib/x86_64-linux-gnu/libpthread-2.31.so;0.08;0;;
+/usr/lib/x86_64-linux-gnu/libgcc_s.so.1;0.04;0;;
+/usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0;0.04;0;;
+/usr/lib/x86_64-linux-gnu/ld-2.31.so;0.04;0;;

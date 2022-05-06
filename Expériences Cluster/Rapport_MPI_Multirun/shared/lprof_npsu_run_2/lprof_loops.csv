@@ -1,0 +1,6 @@
+loop_id;module;function_name;function_id;source_info;level;time_p;time_s;time_s_min;time_s_avg;time_s_max;cov_deviation;nb_threads;
+7;nbody_mpi;move_particles;8;nbody_mpi.c:45-61;Innermost;95.74;11.13;10.62;11.12;11.4;3.6289856433868;3;
+5;nbody_mpi;move_particles;8;nbody_mpi.c:35-67;Outermost;0.36;0.04;0.04;0.04;0.05;0.065519437193871;3;
+6;nbody_mpi;move_particles;8;nbody_mpi.c:45-61;Innermost;0.23;0.03;0.01;0.03;0.04;0.089326173067093;3;
+0;nbody_mpi;main;1;nbody_mpi.c:122-137;Single;0.16;0.02;0.01;0.02;0.02;0.065558381378651;3;
+4;nbody_mpi;move_particles;8;nbody_mpi.c:72-77;Single;0.09;0.01;0.01;0.01;0.01;0.00011924257705687;3;

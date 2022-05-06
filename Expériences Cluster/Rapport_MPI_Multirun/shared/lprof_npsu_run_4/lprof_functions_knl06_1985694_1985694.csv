@@ -1,0 +1,15 @@
+function_id;module;function_name;source_info;time_p;time_s;time_s_min;time_s_avg;time_s_max;cov_deviation;nb_threads;cats;
+8;nbody_mpi;move_particles;nbody_mpi.c:25-86;84;1.89;;;;;;"100,0,0,0,0,0,0,0,0,0";
+542;libmpich.so.12.1.8;mpirinitf_;;5.56;0.12;;;;;;"0,100,0,0,0,0,0,0,0,0";
+236;libc-2.31.so;random_r;;2.67;0.06;;;;;;"0,0,0,0,0,0,0,0,0,100";
+624;libmpich.so.12.1.8;MPL_shm_seg_remove;;1.78;0.04;;;;;;"0,100,0,0,0,0,0,0,0,0";
+232;libc-2.31.so;random;;1.56;0.04;;;;;;"0,0,0,0,0,0,0,0,0,100";
+351;libc-2.31.so;psiginfo;;1.11;0.03;;;;;;"0,40,0,0,60,0,0,0,0,0";
+1;nbody_mpi;main;stdlib.h:375-375,stdio2.h:107-107,nbody_mpi.c:90-230;0.89;0.02;;;;;;"100,0,0,0,0,0,0,0,0,0";
+1905;libc-2.31.so;__nss_database_lookup;;0.44;0.01;;;;;;"0,0,0,0,0,0,0,0,0,100";
+718;libc-2.31.so;explicit_bzero;;0.44;0.01;;;;;;"0,0,0,0,0,0,0,0,100,0";
+534;libmpich.so.12.1.8;MPIR_Dup_fn;;0.44;0.01;;;;;;"0,100,0,0,0,0,0,0,0,0";
+237;libc-2.31.so;rand;;0.44;0.01;;;;;;"0,0,0,0,0,0,0,0,0,100";
+587;libc-2.31.so;pthread_attr_setschedparam;;0.22;0.01;;;;;;"0,0,0,0,0,100,0,0,0,0";
+546;libc-2.31.so;_IO_str_pbackfail;;0.22;0.01;;;;;;"0,0,0,0,0,0,100,0,0,0";
+518;libc-2.31.so;_IO_default_xsputn;;0.22;0.01;;;;;;"0,0,0,0,0,0,100,0,0,0";

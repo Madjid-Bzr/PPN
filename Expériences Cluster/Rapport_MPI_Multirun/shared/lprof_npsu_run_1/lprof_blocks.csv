@@ -1,0 +1,10 @@
+block_id;module;source_info;time_p;time_s;time_s_min;time_s_avg;time_s_max;cov_deviation;nb_threads;
+146;nbody_mpi;nbody_mpi.c:45-61;98.88;23.72;23.65;23.71;23.76;0.36796289682388;2;
+152;nbody_mpi;nbody_mpi.c:45-45;0.08;0.02;0.02;0.02;0.02;4.9116883019451e-05;2;
+163;nbody_mpi;nbody_mpi.c:35-67;0.06;0.02;0.01;0.01;0.02;0.029530335217714;2;
+148;nbody_mpi;nbody_mpi.c:45-61;0.03;0.01;0;0.01;0.01;0.014765167608857;2;
+181;nbody_mpi;nbody_mpi.c:72-77;0.03;0.01;0;0.01;0.01;0.014765167608857;2;
+24;nbody_mpi;nbody_mpi.c:132-135;0.02;0.01;0;0;0;1.2279220754863e-05;2;
+141;nbody_mpi;nbody_mpi.c:41-45;0.01;0;0;0;0;0;1;
+25;nbody_mpi;nbody_mpi.c:135-136;0.01;0;0;0;0;0;1;
+27;nbody_mpi;nbody_mpi.c:122-137;0.01;0;0;0;0;0;1;

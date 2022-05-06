@@ -1,0 +1,19 @@
+/users/user2234/Code_Nbody3D/nbody_mpi.c: 122 - 137
+--------------------------------------------------------------------------------
+
+122:   for (u64 i = 0; i < n; i++)
+123:   {
+124:     //
+125:     u64 r1 = (u64)rand();
+126:     u64 r2 = (u64)rand();
+127:     f32 sign = (r1 > r2) ? 1 : -1;
+128: 
+129:     //
+130:     p.x[i] = sign * (f32)rand() * (1 / (f32)RAND_MAX);
+131:     p.y[i] = (f32)rand() * (1 / (f32)RAND_MAX);
+132:     p.z[i] = sign * (f32)rand() * (1 / (f32)RAND_MAX);
+133: 
+134:     //
+135:     p.vx[i] = (f32)rand() * (1 / (f32)RAND_MAX);
+136:     p.vy[i] = sign * (f32)rand() * (1 / (f32)RAND_MAX);
+137:     p.vz[i] = (f32)rand() * (1 / (f32)RAND_MAX);

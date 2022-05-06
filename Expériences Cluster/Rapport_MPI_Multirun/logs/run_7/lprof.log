@@ -1,0 +1,87 @@
+
+* Info: Detected 20 Lprof instances in knl06: processes-per-node/ppn set accordingly.
+If this is incorrect, rerun with an explicit value for this setting
+
+* Info: Selecting the 'perf-high-ppn' engine for node knl06
+
+* Info: Process launched (host knl06, process 1985994)
+* Info: Process launched (host knl06, process 1985993)
+* Info: Process launched (host knl06, process 1985997)
+* Info: Process launched (host knl06, process 1985995)
+* Info: Process launched (host knl06, process 1985996)
+* Info: Process launched (host knl06, process 1985990)
+* Info: Process launched (host knl06, process 1985992)
+* Info: Process launched (host knl06, process 1985991)
+* Info: Process launched (host knl06, process 1985998)
+* Info: Process launched (host knl06, process 1985999)
+* Info: Process launched (host knl06, process 1986002)
+* Info: Process launched (host knl06, process 1986000)
+* Info: Process launched (host knl06, process 1986001)
+* Info: Process launched (host knl06, process 1986003)
+* Info: Process launched (host knl06, process 1986004)
+* Info: Process launched (host knl06, process 1986005)
+* Info: Process launched (host knl06, process 1986006)
+* Info: Process launched (host knl06, process 1986007)
+* Info: Process launched (host knl06, process 1986008)
+* Info: Process launched (host knl06, process 1986009)
+[1mTotal memory size:[0m 4800000 B, 4687 KiB, 4 MiB
+
+n= 100000 
+[1m Step    Time, s Interact/s  GFLOP/s[0m
+    0  8.100e-02  1.235e+11   2839.5 *
+    1  5.312e-02  1.883e+11   4330.2 *
+    2  3.130e-02  3.195e+11   7348.6 *
+    3  3.122e-02  3.203e+11   7365.9 
+    4  2.970e-02  3.367e+11   7744.9 
+    5  2.874e-02  3.479e+11   8002.6 
+    6  2.894e-02  3.456e+11   7948.2 
+    7  2.912e-02  3.434e+11   7897.7 
+    8  2.886e-02  3.465e+11   7970.0 
+    9  2.880e-02  3.472e+11   7985.1 
+-----------------------------------------------------
+[1mAverage performance:      [42m    7844.9 +- 211.5 GFLOP/s[0m
+-----------------------------------------------------
+Somme X = 4792.289162 
+Somme Y = 50006.180517 
+Somme Z = 4755.614534 
+Somme VX = 50022.228792 
+Somme VY = -192.264702 
+Somme VZ = 50014.865478 
+
+* Info: Process finished (host knl06, process 1985995)
+* Info: Process finished (host knl06, process 1985998)
+* Info: Process finished (host knl06, process 1986006)
+* Info: Process finished (host knl06, process 1986001)
+* Info: Process finished (host knl06, process 1985997)
+* Info: Process finished (host knl06, process 1985990)
+* Info: Process finished (host knl06, process 1985994)
+* Info: Process finished (host knl06, process 1986007)
+* Info: Process finished (host knl06, process 1986009)
+* Info: Process finished (host knl06, process 1986004)
+* Info: Process finished (host knl06, process 1986008)
+* Info: Process finished (host knl06, process 1986002)
+* Info: Process finished (host knl06, process 1985992)
+* Info: Process finished (host knl06, process 1985996)
+* Info: Process finished (host knl06, process 1986000)
+* Info: Process finished (host knl06, process 1986005)
+* Info: Process finished (host knl06, process 1985993)
+* Info: Process finished (host knl06, process 1985999)
+* Info: Process finished (host knl06, process 1985991)
+* Info: Process finished (host knl06, process 1986003)
+
+Your experiment path is /users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_7
+
+To display your profiling results:
+#######################################################################################################################
+#    LEVEL    |     REPORT     |                                       COMMAND                                        #
+#######################################################################################################################
+#  Functions  |  Cluster-wide  |  maqao lprof -df xp=/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_7      #
+#  Functions  |  Per-node      |  maqao lprof -df -dn xp=/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_7  #
+#  Functions  |  Per-process   |  maqao lprof -df -dp xp=/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_7  #
+#  Functions  |  Per-thread    |  maqao lprof -df -dt xp=/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_7  #
+#  Loops      |  Cluster-wide  |  maqao lprof -dl xp=/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_7      #
+#  Loops      |  Per-node      |  maqao lprof -dl -dn xp=/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_7  #
+#  Loops      |  Per-process   |  maqao lprof -dl -dp xp=/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_7  #
+#  Loops      |  Per-thread    |  maqao lprof -dl -dt xp=/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_7  #
+#######################################################################################################################
+

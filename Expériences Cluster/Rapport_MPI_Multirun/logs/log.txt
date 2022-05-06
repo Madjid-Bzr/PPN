@@ -1,0 +1,21 @@
+********************************************************************************
+
+MAQAO 2.15.5 - 0b66882c33fcd95ef103e22d5fec6c0d2ff1b5e2::20220328-144625 || 2022/03/28
+
+maqao oneview -R1 -WS -xp=rapport -c=config.lua -dbg=1 
+
+CMD:  OMP_NUM_THREADS=1   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_0" --mpi-command="mpirun -np 1"   -- /users/user2234/Code_Nbody3D/rapport/binaries/nbody_mpi
+CMD:  OMP_NUM_THREADS=1   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_1" --mpi-command="mpirun -np 2"   -- /users/user2234/Code_Nbody3D/rapport/binaries/nbody_mpi
+CMD:  OMP_NUM_THREADS=1   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_2" --mpi-command="mpirun -np 3"   -- /users/user2234/Code_Nbody3D/rapport/binaries/nbody_mpi
+CMD:  OMP_NUM_THREADS=1   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_3" --mpi-command="mpirun -np 4"   -- /users/user2234/Code_Nbody3D/rapport/binaries/nbody_mpi
+CMD:  OMP_NUM_THREADS=1   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_4" --mpi-command="mpirun -np 8"   -- /users/user2234/Code_Nbody3D/rapport/binaries/nbody_mpi
+CMD:  OMP_NUM_THREADS=1   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_5" --mpi-command="mpirun -np 12"   -- /users/user2234/Code_Nbody3D/rapport/binaries/nbody_mpi
+CMD:  OMP_NUM_THREADS=1   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_6" --mpi-command="mpirun -np 16"   -- /users/user2234/Code_Nbody3D/rapport/binaries/nbody_mpi
+CMD:  OMP_NUM_THREADS=1   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_7" --mpi-command="mpirun -np 20"   -- /users/user2234/Code_Nbody3D/rapport/binaries/nbody_mpi
+CMD:  OMP_NUM_THREADS=1   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_8" --mpi-command="mpirun -np 32"   -- /users/user2234/Code_Nbody3D/rapport/binaries/nbody_mpi
+6 functions were discarded from static analysis because their coverage
+are lower than object_coverage_threshold value (0.01%).
+That represents 0% of the execution time. To include them, change the value
+in the experiment directory configuration file, then rerun the command with the additionnal parameter
+--force-static-analysis
+

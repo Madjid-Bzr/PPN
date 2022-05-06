@@ -1,0 +1,71 @@
+
+* Info: Detected 12 Lprof instances in knl06: processes-per-node/ppn set accordingly.
+If this is incorrect, rerun with an explicit value for this setting
+
+* Info: Selecting the 'perf-high-ppn' engine for node knl06
+
+* Info: Process launched (host knl06, process 1985757)
+* Info: Process launched (host knl06, process 1985756)
+* Info: Process launched (host knl06, process 1985758)
+* Info: Process launched (host knl06, process 1985762)
+* Info: Process launched (host knl06, process 1985760)
+* Info: Process launched (host knl06, process 1985763)
+* Info: Process launched (host knl06, process 1985761)
+* Info: Process launched (host knl06, process 1985759)
+* Info: Process launched (host knl06, process 1985765)
+* Info: Process launched (host knl06, process 1985766)
+* Info: Process launched (host knl06, process 1985767)
+* Info: Process launched (host knl06, process 1985764)
+[1mTotal memory size:[0m 4800000 B, 4687 KiB, 4 MiB
+
+n= 100000 
+[1m Step    Time, s Interact/s  GFLOP/s[0m
+    0  2.422e-01  4.129e+10    949.7 *
+    1  9.216e-02  1.085e+11   2495.7 *
+    2  7.772e-02  1.287e+11   2959.2 *
+    3  7.807e-02  1.281e+11   2945.9 
+    4  7.713e-02  1.297e+11   2982.0 
+    5  7.517e-02  1.330e+11   3059.5 
+    6  7.540e-02  1.326e+11   3050.4 
+    7  7.540e-02  1.326e+11   3050.4 
+    8  7.536e-02  1.327e+11   3051.9 
+    9  7.524e-02  1.329e+11   3056.8 
+-----------------------------------------------------
+[1mAverage performance:      [42m    3028.1 +- 41.8 GFLOP/s[0m
+-----------------------------------------------------
+Somme X = 4792.127660 
+Somme Y = 50006.383630 
+Somme Z = 4755.530572 
+Somme VX = 50022.101556 
+Somme VY = -192.352850 
+Somme VZ = 50014.927624 
+
+* Info: Process finished (host knl06, process 1985767)
+* Info: Process finished (host knl06, process 1985758)
+* Info: Process finished (host knl06, process 1985763)
+* Info: Process finished (host knl06, process 1985765)
+* Info: Process finished (host knl06, process 1985757)
+* Info: Process finished (host knl06, process 1985762)
+* Info: Process finished (host knl06, process 1985760)
+* Info: Process finished (host knl06, process 1985761)
+* Info: Process finished (host knl06, process 1985759)
+* Info: Process finished (host knl06, process 1985764)
+* Info: Process finished (host knl06, process 1985766)
+* Info: Process finished (host knl06, process 1985756)
+
+Your experiment path is /users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_5
+
+To display your profiling results:
+#######################################################################################################################
+#    LEVEL    |     REPORT     |                                       COMMAND                                        #
+#######################################################################################################################
+#  Functions  |  Cluster-wide  |  maqao lprof -df xp=/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_5      #
+#  Functions  |  Per-node      |  maqao lprof -df -dn xp=/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_5  #
+#  Functions  |  Per-process   |  maqao lprof -df -dp xp=/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_5  #
+#  Functions  |  Per-thread    |  maqao lprof -df -dt xp=/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_5  #
+#  Loops      |  Cluster-wide  |  maqao lprof -dl xp=/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_5      #
+#  Loops      |  Per-node      |  maqao lprof -dl -dn xp=/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_5  #
+#  Loops      |  Per-process   |  maqao lprof -dl -dp xp=/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_5  #
+#  Loops      |  Per-thread    |  maqao lprof -dl -dt xp=/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_5  #
+#######################################################################################################################
+

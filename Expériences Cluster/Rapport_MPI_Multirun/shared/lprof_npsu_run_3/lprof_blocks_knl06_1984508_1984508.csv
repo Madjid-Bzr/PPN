@@ -1,0 +1,16 @@
+block_id;module;source_info;time_p;time_s;time_s_min;time_s_avg;time_s_max;cov_deviation;nb_threads;
+146;nbody_mpi;nbody_mpi.c:45-61;96.07;6.48;;;;;;
+152;nbody_mpi;nbody_mpi.c:45-45;0.37;0.02;;;;;;
+163;nbody_mpi;nbody_mpi.c:35-67;0.3;0.02;;;;;;
+157;nbody_mpi;nbody_mpi.c:45-61;0.3;0.02;;;;;;
+155;nbody_mpi;nbody_mpi.c:45-61;0.22;0.01;;;;;;
+159;nbody_mpi;nbody_mpi.c:45-61;0.15;0.01;;;;;;
+161;nbody_mpi;nbody_mpi.c:45-61;0.15;0.01;;;;;;
+23;nbody_mpi;nbody_mpi.c:131-132;0.15;0.01;;;;;;
+153;nbody_mpi;nbody_mpi.c:45-45;0.07;0;;;;;;
+18;nbody_mpi;nbody_mpi.c:125-126;0.07;0;;;;;;
+22;nbody_mpi;nbody_mpi.c:130-131;0.07;0;;;;;;
+25;nbody_mpi;nbody_mpi.c:135-136;0.07;0;;;;;;
+150;nbody_mpi;nbody_mpi.c:48-61;0.07;0;;;;;;
+27;nbody_mpi;nbody_mpi.c:122-137;0.07;0;;;;;;
+181;nbody_mpi;nbody_mpi.c:72-77;0.07;0;;;;;;

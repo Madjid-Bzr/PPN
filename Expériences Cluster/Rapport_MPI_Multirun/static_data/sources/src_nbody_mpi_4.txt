@@ -1,0 +1,9 @@
+/users/user2234/Code_Nbody3D/nbody_mpi.c: 72 - 77
+--------------------------------------------------------------------------------
+
+72:   for (u64 i = start_particle; i < end_particle; i++)
+73:   {
+74:     //
+75:     p.x[i] += (dt * p.vx[i]);
+76:     p.y[i] += (dt * p.vy[i]);
+77:     p.z[i] += (dt * p.vz[i]);

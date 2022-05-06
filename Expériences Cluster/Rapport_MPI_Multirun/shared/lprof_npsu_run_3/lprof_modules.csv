@@ -1,0 +1,5 @@
+name;time_p;time_s;cpi_ratio;
+/users/user2234/Code_Nbody3D/rapport/binaries/nbody_mpi;95.8;6.48;;
+/usr/lib/x86_64-linux-gnu/libmpich.so.12.1.8;2.52;0.17;;
+/usr/lib/x86_64-linux-gnu/libc-2.31.so;1.65;0.11;;
+kernel;0.04;0;;

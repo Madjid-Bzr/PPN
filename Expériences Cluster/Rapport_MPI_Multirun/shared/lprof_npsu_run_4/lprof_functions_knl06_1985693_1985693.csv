@@ -1,0 +1,17 @@
+function_id;module;function_name;source_info;time_p;time_s;time_s_min;time_s_avg;time_s_max;cov_deviation;nb_threads;cats;
+8;nbody_mpi;move_particles;nbody_mpi.c:25-86;87.95;1.97;;;;;;"100,0,0,0,0,0,0,0,0,0";
+236;libc-2.31.so;random_r;;3.57;0.08;;;;;;"0,0,0,0,0,0,0,0,0,100";
+232;libc-2.31.so;random;;1.79;0.04;;;;;;"0,0,0,0,0,0,0,0,0,100";
+1905;libc-2.31.so;__nss_database_lookup;;1.34;0.03;;;;;;"0,16.666665735458,0,0,0,0,0,0,0,83.333334264542";
+542;libmpich.so.12.1.8;mpirinitf_;;1.34;0.03;;;;;;"0,100,0,0,0,0,0,0,0,0";
+351;libc-2.31.so;psiginfo;;0.89;0.02;;;;;;"0,0,0,0,100,0,0,0,0,0";
+534;libmpich.so.12.1.8;MPIR_Dup_fn;;0.67;0.01;;;;;;"0,100,0,0,0,0,0,0,0,0";
+718;libc-2.31.so;explicit_bzero;;0.45;0.01;;;;;;"0,0,0,0,0,0,0,0,100,0";
+624;libmpich.so.12.1.8;MPL_shm_seg_remove;;0.45;0.01;;;;;;"0,100,0,0,0,0,0,0,0,0";
+954;libc-2.31.so;sched_setaffinity;;0.22;0;;;;;;"0,0,0,0,100,0,0,0,0,0";
+589;libc-2.31.so;__libc_free;;0.22;0;;;;;;"0,0,0,0,0,0,0,0,100,0";
+587;libc-2.31.so;pthread_attr_setschedparam;;0.22;0;;;;;;"0,0,0,0,0,100,0,0,0,0";
+306;libc-2.31.so;cuserid;;0.22;0;;;;;;"0,0,0,0,100,0,0,0,0,0";
+30;libmpich.so.12.1.8;openat@plt;;0.22;0;;;;;;"0,100,0,0,0,0,0,0,0,0";
+1;nbody_mpi;main;stdlib.h:375-375,stdio2.h:107-107,nbody_mpi.c:90-230;0.22;0;;;;;;"100,0,0,0,0,0,0,0,0,0";
+-1;kernel;unknown_kernel_region;;0.22;0;;;;;;"0,100,0,0,0,0,0,0,0,0";

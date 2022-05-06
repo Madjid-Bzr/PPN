@@ -1,0 +1,20 @@
+/users/user2234/Code_Nbody3D/nbody_mpi.c: 45 - 61
+--------------------------------------------------------------------------------
+
+45:     for (u64 j = start_particle; j < end_particle; j++)
+46:     {
+47:       // Newton's law
+48:       const f32 dx = p.x[j] - p_xi; // 1
+49:       const f32 dy = p.y[j] - p_yi; // 2
+50:       const f32 dz = p.z[j] - p_zi; // 3
+51:       const f32 d_2 = (dz * dz) + softening;
+52:       const f32 d_3 = (dx * dx) + d_2;
+53:       const f32 d_4 = (dy * dy) + d_3;
+54:       const f32 t = sqrtf(d_4);
+55: 
+56:       const f32 d_3_over_2 = 1.0f / (d_4 * t); // 11
+57: 
+58:       // Net force
+59:       fx += (dx * d_3_over_2); // 13
+60:       fy += (dy * d_3_over_2); // 15
+61:       fz += (dz * d_3_over_2); // 17

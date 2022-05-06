@@ -1,0 +1,16 @@
+function_id;module;function_name;source_info;time_p;time_s;time_s_min;time_s_avg;time_s_max;cov_deviation;nb_threads;cats;
+8;nbody_mpi;move_particles;nbody_mpi.c:25-86;92.11;10.68;;;;;;"100,0,0,0,0,0,0,0,0,0";
+542;libmpich.so.12.1.8;mpirinitf_;;6.16;0.71;;;;;;"0,100,0,0,0,0,0,0,0,0";
+534;libmpich.so.12.1.8;MPIR_Dup_fn;;0.52;0.06;;;;;;"0,100,0,0,0,0,0,0,0,0";
+236;libc-2.31.so;random_r;;0.26;0.03;;;;;;"0,0,0,0,0,0,0,0,0,100";
+351;libc-2.31.so;psiginfo;;0.22;0.02;;;;;;"0,20,0,0,80,0,0,0,0,0";
+1905;libc-2.31.so;__nss_database_lookup;;0.13;0.01;;;;;;"0,0,0,0,0,0,0,0,0,100";
+624;libmpich.so.12.1.8;MPL_shm_seg_remove;;0.13;0.01;;;;;;"0,100,0,0,0,0,0,0,0,0";
+588;libc-2.31.so;__libc_malloc;;0.09;0.01;;;;;;"0,0,0,0,0,0,0,0,100,0";
+232;libc-2.31.so;random;;0.09;0.01;;;;;;"0,0,0,0,0,0,0,0,0,100";
+1;nbody_mpi;main;stdlib.h:375-375,stdio2.h:107-107,nbody_mpi.c:90-230;0.09;0.01;;;;;;"100,0,0,0,0,0,0,0,0,0";
+1018;libc-2.31.so;__read;;0.04;0;;;;;;"0,0,0,0,0,0,100,0,0,0";
+718;libc-2.31.so;explicit_bzero;;0.04;0;;;;;;"0,0,0,0,0,0,0,0,100,0";
+237;libc-2.31.so;rand;;0.04;0;;;;;;"0,0,0,0,0,0,0,0,0,100";
+0;nbody_mpi;Unknown function;;0.04;0;;;;;;"100,0,0,0,0,0,0,0,0,0";
+-1;kernel;unknown_kernel_region;;0.04;0;;;;;;"0,0,0,0,100,0,0,0,0,0";

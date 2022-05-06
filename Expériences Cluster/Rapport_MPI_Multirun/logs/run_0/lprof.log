@@ -1,0 +1,49 @@
+
+* Info: Detected 1 Lprof instances in knl06: processes-per-node/ppn set accordingly.
+If this is incorrect, rerun with an explicit value for this setting
+
+* Info: Selecting the 'perf-low-ppn' engine for node knl06
+
+* Info: Process launched (host knl06, process 1982699)
+[1mTotal memory size:[0m 4800000 B, 4687 KiB, 4 MiB
+
+n= 100000 
+[1m Step    Time, s Interact/s  GFLOP/s[0m
+    0  1.359e+01  7.359e+08     16.9 *
+    1  1.368e+01  7.311e+08     16.8 *
+    2  1.360e+01  7.352e+08     16.9 *
+    3  1.361e+01  7.350e+08     16.9 
+    4  1.361e+01  7.349e+08     16.9 
+    5  1.361e+01  7.350e+08     16.9 
+    6  1.361e+01  7.348e+08     16.9 
+    7  1.361e+01  7.349e+08     16.9 
+    8  1.361e+01  7.350e+08     16.9 
+    9  1.360e+01  7.351e+08     16.9 
+-----------------------------------------------------
+[1mAverage performance:      [42m      16.9 +- 0.0 GFLOP/s[0m
+-----------------------------------------------------
+Somme X = 4792.222504 
+Somme Y = 50006.166105 
+Somme Z = 4755.582749 
+Somme VX = 50021.552568 
+Somme VY = -192.410051 
+Somme VZ = 50014.571490 
+
+* Info: Process finished (host knl06, process 1982699)
+
+Your experiment path is /users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_0
+
+To display your profiling results:
+#######################################################################################################################
+#    LEVEL    |     REPORT     |                                       COMMAND                                        #
+#######################################################################################################################
+#  Functions  |  Cluster-wide  |  maqao lprof -df xp=/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_0      #
+#  Functions  |  Per-node      |  maqao lprof -df -dn xp=/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_0  #
+#  Functions  |  Per-process   |  maqao lprof -df -dp xp=/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_0  #
+#  Functions  |  Per-thread    |  maqao lprof -df -dt xp=/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_0  #
+#  Loops      |  Cluster-wide  |  maqao lprof -dl xp=/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_0      #
+#  Loops      |  Per-node      |  maqao lprof -dl -dn xp=/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_0  #
+#  Loops      |  Per-process   |  maqao lprof -dl -dp xp=/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_0  #
+#  Loops      |  Per-thread    |  maqao lprof -dl -dt xp=/users/user2234/Code_Nbody3D/rapport/tools/lprof_npsu_run_0  #
+#######################################################################################################################
+
