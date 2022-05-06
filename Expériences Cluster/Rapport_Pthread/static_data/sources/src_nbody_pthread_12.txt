@@ -1,0 +1,8 @@
+/users/user2234/Code_Nbody3D/nbody_pthread.c: 102 - 106
+--------------------------------------------------------------------------------
+
+102:   for (u64 i = particule->old; i < particule->new; i ++)
+103:   {
+104:     particule->p->x[i] += 0.01 * particule->p->vx[i];
+105:     particule->p->y[i] += 0.01 * particule->p->vy[i];
+106:     particule->p->z[i] += 0.01 * particule->p->vz[i];

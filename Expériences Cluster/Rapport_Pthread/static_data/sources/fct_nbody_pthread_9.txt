@@ -1,0 +1,49 @@
+/users/user2234/Code_Nbody3D/nbody_pthread.c: 60 - 109
+--------------------------------------------------------------------------------
+
+60: {
+[...]
+66:   for (u64 i = particule->old; i < particule->new; i++)
+67:   {
+68:     //
+69:     f32 fx = 0.0;
+70:     f32 fy = 0.0;
+71:     f32 fz = 0.0;
+72:     const f32 p_xi = particule->p->x[i];
+73:     const f32 p_yi = particule->p->y[i];
+74:     const f32 p_zi = particule->p->z[i];
+75:     // 23 floating-point operations
+76:     for (u64 j = particule->old; j < particule->new; j++)
+77:     {
+78:       // Newton's law
+79:       const f32 dx = particule->p->x[j] - p_xi; // 1
+80:       const f32 dy = particule->p->y[j] - p_yi; // 2
+81:       const f32 dz = particule->p->z[j] - p_zi; // 3
+82:       const f32 d_2 = (dz * dz) + softening;
+83:       const f32 d_3 = (dx * dx) + d_2;
+84:       const f32 d_4 = (dy * dy) + d_3;
+85:       const f32 t = sqrtf(d_4);
+86: 
+87:       const f32 d_3_over_2 = 1.0f / (d_4 * t); // 11
+88: 
+89:       // Net force
+90:       fx += (dx * d_3_over_2); // 13
+91:       fy += (dy * d_3_over_2); // 15
+92:       fz += (dz * d_3_over_2); // 17
+93:     }
+94: 
+95:     //
+96:     particule->p->vx[i] += (0.01 * fx); // 19
+97:     particule->p->vy[i] += (0.01 * fy); // 21
+98:     particule->p->vz[i] += (0.01 * fz); // 23
+99:   }
+100: 
+101:   // 3 floating-point operations
+102:   for (u64 i = particule->old; i < particule->new; i ++)
+103:   {
+104:     particule->p->x[i] += 0.01 * particule->p->vx[i];
+105:     particule->p->y[i] += 0.01 * particule->p->vy[i];
+106:     particule->p->z[i] += 0.01 * particule->p->vz[i];
+107:   }
+108: 
+109:   pthread_exit(NULL);

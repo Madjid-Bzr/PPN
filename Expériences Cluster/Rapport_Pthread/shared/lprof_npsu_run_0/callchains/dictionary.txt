@@ -1,0 +1,13 @@
+start_thread - :0
+libpthread-2.31.so
+unknown kernel region
+kernel
+move_particles - /users/user2234/Code_Nbody3D/nbody_pthread.c:90
+nbody_pthread
+move_particles - /users/user2234/Code_Nbody3D/nbody_pthread.c:87
+move_particles - /users/user2234/Code_Nbody3D/nbody_pthread.c:83
+move_particles - /users/user2234/Code_Nbody3D/nbody_pthread.c:85
+move_particles - /users/user2234/Code_Nbody3D/nbody_pthread.c:91
+move_particles - /users/user2234/Code_Nbody3D/nbody_pthread.c:79
+move_particles - /users/user2234/Code_Nbody3D/nbody_pthread.c:92
+move_particles - /users/user2234/Code_Nbody3D/nbody_pthread.c:80

@@ -1,9 +1,0 @@
-start_thread - :0
-libpthread-2.31.so
-unknown kernel region
-kernel
-pthread_setcanceltype - :0
-libc-2.31.so
-move_particles - /users/user2234/VersionFinaleNbody3DOptimisé/nbody4.c:116
-nbody.g4
-random - :0
