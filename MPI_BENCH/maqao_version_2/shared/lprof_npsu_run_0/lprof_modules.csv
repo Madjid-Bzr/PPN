@@ -1,0 +1,14 @@
+name;time_p;time_s;cpi_ratio;
+/usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_btl_vader.so;75.04;5.57;;
+/usr/lib/x86_64-linux-gnu/libc-2.31.so;8.73;0.65;;
+/usr/lib/x86_64-linux-gnu/openmpi/lib/libopen-pal.so.40.20.3;6.96;0.52;;
+/usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_pml_ob1.so;3.83;0.28;;
+/home/benbachir/Documents/PPN/mpiBench-main/maqao_2022-05-06_16-06-14/binaries/mpiBench;2.96;0.22;;
+/usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi.so.40.20.3;2.11;0.16;;
+/usr/lib/x86_64-linux-gnu/ld-2.31.so;0.23;0.02;;
+/usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_allocator_bucket.so;0.04;0;;
+/usr/lib/x86_64-linux-gnu/libevent-2.1.so.7.0.0;0.02;0;;
+/usr/lib/x86_64-linux-gnu/libfabric.so.1.9.15;0.02;0;;
+/usr/lib/x86_64-linux-gnu/libpthread-2.31.so;0.02;0;;
+/usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_btl_openib.so;0.02;0;;
+/usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_coll_tuned.so;0.02;0;;

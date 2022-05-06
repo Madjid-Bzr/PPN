@@ -1,0 +1,6 @@
+/home/benbachir/Documents/PPN/mpiBench-main/mpiBench.c: 790 - 792
+--------------------------------------------------------------------------------
+
+790:     for (i = 0; i < p->iter; i++) {
+791:         MPI_Allreduce(sbuffer, rbuffer, p->count, p->type, p->reduceop, p->comm);
+792:         __BAR__(p->comm);
