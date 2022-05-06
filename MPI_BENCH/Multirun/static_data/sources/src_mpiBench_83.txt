@@ -1,0 +1,40 @@
+/usr/include/x86_64-linux-gnu/bits/stdio2.h: 107 - 107
+--------------------------------------------------------------------------------
+
+107:   return __printf_chk (__USE_FORTIFY_LEVEL - 1, __fmt, __va_arg_pack ());
+/home/benbachir/Documents/PPN/mpiBench-main/mpiBench.c: 455 - 776
+--------------------------------------------------------------------------------
+
+455:     for(i=0; i<buffer_size; i++) {
+456:         value = (char) ((i+1)*(rank+1) + i);
+457:         sbuffer[i] = value;
+[...]
+473:     for(i=0; i<buffer_size; i++) {
+474:         value = (char) ((i+1)*(rank+1) + i);
+475:         if (sbuffer[i] != value) {
+476:             printf("Send buffer corruption detected on rank %d at sbuffer[%d]\n", rank, i);
+477:             MPI_Abort(MPI_COMM_WORLD, 1);
+[...]
+488:     for(i=0, j=src_byte_offset; i<element_count; i++, j++) {
+489:         value = (char) ((j+1)*(rank+1) + j);
+490:         if (buffer[i] != value) {
+491:               printf("Receive buffer corruption detected on rank %d at rbuffer[%d] from rank %d\n", rank_local, byte_offset+i, rank);
+492:               MPI_Abort(MPI_COMM_WORLD, 1);
+[...]
+764:     for (i = 0; i < p->iter; i++) {
+765:         int check = (check_every || (check_once && i == p->iter-1));
+766:         if (check) {
+767:             init_sbuffer(p->myrank);
+768:             init_rbuffer(p->myrank);
+769:         }
+770: 
+771:         MPI_Scatter(sbuffer, p->count, p->type, rbuffer, p->count, p->type, p->root, p->comm);
+772:         __BAR__(p->comm);
+773: 
+774:         if (check) {
+775:             check_sbuffer(p->myrank);
+776:             check_rbuffer(rbuffer, 0, p->root, p->myrank*p->size, p->size);
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h: 71 - 71
+--------------------------------------------------------------------------------
+
+71:   return __builtin___memset_chk (__dest, __ch, __len, __bos0 (__dest));

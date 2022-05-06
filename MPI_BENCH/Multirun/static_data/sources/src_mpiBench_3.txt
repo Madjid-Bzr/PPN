@@ -1,0 +1,6 @@
+/home/benbachir/Documents/PPN/mpiBench-main/mpiBench.c: 805 - 807
+--------------------------------------------------------------------------------
+
+805:     for (i = 0; i < p->iter; i++) {
+806:         MPI_Reduce(sbuffer, rbuffer, p->count, p->type, p->reduceop, p->root, p->comm);
+807:         __BAR__(p->comm);

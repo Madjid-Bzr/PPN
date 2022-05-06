@@ -1,0 +1,13 @@
+loop_id;module;function_name;function_id;source_info;level;time_p;time_s;time_s_min;time_s_avg;time_s_max;cov_deviation;nb_threads;
+5;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.49;0.04;0.03;0.04;0.04;0.098002798855305;2;
+10;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.42;0.03;0.02;0.03;0.04;0.19655427336693;2;
+20;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.35;0.03;0.02;0.03;0.04;0.19730868935585;2;
+12;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.28;0.02;0.02;0.02;0.03;0.098757222294807;2;
+22;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.24;0.02;0.02;0.02;0.02;0.049481485038996;2;
+18;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.24;0.02;0.01;0.02;0.03;0.14796437323093;2;
+26;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.21;0.02;0.02;0.02;0.02;0.00020575037342496;2;
+24;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.21;0.02;0.01;0.02;0.03;0.19676002860069;2;
+16;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.21;0.02;0.02;0.02;0.02;0.00020575037342496;2;
+14;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.14;0.01;0.01;0.01;0.02;0.098345719277859;2;
+77;mpiBench;time_gatherv;26;stdio2.h:107-107,mpiBench.c:455-748,string_fortified.h:71-71;Outermost;0.03;0;0.01;0.01;0.01;0;1;
+66;mpiBench;time_allgatherv;24;stdio2.h:107-107,mpiBench.c:455-678,string_fortified.h:71-71;Outermost;0.03;0;0.01;0.01;0.01;0;1;

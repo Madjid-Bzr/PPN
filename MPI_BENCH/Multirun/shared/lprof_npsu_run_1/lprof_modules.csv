@@ -1,0 +1,10 @@
+name;time_p;time_s;cpi_ratio;
+/usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_btl_vader.so;59.69;4.5;;
+/usr/lib/x86_64-linux-gnu/libc-2.31.so;18.33;1.38;;
+/usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_pml_ob1.so;9.46;0.71;;
+/usr/lib/x86_64-linux-gnu/openmpi/lib/libopen-pal.so.40.20.3;6.05;0.46;;
+/usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi.so.40.20.3;3.34;0.25;;
+/home/benbachir/Documents/PPN/mpiBench-main/Multirun/binaries/mpiBench;2.85;0.22;;
+/usr/lib/x86_64-linux-gnu/ld-2.31.so;0.14;0.01;;
+/usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_coll_basic.so;0.07;0.01;;
+/usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_coll_tuned.so;0.07;0.01;;

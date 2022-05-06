@@ -1,0 +1,10 @@
+loop_id;module;function_name;function_id;source_info;level;time_p;time_s;time_s_min;time_s_avg;time_s_max;cov_deviation;nb_threads;
+14;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.5;0.04;;;;;;
+22;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.43;0.03;;;;;;
+16;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.43;0.03;;;;;;
+24;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.36;0.03;;;;;;
+20;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.36;0.03;;;;;;
+10;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.28;0.02;;;;;;
+5;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.14;0.01;;;;;;
+26;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.07;0.01;;;;;;
+18;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.07;0.01;;;;;;

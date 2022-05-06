@@ -1,0 +1,309 @@
+/usr/include/x86_64-linux-gnu/bits/unistd.h: 354 - 354
+--------------------------------------------------------------------------------
+
+354:   return __gethostname_alias (__buf, __buflen);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h: 36 - 107
+--------------------------------------------------------------------------------
+
+36:   return __builtin___sprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+[...]
+107:   return __printf_chk (__USE_FORTIFY_LEVEL - 1, __fmt, __va_arg_pack ());
+/home/benbachir/Documents/PPN/mpiBench-main/mpiBench.c: 455 - 1132
+--------------------------------------------------------------------------------
+
+455:     for(i=0; i<buffer_size; i++) {
+456:         value = (char) ((i+1)*(rank+1) + i);
+457:         sbuffer[i] = value;
+[...]
+512:     MPI_Barrier(MPI_COMM_WORLD);
+513: 
+514:     __TIME_START__;
+515:     for (i = 0; i < p->iter; i++) {
+516:         MPI_Barrier(p->comm);
+517:     }
+518:     __TIME_END__;
+519: 
+520:     return __TIME_USECS__ / (double)p->iter;
+[...]
+787:     MPI_Barrier(MPI_COMM_WORLD);
+788: 
+789:     __TIME_START__;
+790:     for (i = 0; i < p->iter; i++) {
+791:         MPI_Allreduce(sbuffer, rbuffer, p->count, p->type, p->reduceop, p->comm);
+792:         __BAR__(p->comm);
+793:     }
+794:     __TIME_END__;
+795: 
+796:     return __TIME_USECS__ / (double)p->iter;
+[...]
+802:     MPI_Barrier(MPI_COMM_WORLD);
+803: 
+804:     __TIME_START__;
+805:     for (i = 0; i < p->iter; i++) {
+806:         MPI_Reduce(sbuffer, rbuffer, p->count, p->type, p->reduceop, p->root, p->comm);
+807:         __BAR__(p->comm);
+808:     }
+809:     __TIME_END__;
+810: 
+811:     return __TIME_USECS__ / (double)p->iter;
+[...]
+825:     init_sbuffer(p->myrank);
+826:     init_rbuffer(p->myrank);
+827: 
+828:     /* prime the collective with an intial call */
+829:     p->iter = 1;
+830:     time = fn(p);
+831: 
+832:     /* run through a small number of iterations to get a rough estimate of time */
+833:     p->iter = ITRS_EST;
+834:     time = fn(p);
+835: 
+836:     /* if a time limit has been specified, use the esitmate to limit the maximum number of iterations */
+837:     iter_limit = (time_limit > 0   ) ? (int) (time_limit / time) : iter;
+838:     iter_limit = (iter_limit < iter) ? iter_limit : iter;
+839: 
+840:     /* use the number calculated by the root (rank 0) which should be the slowest */
+841:     MPI_Bcast(&iter_limit, 1, MPI_INT, 0, MPI_COMM_WORLD);
+842: 
+843:     /* run the tests (unless the limited iteration count is smaller than that used in the estimate) */
+844:     if(iter_limit > ITRS_EST) {
+845:         p->iter = iter_limit;
+846:         time = fn(p);
+847:     } else {
+848:         iter_limit = ITRS_EST;
+849:     }
+850: 
+851:     /* Collect and print the timing results recorded by each process */
+852:     Print_Timings(time, title, p->size, iter_limit, p->comm);
+853: 
+854:     return time;
+855: }
+856: 
+857: int main (int argc, char *argv[])
+858: {
+[...]
+874:     if (!processArgs(argc, argv, &args)) { usage(); }
+875:     iter        = args.iters;
+876:     messStart   = args.messStart;
+877:     messStop    = args.messStop;
+878:     mem_limit   = args.memLimit;
+879:     time_limit  = args.timeLimit;
+880:     testFlags   = args.testFlags;
+881:     check_once  = args.checkOnce;
+882:     check_every = args.checkEvery;
+883:     ndims       = args.ndims;
+884:     partsize    = args.partSize; 
+885: 
+886:     /* initialize MPI */
+887:     err = MPI_Init(&argc, &argv);
+888:     if (err) { printf("Error in MPI_Init\n"); exit(1); }
+889: 
+890:     /* determine who we are in the MPI world */
+891:     MPI_Comm_rank(MPI_COMM_WORLD, &rank_local);
+892:     MPI_Comm_size(MPI_COMM_WORLD, &rank_count);
+893: 
+894:     /* mark start of mpiBench output */
+895:     if (rank_local == 0) { printf("START mpiBench v%s\n", VERS); }
+896: 
+897:     /* collect hostnames of all the processes and print rank layout */
+898:     gethostname(hostname, sizeof(hostname));
+899:     hostnames = (char*) _ALLOC_MAIN_(sizeof(hostname)*rank_count, "Hostname array");
+900:     MPI_Gather(hostname, sizeof(hostname), MPI_CHAR, hostnames, sizeof(hostname), MPI_CHAR, 0, MPI_COMM_WORLD);
+901:     if (rank_local == 0) {
+902:         for(k=0; k<rank_count; k++) {
+[...]
+908:     while(messStop*((size_t)rank_count)*2 > mem_limit && messStop > 0) messStop /= 2;
+909:     buffer_size = messStop * rank_count;
+910:     sbuffer   = (char*) _ALLOC_MAIN_(messStop    * rank_count, "Send Buffer");
+911:     rbuffer   = (char*) _ALLOC_MAIN_(messStop    * rank_count, "Receive Buffer");
+912:     sendcounts = (int*) _ALLOC_MAIN_(sizeof(int) * rank_count, "Send Counts");
+913:     sdispls    = (int*) _ALLOC_MAIN_(sizeof(int) * rank_count, "Send Displacements");
+914:     recvcounts = (int*) _ALLOC_MAIN_(sizeof(int) * rank_count, "Recv Counts");
+915:     rdispls    = (int*) _ALLOC_MAIN_(sizeof(int) * rank_count, "Recv Displacements");
+[...]
+921:     int partitions = 0;
+922:     if (partsize > 0) {
+923:         /* keep dividing comm in half until we get to partsize */
+924:         int currentsize = rank_count;
+925:         while (currentsize >= partsize) {
+926:             partitions++;
+927:             currentsize >>= 1;
+928:         }
+929:     }
+930: 
+931:     /* set up communicators */
+932:     int total_comms = 1+ndims+partitions;
+933:     int current_comm = 0;
+934:     int extra_state;
+935:     MPI_Comm_create_keyval(MPI_COMM_NULL_COPY_FN, MPI_COMM_NULL_DELETE_FN, &dimid_key, (void*) &extra_state);
+936:     MPI_Comm* comms = (MPI_Comm*) _ALLOC_MAIN_(sizeof(MPI_Comm) * total_comms, "Communicator array");
+937:     char* comm_desc = (char*)     _ALLOC_MAIN_(256              * total_comms, "Communicator description array");
+938: 
+939:     /* the first communicator is MPI_COMM_WORLD */
+940:     comms[0]  = MPI_COMM_WORLD;
+941:     strcpy(&comm_desc[256*current_comm], "MPI_COMM_WORLD");
+942:     MPI_Comm_set_attr(comms[0], dimid_key, (void*) &comm_desc[256*current_comm]); 
+943:     current_comm++;
+944: 
+945:     /* if ndims is specified, map MPI_COMM_WORLD into ndims Cartesian space, and create 1-D communicators along each dimension */
+946:     int d;
+947:     if (ndims > 0) {
+948:         MPI_Comm comm_dims;
+949:         int* dims    = (int*) _ALLOC_MAIN_(sizeof(int) * ndims, "Dimension array");
+950:         int* periods = (int*) _ALLOC_MAIN_(sizeof(int) * ndims, "Period array");
+951:         for (d=0; d < ndims; d++) {
+952:             dims[d]    = 0; /* set dims[d]=non-zero if you want to explicitly specify the number of processes in this dimension */
+[...]
+960:         MPI_Dims_create(rank_count, ndims, dims);
+[...]
+966:         MPI_Cart_create(MPI_COMM_WORLD, ndims, dims, periods, 0, &comm_dims);
+[...]
+973:         for (d=0; d < ndims; d++) {
+974:             for (d2=0; d2 < ndims; d2++) {
+975:                 if (d == d2) dims[d2] = 1;
+976:                 else         dims[d2] = 0;
+977:             }
+978:             MPI_Cart_sub(comm_dims, dims, &comms[current_comm]);
+979:             sprintf(&comm_desc[256*current_comm], "CartDim-%dof%d", d+1, ndims);
+980:             MPI_Comm_set_attr(comms[current_comm], dimid_key, (void*) &comm_desc[256*current_comm]); 
+981:             current_comm++;
+982:         }
+983: 
+984:         if (dims)    { free(dims);     dims    = NULL; }
+985:         if (periods) { free(periods);  periods = NULL; }
+986:     }
+987: 
+988:     /* if a partsize is specified, recursively divide MPI_COMM_WORLD in half until groups reach partsize */
+989:     int currentsize = rank_count;
+990:     int p = 0;
+991:     while (p < partitions) {
+992:         int partnum = (int) rank_local / currentsize;
+993:         MPI_Comm_split(MPI_COMM_WORLD, partnum, rank_local, &comms[current_comm]);
+994:         sprintf(&comm_desc[256*current_comm], "PartSize-%d", currentsize);
+995:         MPI_Comm_set_attr(comms[current_comm], dimid_key, (void*) &comm_desc[256*current_comm]); 
+996:         current_comm++;
+997:         currentsize >>= 1;
+998:         p++;
+999:     }
+1000: 
+1001:     /* for each communicator, run collective tests */
+1002:     for (d=0; d < total_comms; d++) {
+1003:         MPI_Comm comm = comms[d];
+1004: 
+1005:         /* determine who we are in this communicator */
+1006:         int myrank, nranks;
+1007:         MPI_Comm_rank(comm, &myrank);
+1008:         MPI_Comm_size(comm, &nranks);
+1009: 
+1010:         struct collParams p;
+1011:         p.root   = 0;
+1012:         p.comm   = comm;
+1013:         p.myrank = myrank;
+1014:         p.nranks = nranks;
+1015:         p.type   = MPI_BYTE;
+1016: 
+1017:         /* time requested collectives */
+1018:         if(testFlags & BARRIER) {
+1019:             p.size = 0;
+1020:             p.count = 0;
+1021:             get_time(time_barrier, "Barrier", &p, iter, time_limit);
+1022:         }
+1023: 
+1024:         if(testFlags & BCAST) {
+1025:             for(p.size = messStart; p.size <= messStop; p.size = (p.size > 0) ? p.size << 1 : 1) {
+1026:                 p.count = p.size;
+1027:                 if(get_time(time_bcast, "Bcast", &p, iter, time_limit) > time_maxMsg && time_maxMsg > 0.0) break;
+1028:             }
+1029:         }
+1030: 
+1031:         if(testFlags & ALLTOALL) {
+1032:             for(p.size = messStart; p.size <= messStop; p.size = (p.size > 0) ? p.size << 1 : 1) {
+1033:                 p.count = p.size;
+1034:                 if(get_time(time_alltoall, "Alltoall", &p, iter, time_limit) > time_maxMsg && time_maxMsg > 0.0) break;
+1035:             }
+1036:         }
+1037: 
+1038:         if(testFlags & ALLTOALLV) {
+1039:             for(p.size = messStart; p.size <= messStop; p.size = (p.size > 0) ? p.size << 1 : 1) {
+1040:                 p.count = p.size;
+1041:                 if(get_time(time_alltoallv, "Alltoallv", &p, iter, time_limit) > time_maxMsg && time_maxMsg > 0.0) break;
+1042:             }
+1043:         }
+1044: 
+1045:         if(testFlags & ALLGATHER) {
+1046:             for(p.size = messStart; p.size <= messStop; p.size = (p.size > 0) ? p.size << 1 : 1) {
+1047:                 p.count = p.size;
+1048:                 if(get_time(time_allgather, "Allgather", &p, iter, time_limit) > time_maxMsg && time_maxMsg > 0.0) break;
+1049:             }
+1050:         }
+1051: 
+1052:         if(testFlags & ALLGATHERV) {
+1053:             for(p.size = messStart; p.size <= messStop; p.size = (p.size > 0) ? p.size << 1 : 1) {
+1054:                 p.count = p.size;
+1055:                 if(get_time(time_allgatherv, "Allgatherv", &p, iter, time_limit) > time_maxMsg && time_maxMsg > 0.0) break;
+1056:             }
+1057:         }
+1058: 
+1059:         if(testFlags & GATHER) {
+1060:             for(p.size = messStart; p.size <= messStop; p.size = (p.size > 0) ? p.size << 1 : 1) {
+1061:                 p.count = p.size;
+1062:                 if(get_time(time_gather, "Gather", &p, iter, time_limit) > time_maxMsg && time_maxMsg > 0.0) break;
+1063:             }
+1064:         }
+1065: 
+1066:         if(testFlags & GATHERV) {
+1067:             for(p.size = messStart; p.size <= messStop; p.size = (p.size > 0) ? p.size << 1 : 1) {
+1068:                 p.count = p.size;
+1069:                 if(get_time(time_gatherv, "Gatherv", &p, iter, time_limit) > time_maxMsg && time_maxMsg > 0.0) break;
+1070:             }
+1071:         }
+1072: 
+1073:         if(testFlags & SCATTER) {
+1074:             for(p.size = messStart; p.size <= messStop; p.size = (p.size > 0) ? p.size << 1 : 1) {
+1075:                 p.count = p.size;
+[...]
+1081:         p.type     = MPI_DOUBLE;
+1082:         p.reduceop = MPI_SUM;
+1083: 
+1084:         if(testFlags & ALLREDUCE) {
+1085:             for(p.size = messStart; p.size <= messStop; p.size = (p.size > 0) ? p.size << 1 : 1) {
+1086:                 if(p.size < sizeof(double)) continue;
+1087:                 p.count = p.size / sizeof(double);
+1088:                 if(get_time(time_allreduce, "Allreduce", &p, iter, time_limit) > time_maxMsg && time_maxMsg > 0.0) break;
+1089:             }
+1090:         }
+1091: 
+1092:         if(testFlags & REDUCE) {
+1093:             for(p.size = messStart; p.size <= messStop; p.size = (p.size > 0) ? p.size << 1 : 1) {
+1094:                 if(p.size < sizeof(double)) continue;
+1095:                 p.count = p.size / sizeof(double);
+[...]
+1102:     if (rank_local == 0) {
+1103:         printf("Message buffers (KB):\t%ld\n", allocated_memory/1024);
+[...]
+1113:     if (rank_local == 0) { printf("END mpiBench\n"); }
+1114: 
+1115:     /* free memory */
+1116:     if (hostnames)  { free(hostnames);  hostnames  = NULL; }
+1117: 
+1118:     if (sbuffer)    { free(sbuffer);    sbuffer    = NULL; }
+1119:     if (rbuffer)    { free(rbuffer);    rbuffer    = NULL; }
+1120:     if (sendcounts) { free(sendcounts); sendcounts = NULL; }
+1121:     if (sdispls)    { free(sdispls);    sdispls    = NULL; }
+1122:     if (recvcounts) { free(recvcounts); recvcounts = NULL; }
+1123:     if (rdispls)    { free(rdispls);    rdispls    = NULL; }
+1124: 
+1125:     if (comms)      { free(comms);      comms      = NULL; }
+1126:     if (comm_desc)  { free(comm_desc);  comm_desc  = NULL; }
+1127: 
+1128:     /* shut down */
+1129:     MPI_Finalize();
+1130: 
+1131:     return 0;
+1132: }
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h: 71 - 90
+--------------------------------------------------------------------------------
+
+71:   return __builtin___memset_chk (__dest, __ch, __len, __bos0 (__dest));
+[...]
+90:   return __builtin___strcpy_chk (__dest, __src, __bos (__dest));

@@ -1,0 +1,66 @@
+/usr/include/x86_64-linux-gnu/bits/stdio2.h: 107 - 107
+--------------------------------------------------------------------------------
+
+107:   return __printf_chk (__USE_FORTIFY_LEVEL - 1, __fmt, __va_arg_pack ());
+/home/benbachir/Documents/PPN/mpiBench-main/mpiBench.c: 455 - 756
+--------------------------------------------------------------------------------
+
+455:     for(i=0; i<buffer_size; i++) {
+456:         value = (char) ((i+1)*(rank+1) + i);
+457:         sbuffer[i] = value;
+[...]
+473:     for(i=0; i<buffer_size; i++) {
+474:         value = (char) ((i+1)*(rank+1) + i);
+475:         if (sbuffer[i] != value) {
+476:             printf("Send buffer corruption detected on rank %d at sbuffer[%d]\n", rank, i);
+477:             MPI_Abort(MPI_COMM_WORLD, 1);
+[...]
+488:     for(i=0, j=src_byte_offset; i<element_count; i++, j++) {
+489:         value = (char) ((j+1)*(rank+1) + j);
+490:         if (buffer[i] != value) {
+491:               printf("Receive buffer corruption detected on rank %d at rbuffer[%d] from rank %d\n", rank_local, byte_offset+i, rank);
+492:               MPI_Abort(MPI_COMM_WORLD, 1);
+[...]
+718: {
+719:     int i, j, count;
+720:     int disp = 0;
+721:     int chunksize = p->count / p->nranks;
+722:     if (chunksize == 0) { chunksize = 1; }
+723:     for ( i = 0; i < p->nranks; i++) {
+724:         int count = (i*chunksize) % (p->count+1);
+725:         recvcounts[i] = count;
+726:         rdispls[i] = disp;
+727:         disp += count;
+728:     }
+729:     size_t scale = (p->count > 0) ? (p->size/p->count) : 0;
+730:     MPI_Barrier(MPI_COMM_WORLD);
+731: 
+732:     count = (p->myrank*chunksize) % (p->count+1);
+733:     __TIME_START__;
+734:     for (i = 0; i < p->iter; i++) {
+735:         int check = (check_every || (check_once && i == p->iter-1));
+736:         if (check) {
+737:             init_sbuffer(p->myrank);
+738:             init_rbuffer(p->myrank);
+739:         }
+740: 
+741:         MPI_Gatherv(sbuffer, count, p->type, rbuffer, recvcounts, rdispls, p->type, p->root, p->comm);
+742:         __BAR__(p->comm);
+743: 
+744:         if (check) {
+745:             check_sbuffer(p->myrank);
+746:             if (p->myrank == p->root) {
+747:                 for (j = 0; j < p->nranks; j++) {
+748:                     check_rbuffer(rbuffer, rdispls[j]*scale, j, 0, recvcounts[j]*scale);
+749:                 }
+750:             }
+751:         }
+752:     }
+753:     __TIME_END__;
+754: 
+755:     return __TIME_USECS__ / (double)p->iter;
+756: }
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h: 71 - 71
+--------------------------------------------------------------------------------
+
+71:   return __builtin___memset_chk (__dest, __ch, __len, __bos0 (__dest));

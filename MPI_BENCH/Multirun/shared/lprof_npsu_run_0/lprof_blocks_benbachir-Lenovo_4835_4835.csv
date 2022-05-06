@@ -1,0 +1,12 @@
+block_id;module;source_info;time_p;time_s;time_s_min;time_s_avg;time_s_max;cov_deviation;nb_threads;
+190;mpiBench;mpiBench.c:455-457;0.43;0.03;;;;;;
+385;mpiBench;mpiBench.c:455-457;0.43;0.03;;;;;;
+287;mpiBench;mpiBench.c:455-457;0.43;0.03;;;;;;
+312;mpiBench;mpiBench.c:455-457;0.43;0.03;;;;;;
+360;mpiBench;mpiBench.c:455-457;0.36;0.03;;;;;;
+153;mpiBench;mpiBench.c:455-457;0.28;0.02;;;;;;
+217;mpiBench;mpiBench.c:455-457;0.28;0.02;;;;;;
+123;mpiBench;mpiBench.c:455-457;0.21;0.02;;;;;;
+262;mpiBench;mpiBench.c:455-457;0.21;0.02;;;;;;
+336;mpiBench;mpiBench.c:455-457;0.14;0.01;;;;;;
+1187;mpiBench;mpiBench.c:693-693;0.07;0.01;;;;;;

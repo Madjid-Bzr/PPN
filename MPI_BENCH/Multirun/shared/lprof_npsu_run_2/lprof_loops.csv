@@ -1,0 +1,16 @@
+loop_id;module;function_name;function_id;source_info;level;time_p;time_s;time_s_min;time_s_avg;time_s_max;cov_deviation;nb_threads;
+26;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.59;0.05;0.04;0.05;0.06;0.10929648578167;4;
+24;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.47;0.04;0.02;0.04;0.05;0.19859677553177;4;
+18;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.32;0.03;0.02;0.03;0.03;0.052508406341076;4;
+22;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.3;0.02;0.02;0.02;0.03;0.061280135065317;4;
+12;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.29;0.02;0.02;0.02;0.03;0.036974299699068;4;
+20;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.24;0.02;0.02;0.02;0.03;0.061445269733667;4;
+16;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.21;0.02;0.01;0.02;0.02;0.096242874860764;4;
+10;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.16;0.01;0.01;0.01;0.02;0.037140909582376;4;
+14;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.14;0.01;0.01;0.01;0.02;0.032037578523159;4;
+5;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.13;0.01;0.01;0.01;0.01;0.00011674678535201;4;
+30;mpiBench;main;1;mpiBench.c:455-457;Innermost;0.05;0;0.01;0.01;0.01;0.045356392860413;2;
+49;mpiBench;time_alltoall;21;stdio2.h:107-107,mpiBench.c:455-569,string_fortified.h:71-71;Outermost;0.03;0;0.01;0.01;0.01;8.756007446209e-05;2;
+83;mpiBench;time_scatter;27;stdio2.h:107-107,mpiBench.c:455-776,string_fortified.h:71-71;Outermost;0.02;0;0.01;0.01;0.01;0;1;
+54;mpiBench;time_alltoallv;22;stdio2.h:107-107,mpiBench.c:455-611,string_fortified.h:71-71;Outermost;0.02;0;0.01;0.01;0.01;0;1;
+45;mpiBench;time_bcast;20;stdio2.h:107-107,mpiBench.c:455-542,string_fortified.h:71-71;Outermost;0.02;0;0.01;0.01;0.01;0;1;
