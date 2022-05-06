@@ -1,0 +1,9 @@
+loop_id;module;function_name;function_id;source_info;level;time_p;time_s;time_s_min;time_s_avg;time_s_max;cov_deviation;nb_threads;
+4;mpiBench;init_sbuffer;11;;Single;7.52;0.79;0.77;0.79;0.82;0.24778674542904;4;
+20;mpiBench;time_gather;21;;Outermost;0.04;0;0.01;0.01;0.01;5.055748988525e-05;3;
+9;mpiBench;time_alltoall;17;;Outermost;0.04;0;0.01;0.01;0.01;0.034901600331068;2;
+18;mpiBench;time_allgatherv;20;;Outermost;0.02;0;0.01;0.01;0.01;0;1;
+12;mpiBench;time_alltoallv;18;;Outermost;0.01;0;0.01;0.01;0.01;0;1;
+27;mpiBench;time_reduce;25;;Single;0.01;0;0.01;0.01;0.01;0;1;
+25;mpiBench;time_scatter;23;;Single;0.01;0;0.01;0.01;0.01;0;1;
+15;mpiBench;time_allgather;19;;Outermost;0.01;0;0.01;0.01;0.01;0;1;

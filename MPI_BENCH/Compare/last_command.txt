@@ -1,0 +1,1 @@
+maqao oneview -R1 -xp=Compare -WS -c=mpiBench2.lua 

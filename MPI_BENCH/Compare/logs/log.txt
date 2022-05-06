@@ -1,0 +1,15 @@
+********************************************************************************
+
+MAQAO 2.15.0 - b1544c69c095a29fedd570ae9a5f2917b3fb35a8::20211209-173719 || 2021/12/09
+
+maqao oneview -R1 -xp=Compare -WS -c=mpiBench2.lua 
+
+Warning: run_command configuration option doesn't contain the tag <executable>. As the binary path as been found
+         in run_command, it has been replaced by the tag <executable>. New run_command value is
+         <executable>
+
+CMD:   /usr/bin/maqao lprof  --xp="/home/katia/Bureau/PPN/mpiBench-main/Compare/tools/lprof_npsu_run_0" --mpi-command="mpirun -np 4"   -- /home/katia/Bureau/PPN/mpiBench-main/Compare/binaries/mpiBench
+CMD:  OMP_NUM_THREADS=4   /usr/bin/maqao lprof  --xp="/home/katia/Bureau/PPN/mpiBench-main/Compare/tools/lprof_npsu_run_1" --mpi-command="mpirun -np 4"   -- /home/katia/Bureau/PPN/mpiBench-main/Compare/binaries/mpiBench
+CMD:  OMP_NUM_THREADS=4   /usr/bin/maqao lprof  --xp="/home/katia/Bureau/PPN/mpiBench-main/Compare/tools/lprof_npsu_run_2" --mpi-command="mpirun -np 4"   -- /home/katia/Bureau/PPN/mpiBench-main/Compare/binaries/mpiBench
+CMD:  OMP_NUM_THREADS=2   /usr/bin/maqao lprof  --xp="/home/katia/Bureau/PPN/mpiBench-main/Compare/tools/lprof_npsu_run_3" --mpi-command="mpirun -np 4"   -- /home/katia/Bureau/PPN/mpiBench-main/Compare/binaries/mpiBench
+CMD:  OMP_NUM_THREADS=4   /usr/bin/maqao lprof  --xp="/home/katia/Bureau/PPN/mpiBench-main/Compare/tools/lprof_npsu_run_4" --mpi-command="mpirun -np 4"   -- /home/katia/Bureau/PPN/mpiBench-main/Compare/binaries/mpiBench

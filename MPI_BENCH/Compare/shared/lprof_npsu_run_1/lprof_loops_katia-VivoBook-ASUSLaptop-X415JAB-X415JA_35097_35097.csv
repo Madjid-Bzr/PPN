@@ -1,0 +1,5 @@
+loop_id;module;function_name;function_id;source_info;level;time_p;time_s;time_s_min;time_s_avg;time_s_max;cov_deviation;nb_threads;
+4;mpiBench;init_sbuffer;11;;Single;6.93;0.73;;;;;;
+12;mpiBench;time_alltoallv;18;;Outermost;0.15;0.02;;;;;;
+15;mpiBench;time_allgather;19;;Outermost;0.1;0.01;;;;;;
+23;mpiBench;time_gatherv;22;;Outermost;0.05;0.01;;;;;;

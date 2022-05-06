@@ -1,0 +1,8 @@
+block_id;module;source_info;time_p;time_s;time_s_min;time_s_avg;time_s_max;cov_deviation;nb_threads;
+173;mpiBench;;7.05;0.74;;;;;;
+172;mpiBench;;0.25;0.03;;;;;;
+336;mpiBench;;0.05;0.01;;;;;;
+225;mpiBench;;0.05;0.01;;;;;;
+398;mpiBench;;0.05;0.01;;;;;;
+266;mpiBench;;0.05;0.01;;;;;;
+235;mpiBench;;0.05;0.01;;;;;;

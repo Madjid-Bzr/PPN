@@ -1,0 +1,100 @@
+address;source_location;insn;indent
+0x4087;:0;MOV	0x62b7(%RIP),%EAX;
+0x408d;:0;TEST	%EAX,%EAX;
+0x408f;:0;JNE	40aa <time_gatherv+0x136>;
+0x4091;:0;MOV	0x62b5(%RIP),%EAX;
+0x4097;:0;TEST	%EAX,%EAX;
+0x4099;:0;JE	40b1 <time_gatherv+0x13d>;
+0x409b;:0;MOV	-0x38(%RBP),%RAX;
+0x409f;:0;MOV	0x8(%RAX),%EAX;
+0x40a2;:0;SUB	$0x1,%EAX;
+0x40a5;:0;CMP	%EAX,-0x24(%RBP);
+0x40a8;:0;JNE	40b1 <time_gatherv+0x13d>;
+0x40aa;:0;MOV	$0x1,%EAX;
+0x40af;:0;JMP	40b6 <time_gatherv+0x142>;
+0x40b1;:0;MOV	$0,%EAX;
+0x40b6;:0;MOV	%EAX,-0x10(%RBP);
+0x40b9;:0;CMPL	$0,-0x10(%RBP);
+0x40bd;:0;JE	40db <time_gatherv+0x167>;
+0x40bf;:0;MOV	-0x38(%RBP),%RAX;
+0x40c3;:0;MOV	0x18(%RAX),%EAX;
+0x40c6;:0;MOV	%EAX,%EDI;
+0x40c8;:0;CALL	307e <init_sbuffer>;
+0x40cd;:0;MOV	-0x38(%RBP),%RAX;
+0x40d1;:0;MOV	0x18(%RAX),%EAX;
+0x40d4;:0;MOV	%EAX,%EDI;
+0x40d6;:0;CALL	30df <init_rbuffer>;
+0x40db;:0;MOV	-0x38(%RBP),%RAX;
+0x40df;:0;MOV	0x10(%RAX),%R9;
+0x40e3;:0;MOV	-0x38(%RBP),%RAX;
+0x40e7;:0;MOV	0xc(%RAX),%R8D;
+0x40eb;:0;MOV	-0x38(%RBP),%RAX;
+0x40ef;:0;MOV	0x28(%RAX),%RDI;
+0x40f3;:0;MOV	0x623e(%RIP),%R11;
+0x40fa;:0;MOV	0x6227(%RIP),%R10;
+0x4101;:0;MOV	0x6218(%RIP),%RCX;
+0x4108;:0;MOV	-0x38(%RBP),%RAX;
+0x410c;:0;MOV	0x28(%RAX),%RDX;
+0x4110;:0;MOV	0x6239(%RIP),%RAX;
+0x4117;:0;MOV	-0x14(%RBP),%ESI;
+0x411a;:0;SUB	$0x8,%RSP;
+0x411e;:0;PUSH	%R9;
+0x4120;:0;PUSH	%R8;
+0x4122;:0;PUSH	%RDI;
+0x4123;:0;MOV	%R11,%R9;
+0x4126;:0;MOV	%R10,%R8;
+0x4129;:0;MOV	%RAX,%RDI;
+0x412c;:0;CALL	2500 <.plt.sec@start+0x240>;
+0x4131;:0;ADD	$0x20,%RSP;
+0x4135;:0;MOV	-0x38(%RBP),%RAX;
+0x4139;:0;MOV	0x10(%RAX),%RAX;
+0x413d;:0;MOV	%RAX,%RDI;
+0x4140;:0;CALL	22c0 <.plt.sec@start>;
+0x4145;:0;CMPL	$0,-0x10(%RBP);
+0x4149;:0;JE	41e2 <time_gatherv+0x26e>;
+0x414f;:0;MOV	-0x38(%RBP),%RAX;
+0x4153;:0;MOV	0x18(%RAX),%EAX;
+0x4156;:0;MOV	%EAX,%EDI;
+0x4158;:0;CALL	310c <check_sbuffer>;
+0x415d;:0;MOV	-0x38(%RBP),%RAX;
+0x4161;:0;MOV	0x18(%RAX),%EDX;
+0x4164;:0;MOV	-0x38(%RBP),%RAX;
+0x4168;:0;MOV	0xc(%RAX),%EAX;
+0x416b;:0;CMP	%EAX,%EDX;
+0x416d;:0;JNE	41e2 <time_gatherv+0x26e>;
+0x416f;:0;MOVL	$0,-0x20(%RBP);
+0x4176;:0;JMP	41d6 <time_gatherv+0x262>;
+0x4178;:0;MOV	0x61a9(%RIP),%RAX;  (24) 
+0x417f;:0;MOV	-0x20(%RBP),%EDX;  (24) 
+0x4182;:0;MOVSXD	%EDX,%RDX;  (24) 
+0x4185;:0;SAL	$0x2,%RDX;  (24) 
+0x4189;:0;ADD	%RDX,%RAX;  (24) 
+0x418c;:0;MOV	(%RAX),%EAX;  (24) 
+0x418e;:0;CLTQ;  (24) 
+0x4190;:0;IMUL	-0x8(%RBP),%RAX;  (24) 
+0x4195;:0;MOV	%RAX,%RCX;  (24) 
+0x4198;:0;MOV	0x6199(%RIP),%RAX;  (24) 
+0x419f;:0;MOV	-0x20(%RBP),%EDX;  (24) 
+0x41a2;:0;MOVSXD	%EDX,%RDX;  (24) 
+0x41a5;:0;SAL	$0x2,%RDX;  (24) 
+0x41a9;:0;ADD	%RDX,%RAX;  (24) 
+0x41ac;:0;MOV	(%RAX),%EAX;  (24) 
+0x41ae;:0;CLTQ;  (24) 
+0x41b0;:0;IMUL	-0x8(%RBP),%RAX;  (24) 
+0x41b5;:0;MOV	%RAX,%RSI;  (24) 
+0x41b8;:0;MOV	0x6161(%RIP),%RAX;  (24) 
+0x41bf;:0;MOV	-0x20(%RBP),%EDX;  (24) 
+0x41c2;:0;MOV	%RCX,%R8;  (24) 
+0x41c5;:0;MOV	$0,%ECX;  (24) 
+0x41ca;:0;MOV	%RAX,%RDI;  (24) 
+0x41cd;:0;CALL	319e <check_rbuffer>;  (24) 
+0x41d2;:0;ADDL	$0x1,-0x20(%RBP);  (24) 
+0x41d6;:0;MOV	-0x38(%RBP),%RAX;  (24) 
+0x41da;:0;MOV	0x1c(%RAX),%EAX;  (24) 
+0x41dd;:0;CMP	%EAX,-0x20(%RBP);  (24) 
+0x41e0;:0;JL	4178 <time_gatherv+0x204>;  (24) 
+0x41e2;:0;ADDL	$0x1,-0x24(%RBP);
+0x41e6;:0;MOV	-0x38(%RBP),%RAX;
+0x41ea;:0;MOV	0x8(%RAX),%EAX;
+0x41ed;:0;CMP	%EAX,-0x24(%RBP);
+0x41f0;:0;JL	4087 <time_gatherv+0x113>;

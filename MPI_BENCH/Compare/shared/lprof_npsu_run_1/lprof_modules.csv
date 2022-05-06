@@ -1,0 +1,13 @@
+name;time_p;time_s;cpi_ratio;
+/usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_btl_vader.so;70.86;7.5;;
+/usr/lib/x86_64-linux-gnu/libc-2.31.so;7.45;0.79;;
+/home/katia/Bureau/PPN/mpiBench-main/Compare/binaries/mpiBench;7.14;0.76;;
+/usr/lib/x86_64-linux-gnu/openmpi/lib/libopen-pal.so.40.20.3;6.46;0.68;;
+/usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_pml_ob1.so;5.38;0.57;;
+/usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi.so.40.20.3;2.5;0.27;;
+/usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_coll_tuned.so;0.12;0.01;;
+/usr/lib/x86_64-linux-gnu/ld-2.31.so;0.04;0;;
+/usr/lib/x86_64-linux-gnu/libpthread-2.31.so;0.01;0;;
+/usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_allocator_bucket.so;0.01;0;;
+/usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_btl_openib.so;0.01;0;;
+/usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_coll_basic.so;0.01;0;;
