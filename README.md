@@ -1,6 +1,6 @@
 # Projet de Programmation Numérique
 
-Ce projet fait partie du la suite de notre projet du premier semestre du module Projet de programmation numérique du master Calcul Haute Performance et Simulation de l'Université Paris-Saclay, qui consiste a simulé des programme __MPI__ à l'aide de l’outil __MAQAO__.
+Ce projet fait partie de la suite de notre projet du premier semestre du module Projet de programmation numérique du master Calcul Haute Performance et Simulation de l'Université Paris-Saclay, qui consiste à simuler des programmes __MPI__ à l'aide de l’outil __MAQAO__.
 
 # Les changements importants
 
@@ -38,7 +38,7 @@ int main(int argc, char **argv){
 
 ```
 ## Compilation de code
-Pour compilé notre code faudra se placer sur le dossier __Code Nbody3D__ et lancée la commande
+Pour compiler notre code faudra se placer sur le dossier __Code Nbody3D__ et lancer la commande
 ```bash
 make
 ```
@@ -48,11 +48,11 @@ Pour lancer le code en mode __MPI__ faudra la lancée comme suit:
 ```bash
 mpirun -np 4 ./nbody_mpi
 ```
-## Lancement de plusieurs run a la fois
+## Lancement de plusieurs run à la fois
 ```bash
 make run
 ```
-## Vérifications des résultats 
+## Vérification des résultats 
 Pour n=16384 particules faudra avoir :
 ```bash
 Somme X = 811.466520 
