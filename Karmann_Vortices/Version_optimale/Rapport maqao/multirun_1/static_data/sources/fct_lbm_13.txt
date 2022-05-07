@@ -1,0 +1,59 @@
+/users/user2207/lbm_opt/include/lbm_struct.h: 130 - 130
+--------------------------------------------------------------------------------
+
+130:     return &mesh->cells[(x * mesh->height + y) * DIRECTIONS];
+/usr/lib/gcc/x86_64-linux-gnu/9/include/avx512fintrin.h: 5852 - 15884
+--------------------------------------------------------------------------------
+
+5852:   return (__m256d) __builtin_ia32_extractf64x4_mask ((__v8df) __A,
+[...]
+6198:   return *(__m512d_u *)__P;
+[...]
+12478:   return (__m512d) ((__v8df)__A * (__v8df)__B);
+[...]
+15884:   __MM512_REDUCE_OP (+);
+/usr/lib/gcc/x86_64-linux-gnu/9/include/avxintrin.h: 513 - 513
+--------------------------------------------------------------------------------
+
+513:   return (__m128d) __builtin_ia32_vextractf128_pd256 ((__v4df)__X, __N);
+/users/user2207/lbm_opt/src/main.c: 77 - 109
+--------------------------------------------------------------------------------
+
+77: {
+78:     // Write buffer to write float instead of double
+79:     lbm_file_entry_t buffer[WRITE_BUFFER_ENTRIES];
+80: 
+81:     // Loop on all values
+82:     size_t cnt = 0;
+83:     for (size_t i = 1; i < mesh->width - 1; i++) {
+84:         for (size_t j = 1; j < mesh->height - 1; j++) {
+85:             // Compute macroscopic values
+86:             double const density = get_cell_density(Mesh_get_cell(mesh, i, j));
+87:             Vector v;
+88:             get_cell_velocity(v, Mesh_get_cell(mesh, i, j), density);
+89:             double const norm = sqrt(get_vect_norm_2(v, v));
+90: 
+91:             // Fill buffer
+92:             buffer[cnt].rho = density;
+93:             buffer[cnt].v = norm;
+94:             cnt++;
+95:             assert(cnt <= WRITE_BUFFER_ENTRIES);
+96: 
+97:             // Flush buffer if full
+98:             if (cnt == WRITE_BUFFER_ENTRIES) {
+99:                 fwrite(buffer, sizeof(lbm_file_entry_t), cnt, fp);
+100:                 cnt = 0;
+[...]
+106:     if (cnt != 0) {
+107:         fwrite(buffer, sizeof(lbm_file_entry_t), cnt, fp);
+108:     }
+109: }
+/users/user2207/lbm_opt/src/lbm_phys.c: 39 - 59
+--------------------------------------------------------------------------------
+
+39:     return a[0] * b[0] + a[1] * b[1];
+[...]
+47:     res += cell[DIRECTIONS - 1];
+[...]
+58:     v[0] = _mm512_reduce_add_pd(_mm512_mul_pd(vcell, dir_a)) / cell_density;
+59:     v[1] = _mm512_reduce_add_pd(_mm512_mul_pd(vcell, dir_b)) / cell_density;

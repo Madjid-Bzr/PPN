@@ -1,0 +1,16 @@
+block_id;module;source_info;time_p;time_s;time_s_min;time_s_avg;time_s_max;cov_deviation;nb_threads;
+488;lbm;lbm_struct.h:130-130,avx512fintrin.h:5852-15884,avxintrin.h:513-513,lbm_phys.c:47-219;9.77;0.08;;;;;;
+371;lbm;lbm_phys.c:236-241;1.72;0.01;;;;;;
+369;lbm;lbm_phys.c:236-241;1.15;0.01;;;;;;
+379;lbm;lbm_phys.c:236-241;1.15;0.01;;;;;;
+378;lbm;lbm_struct.h:130-130,lbm_phys.c:242-242;1.15;0.01;;;;;;
+396;lbm;lbm_struct.h:148-148,lbm_phys.c:192-192;0.57;0;;;;;;
+375;lbm;lbm_phys.c:236-241;0.57;0;;;;;;
+411;lbm;lbm_phys.c:192-192;0.57;0;;;;;;
+381;lbm;lbm_phys.c:236-236;0.57;0;;;;;;
+382;lbm;lbm_struct.h:130-130,lbm_phys.c:242-242;0.57;0;;;;;;
+380;lbm;lbm_struct.h:130-130,lbm_phys.c:242-242;0.57;0;;;;;;
+376;lbm;lbm_struct.h:130-130,lbm_phys.c:242-242;0.57;0;;;;;;
+372;lbm;lbm_struct.h:130-130,lbm_phys.c:242-242;0.57;0;;;;;;
+368;lbm;lbm_struct.h:130-130,lbm_phys.c:242-242;0.57;0;;;;;;
+286;lbm;lbm_init.c:51-58,lbm_phys.c:98-145,lbm_struct.h:130-148;0.57;0;;;;;;

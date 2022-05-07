@@ -1,0 +1,78 @@
+/users/user2207/lbm_opt/src/lbm_init.c: 25 - 122
+--------------------------------------------------------------------------------
+
+25:     for (size_t i = mesh_comm->x; i < mesh->width + mesh_comm->x; i++) {
+26:         for (size_t j = mesh_comm->y; j < mesh->height + mesh_comm->y; j++) {
+27:             if (((i - OBSTACLE_X) * (i - OBSTACLE_X)) + ((j - OBSTACLE_Y) * (j - OBSTACLE_Y)) <=
+28:                 OBSTACLE_R * OBSTACLE_R)
+29:             {
+30:                 *(lbm_cell_type_t_get_cell(mesh_type, i - mesh_comm->x, j - mesh_comm->y)) = CELL_BOUNCE_BACK;
+[...]
+47:     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+48: 
+49:     // Apply Poiseuille distribution for all nodes except on top/bottom border
+50:     for (size_t i = 0; i < mesh->width; i++) {
+51:         for (size_t j = 0; j < mesh->height; j++) {
+52:             for (size_t k = 0; k < DIRECTIONS; k++) {
+53:                 // Compute equilibrium
+54:                 v[0] = helper_compute_poiseuille(j + mesh_comm->y, MESH_HEIGHT);
+55:                 lbm_mesh_cell_t cell = Mesh_get_cell(mesh, i, j);
+56:                 cell[k] = compute_equilibrium_profile(v, rho, k);
+57:                 // Mark as standard fluid
+58:                 *(lbm_cell_type_t_get_cell(mesh_type, i, j)) = CELL_FUILD;
+[...]
+76:     if (mesh_comm->left_id == -1) {
+77:         for (size_t j = 1; j < mesh->height - 1; j++) {
+78:             *(lbm_cell_type_t_get_cell(mesh_type, 0, j)) = CELL_LEFT_IN;
+79:         }
+80:     }
+81: 
+82:     // Setup right border type
+83:     if (mesh_comm->right_id == -1) {
+84:         for (size_t j = 1; j < mesh->height - 1; j++) {
+85:             *(lbm_cell_type_t_get_cell(mesh_type, mesh->width - 1, j)) = CELL_RIGHT_OUT;
+86:         }
+87:     }
+88: 
+89:     // Setup top border type
+90:     if (mesh_comm->top_id == -1) {
+91:         for (size_t i = 0; i < mesh->width; i++) {
+92:             for (size_t k = 0; k < DIRECTIONS; k++) {
+93:                 // Compute equilibrium.
+94:                 Mesh_get_cell(mesh, i, 0)[k] =
+95:                     compute_equilibrium_profile(v, rho, k);
+96:                 // Mark as bounce back
+97:                 *(lbm_cell_type_t_get_cell(mesh_type, i, 0)) = CELL_BOUNCE_BACK;
+[...]
+103:     if (mesh_comm->bottom_id == -1) {
+104:         for (size_t i = 0; i < mesh->width; i++) {
+105:             for (size_t k = 0; k < DIRECTIONS; k++) {
+106:                 // Compute equilibrium.
+107:                 Mesh_get_cell(mesh, i, mesh->height - 1)[k] =
+108:                     compute_equilibrium_profile(v, rho, k);
+109:                 // Mark as bounce back
+110:                 *(lbm_cell_type_t_get_cell(mesh_type, i, mesh->height - 1)) = CELL_BOUNCE_BACK;
+[...]
+118: {
+119:     setup_init_state_global_poiseuille_profile(mesh, mesh_type, mesh_comm);
+120:     setup_init_state_border(mesh, mesh_type, mesh_comm);
+121:     setup_init_state_circle_obstacle(mesh, mesh_type, mesh_comm);
+122: }
+/users/user2207/lbm_opt/src/lbm_phys.c: 98 - 145
+--------------------------------------------------------------------------------
+
+98:     double f_eq = 1.0 + (3.0 * p1) + (4.5 * p2) - (1.5 * v2);
+99:     // Multiply everything by the density and direction weight
+100:     f_eq *= equil_weight[direction] * density;
+[...]
+141:     double const y = (double)(i - 1);
+142:     double const L = (double)(size - 1);
+143:     double const a = y * (L - y);
+144:     double const b = L * L;
+145:     return 0.4 * a / b;
+/users/user2207/lbm_opt/src/../include/lbm_struct.h: 130 - 148
+--------------------------------------------------------------------------------
+
+130:     return &mesh->cells[(x * mesh->height + y) * DIRECTIONS];
+[...]
+148:     return &meshtype->types[x * meshtype->height + y];

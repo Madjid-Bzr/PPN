@@ -1,0 +1,12 @@
+/users/user2207/lbm_opt/src/lbm_init.c: 26 - 30
+--------------------------------------------------------------------------------
+
+26:         for (size_t j = mesh_comm->y; j < mesh->height + mesh_comm->y; j++) {
+27:             if (((i - OBSTACLE_X) * (i - OBSTACLE_X)) + ((j - OBSTACLE_Y) * (j - OBSTACLE_Y)) <=
+28:                 OBSTACLE_R * OBSTACLE_R)
+29:             {
+30:                 *(lbm_cell_type_t_get_cell(mesh_type, i - mesh_comm->x, j - mesh_comm->y)) = CELL_BOUNCE_BACK;
+/users/user2207/lbm_opt/src/../include/lbm_struct.h: 148 - 148
+--------------------------------------------------------------------------------
+
+148:     return &meshtype->types[x * meshtype->height + y];

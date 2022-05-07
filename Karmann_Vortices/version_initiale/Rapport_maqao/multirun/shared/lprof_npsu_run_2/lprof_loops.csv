@@ -1,0 +1,10 @@
+loop_id;module;function_name;function_id;source_info;level;time_p;time_s;time_s_min;time_s_avg;time_s_max;cov_deviation;nb_threads;
+46;lbm;collision;39;lbm_phys.c:45-217,lbm_struct.h:130-130;Innermost;48.38;55.8;55.8;55.8;55.8;0;1;
+48;lbm;propagation;40;lbm_phys.c:228-239,lbm_struct.h:130-130;Innermost;48.01;55.38;55.38;55.38;55.38;0;1;
+44;lbm;special_cells;38;lbm_phys.c:122-200,lbm_struct.h:130-148;Innermost;1.69;1.95;1.95;1.95;1.95;0;1;
+51;lbm;save_frame;46;lbm_struct.h:130-130,main.c:84-100;Innermost;0.27;0.31;0.31;0.31;0.31;0;1;
+33;lbm;setup_init_state_global_poiseuille_profile;25;lbm_struct.h:130-148,lbm_init.c:52-58;Innermost;0.23;0.26;0.26;0.26;0.26;0;1;
+45;lbm;collision;39;lbm_phys.c:45-218,lbm_struct.h:130-130;Outermost;0.1;0.12;0.12;0.12;0.12;0;1;
+42;lbm;setup_init_state;27;lbm_struct.h:148-148,lbm_init.c:26-30;Innermost;0.02;0.02;0.02;0.02;0.02;0;1;
+43;lbm;special_cells;38;lbm_phys.c:122-200,lbm_struct.h:130-148;Outermost;0.01;0.01;0.01;0.01;0.01;0;1;
+34;lbm;setup_init_state_global_poiseuille_profile;25;lbm_struct.h:130-148,lbm_init.c:51-58;InBetween;0;0;0;0;0;0;1;

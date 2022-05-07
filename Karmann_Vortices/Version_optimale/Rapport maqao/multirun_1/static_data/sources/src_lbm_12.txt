@@ -1,0 +1,29 @@
+/users/user2207/lbm_opt/src/lbm_init.c: 51 - 58
+--------------------------------------------------------------------------------
+
+51:         for (size_t j = 0; j < mesh->height; j++) {
+52:             for (size_t k = 0; k < DIRECTIONS; k++) {
+53:                 // Compute equilibrium
+54:                 v[0] = helper_compute_poiseuille(j + mesh_comm->y, MESH_HEIGHT);
+55:                 lbm_mesh_cell_t cell = Mesh_get_cell(mesh, i, j);
+56:                 cell[k] = compute_equilibrium_profile(v, rho, k);
+57:                 // Mark as standard fluid
+58:                 *(lbm_cell_type_t_get_cell(mesh_type, i, j)) = CELL_FUILD;
+/users/user2207/lbm_opt/src/lbm_phys.c: 98 - 145
+--------------------------------------------------------------------------------
+
+98:     double f_eq = 1.0 + (3.0 * p1) + (4.5 * p2) - (1.5 * v2);
+99:     // Multiply everything by the density and direction weight
+100:     f_eq *= equil_weight[direction] * density;
+[...]
+141:     double const y = (double)(i - 1);
+142:     double const L = (double)(size - 1);
+143:     double const a = y * (L - y);
+144:     double const b = L * L;
+145:     return 0.4 * a / b;
+/users/user2207/lbm_opt/src/../include/lbm_struct.h: 130 - 148
+--------------------------------------------------------------------------------
+
+130:     return &mesh->cells[(x * mesh->height + y) * DIRECTIONS];
+[...]
+148:     return &meshtype->types[x * meshtype->height + y];

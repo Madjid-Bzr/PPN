@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en-US"><head><title>OV - lbm - Application</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/ui.jqgrid.css" />
+<link rel="stylesheet" type="text/css" href="css/themes/redmond_custom/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="css/themes/redmond_custom/jquery.jqplot.min.css" />
+<link rel="stylesheet" type="text/css" href="css/MAQAO_theme.css" />
+<link rel="stylesheet" type="text/css" href="css/maqao_modal.css" />
+<link rel="stylesheet" type="text/css" href="css/global.css" />
+<link rel="stylesheet" type="text/css" href="css/maqao_menu.css" />
+<script src="js/jquery-1.9.0.min.js" ></script>
+<script src="js/jquery-ui-1.10.3.custom.min.js" ></script>
+<script src="js/grid.locale-en.js" ></script>
+<script src="js/jquery.jqGrid.min.js" ></script>
+<script src="js/d3.min.js" ></script>
+<script class="include" src="js/jquery.jqplot.min.js"></script>
+<script class="include" src="js/jqplot.pieRenderer.min.js"></script>
+<script class="include" src="js/jqplot.barRenderer.min.js"></script>
+<script class="include" src="js/jqplot.categoryAxisRenderer.min.js"></script>
+<script class="include" src="js/jqplot.pointLabels.min.js"></script>
+<script class="include" src="js/jqplot.cursor.min.js"></script>
+<script class="include" src="js/jqplot.canvasTextRenderer.min.js"></script>
+<script class="include" src="js/jqplot.canvasAxisTickRenderer.min.js"></script>
+<script class="include" src="js/jqplot.canvasAxisLabelRenderer.min.js"></script>
+<script class="include" src="js/jqplot.enhancedLegendRenderer.min.js"></script>
+<script class="include" src="js/jqplot.highlighter.min.js"></script>
+<script class="include" src="js/maqao_menu.js"></script>
+<script>
+$( function() {
+  $( document ).tooltip({
+    content: function() {
+      if ($(this).hasClass ("tooltip-maqao")
+      ||  $(this).hasClass ("tooltip-maqao-button")) {
+        return tooltips_texts[$(this).attr('tooltip_id')];
+      }
+    },
+    position: {
+      my: "center bottom-20",
+        at: "center top",
+        using: function( position, feedback ) {
+          $( this ).css( position );
+          $( "<div>" )
+            .addClass( "arrow-tt" )
+            .addClass( feedback.vertical )
+            .addClass( feedback.horizontal )
+            .appendTo( this );
+        }
+      }
+  });
+} );
+
+// Code from https://www.htmlgoodies.com/beyond/javascript/article.php/3724571/Using-Multiple-JavaScript-Onload-Functions.htm
+function addLoadEvent(func) {
+  var oldonload = window.onload;
+  if (typeof window.onload != 'function') {
+    window.onload = func;
+  } else {
+    window.onload = function() {
+      if (oldonload) {
+        oldonload();
+      }
+      func();
+    }
+  }
+}
+function loadCSS(filename){ 
+  var file = document.createElement("link");
+  file.setAttribute("rel", "stylesheet");
+  file.setAttribute("type", "text/css");
+  file.setAttribute("href", filename);
+  document.head.appendChild(file);
+}
+addLoadEvent(function(){
+  var theme = localStorage.getItem("__MAQAO_OV_theme__");
+  if (theme) {
+    loadCSS("css/"+theme+".css");
+  }
+  else {
+    localStorage.setItem("__MAQAO_OV_theme__", "MAQAO_theme");
+    loadCSS("css/MAQAO_theme.css");
+  }
+});
+</script>
+</head><body>
+<div id="page_title"><img alt="MAQAO" id="maqao_logo" src="images/MAQAO_small_logo.png"/><ul id="maqao_menu"><li ><a  href="index.html">Global</a><ul><li ><a  href="config.html">Configurations</a></li><li ><a  href="log.html">Logs</a></li></ul></li><li ><a class="_current_page _first_menu_level" href="application.html">Application</a></li><li ><a  href="fcts_and_loops.html">Functions</a></li><li ><a  href="loops_index.html">Loops</a></li><li ><a  href="topology.html">Topology</a></li></ul>
+<span><img alt="options" id="menu_options_icon" src="images/gear_20.png" onclick="__open_options ()"/></span>
+</div>
+<script>
+function __change_theme () {
+  var new_theme = document.getElementById("select_theme").value;
+  localStorage.setItem("__MAQAO_OV_theme__", new_theme);
+    loadCSS("css/"+new_theme+".css");
+}
+function __open_options () {
+  var elem = document.getElementById ("options_configuration");
+  if (elem.dataset.open == "false") {
+    elem.dataset.open = "true";
+    elem.style.display = "block";
+  }
+  else {
+    elem.dataset.open = "false";
+    elem.style.display = "none";
+  }
+}
+</script>
+<div id="anchor_file_start"></div>
+<div id="maqao_content">
+<div>
+  <div id="spacer_page_title" ></div>
+  <div id="options_configuration" data-open="false" style="display:none;">
+    <h3 id="options_configuration_header">Report Configuration</h3>
+    <span style="margin-left:10px;"><label for="select_theme">Theme: </label>    <select name="theme" id="select_theme" onchange="__change_theme ()">  <option value="MAQAO_theme">MAQAO_theme</option>  <option value="darkgrey">darkgrey</option>  <option value="cyan">cyan</option></select></span></div>
+</div>
+<script>
+document.getElementById("spacer_page_title").style.height = (document.getElementById("page_title").clientHeight + 25)+"px";
+var obj = document.getElementById("page_title");
+if (obj) {
+  var elems = document.getElementsByClassName ("_first_menu_level")
+  if (obj.clientHeight < 90) {
+    for (var i = 0; i < elems.length; i++) {
+      elems.item(i).style.borderBottomLeftRadius = "";
+      elems.item(i).style.borderBottomRightRadius = "";
+    }
+  }
+  else {
+    for (var i = 0; i < elems.length; i++) {
+      elems.item(i).style.borderBottomLeftRadius = "10px";
+      elems.item(i).style.borderBottomRightRadius = "10px";
+    }
+  }
+}
+</script>
+<div style="width: 100%; display: table;" class="main_section_div">
+<div style="display: table-row">
+<div class="_fixed_box" style="width:30%;display: table-cell;overflow-y: auto;">
+<div>
+<table style="width:100%;">
+<tr><td id="td_app_selector_1" onclick="click_app_selector (this);" class="td_app_selector">Detailed Application Categorization<span class="tooltip-maqao-button help-maqao" title="" tooltip_id="0" style="background-color:var(--fixed_box_header_background);"></span></td></tr>
+<tr><td id="td_app_selector_2" onclick="click_app_selector (this);" class="td_app_selector">Detailed Function Times<span class="tooltip-maqao-button help-maqao" title="" tooltip_id="1" style="background-color:var(--fixed_box_header_background);"></span></td></tr>
+<tr><td id="td_app_selector_3" onclick="click_app_selector (this);" class="td_app_selector">Scalability - Coverage per Category<span class="tooltip-maqao-button help-maqao" title="" tooltip_id="2" style="background-color:var(--fixed_box_header_background);"></span></td></tr>
+<tr><td id="td_app_selector_4" onclick="click_app_selector (this);" class="td_app_selector">Scalability - Time per Category<span class="tooltip-maqao-button help-maqao" title="" tooltip_id="3" style="background-color:var(--fixed_box_header_background);"></span></td></tr>
+<tr><td id="td_app_selector_5" onclick="click_app_selector (this);" class="td_app_selector">Scalability - Efficiency<span class="tooltip-maqao-button help-maqao" title="" tooltip_id="4" style="background-color:var(--fixed_box_header_background);"></span></td></tr>
+<tr><td id="td_app_selector_6" onclick="click_app_selector (this);" class="td_app_selector">Function Based Profile<span class="tooltip-maqao-button help-maqao" title="" tooltip_id="5" style="background-color:var(--fixed_box_header_background);"></span></td></tr>
+<tr><td id="td_app_selector_7" onclick="click_app_selector (this);" class="td_app_selector">Scalability - Coverage per Parallel Efficiency<span class="tooltip-maqao-button help-maqao" title="" tooltip_id="6" style="background-color:var(--fixed_box_header_background);"></span></td></tr>
+<tr><td id="td_app_selector_8" onclick="click_app_selector (this);" class="td_app_selector">Scalability - Coverage per Parallel Speedup<span class="tooltip-maqao-button help-maqao" title="" tooltip_id="7" style="background-color:var(--fixed_box_header_background);"></span></td></tr>
+</table>
+</div>
+</div>
+<div class="_fixed_box" style="width:70%;display: table-cell;vertical-align:top;">
+<div id="td_app_selected_1" class="td_app_selected">
+<h3 class="selected_panel_h3">Detailed Application Categorization</h3>
+<div style="margin-top: 10px; margin-bottom: 10px; background-color: var(--chart_background); overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_1403" style="height:460px;margin-top:20px;" ></div></div>
+<script class="code" >
+</script><div class="_div_table"><div style="overflow:auto;">
+<table id="_treed_table_91" class="_treed_table"><tr><th class="_freezed_row  _left ">ID</th><th class="_freezed_row ">Time(s)</th><th class="_freezed_row ">Binary(%)</th><th class="_freezed_row ">MPI(%)</th><th class="_freezed_row ">OMP(%)</th><th class="_freezed_row ">Math(%)</th><th class="_freezed_row ">System(%)</th><th class="_freezed_row ">Pthread(%)</th><th class="_freezed_row ">IO(%)</th><th class="_freezed_row ">String(%)</th><th class="_freezed_row ">Memory(%)</th><th class="_freezed_row ">Others(%)</th></tr>
+<tr id="_tr_91_1" ><td id="_tr_91_1-1"  data-_i="1" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:0px;cursor:pointer;" >&#x25BC;</span>run_0<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_1-2"  data-_i="1" data-_j="2"  class=" _centered" >115.2</td><td id="_tr_91_1-3"  data-_i="1" data-_j="3"  class=" _centered" >99.89</td><td id="_tr_91_1-4"  data-_i="1" data-_j="4"  class=" _centered" >0.02</td><td id="_tr_91_1-5"  data-_i="1" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_1-6"  data-_i="1" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_1-7"  data-_i="1" data-_j="7"  class=" _centered" >0.06</td><td id="_tr_91_1-8"  data-_i="1" data-_j="8"  class=" _centered" >0.01</td><td id="_tr_91_1-9"  data-_i="1" data-_j="9"  class=" _centered" >0.01</td><td id="_tr_91_1-10"  data-_i="1" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_1-11"  data-_i="1" data-_j="11"  class=" _centered" >0</td><td id="_tr_91_1-12"  data-_i="1" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_1"  id="_tr_91_1_1" ><td id="_tr_91_1_1-1"  data-_i="2" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:15px;cursor:pointer;" >&#x25BC;</span>Node knl06<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_1_1-2"  data-_i="2" data-_j="2"  class=" _centered" >115.2</td><td id="_tr_91_1_1-3"  data-_i="2" data-_j="3"  class=" _centered" >99.89</td><td id="_tr_91_1_1-4"  data-_i="2" data-_j="4"  class=" _centered" >0.02</td><td id="_tr_91_1_1-5"  data-_i="2" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_1_1-6"  data-_i="2" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_1_1-7"  data-_i="2" data-_j="7"  class=" _centered" >0.06</td><td id="_tr_91_1_1-8"  data-_i="2" data-_j="8"  class=" _centered" >0.01</td><td id="_tr_91_1_1-9"  data-_i="2" data-_j="9"  class=" _centered" >0.01</td><td id="_tr_91_1_1-10"  data-_i="2" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_1_1-11"  data-_i="2" data-_j="11"  class=" _centered" >0</td><td id="_tr_91_1_1-12"  data-_i="2" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_1_1"  id="_tr_91_1_1_1" ><td id="_tr_91_1_1_1-1"  data-_i="3" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:30px;cursor:pointer;" >&#x25BC;</span>Process 2096470<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_1_1_1-2"  data-_i="3" data-_j="2"  class=" _centered" >115.2</td><td id="_tr_91_1_1_1-3"  data-_i="3" data-_j="3"  class=" _centered" >99.89</td><td id="_tr_91_1_1_1-4"  data-_i="3" data-_j="4"  class=" _centered" >0.02</td><td id="_tr_91_1_1_1-5"  data-_i="3" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_1_1_1-6"  data-_i="3" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_1_1_1-7"  data-_i="3" data-_j="7"  class=" _centered" >0.06</td><td id="_tr_91_1_1_1-8"  data-_i="3" data-_j="8"  class=" _centered" >0.01</td><td id="_tr_91_1_1_1-9"  data-_i="3" data-_j="9"  class=" _centered" >0.01</td><td id="_tr_91_1_1_1-10"  data-_i="3" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_1_1_1-11"  data-_i="3" data-_j="11"  class=" _centered" >0</td><td id="_tr_91_1_1_1-12"  data-_i="3" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_1_1_1"  id="_tr_91_1_1_1_1"  ondblclick="_action_52(this,4,-1, 'topo/run_0_knl06_2096470_2096470.html');"  style="cursor:pointer;"><td id="_tr_91_1_1_1_1-1"  data-_i="4" data-_j="1"  class=" _left" ><span style="margin-right:10px;margin-left:48px;" >&#x25CB;</span>Thread 2096470</td><td id="_tr_91_1_1_1_1-2"  data-_i="4" data-_j="2"  class=" _centered" >115.2</td><td id="_tr_91_1_1_1_1-3"  data-_i="4" data-_j="3"  class=" _centered" >99.89</td><td id="_tr_91_1_1_1_1-4"  data-_i="4" data-_j="4"  class=" _centered" >0.02</td><td id="_tr_91_1_1_1_1-5"  data-_i="4" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_1_1_1_1-6"  data-_i="4" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_1_1_1_1-7"  data-_i="4" data-_j="7"  class=" _centered" >0.06</td><td id="_tr_91_1_1_1_1-8"  data-_i="4" data-_j="8"  class=" _centered" >0.01</td><td id="_tr_91_1_1_1_1-9"  data-_i="4" data-_j="9"  class=" _centered" >0.01</td><td id="_tr_91_1_1_1_1-10"  data-_i="4" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_1_1_1_1-11"  data-_i="4" data-_j="11"  class=" _centered" >0</td><td id="_tr_91_1_1_1_1-12"  data-_i="4" data-_j="12"  class=" _centered" >0</td></tr>
+<tr id="_tr_91_2" ><td id="_tr_91_2-1"  data-_i="5" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:0px;cursor:pointer;" >&#x25BC;</span>R2x4<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_2-2"  data-_i="5" data-_j="2"  class=" _centered" >114.82</td><td id="_tr_91_2-3"  data-_i="5" data-_j="3"  class=" _centered" >99.89</td><td id="_tr_91_2-4"  data-_i="5" data-_j="4"  class=" _centered" >0.02</td><td id="_tr_91_2-5"  data-_i="5" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_2-6"  data-_i="5" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_2-7"  data-_i="5" data-_j="7"  class=" _centered" >0.06</td><td id="_tr_91_2-8"  data-_i="5" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_2-9"  data-_i="5" data-_j="9"  class=" _centered" >0.02</td><td id="_tr_91_2-10"  data-_i="5" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_2-11"  data-_i="5" data-_j="11"  class=" _centered" >0.01</td><td id="_tr_91_2-12"  data-_i="5" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_2"  id="_tr_91_2_1" ><td id="_tr_91_2_1-1"  data-_i="6" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:15px;cursor:pointer;" >&#x25BC;</span>Node knl06<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_2_1-2"  data-_i="6" data-_j="2"  class=" _centered" >114.82</td><td id="_tr_91_2_1-3"  data-_i="6" data-_j="3"  class=" _centered" >99.89</td><td id="_tr_91_2_1-4"  data-_i="6" data-_j="4"  class=" _centered" >0.02</td><td id="_tr_91_2_1-5"  data-_i="6" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_2_1-6"  data-_i="6" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_2_1-7"  data-_i="6" data-_j="7"  class=" _centered" >0.06</td><td id="_tr_91_2_1-8"  data-_i="6" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_2_1-9"  data-_i="6" data-_j="9"  class=" _centered" >0.02</td><td id="_tr_91_2_1-10"  data-_i="6" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_2_1-11"  data-_i="6" data-_j="11"  class=" _centered" >0.01</td><td id="_tr_91_2_1-12"  data-_i="6" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_2_1"  id="_tr_91_2_1_1" ><td id="_tr_91_2_1_1-1"  data-_i="7" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:30px;cursor:pointer;" >&#x25BC;</span>Process 2097019<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_2_1_1-2"  data-_i="7" data-_j="2"  class=" _centered" >114.82</td><td id="_tr_91_2_1_1-3"  data-_i="7" data-_j="3"  class=" _centered" >99.89</td><td id="_tr_91_2_1_1-4"  data-_i="7" data-_j="4"  class=" _centered" >0.02</td><td id="_tr_91_2_1_1-5"  data-_i="7" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_2_1_1-6"  data-_i="7" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_2_1_1-7"  data-_i="7" data-_j="7"  class=" _centered" >0.06</td><td id="_tr_91_2_1_1-8"  data-_i="7" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_2_1_1-9"  data-_i="7" data-_j="9"  class=" _centered" >0.02</td><td id="_tr_91_2_1_1-10"  data-_i="7" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_2_1_1-11"  data-_i="7" data-_j="11"  class=" _centered" >0.01</td><td id="_tr_91_2_1_1-12"  data-_i="7" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_2_1_1"  id="_tr_91_2_1_1_1"  ondblclick="_action_52(this,8,-1, 'topo/run_1_knl06_2097019_2097019.html');"  style="cursor:pointer;"><td id="_tr_91_2_1_1_1-1"  data-_i="8" data-_j="1"  class=" _left" ><span style="margin-right:10px;margin-left:48px;" >&#x25CB;</span>Thread 2097019</td><td id="_tr_91_2_1_1_1-2"  data-_i="8" data-_j="2"  class=" _centered" >114.82</td><td id="_tr_91_2_1_1_1-3"  data-_i="8" data-_j="3"  class=" _centered" >99.89</td><td id="_tr_91_2_1_1_1-4"  data-_i="8" data-_j="4"  class=" _centered" >0.02</td><td id="_tr_91_2_1_1_1-5"  data-_i="8" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_2_1_1_1-6"  data-_i="8" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_2_1_1_1-7"  data-_i="8" data-_j="7"  class=" _centered" >0.06</td><td id="_tr_91_2_1_1_1-8"  data-_i="8" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_2_1_1_1-9"  data-_i="8" data-_j="9"  class=" _centered" >0.02</td><td id="_tr_91_2_1_1_1-10"  data-_i="8" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_2_1_1_1-11"  data-_i="8" data-_j="11"  class=" _centered" >0.01</td><td id="_tr_91_2_1_1_1-12"  data-_i="8" data-_j="12"  class=" _centered" >0</td></tr>
+<tr id="_tr_91_3" ><td id="_tr_91_3-1"  data-_i="9" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:0px;cursor:pointer;" >&#x25BC;</span>R3x4<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_3-2"  data-_i="9" data-_j="2"  class=" _centered" >115.35</td><td id="_tr_91_3-3"  data-_i="9" data-_j="3"  class=" _centered" >99.88</td><td id="_tr_91_3-4"  data-_i="9" data-_j="4"  class=" _centered" >0.01</td><td id="_tr_91_3-5"  data-_i="9" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_3-6"  data-_i="9" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_3-7"  data-_i="9" data-_j="7"  class=" _centered" >0.08</td><td id="_tr_91_3-8"  data-_i="9" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_3-9"  data-_i="9" data-_j="9"  class=" _centered" >0</td><td id="_tr_91_3-10"  data-_i="9" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_3-11"  data-_i="9" data-_j="11"  class=" _centered" >0.01</td><td id="_tr_91_3-12"  data-_i="9" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_3"  id="_tr_91_3_1" ><td id="_tr_91_3_1-1"  data-_i="10" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:15px;cursor:pointer;" >&#x25BC;</span>Node knl06<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_3_1-2"  data-_i="10" data-_j="2"  class=" _centered" >115.35</td><td id="_tr_91_3_1-3"  data-_i="10" data-_j="3"  class=" _centered" >99.88</td><td id="_tr_91_3_1-4"  data-_i="10" data-_j="4"  class=" _centered" >0.01</td><td id="_tr_91_3_1-5"  data-_i="10" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_3_1-6"  data-_i="10" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_3_1-7"  data-_i="10" data-_j="7"  class=" _centered" >0.08</td><td id="_tr_91_3_1-8"  data-_i="10" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_3_1-9"  data-_i="10" data-_j="9"  class=" _centered" >0</td><td id="_tr_91_3_1-10"  data-_i="10" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_3_1-11"  data-_i="10" data-_j="11"  class=" _centered" >0.01</td><td id="_tr_91_3_1-12"  data-_i="10" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_3_1"  id="_tr_91_3_1_1" ><td id="_tr_91_3_1_1-1"  data-_i="11" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:30px;cursor:pointer;" >&#x25BC;</span>Process 2097570<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_3_1_1-2"  data-_i="11" data-_j="2"  class=" _centered" >115.35</td><td id="_tr_91_3_1_1-3"  data-_i="11" data-_j="3"  class=" _centered" >99.88</td><td id="_tr_91_3_1_1-4"  data-_i="11" data-_j="4"  class=" _centered" >0.01</td><td id="_tr_91_3_1_1-5"  data-_i="11" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_3_1_1-6"  data-_i="11" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_3_1_1-7"  data-_i="11" data-_j="7"  class=" _centered" >0.08</td><td id="_tr_91_3_1_1-8"  data-_i="11" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_3_1_1-9"  data-_i="11" data-_j="9"  class=" _centered" >0</td><td id="_tr_91_3_1_1-10"  data-_i="11" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_3_1_1-11"  data-_i="11" data-_j="11"  class=" _centered" >0.01</td><td id="_tr_91_3_1_1-12"  data-_i="11" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_3_1_1"  id="_tr_91_3_1_1_1"  ondblclick="_action_52(this,12,-1, 'topo/run_2_knl06_2097570_2097570.html');"  style="cursor:pointer;"><td id="_tr_91_3_1_1_1-1"  data-_i="12" data-_j="1"  class=" _left" ><span style="margin-right:10px;margin-left:48px;" >&#x25CB;</span>Thread 2097570</td><td id="_tr_91_3_1_1_1-2"  data-_i="12" data-_j="2"  class=" _centered" >115.35</td><td id="_tr_91_3_1_1_1-3"  data-_i="12" data-_j="3"  class=" _centered" >99.88</td><td id="_tr_91_3_1_1_1-4"  data-_i="12" data-_j="4"  class=" _centered" >0.01</td><td id="_tr_91_3_1_1_1-5"  data-_i="12" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_3_1_1_1-6"  data-_i="12" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_3_1_1_1-7"  data-_i="12" data-_j="7"  class=" _centered" >0.08</td><td id="_tr_91_3_1_1_1-8"  data-_i="12" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_3_1_1_1-9"  data-_i="12" data-_j="9"  class=" _centered" >0</td><td id="_tr_91_3_1_1_1-10"  data-_i="12" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_3_1_1_1-11"  data-_i="12" data-_j="11"  class=" _centered" >0.01</td><td id="_tr_91_3_1_1_1-12"  data-_i="12" data-_j="12"  class=" _centered" >0</td></tr>
+<tr id="_tr_91_4" ><td id="_tr_91_4-1"  data-_i="13" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:0px;cursor:pointer;" >&#x25BC;</span>R4x2<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_4-2"  data-_i="13" data-_j="2"  class=" _centered" >114.83</td><td id="_tr_91_4-3"  data-_i="13" data-_j="3"  class=" _centered" >99.87</td><td id="_tr_91_4-4"  data-_i="13" data-_j="4"  class=" _centered" >0</td><td id="_tr_91_4-5"  data-_i="13" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_4-6"  data-_i="13" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_4-7"  data-_i="13" data-_j="7"  class=" _centered" >0.07</td><td id="_tr_91_4-8"  data-_i="13" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_4-9"  data-_i="13" data-_j="9"  class=" _centered" >0.04</td><td id="_tr_91_4-10"  data-_i="13" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_4-11"  data-_i="13" data-_j="11"  class=" _centered" >0</td><td id="_tr_91_4-12"  data-_i="13" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_4"  id="_tr_91_4_1" ><td id="_tr_91_4_1-1"  data-_i="14" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:15px;cursor:pointer;" >&#x25BC;</span>Node knl06<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_4_1-2"  data-_i="14" data-_j="2"  class=" _centered" >114.83</td><td id="_tr_91_4_1-3"  data-_i="14" data-_j="3"  class=" _centered" >99.87</td><td id="_tr_91_4_1-4"  data-_i="14" data-_j="4"  class=" _centered" >0</td><td id="_tr_91_4_1-5"  data-_i="14" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_4_1-6"  data-_i="14" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_4_1-7"  data-_i="14" data-_j="7"  class=" _centered" >0.07</td><td id="_tr_91_4_1-8"  data-_i="14" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_4_1-9"  data-_i="14" data-_j="9"  class=" _centered" >0.04</td><td id="_tr_91_4_1-10"  data-_i="14" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_4_1-11"  data-_i="14" data-_j="11"  class=" _centered" >0</td><td id="_tr_91_4_1-12"  data-_i="14" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_4_1"  id="_tr_91_4_1_1" ><td id="_tr_91_4_1_1-1"  data-_i="15" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:30px;cursor:pointer;" >&#x25BC;</span>Process 2098120<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_4_1_1-2"  data-_i="15" data-_j="2"  class=" _centered" >114.83</td><td id="_tr_91_4_1_1-3"  data-_i="15" data-_j="3"  class=" _centered" >99.87</td><td id="_tr_91_4_1_1-4"  data-_i="15" data-_j="4"  class=" _centered" >0</td><td id="_tr_91_4_1_1-5"  data-_i="15" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_4_1_1-6"  data-_i="15" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_4_1_1-7"  data-_i="15" data-_j="7"  class=" _centered" >0.07</td><td id="_tr_91_4_1_1-8"  data-_i="15" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_4_1_1-9"  data-_i="15" data-_j="9"  class=" _centered" >0.04</td><td id="_tr_91_4_1_1-10"  data-_i="15" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_4_1_1-11"  data-_i="15" data-_j="11"  class=" _centered" >0</td><td id="_tr_91_4_1_1-12"  data-_i="15" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_4_1_1"  id="_tr_91_4_1_1_1"  ondblclick="_action_52(this,16,-1, 'topo/run_3_knl06_2098120_2098120.html');"  style="cursor:pointer;"><td id="_tr_91_4_1_1_1-1"  data-_i="16" data-_j="1"  class=" _left" ><span style="margin-right:10px;margin-left:48px;" >&#x25CB;</span>Thread 2098120</td><td id="_tr_91_4_1_1_1-2"  data-_i="16" data-_j="2"  class=" _centered" >114.83</td><td id="_tr_91_4_1_1_1-3"  data-_i="16" data-_j="3"  class=" _centered" >99.87</td><td id="_tr_91_4_1_1_1-4"  data-_i="16" data-_j="4"  class=" _centered" >0</td><td id="_tr_91_4_1_1_1-5"  data-_i="16" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_4_1_1_1-6"  data-_i="16" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_4_1_1_1-7"  data-_i="16" data-_j="7"  class=" _centered" >0.07</td><td id="_tr_91_4_1_1_1-8"  data-_i="16" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_4_1_1_1-9"  data-_i="16" data-_j="9"  class=" _centered" >0.04</td><td id="_tr_91_4_1_1_1-10"  data-_i="16" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_4_1_1_1-11"  data-_i="16" data-_j="11"  class=" _centered" >0</td><td id="_tr_91_4_1_1_1-12"  data-_i="16" data-_j="12"  class=" _centered" >0</td></tr>
+<tr id="_tr_91_5" ><td id="_tr_91_5-1"  data-_i="17" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:0px;cursor:pointer;" >&#x25BC;</span>R4x4<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_5-2"  data-_i="17" data-_j="2"  class=" _centered" >115.24</td><td id="_tr_91_5-3"  data-_i="17" data-_j="3"  class=" _centered" >99.9</td><td id="_tr_91_5-4"  data-_i="17" data-_j="4"  class=" _centered" >0.01</td><td id="_tr_91_5-5"  data-_i="17" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_5-6"  data-_i="17" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_5-7"  data-_i="17" data-_j="7"  class=" _centered" >0.05</td><td id="_tr_91_5-8"  data-_i="17" data-_j="8"  class=" _centered" >0.01</td><td id="_tr_91_5-9"  data-_i="17" data-_j="9"  class=" _centered" >0.01</td><td id="_tr_91_5-10"  data-_i="17" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_5-11"  data-_i="17" data-_j="11"  class=" _centered" >0.01</td><td id="_tr_91_5-12"  data-_i="17" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_5"  id="_tr_91_5_1" ><td id="_tr_91_5_1-1"  data-_i="18" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:15px;cursor:pointer;" >&#x25BC;</span>Node knl06<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_5_1-2"  data-_i="18" data-_j="2"  class=" _centered" >115.24</td><td id="_tr_91_5_1-3"  data-_i="18" data-_j="3"  class=" _centered" >99.9</td><td id="_tr_91_5_1-4"  data-_i="18" data-_j="4"  class=" _centered" >0.01</td><td id="_tr_91_5_1-5"  data-_i="18" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_5_1-6"  data-_i="18" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_5_1-7"  data-_i="18" data-_j="7"  class=" _centered" >0.05</td><td id="_tr_91_5_1-8"  data-_i="18" data-_j="8"  class=" _centered" >0.01</td><td id="_tr_91_5_1-9"  data-_i="18" data-_j="9"  class=" _centered" >0.01</td><td id="_tr_91_5_1-10"  data-_i="18" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_5_1-11"  data-_i="18" data-_j="11"  class=" _centered" >0.01</td><td id="_tr_91_5_1-12"  data-_i="18" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_5_1"  id="_tr_91_5_1_1" ><td id="_tr_91_5_1_1-1"  data-_i="19" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:30px;cursor:pointer;" >&#x25BC;</span>Process 2098672<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_5_1_1-2"  data-_i="19" data-_j="2"  class=" _centered" >115.24</td><td id="_tr_91_5_1_1-3"  data-_i="19" data-_j="3"  class=" _centered" >99.9</td><td id="_tr_91_5_1_1-4"  data-_i="19" data-_j="4"  class=" _centered" >0.01</td><td id="_tr_91_5_1_1-5"  data-_i="19" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_5_1_1-6"  data-_i="19" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_5_1_1-7"  data-_i="19" data-_j="7"  class=" _centered" >0.05</td><td id="_tr_91_5_1_1-8"  data-_i="19" data-_j="8"  class=" _centered" >0.01</td><td id="_tr_91_5_1_1-9"  data-_i="19" data-_j="9"  class=" _centered" >0.01</td><td id="_tr_91_5_1_1-10"  data-_i="19" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_5_1_1-11"  data-_i="19" data-_j="11"  class=" _centered" >0.01</td><td id="_tr_91_5_1_1-12"  data-_i="19" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_5_1_1"  id="_tr_91_5_1_1_1"  ondblclick="_action_52(this,20,-1, 'topo/run_4_knl06_2098672_2098672.html');"  style="cursor:pointer;"><td id="_tr_91_5_1_1_1-1"  data-_i="20" data-_j="1"  class=" _left" ><span style="margin-right:10px;margin-left:48px;" >&#x25CB;</span>Thread 2098672</td><td id="_tr_91_5_1_1_1-2"  data-_i="20" data-_j="2"  class=" _centered" >115.24</td><td id="_tr_91_5_1_1_1-3"  data-_i="20" data-_j="3"  class=" _centered" >99.9</td><td id="_tr_91_5_1_1_1-4"  data-_i="20" data-_j="4"  class=" _centered" >0.01</td><td id="_tr_91_5_1_1_1-5"  data-_i="20" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_5_1_1_1-6"  data-_i="20" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_5_1_1_1-7"  data-_i="20" data-_j="7"  class=" _centered" >0.05</td><td id="_tr_91_5_1_1_1-8"  data-_i="20" data-_j="8"  class=" _centered" >0.01</td><td id="_tr_91_5_1_1_1-9"  data-_i="20" data-_j="9"  class=" _centered" >0.01</td><td id="_tr_91_5_1_1_1-10"  data-_i="20" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_5_1_1_1-11"  data-_i="20" data-_j="11"  class=" _centered" >0.01</td><td id="_tr_91_5_1_1_1-12"  data-_i="20" data-_j="12"  class=" _centered" >0</td></tr>
+<tr id="_tr_91_6" ><td id="_tr_91_6-1"  data-_i="21" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:0px;cursor:pointer;" >&#x25BC;</span>R6x2<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_6-2"  data-_i="21" data-_j="2"  class=" _centered" >115.22</td><td id="_tr_91_6-3"  data-_i="21" data-_j="3"  class=" _centered" >99.87</td><td id="_tr_91_6-4"  data-_i="21" data-_j="4"  class=" _centered" >0.01</td><td id="_tr_91_6-5"  data-_i="21" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_6-6"  data-_i="21" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_6-7"  data-_i="21" data-_j="7"  class=" _centered" >0.08</td><td id="_tr_91_6-8"  data-_i="21" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_6-9"  data-_i="21" data-_j="9"  class=" _centered" >0.03</td><td id="_tr_91_6-10"  data-_i="21" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_6-11"  data-_i="21" data-_j="11"  class=" _centered" >0</td><td id="_tr_91_6-12"  data-_i="21" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_6"  id="_tr_91_6_1" ><td id="_tr_91_6_1-1"  data-_i="22" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:15px;cursor:pointer;" >&#x25BC;</span>Node knl06<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_6_1-2"  data-_i="22" data-_j="2"  class=" _centered" >115.22</td><td id="_tr_91_6_1-3"  data-_i="22" data-_j="3"  class=" _centered" >99.87</td><td id="_tr_91_6_1-4"  data-_i="22" data-_j="4"  class=" _centered" >0.01</td><td id="_tr_91_6_1-5"  data-_i="22" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_6_1-6"  data-_i="22" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_6_1-7"  data-_i="22" data-_j="7"  class=" _centered" >0.08</td><td id="_tr_91_6_1-8"  data-_i="22" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_6_1-9"  data-_i="22" data-_j="9"  class=" _centered" >0.03</td><td id="_tr_91_6_1-10"  data-_i="22" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_6_1-11"  data-_i="22" data-_j="11"  class=" _centered" >0</td><td id="_tr_91_6_1-12"  data-_i="22" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_6_1"  id="_tr_91_6_1_1" ><td id="_tr_91_6_1_1-1"  data-_i="23" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:30px;cursor:pointer;" >&#x25BC;</span>Process 2099221<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_6_1_1-2"  data-_i="23" data-_j="2"  class=" _centered" >115.22</td><td id="_tr_91_6_1_1-3"  data-_i="23" data-_j="3"  class=" _centered" >99.87</td><td id="_tr_91_6_1_1-4"  data-_i="23" data-_j="4"  class=" _centered" >0.01</td><td id="_tr_91_6_1_1-5"  data-_i="23" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_6_1_1-6"  data-_i="23" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_6_1_1-7"  data-_i="23" data-_j="7"  class=" _centered" >0.08</td><td id="_tr_91_6_1_1-8"  data-_i="23" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_6_1_1-9"  data-_i="23" data-_j="9"  class=" _centered" >0.03</td><td id="_tr_91_6_1_1-10"  data-_i="23" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_6_1_1-11"  data-_i="23" data-_j="11"  class=" _centered" >0</td><td id="_tr_91_6_1_1-12"  data-_i="23" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_6_1_1"  id="_tr_91_6_1_1_1"  ondblclick="_action_52(this,24,-1, 'topo/run_5_knl06_2099221_2099221.html');"  style="cursor:pointer;"><td id="_tr_91_6_1_1_1-1"  data-_i="24" data-_j="1"  class=" _left" ><span style="margin-right:10px;margin-left:48px;" >&#x25CB;</span>Thread 2099221</td><td id="_tr_91_6_1_1_1-2"  data-_i="24" data-_j="2"  class=" _centered" >115.22</td><td id="_tr_91_6_1_1_1-3"  data-_i="24" data-_j="3"  class=" _centered" >99.87</td><td id="_tr_91_6_1_1_1-4"  data-_i="24" data-_j="4"  class=" _centered" >0.01</td><td id="_tr_91_6_1_1_1-5"  data-_i="24" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_6_1_1_1-6"  data-_i="24" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_6_1_1_1-7"  data-_i="24" data-_j="7"  class=" _centered" >0.08</td><td id="_tr_91_6_1_1_1-8"  data-_i="24" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_6_1_1_1-9"  data-_i="24" data-_j="9"  class=" _centered" >0.03</td><td id="_tr_91_6_1_1_1-10"  data-_i="24" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_6_1_1_1-11"  data-_i="24" data-_j="11"  class=" _centered" >0</td><td id="_tr_91_6_1_1_1-12"  data-_i="24" data-_j="12"  class=" _centered" >0</td></tr>
+<tr id="_tr_91_7" ><td id="_tr_91_7-1"  data-_i="25" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:0px;cursor:pointer;" >&#x25BC;</span>R8x2<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_7-2"  data-_i="25" data-_j="2"  class=" _centered" >115.07</td><td id="_tr_91_7-3"  data-_i="25" data-_j="3"  class=" _centered" >99.88</td><td id="_tr_91_7-4"  data-_i="25" data-_j="4"  class=" _centered" >0.03</td><td id="_tr_91_7-5"  data-_i="25" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_7-6"  data-_i="25" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_7-7"  data-_i="25" data-_j="7"  class=" _centered" >0.06</td><td id="_tr_91_7-8"  data-_i="25" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_7-9"  data-_i="25" data-_j="9"  class=" _centered" >0.03</td><td id="_tr_91_7-10"  data-_i="25" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_7-11"  data-_i="25" data-_j="11"  class=" _centered" >0</td><td id="_tr_91_7-12"  data-_i="25" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_7"  id="_tr_91_7_1" ><td id="_tr_91_7_1-1"  data-_i="26" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:15px;cursor:pointer;" >&#x25BC;</span>Node knl06<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_7_1-2"  data-_i="26" data-_j="2"  class=" _centered" >115.07</td><td id="_tr_91_7_1-3"  data-_i="26" data-_j="3"  class=" _centered" >99.88</td><td id="_tr_91_7_1-4"  data-_i="26" data-_j="4"  class=" _centered" >0.03</td><td id="_tr_91_7_1-5"  data-_i="26" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_7_1-6"  data-_i="26" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_7_1-7"  data-_i="26" data-_j="7"  class=" _centered" >0.06</td><td id="_tr_91_7_1-8"  data-_i="26" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_7_1-9"  data-_i="26" data-_j="9"  class=" _centered" >0.03</td><td id="_tr_91_7_1-10"  data-_i="26" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_7_1-11"  data-_i="26" data-_j="11"  class=" _centered" >0</td><td id="_tr_91_7_1-12"  data-_i="26" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_7_1"  id="_tr_91_7_1_1" ><td id="_tr_91_7_1_1-1"  data-_i="27" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:30px;cursor:pointer;" >&#x25BC;</span>Process 2099772<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_7_1_1-2"  data-_i="27" data-_j="2"  class=" _centered" >115.07</td><td id="_tr_91_7_1_1-3"  data-_i="27" data-_j="3"  class=" _centered" >99.88</td><td id="_tr_91_7_1_1-4"  data-_i="27" data-_j="4"  class=" _centered" >0.03</td><td id="_tr_91_7_1_1-5"  data-_i="27" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_7_1_1-6"  data-_i="27" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_7_1_1-7"  data-_i="27" data-_j="7"  class=" _centered" >0.06</td><td id="_tr_91_7_1_1-8"  data-_i="27" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_7_1_1-9"  data-_i="27" data-_j="9"  class=" _centered" >0.03</td><td id="_tr_91_7_1_1-10"  data-_i="27" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_7_1_1-11"  data-_i="27" data-_j="11"  class=" _centered" >0</td><td id="_tr_91_7_1_1-12"  data-_i="27" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_7_1_1"  id="_tr_91_7_1_1_1"  ondblclick="_action_52(this,28,-1, 'topo/run_6_knl06_2099772_2099772.html');"  style="cursor:pointer;"><td id="_tr_91_7_1_1_1-1"  data-_i="28" data-_j="1"  class=" _left" ><span style="margin-right:10px;margin-left:48px;" >&#x25CB;</span>Thread 2099772</td><td id="_tr_91_7_1_1_1-2"  data-_i="28" data-_j="2"  class=" _centered" >115.07</td><td id="_tr_91_7_1_1_1-3"  data-_i="28" data-_j="3"  class=" _centered" >99.88</td><td id="_tr_91_7_1_1_1-4"  data-_i="28" data-_j="4"  class=" _centered" >0.03</td><td id="_tr_91_7_1_1_1-5"  data-_i="28" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_7_1_1_1-6"  data-_i="28" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_7_1_1_1-7"  data-_i="28" data-_j="7"  class=" _centered" >0.06</td><td id="_tr_91_7_1_1_1-8"  data-_i="28" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_7_1_1_1-9"  data-_i="28" data-_j="9"  class=" _centered" >0.03</td><td id="_tr_91_7_1_1_1-10"  data-_i="28" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_7_1_1_1-11"  data-_i="28" data-_j="11"  class=" _centered" >0</td><td id="_tr_91_7_1_1_1-12"  data-_i="28" data-_j="12"  class=" _centered" >0</td></tr>
+<tr id="_tr_91_8" ><td id="_tr_91_8-1"  data-_i="29" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:0px;cursor:pointer;" >&#x25BC;</span>R16x16<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_8-2"  data-_i="29" data-_j="2"  class=" _centered" >114.4</td><td id="_tr_91_8-3"  data-_i="29" data-_j="3"  class=" _centered" >99.86</td><td id="_tr_91_8-4"  data-_i="29" data-_j="4"  class=" _centered" >0.02</td><td id="_tr_91_8-5"  data-_i="29" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_8-6"  data-_i="29" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_8-7"  data-_i="29" data-_j="7"  class=" _centered" >0.09</td><td id="_tr_91_8-8"  data-_i="29" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_8-9"  data-_i="29" data-_j="9"  class=" _centered" >0.01</td><td id="_tr_91_8-10"  data-_i="29" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_8-11"  data-_i="29" data-_j="11"  class=" _centered" >0.01</td><td id="_tr_91_8-12"  data-_i="29" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_8"  id="_tr_91_8_1" ><td id="_tr_91_8_1-1"  data-_i="30" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:15px;cursor:pointer;" >&#x25BC;</span>Node knl06<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_8_1-2"  data-_i="30" data-_j="2"  class=" _centered" >114.4</td><td id="_tr_91_8_1-3"  data-_i="30" data-_j="3"  class=" _centered" >99.86</td><td id="_tr_91_8_1-4"  data-_i="30" data-_j="4"  class=" _centered" >0.02</td><td id="_tr_91_8_1-5"  data-_i="30" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_8_1-6"  data-_i="30" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_8_1-7"  data-_i="30" data-_j="7"  class=" _centered" >0.09</td><td id="_tr_91_8_1-8"  data-_i="30" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_8_1-9"  data-_i="30" data-_j="9"  class=" _centered" >0.01</td><td id="_tr_91_8_1-10"  data-_i="30" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_8_1-11"  data-_i="30" data-_j="11"  class=" _centered" >0.01</td><td id="_tr_91_8_1-12"  data-_i="30" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_8_1"  id="_tr_91_8_1_1" ><td id="_tr_91_8_1_1-1"  data-_i="31" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:30px;cursor:pointer;" >&#x25BC;</span>Process 2100324<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_8_1_1-2"  data-_i="31" data-_j="2"  class=" _centered" >114.4</td><td id="_tr_91_8_1_1-3"  data-_i="31" data-_j="3"  class=" _centered" >99.86</td><td id="_tr_91_8_1_1-4"  data-_i="31" data-_j="4"  class=" _centered" >0.02</td><td id="_tr_91_8_1_1-5"  data-_i="31" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_8_1_1-6"  data-_i="31" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_8_1_1-7"  data-_i="31" data-_j="7"  class=" _centered" >0.09</td><td id="_tr_91_8_1_1-8"  data-_i="31" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_8_1_1-9"  data-_i="31" data-_j="9"  class=" _centered" >0.01</td><td id="_tr_91_8_1_1-10"  data-_i="31" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_8_1_1-11"  data-_i="31" data-_j="11"  class=" _centered" >0.01</td><td id="_tr_91_8_1_1-12"  data-_i="31" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_8_1_1"  id="_tr_91_8_1_1_1"  ondblclick="_action_52(this,32,-1, 'topo/run_7_knl06_2100324_2100324.html');"  style="cursor:pointer;"><td id="_tr_91_8_1_1_1-1"  data-_i="32" data-_j="1"  class=" _left" ><span style="margin-right:10px;margin-left:48px;" >&#x25CB;</span>Thread 2100324</td><td id="_tr_91_8_1_1_1-2"  data-_i="32" data-_j="2"  class=" _centered" >114.4</td><td id="_tr_91_8_1_1_1-3"  data-_i="32" data-_j="3"  class=" _centered" >99.86</td><td id="_tr_91_8_1_1_1-4"  data-_i="32" data-_j="4"  class=" _centered" >0.02</td><td id="_tr_91_8_1_1_1-5"  data-_i="32" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_8_1_1_1-6"  data-_i="32" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_8_1_1_1-7"  data-_i="32" data-_j="7"  class=" _centered" >0.09</td><td id="_tr_91_8_1_1_1-8"  data-_i="32" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_8_1_1_1-9"  data-_i="32" data-_j="9"  class=" _centered" >0.01</td><td id="_tr_91_8_1_1_1-10"  data-_i="32" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_8_1_1_1-11"  data-_i="32" data-_j="11"  class=" _centered" >0.01</td><td id="_tr_91_8_1_1_1-12"  data-_i="32" data-_j="12"  class=" _centered" >0</td></tr>
+<tr id="_tr_91_9" ><td id="_tr_91_9-1"  data-_i="33" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:0px;cursor:pointer;" >&#x25BC;</span>R10x8<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_9-2"  data-_i="33" data-_j="2"  class=" _centered" >114.9</td><td id="_tr_91_9-3"  data-_i="33" data-_j="3"  class=" _centered" >99.9</td><td id="_tr_91_9-4"  data-_i="33" data-_j="4"  class=" _centered" >0.01</td><td id="_tr_91_9-5"  data-_i="33" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_9-6"  data-_i="33" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_9-7"  data-_i="33" data-_j="7"  class=" _centered" >0.04</td><td id="_tr_91_9-8"  data-_i="33" data-_j="8"  class=" _centered" >0.01</td><td id="_tr_91_9-9"  data-_i="33" data-_j="9"  class=" _centered" >0.01</td><td id="_tr_91_9-10"  data-_i="33" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_9-11"  data-_i="33" data-_j="11"  class=" _centered" >0.01</td><td id="_tr_91_9-12"  data-_i="33" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_9"  id="_tr_91_9_1" ><td id="_tr_91_9_1-1"  data-_i="34" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:15px;cursor:pointer;" >&#x25BC;</span>Node knl06<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_9_1-2"  data-_i="34" data-_j="2"  class=" _centered" >114.9</td><td id="_tr_91_9_1-3"  data-_i="34" data-_j="3"  class=" _centered" >99.9</td><td id="_tr_91_9_1-4"  data-_i="34" data-_j="4"  class=" _centered" >0.01</td><td id="_tr_91_9_1-5"  data-_i="34" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_9_1-6"  data-_i="34" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_9_1-7"  data-_i="34" data-_j="7"  class=" _centered" >0.04</td><td id="_tr_91_9_1-8"  data-_i="34" data-_j="8"  class=" _centered" >0.01</td><td id="_tr_91_9_1-9"  data-_i="34" data-_j="9"  class=" _centered" >0.01</td><td id="_tr_91_9_1-10"  data-_i="34" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_9_1-11"  data-_i="34" data-_j="11"  class=" _centered" >0.01</td><td id="_tr_91_9_1-12"  data-_i="34" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_9_1"  id="_tr_91_9_1_1" ><td id="_tr_91_9_1_1-1"  data-_i="35" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:30px;cursor:pointer;" >&#x25BC;</span>Process 2100874<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_9_1_1-2"  data-_i="35" data-_j="2"  class=" _centered" >114.9</td><td id="_tr_91_9_1_1-3"  data-_i="35" data-_j="3"  class=" _centered" >99.9</td><td id="_tr_91_9_1_1-4"  data-_i="35" data-_j="4"  class=" _centered" >0.01</td><td id="_tr_91_9_1_1-5"  data-_i="35" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_9_1_1-6"  data-_i="35" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_9_1_1-7"  data-_i="35" data-_j="7"  class=" _centered" >0.04</td><td id="_tr_91_9_1_1-8"  data-_i="35" data-_j="8"  class=" _centered" >0.01</td><td id="_tr_91_9_1_1-9"  data-_i="35" data-_j="9"  class=" _centered" >0.01</td><td id="_tr_91_9_1_1-10"  data-_i="35" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_9_1_1-11"  data-_i="35" data-_j="11"  class=" _centered" >0.01</td><td id="_tr_91_9_1_1-12"  data-_i="35" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_9_1_1"  id="_tr_91_9_1_1_1"  ondblclick="_action_52(this,36,-1, 'topo/run_8_knl06_2100874_2100874.html');"  style="cursor:pointer;"><td id="_tr_91_9_1_1_1-1"  data-_i="36" data-_j="1"  class=" _left" ><span style="margin-right:10px;margin-left:48px;" >&#x25CB;</span>Thread 2100874</td><td id="_tr_91_9_1_1_1-2"  data-_i="36" data-_j="2"  class=" _centered" >114.9</td><td id="_tr_91_9_1_1_1-3"  data-_i="36" data-_j="3"  class=" _centered" >99.9</td><td id="_tr_91_9_1_1_1-4"  data-_i="36" data-_j="4"  class=" _centered" >0.01</td><td id="_tr_91_9_1_1_1-5"  data-_i="36" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_9_1_1_1-6"  data-_i="36" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_9_1_1_1-7"  data-_i="36" data-_j="7"  class=" _centered" >0.04</td><td id="_tr_91_9_1_1_1-8"  data-_i="36" data-_j="8"  class=" _centered" >0.01</td><td id="_tr_91_9_1_1_1-9"  data-_i="36" data-_j="9"  class=" _centered" >0.01</td><td id="_tr_91_9_1_1_1-10"  data-_i="36" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_9_1_1_1-11"  data-_i="36" data-_j="11"  class=" _centered" >0.01</td><td id="_tr_91_9_1_1_1-12"  data-_i="36" data-_j="12"  class=" _centered" >0</td></tr>
+<tr id="_tr_91_10" ><td id="_tr_91_10-1"  data-_i="37" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:0px;cursor:pointer;" >&#x25BC;</span>R16x1<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_10-2"  data-_i="37" data-_j="2"  class=" _centered" >115.37</td><td id="_tr_91_10-3"  data-_i="37" data-_j="3"  class=" _centered" >99.89</td><td id="_tr_91_10-4"  data-_i="37" data-_j="4"  class=" _centered" >0.03</td><td id="_tr_91_10-5"  data-_i="37" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_10-6"  data-_i="37" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_10-7"  data-_i="37" data-_j="7"  class=" _centered" >0.07</td><td id="_tr_91_10-8"  data-_i="37" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_10-9"  data-_i="37" data-_j="9"  class=" _centered" >0</td><td id="_tr_91_10-10"  data-_i="37" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_10-11"  data-_i="37" data-_j="11"  class=" _centered" >0</td><td id="_tr_91_10-12"  data-_i="37" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_10"  id="_tr_91_10_1" ><td id="_tr_91_10_1-1"  data-_i="38" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:15px;cursor:pointer;" >&#x25BC;</span>Node knl06<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_10_1-2"  data-_i="38" data-_j="2"  class=" _centered" >115.37</td><td id="_tr_91_10_1-3"  data-_i="38" data-_j="3"  class=" _centered" >99.89</td><td id="_tr_91_10_1-4"  data-_i="38" data-_j="4"  class=" _centered" >0.03</td><td id="_tr_91_10_1-5"  data-_i="38" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_10_1-6"  data-_i="38" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_10_1-7"  data-_i="38" data-_j="7"  class=" _centered" >0.07</td><td id="_tr_91_10_1-8"  data-_i="38" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_10_1-9"  data-_i="38" data-_j="9"  class=" _centered" >0</td><td id="_tr_91_10_1-10"  data-_i="38" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_10_1-11"  data-_i="38" data-_j="11"  class=" _centered" >0</td><td id="_tr_91_10_1-12"  data-_i="38" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_10_1"  id="_tr_91_10_1_1" ><td id="_tr_91_10_1_1-1"  data-_i="39" data-_j="1"  class=" _left" ><span onclick="_click_treed(this)" style="margin-right:5px;margin-left:30px;cursor:pointer;" >&#x25BC;</span>Process 2101423<span onclick="_click_expand(this)" class="span_expand">&#8211;</span></td><td id="_tr_91_10_1_1-2"  data-_i="39" data-_j="2"  class=" _centered" >115.37</td><td id="_tr_91_10_1_1-3"  data-_i="39" data-_j="3"  class=" _centered" >99.89</td><td id="_tr_91_10_1_1-4"  data-_i="39" data-_j="4"  class=" _centered" >0.03</td><td id="_tr_91_10_1_1-5"  data-_i="39" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_10_1_1-6"  data-_i="39" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_10_1_1-7"  data-_i="39" data-_j="7"  class=" _centered" >0.07</td><td id="_tr_91_10_1_1-8"  data-_i="39" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_10_1_1-9"  data-_i="39" data-_j="9"  class=" _centered" >0</td><td id="_tr_91_10_1_1-10"  data-_i="39" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_10_1_1-11"  data-_i="39" data-_j="11"  class=" _centered" >0</td><td id="_tr_91_10_1_1-12"  data-_i="39" data-_j="12"  class=" _centered" >0</td></tr>
+<tr class="_tr_91_10_1_1"  id="_tr_91_10_1_1_1"  ondblclick="_action_52(this,40,-1, 'topo/run_9_knl06_2101423_2101423.html');"  style="cursor:pointer;"><td id="_tr_91_10_1_1_1-1"  data-_i="40" data-_j="1"  class=" _left" ><span style="margin-right:10px;margin-left:48px;" >&#x25CB;</span>Thread 2101423</td><td id="_tr_91_10_1_1_1-2"  data-_i="40" data-_j="2"  class=" _centered" >115.37</td><td id="_tr_91_10_1_1_1-3"  data-_i="40" data-_j="3"  class=" _centered" >99.89</td><td id="_tr_91_10_1_1_1-4"  data-_i="40" data-_j="4"  class=" _centered" >0.03</td><td id="_tr_91_10_1_1_1-5"  data-_i="40" data-_j="5"  class=" _centered" >0</td><td id="_tr_91_10_1_1_1-6"  data-_i="40" data-_j="6"  class=" _centered" >0</td><td id="_tr_91_10_1_1_1-7"  data-_i="40" data-_j="7"  class=" _centered" >0.07</td><td id="_tr_91_10_1_1_1-8"  data-_i="40" data-_j="8"  class=" _centered" >0</td><td id="_tr_91_10_1_1_1-9"  data-_i="40" data-_j="9"  class=" _centered" >0</td><td id="_tr_91_10_1_1_1-10"  data-_i="40" data-_j="10"  class=" _centered" >0</td><td id="_tr_91_10_1_1_1-11"  data-_i="40" data-_j="11"  class=" _centered" >0</td><td id="_tr_91_10_1_1_1-12"  data-_i="40" data-_j="12"  class=" _centered" >0</td></tr>
+</table></div>
+</div>
+<script>
+function _action_52 (obj, i, j, p){
+           open(""+p+"");
+}
+</script>
+</div>
+<div id="td_app_selected_2" class="td_app_selected">
+<div><h3 class="selected_panel_h3">Detailed Function Times</h3>
+<div style="margin: 10px; overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_1404" style="height:500px" ></div><div style="text-align:center;"><span class="zoom_legend_block"><div class="zoom_legend_color" style="background:#333399;"></div>collision</span>
+<span class="zoom_legend_block"><div class="zoom_legend_color" style="background:#cc00cc;"></div>propagation</span>
+<span class="zoom_legend_block"><div class="zoom_legend_color" style="background:#ffcc00;"></div>special_cells</span>
+<span class="zoom_legend_block tooltip-maqao" title="" tooltip_id="8"><div class="zoom_legend_color" style="background:#339966;"></div>helper_compute_poise...</span>
+<span class="zoom_legend_block tooltip-maqao" title="" tooltip_id="9"><div class="zoom_legend_color" style="background:#80ccff;"></div>compute_equilibrium_...</span>
+<span class="zoom_legend_block tooltip-maqao" title="" tooltip_id="10"><div class="zoom_legend_color" style="background:#80ffcc;"></div>setup_init_state_glo...</span>
+<span class="zoom_legend_block"><div class="zoom_legend_color" style="background:#7979d2;"></div>save_frame</span>
+<span class="zoom_legend_block"><div class="zoom_legend_color" style="background:#ff4dff;"></div>get_cell_velocity</span>
+<span class="zoom_legend_block"><div class="zoom_legend_color" style="background:#ffe066;"></div>get_vect_norm_2</span>
+<span class="zoom_legend_block"><div class="zoom_legend_color" style="background:#66cc99;"></div>get_cell_density</span>
+<span class="zoom_legend_block"><div class="zoom_legend_color" style="background:#ccebff;"></div>Other Functions</span>
+</div></div>
+<script class="code">
+</script>
+</div>
+</div>
+<div id="td_app_selected_3" class="td_app_selected">
+<div><h3 class="selected_panel_h3">Scalability - Coverage per Category</h3>
+<div style="margin-top: 10px; margin-bottom: 10px; background-color: var(--chart_background); overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_1405" style="height:500px;margin-top:20px;" ></div></div>
+<script class="code" >
+</script><div class="_accordion_box collapsed" ><h3 id="_accordion_header_1" class="_header collapsed" onclick="_click_accordion_header(this)" ><span class="_accordion_box_button">&#x25B6;</span>Detailed Coverage per Category</h3><div id="_accordion_content_1" class="_content collapsed"><div class="_div_table" id="_fixed_92"><table class="_fixed_table" id="_fixed_table_92"><tr><th class="_freezed_row  _left _freezed_col"><span></span>Run</th><th class="_freezed_row "><span></span>Number of threads</th><th class="_freezed_row "><span></span>Binary (%)</th><th class="_freezed_row "><span></span>MPI (%)</th><th class="_freezed_row "><span></span>System (%)</th><th class="_freezed_row "><span></span>IO (%)</th></tr><tr id="_tr_92_1" ><td id="_td_92_1_1"  data-_i="1" data-_j="1"  title="" tooltip_id="11" class=" _left _freezed_col  _centered tooltip-maqao" >run_0</td><td id="_td_92_1_2"  data-_i="1" data-_j="2"  class=" _centered" >1</td><td id="_td_92_1_3"  data-_i="1" data-_j="3"  class=" _centered"  style="background:#942610;" >99.89</td><td id="_td_92_1_4"  data-_i="1" data-_j="4"  class=" _centered"  style="background:#7B90C8;" >0.02</td><td id="_td_92_1_5"  data-_i="1" data-_j="5"  class=" _centered"  style="background:#7B90C8;" >0.06</td><td id="_td_92_1_6"  data-_i="1" data-_j="6"  class=" _centered"  style="background:#7B90C8;" >0.01</td></tr>
+<tr id="_tr_92_2" ><td id="_td_92_2_1"  data-_i="2" data-_j="1"  title="" tooltip_id="12" class=" _left _freezed_col  _centered tooltip-maqao" >R2x4</td><td id="_td_92_2_2"  data-_i="2" data-_j="2"  class=" _centered" >1</td><td id="_td_92_2_3"  data-_i="2" data-_j="3"  class=" _centered"  style="background:#942610;" >99.89</td><td id="_td_92_2_4"  data-_i="2" data-_j="4"  class=" _centered"  style="background:#7B90C8;" >0.02</td><td id="_td_92_2_5"  data-_i="2" data-_j="5"  class=" _centered"  style="background:#7B90C8;" >0.06</td><td id="_td_92_2_6"  data-_i="2" data-_j="6"  class=" _centered"  style="background:#7B90C8;" >0.02</td></tr>
+<tr id="_tr_92_3" ><td id="_td_92_3_1"  data-_i="3" data-_j="1"  title="" tooltip_id="13" class=" _left _freezed_col  _centered tooltip-maqao" >R3x4</td><td id="_td_92_3_2"  data-_i="3" data-_j="2"  class=" _centered" >1</td><td id="_td_92_3_3"  data-_i="3" data-_j="3"  class=" _centered"  style="background:#942610;" >99.88</td><td id="_td_92_3_4"  data-_i="3" data-_j="4"  class=" _centered"  style="background:#7B90C8;" >0.01</td><td id="_td_92_3_5"  data-_i="3" data-_j="5"  class=" _centered"  style="background:#7B90C8;" >0.08</td><td id="_td_92_3_6"  data-_i="3" data-_j="6"  class=" _centered"  style="background:#7B90C8;" >0</td></tr>
+<tr id="_tr_92_4" ><td id="_td_92_4_1"  data-_i="4" data-_j="1"  title="" tooltip_id="14" class=" _left _freezed_col  _centered tooltip-maqao" >R4x2</td><td id="_td_92_4_2"  data-_i="4" data-_j="2"  class=" _centered" >1</td><td id="_td_92_4_3"  data-_i="4" data-_j="3"  class=" _centered"  style="background:#942610;" >99.87</td><td id="_td_92_4_4"  data-_i="4" data-_j="4"  class=" _centered"  style="background:#7B90C8;" >0</td><td id="_td_92_4_5"  data-_i="4" data-_j="5"  class=" _centered"  style="background:#7B90C8;" >0.07</td><td id="_td_92_4_6"  data-_i="4" data-_j="6"  class=" _centered"  style="background:#7B90C8;" >0.04</td></tr>
+<tr id="_tr_92_5" ><td id="_td_92_5_1"  data-_i="5" data-_j="1"  title="" tooltip_id="15" class=" _left _freezed_col  _centered tooltip-maqao" >R4x4</td><td id="_td_92_5_2"  data-_i="5" data-_j="2"  class=" _centered" >1</td><td id="_td_92_5_3"  data-_i="5" data-_j="3"  class=" _centered"  style="background:#942610;" >99.9</td><td id="_td_92_5_4"  data-_i="5" data-_j="4"  class=" _centered"  style="background:#7B90C8;" >0.01</td><td id="_td_92_5_5"  data-_i="5" data-_j="5"  class=" _centered"  style="background:#7B90C8;" >0.05</td><td id="_td_92_5_6"  data-_i="5" data-_j="6"  class=" _centered"  style="background:#7B90C8;" >0.01</td></tr>
+<tr id="_tr_92_6" ><td id="_td_92_6_1"  data-_i="6" data-_j="1"  title="" tooltip_id="16" class=" _left _freezed_col  _centered tooltip-maqao" >R6x2</td><td id="_td_92_6_2"  data-_i="6" data-_j="2"  class=" _centered" >1</td><td id="_td_92_6_3"  data-_i="6" data-_j="3"  class=" _centered"  style="background:#942610;" >99.87</td><td id="_td_92_6_4"  data-_i="6" data-_j="4"  class=" _centered"  style="background:#7B90C8;" >0.01</td><td id="_td_92_6_5"  data-_i="6" data-_j="5"  class=" _centered"  style="background:#7B90C8;" >0.08</td><td id="_td_92_6_6"  data-_i="6" data-_j="6"  class=" _centered"  style="background:#7B90C8;" >0.03</td></tr>
+<tr id="_tr_92_7" ><td id="_td_92_7_1"  data-_i="7" data-_j="1"  title="" tooltip_id="17" class=" _left _freezed_col  _centered tooltip-maqao" >R8x2</td><td id="_td_92_7_2"  data-_i="7" data-_j="2"  class=" _centered" >1</td><td id="_td_92_7_3"  data-_i="7" data-_j="3"  class=" _centered"  style="background:#942610;" >99.88</td><td id="_td_92_7_4"  data-_i="7" data-_j="4"  class=" _centered"  style="background:#7B90C8;" >0.03</td><td id="_td_92_7_5"  data-_i="7" data-_j="5"  class=" _centered"  style="background:#7B90C8;" >0.06</td><td id="_td_92_7_6"  data-_i="7" data-_j="6"  class=" _centered"  style="background:#7B90C8;" >0.03</td></tr>
+<tr id="_tr_92_8" ><td id="_td_92_8_1"  data-_i="8" data-_j="1"  title="" tooltip_id="18" class=" _left _freezed_col  _centered tooltip-maqao" >R16x16</td><td id="_td_92_8_2"  data-_i="8" data-_j="2"  class=" _centered" >1</td><td id="_td_92_8_3"  data-_i="8" data-_j="3"  class=" _centered"  style="background:#942610;" >99.86</td><td id="_td_92_8_4"  data-_i="8" data-_j="4"  class=" _centered"  style="background:#7B90C8;" >0.02</td><td id="_td_92_8_5"  data-_i="8" data-_j="5"  class=" _centered"  style="background:#7B90C8;" >0.09</td><td id="_td_92_8_6"  data-_i="8" data-_j="6"  class=" _centered"  style="background:#7B90C8;" >0.01</td></tr>
+<tr id="_tr_92_9" ><td id="_td_92_9_1"  data-_i="9" data-_j="1"  title="" tooltip_id="19" class=" _left _freezed_col  _centered tooltip-maqao" >R10x8</td><td id="_td_92_9_2"  data-_i="9" data-_j="2"  class=" _centered" >1</td><td id="_td_92_9_3"  data-_i="9" data-_j="3"  class=" _centered"  style="background:#942610;" >99.9</td><td id="_td_92_9_4"  data-_i="9" data-_j="4"  class=" _centered"  style="background:#7B90C8;" >0.01</td><td id="_td_92_9_5"  data-_i="9" data-_j="5"  class=" _centered"  style="background:#7B90C8;" >0.04</td><td id="_td_92_9_6"  data-_i="9" data-_j="6"  class=" _centered"  style="background:#7B90C8;" >0.01</td></tr>
+<tr id="_tr_92_10" ><td id="_td_92_10_1"  data-_i="10" data-_j="1"  title="" tooltip_id="20" class=" _left _freezed_col  _centered tooltip-maqao" >R16x1</td><td id="_td_92_10_2"  data-_i="10" data-_j="2"  class=" _centered" >1</td><td id="_td_92_10_3"  data-_i="10" data-_j="3"  class=" _centered"  style="background:#942610;" >99.89</td><td id="_td_92_10_4"  data-_i="10" data-_j="4"  class=" _centered"  style="background:#7B90C8;" >0.03</td><td id="_td_92_10_5"  data-_i="10" data-_j="5"  class=" _centered"  style="background:#7B90C8;" >0.07</td><td id="_td_92_10_6"  data-_i="10" data-_j="6"  class=" _centered"  style="background:#7B90C8;" >0</td></tr>
+</table></div></div></div></div>
+</div>
+<div id="td_app_selected_4" class="td_app_selected">
+<div><h3 class="selected_panel_h3">Scalability - Time per Category</h3>
+<div style="margin-top: 10px; margin-bottom: 10px; background-color: var(--chart_background); overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_1406" style="height:500px;margin-top:20px;" ></div></div>
+<script class="code" >
+</script><div class="_accordion_box collapsed" ><h3 id="_accordion_header_2" class="_header collapsed" onclick="_click_accordion_header(this)" ><span class="_accordion_box_button">&#x25B6;</span>Detailed Time per Category</h3><div id="_accordion_content_2" class="_content collapsed"><div class="_div_table" id="_fixed_93"><table class="_fixed_table" id="_fixed_table_93"><tr><th class="_freezed_row  _left _freezed_col"><span></span>Run</th><th class="_freezed_row "><span></span>Number of threads</th><th class="_freezed_row "><span></span>Total Time (s)</th><th class="_freezed_row "><span></span>Binary (s)</th><th class="_freezed_row "><span></span>MPI (s)</th><th class="_freezed_row "><span></span>System (s)</th><th class="_freezed_row "><span></span>Pthread (s)</th><th class="_freezed_row "><span></span>IO (s)</th><th class="_freezed_row "><span></span>Memory (s)</th></tr><tr id="_tr_93_1" ><td id="_td_93_1_1"  data-_i="1" data-_j="1"  title="" tooltip_id="21" class=" _left _freezed_col  _centered tooltip-maqao" >run_0</td><td id="_td_93_1_2"  data-_i="1" data-_j="2"  class=" _centered" >1</td><td id="_td_93_1_3"  data-_i="1" data-_j="3"  class=" _centered" >115.19</td><td id="_td_93_1_4"  data-_i="1" data-_j="4"  class=" _centered" >115.07</td><td id="_td_93_1_5"  data-_i="1" data-_j="5"  class=" _centered" >0.02</td><td id="_td_93_1_6"  data-_i="1" data-_j="6"  class=" _centered" >0.07</td><td id="_td_93_1_7"  data-_i="1" data-_j="7"  class=" _centered" >0.01</td><td id="_td_93_1_8"  data-_i="1" data-_j="8"  class=" _centered" >0.01</td><td id="_td_93_1_9"  data-_i="1" data-_j="9"  class=" _centered" >0</td></tr>
+<tr id="_tr_93_2" ><td id="_td_93_2_1"  data-_i="2" data-_j="1"  title="" tooltip_id="22" class=" _left _freezed_col  _centered tooltip-maqao" >R2x4</td><td id="_td_93_2_2"  data-_i="2" data-_j="2"  class=" _centered" >1</td><td id="_td_93_2_3"  data-_i="2" data-_j="3"  class=" _centered" >114.82</td><td id="_td_93_2_4"  data-_i="2" data-_j="4"  class=" _centered" >114.69</td><td id="_td_93_2_5"  data-_i="2" data-_j="5"  class=" _centered" >0.02</td><td id="_td_93_2_6"  data-_i="2" data-_j="6"  class=" _centered" >0.07</td><td id="_td_93_2_7"  data-_i="2" data-_j="7"  class=" _centered" >0</td><td id="_td_93_2_8"  data-_i="2" data-_j="8"  class=" _centered" >0.02</td><td id="_td_93_2_9"  data-_i="2" data-_j="9"  class=" _centered" >0.01</td></tr>
+<tr id="_tr_93_3" ><td id="_td_93_3_1"  data-_i="3" data-_j="1"  title="" tooltip_id="23" class=" _left _freezed_col  _centered tooltip-maqao" >R3x4</td><td id="_td_93_3_2"  data-_i="3" data-_j="2"  class=" _centered" >1</td><td id="_td_93_3_3"  data-_i="3" data-_j="3"  class=" _centered" >115.33</td><td id="_td_93_3_4"  data-_i="3" data-_j="4"  class=" _centered" >115.21</td><td id="_td_93_3_5"  data-_i="3" data-_j="5"  class=" _centered" >0.01</td><td id="_td_93_3_6"  data-_i="3" data-_j="6"  class=" _centered" >0.09</td><td id="_td_93_3_7"  data-_i="3" data-_j="7"  class=" _centered" >0</td><td id="_td_93_3_8"  data-_i="3" data-_j="8"  class=" _centered" >0</td><td id="_td_93_3_9"  data-_i="3" data-_j="9"  class=" _centered" >0.01</td></tr>
+<tr id="_tr_93_4" ><td id="_td_93_4_1"  data-_i="4" data-_j="1"  title="" tooltip_id="24" class=" _left _freezed_col  _centered tooltip-maqao" >R4x2</td><td id="_td_93_4_2"  data-_i="4" data-_j="2"  class=" _centered" >1</td><td id="_td_93_4_3"  data-_i="4" data-_j="3"  class=" _centered" >114.81</td><td id="_td_93_4_4"  data-_i="4" data-_j="4"  class=" _centered" >114.68</td><td id="_td_93_4_5"  data-_i="4" data-_j="5"  class=" _centered" >0</td><td id="_td_93_4_6"  data-_i="4" data-_j="6"  class=" _centered" >0.08</td><td id="_td_93_4_7"  data-_i="4" data-_j="7"  class=" _centered" >0</td><td id="_td_93_4_8"  data-_i="4" data-_j="8"  class=" _centered" >0.05</td><td id="_td_93_4_9"  data-_i="4" data-_j="9"  class=" _centered" >0</td></tr>
+<tr id="_tr_93_5" ><td id="_td_93_5_1"  data-_i="5" data-_j="1"  title="" tooltip_id="25" class=" _left _freezed_col  _centered tooltip-maqao" >R4x4</td><td id="_td_93_5_2"  data-_i="5" data-_j="2"  class=" _centered" >1</td><td id="_td_93_5_3"  data-_i="5" data-_j="3"  class=" _centered" >115.23</td><td id="_td_93_5_4"  data-_i="5" data-_j="4"  class=" _centered" >115.12</td><td id="_td_93_5_5"  data-_i="5" data-_j="5"  class=" _centered" >0.01</td><td id="_td_93_5_6"  data-_i="5" data-_j="6"  class=" _centered" >0.06</td><td id="_td_93_5_7"  data-_i="5" data-_j="7"  class=" _centered" >0.01</td><td id="_td_93_5_8"  data-_i="5" data-_j="8"  class=" _centered" >0.01</td><td id="_td_93_5_9"  data-_i="5" data-_j="9"  class=" _centered" >0.01</td></tr>
+<tr id="_tr_93_6" ><td id="_td_93_6_1"  data-_i="6" data-_j="1"  title="" tooltip_id="26" class=" _left _freezed_col  _centered tooltip-maqao" >R6x2</td><td id="_td_93_6_2"  data-_i="6" data-_j="2"  class=" _centered" >1</td><td id="_td_93_6_3"  data-_i="6" data-_j="3"  class=" _centered" >115.21</td><td id="_td_93_6_4"  data-_i="6" data-_j="4"  class=" _centered" >115.07</td><td id="_td_93_6_5"  data-_i="6" data-_j="5"  class=" _centered" >0.01</td><td id="_td_93_6_6"  data-_i="6" data-_j="6"  class=" _centered" >0.09</td><td id="_td_93_6_7"  data-_i="6" data-_j="7"  class=" _centered" >0</td><td id="_td_93_6_8"  data-_i="6" data-_j="8"  class=" _centered" >0.03</td><td id="_td_93_6_9"  data-_i="6" data-_j="9"  class=" _centered" >0</td></tr>
+<tr id="_tr_93_7" ><td id="_td_93_7_1"  data-_i="7" data-_j="1"  title="" tooltip_id="27" class=" _left _freezed_col  _centered tooltip-maqao" >R8x2</td><td id="_td_93_7_2"  data-_i="7" data-_j="2"  class=" _centered" >1</td><td id="_td_93_7_3"  data-_i="7" data-_j="3"  class=" _centered" >115.07</td><td id="_td_93_7_4"  data-_i="7" data-_j="4"  class=" _centered" >114.93</td><td id="_td_93_7_5"  data-_i="7" data-_j="5"  class=" _centered" >0.03</td><td id="_td_93_7_6"  data-_i="7" data-_j="6"  class=" _centered" >0.07</td><td id="_td_93_7_7"  data-_i="7" data-_j="7"  class=" _centered" >0</td><td id="_td_93_7_8"  data-_i="7" data-_j="8"  class=" _centered" >0.03</td><td id="_td_93_7_9"  data-_i="7" data-_j="9"  class=" _centered" >0</td></tr>
+<tr id="_tr_93_8" ><td id="_td_93_8_1"  data-_i="8" data-_j="1"  title="" tooltip_id="28" class=" _left _freezed_col  _centered tooltip-maqao" >R16x16</td><td id="_td_93_8_2"  data-_i="8" data-_j="2"  class=" _centered" >1</td><td id="_td_93_8_3"  data-_i="8" data-_j="3"  class=" _centered" >114.39</td><td id="_td_93_8_4"  data-_i="8" data-_j="4"  class=" _centered" >114.24</td><td id="_td_93_8_5"  data-_i="8" data-_j="5"  class=" _centered" >0.02</td><td id="_td_93_8_6"  data-_i="8" data-_j="6"  class=" _centered" >0.1</td><td id="_td_93_8_7"  data-_i="8" data-_j="7"  class=" _centered" >0</td><td id="_td_93_8_8"  data-_i="8" data-_j="8"  class=" _centered" >0.01</td><td id="_td_93_8_9"  data-_i="8" data-_j="9"  class=" _centered" >0.01</td></tr>
+<tr id="_tr_93_9" ><td id="_td_93_9_1"  data-_i="9" data-_j="1"  title="" tooltip_id="29" class=" _left _freezed_col  _centered tooltip-maqao" >R10x8</td><td id="_td_93_9_2"  data-_i="9" data-_j="2"  class=" _centered" >1</td><td id="_td_93_9_3"  data-_i="9" data-_j="3"  class=" _centered" >114.88</td><td id="_td_93_9_4"  data-_i="9" data-_j="4"  class=" _centered" >114.79</td><td id="_td_93_9_5"  data-_i="9" data-_j="5"  class=" _centered" >0.01</td><td id="_td_93_9_6"  data-_i="9" data-_j="6"  class=" _centered" >0.05</td><td id="_td_93_9_7"  data-_i="9" data-_j="7"  class=" _centered" >0.01</td><td id="_td_93_9_8"  data-_i="9" data-_j="8"  class=" _centered" >0.01</td><td id="_td_93_9_9"  data-_i="9" data-_j="9"  class=" _centered" >0.01</td></tr>
+<tr id="_tr_93_10" ><td id="_td_93_10_1"  data-_i="10" data-_j="1"  title="" tooltip_id="30" class=" _left _freezed_col  _centered tooltip-maqao" >R16x1</td><td id="_td_93_10_2"  data-_i="10" data-_j="2"  class=" _centered" >1</td><td id="_td_93_10_3"  data-_i="10" data-_j="3"  class=" _centered" >115.36</td><td id="_td_93_10_4"  data-_i="10" data-_j="4"  class=" _centered" >115.24</td><td id="_td_93_10_5"  data-_i="10" data-_j="5"  class=" _centered" >0.03</td><td id="_td_93_10_6"  data-_i="10" data-_j="6"  class=" _centered" >0.08</td><td id="_td_93_10_7"  data-_i="10" data-_j="7"  class=" _centered" >0</td><td id="_td_93_10_8"  data-_i="10" data-_j="8"  class=" _centered" >0</td><td id="_td_93_10_9"  data-_i="10" data-_j="9"  class=" _centered" >0</td></tr>
+</table></div></div></div></div>
+</div>
+<div id="td_app_selected_5" class="td_app_selected">
+<div><h3 class="selected_panel_h3">Scalability - Efficiency</h3>
+<div style="margin-top: 10px; margin-bottom: 10px; background-color: var(--chart_background); overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_1407" style="height:500px;margin-top:20px;" ></div></div>
+<script class="code" >
+</script><div class="_accordion_box collapsed" ><h3 id="_accordion_header_3" class="_header collapsed" onclick="_click_accordion_header(this)" ><span class="_accordion_box_button">&#x25B6;</span>Detailed Efficiency</h3><div id="_accordion_content_3" class="_content collapsed"><div class="_div_table" id="_fixed_94"><table class="_fixed_table" id="_fixed_table_94"><tr><th class="_freezed_row  _left _freezed_col"><span></span>Run</th><th class="_freezed_row "><span></span>Number of observed threads</th><th class="_freezed_row "><span></span>Efficiency (ideal is 1)</th></tr><tr id="_tr_94_1" ><td id="_td_94_1_1"  data-_i="1" data-_j="1"  title="" tooltip_id="31" class=" _left _freezed_col  _centered tooltip-maqao" >run_0</td><td id="_td_94_1_2"  data-_i="1" data-_j="2"  class=" _centered" >1</td><td id="_td_94_1_3"  data-_i="1" data-_j="3"  class=" _centered"  style="background:#579619;" >1</td></tr>
+<tr id="_tr_94_2" ><td id="_td_94_2_1"  data-_i="2" data-_j="1"  title="" tooltip_id="32" class=" _left _freezed_col  _centered tooltip-maqao" >R2x4</td><td id="_td_94_2_2"  data-_i="2" data-_j="2"  class=" _centered" >1</td><td id="_td_94_2_3"  data-_i="2" data-_j="3"  class=" _centered"  style="background:#579619;" >1</td></tr>
+<tr id="_tr_94_3" ><td id="_td_94_3_1"  data-_i="3" data-_j="1"  title="" tooltip_id="33" class=" _left _freezed_col  _centered tooltip-maqao" >R3x4</td><td id="_td_94_3_2"  data-_i="3" data-_j="2"  class=" _centered" >1</td><td id="_td_94_3_3"  data-_i="3" data-_j="3"  class=" _centered"  style="background:#579619;" >1</td></tr>
+<tr id="_tr_94_4" ><td id="_td_94_4_1"  data-_i="4" data-_j="1"  title="" tooltip_id="34" class=" _left _freezed_col  _centered tooltip-maqao" >R4x2</td><td id="_td_94_4_2"  data-_i="4" data-_j="2"  class=" _centered" >1</td><td id="_td_94_4_3"  data-_i="4" data-_j="3"  class=" _centered"  style="background:#579619;" >1</td></tr>
+<tr id="_tr_94_5" ><td id="_td_94_5_1"  data-_i="5" data-_j="1"  title="" tooltip_id="35" class=" _left _freezed_col  _centered tooltip-maqao" >R4x4</td><td id="_td_94_5_2"  data-_i="5" data-_j="2"  class=" _centered" >1</td><td id="_td_94_5_3"  data-_i="5" data-_j="3"  class=" _centered"  style="background:#579619;" >1</td></tr>
+<tr id="_tr_94_6" ><td id="_td_94_6_1"  data-_i="6" data-_j="1"  title="" tooltip_id="36" class=" _left _freezed_col  _centered tooltip-maqao" >R6x2</td><td id="_td_94_6_2"  data-_i="6" data-_j="2"  class=" _centered" >1</td><td id="_td_94_6_3"  data-_i="6" data-_j="3"  class=" _centered"  style="background:#579619;" >1</td></tr>
+<tr id="_tr_94_7" ><td id="_td_94_7_1"  data-_i="7" data-_j="1"  title="" tooltip_id="37" class=" _left _freezed_col  _centered tooltip-maqao" >R8x2</td><td id="_td_94_7_2"  data-_i="7" data-_j="2"  class=" _centered" >1</td><td id="_td_94_7_3"  data-_i="7" data-_j="3"  class=" _centered"  style="background:#579619;" >1</td></tr>
+<tr id="_tr_94_8" ><td id="_td_94_8_1"  data-_i="8" data-_j="1"  title="" tooltip_id="38" class=" _left _freezed_col  _centered tooltip-maqao" >R16x16</td><td id="_td_94_8_2"  data-_i="8" data-_j="2"  class=" _centered" >1</td><td id="_td_94_8_3"  data-_i="8" data-_j="3"  class=" _centered"  style="background:#458B00;" >1.01</td></tr>
+<tr id="_tr_94_9" ><td id="_td_94_9_1"  data-_i="9" data-_j="1"  title="" tooltip_id="39" class=" _left _freezed_col  _centered tooltip-maqao" >R10x8</td><td id="_td_94_9_2"  data-_i="9" data-_j="2"  class=" _centered" >1</td><td id="_td_94_9_3"  data-_i="9" data-_j="3"  class=" _centered"  style="background:#579619;" >1</td></tr>
+<tr id="_tr_94_10" ><td id="_td_94_10_1"  data-_i="10" data-_j="1"  title="" tooltip_id="40" class=" _left _freezed_col  _centered tooltip-maqao" >R16x1</td><td id="_td_94_10_2"  data-_i="10" data-_j="2"  class=" _centered" >1</td><td id="_td_94_10_3"  data-_i="10" data-_j="3"  class=" _centered"  style="background:#579619;" >1</td></tr>
+</table></div></div></div></div>
+</div>
+<div id="td_app_selected_6" class="td_app_selected">
+<div><h3 class="selected_panel_h3">Function Based Profile</h3>
+<div style="margin-top: 10px; margin-bottom: 10px; background-color: var(--chart_background); overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_1408" style="height:500px;margin-top:20px;" ></div></div>
+<script class="code" >
+</script></div>
+</div>
+<div id="td_app_selected_7" class="td_app_selected">
+<div><h3 class="selected_panel_h3">Scalability - Coverage per Parallel Efficiency at Function Level</h3>
+<div style="margin-top: 10px; margin-bottom: 10px; background-color: var(--chart_background); overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_1409" style="height:500px;margin-top:20px;" ></div></div>
+<script class="code" >
+</script><div class="_accordion_box collapsed" ><h3 id="_accordion_header_4" class="_header collapsed" onclick="_click_accordion_header(this)" ><span class="_accordion_box_button">&#x25B6;</span>Detailed Coverage per Parallel Efficiency</h3><div id="_accordion_content_4" class="_content collapsed"><div class="_div_table" id="_fixed_95"><div class="_accordion_box" ><h3 id="_accordion_header_5" class="_header" onclick="_click_accordion_header(this)" ><span class="_accordion_box_button">&#x25BC;</span>Colums Filter<span class="tooltip-maqao-button help-maqao" title="" tooltip_id="41" ></span></h3><div id="_accordion_content_5" class="_content"><div style="max-height:165px;"><form>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table95_opt13" onclick="click_table_menu('_table95_opt13', '_table95_opt_all', 'list_opts_table95')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" >Coverage (%) new or unmeasured functions</span>
+<span style='white-space:nowrap;'><input class="input_check_table_menu" type="button" id="_table95_opt_all" onclick="set_all_table_menu(this, 'list_opts_table95')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" value="Select all"></span>
+</form></div>
+</div></div><table class="_fixed_table" id="_fixed_table_95"><tr><th class="_freezed_row  _left _freezed_col"><span></span>Run</th><th class="_freezed_row "><span></span>Number of observed threads</th><th class="_freezed_row "><span></span>Coverage (%)<br/>0% to 10%  eff. </th><th class="_freezed_row "><span></span>Coverage (%)<br/>10% to 20% eff.</th><th class="_freezed_row "><span></span>Coverage (%)<br/>20% to 30% eff.</th><th class="_freezed_row "><span></span>Coverage (%)<br/>30% to 40% eff.</th><th class="_freezed_row "><span></span>Coverage (%)<br/>40% to 50% eff.</th><th class="_freezed_row "><span></span>Coverage (%)<br/>50% to 60% eff.</th><th class="_freezed_row "><span></span>Coverage (%)<br/>60% to 70% eff.</th><th class="_freezed_row "><span></span>Coverage (%)<br/>70% to 80% eff.</th><th class="_freezed_row "><span></span>Coverage (%)<br/>80% to 90% eff.</th><th class="_freezed_row "><span></span>Coverage (%)<br/>90% to 100% eff.</th><th class="_freezed_row  _table95_opt13 _tcol_hidden"><span></span>Coverage (%) new or unmeasured functions</th></tr><tr id="_tr_95_1" ><td id="_td_95_1_1"  data-_i="1" data-_j="1"  title="" tooltip_id="42" class=" _left _freezed_col  _centered tooltip-maqao" >run_0</td><td id="_td_95_1_2"  data-_i="1" data-_j="2"  class=" _centered" >1</td><td id="_td_95_1_3"  data-_i="1" data-_j="3"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_1_4"  data-_i="1" data-_j="4"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_1_5"  data-_i="1" data-_j="5"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_1_6"  data-_i="1" data-_j="6"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_1_7"  data-_i="1" data-_j="7"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_95_1_8"  data-_i="1" data-_j="8"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_95_1_9"  data-_i="1" data-_j="9"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_95_1_10"  data-_i="1" data-_j="10"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_95_1_11"  data-_i="1" data-_j="11"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_95_1_12"  data-_i="1" data-_j="12"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_95_1_13"  data-_i="1" data-_j="13"  class=" _centered _table95_opt13 _tcol_hidden"  style="background:#3E7D00;" >100</td></tr>
+<tr id="_tr_95_2" ><td id="_td_95_2_1"  data-_i="2" data-_j="1"  title="" tooltip_id="43" class=" _left _freezed_col  _centered tooltip-maqao" >R2x4</td><td id="_td_95_2_2"  data-_i="2" data-_j="2"  class=" _centered" >1</td><td id="_td_95_2_3"  data-_i="2" data-_j="3"  class=" _centered"  style="background:#D29588;" >0.01</td><td id="_td_95_2_4"  data-_i="2" data-_j="4"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_2_5"  data-_i="2" data-_j="5"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_2_6"  data-_i="2" data-_j="6"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_2_7"  data-_i="2" data-_j="7"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_95_2_8"  data-_i="2" data-_j="8"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_95_2_9"  data-_i="2" data-_j="9"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_95_2_10"  data-_i="2" data-_j="10"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_95_2_11"  data-_i="2" data-_j="11"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_95_2_12"  data-_i="2" data-_j="12"  class=" _centered"  style="background:#3E7D00;" >99.97</td><td id="_td_95_2_13"  data-_i="2" data-_j="13"  class=" _centered _table95_opt13 _tcol_hidden"  style="background:#A2C57F;" >0.02</td></tr>
+<tr id="_tr_95_3" ><td id="_td_95_3_1"  data-_i="3" data-_j="1"  title="" tooltip_id="44" class=" _left _freezed_col  _centered tooltip-maqao" >R3x4</td><td id="_td_95_3_2"  data-_i="3" data-_j="2"  class=" _centered" >1</td><td id="_td_95_3_3"  data-_i="3" data-_j="3"  class=" _centered"  style="background:#D29588;" >0.01</td><td id="_td_95_3_4"  data-_i="3" data-_j="4"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_3_5"  data-_i="3" data-_j="5"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_3_6"  data-_i="3" data-_j="6"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_3_7"  data-_i="3" data-_j="7"  class=" _centered"  style="background:#DBC285;" >0.02</td><td id="_td_95_3_8"  data-_i="3" data-_j="8"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_95_3_9"  data-_i="3" data-_j="9"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_95_3_10"  data-_i="3" data-_j="10"  class=" _centered"  style="background:#A2C57F;" >0.17</td><td id="_td_95_3_11"  data-_i="3" data-_j="11"  class=" _centered"  style="background:#A2C57F;" >0.06</td><td id="_td_95_3_12"  data-_i="3" data-_j="12"  class=" _centered"  style="background:#3E7D00;" >99.71</td><td id="_td_95_3_13"  data-_i="3" data-_j="13"  class=" _centered _table95_opt13 _tcol_hidden"  style="background:#A2C57F;" >0.03</td></tr>
+<tr id="_tr_95_4" ><td id="_td_95_4_1"  data-_i="4" data-_j="1"  title="" tooltip_id="45" class=" _left _freezed_col  _centered tooltip-maqao" >R4x2</td><td id="_td_95_4_2"  data-_i="4" data-_j="2"  class=" _centered" >1</td><td id="_td_95_4_3"  data-_i="4" data-_j="3"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_4_4"  data-_i="4" data-_j="4"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_4_5"  data-_i="4" data-_j="5"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_4_6"  data-_i="4" data-_j="6"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_4_7"  data-_i="4" data-_j="7"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_95_4_8"  data-_i="4" data-_j="8"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_95_4_9"  data-_i="4" data-_j="9"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_95_4_10"  data-_i="4" data-_j="10"  class=" _centered"  style="background:#A2C57F;" >0.07</td><td id="_td_95_4_11"  data-_i="4" data-_j="11"  class=" _centered"  style="background:#A2C57F;" >0.28</td><td id="_td_95_4_12"  data-_i="4" data-_j="12"  class=" _centered"  style="background:#3E7D00;" >99.61</td><td id="_td_95_4_13"  data-_i="4" data-_j="13"  class=" _centered _table95_opt13 _tcol_hidden"  style="background:#A2C57F;" >0.04</td></tr>
+<tr id="_tr_95_5" ><td id="_td_95_5_1"  data-_i="5" data-_j="1"  title="" tooltip_id="46" class=" _left _freezed_col  _centered tooltip-maqao" >R4x4</td><td id="_td_95_5_2"  data-_i="5" data-_j="2"  class=" _centered" >1</td><td id="_td_95_5_3"  data-_i="5" data-_j="3"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_5_4"  data-_i="5" data-_j="4"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_5_5"  data-_i="5" data-_j="5"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_5_6"  data-_i="5" data-_j="6"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_5_7"  data-_i="5" data-_j="7"  class=" _centered"  style="background:#DBC285;" >0.02</td><td id="_td_95_5_8"  data-_i="5" data-_j="8"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_95_5_9"  data-_i="5" data-_j="9"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_95_5_10"  data-_i="5" data-_j="10"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_95_5_11"  data-_i="5" data-_j="11"  class=" _centered"  style="background:#A2C57F;" >0.06</td><td id="_td_95_5_12"  data-_i="5" data-_j="12"  class=" _centered"  style="background:#3E7D00;" >99.9</td><td id="_td_95_5_13"  data-_i="5" data-_j="13"  class=" _centered _table95_opt13 _tcol_hidden"  style="background:#A2C57F;" >0.02</td></tr>
+<tr id="_tr_95_6" ><td id="_td_95_6_1"  data-_i="6" data-_j="1"  title="" tooltip_id="47" class=" _left _freezed_col  _centered tooltip-maqao" >R6x2</td><td id="_td_95_6_2"  data-_i="6" data-_j="2"  class=" _centered" >1</td><td id="_td_95_6_3"  data-_i="6" data-_j="3"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_6_4"  data-_i="6" data-_j="4"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_6_5"  data-_i="6" data-_j="5"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_6_6"  data-_i="6" data-_j="6"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_6_7"  data-_i="6" data-_j="7"  class=" _centered"  style="background:#DBC285;" >0.02</td><td id="_td_95_6_8"  data-_i="6" data-_j="8"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_95_6_9"  data-_i="6" data-_j="9"  class=" _centered"  style="background:#A2C57F;" >0.07</td><td id="_td_95_6_10"  data-_i="6" data-_j="10"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_95_6_11"  data-_i="6" data-_j="11"  class=" _centered"  style="background:#A2C57F;" >0.09</td><td id="_td_95_6_12"  data-_i="6" data-_j="12"  class=" _centered"  style="background:#3E7D00;" >99.78</td><td id="_td_95_6_13"  data-_i="6" data-_j="13"  class=" _centered _table95_opt13 _tcol_hidden"  style="background:#A2C57F;" >0.04</td></tr>
+<tr id="_tr_95_7" ><td id="_td_95_7_1"  data-_i="7" data-_j="1"  title="" tooltip_id="48" class=" _left _freezed_col  _centered tooltip-maqao" >R8x2</td><td id="_td_95_7_2"  data-_i="7" data-_j="2"  class=" _centered" >1</td><td id="_td_95_7_3"  data-_i="7" data-_j="3"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_7_4"  data-_i="7" data-_j="4"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_7_5"  data-_i="7" data-_j="5"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_7_6"  data-_i="7" data-_j="6"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_7_7"  data-_i="7" data-_j="7"  class=" _centered"  style="background:#DBC285;" >0.02</td><td id="_td_95_7_8"  data-_i="7" data-_j="8"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_95_7_9"  data-_i="7" data-_j="9"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_95_7_10"  data-_i="7" data-_j="10"  class=" _centered"  style="background:#A2C57F;" >0.16</td><td id="_td_95_7_11"  data-_i="7" data-_j="11"  class=" _centered"  style="background:#A2C57F;" >0.3</td><td id="_td_95_7_12"  data-_i="7" data-_j="12"  class=" _centered"  style="background:#3E7D00;" >99.48</td><td id="_td_95_7_13"  data-_i="7" data-_j="13"  class=" _centered _table95_opt13 _tcol_hidden"  style="background:#A2C57F;" >0.04</td></tr>
+<tr id="_tr_95_8" ><td id="_td_95_8_1"  data-_i="8" data-_j="1"  title="" tooltip_id="49" class=" _left _freezed_col  _centered tooltip-maqao" >R16x16</td><td id="_td_95_8_2"  data-_i="8" data-_j="2"  class=" _centered" >1</td><td id="_td_95_8_3"  data-_i="8" data-_j="3"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_8_4"  data-_i="8" data-_j="4"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_8_5"  data-_i="8" data-_j="5"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_8_6"  data-_i="8" data-_j="6"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_8_7"  data-_i="8" data-_j="7"  class=" _centered"  style="background:#DBC285;" >0.02</td><td id="_td_95_8_8"  data-_i="8" data-_j="8"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_95_8_9"  data-_i="8" data-_j="9"  class=" _centered"  style="background:#A2C57F;" >0.07</td><td id="_td_95_8_10"  data-_i="8" data-_j="10"  class=" _centered"  style="background:#A2C57F;" >0.06</td><td id="_td_95_8_11"  data-_i="8" data-_j="11"  class=" _centered"  style="background:#A2C57F;" >0.8</td><td id="_td_95_8_12"  data-_i="8" data-_j="12"  class=" _centered"  style="background:#3E7D00;" >99.03</td><td id="_td_95_8_13"  data-_i="8" data-_j="13"  class=" _centered _table95_opt13 _tcol_hidden"  style="background:#A2C57F;" >0.02</td></tr>
+<tr id="_tr_95_9" ><td id="_td_95_9_1"  data-_i="9" data-_j="1"  title="" tooltip_id="50" class=" _left _freezed_col  _centered tooltip-maqao" >R10x8</td><td id="_td_95_9_2"  data-_i="9" data-_j="2"  class=" _centered" >1</td><td id="_td_95_9_3"  data-_i="9" data-_j="3"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_9_4"  data-_i="9" data-_j="4"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_9_5"  data-_i="9" data-_j="5"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_9_6"  data-_i="9" data-_j="6"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_9_7"  data-_i="9" data-_j="7"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_95_9_8"  data-_i="9" data-_j="8"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_95_9_9"  data-_i="9" data-_j="9"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_95_9_10"  data-_i="9" data-_j="10"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_95_9_11"  data-_i="9" data-_j="11"  class=" _centered"  style="background:#A2C57F;" >0.15</td><td id="_td_95_9_12"  data-_i="9" data-_j="12"  class=" _centered"  style="background:#3E7D00;" >99.79</td><td id="_td_95_9_13"  data-_i="9" data-_j="13"  class=" _centered _table95_opt13 _tcol_hidden"  style="background:#A2C57F;" >0.06</td></tr>
+<tr id="_tr_95_10" ><td id="_td_95_10_1"  data-_i="10" data-_j="1"  title="" tooltip_id="51" class=" _left _freezed_col  _centered tooltip-maqao" >R16x1</td><td id="_td_95_10_2"  data-_i="10" data-_j="2"  class=" _centered" >1</td><td id="_td_95_10_3"  data-_i="10" data-_j="3"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_10_4"  data-_i="10" data-_j="4"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_10_5"  data-_i="10" data-_j="5"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_10_6"  data-_i="10" data-_j="6"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_95_10_7"  data-_i="10" data-_j="7"  class=" _centered"  style="background:#DBC285;" >0.02</td><td id="_td_95_10_8"  data-_i="10" data-_j="8"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_95_10_9"  data-_i="10" data-_j="9"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_95_10_10"  data-_i="10" data-_j="10"  class=" _centered"  style="background:#A2C57F;" >0.32</td><td id="_td_95_10_11"  data-_i="10" data-_j="11"  class=" _centered"  style="background:#A2C57F;" >0.2</td><td id="_td_95_10_12"  data-_i="10" data-_j="12"  class=" _centered"  style="background:#3E7D00;" >99.44</td><td id="_td_95_10_13"  data-_i="10" data-_j="13"  class=" _centered _table95_opt13 _tcol_hidden"  style="background:#A2C57F;" >0.02</td></tr>
+</table></div><script>
+var list_opts_table95 = ['_table95_opt13',];addLoadEvent(function(){
+  var displayed_columns = [true, true, true, true, true, true, true, true, true, true, true, true, false];
+  // Update initial state using localStorage
+  for (var i = 0; i < displayed_columns.length; i++) {
+    var val = localStorage.getItem("__functions__table95_opt"+(i + 1));
+    if (val) {
+      displayed_columns[i] = (val === "true");
+    }
+    var obj = document.getElementById("_table95_opt"+(i + 1));
+    if (obj) {
+      if (displayed_columns[i] == true) {
+        obj.checked = true;
+      }
+      else {
+        obj.checked = false;
+      }
+    }
+  }
+  // Update table
+  var table = document.getElementById("_fixed_table_95");
+  for (let i in table.rows) {
+    let row = table.rows[i]
+    for (let j in row.cells) {
+      let col = row.cells[j]
+      if (col.classList) {
+        if (displayed_columns[j] == true) {
+          col.classList.remove("_tcol_hidden");
+        }
+        else {
+          col.classList.add("_tcol_hidden");
+        }
+      }
+    }
+  }
+  {
+    var value = localStorage.getItem("_table95_opt_all");
+    if (value) {
+      var obj = document.getElementById ("_table95_opt_all");
+      if (obj) {
+        obj.value = value;
+      }
+    }
+  }
+  _check_all_checkbox_ ("_table95_opt_all", "list_opts_table95");
+});
+</script>
+</div></div></div>
+</div>
+<div id="td_app_selected_8" class="td_app_selected">
+<div><h3 class="selected_panel_h3">Scalability - Coverage per Parallel Speedup at Function Level</h3>
+<div style="margin-top: 10px; margin-bottom: 10px; background-color: var(--chart_background); overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_1410" style="height:500px;margin-top:20px;" ></div></div>
+<script class="code" >
+</script><div class="_accordion_box collapsed" ><h3 id="_accordion_header_6" class="_header collapsed" onclick="_click_accordion_header(this)" ><span class="_accordion_box_button">&#x25B6;</span>Detailed Coverage per Parallel Speedup</h3><div id="_accordion_content_6" class="_content collapsed"><div class="_div_table" id="_fixed_96"><div class="_accordion_box" ><h3 id="_accordion_header_7" class="_header" onclick="_click_accordion_header(this)" ><span class="_accordion_box_button">&#x25BC;</span>Colums Filter<span class="tooltip-maqao-button help-maqao" title="" tooltip_id="52" ></span></h3><div id="_accordion_content_7" class="_content"><div style="max-height:165px;"><form>
+<span style="white-space:nowrap;"><input class="input_check_table_menu" type="checkbox" id="_table96_opt14" onclick="click_table_menu('_table96_opt14', '_table96_opt_all', 'list_opts_table96')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" >Coverage (%) new or unmeasured functions</span>
+<span style='white-space:nowrap;'><input class="input_check_table_menu" type="button" id="_table96_opt_all" onclick="set_all_table_menu(this, 'list_opts_table96')" style="margin-left: 30px;vertical-align: middle;cursor:pointer;" value="Select all"></span>
+</form></div>
+</div></div><table class="_fixed_table" id="_fixed_table_96"><tr><th class="_freezed_row  _left _freezed_col"><span></span>Run</th><th class="_freezed_row "><span></span>Number of observed threads</th><th class="_freezed_row "><span></span>Coverage (%)<br/>0% to 10%  speedup </th><th class="_freezed_row "><span></span>Coverage (%)<br/>10% to 20% speedup</th><th class="_freezed_row "><span></span>Coverage (%)<br/>20% to 30% speedup</th><th class="_freezed_row "><span></span>Coverage (%)<br/>30% to 40% speedup</th><th class="_freezed_row "><span></span>Coverage (%)<br/>40% to 50% speedup</th><th class="_freezed_row "><span></span>Coverage (%)<br/>50% to 60% speedup</th><th class="_freezed_row "><span></span>Coverage (%)<br/>60% to 70% speedup</th><th class="_freezed_row "><span></span>Coverage (%)<br/>70% to 80% speedup</th><th class="_freezed_row "><span></span>Coverage (%)<br/>80% to 90% speedup</th><th class="_freezed_row "><span></span>Coverage (%)<br/>90% to 100% speedup</th><th class="_freezed_row "><span></span>Coverage (%)<br/> &gt; 100% speedup</th><th class="_freezed_row  _table96_opt14 _tcol_hidden"><span></span>Coverage (%) new or unmeasured functions</th></tr><tr id="_tr_96_1" ><td id="_td_96_1_1"  data-_i="1" data-_j="1"  title="" tooltip_id="53" class=" _left _freezed_col  _centered tooltip-maqao" >run_0</td><td id="_td_96_1_2"  data-_i="1" data-_j="2"  class=" _centered" >1</td><td id="_td_96_1_3"  data-_i="1" data-_j="3"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_1_4"  data-_i="1" data-_j="4"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_1_5"  data-_i="1" data-_j="5"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_1_6"  data-_i="1" data-_j="6"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_1_7"  data-_i="1" data-_j="7"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_96_1_8"  data-_i="1" data-_j="8"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_96_1_9"  data-_i="1" data-_j="9"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_96_1_10"  data-_i="1" data-_j="10"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_96_1_11"  data-_i="1" data-_j="11"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_96_1_12"  data-_i="1" data-_j="12"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_96_1_13"  data-_i="1" data-_j="13"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_96_1_14"  data-_i="1" data-_j="14"  class=" _centered _table96_opt14 _tcol_hidden" >100</td></tr>
+<tr id="_tr_96_2" ><td id="_td_96_2_1"  data-_i="2" data-_j="1"  title="" tooltip_id="54" class=" _left _freezed_col  _centered tooltip-maqao" >R2x4</td><td id="_td_96_2_2"  data-_i="2" data-_j="2"  class=" _centered" >1</td><td id="_td_96_2_3"  data-_i="2" data-_j="3"  class=" _centered"  style="background:#D29588;" >0.01</td><td id="_td_96_2_4"  data-_i="2" data-_j="4"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_2_5"  data-_i="2" data-_j="5"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_2_6"  data-_i="2" data-_j="6"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_2_7"  data-_i="2" data-_j="7"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_96_2_8"  data-_i="2" data-_j="8"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_96_2_9"  data-_i="2" data-_j="9"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_96_2_10"  data-_i="2" data-_j="10"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_96_2_11"  data-_i="2" data-_j="11"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_96_2_12"  data-_i="2" data-_j="12"  class=" _centered"  style="background:#A2C57F;" >2.88</td><td id="_td_96_2_13"  data-_i="2" data-_j="13"  class=" _centered"  style="background:#3E7D00;" >97.1</td><td id="_td_96_2_14"  data-_i="2" data-_j="14"  class=" _centered _table96_opt14 _tcol_hidden" >0.01</td></tr>
+<tr id="_tr_96_3" ><td id="_td_96_3_1"  data-_i="3" data-_j="1"  title="" tooltip_id="55" class=" _left _freezed_col  _centered tooltip-maqao" >R3x4</td><td id="_td_96_3_2"  data-_i="3" data-_j="2"  class=" _centered" >1</td><td id="_td_96_3_3"  data-_i="3" data-_j="3"  class=" _centered"  style="background:#D29588;" >0.01</td><td id="_td_96_3_4"  data-_i="3" data-_j="4"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_3_5"  data-_i="3" data-_j="5"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_3_6"  data-_i="3" data-_j="6"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_3_7"  data-_i="3" data-_j="7"  class=" _centered"  style="background:#DBC285;" >0.02</td><td id="_td_96_3_8"  data-_i="3" data-_j="8"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_96_3_9"  data-_i="3" data-_j="9"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_96_3_10"  data-_i="3" data-_j="10"  class=" _centered"  style="background:#A2C57F;" >0.17</td><td id="_td_96_3_11"  data-_i="3" data-_j="11"  class=" _centered"  style="background:#A2C57F;" >0.06</td><td id="_td_96_3_12"  data-_i="3" data-_j="12"  class=" _centered"  style="background:#3E7D00;" >99.08</td><td id="_td_96_3_13"  data-_i="3" data-_j="13"  class=" _centered"  style="background:#A2C57F;" >0.63</td><td id="_td_96_3_14"  data-_i="3" data-_j="14"  class=" _centered _table96_opt14 _tcol_hidden" >0.03</td></tr>
+<tr id="_tr_96_4" ><td id="_td_96_4_1"  data-_i="4" data-_j="1"  title="" tooltip_id="56" class=" _left _freezed_col  _centered tooltip-maqao" >R4x2</td><td id="_td_96_4_2"  data-_i="4" data-_j="2"  class=" _centered" >1</td><td id="_td_96_4_3"  data-_i="4" data-_j="3"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_4_4"  data-_i="4" data-_j="4"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_4_5"  data-_i="4" data-_j="5"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_4_6"  data-_i="4" data-_j="6"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_4_7"  data-_i="4" data-_j="7"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_96_4_8"  data-_i="4" data-_j="8"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_96_4_9"  data-_i="4" data-_j="9"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_96_4_10"  data-_i="4" data-_j="10"  class=" _centered"  style="background:#A2C57F;" >0.07</td><td id="_td_96_4_11"  data-_i="4" data-_j="11"  class=" _centered"  style="background:#A2C57F;" >0.28</td><td id="_td_96_4_12"  data-_i="4" data-_j="12"  class=" _centered"  style="background:#A2C57F;" >2.78</td><td id="_td_96_4_13"  data-_i="4" data-_j="13"  class=" _centered"  style="background:#3E7D00;" >96.85</td><td id="_td_96_4_14"  data-_i="4" data-_j="14"  class=" _centered _table96_opt14 _tcol_hidden" >0.02</td></tr>
+<tr id="_tr_96_5" ><td id="_td_96_5_1"  data-_i="5" data-_j="1"  title="" tooltip_id="57" class=" _left _freezed_col  _centered tooltip-maqao" >R4x4</td><td id="_td_96_5_2"  data-_i="5" data-_j="2"  class=" _centered" >1</td><td id="_td_96_5_3"  data-_i="5" data-_j="3"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_5_4"  data-_i="5" data-_j="4"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_5_5"  data-_i="5" data-_j="5"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_5_6"  data-_i="5" data-_j="6"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_5_7"  data-_i="5" data-_j="7"  class=" _centered"  style="background:#DBC285;" >0.02</td><td id="_td_96_5_8"  data-_i="5" data-_j="8"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_96_5_9"  data-_i="5" data-_j="9"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_96_5_10"  data-_i="5" data-_j="10"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_96_5_11"  data-_i="5" data-_j="11"  class=" _centered"  style="background:#A2C57F;" >0.06</td><td id="_td_96_5_12"  data-_i="5" data-_j="12"  class=" _centered"  style="background:#6AA232;" >50.64</td><td id="_td_96_5_13"  data-_i="5" data-_j="13"  class=" _centered"  style="background:#6AA232;" >49.26</td><td id="_td_96_5_14"  data-_i="5" data-_j="14"  class=" _centered _table96_opt14 _tcol_hidden" >0.02</td></tr>
+<tr id="_tr_96_6" ><td id="_td_96_6_1"  data-_i="6" data-_j="1"  title="" tooltip_id="58" class=" _left _freezed_col  _centered tooltip-maqao" >R6x2</td><td id="_td_96_6_2"  data-_i="6" data-_j="2"  class=" _centered" >1</td><td id="_td_96_6_3"  data-_i="6" data-_j="3"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_6_4"  data-_i="6" data-_j="4"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_6_5"  data-_i="6" data-_j="5"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_6_6"  data-_i="6" data-_j="6"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_6_7"  data-_i="6" data-_j="7"  class=" _centered"  style="background:#DBC285;" >0.02</td><td id="_td_96_6_8"  data-_i="6" data-_j="8"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_96_6_9"  data-_i="6" data-_j="9"  class=" _centered"  style="background:#A2C57F;" >0.07</td><td id="_td_96_6_10"  data-_i="6" data-_j="10"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_96_6_11"  data-_i="6" data-_j="11"  class=" _centered"  style="background:#A2C57F;" >0.09</td><td id="_td_96_6_12"  data-_i="6" data-_j="12"  class=" _centered"  style="background:#6AA232;" >50.86</td><td id="_td_96_6_13"  data-_i="6" data-_j="13"  class=" _centered"  style="background:#6AA232;" >48.92</td><td id="_td_96_6_14"  data-_i="6" data-_j="14"  class=" _centered _table96_opt14 _tcol_hidden" >0.04</td></tr>
+<tr id="_tr_96_7" ><td id="_td_96_7_1"  data-_i="7" data-_j="1"  title="" tooltip_id="59" class=" _left _freezed_col  _centered tooltip-maqao" >R8x2</td><td id="_td_96_7_2"  data-_i="7" data-_j="2"  class=" _centered" >1</td><td id="_td_96_7_3"  data-_i="7" data-_j="3"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_7_4"  data-_i="7" data-_j="4"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_7_5"  data-_i="7" data-_j="5"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_7_6"  data-_i="7" data-_j="6"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_7_7"  data-_i="7" data-_j="7"  class=" _centered"  style="background:#DBC285;" >0.02</td><td id="_td_96_7_8"  data-_i="7" data-_j="8"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_96_7_9"  data-_i="7" data-_j="9"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_96_7_10"  data-_i="7" data-_j="10"  class=" _centered"  style="background:#A2C57F;" >0.16</td><td id="_td_96_7_11"  data-_i="7" data-_j="11"  class=" _centered"  style="background:#A2C57F;" >0.3</td><td id="_td_96_7_12"  data-_i="7" data-_j="12"  class=" _centered"  style="background:#6AA232;" >49.09</td><td id="_td_96_7_13"  data-_i="7" data-_j="13"  class=" _centered"  style="background:#6AA232;" >50.41</td><td id="_td_96_7_14"  data-_i="7" data-_j="14"  class=" _centered _table96_opt14 _tcol_hidden" >0.02</td></tr>
+<tr id="_tr_96_8" ><td id="_td_96_8_1"  data-_i="8" data-_j="1"  title="" tooltip_id="60" class=" _left _freezed_col  _centered tooltip-maqao" >R16x16</td><td id="_td_96_8_2"  data-_i="8" data-_j="2"  class=" _centered" >1</td><td id="_td_96_8_3"  data-_i="8" data-_j="3"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_8_4"  data-_i="8" data-_j="4"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_8_5"  data-_i="8" data-_j="5"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_8_6"  data-_i="8" data-_j="6"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_8_7"  data-_i="8" data-_j="7"  class=" _centered"  style="background:#DBC285;" >0.02</td><td id="_td_96_8_8"  data-_i="8" data-_j="8"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_96_8_9"  data-_i="8" data-_j="9"  class=" _centered"  style="background:#A2C57F;" >0.07</td><td id="_td_96_8_10"  data-_i="8" data-_j="10"  class=" _centered"  style="background:#A2C57F;" >0.06</td><td id="_td_96_8_11"  data-_i="8" data-_j="11"  class=" _centered"  style="background:#A2C57F;" >0.8</td><td id="_td_96_8_12"  data-_i="8" data-_j="12"  class=" _centered"  style="background:#A2C57F;" >2.03</td><td id="_td_96_8_13"  data-_i="8" data-_j="13"  class=" _centered"  style="background:#3E7D00;" >97.01</td><td id="_td_96_8_14"  data-_i="8" data-_j="14"  class=" _centered _table96_opt14 _tcol_hidden" >0.01</td></tr>
+<tr id="_tr_96_9" ><td id="_td_96_9_1"  data-_i="9" data-_j="1"  title="" tooltip_id="61" class=" _left _freezed_col  _centered tooltip-maqao" >R10x8</td><td id="_td_96_9_2"  data-_i="9" data-_j="2"  class=" _centered" >1</td><td id="_td_96_9_3"  data-_i="9" data-_j="3"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_9_4"  data-_i="9" data-_j="4"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_9_5"  data-_i="9" data-_j="5"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_9_6"  data-_i="9" data-_j="6"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_9_7"  data-_i="9" data-_j="7"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_96_9_8"  data-_i="9" data-_j="8"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_96_9_9"  data-_i="9" data-_j="9"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_96_9_10"  data-_i="9" data-_j="10"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_96_9_11"  data-_i="9" data-_j="11"  class=" _centered"  style="background:#A2C57F;" >0.15</td><td id="_td_96_9_12"  data-_i="9" data-_j="12"  class=" _centered"  style="background:#6AA232;" >49.26</td><td id="_td_96_9_13"  data-_i="9" data-_j="13"  class=" _centered"  style="background:#6AA232;" >50.54</td><td id="_td_96_9_14"  data-_i="9" data-_j="14"  class=" _centered _table96_opt14 _tcol_hidden" >0.05</td></tr>
+<tr id="_tr_96_10" ><td id="_td_96_10_1"  data-_i="10" data-_j="1"  title="" tooltip_id="62" class=" _left _freezed_col  _centered tooltip-maqao" >R16x1</td><td id="_td_96_10_2"  data-_i="10" data-_j="2"  class=" _centered" >1</td><td id="_td_96_10_3"  data-_i="10" data-_j="3"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_10_4"  data-_i="10" data-_j="4"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_10_5"  data-_i="10" data-_j="5"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_10_6"  data-_i="10" data-_j="6"  class=" _centered"  style="background:#D29588;" >0</td><td id="_td_96_10_7"  data-_i="10" data-_j="7"  class=" _centered"  style="background:#DBC285;" >0.02</td><td id="_td_96_10_8"  data-_i="10" data-_j="8"  class=" _centered"  style="background:#DBC285;" >0</td><td id="_td_96_10_9"  data-_i="10" data-_j="9"  class=" _centered"  style="background:#A2C57F;" >0</td><td id="_td_96_10_10"  data-_i="10" data-_j="10"  class=" _centered"  style="background:#A2C57F;" >0.32</td><td id="_td_96_10_11"  data-_i="10" data-_j="11"  class=" _centered"  style="background:#A2C57F;" >0.2</td><td id="_td_96_10_12"  data-_i="10" data-_j="12"  class=" _centered"  style="background:#6AA232;" >50.3</td><td id="_td_96_10_13"  data-_i="10" data-_j="13"  class=" _centered"  style="background:#6AA232;" >49.14</td><td id="_td_96_10_14"  data-_i="10" data-_j="14"  class=" _centered _table96_opt14 _tcol_hidden" >0.02</td></tr>
+</table></div><script>
+var list_opts_table96 = ['_table96_opt14',];addLoadEvent(function(){
+  var displayed_columns = [true, true, true, true, true, true, true, true, true, true, true, true, true, false];
+  // Update initial state using localStorage
+  for (var i = 0; i < displayed_columns.length; i++) {
+    var val = localStorage.getItem("__functions__table96_opt"+(i + 1));
+    if (val) {
+      displayed_columns[i] = (val === "true");
+    }
+    var obj = document.getElementById("_table96_opt"+(i + 1));
+    if (obj) {
+      if (displayed_columns[i] == true) {
+        obj.checked = true;
+      }
+      else {
+        obj.checked = false;
+      }
+    }
+  }
+  // Update table
+  var table = document.getElementById("_fixed_table_96");
+  for (let i in table.rows) {
+    let row = table.rows[i]
+    for (let j in row.cells) {
+      let col = row.cells[j]
+      if (col.classList) {
+        if (displayed_columns[j] == true) {
+          col.classList.remove("_tcol_hidden");
+        }
+        else {
+          col.classList.add("_tcol_hidden");
+        }
+      }
+    }
+  }
+  {
+    var value = localStorage.getItem("_table96_opt_all");
+    if (value) {
+      var obj = document.getElementById ("_table96_opt_all");
+      if (obj) {
+        obj.value = value;
+      }
+    }
+  }
+  _check_all_checkbox_ ("_table96_opt_all", "list_opts_table96");
+});
+</script>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+addLoadEvent(function(){
+  var w = window,
+    d = document,
+    e = d.documentElement,
+    g = d.getElementsByTagName("body")[0],
+    x = w.innerWidth || e.clientWidth || g.clientWidth,
+    y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+  var list = document.getElementsByClassName("main_section_div");
+  for (var i = 0; i < list.length; i++) {
+    if (y - 150 > 0) {
+      list[i].style.height = (y - 150)+"px";
+      list[i].style.maxHeight = (y - 150)+"px";
+    }
+  }
+});
+function load_charts () {
+  var obj = document.getElementById ("td_app_selected_1");
+  obj.style.display = "block";
+  document.getElementById("chart_cat_1403").innerHTML = "";
+  $(document).ready(function(){
+  var plot1403_data = [[0.06,0.06,0.08,0.07,0.05,0.08,0.06,0.09,0.04,0.07,],[99.89,99.89,99.88,99.87,99.9,99.87,99.88,99.86,99.9,99.89,],[0.02,0.02,0.01,0,0.01,0.01,0.03,0.02,0.01,0.03,],[0,0.01,0.01,0,0.01,0,0,0.01,0.01,0,],[0.01,0.02,0,0.04,0.01,0.03,0.03,0.01,0.01,0,],[0.01,0,0,0,0.01,0,0,0,0.01,0,],];
+  var plot1403_ticks = ['run_0','R2x4','R3x4','R4x2','R4x4','R6x2','R8x2','R16x16','R10x8','R16x1',];
+  var plot1403 = jQuery.jqplot ('chart_cat_1403', plot1403_data, {
+    seriesColors:['#839557','#4bb2c5','#EAA228','#d8b83f','#953579','#958c12',],
+    stackSeries: true,
+    seriesDefaults: {
+      renderer: jQuery.jqplot.BarRenderer,
+      rendererOptions: {
+      },
+      pointLabels: {
+        show: false
+      },
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer,
+        ticks: plot1403_ticks,
+        label: 'Reports',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+      },
+      yaxis: {
+        label: 'Coverage (%)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+        tickOptions:{formatString:'%.2f'},
+        max:100,
+      },
+      y2axis: {
+        autoscale:true,
+        min:0,
+      }
+    },
+    highlighter: {
+      tooltipContentEditor: function (str, seriesIndex, pointIndex) {
+        return plot1403_ticks[pointIndex]+' - '+plot1403_data[seriesIndex][pointIndex];
+      },
+      show: true,
+      showTooltip: true,
+      sizeAdjust: 10,
+      formatString: '%s',
+      tooltipLocation: 'n',
+      useAxesFormatters: false,
+    },
+    legend: {
+       renderer: $.jqplot.EnhancedLegendRenderer,
+       show: true, 
+       location: 's', 
+       placement: 'outsideGrid',
+       rendererOptions: {
+          numberRows: '1',
+       },
+    },
+    series: [{label:'System', yaxis:'yaxis', },{label:'Binary', yaxis:'yaxis', },{label:'MPI', yaxis:'yaxis', },{label:'Memory', yaxis:'yaxis', },{label:'IO', yaxis:'yaxis', },{label:'Pthread', yaxis:'yaxis', },],
+  });
+  var txts = ["63","64","65","66","67","68","69","70","71","72",];
+  var div_chart = document.getElementById ("chart_cat_1403");
+  if (div_chart == null) {
+    return ;
+  }
+  var div_axis  = div_chart.getElementsByClassName ("jqplot-xaxis");
+  if (div_axis.length == 0
+  ||  div_axis[0].children.length == 0) {
+    return ;
+  }
+  for (var i = 1; i < div_axis[0].children.length; i++) {
+    var div_label = div_axis[0].children[i];
+    if (txts[i - 1] != "") {
+      div_label.setAttribute ("title", "");
+      div_label.setAttribute ("tooltip_id", txts[i - 1]);
+      div_label.classList.add ("tooltip-maqao");
+      div_label.style["z-index"] = 999;
+    }
+  }
+  txts = null;
+});
+  obj.style.display = "none";
+  var obj = document.getElementById ("td_app_selected_2");
+  obj.style.display = "block";
+  document.getElementById("chart_cat_1404").innerHTML = "";
+  $(document).ready(function(){
+    var ordinals = ['1'];
+    var data = [{value: 55.88, offset: 0, i: 0, color: "#333399"},{value: 55.29, offset: 55.88, i: 0, color: "#cc00cc"},{value: 1.96, offset: 111.17, i: 0, color: "#ffcc00"},{value: 0.65, offset: 113.13, i: 0, color: "#339966"},{value: 0.43, offset: 113.78, i: 0, color: "#80ccff"},{value: 0.29, offset: 114.21, i: 0, color: "#80ffcc"},{value: 0.28, offset: 114.5, i: 0, color: "#7979d2"},{value: 0.14, offset: 114.78, i: 0, color: "#ff4dff"},{value: 0.09, offset: 114.92, i: 0, color: "#ffe066"},{value: 0.05, offset: 115.01, i: 0, color: "#66cc99"},{value: 0.1, offset: 115.06, i: 0, color: "#ccebff"}];
+    var widthgl  = 900;
+    var widthin  = 900;
+    var heightgl = 480;
+    var heightin = 495;
+    let margin = {
+      top:    10,
+      right:  30,
+      bottom: 30,
+      left:   50
+    },
+    width = widthgl - margin.left - margin.right,
+    height = heightgl - margin.top - margin.bottom,
+    radius = (Math.min(width, height) / 2) - 10,
+    node;
+    const svg = d3.select('#chart_cat_1404')
+        .append('svg')
+        .attr('width', widthin)
+        .attr('height', heightin)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .call(
+          d3.zoom()
+            .translateExtent([[0,0], [width, height] ])
+            .extent([[0, 0], [width, height] ])
+          .on('zoom', zoom)
+        ).on("dblclick.zoom", null);
+    let x = d3.scaleLinear().range([0, width])
+    let y = d3.scaleLinear().range([height, 0])
+    let color = d3.scaleOrdinal(d3.schemeCategory10)
+    let xScale = x.domain([-1, ordinals.length])
+    let yScale = y.domain([0, d3.max(data, function(d){return d.value + d.offset})])
+    let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
+    svg.append('rect')
+      .attr('class', 'zoom-panel')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'var(--background)')
+    let xAxis = svg.append('g')
+      .attr('class', 'xAxis')
+      .attr('transform', `translate(0, ${height})`)
+      .call(
+        d3.axisBottom(xScale).tickFormat((d, e) => {
+          return ordinals[d]
+        })
+      );
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("MAQAO thread rank");
+    let yAxis = svg.append('g')
+      .attr('class', 'yAxis')
+      .call(d3.axisLeft(yScale));
+    yAxis.selectAll(".tick text").attr("fill","var(--font)");
+    yAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    yAxis.selectAll(".domain").attr("stroke","var(--font)");
+    xAxis.selectAll(".tick text").attr("fill","var(--font)");
+    xAxis.selectAll(".tick line").attr("stroke","var(--font)");
+    xAxis.selectAll(".domain").attr("stroke","var(--font)");
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .style("fill", "var(--font)")
+      .text("Time (s)");
+    let bars = svg.append('g')
+      .attr('clip-path','url(#my-clip-path)')
+      .attr('id', 'zoom_chart_1404')
+      .selectAll('.bar')
+      .data(data)
+      .enter()
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('id', function (d, i){ return 'zoom_chart_1404_'+i;})
+      .attr('x', function(d, i){
+        return xScale(d.i) - xBand.bandwidth()*0.9/2
+      })
+      .attr('y', function(d, i){
+        return yScale(d.value + d.offset)
+      })
+      .attr('width', xBand.bandwidth()*0.9)
+      .attr('height', function(d){
+        return height - yScale(d.value)
+      })
+      .style("fill", function(d){
+        return d.color
+      })
+    let defs = svg.append('defs')
+      defs.append('clipPath')
+        .attr('id', 'my-clip-path')
+        .append('rect')
+        .attr('width', width)
+        .attr('height', height)
+      let hideTicksWithoutLabel = function() {
+        d3.selectAll('.xAxis .tick text').each(function(d){
+          if(this.innerHTML === '') {
+            this.parentNode.style.display = 'none';
+          }
+        })
+      }
+      function zoom() {
+        if (d3.event.transform.k < 1) {
+          d3.event.transform.k = 1;
+          return;
+        }
+      xAxis.call(
+        d3.axisBottom(d3.event.transform.rescaleX(xScale)).tickFormat((d, e, target) => {
+          if (Math.floor(d) === d3.format(".1f")(d)) return ordinals[Math.floor(d)]
+            return ordinals[d];
+        })
+      )
+      hideTicksWithoutLabel()
+        bars.attr("transform", "translate(" + d3.event.transform.x+",0)scale(" + d3.event.transform.k + ",1)")
+    }
+  });
+  obj.style.display = "none";
+  var obj = document.getElementById ("td_app_selected_3");
+  obj.style.display = "block";
+  document.getElementById("chart_cat_1405").innerHTML = "";
+  $(document).ready(function(){
+  var plot1405_data = [[99.89,99.89,99.88,99.87,99.9,99.87,99.88,99.86,99.9,99.89,],[0.02,0.02,0.01,0,0.01,0.01,0.03,0.02,0.01,0.03,],[0.06,0.06,0.08,0.07,0.05,0.08,0.06,0.09,0.04,0.07,],[0.01,0,0,0,0.01,0,0,0,0.01,0,],[0.01,0.02,0,0.04,0.01,0.03,0.03,0.01,0.01,0,],[0,0.01,0.01,0,0.01,0,0,0.01,0.01,0,],];
+  var plot1405_ticks = ['run_0','R2x4','R3x4','R4x2','R4x4','R6x2','R8x2','R16x16','R10x8','R16x1',];
+  var plot1405 = jQuery.jqplot ('chart_cat_1405', plot1405_data, {
+    seriesColors:['#4bb2c5','#EAA228','#839557','#958c12','#953579','#d8b83f',],
+    stackSeries: true,
+    seriesDefaults: {
+      renderer: jQuery.jqplot.BarRenderer,
+      rendererOptions: {
+      },
+      pointLabels: {
+        show: false
+      },
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer,
+        ticks: plot1405_ticks,
+        label: 'Runs',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+      },
+      yaxis: {
+        label: 'Coverage (%)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+        tickOptions:{formatString:'%.2f'},
+        max:100,
+      },
+      y2axis: {
+        autoscale:true,
+        min:0,
+      }
+    },
+    highlighter: {
+      tooltipContentEditor: function (str, seriesIndex, pointIndex) {
+        return plot1405_ticks[pointIndex]+' - '+plot1405_data[seriesIndex][pointIndex];
+      },
+      show: true,
+      showTooltip: true,
+      sizeAdjust: 10,
+      formatString: '%s',
+      tooltipLocation: 'n',
+      useAxesFormatters: false,
+    },
+    legend: {
+       renderer: $.jqplot.EnhancedLegendRenderer,
+       show: true, 
+       location: 's', 
+       placement: 'outsideGrid',
+       rendererOptions: {
+          numberRows: '1',
+       },
+    },
+    series: [{label:'Binary', yaxis:'yaxis', },{label:'MPI', yaxis:'yaxis', },{label:'System', yaxis:'yaxis', },{label:'Pthread', yaxis:'yaxis', },{label:'IO', yaxis:'yaxis', },{label:'Memory', yaxis:'yaxis', },],
+  });
+  var txts = ["73","74","75","76","77","78","79","80","81","82",];
+  var div_chart = document.getElementById ("chart_cat_1405");
+  if (div_chart == null) {
+    return ;
+  }
+  var div_axis  = div_chart.getElementsByClassName ("jqplot-xaxis");
+  if (div_axis.length == 0
+  ||  div_axis[0].children.length == 0) {
+    return ;
+  }
+  for (var i = 1; i < div_axis[0].children.length; i++) {
+    var div_label = div_axis[0].children[i];
+    if (txts[i - 1] != "") {
+      div_label.setAttribute ("title", "");
+      div_label.setAttribute ("tooltip_id", txts[i - 1]);
+      div_label.classList.add ("tooltip-maqao");
+      div_label.style["z-index"] = 999;
+    }
+  }
+  txts = null;
+});
+  obj.style.display = "none";
+  var obj = document.getElementById ("td_app_selected_4");
+  obj.style.display = "block";
+  document.getElementById("chart_cat_1406").innerHTML = "";
+  $(document).ready(function(){
+  var plot1406_data = [[115.07328,114.693698,115.21158,114.680721,115.12476,115.070214,114.931916,114.23984,114.7851,115.243093,],[0.02304,0.022964,0.011535,0,0.011524,0.011522,0.034521,0.02288,0.01149,0.034611,],[0.06912,0.068892,0.09228,0.080381,0.05762,0.092176,0.069042,0.10296,0.04596,0.080759,],[0.01152,0,0,0,0.011524,0,0,0,0.01149,0,],[0.01152,0.022964,0,0.045932,0.011524,0.034566,0.034521,0.01144,0.01149,0,],[0,0.011482,0.011535,0,0.011524,0,0,0.01144,0.01149,0,],];
+  var plot1406_ticks = ['run_0','R2x4','R3x4','R4x2','R4x4','R6x2','R8x2','R16x16','R10x8','R16x1',];
+  var plot1406 = jQuery.jqplot ('chart_cat_1406', plot1406_data, {
+    seriesColors:['#4bb2c5','#EAA228','#839557','#958c12','#953579','#d8b83f',],
+    stackSeries: true,
+    seriesDefaults: {
+      renderer: jQuery.jqplot.BarRenderer,
+      rendererOptions: {
+      },
+      pointLabels: {
+        show: false
+      },
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer,
+        ticks: plot1406_ticks,
+        label: 'Runs',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+      },
+      yaxis: {
+        label: 'Time (s) (lower is better)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+      },
+      y2axis: {
+        autoscale:true,
+        min:0,
+      }
+    },
+    highlighter: {
+      tooltipContentEditor: function (str, seriesIndex, pointIndex) {
+        return plot1406_ticks[pointIndex]+' - '+plot1406_data[seriesIndex][pointIndex];
+      },
+      show: true,
+      showTooltip: true,
+      sizeAdjust: 10,
+      formatString: '%s',
+      tooltipLocation: 'n',
+      useAxesFormatters: false,
+    },
+    legend: {
+       renderer: $.jqplot.EnhancedLegendRenderer,
+       show: true, 
+       location: 's', 
+       placement: 'outsideGrid',
+       rendererOptions: {
+          numberRows: '1',
+       },
+    },
+    series: [{label:'Binary', yaxis:'yaxis', },{label:'MPI', yaxis:'yaxis', },{label:'System', yaxis:'yaxis', },{label:'Pthread', yaxis:'yaxis', },{label:'IO', yaxis:'yaxis', },{label:'Memory', yaxis:'yaxis', },],
+  });
+  var txts = ["83","84","85","86","87","88","89","90","91","92",];
+  var div_chart = document.getElementById ("chart_cat_1406");
+  if (div_chart == null) {
+    return ;
+  }
+  var div_axis  = div_chart.getElementsByClassName ("jqplot-xaxis");
+  if (div_axis.length == 0
+  ||  div_axis[0].children.length == 0) {
+    return ;
+  }
+  for (var i = 1; i < div_axis[0].children.length; i++) {
+    var div_label = div_axis[0].children[i];
+    if (txts[i - 1] != "") {
+      div_label.setAttribute ("title", "");
+      div_label.setAttribute ("tooltip_id", txts[i - 1]);
+      div_label.classList.add ("tooltip-maqao");
+      div_label.style["z-index"] = 999;
+    }
+  }
+  txts = null;
+});
+  obj.style.display = "none";
+  var obj = document.getElementById ("td_app_selected_5");
+  obj.style.display = "block";
+  document.getElementById("chart_cat_1407").innerHTML = "";
+  $(document).ready(function(){
+  var plot1407_data = [[1,1.0040731638847,0.99950750254308,1.0040755652761,1.000551304916,1.0015721676738,1.0028036591596,1.008195152966,1.003202864902,1.0004125680092,],];
+  var plot1407_ticks = ['run_0','R2x4','R3x4','R4x2','R4x4','R6x2','R8x2','R16x16','R10x8','R16x1',];
+  var plot1407 = jQuery.jqplot ('chart_cat_1407', plot1407_data, {
+    seriesDefaults: {
+      renderer: jQuery.jqplot.BarRenderer,
+      rendererOptions: {
+      },
+      pointLabels: {
+        show: false
+      },
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer,
+        ticks: plot1407_ticks,
+        label: 'Run',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+      },
+      yaxis: {
+        label: 'Efficiency (higher is better)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+      },
+      y2axis: {
+        autoscale:true,
+        min:0,
+      }
+    },
+    highlighter: {
+      tooltipContentEditor: function (str, seriesIndex, pointIndex) {
+        return plot1407_ticks[pointIndex]+' - '+plot1407_data[seriesIndex][pointIndex];
+      },
+      show: true,
+      showTooltip: true,
+      sizeAdjust: 10,
+      formatString: '%s',
+      tooltipLocation: 'n',
+      useAxesFormatters: false,
+    },
+    legend: {
+       renderer: $.jqplot.EnhancedLegendRenderer,
+       show: true, 
+       location: 's', 
+       placement: 'outsideGrid',
+       rendererOptions: {
+          numberRows: '1',
+       },
+    },
+    series: [{label:'Efficiency', yaxis:'yaxis', },],
+  });
+  var txts = ["93","94","95","96","97","98","99","100","101","102",];
+  var div_chart = document.getElementById ("chart_cat_1407");
+  if (div_chart == null) {
+    return ;
+  }
+  var div_axis  = div_chart.getElementsByClassName ("jqplot-xaxis");
+  if (div_axis.length == 0
+  ||  div_axis[0].children.length == 0) {
+    return ;
+  }
+  for (var i = 1; i < div_axis[0].children.length; i++) {
+    var div_label = div_axis[0].children[i];
+    if (txts[i - 1] != "") {
+      div_label.setAttribute ("title", "");
+      div_label.setAttribute ("tooltip_id", txts[i - 1]);
+      div_label.classList.add ("tooltip-maqao");
+      div_label.style["z-index"] = 999;
+    }
+  }
+  txts = null;
+});
+  obj.style.display = "none";
+  var obj = document.getElementById ("td_app_selected_6");
+  obj.style.display = "block";
+  document.getElementById("chart_cat_1408").innerHTML = "";
+  $(document).ready(function(){
+  var plot1408_data = [[96.5,0,0,1.7,0.56,0.37,0.49,0.33,],[96.48,0,0,1.71,0.59,0.63,0.37,0.21,],[96.49,0,0,1.7,0.59,0.63,0.4,0.16,],[96.45,0,0,1.72,0.61,0.86,0.13,0.21,],[96.49,0,0,1.71,0.55,0.39,0.61,0.23,],[96.45,0,0,1.72,0.52,0.93,0.13,0.21,],[96.49,0,0,1.69,0.58,0.87,0.16,0.19,],[96.43,0,0,1.74,0.66,0.35,0.58,0.23,],[96.51,0,0,1.7,0.6,0.59,0.38,0.17,],[96.49,0,0,1.7,0.53,0.66,0.4,0.2,],[96.5,96.5,96.5,98.2,98.76,99.13,99.62,99.95,],[96.48,96.48,96.48,98.19,98.78,99.41,99.78,99.99,],[96.49,96.49,96.49,98.19,98.78,99.41,99.81,99.97,],[96.45,96.45,96.45,98.17,98.78,99.64,99.77,99.98,],[96.49,96.49,96.49,98.2,98.75,99.14,99.75,99.98,],[96.45,96.45,96.45,98.17,98.69,99.62,99.75,99.96,],[96.49,96.49,96.49,98.18,98.76,99.63,99.79,99.98,],[96.43,96.43,96.43,98.17,98.83,99.18,99.76,99.99,],[96.51,96.51,96.51,98.21,98.81,99.4,99.78,99.95,],[96.49,96.49,96.49,98.19,98.72,99.38,99.78,99.98,],];
+  var plot1408_ticks = ['> 8%','4% to 8%','2% to 4%','1% to 2%','0.5% to 1%','0.25% to 0.5%','0.125% to 0.25%','< 0.125%',];
+  var plot1408 = jQuery.jqplot ('chart_cat_1408', plot1408_data, {
+    seriesColors:['#333399','#cc00cc','#ffcc00','#339966','#80ccff','#80ffcc','#7979d2','#ff4dff','#ffe066','#66cc99','#ccebff','#ccffeb',],
+    seriesDefaults: {
+      renderer: jQuery.jqplot.BarRenderer,
+      rendererOptions: {
+      },
+      pointLabels: {
+        show: true
+      },
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer,
+        ticks: plot1408_ticks,
+        label: 'Coverage Ranges',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+      },
+      yaxis: {
+        label: 'Coverage (%)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+        tickOptions:{formatString:'%.2f'},
+      },
+      y2axis: {
+        label: 'Cumulated Coverage (%)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+      }
+    },
+    highlighter: {
+      tooltipContentEditor: function (str, seriesIndex, pointIndex) {
+        return plot1408_ticks[pointIndex]+' - '+plot1408_data[seriesIndex][pointIndex];
+      },
+      show: true,
+      showTooltip: true,
+      sizeAdjust: 10,
+      formatString: '%s',
+      tooltipLocation: 'n',
+      useAxesFormatters: false,
+    },
+    legend: {
+       renderer: $.jqplot.EnhancedLegendRenderer,
+       show: true, 
+       location: 's', 
+       placement: 'outsideGrid',
+       rendererOptions: {
+          numberRows: '1',
+       },
+    },
+    series: [{label:'run_0', yaxis:'yaxis', },{label:'run_1', yaxis:'yaxis', },{label:'run_2', yaxis:'yaxis', },{label:'run_3', yaxis:'yaxis', },{label:'run_4', yaxis:'yaxis', },{label:'run_5', yaxis:'yaxis', },{label:'run_6', yaxis:'yaxis', },{label:'run_7', yaxis:'yaxis', },{label:'run_8', yaxis:'yaxis', },{label:'run_9', yaxis:'yaxis', },{label:'cumul. cov. run_0', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. run_1', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. run_2', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. run_3', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. run_4', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. run_5', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. run_6', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. run_7', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. run_8', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. run_9', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },],
+  });
+});
+  obj.style.display = "none";
+  var obj = document.getElementById ("td_app_selected_7");
+  obj.style.display = "block";
+  document.getElementById("chart_cat_1409").innerHTML = "";
+  $(document).ready(function(){
+  var plot1409_data = [[0,0.01,0.01,0,0,0,0,0,0,0,],[0,0,0,0,0,0,0,0,0,0,],[0,0,0,0,0,0,0,0,0,0,],[0,0,0,0,0,0,0,0,0,0,],[0,0,0.02,0,0.02,0.02,0.02,0.02,0,0.02,],[0,0,0,0,0,0,0,0,0,0,],[0,0,0,0,0,0.07,0,0.07,0,0,],[0,0,0.17,0.07,0,0,0.16,0.06,0,0.32,],[0,0,0.06,0.28,0.06,0.09,0.3,0.8,0.15,0.2,],[0,99.97,99.71,99.61,99.9,99.78,99.48,99.03,99.79,99.44,],[100,0.02000000000001,0.029999999999987,0.04000000000002,0.02000000000001,0.039999999999992,0.039999999999992,0.019999999999996,0.060000000000002,0.019999999999982,],];
+  var plot1409_ticks = ['run_0','R2x4','R3x4','R4x2','R4x4','R6x2','R8x2','R16x16','R10x8','R16x1',];
+  var plot1409 = jQuery.jqplot ('chart_cat_1409', plot1409_data, {
+    seriesColors:['#A52B12','#AE4029','#B75541','#C06A59','#BF9223','#C69E3B','#8FB966','#7CAD4C','#6AA232','#579619','#B3B3B3',],
+    stackSeries: true,
+    seriesDefaults: {
+      renderer: jQuery.jqplot.BarRenderer,
+      rendererOptions: {
+         barMargin: 20,
+      },
+      pointLabels: {
+        show: false
+      },
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer,
+        ticks: plot1409_ticks,
+        label: 'Runs',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+      },
+      yaxis: {
+        label: 'Coverage (%)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+        tickOptions:{formatString:'%.2f'},
+        max:100,
+      },
+      y2axis: {
+        autoscale:true,
+        min:0,
+      }
+    },
+    highlighter: {
+      tooltipContentEditor: function (str, seriesIndex, pointIndex) {
+        return plot1409_ticks[pointIndex]+' - '+plot1409_data[seriesIndex][pointIndex];
+      },
+      show: true,
+      showTooltip: true,
+      sizeAdjust: 10,
+      formatString: '%s',
+      tooltipLocation: 'n',
+      useAxesFormatters: false,
+    },
+    legend: {
+       renderer: $.jqplot.EnhancedLegendRenderer,
+       show: true, 
+       location: 's', 
+       placement: 'outsideGrid',
+       rendererOptions: {
+          numberRows: '1',
+       },
+    },
+    series: [{label:'0% to 10% efficiency', yaxis:'yaxis', },{label:'10% to 20% efficiency', yaxis:'yaxis', },{label:'20% to 30% efficiency', yaxis:'yaxis', },{label:'30% to 40% efficiency', yaxis:'yaxis', },{label:'40% to 50% efficiency', yaxis:'yaxis', },{label:'50% to 60% efficiency', yaxis:'yaxis', },{label:'60% to 70% efficiency', yaxis:'yaxis', },{label:'70% to 80% efficiency', yaxis:'yaxis', },{label:'80% to 90% efficiency', yaxis:'yaxis', },{label:'90% to 100% efficiency', yaxis:'yaxis', },{label:'New or unmeasured functions', yaxis:'yaxis', },],
+  });
+  var txts = ["103","104","105","106","107","108","109","110","111","112",];
+  var div_chart = document.getElementById ("chart_cat_1409");
+  if (div_chart == null) {
+    return ;
+  }
+  var div_axis  = div_chart.getElementsByClassName ("jqplot-xaxis");
+  if (div_axis.length == 0
+  ||  div_axis[0].children.length == 0) {
+    return ;
+  }
+  for (var i = 1; i < div_axis[0].children.length; i++) {
+    var div_label = div_axis[0].children[i];
+    if (txts[i - 1] != "") {
+      div_label.setAttribute ("title", "");
+      div_label.setAttribute ("tooltip_id", txts[i - 1]);
+      div_label.classList.add ("tooltip-maqao");
+      div_label.style["z-index"] = 999;
+    }
+  }
+  txts = null;
+});
+  obj.style.display = "none";
+  var obj = document.getElementById ("td_app_selected_8");
+  obj.style.display = "block";
+  document.getElementById("chart_cat_1410").innerHTML = "";
+  $(document).ready(function(){
+  var plot1410_data = [[0,0.01,0.01,0,0,0,0,0,0,0,],[0,0,0,0,0,0,0,0,0,0,],[0,0,0,0,0,0,0,0,0,0,],[0,0,0,0,0,0,0,0,0,0,],[0,0,0.02,0,0.02,0.02,0.02,0.02,0,0.02,],[0,0,0,0,0,0,0,0,0,0,],[0,0,0,0,0,0.07,0,0.07,0,0,],[0,0,0.17,0.07,0,0,0.16,0.06,0,0.32,],[0,0,0.06,0.28,0.06,0.09,0.3,0.8,0.15,0.2,],[0,2.88,99.08,2.78,50.64,50.86,49.09,2.03,49.26,50.3,],[0,97.1,0.63,96.85,49.26,48.92,50.41,97.01,50.54,49.14,],[100,0.010000000000005,0.030000000000001,0.02000000000001,0.02000000000001,0.039999999999992,0.02000000000001,0.0099999999999909,0.050000000000011,0.019999999999982,],];
+  var plot1410_ticks = ['run_0','R2x4','R3x4','R4x2','R4x4','R6x2','R8x2','R16x16','R10x8','R16x1',];
+  var plot1410 = jQuery.jqplot ('chart_cat_1410', plot1410_data, {
+    seriesColors:['#A52B12','#AE4029','#B75541','#C06A59','#BF9223','#C69E3B','#8FB966','#7CAD4C','#6AA232','#579619','#458B00','#B3B3B3',],
+    stackSeries: true,
+    seriesDefaults: {
+      renderer: jQuery.jqplot.BarRenderer,
+      rendererOptions: {
+         barMargin: 20,
+      },
+      pointLabels: {
+        show: false
+      },
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer,
+        ticks: plot1410_ticks,
+        label: 'Runs',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+      },
+      yaxis: {
+        label: 'Coverage (%)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+        tickOptions:{formatString:'%.2f'},
+        max:100,
+      },
+      y2axis: {
+        autoscale:true,
+        min:0,
+      }
+    },
+    highlighter: {
+      tooltipContentEditor: function (str, seriesIndex, pointIndex) {
+        return plot1410_ticks[pointIndex]+' - '+plot1410_data[seriesIndex][pointIndex];
+      },
+      show: true,
+      showTooltip: true,
+      sizeAdjust: 10,
+      formatString: '%s',
+      tooltipLocation: 'n',
+      useAxesFormatters: false,
+    },
+    legend: {
+       renderer: $.jqplot.EnhancedLegendRenderer,
+       show: true, 
+       location: 's', 
+       placement: 'outsideGrid',
+       rendererOptions: {
+          numberRows: '1',
+       },
+    },
+    series: [{label:'0% to 10% speedup', yaxis:'yaxis', },{label:'10% to 20% speedup', yaxis:'yaxis', },{label:'20% to 30% speedup', yaxis:'yaxis', },{label:'30% to 40% speedup', yaxis:'yaxis', },{label:'40% to 50% speedup', yaxis:'yaxis', },{label:'50% to 60% speedup', yaxis:'yaxis', },{label:'60% to 70% speedup', yaxis:'yaxis', },{label:'70% to 80% speedup', yaxis:'yaxis', },{label:'80% to 90% speedup', yaxis:'yaxis', },{label:'90% to 100% speedup', yaxis:'yaxis', },{label:'&gt; 100% speedup', yaxis:'yaxis', },{label:'New or unmeasured functions', yaxis:'yaxis', },],
+  });
+  var txts = ["113","114","115","116","117","118","119","120","121","122",];
+  var div_chart = document.getElementById ("chart_cat_1410");
+  if (div_chart == null) {
+    return ;
+  }
+  var div_axis  = div_chart.getElementsByClassName ("jqplot-xaxis");
+  if (div_axis.length == 0
+  ||  div_axis[0].children.length == 0) {
+    return ;
+  }
+  for (var i = 1; i < div_axis[0].children.length; i++) {
+    var div_label = div_axis[0].children[i];
+    if (txts[i - 1] != "") {
+      div_label.setAttribute ("title", "");
+      div_label.setAttribute ("tooltip_id", txts[i - 1]);
+      div_label.classList.add ("tooltip-maqao");
+      div_label.style["z-index"] = 999;
+    }
+  }
+  txts = null;
+});
+  obj.style.display = "none";
+}
+function _onresize () {
+  var i = 1;
+  var c = 1;
+  var max_i = 8;
+  var obj;
+  while (i <= max_i) {
+    obj = document.getElementById ("td_app_selector_"+i);
+    if (obj != null && obj.classList.contains ("current")) {
+      c = i;
+      break;
+    }
+    i = i + 1;
+  }
+  var w = window,
+      d = document,
+      e = d.documentElement,
+      g = d.getElementsByTagName("body")[0],
+      x = w.innerWidth || e.clientWidth || g.clientWidth,
+      y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+  document.getElementById ("td_app_selected_"+c).style.width = Math.floor(x*0.7)+"px";
+  if (y - 150 > 0) {
+    document.getElementById ("td_app_selected_"+c).style.height = (y - 150)+"px";
+  }
+  load_charts ();
+  click_app_selector (document.getElementById ("td_app_selector_"+c));
+  __maqao_legacy_onresize ();
+}
+var resizeId;
+window.addEventListener("resize", function() {
+  clearTimeout(resizeId);
+  resizeId = setTimeout(_onresize, 250);
+});
+function click_app_selector (obj) {
+  var x = document.getElementsByClassName("td_app_selector");
+  for (var i = 0; i < x.length; i++) {
+    x[i].classList.remove("current");
+  }
+  obj.classList.add ("current");
+  x = document.getElementsByClassName("td_app_selected");
+  for (var i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  document.getElementById ("td_app_selected_"+obj.id.substring(16)).style.display = "";
+}
+addLoadEvent(function(){
+  var w = window,
+      d = document,
+      e = d.documentElement,
+      g = d.getElementsByTagName("body")[0],
+      x = w.innerWidth || e.clientWidth || g.clientWidth,
+      y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+  var divs = document.getElementsByClassName("td_app_selected");
+  for (var i = 0; i < divs.length; i++) {
+    divs[i].style.width = Math.floor(x*0.7)+"px";
+    if (y - 150 > 0) {
+      divs[i].style.height = (y - 150)+"px";
+    }
+  }
+  load_charts ();
+  click_app_selector (document.getElementById ("td_app_selector_1"));
+});
+</script>
+<style>
+.td_app_selector {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 8px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.td_app_selector:hover {
+  border-left: 4px solid var(--fixed_box_borders);
+  padding-left: 4px;
+}
+.td_app_selector.current {
+  background: var(--table_row_even_background);
+}
+.td_app_selected {
+  overflow-y: auto;
+}
+.selected_panel_h3 {
+  text-align: left;
+  background-color: var(--fixed_box_header_background);
+  color: var(--fixed_box_header_font);
+  margin: 0px;
+  padding: 5px 0px 5px 10px;
+}
+</style>
+
+  <div id="MaqaoModal" class="maqao_modal">
+    <div class="maqao_modal-content">
+      <div class="maqao_modal-header">
+        <span class="maqao_close">&times;</span>
+      </div>
+      <div id="maqao_modal-body" class="maqao_modal-body">
+      </div>
+    </div>
+  </div>
+</div><script>
+var tooltips_texts = ['Details how the time is spent between several categories: <i>System</i> (system calls), <i>Binary</i> (user code), <i>MPI</i> (MPI runtime functions), <i>OMP</i> (OpenMP runtime functions),<i>Math</i>, (Math libraries), <i>Pthread</i>, (Pthread runtime), <i>I/O</i> (I/O functions), <i>String</i> (string manipulation functions), <i>Memory</i> (Memory management functions), user categories described in custom_categories table and finally <i>Others</i> (everything not included in previous categories)',
+'Details function execution times per thread',
+'Same analysis than <b>Application Categorization</b> for all runs described in the scalability analysis.<br>Run configurations are available as tooltip over chart X axis labels.',
+'Same analysis than <b>Application Categorization</b> for all runs described in the scalability analysis, but displayed in time (seconds) and not coverage (percentage).<br>Run configurations are available as tooltip over chart X axis labels.',
+'Efficiency for each run described in the scalability analysis.<br>Run configurations are available as tooltip over chart X axis labels. Higher is better',
+'Profiling of the application at the function level',
+'Strong Scalability: Efficiency = (time(Ref) / time (Run)) / Ideal_Speedup',
+'Speedup = time(Ref) / time (Run)',
+'helper_compute_poiseuille',
+'compute_equilibrium_profile',
+'setup_init_state_global_poiseuille_profile',
+'<br><b>NB processes:</b> 1<br><b>NB nodes:</b> 1<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br>',
+'R2x4<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R3x4<br><b>NB processes:</b> 3<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 3<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R4x2<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R4x4<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R6x2<br><b>NB processes:</b> 6<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 6<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R8x2<br><b>NB processes:</b> 8<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 8<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R16x16<br><b>NB processes:</b> 16<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 16<br>',
+'R10x8<br><b>NB processes:</b> 10<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 8<br>',
+'R16x1<br><b>NB processes:</b> 16<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>',
+'<br><b>NB processes:</b> 1<br><b>NB nodes:</b> 1<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br>',
+'R2x4<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R3x4<br><b>NB processes:</b> 3<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 3<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R4x2<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R4x4<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R6x2<br><b>NB processes:</b> 6<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 6<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R8x2<br><b>NB processes:</b> 8<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 8<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R16x16<br><b>NB processes:</b> 16<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 16<br>',
+'R10x8<br><b>NB processes:</b> 10<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 8<br>',
+'R16x1<br><b>NB processes:</b> 16<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>',
+'<br><b>NB processes:</b> 1<br><b>NB nodes:</b> 1<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br>',
+'R2x4<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R3x4<br><b>NB processes:</b> 3<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 3<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R4x2<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R4x4<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R6x2<br><b>NB processes:</b> 6<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 6<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R8x2<br><b>NB processes:</b> 8<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 8<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R16x16<br><b>NB processes:</b> 16<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 16<br>',
+'R10x8<br><b>NB processes:</b> 10<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 8<br>',
+'R16x1<br><b>NB processes:</b> 16<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>',
+'A set of filters to display / hide some columns',
+'<br><b>NB processes:</b> 1<br><b>NB nodes:</b> 1<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br>',
+'R2x4<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R3x4<br><b>NB processes:</b> 3<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 3<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R4x2<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R4x4<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R6x2<br><b>NB processes:</b> 6<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 6<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R8x2<br><b>NB processes:</b> 8<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 8<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R16x16<br><b>NB processes:</b> 16<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 16<br>',
+'R10x8<br><b>NB processes:</b> 10<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 8<br>',
+'R16x1<br><b>NB processes:</b> 16<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>',
+'A set of filters to display / hide some columns',
+'<br><b>NB processes:</b> 1<br><b>NB nodes:</b> 1<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br>',
+'R2x4<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R3x4<br><b>NB processes:</b> 3<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 3<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R4x2<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R4x4<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R6x2<br><b>NB processes:</b> 6<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 6<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R8x2<br><b>NB processes:</b> 8<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 8<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R16x16<br><b>NB processes:</b> 16<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 16<br>',
+'R10x8<br><b>NB processes:</b> 10<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 8<br>',
+'R16x1<br><b>NB processes:</b> 16<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>',
+'<br><b>NB processes:</b> 1<br><b>NB nodes:</b> 1<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br>',
+'R2x4<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R3x4<br><b>NB processes:</b> 3<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 3<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R4x2<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R4x4<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R6x2<br><b>NB processes:</b> 6<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 6<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R8x2<br><b>NB processes:</b> 8<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 8<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R16x16<br><b>NB processes:</b> 16<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 16<br>',
+'R10x8<br><b>NB processes:</b> 10<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 8<br>',
+'R16x1<br><b>NB processes:</b> 16<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>',
+'<br><b>NB processes:</b> 1<br><b>NB nodes:</b> 1<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br>',
+'R2x4<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R3x4<br><b>NB processes:</b> 3<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 3<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R4x2<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R4x4<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R6x2<br><b>NB processes:</b> 6<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 6<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R8x2<br><b>NB processes:</b> 8<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 8<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R16x16<br><b>NB processes:</b> 16<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 16<br>',
+'R10x8<br><b>NB processes:</b> 10<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 8<br>',
+'R16x1<br><b>NB processes:</b> 16<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>',
+'<br><b>NB processes:</b> 1<br><b>NB nodes:</b> 1<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br>',
+'R2x4<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R3x4<br><b>NB processes:</b> 3<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 3<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R4x2<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R4x4<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R6x2<br><b>NB processes:</b> 6<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 6<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R8x2<br><b>NB processes:</b> 8<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 8<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R16x16<br><b>NB processes:</b> 16<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 16<br>',
+'R10x8<br><b>NB processes:</b> 10<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 8<br>',
+'R16x1<br><b>NB processes:</b> 16<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>',
+'<br><b>NB processes:</b> 1<br><b>NB nodes:</b> 1<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br>',
+'R2x4<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R3x4<br><b>NB processes:</b> 3<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 3<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R4x2<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R4x4<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R6x2<br><b>NB processes:</b> 6<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 6<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R8x2<br><b>NB processes:</b> 8<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 8<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R16x16<br><b>NB processes:</b> 16<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 16<br>',
+'R10x8<br><b>NB processes:</b> 10<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 8<br>',
+'R16x1<br><b>NB processes:</b> 16<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>',
+'<br><b>NB processes:</b> 1<br><b>NB nodes:</b> 1<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br>',
+'R2x4<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R3x4<br><b>NB processes:</b> 3<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 3<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R4x2<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R4x4<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R6x2<br><b>NB processes:</b> 6<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 6<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R8x2<br><b>NB processes:</b> 8<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 8<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R16x16<br><b>NB processes:</b> 16<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 16<br>',
+'R10x8<br><b>NB processes:</b> 10<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 8<br>',
+'R16x1<br><b>NB processes:</b> 16<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>',
+'<br><b>NB processes:</b> 1<br><b>NB nodes:</b> 1<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br>',
+'R2x4<br><b>NB processes:</b> 2<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 2<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R3x4<br><b>NB processes:</b> 3<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 3<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R4x2<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R4x4<br><b>NB processes:</b> 4<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 4<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 4<br>',
+'R6x2<br><b>NB processes:</b> 6<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 6<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R8x2<br><b>NB processes:</b> 8<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 8<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 2<br>',
+'R16x16<br><b>NB processes:</b> 16<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 16<br>',
+'R10x8<br><b>NB processes:</b> 10<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 8<br>',
+'R16x1<br><b>NB processes:</b> 16<br><b>NB nodes:</b> 1<br><b>NB tasks per node:</b> 16<br><b>Run Command:</b> &lt;executable&gt;<br><b>MPI Command:</b> <br><b>Dataset:</b> <br><b>Run Directory:</b> .<br><b>OMP_NUM_THREADS:</b> 1<br>'];
+var modal = document.getElementById('MaqaoModal');
+var span = document.getElementsByClassName("maqao_close")[0];
+span.onclick = function() {
+    modal.style.display = "none";
+}
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
+const comparer = (idx, asc) => (a, b) => ((v1, v2) => 
+    v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v2 - v1 : v1.toString().localeCompare(v2)
+    )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
+addLoadEvent(function(){
+  document.querySelectorAll('._fixed_table th').forEach(th => th.addEventListener('click', (() => {
+    const table = th.closest('table');
+    // Remove all symbols in header
+    table.querySelectorAll('th').forEach(function (e) {
+      e.firstChild.textContent = "";
+    });
+    // Change the symbol on the clicked header
+    if (this.asc != true) {
+      th.firstChild.textContent = "\u25BC";
+    }
+    else {
+      th.firstChild.textContent = "\u25B2";
+    }
+    Array.from(table.querySelectorAll('tr:nth-child(n+2)'))
+        .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
+        .forEach(tr => table.appendChild(tr) );
+  })));
+});
+function _check_all_checkbox_ (obj_id, opts_ids) {
+  var obj   = document.getElementById (obj_id);
+  var opts  = window[opts_ids];
+  var count = 0
+  for (i = 0; i < opts.length; i++) {
+    var obj_s = document.getElementById(opts[i]);
+    if (obj_s.checked) {
+      count ++;
+    }
+  }
+  if (count == 0) {
+    obj.value = "Select all";
+  }
+  else if (count == opts.length) {
+    obj.value = "Select none";
+  }
+}
+// Fonction for table selector
+function click_table_menu (c, obj_id, opt_ids) {
+  var is_checked = document.getElementById (c).checked;
+  localStorage.setItem("__functions_"+c, is_checked);
+  $("."+c).each(function(index, element) {
+    if (is_checked) {
+      element.classList.remove("_tcol_hidden");
+    }
+    else {
+      element.classList.add("_tcol_hidden");
+    }
+  });
+  if (obj_id != undefined) {
+    _check_all_checkbox_ (obj_id, opt_ids)
+  }
+}
+function set_all_table_menu (obj, var_opt_ids) {
+  var opt_ids = window[var_opt_ids];
+  var is_selected = true
+  if (obj.value == "Select all") {
+    is_selected = false;
+  }
+  for (i = 0; i < opt_ids.length; i++) {
+    var obj_s = document.getElementById(opt_ids[i]);
+    if (is_selected == obj_s.checked) {
+      obj_s.checked = !obj_s.checked;
+      click_table_menu (opt_ids[i]);
+    }
+  }
+  if (is_selected == false) {
+    obj.value = "Select none";
+  } else {
+    obj.value = "Select all";
+  }
+  localStorage.setItem(obj.id, obj.value);
+}
+// Script for accordion box
+function _click_accordion_header(obj) {
+  var content = obj.nextSibling;
+  content.classList.toggle('collapsed');
+  obj.classList.toggle('collapsed');
+  obj.parentNode.classList.toggle('collapsed');
+  // Check if the box must be openned ...
+  if (obj.classList.contains ('collapsed'))
+  {
+    obj.firstChild.textContent = "\u25B6";
+  }
+  // or closed.
+  else 
+  {
+    obj.firstChild.textContent = "\u25BC";
+  }
+  if (typeof _onresize === "function") {
+    _onresize ();
+  }
+}
+  // Script for paged table
+function _click_paged_prev(obj) {
+  var pages_content_id = '_paged_tables_page_' + obj.parentNode.parentNode.id.substr (obj.parentNode.parentNode.id.lastIndexOf('_') + 1);
+  var pages_content = document.getElementById(pages_content_id).innerHTML;
+  var max_pages = pages_content.substr (pages_content.lastIndexOf('/') + 1);
+  var cur_page  = pages_content.substring (pages_content.lastIndexOf(' ') + 1, pages_content.lastIndexOf('/'));
+  max_pages = Number (max_pages);
+  cur_page  = Number (cur_page);
+  if (cur_page > 1) {
+    var div_paged = obj.parentNode.parentNode.id;
+    var i;
+    var x = document.getElementsByClassName(div_paged + '_' + (cur_page - 1));
+    for (i = 0; i < x.length; i++) {
+      x[i].classList.toggle('_paged_hidden');
+    }
+    x = document.getElementsByClassName(div_paged + '_' + (cur_page - 2));
+    for (i = 0; i < x.length; i++) {
+      x[i].classList.toggle('_paged_hidden');
+    }
+  document.getElementById(pages_content_id).textContent = "Page " + (cur_page - 1) + "/" + max_pages;
+  }
+}
+function _click_paged_next(obj) {
+  var pages_content_id = '_paged_tables_page_' + obj.parentNode.parentNode.id.substr (obj.parentNode.parentNode.id.lastIndexOf('_') + 1);
+  var pages_content = document.getElementById(pages_content_id).innerHTML;
+  var max_pages = pages_content.substr (pages_content.lastIndexOf('/') + 1);
+  var cur_page  = pages_content.substring (pages_content.lastIndexOf(' ') + 1, pages_content.lastIndexOf('/'));
+  max_pages = Number (max_pages);
+  cur_page  = Number (cur_page);
+  if (cur_page < max_pages) {
+    var div_paged = obj.parentNode.parentNode.id;
+    var i;
+    var x = document.getElementsByClassName(div_paged + '_' + (cur_page - 1));
+    for (i = 0; i < x.length; i++) {
+      x[i].classList.toggle('_paged_hidden');
+    }
+    x = document.getElementsByClassName(div_paged + '_' + cur_page);
+    for (i = 0; i < x.length; i++) {
+      x[i].classList.toggle('_paged_hidden');
+    }
+    document.getElementById(pages_content_id).textContent = "Page " + (cur_page + 1) + "/" + max_pages;
+  }
+}
+// Function for tree table
+function _click_treed(obj) {
+  if (obj.innerHTML == "\u25BA") {
+    obj.textContent = "\u25BC";
+    // Open childs
+    var x = document.getElementsByClassName(obj.parentNode.parentNode.id);
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.toggle('_treed_hidden');
+    }
+  }
+  else if (obj.innerHTML == "\u25BC") {
+    obj.textContent = "\u25BA";
+    // Close all childs
+    var trs = document.getElementsByTagName('tr');
+    var r   = obj.parentNode.parentNode.id+'_';
+    var re  = new RegExp (r, "g");
+    for (var i = 0; i < trs.length; i++) {
+      var s = trs[i].id+""
+      if (s.match(re)) {
+        var o = document.getElementById(s);
+        if (! o.classList.contains('_treed_hidden')) {
+          o.classList.toggle('_treed_hidden');
+        }
+        if (o.firstChild.firstChild.textContent == "\u25BC") {
+          o.firstChild.firstChild.textContent = "\u25BA";
+        }
+        if (o.firstChild.childNodes.length == 3) {
+          o.firstChild.childNodes[2].textContent = '+';
+        }
+      }
+    }
+    if (obj.parentNode.childNodes.length == 3) {
+      obj.parentNode.childNodes[2].textContent = '+';
+    }
+  }
+}
+function _click_expand (obj) {
+  var trs = document.getElementsByTagName('tr');
+  var r   = obj.parentNode.parentNode.id+'_';
+  var re  = new RegExp (r, "g");
+  // Symbole + => expand all
+  if (obj.textContent == "+") {
+    for (var i = 0; i < trs.length; i++) {
+      var s = trs[i].id+"";
+      if (s.match(re)) {
+        var o = document.getElementById(s);
+        if (o.classList.contains('_treed_hidden')) {
+           o.classList.toggle('_treed_hidden');
+        }
+        if (o.firstChild.firstChild.textContent == "\u25BA") {
+          o.firstChild.firstChild.textContent = "\u25BC";
+        }
+        if (o.firstChild.childNodes.length == 3) {
+          o.firstChild.childNodes[2].textContent = '\u2010';
+        }
+      }
+    }
+    var o = obj.parentNode.parentNode;
+    if (o.firstChild.firstChild.textContent == "\u25BA") {
+      o.firstChild.firstChild.textContent = "\u25BC";
+    }
+    obj.textContent = "\u2010";
+  }
+  // Symbole - => collapse all
+  else {
+    for (var i = 0; i < trs.length; i++) {
+      var s = trs[i].id+"";
+      if (s.match(re)) {
+        var o = document.getElementById(s);
+        if (! o.classList.contains('_treed_hidden')) {
+           o.classList.toggle('_treed_hidden');
+        }
+        if (o.firstChild.firstChild.textContent == "\u25BC") {
+          o.firstChild.firstChild.textContent = "\u25BA";
+        }
+        if (o.firstChild.childNodes.length == 3) {
+          o.firstChild.childNodes[2].textContent = '+';
+        }
+      }
+    }
+    var o = obj.parentNode.parentNode;
+    if (o.firstChild.firstChild.textContent == "\u25BC") {
+      o.firstChild.firstChild.textContent = "\u25BA";
+    }
+    obj.textContent = "+";
+  }
+}
+// Hide unselected tabs
+addLoadEvent(function(){
+  var x = document.getElementsByClassName("_tab_header_li");
+  for (var i = 0; i < x.length; i++) {
+    if (x[i].classList.contains("selected_tab") == false) {
+      var e = document.getElementById (x[i].dataset.tab);
+      e.style.display = "none";
+    }
+  }
+});
+// Change tab
+function change_tab (e, baseId) {
+  // Handle tabs
+  var i = 1;
+  while (true) {
+    var id = baseId + i;
+    var t = document.getElementById (id);
+    if (t == null) {
+      break;
+    }
+    if (id == e.dataset.tab) {
+      t.style.removeProperty("display");
+    }
+    else {
+      t.style.display = "none";
+    }
+    i = i + 1;
+  }
+  // Handle headers
+  $(e).siblings().each( function () {
+    this.classList.remove("selected_tab");
+  });
+  e.classList.add("selected_tab");
+}
+function __maqao_legacy_onresize () {
+  var obj = document.getElementById("spacer_page_title");
+  if (obj) {
+    obj.style.height = (document.getElementById("page_title").clientHeight + 20)+"px";
+  }
+  var obj = document.getElementById("page_title");
+  if (obj) {
+    var elems = document.getElementsByClassName ("_first_menu_level")
+    if (obj.clientHeight < 90) {
+      for (var i = 0; i < elems.length; i++) {
+        elems.item(i).style.borderBottomLeftRadius = "";
+        elems.item(i).style.borderBottomRightRadius = "";
+      }
+    }
+    else {
+      for (var i = 0; i < elems.length; i++) {
+        elems.item(i).style.borderBottomLeftRadius = "10px";
+        elems.item(i).style.borderBottomRightRadius = "10px";
+      }
+    }
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+
+* Info: Detected 20 Lprof instances in knl06: processes-per-node/ppn set accordingly.
+If this is incorrect, rerun with an explicit value for this setting
+
+* Info: Selecting the 'perf-high-ppn' engine for node knl06
+
+* Info: Process launched (host knl06, process 2169377)
+* Info: Process launched (host knl06, process 2169378)
+* Info: Process launched (host knl06, process 2169376)
+* Info: Process launched (host knl06, process 2169375)
+* Info: Process launched (host knl06, process 2169372)
+* Info: Process launched (host knl06, process 2169374)
+* Info: Process launched (host knl06, process 2169373)
+* Info: Process launched (host knl06, process 2169379)
+* Info: Process launched (host knl06, process 2169371)
+* Info: Process launched (host knl06, process 2169380)
+* Info: Process launched (host knl06, process 2169387)
+* Info: Process launched (host knl06, process 2169389)
+* Info: Process launched (host knl06, process 2169390)
+* Info: Process launched (host knl06, process 2169388)
+* Info: Process launched (host knl06, process 2169381)
+* Info: Process launched (host knl06, process 2169386)
+* Info: Process launched (host knl06, process 2169385)
+* Info: Process launched (host knl06, process 2169383)
+* Info: Process launched (host knl06, process 2169382)
+* Info: Process launched (host knl06, process 2169384)=================== CONFIG ===================
+iterations           = 200
+width                = 800
+height               = 160
+obstacle x coord     = 161.000000
+obstacle y coord     = 83.000000
+obstacle radius      = 17.000000
+reynolds number      = 100.000000
+inflow max velocity  = 0.100000
+output filename      = results.raw
+write interval       = 50
+------------ Derived parameters --------------
+kinetic viscosity    = 0.034000
+relax parameter      = 1.661130
+==============================================
+[1mRank [33m0[0m: L = -1, R =  1, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS:   0   0 (W =  42, H = 162)
+[1mRank [33m2[0m: L =  1, R =  3, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS:  80   0 (W =  42, H = 162)
+[1mRank [33m10[0m: L =  9, R = 11, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS: 400   0 (W =  42, H = 162)
+[1mRank [33m11[0m: L = 10, R = 12, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS: 440   0 (W =  42, H = 162)
+[1mRank [33m13[0m: L = 12, R = 14, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS: 520   0 (W =  42, H = 162)
+[1mRank [33m16[0m: L = 15, R = 17, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS: 640   0 (W =  42, H = 162)
+[1mRank [33m6[0m: L =  5, R =  7, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS: 240   0 (W =  42, H = 162)
+[1mRank [33m12[0m: L = 11, R = 13, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS: 480   0 (W =  42, H = 162)
+[1mRank [33m4[0m: L =  3, R =  5, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS: 160   0 (W =  42, H = 162)
+[1mRank [33m14[0m: L = 13, R = 15, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS: 560   0 (W =  42, H = 162)
+[1mRank [33m1[0m: L =  0, R =  2, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS:  40   0 (W =  42, H = 162)
+[1mRank [33m5[0m: L =  4, R =  6, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS: 200   0 (W =  42, H = 162)
+[1mRank [33m7[0m: L =  6, R =  8, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS: 280   0 (W =  42, H = 162)
+[1mRank [33m8[0m: L =  7, R =  9, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS: 320   0 (W =  42, H = 162)
+[1mRank [33m17[0m: L = 16, R = 18, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS: 680   0 (W =  42, H = 162)
+[1mRank [33m19[0m: L = 18, R = -1, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS: 760   0 (W =  42, H = 162)
+[1mRank [33m3[0m: L =  2, R =  4, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS: 120   0 (W =  42, H = 162)
+[1mRank [33m9[0m: L =  8, R = 10, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS: 360   0 (W =  42, H = 162)
+[1mRank [33m15[0m: L = 14, R = 16, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS: 600   0 (W =  42, H = 162)
+[1mRank [33m18[0m: L = 17, R = 19, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS: 720   0 (W =  42, H = 162)
+[1mRank [33m1[0m: local average loop latency: [36m2.619896ms[0m
+[1mRank [33m1[0m: local simulation latency:   [36m0.524091405s[0m
+
+[1mRank [33m2[0m: local average loop latency: [36m2.608398ms[0m
+[1mRank [33m2[0m: local simulation latency:   [36m0.521789708s[0m
+
+[1mRank [33m3[0m: local average loop latency: [36m2.598052ms[0m
+[1mRank [33m3[0m: local simulation latency:   [36m0.519722855s[0m
+
+[1mRank [33m4[0m: local average loop latency: [36m2.585918ms[0m
+[1mRank [33m4[0m: local simulation latency:   [36m0.517298034s[0m
+
+[1mRank [33m5[0m: local average loop latency: [36m2.573778ms[0m
+[1mRank [33m5[0m: local simulation latency:   [36m0.514865894s[0m
+
+[1mRank [33m6[0m: local average loop latency: [36m2.563450ms[0m
+[1mRank [33m6[0m: local simulation latency:   [36m0.512798148s[0m
+
+[1mRank [33m7[0m: local average loop latency: [36m2.549667ms[0m
+[1mRank [33m7[0m: local simulation latency:   [36m0.510048308s[0m
+
+[1mRank [33m9[0m: local average loop latency: [36m2.523582ms[0m
+[1mRank [33m9[0m: local simulation latency:   [36m0.504838452s[0m
+
+[1mRank [33m10[0m: local average loop latency: [36m2.513487ms[0m
+[1mRank [33m10[0m: local simulation latency:   [36m0.502808667s[0m
+
+[1mRank [33m11[0m: local average loop latency: [36m2.502908ms[0m
+[1mRank [33m11[0m: local simulation latency:   [36m0.500690250s[0m
+
+[1mRank [33m12[0m: local average loop latency: [36m2.492715ms[0m
+[1mRank [33m12[0m: local simulation latency:   [36m0.498652856s[0m
+
+[1mRank [33m13[0m: local average loop latency: [36m2.479884ms[0m
+[1mRank [33m13[0m: local simulation latency:   [36m0.496081524s[0m
+
+[1mRank [33m14[0m: local average loop latency: [36m2.467622ms[0m
+[1mRank [33m14[0m: local simulation latency:   [36m0.493634088s[0m
+
+[1mRank [33m15[0m: local average loop latency: [36m2.453401ms[0m
+[1mRank [33m15[0m: local simulation latency:   [36m0.490794292s[0m
+
+[1mRank [33m16[0m: local average loop latency: [36m2.442847ms[0m
+[1mRank [33m16[0m: local simulation latency:   [36m0.488682311s[0m
+
+[1mRank [33m17[0m: local average loop latency: [36m2.427198ms[0m
+[1mRank [33m17[0m: local simulation latency:   [36m0.485550053s[0m
+
+[1mRank [33m18[0m: local average loop latency: [36m2.412587ms[0m
+[1mRank [33m18[0m: local simulation latency:   [36m0.482634846s[0m
+
+[1mRank [33m19[0m: local average loop latency: [36m2.399476ms[0m
+[1mRank [33m19[0m: local simulation latency:   [36m0.480007349s[0m
+
+[1mRank [33m0[0m: local average loop latency: [36m2.395730ms[0m
+[1mRank [33m0[0m: local simulation latency:   [36m0.479255608s[0m
+
+Global average loop latency:        2.507411ms
+Global simulation latency:          0.501594105s
+[1mRank [33m8[0m: local average loop latency: [36m2.537633ms[0m
+[1mRank [33m8[0m: local simulation latency:   [36m0.507637450s[0m
+
+
+* Info: Process finished (host knl06, process 2169378)
+* Info: Process finished (host knl06, process 2169376)
+* Info: Process finished (host knl06, process 2169389)
+* Info: Process finished (host knl06, process 2169379)
+* Info: Process finished (host knl06, process 2169371)
+* Info: Process finished (host knl06, process 2169380)
+* Info: Process finished (host knl06, process 2169384)
+* Info: Process finished (host knl06, process 2169388)
+* Info: Process finished (host knl06, process 2169381)
+* Info: Process finished (host knl06, process 2169375)
+* Info: Process finished (host knl06, process 2169386)
+* Info: Process finished (host knl06, process 2169390)
+* Info: Process finished (host knl06, process 2169372)
+* Info: Process finished (host knl06, process 2169374)
+* Info: Process finished (host knl06, process 2169385)
+* Info: Process finished (host knl06, process 2169377)
+* Info: Process finished (host knl06, process 2169383)
+* Info: Process finished (host knl06, process 2169373)
+* Info: Process finished (host knl06, process 2169382)
+* Info: Process finished (host knl06, process 2169387)
+
+Your experiment path is /users/user2207/lbm_opt/target/multi/tools/lprof_npsu_run_5
+
+To display your profiling results:
+#######################################################################################################################
+#    LEVEL    |     REPORT     |                                       COMMAND                                        #
+#######################################################################################################################
+#  Functions  |  Cluster-wide  |  maqao lprof -df xp=/users/user2207/lbm_opt/target/multi/tools/lprof_npsu_run_5      #
+#  Functions  |  Per-node      |  maqao lprof -df -dn xp=/users/user2207/lbm_opt/target/multi/tools/lprof_npsu_run_5  #
+#  Functions  |  Per-process   |  maqao lprof -df -dp xp=/users/user2207/lbm_opt/target/multi/tools/lprof_npsu_run_5  #
+#  Functions  |  Per-thread    |  maqao lprof -df -dt xp=/users/user2207/lbm_opt/target/multi/tools/lprof_npsu_run_5  #
+#  Loops      |  Cluster-wide  |  maqao lprof -dl xp=/users/user2207/lbm_opt/target/multi/tools/lprof_npsu_run_5      #
+#  Loops      |  Per-node      |  maqao lprof -dl -dn xp=/users/user2207/lbm_opt/target/multi/tools/lprof_npsu_run_5  #
+#  Loops      |  Per-process   |  maqao lprof -dl -dp xp=/users/user2207/lbm_opt/target/multi/tools/lprof_npsu_run_5  #
+#  Loops      |  Per-thread    |  maqao lprof -dl -dt xp=/users/user2207/lbm_opt/target/multi/tools/lprof_npsu_run_5  #
+#######################################################################################################################
+

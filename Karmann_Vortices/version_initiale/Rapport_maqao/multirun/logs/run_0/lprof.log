@@ -1,0 +1,50 @@
+
+* Info: Selecting the 'perf-low-ppn' engine for node knl06
+
+* Info: Process launched (host knl06, process 2096470)=================== CONFIG ===================
+iterations           = 200
+width                = 1600
+height               = 640
+obstacle x coord     = 321.000000
+obstacle y coord     = 323.000000
+obstacle radius      = 65.000000
+reynolds number      = 100.000000
+inflow max velocity  = 0.100000
+output filename      = results.raw
+write interval       = 50
+------------ Derived parameters --------------
+kinetic viscosity    = 0.130000
+relax parameter      = 1.123596
+==============================================
+[1mRank [33m0[0m: L = -1, R = -1, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS:   0   0 (W = 1602, H = 642)
+
+[1mRank [33m0[0m: local average loop latency: [36m580.184054ms[0m
+[1mRank [33m0[0m: local simulation latency:   [36m116.036968397s[0m
+
+Global average loop latency:        580.184054ms
+Global simulation latency:          116.036968397s
+
+* Info: Process finished (host knl06, process 2096470)
+* Info: Callchains info will be incomplete
+* Info: Try to recompile your application with -fno-omit-frame-pointer or to rerun with btm=stack
+* Info: Dumping samples (host knl06, process 2096470)
+* Info: Dumping source info for callchain nodes (host knl06, process 2096470)
+* Info: Building/writing metadata (host knl06)
+* Info: Finished collect step (host knl06, process 2096470)
+
+Your experiment path is /users/user2207/Cluster/lbm_init/target/multirun/tools/lprof_npsu_run_0
+
+To display your profiling results:
+###################################################################################################################################
+#    LEVEL    |     REPORT     |                                             COMMAND                                              #
+###################################################################################################################################
+#  Functions  |  Cluster-wide  |  maqao lprof -df xp=/users/user2207/Cluster/lbm_init/target/multirun/tools/lprof_npsu_run_0      #
+#  Functions  |  Per-node      |  maqao lprof -df -dn xp=/users/user2207/Cluster/lbm_init/target/multirun/tools/lprof_npsu_run_0  #
+#  Functions  |  Per-process   |  maqao lprof -df -dp xp=/users/user2207/Cluster/lbm_init/target/multirun/tools/lprof_npsu_run_0  #
+#  Functions  |  Per-thread    |  maqao lprof -df -dt xp=/users/user2207/Cluster/lbm_init/target/multirun/tools/lprof_npsu_run_0  #
+#  Loops      |  Cluster-wide  |  maqao lprof -dl xp=/users/user2207/Cluster/lbm_init/target/multirun/tools/lprof_npsu_run_0      #
+#  Loops      |  Per-node      |  maqao lprof -dl -dn xp=/users/user2207/Cluster/lbm_init/target/multirun/tools/lprof_npsu_run_0  #
+#  Loops      |  Per-process   |  maqao lprof -dl -dp xp=/users/user2207/Cluster/lbm_init/target/multirun/tools/lprof_npsu_run_0  #
+#  Loops      |  Per-thread    |  maqao lprof -dl -dt xp=/users/user2207/Cluster/lbm_init/target/multirun/tools/lprof_npsu_run_0  #
+###################################################################################################################################
+

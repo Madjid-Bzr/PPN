@@ -1,0 +1,28 @@
+address;source_location;insn;indent
+0x3bd0;/users/user2207/lbm_init/src/lbm_init.c:27;VCVTSI2SD	%RAX,%XMM1,%XMM1;
+0x3bd5;/users/user2207/lbm_init/src/lbm_init.c:27;VSUBSD	%XMM3,%XMM1,%XMM1;
+0x3bd9;/users/user2207/lbm_init/src/lbm_init.c:27;VFMADD132SD	%XMM1,%XMM0,%XMM1;
+0x3bde;/users/user2207/lbm_init/src/lbm_init.c:27;VCOMISD	%XMM1,%XMM2;
+0x3be2;/users/user2207/lbm_init/src/lbm_init.c:27;JB	3c38 <setup_init_state+0xe8>;
+0x3be4;/users/user2207/lbm_init/src/lbm_init.c:30;LEA	(%RSI),%EDI;
+0x3be6;/users/user2207/lbm_init/src/lbm_init.c:30;SUB	%EDX,%EDI;
+0x3be8;/users/user2207/lbm_init/src/../include/lbm_struct.h:148;MOV	0xc(%R12),%EDX;
+0x3bed;/users/user2207/lbm_init/src/../include/lbm_struct.h:148;IMUL	%EDI,%EDX;
+0x3bf0;/users/user2207/lbm_init/src/../include/lbm_struct.h:148;LEA	(%RAX),%EDI;
+0x3bf2;/users/user2207/lbm_init/src/../include/lbm_struct.h:148;SUB	%ECX,%EDI;
+0x3bf4;/users/user2207/lbm_init/src/lbm_init.c:26;LEA	0x1(%RAX),%RAX;
+0x3bf8;/users/user2207/lbm_init/src/../include/lbm_struct.h:148;MOV	%EDI,%ECX;
+0x3bfa;/users/user2207/lbm_init/src/../include/lbm_struct.h:148;ADD	%EDX,%ECX;
+0x3bfc;/users/user2207/lbm_init/src/lbm_init.c:30;MOV	(%R12),%RDX;
+0x3c00;/users/user2207/lbm_init/src/lbm_init.c:30;MOVL	$0x1,(%RDX,%RCX,4);
+0x3c07;/users/user2207/lbm_init/src/lbm_init.c:30;MOV	0x4(%RBP),%ECX;
+0x3c0a;/users/user2207/lbm_init/src/lbm_init.c:26;MOV	0xc(%RBX),%EDI;
+0x3c0d;/users/user2207/lbm_init/src/lbm_init.c:26;MOV	(%RBP),%EDX;
+0x3c10;/users/user2207/lbm_init/src/lbm_init.c:26;ADD	%ECX,%EDI;
+0x3c12;/users/user2207/lbm_init/src/lbm_init.c:26;MOV	%EDI,%R8D;
+0x3c15;/users/user2207/lbm_init/src/lbm_init.c:26;CMP	%R8,%RAX;
+0x3c18;/users/user2207/lbm_init/src/lbm_init.c:26;JB	3bd0 <setup_init_state+0x80>;
+0x3c38;/users/user2207/lbm_init/src/lbm_init.c:26;LEA	0x1(%RAX),%RAX;
+0x3c3c;/users/user2207/lbm_init/src/lbm_init.c:26;LEA	(%RDI),%R8D;
+0x3c3f;/users/user2207/lbm_init/src/lbm_init.c:26;CMP	%RAX,%R8;
+0x3c42;/users/user2207/lbm_init/src/lbm_init.c:26;JA	3bd0 <setup_init_state+0x80>;

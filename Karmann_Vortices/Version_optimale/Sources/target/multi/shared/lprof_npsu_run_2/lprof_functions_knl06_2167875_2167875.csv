@@ -1,0 +1,17 @@
+function_id;module;function_name;source_info;time_p;time_s;time_s_min;time_s_avg;time_s_max;cov_deviation;nb_threads;cats;
+9;lbm;propagation._omp_fn.0;lbm_struct.h:130-130,lbm_phys.c:229-242;45.95;0.97;;;;;;"100,0,0,0,0,0,0,0,0,0";
+15;lbm;collision._omp_fn.0;lbm_struct.h:130-130,avx512fintrin.h:5852-15884,avxintrin.h:513-513,lbm_phys.c:47-219;41.43;0.87;;;;;;"100,0,0,0,0,0,0,0,0,0";
+13;lbm;save_frame;lbm_struct.h:130-130,avx512fintrin.h:5852-15884,avxintrin.h:513-513,main.c:77-109,lbm_phys.c:39-59;2.86;0.06;;;;;;"100,0,0,0,0,0,0,0,0,0";
+10;lbm;special_cells._omp_fn.0;lbm_struct.h:130-148,lbm_phys.c:123-200;2.86;0.06;;;;;;"100,0,0,0,0,0,0,0,0,0";
+624;libmpich.so.12.1.8;MPL_shm_seg_remove;;1.19;0.02;;;;;;"0,100,0,0,0,0,0,0,0,0";
+351;libc-2.31.so;psiginfo;;1.19;0.02;;;;;;"0,20.000000670568,0,0,79.999999329432,0,0,0,0,0";
+1905;libc-2.31.so;__nss_database_lookup;;0.95;0.02;;;;;;"0,0,0,0,0,0,0,0,0,100";
+542;libmpich.so.12.1.8;mpirinitf_;;0.95;0.02;;;;;;"0,100,0,0,0,0,0,0,0,0";
+8;lbm;setup_init_state;lbm_init.c:25-122,lbm_phys.c:98-145,lbm_struct.h:130-148;0.71;0.01;;;;;;"100,0,0,0,0,0,0,0,0,0";
+518;libc-2.31.so;_IO_default_xsputn;;0.48;0.01;;;;;;"0,0,0,0,0,0,100,0,0,0";
+1453;libc-2.31.so;__sprintf_chk;;0.24;0;;;;;;"0,0,0,0,0,0,0,100,0,0";
+718;libc-2.31.so;explicit_bzero;;0.24;0;;;;;;"0,0,0,0,0,0,0,0,100,0";
+587;libc-2.31.so;pthread_attr_setschedparam;;0.24;0;;;;;;"0,0,0,0,0,100,0,0,0,0";
+306;libc-2.31.so;cuserid;;0.24;0;;;;;;"0,0,0,0,100,0,0,0,0,0";
+265;libc-2.31.so;strtoul;;0.24;0;;;;;;"0,0,0,0,0,0,0,100,0,0";
+54;libmpich.so.12.1.8;free@plt;;0.24;0;;;;;;"0,100,0,0,0,0,0,0,0,0";

@@ -1,0 +1,4 @@
+name;time_p;time_s;cpi_ratio;
+/users/user2207/Cluster/lbm_init/target/multirun/binaries/lbm;99.87;114.68;;
+kernel;0.07;0.07;;
+/usr/lib/x86_64-linux-gnu/libc-2.31.so;0.06;0.07;;

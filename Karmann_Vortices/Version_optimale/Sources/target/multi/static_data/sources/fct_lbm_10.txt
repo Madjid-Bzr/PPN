@@ -1,0 +1,40 @@
+/users/user2207/lbm_opt/include/lbm_struct.h: 130 - 148
+--------------------------------------------------------------------------------
+
+130:     return &mesh->cells[(x * mesh->height + y) * DIRECTIONS];
+[...]
+148:     return &meshtype->types[x * meshtype->height + y];
+/users/user2207/lbm_opt/src/lbm_phys.c: 123 - 200
+--------------------------------------------------------------------------------
+
+123:     double const tmp[DIRECTIONS] = {
+[...]
+129:     cell[1] = tmp[1];
+[...]
+141:     double const y = (double)(i - 1);
+142:     double const L = (double)(size - 1);
+143:     double const a = y * (L - y);
+144:     double const b = L * L;
+145:     return 0.4 * a / b;
+[...]
+161:     double const rho =
+162:         (cell[0] + cell[2] + cell[4] + 2 * (cell[3] + cell[6] + cell[7])) /
+163:         (1.0 - v);
+164: 
+165:     // Now compute unknown microscopic values
+166:     cell[1] = cell[3];
+167:     cell[5] = cell[7] - 0.5 * (cell[2] - cell[4]) + (1.0 / 6.0) * (rho * v);
+168:     cell[8] = cell[6] + 0.5 * (cell[2] - cell[4]) + (1.0 / 6.0) * (rho * v);
+[...]
+178:     cell[3] = cell[1];
+179:     cell[6] = cell[8] + 0.5 * (cell[4] - cell[2]);
+180:     cell[7] = cell[5] + 0.5 * (cell[2] - cell[4]);
+[...]
+187:     #pragma omp parallel
+188:     {
+189:         #pragma omp for schedule(static)
+190:         for (size_t i = 1; i < mesh->width - 1; i++) {
+191:             for (size_t j = 1; j < mesh->height - 1; j++) {
+192:                 switch (*(lbm_cell_type_t_get_cell(mesh_type, i, j))) {
+[...]
+200:                             mesh, Mesh_get_cell(mesh, i, j), j + mesh_comm->y);

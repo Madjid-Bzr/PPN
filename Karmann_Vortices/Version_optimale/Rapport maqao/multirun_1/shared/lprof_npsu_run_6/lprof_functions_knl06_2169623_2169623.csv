@@ -1,0 +1,16 @@
+function_id;module;function_name;source_info;time_p;time_s;time_s_min;time_s_avg;time_s_max;cov_deviation;nb_threads;cats;
+542;libmpich.so.12.1.8;mpirinitf_;;60.47;0.52;;;;;;"0,100,0,0,0,0,0,0,0,0";
+9;lbm;propagation._omp_fn.0;lbm_struct.h:130-130,lbm_phys.c:229-242;12.79;0.11;;;;;;"100,0,0,0,0,0,0,0,0,0";
+15;lbm;collision._omp_fn.0;lbm_struct.h:130-130,avx512fintrin.h:5852-15884,avxintrin.h:513-513,lbm_phys.c:47-219;8.14;0.07;;;;;;"100,0,0,0,0,0,0,0,0,0";
+534;libmpich.so.12.1.8;MPIR_Dup_fn;;7.56;0.07;;;;;;"0,100,0,0,0,0,0,0,0,0";
+351;libc-2.31.so;psiginfo;;2.91;0.02;;;;;;"0,0,0,0,100,0,0,0,0,0";
+718;libc-2.31.so;explicit_bzero;;1.74;0.01;;;;;;"0,0,0,0,0,0,0,0,100,0";
+624;libmpich.so.12.1.8;MPL_shm_seg_remove;;1.74;0.01;;;;;;"0,100,0,0,0,0,0,0,0,0";
+1905;libc-2.31.so;__nss_database_lookup;;0.58;0;;;;;;"0,0,0,0,0,0,0,0,0,100";
+546;libc-2.31.so;_IO_str_pbackfail;;0.58;0;;;;;;"0,0,0,0,0,0,100,0,0,0";
+522;libc-2.31.so;_IO_enable_locks;;0.58;0;;;;;;"0,0,0,0,0,0,100,0,0,0";
+266;libc-2.31.so;__strtol_l;;0.58;0;;;;;;"0,0,0,0,0,0,0,100,0,0";
+265;libc-2.31.so;strtoul;;0.58;0;;;;;;"0,0,0,0,0,0,0,100,0,0";
+205;libgomp.so.1.0.0;GOMP_parallel;;0.58;0;;;;;;"0,0,100,0,0,0,0,0,0,0";
+19;ld-2.31.so;_dl_find_dso_for_object;;0.58;0;;;;;;"0,0,0,0,100,0,0,0,0,0";
+10;lbm;special_cells._omp_fn.0;lbm_struct.h:130-148,lbm_phys.c:123-200;0.58;0;;;;;;"100,0,0,0,0,0,0,0,0,0";

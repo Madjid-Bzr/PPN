@@ -1,0 +1,15 @@
+unknown kernel region
+kernel
+propagation - /users/user2207/lbm_init/include/lbm_struct.h:130
+lbm
+collision - /users/user2207/lbm_init/src/lbm_phys.c:57
+setup_init_state_global_poiseuille_profile - /users/user2207/lbm_init/src/lbm_init.c:56
+collision - /users/user2207/lbm_init/src/lbm_phys.c:45
+collision - /users/user2207/lbm_init/src/lbm_phys.c:56
+collision - /users/user2207/lbm_init/src/lbm_phys.c:114
+_IO_ungetc - :0
+libc-2.31.so
+__isoc99_sscanf - :0
+vscanf - :0
+MPL_shm_seg_remove - :0
+libmpich.so.12.1.8

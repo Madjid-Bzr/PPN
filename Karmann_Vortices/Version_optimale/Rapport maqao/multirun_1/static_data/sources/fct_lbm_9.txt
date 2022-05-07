@@ -1,0 +1,21 @@
+/users/user2207/lbm_opt/include/lbm_struct.h: 130 - 130
+--------------------------------------------------------------------------------
+
+130:     return &mesh->cells[(x * mesh->height + y) * DIRECTIONS];
+/users/user2207/lbm_opt/src/lbm_phys.c: 229 - 242
+--------------------------------------------------------------------------------
+
+229:     #pragma omp parallel 
+230:     {
+231:         #pragma omp for schedule(static)
+232:         for (size_t i = 0; i < mesh_out->width; i++) {
+233:             for (size_t k = 0; k < DIRECTIONS; k++) {
+234:                 double dir_a = direction_a[k];
+235:                 double dir_b = direction_b[k];
+236:                 for (size_t j = 0; j < mesh_out->height; j++) {
+237:                     // Compute destination point
+238:                     ssize_t ii = (i + dir_a);
+239:                     ssize_t jj = (j + dir_b);
+240:                     // Propagate to neighboor nodes
+241:                     if ((ii >= 0 && ii < mesh_out->width) && (jj >= 0 && jj < mesh_out->height)) {
+242:                         Mesh_get_cell(mesh_out, ii, jj)[k] = Mesh_get_cell(mesh_in, i, j)[k];

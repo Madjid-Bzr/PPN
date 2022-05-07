@@ -1,0 +1,14 @@
+/users/user2207/lbm_opt/include/lbm_struct.h: 130 - 130
+--------------------------------------------------------------------------------
+
+130:     return &mesh->cells[(x * mesh->height + y) * DIRECTIONS];
+/users/user2207/lbm_opt/src/lbm_phys.c: 236 - 242
+--------------------------------------------------------------------------------
+
+236:                 for (size_t j = 0; j < mesh_out->height; j++) {
+237:                     // Compute destination point
+238:                     ssize_t ii = (i + dir_a);
+239:                     ssize_t jj = (j + dir_b);
+240:                     // Propagate to neighboor nodes
+241:                     if ((ii >= 0 && ii < mesh_out->width) && (jj >= 0 && jj < mesh_out->height)) {
+242:                         Mesh_get_cell(mesh_out, ii, jj)[k] = Mesh_get_cell(mesh_in, i, j)[k];

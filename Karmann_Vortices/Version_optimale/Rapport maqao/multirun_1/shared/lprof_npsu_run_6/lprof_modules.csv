@@ -1,0 +1,9 @@
+name;time_p;time_s;cpi_ratio;
+/usr/lib/x86_64-linux-gnu/libmpich.so.12.1.8;61.51;0.54;;
+/users/user2207/lbm_opt/target/multi/binaries/lbm;30.08;0.26;;
+/usr/lib/x86_64-linux-gnu/libc-2.31.so;7.66;0.07;;
+/usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0;0.38;0;;
+kernel;0.22;0;;
+/usr/lib/x86_64-linux-gnu/ld-2.31.so;0.07;0;;
+/usr/lib/x86_64-linux-gnu/libpthread-2.31.so;0.04;0;;
+[vdso];0.04;0;;

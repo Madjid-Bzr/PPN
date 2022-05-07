@@ -1,0 +1,23 @@
+address;source_location;insn;indent
+0x3e80;/users/user2207/lbm_init/src/lbm_phys.c:85;ENDBR64;
+0x3e84;/users/user2207/lbm_init/src/lbm_phys.c:89;MOVSXD	%ESI,%RSI;
+0x3e87;/users/user2207/lbm_init/src/lbm_phys.c:89;LEA	0x27b2(%RIP),%RDX;
+0x3e8e;/users/user2207/lbm_init/src/lbm_phys.c:45;VMOVSD	0x8(%RDI),%XMM3;
+0x3e93;/users/user2207/lbm_init/src/lbm_phys.c:89;MOV	%RSI,%RAX;
+0x3e96;/users/user2207/lbm_init/src/lbm_phys.c:89;SAL	$0x4,%RAX;
+0x3e9a;/users/user2207/lbm_init/src/lbm_phys.c:45;VMULSD	%XMM3,%XMM3,%XMM2;
+0x3e9e;/users/user2207/lbm_init/src/lbm_phys.c:89;LEA	(%RAX,%RDX,1),%RAX;
+0x3ea2;/users/user2207/lbm_init/src/lbm_phys.c:45;VMOVSD	(%RDI),%XMM1;
+0x3ea6;/users/user2207/lbm_init/src/lbm_phys.c:45;VMULSD	0x8(%RAX),%XMM3,%XMM3;
+0x3eab;/users/user2207/lbm_init/src/lbm_phys.c:45;VMOVSD	0x2575(%RIP),%XMM4;
+0x3eb3;/users/user2207/lbm_init/src/lbm_phys.c:45;VFMADD231SD	%XMM1,%XMM1,%XMM2;
+0x3eb8;/users/user2207/lbm_init/src/lbm_phys.c:45;VFNMADD132SD	0x2947(%RIP),%XMM4,%XMM2;
+0x3ec1;/users/user2207/lbm_init/src/lbm_phys.c:45;VFMADD132SD	(%RAX),%XMM3,%XMM1;
+0x3ec6;/users/user2207/lbm_init/src/lbm_phys.c:93;VMOVSD	0x2932(%RIP),%XMM3;
+0x3ece;/users/user2207/lbm_init/src/lbm_phys.c:96;LEA	0x26eb(%RIP),%RAX;
+0x3ed5;/users/user2207/lbm_init/src/lbm_phys.c:96;VFMADD213SD	0x253a(%RIP),%XMM1,%XMM3;
+0x3ede;/users/user2207/lbm_init/src/lbm_phys.c:96;VMULSD	(%RAX,%RSI,8),%XMM0,%XMM0;
+0x3ee3;/users/user2207/lbm_init/src/lbm_phys.c:93;VFMADD132SD	%XMM3,%XMM2,%XMM1;
+0x3ee8;/users/user2207/lbm_init/src/lbm_phys.c:96;VMULSD	%XMM1,%XMM0,%XMM0;
+0x3eec;/users/user2207/lbm_init/src/lbm_phys.c:99;RET;
+0x3eed;:0;NOPL	(%RAX);

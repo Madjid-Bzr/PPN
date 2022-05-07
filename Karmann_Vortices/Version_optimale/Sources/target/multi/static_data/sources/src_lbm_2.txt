@@ -1,0 +1,58 @@
+/users/user2207/lbm_opt/include/lbm_struct.h: 139 - 139
+--------------------------------------------------------------------------------
+
+139:     return &mesh->cells[x * mesh->height * DIRECTIONS + DIRECTIONS];
+/users/user2207/lbm_opt/src/main.c: 114 - 211
+--------------------------------------------------------------------------------
+
+114:     return (after.tv_sec - before.tv_sec) +
+115:            (after.tv_nsec - before.tv_nsec) / 1e9;
+[...]
+183:     for (ssize_t i = 1; i < ITERATIONS; i++) {
+184:         clock_gettime(CLOCK_MONOTONIC_RAW, &loop_before);
+[...]
+203:         if (i % WRITE_STEP_INTERVAL == 0 &&
+204:             lbm_gbl_config.output_filename != NULL) {
+205:             save_frame_all_domain(fp, &mesh, &temp_render);
+206:         }
+207: 
+208: #if !defined(NO_DUMP)
+209:         // Measure time
+210:         clock_gettime(CLOCK_MONOTONIC_RAW, &loop_after);
+211:         loop_latencies[i] = elapsed(loop_before, loop_after);
+/users/user2207/lbm_opt/src/lbm_comm.c: 150 - 264
+--------------------------------------------------------------------------------
+
+150:     if (target_rank == -1) {
+[...]
+157:             MPI_Send(Mesh_get_col(mesh_to_process, x),
+158:                      DIRECTIONS * (mesh_to_process->height - 2), MPI_DOUBLE,
+159:                      target_rank, 0, MPI_COMM_WORLD);
+160:             break;
+161:         case COMM_RECV:
+162:             MPI_Recv(Mesh_get_col(mesh_to_process, x),
+163:                      DIRECTIONS * (mesh_to_process->height - 2), MPI_DOUBLE,
+[...]
+253:     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+254: 
+255:     // Left to right phase
+256:     lbm_comm_sync_ghosts_horizontal(mesh_to_process, COMM_SEND, mesh->right_id,
+257:                                     mesh->width - 2);
+258:     lbm_comm_sync_ghosts_horizontal(mesh_to_process, COMM_RECV, mesh->left_id,
+259:                                     0);
+260: 
+261:     // Right to left phase
+262:     lbm_comm_sync_ghosts_horizontal(mesh_to_process, COMM_SEND, mesh->left_id,
+263:                                     1);
+264:     lbm_comm_sync_ghosts_horizontal(mesh_to_process, COMM_RECV, mesh->right_id,
+/users/user2207/lbm_opt/src/lbm_phys.c: 187 - 229
+--------------------------------------------------------------------------------
+
+187:     #pragma omp parallel
+[...]
+212: void collision(Mesh* mesh_out, const Mesh* mesh_in)
+213: {
+214:     // Loop on all inner cells
+215:     #pragma omp parallel 
+[...]
+229:     #pragma omp parallel 

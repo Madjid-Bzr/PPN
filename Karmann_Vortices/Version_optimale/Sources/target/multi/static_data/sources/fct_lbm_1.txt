@@ -1,0 +1,346 @@
+/users/user2207/lbm_opt/include/lbm_struct.h: 139 - 139
+--------------------------------------------------------------------------------
+
+139:     return &mesh->cells[x * mesh->height * DIRECTIONS + DIRECTIONS];
+/usr/include/x86_64-linux-gnu/bits/stdio2.h: 100 - 265
+--------------------------------------------------------------------------------
+
+100:   return __fprintf_chk (__stream, __USE_FORTIFY_LEVEL - 1, __fmt,
+[...]
+107:   return __printf_chk (__USE_FORTIFY_LEVEL - 1, __fmt, __va_arg_pack ());
+[...]
+265:   return __fgets_alias (__s, __n, __stream);
+/users/user2207/lbm_opt/src/main.c: 27 - 270
+--------------------------------------------------------------------------------
+
+27:     lbm_file_header_t header = {
+[...]
+35:     fwrite(&header, sizeof(header), 1, fp);
+[...]
+46:     if (RESULT_FILENAME == NULL) {
+47:         return NULL;
+48:     }
+49: 
+50:     // Open result file
+51:     FILE* fp = fopen(RESULT_FILENAME, "wb");
+52:     if (fp == NULL) {
+53:         perror(RESULT_FILENAME);
+54:         abort();
+[...]
+62:     fclose(fp);
+[...]
+114:     return (after.tv_sec - before.tv_sec) +
+115:            (after.tv_nsec - before.tv_nsec) / 1e9;
+116: }
+117: 
+118: int main(int argc, char* argv[argc + 1])
+119: {
+120:     // Init MPI, get current rank and communicator size.
+121:     int provided;
+122:     MPI_Init_thread(&argc, &argv, MPI_THREAD_MULTIPLE, &provided);
+123:     int rank;
+124:     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+125:     int comm_size;
+126:     MPI_Comm_size(MPI_COMM_WORLD, &comm_size);
+127: 
+128:     // Get config filename
+129:     char* config_filename;
+130:     if (argc >= 2) {
+131:         config_filename = argv[1];
+132:     } else {
+133:         config_filename = "config.txt";
+134:     }
+135: 
+136:     // Load config file and display it on master node
+137:     load_config(config_filename);
+138:     if (rank == RANK_MASTER) {
+[...]
+144:     lbm_comm_init(&mesh_comm, rank, comm_size, MESH_WIDTH, MESH_HEIGHT);
+145: 
+146:     Mesh mesh;
+147:     Mesh_init(&mesh, lbm_comm_width(&mesh_comm), lbm_comm_height(&mesh_comm));
+148: 
+149:     Mesh temp;
+150:     Mesh_init(&temp, lbm_comm_width(&mesh_comm), lbm_comm_height(&mesh_comm));
+151: 
+152:     Mesh temp_render;
+153:     Mesh_init(&temp_render, lbm_comm_width(&mesh_comm),
+154:               lbm_comm_height(&mesh_comm));
+155: 
+156:     lbm_mesh_type_t mesh_type;
+157:     lbm_mesh_type_t_init(&mesh_type, lbm_comm_width(&mesh_comm),
+158:                          lbm_comm_height(&mesh_comm));
+159: 
+160:     // Master open the output file
+161:     FILE* fp = NULL;
+162:     if (rank == RANK_MASTER) {
+[...]
+169:     setup_init_state(&mesh, &mesh_type, &mesh_comm);
+170:     setup_init_state(&temp, &mesh_type, &mesh_comm);
+171: 
+172:     // Write initial condition in output file
+173:     if (lbm_gbl_config.output_filename != NULL) {
+174:         save_frame_all_domain(fp, &mesh, &temp_render);
+175:     }
+176: 
+177:     struct timespec overall_before, overall_after;
+178:     struct timespec loop_before, loop_after;
+179:     double* loop_latencies = malloc(ITERATIONS * sizeof(double));
+180: 
+181:     clock_gettime(CLOCK_MONOTONIC_RAW, &overall_before);
+182:     // Time steps
+183:     for (ssize_t i = 1; i < ITERATIONS; i++) {
+184:         clock_gettime(CLOCK_MONOTONIC_RAW, &loop_before);
+[...]
+203:         if (i % WRITE_STEP_INTERVAL == 0 &&
+204:             lbm_gbl_config.output_filename != NULL) {
+205:             save_frame_all_domain(fp, &mesh, &temp_render);
+206:         }
+207: 
+208: #if !defined(NO_DUMP)
+209:         // Measure time
+210:         clock_gettime(CLOCK_MONOTONIC_RAW, &loop_after);
+211:         loop_latencies[i] = elapsed(loop_before, loop_after);
+212: #endif
+213:     }
+214:     clock_gettime(CLOCK_MONOTONIC_RAW, &overall_after);
+215:     double const local_latency = elapsed(overall_before, overall_after);
+216: 
+217:     MPI_Barrier(MPI_COMM_WORLD);
+218:     double local_avg_loop_latency = 0.0;
+219:     for (size_t i = 0; i < ITERATIONS; ++i) {
+220:         local_avg_loop_latency += loop_latencies[i];
+221:     }
+222:     local_avg_loop_latency /= ITERATIONS;
+223: 
+224:     double global_avg_loop_latency, global_latency;
+225:     MPI_Reduce(&local_avg_loop_latency, &global_avg_loop_latency, 1, MPI_DOUBLE,
+226:                MPI_SUM, 0, MPI_COMM_WORLD);
+227:     MPI_Reduce(&local_latency, &global_latency, 1, MPI_DOUBLE, MPI_SUM, 0,
+[...]
+235:     printf("\033[1mRank \033[33m%d\033[0m: local average loop latency: "
+[...]
+242:     if (rank == RANK_MASTER) {
+243: #if defined(NO_DUMP)
+244:         printf("Global average loop latency:        %.6lfms (file dump not measured)\n",
+245:                global_avg_loop_latency / comm_size * 1000.0);
+246: #elif !defined(NO_DUMP)
+247:         printf("Global average loop latency:        %.6lfms\n",
+248:                global_avg_loop_latency / comm_size * 1000.0);
+249: #endif
+250:         printf("Global simulation latency:          %.9lfs\n",
+251:                global_latency / comm_size);
+252:     }
+253: 
+254:     if (rank == RANK_MASTER && fp != NULL) {
+255:         close_file(fp);
+256:     }
+257: 
+258:     // Free memory
+259:     free(loop_latencies);
+[...]
+267:     MPI_Finalize();
+268: 
+269:     return EXIT_SUCCESS;
+270: }
+/users/user2207/lbm_opt/src/lbm_comm.c: 14 - 264
+--------------------------------------------------------------------------------
+
+14:     while (b != 0) {
+15:         c = a % b;
+[...]
+30:     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+[...]
+43:     if ((rank_x < 0 || rank_x >= nb_x) || (rank_y < 0 || rank_y >= nb_y)) {
+44:         return -1;
+45:     }
+46:     return (rank_x + rank_y * nb_x);
+[...]
+67:     int nb_x = lbm_helper_pgcd(comm_size, height);
+68:     int nb_y = comm_size / nb_x;
+69: 
+70:     assert(nb_x * nb_y == comm_size);
+71:     if (height % nb_y != 0) {
+72:         fatal("Can't get a 2D cut for current problem size and number of "
+73:               "processes.");
+74:     }
+75: 
+76:     // Compute current rank position (ID)
+77:     int rank_x = rank % nb_x;
+78:     int rank_y = rank / nb_x;
+79: 
+80:     // Setup nb
+81:     mesh_comm->nb_x = nb_x;
+82:     mesh_comm->nb_y = nb_y;
+83: 
+84:     // Setup size (+2 for ghost cells on border)
+85:     mesh_comm->width = width / nb_x + 2;
+86:     mesh_comm->height = height / nb_y + 2;
+87: 
+88:     // Setup position
+89:     mesh_comm->x = rank_x * width / nb_x;
+90:     mesh_comm->y = rank_y * height / nb_y;
+91: 
+92:     // Compute neighbour nodes id
+93:     mesh_comm->left_id = helper_get_rank_id(nb_x, nb_y, rank_x - 1, rank_y);
+94:     mesh_comm->right_id = helper_get_rank_id(nb_x, nb_y, rank_x + 1, rank_y);
+95:     mesh_comm->top_id = helper_get_rank_id(nb_x, nb_y, rank_x, rank_y - 1);
+96:     mesh_comm->bottom_id = helper_get_rank_id(nb_x, nb_y, rank_x, rank_y + 1);
+97:     mesh_comm->corner_id[CORNER_TOP_LEFT] =
+98:         helper_get_rank_id(nb_x, nb_y, rank_x - 1, rank_y - 1);
+99:     mesh_comm->corner_id[CORNER_TOP_RIGHT] =
+100:         helper_get_rank_id(nb_x, nb_y, rank_x + 1, rank_y - 1);
+101:     mesh_comm->corner_id[CORNER_BOTTOM_LEFT] =
+102:         helper_get_rank_id(nb_x, nb_y, rank_x - 1, rank_y + 1);
+103:     mesh_comm->corner_id[CORNER_BOTTOM_RIGHT] =
+104:         helper_get_rank_id(nb_x, nb_y, rank_x + 1, rank_y + 1);
+105: 
+106:     // If more than 1 on y, need transmission buffer
+107:     if (nb_y > 1) {
+108:         mesh_comm->buffer = malloc(sizeof(double) * DIRECTIONS * width / nb_x);
+109:     } else {
+110:         mesh_comm->buffer = NULL;
+[...]
+126:     mesh_comm->x = 0;
+127:     mesh_comm->y = 0;
+128:     mesh_comm->width = 0;
+129:     mesh_comm->height = 0;
+130:     mesh_comm->right_id = -1;
+131:     mesh_comm->left_id = -1;
+132:     if (mesh_comm->buffer != NULL) {
+133:         free(mesh_comm->buffer);
+[...]
+150:     if (target_rank == -1) {
+[...]
+157:             MPI_Send(Mesh_get_col(mesh_to_process, x),
+158:                      DIRECTIONS * (mesh_to_process->height - 2), MPI_DOUBLE,
+159:                      target_rank, 0, MPI_COMM_WORLD);
+160:             break;
+161:         case COMM_RECV:
+162:             MPI_Recv(Mesh_get_col(mesh_to_process, x),
+163:                      DIRECTIONS * (mesh_to_process->height - 2), MPI_DOUBLE,
+[...]
+253:     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+254: 
+255:     // Left to right phase
+256:     lbm_comm_sync_ghosts_horizontal(mesh_to_process, COMM_SEND, mesh->right_id,
+257:                                     mesh->width - 2);
+258:     lbm_comm_sync_ghosts_horizontal(mesh_to_process, COMM_RECV, mesh->left_id,
+259:                                     0);
+260: 
+261:     // Right to left phase
+262:     lbm_comm_sync_ghosts_horizontal(mesh_to_process, COMM_SEND, mesh->left_id,
+263:                                     1);
+264:     lbm_comm_sync_ghosts_horizontal(mesh_to_process, COMM_RECV, mesh->right_id,
+/users/user2207/lbm_opt/src/lbm_phys.c: 187 - 229
+--------------------------------------------------------------------------------
+
+187:     #pragma omp parallel
+[...]
+212: void collision(Mesh* mesh_out, const Mesh* mesh_in)
+213: {
+214:     // Loop on all inner cells
+215:     #pragma omp parallel 
+[...]
+229:     #pragma omp parallel 
+/users/user2207/lbm_opt/src/lbm_config.c: 16 - 119
+--------------------------------------------------------------------------------
+
+16:     lbm_gbl_config.iterations = 10000;
+17:     lbm_gbl_config.width = 800;
+18:     lbm_gbl_config.height = 100;
+19:     // Obstacle
+20:     lbm_gbl_config.obstacle_x = 0.0;
+21:     lbm_gbl_config.obstacle_y = 0.0;
+22:     lbm_gbl_config.obstacle_r = 0.0;
+23:     // Flow
+24:     lbm_gbl_config.inflow_max_velocity = 0.1;
+25:     lbm_gbl_config.reynolds = 100;
+26:     // Result output file
+27:     lbm_gbl_config.output_filename = NULL;
+28:     lbm_gbl_config.write_interval = 50;
+[...]
+37:     lbm_gbl_config.kinetic_viscosity =
+38:         (lbm_gbl_config.inflow_max_velocity * 2.0 * lbm_gbl_config.obstacle_r /
+39:          lbm_gbl_config.reynolds);
+40:     lbm_gbl_config.relax_parameter =
+41:         1.0 / (3.0 * lbm_gbl_config.kinetic_viscosity + 1.0 / 2.0);
+[...]
+55:     int line = 0;
+56: 
+57:     // Open the config file
+58:     fp = fopen(filename, "r");
+59:     if (fp == NULL) {
+[...]
+68:     while (fgets(buffer, 1024, fp) != NULL) {
+69:         line++;
+70:         if (buffer[0] == '#') {
+71:             // Comment, nothing to do
+72:         } else if (sscanf(buffer, "iterations = %d\n", &intValue) == 1) {
+73:             lbm_gbl_config.iterations = intValue;
+74:         } else if (sscanf(buffer, "width = %d\n", &intValue) == 1) {
+75:             lbm_gbl_config.width = intValue;
+76:             if (lbm_gbl_config.obstacle_x == 0.0) {
+77:                 lbm_gbl_config.obstacle_x = (lbm_gbl_config.width / 5.0 + 1.0);
+78:             }
+79:         } else if (sscanf(buffer, "height = %d\n", &intValue) == 1) {
+80:             lbm_gbl_config.height = intValue;
+81:             if (lbm_gbl_config.obstacle_y == 0.0) {
+82:                 lbm_gbl_config.obstacle_y = (lbm_gbl_config.height / 2.0 + 3.0);
+83:                 lbm_gbl_config.obstacle_r =
+84:                     (lbm_gbl_config.height / 10.0 + 1.0);
+85:             }
+86:         } else if (sscanf(buffer, "obstacle_x = %lf\n", &doubleValue) == 1) {
+87:             if (doubleValue != 0.0) {
+88:                 lbm_gbl_config.obstacle_x = doubleValue;
+89:             }
+90:         } else if (sscanf(buffer, "obstacle_y = %lf\n", &doubleValue) == 1) {
+91:             if (doubleValue != 0.0) {
+92:                 lbm_gbl_config.obstacle_y = doubleValue;
+93:             }
+94:         } else if (sscanf(buffer, "obstacle_r = %lf\n", &doubleValue) == 1) {
+95:             if (doubleValue != 0.0) {
+96:                 lbm_gbl_config.obstacle_r = doubleValue;
+97:             }
+98:         } else if (sscanf(buffer, "inflow_max_velocity = %lf\n", &doubleValue) == 1) {
+99:             lbm_gbl_config.inflow_max_velocity = doubleValue;
+100:         } else if (sscanf(buffer, "reynolds = %lf\n", &doubleValue) == 1) {
+101:             lbm_gbl_config.reynolds = doubleValue;
+102:         } else if (sscanf(buffer, "kinetic_viscosity = %lf\n", &doubleValue) == 1) {
+103:             lbm_gbl_config.kinetic_viscosity = doubleValue;
+104:         } else if (sscanf(buffer, "relax_parameter = %lf\n", &doubleValue) == 1) {
+105:             lbm_gbl_config.relax_parameter = doubleValue;
+106:         } else if (sscanf(buffer, "write_interval = %d\n", &intValue) == 1) {
+107:             lbm_gbl_config.write_interval = intValue;
+108:         } else if (sscanf(buffer, "output_filename = %s\n", buffer2) == 1) {
+109:             lbm_gbl_config.output_filename = strdup(buffer2);
+110:         } else {
+111:             fprintf(stderr, "Invalid config option line %d: %s\n", line, buffer);
+112:             abort();
+113:         }
+114:     }
+115: 
+116:     // Check error
+117:     if (!feof(fp)) {
+118:         perror(filename);
+119:         abort();
+/users/user2207/lbm_opt/src/lbm_struct.c: 14 - 45
+--------------------------------------------------------------------------------
+
+14:         perror("malloc");
+15:         abort();
+[...]
+21:     mesh->width = 0;
+22:     mesh->height = 0;
+23:     free(mesh->cells);
+[...]
+30:     meshtype->width = width;
+31:     meshtype->height = height;
+32: 
+33:     // Allocate memory for cells
+34:     meshtype->types = malloc((width + 2) * height * sizeof(lbm_cell_type_t));
+35:     if (meshtype->types == NULL) {
+[...]
+43:     mesh->width = 0;
+44:     mesh->height = 0;
+45:     free(mesh->types);

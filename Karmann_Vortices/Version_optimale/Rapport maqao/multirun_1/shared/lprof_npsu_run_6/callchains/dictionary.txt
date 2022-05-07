@@ -1,0 +1,23 @@
+GOMP_parallel - :0
+libgomp.so.1.0.0
+save_frame_all_domain - /users/user2207/lbm_opt/src/lbm_comm.c:335
+lbm
+_IO_ungetc - :0
+libc-2.31.so
+__isoc99_sscanf - :0
+__isoc99_fscanf - :0
+MPL_shm_seg_remove - :0
+libmpich.so.12.1.8
+vscanf - :0
+__strerror_r - :0
+__libc_start_main - :0
+unknown kernel region
+kernel
+__poll - :0
+openat - :0
+__close - :0
+__read - :0
+mpirinitf_ - :0
+__clock_gettime - :0
+Unknown function
+[vdso]
