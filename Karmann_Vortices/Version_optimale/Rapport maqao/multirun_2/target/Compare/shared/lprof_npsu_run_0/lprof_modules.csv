@@ -1,0 +1,5 @@
+name;time_p;time_s;cpi_ratio;
+/users/user2236/lbm_opt/target/Compare/binaries/lbm;98.91;6.78;;
+/usr/lib/x86_64-linux-gnu/libc-2.31.so;0.66;0.04;;
+/usr/lib/x86_64-linux-gnu/libmpich.so.12.1.8;0.29;0.02;;
+kernel;0.15;0.01;;

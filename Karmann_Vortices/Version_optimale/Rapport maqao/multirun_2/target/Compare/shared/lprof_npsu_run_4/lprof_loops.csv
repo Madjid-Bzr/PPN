@@ -1,0 +1,11 @@
+loop_id;module;function_name;function_id;source_info;level;time_p;time_s;time_s_min;time_s_avg;time_s_max;cov_deviation;nb_threads;
+15;lbm;propagation._omp_fn.0;9;lbm_struct.h:130-130,lbm_phys.c:236-242;Innermost;25.29;0.29;0.26;0.28;0.31;2.3530831336975;16;
+23;lbm;collision._omp_fn.0;15;lbm_struct.h:130-130,avx512fintrin.h:5852-15884,avxintrin.h:513-513,lbm_phys.c:47-219;Innermost;22.81;0.26;0.23;0.25;0.29;2.2275412082672;16;
+16;lbm;special_cells._omp_fn.0;10;lbm_struct.h:130-148,lbm_phys.c:123-200;Innermost;0.93;0.01;0;0.01;0.03;0.67369735240936;11;
+14;lbm;propagation._omp_fn.0;9;lbm_struct.h:130-130,lbm_phys.c:233-242;InBetween;0.93;0.01;0;0.01;0.02;0.40606442093849;14;
+12;lbm;setup_init_state;8;lbm_init.c:51-58,lbm_phys.c:98-145,lbm_struct.h:130-148;Innermost;0.48;0.01;0;0.01;0.01;0.11144722253084;16;
+21;lbm;save_frame;13;lbm_struct.h:130-130,avx512fintrin.h:5852-15884,avxintrin.h:513-513,main.c:84-98,lbm_phys.c:39-59;Innermost;0.31;0;0.05;0.05;0.05;0;1;
+24;lbm;collision._omp_fn.0;15;lbm_struct.h:130-130,avx512fintrin.h:5852-15884,avxintrin.h:513-513,lbm_phys.c:47-219;Outermost;0.06;0;0;0;0;0.0055388966575265;2;
+0;lbm;main;1;lbm_struct.h:139-139,stdio2.h:107-107,main.c:27-270,lbm_comm.c:30-264,lbm_phys.c:187-229,lbm_struct.c:21-45;Outermost;0.03;0;0;0;0;0;1;
+13;lbm;propagation._omp_fn.0;9;lbm_struct.h:130-130,lbm_phys.c:233-242;Outermost;0.03;0;0;0;0;0;1;
+17;lbm;special_cells._omp_fn.0;10;lbm_struct.h:130-148,lbm_phys.c:123-200;Outermost;0.03;0;0;0;0;0;1;

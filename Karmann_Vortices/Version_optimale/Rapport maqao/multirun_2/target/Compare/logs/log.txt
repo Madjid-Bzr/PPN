@@ -1,0 +1,13 @@
+********************************************************************************
+
+MAQAO 2.15.5 - 0b66882c33fcd95ef103e22d5fec6c0d2ff1b5e2::20220328-144625 || 2022/03/28
+
+maqao oneview -R1 -xp=Compare -WS -c=config.lua 
+
+CMD:  OMP_NUM_THREADS=1   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2236/lbm_opt/target/Compare/tools/lprof_npsu_run_0" --mpi-command="mpirun -np 1"   -- /users/user2236/lbm_opt/target/Compare/binaries/lbm
+CMD:  OMP_NUM_THREADS=1   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2236/lbm_opt/target/Compare/tools/lprof_npsu_run_1" --mpi-command="mpirun -np 2"   -- /users/user2236/lbm_opt/target/Compare/binaries/lbm
+CMD:  OMP_NUM_THREADS=1   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2236/lbm_opt/target/Compare/tools/lprof_npsu_run_2" --mpi-command="mpirun -np 4"   -- /users/user2236/lbm_opt/target/Compare/binaries/lbm
+CMD:  OMP_NUM_THREADS=1   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2236/lbm_opt/target/Compare/tools/lprof_npsu_run_3" --mpi-command="mpirun -np 8"   -- /users/user2236/lbm_opt/target/Compare/binaries/lbm
+CMD:  OMP_NUM_THREADS=1   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2236/lbm_opt/target/Compare/tools/lprof_npsu_run_4" --mpi-command="mpirun -np 16"   -- /users/user2236/lbm_opt/target/Compare/binaries/lbm
+CMD:  OMP_NUM_THREADS=1   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2236/lbm_opt/target/Compare/tools/lprof_npsu_run_5" --mpi-command="mpirun -np 20"   -- /users/user2236/lbm_opt/target/Compare/binaries/lbm
+CMD:  OMP_NUM_THREADS=1   /opt/other/maqao/2.15.5/bin/maqao lprof  --xp="/users/user2236/lbm_opt/target/Compare/tools/lprof_npsu_run_6" --mpi-command="mpirun -np 32"   -- /users/user2236/lbm_opt/target/Compare/binaries/lbm

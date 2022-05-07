@@ -1,0 +1,1753 @@
+<!DOCTYPE html>
+<html lang="en-US"><head><title>OV - Compare Index</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/ui.jqgrid.css" />
+<link rel="stylesheet" type="text/css" href="css/themes/redmond_custom/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="css/themes/redmond_custom/jquery.jqplot.min.css" />
+<link rel="stylesheet" type="text/css" href="css/MAQAO_theme.css" />
+<link rel="stylesheet" type="text/css" href="css/maqao_modal.css" />
+<link rel="stylesheet" type="text/css" href="css/global.css" />
+<link rel="stylesheet" type="text/css" href="css/maqao_menu.css" />
+<script src="js/jquery-1.9.0.min.js" ></script>
+<script src="js/jquery-ui-1.10.3.custom.min.js" ></script>
+<script src="js/grid.locale-en.js" ></script>
+<script src="js/jquery.jqGrid.min.js" ></script>
+<script src="js/d3.min.js" ></script>
+<script class="include" src="js/jquery.jqplot.min.js"></script>
+<script class="include" src="js/jqplot.pieRenderer.min.js"></script>
+<script class="include" src="js/jqplot.barRenderer.min.js"></script>
+<script class="include" src="js/jqplot.categoryAxisRenderer.min.js"></script>
+<script class="include" src="js/jqplot.pointLabels.min.js"></script>
+<script class="include" src="js/jqplot.cursor.min.js"></script>
+<script class="include" src="js/jqplot.canvasTextRenderer.min.js"></script>
+<script class="include" src="js/jqplot.canvasAxisTickRenderer.min.js"></script>
+<script class="include" src="js/jqplot.canvasAxisLabelRenderer.min.js"></script>
+<script class="include" src="js/jqplot.enhancedLegendRenderer.min.js"></script>
+<script class="include" src="js/jqplot.highlighter.min.js"></script>
+<script class="include" src="js/maqao_menu.js"></script>
+<script>
+$( function() {
+  $( document ).tooltip({
+    content: function() {
+      if ($(this).hasClass ("tooltip-maqao")
+      ||  $(this).hasClass ("tooltip-maqao-button")) {
+        return tooltips_texts[$(this).attr('tooltip_id')];
+      }
+    },
+    position: {
+      my: "center bottom-20",
+        at: "center top",
+        using: function( position, feedback ) {
+          $( this ).css( position );
+          $( "<div>" )
+            .addClass( "arrow-tt" )
+            .addClass( feedback.vertical )
+            .addClass( feedback.horizontal )
+            .appendTo( this );
+        }
+      }
+  });
+} );
+
+// Code from https://www.htmlgoodies.com/beyond/javascript/article.php/3724571/Using-Multiple-JavaScript-Onload-Functions.htm
+function addLoadEvent(func) {
+  var oldonload = window.onload;
+  if (typeof window.onload != 'function') {
+    window.onload = func;
+  } else {
+    window.onload = function() {
+      if (oldonload) {
+        oldonload();
+      }
+      func();
+    }
+  }
+}
+function loadCSS(filename){ 
+  var file = document.createElement("link");
+  file.setAttribute("rel", "stylesheet");
+  file.setAttribute("type", "text/css");
+  file.setAttribute("href", filename);
+  document.head.appendChild(file);
+}
+addLoadEvent(function(){
+  var theme = localStorage.getItem("__MAQAO_OV_theme__");
+  if (theme) {
+    loadCSS("css/"+theme+".css");
+  }
+  else {
+    localStorage.setItem("__MAQAO_OV_theme__", "MAQAO_theme");
+    loadCSS("css/MAQAO_theme.css");
+  }
+});
+</script>
+</head><body>
+<div id="page_title"><img alt="MAQAO" id="maqao_logo" src="images/MAQAO_small_logo.png"/><ul id="maqao_menu"><li ><a class="_current_page _first_menu_level" href="index.html">Global</a><ul><li ><a  href="config.html">Configurations</a></li><li ><a  href="log.html">Logs</a></li></ul></li><li ><a  href="application.html">Application</a></li><li ><a  href="fcts_and_loops.html">Functions</a></li><li ><a  href="loops_index.html">Loops</a></li><li ><a  href="topology.html">Topology</a></li></ul>
+<span><img alt="options" id="menu_options_icon" src="images/gear_20.png" onclick="__open_options ()"/></span>
+</div>
+<script>
+function __change_theme () {
+  var new_theme = document.getElementById("select_theme").value;
+  localStorage.setItem("__MAQAO_OV_theme__", new_theme);
+    loadCSS("css/"+new_theme+".css");
+}
+function __open_options () {
+  var elem = document.getElementById ("options_configuration");
+  if (elem.dataset.open == "false") {
+    elem.dataset.open = "true";
+    elem.style.display = "block";
+  }
+  else {
+    elem.dataset.open = "false";
+    elem.style.display = "none";
+  }
+}
+</script>
+<div id="anchor_file_start"></div>
+<div id="maqao_content">
+<div>
+  <div id="spacer_page_title" ></div>
+  <div id="options_configuration" data-open="false" style="display:none;">
+    <h3 id="options_configuration_header">Report Configuration</h3>
+    <span style="margin-left:10px;"><label for="select_theme">Theme: </label>    <select name="theme" id="select_theme" onchange="__change_theme ()">  <option value="MAQAO_theme">MAQAO_theme</option>  <option value="darkgrey">darkgrey</option>  <option value="cyan">cyan</option></select></span></div>
+</div>
+<script>
+document.getElementById("spacer_page_title").style.height = (document.getElementById("page_title").clientHeight + 25)+"px";
+var obj = document.getElementById("page_title");
+if (obj) {
+  var elems = document.getElementsByClassName ("_first_menu_level")
+  if (obj.clientHeight < 90) {
+    for (var i = 0; i < elems.length; i++) {
+      elems.item(i).style.borderBottomLeftRadius = "";
+      elems.item(i).style.borderBottomRightRadius = "";
+    }
+  }
+  else {
+    for (var i = 0; i < elems.length; i++) {
+      elems.item(i).style.borderBottomLeftRadius = "10px";
+      elems.item(i).style.borderBottomRightRadius = "10px";
+    }
+  }
+}
+</script>
+<p>Help is available by moving the cursor above any <img src="images/help_icon_20.png" style="vertical-align: middle;background-color:var(--fixed_box_header_background);"></img> symbol or by checking <a href="https://maqao.exascale-computing.eu/documentation.html">MAQAO website</a>.</p>
+<div class="_accordion_box collapsed" ><h3 id="_accordion_header_1" class="_header collapsed" onclick="_click_accordion_header(this)" ><span class="_accordion_box_button">&#x25B6;</span>Compared Reports</h3><div id="_accordion_content_1" class="_content collapsed"><ul>
+  <li>r0: run_0</li>
+  <li>r1: R2</li>
+  <li>r2: R4</li>
+  <li>r3: R8</li>
+  <li>r4: R16</li>
+  <li>r5: R20</li>
+  <li>r6: R32</li>
+</ul>
+</div></div><div style="width: 100%; display: table;"><div style="display: table-row"><div class="_fixed_box" style="display:table-cell;width:50%;"><h3 class="_header">Global Metrics<span class="tooltip-maqao-button help-maqao" title="" tooltip_id="0"></span></h3><div class="_content"><table id="_tab_global_metrics">
+<tr><th colspan="2" style="width:40%;">Metric</th><th style="width:8%;"><span class="tooltip-maqao" title="" tooltip_id="1" >r0</span></th><th style="width:8%;"><span class="tooltip-maqao" title="" tooltip_id="2" >r1</span></th><th style="width:8%;"><span class="tooltip-maqao" title="" tooltip_id="3" >r2</span></th><th style="width:8%;"><span class="tooltip-maqao" title="" tooltip_id="4" >r3</span></th><th style="width:8%;"><span class="tooltip-maqao" title="" tooltip_id="5" >r4</span></th><th style="width:8%;"><span class="tooltip-maqao" title="" tooltip_id="6" >r5</span></th><th style="width:8%;"><span class="tooltip-maqao" title="" tooltip_id="7" >r6</span></th></tr><tr class="_tr_odd"><td colspan="2" class="_td_shift_20"><span class="tooltip-maqao" title="" tooltip_id="8">Total Time (s)</span></td><td>7.63</td><td>4.27</td><td>3.30</td><td>2.74</td><td>3.46</td><td>3.82</td><td>5.60</td></tr>
+<tr><td colspan="2" class="_td_shift_20"><span class="tooltip-maqao" title="" tooltip_id="9">Profiled Time (s)</span></td><td style="background-color:#66cc00;">6.86</td><td style="background-color:#66cc00;">3.73</td><td style="background-color:#66cc00;">2.63</td><td style="background-color:#66cc00;">1.51</td><td style="background-color:#66cc00;">1.15</td><td style="background-color:#66cc00;">0.92</td><td style="background-color:#66cc00;">1.14</td></tr>
+<tr class="border_left_hover _tr_odd" style="cursor: pointer;" onclick="set_chart(-1, 0);"><td colspan="2" class="_td_shift_20"><span class="tooltip-maqao" title="" tooltip_id="10">Time in analyzed loops (%)</span></td><td>98.9</td><td>93.4</td><td>74.0</td><td>71.3</td><td>50.9</td><td>41.5</td><td>23.2</td></tr>
+<tr class="border_left_hover " style="cursor: pointer;" onclick="set_chart(-1, 2);"><td colspan="2" class="_td_shift_20"><span class="tooltip-maqao" title="" tooltip_id="11">Time in analyzed innermost loops (%)</span></td><td>96.6</td><td>91.8</td><td>72.7</td><td>70.2</td><td>49.8</td><td>40.8</td><td>22.8</td></tr>
+<tr class="border_left_hover _tr_odd" style="cursor: pointer;" onclick="set_chart(-1, 4);"><td colspan="2" class="_td_shift_20"><span class="tooltip-maqao" title="" tooltip_id="12">Time in user code (%)</span></td><td>98.9</td><td>93.4</td><td>74.0</td><td>71.3</td><td>51.0</td><td>41.6</td><td>23.2</td></tr>
+<tr><td colspan="2" class="_td_shift_20"><span class="tooltip-maqao" title="" tooltip_id="13">Compilation Options</span></td><td style="background-color:#66cc00;">OK</td><td style="background-color:#66cc00;">OK</td><td style="background-color:#66cc00;">OK</td><td style="background-color:#66cc00;">OK</td><td style="background-color:#66cc00;">OK</td><td style="background-color:#66cc00;">OK</td><td style="background-color:#66cc00;">OK</td></tr>
+<tr class="border_left_hover _tr_odd" style="cursor: pointer;" onclick="set_chart(-1, 1);"><td colspan="2" class="_td_shift_20"><span class="tooltip-maqao" title="" tooltip_id="14">Perfect Flow Complexity</span></td><td style="background-color:#FF950E;">1.77</td><td style="background-color:#FF950E;">1.70</td><td style="background-color:#FF950E;">1.49</td><td style="background-color:#FF950E;">1.48</td><td style="background-color:#FFCC99;">1.30</td><td style="background-color:#FFCC99;">1.23</td><td style="background-color:#FFCC99;">1.12</td></tr>
+<tr><td colspan="2" class="_td_shift_20"><span class="tooltip-maqao" title="" tooltip_id="15">Array Access Efficiency (%)</span></td><td style="background-color:#FFCC99;">50.4</td><td style="background-color:#FFCC99;">50.4</td><td style="background-color:#FFCC99;">50.6</td><td style="background-color:#FFCC99;">50.7</td><td style="background-color:#FFCC99;">50.7</td><td style="background-color:#FFCC99;">50.8</td><td style="background-color:#FFCC99;">50.6</td></tr>
+<tr class="_tr_odd"><td colspan="2" class="_td_shift_20"><span class="tooltip-maqao" title="" tooltip_id="16">Perfect OpenMP + MPI + Pthread</span></td><td style="background-color:#66cc00;">1.00</td><td style="background-color:#66cc00;">1.08</td><td style="background-color:#FFCC99;">1.35</td><td style="background-color:#FFCC99;">1.21</td><td style="background-color:#FFCC99;">1.68</td><td style="background-color:#FFCC99;">1.92</td><td style="background-color:#FF950E;">2.02</td></tr>
+<tr><td colspan="2" class="_td_shift_20"><span class="tooltip-maqao" title="" tooltip_id="17">Perfect OpenMP + MPI + Pthread + Perfect Load Distribution</span></td><td style="background-color:#66cc00;">1.00</td><td style="background-color:#66cc00;">1.09</td><td style="background-color:#FFCC99;">1.40</td><td style="background-color:#FFCC99;">1.35</td><td style="background-color:#FFCC99;">1.84</td><td style="background-color:#FF950E;">2.16</td><td style="background-color:#FF950E;">3.64</td></tr>
+<tbody  class="border_left_hover _tr_odd" style="cursor: pointer;" onclick="set_chart(945);"><tr><td rowspan="2" class="_td_shift_20"><span class="tooltip-maqao" title="" tooltip_id="18">No Scalar Integer</span></td><td class="_td_shift_20"><span class="tooltip-maqao" title="" tooltip_id="19">Potential Speedup</span></td><td style="background-color:#FFCC99;">1.58</td><td style="background-color:#FFCC99;">1.53</td><td style="background-color:#FFCC99;">1.39</td><td style="background-color:#FFCC99;">1.37</td><td style="background-color:#FFCC99;">1.24</td><td style="background-color:#FFCC99;">1.19</td><td style="background-color:#66cc00;">1.10</td></tr><tr><td class="_td_shift_20"><span class="tooltip-maqao" title="" tooltip_id="20">Nb Loops to get 80%</span></td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr></tbody><tbody  class="border_left_hover " style="cursor: pointer;" onclick="set_chart(946);"><tr><td rowspan="2" class="_td_shift_20"><span class="tooltip-maqao" title="" tooltip_id="21">FP Vectorised</span></td><td class="_td_shift_20"><span class="tooltip-maqao" title="" tooltip_id="22">Potential Speedup</span></td><td style="background-color:#FF950E;">2.34</td><td style="background-color:#FF950E;">2.19</td><td style="background-color:#FFCC99;">1.76</td><td style="background-color:#FFCC99;">1.71</td><td style="background-color:#FFCC99;">1.42</td><td style="background-color:#FFCC99;">1.32</td><td style="background-color:#FFCC99;">1.16</td></tr><tr><td class="_td_shift_20"><span class="tooltip-maqao" title="" tooltip_id="23">Nb Loops to get 80%</span></td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td></tr></tbody><tbody  class="border_left_hover _tr_odd" style="cursor: pointer;" onclick="set_chart(947);"><tr><td rowspan="2" class="_td_shift_20"><span class="tooltip-maqao" title="" tooltip_id="24">Fully Vectorised</span></td><td class="_td_shift_20"><span class="tooltip-maqao" title="" tooltip_id="25">Potential Speedup</span></td><td style="background-color:#FF950E;">4.39</td><td style="background-color:#FF950E;">3.68</td><td style="background-color:#FF950E;">2.37</td><td style="background-color:#FF950E;">2.27</td><td style="background-color:#FFCC99;">1.66</td><td style="background-color:#FFCC99;">1.48</td><td style="background-color:#FFCC99;">1.22</td></tr><tr><td class="_td_shift_20"><span class="tooltip-maqao" title="" tooltip_id="26">Nb Loops to get 80%</span></td><td>3</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td></tr></tbody><tbody  class="border_left_hover " style="cursor: pointer;" onclick="set_chart(948);"><tr><td rowspan="2" class="_td_shift_20"><span class="tooltip-maqao" title="" tooltip_id="27">Only FP Arithmetic</span></td><td class="_td_shift_20"><span class="tooltip-maqao" title="" tooltip_id="28">Potential Speedup</span></td><td style="background-color:#FF950E;">2.50</td><td style="background-color:#FF950E;">2.30</td><td style="background-color:#FFCC99;">1.82</td><td style="background-color:#FFCC99;">1.78</td><td style="background-color:#FFCC99;">1.46</td><td style="background-color:#FFCC99;">1.34</td><td style="background-color:#FFCC99;">1.17</td></tr><tr><td class="_td_shift_20"><span class="tooltip-maqao" title="" tooltip_id="29">Nb Loops to get 80%</span></td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td></tr></tbody><tr class="border_left_hover _tr_odd" style="cursor: pointer;" onclick="set_chart(949);"><td colspan="2" class="_td_shift_20"><span class="tooltip-maqao" title="" tooltip_id="30">Scalability - Gap</span></td><td>1.00</td><td>1.12</td><td>1.73</td><td>2.88</td><td>7.26</td><td>10.02</td><td>23.48</td></tr>
+</table></div></div>
+<div id="chart_945_fixed" class="_fixed_box _OV_chart_RP" style="width:100%;"><h3 class="_header">Cumulated Speedup If No Scalar Integer</h3><div class="_content">
+<div style="margin-top: 10px; margin-bottom: 10px; background-color: var(--chart_background); overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_945" style="height:500px;margin-top:20px;" ></div></div>
+<script class="code" >
+</script></div></div>
+<div id="chart_946_fixed" class="_fixed_box _OV_chart_RP" style="width:100%;"><h3 class="_header">Cumulated Speedup If FP Vectorized</h3><div class="_content">
+<div style="margin-top: 10px; margin-bottom: 10px; background-color: var(--chart_background); overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_946" style="height:500px;margin-top:20px;" ></div></div>
+<script class="code" >
+</script></div></div>
+<div id="chart_947_fixed" class="_fixed_box _OV_chart_RP" style="width:100%;"><h3 class="_header">Cumulated Speedup If Fully Vectorized</h3><div class="_content">
+<div style="margin-top: 10px; margin-bottom: 10px; background-color: var(--chart_background); overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_947" style="height:500px;margin-top:20px;" ></div></div>
+<script class="code" >
+</script></div></div>
+<div id="chart_948_fixed" class="_fixed_box _OV_chart_RP" style="width:100%;"><h3 class="_header">Cumulated Speedup If Only FP Arithmetic</h3><div class="_content">
+<div style="margin-top: 10px; margin-bottom: 10px; background-color: var(--chart_background); overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_948" style="height:500px;margin-top:20px;" ></div></div>
+<script class="code" >
+</script></div></div>
+<div id="chart_949_fixed" class="_fixed_box _OV_chart_RP" style="width:100%;"><h3 class="_header">Scalability Speedup</h3><div class="_content">
+<div style="margin-top: 10px; margin-bottom: 10px; background-color: var(--chart_background); overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_949" style="height:400px;margin-top:20px;" ></div></div>
+<script class="code" >
+</script></div></div>
+<div  id="loop_profile_charts" class="_fixed_box" style="width:100%;"><h3 class="_header">Loop Based Profiles</h3><div id="loop_profile_charts_content" class="_content _OV_chart_RP" style="overflow-y:auto;height:520px;max-height:520px;">
+<div class="_fixed_box" ><h3 class="_header">Innermost / Single Loops</h3>
+<div class="_content"><div style="margin-top: 10px; margin-bottom: 10px; background-color: var(--chart_background); overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_950" style="height:460px;margin-top:20px;" ></div></div>
+<script class="code" >
+</script></div></div><div class="_fixed_box" ><h3 class="_header">Inbetween Loops</h3>
+<div class="_content"><div style="margin-top: 10px; margin-bottom: 10px; background-color: var(--chart_background); overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_951" style="height:460px;margin-top:20px;" ></div></div>
+<script class="code" >
+</script></div></div><div class="_fixed_box" ><h3 class="_header">Outermost Loops</h3>
+<div class="_content"><div style="margin-top: 10px; margin-bottom: 10px; background-color: var(--chart_background); overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_952" style="height:460px;margin-top:20px;" ></div></div>
+<script class="code" >
+</script></div></div><div class="_fixed_box" ><h3 class="_header">Cumulated Coverage With All Loops</h3>
+<div class="_content"><div style="margin-top: 10px; margin-bottom: 10px; background-color: var(--chart_background); overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_953" style="height:460px;margin-top:20px;" ></div></div>
+<script class="code" >
+</script></div></div></div></div>
+<div  id="inner_loop_profile_charts" class="_fixed_box" style="width:100%;"><h3 class="_header">Innermost Loop Based Profiles</h3><div id="loop_profile_charts_content" class="_content _OV_chart_RP" style="overflow-y:auto;height:520px;max-height:520px;">
+<div class="_fixed_box" ><h3 class="_header">Coverage</h3>
+<div class="_content"><div style="margin-top: 10px; margin-bottom: 10px; background-color: var(--chart_background); overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_954" style="height:460px;margin-top:20px;" ></div></div>
+<script class="code" >
+</script></div></div><div class="_fixed_box" ><h3 class="_header">Count</h3>
+<div class="_content"><div style="margin-top: 10px; margin-bottom: 10px; background-color: var(--chart_background); overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_955" style="height:460px;margin-top:20px;" ></div></div>
+<script class="code" >
+</script></div></div></div></div>
+<div  id="application_categorization_charts" class="_fixed_box" style="width:100%;"><h3 class="_header">Application Categorization</h3><div id="application_categorization_charts_content" class="_content _OV_chart_RP" style="overflow-y:auto;height:520px;max-height:520px;">
+<div class="_fixed_box" style="margin-bottom:0px;" ><h3 class="_header">Time</h3>
+<div class="_content"><div style="margin-top: 10px; margin-bottom: 10px; background-color: var(--chart_background); overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_956" style="height:460px;margin-top:20px;" ></div></div>
+<script class="code" >
+</script></div></div><div class="_fixed_box" style="margin-bottom:0px;" ><h3 class="_header">Coverage</h3>
+<div class="_content"><div style="margin-top: 10px; margin-bottom: 10px; background-color: var(--chart_background); overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_957" style="height:460px;margin-top:20px;" ></div></div>
+<script class="code" >
+</script></div></div></div></div>
+<div  id="path_count_charts" class="_fixed_box" style="width:100%;"><h3 class="_header">Path Count Profiles</h3><div id="path_count_charts_content" class="_content _OV_chart_RP" style="overflow-y:auto;height:520px;max-height:520px;">
+<div class="_fixed_box" ><h3 class="_header">Coverage</h3>
+<div class="_content"><div style="margin-top: 10px; margin-bottom: 10px; background-color: var(--chart_background); overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_958" style="height:460px;margin-top:20px;" ></div></div>
+<script class="code" >
+</script></div></div><div class="_fixed_box" ><h3 class="_header">Count</h3>
+<div class="_content"><div style="margin-top: 10px; margin-bottom: 10px; background-color: var(--chart_background); overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_959" style="height:460px;margin-top:20px;" ></div></div>
+<script class="code" >
+</script></div></div></div></div>
+<div  id="iteration_count_charts" class="_fixed_box" style="width:100%;"><h3 class="_header">Low Iteration Count Profiles</h3><div id="iteration_count_charts_content" class="_content _OV_chart_RP" style="overflow-y:auto;height:520px;max-height:520px;">
+<div class="_fixed_box" ><h3 class="_header">Coverage</h3>
+<div class="_content"><div style="margin-top: 10px; margin-bottom: 10px; background-color: var(--chart_background); overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_960" style="height:460px;margin-top:20px;" ></div></div>
+<script class="code" >
+</script></div></div><div class="_fixed_box" ><h3 class="_header">Count</h3>
+<div class="_content"><div style="margin-top: 10px; margin-bottom: 10px; background-color: var(--chart_background); overflow-x:auto; overflow-y:hidden;"><div id="chart_cat_961" style="height:460px;margin-top:20px;" ></div></div>
+<script class="code" >
+</script></div></div></div></div>
+<script>
+function display_charts (id) {
+if (id == 945) {
+  document.getElementById('chart_cat_945').innerHTML = '';
+  $(document).ready(function(){
+  var plot945_data = [[1.479,1.5329,1.5621,1.5689,1.5752,1.5779,1.5795,1.5802,1.5802,1.5802,],[1.4442,1.4928,1.5148,1.5216,1.5275,1.5278,1.5278,],[1.3266,1.3581,1.3739,1.3801,1.3843,1.3851,1.3855,1.3857,1.3857,],[1.3203,1.3501,1.3615,1.3674,1.3706,1.3718,1.3725,1.373,1.3733,1.3733,],[1.2073,1.2248,1.2342,1.2381,1.2402,1.2405,1.2407,1.2408,1.2408,1.2408,],[1.161,1.1742,1.1803,1.183,1.1845,1.1859,1.1863,1.1867,1.187,1.187,1.187,],[1.0877,1.0939,1.0969,1.098,1.0988,1.0994,1.0995,1.0995,1.0996,1.0996,1.0996,1.0996,],];
+  var plot945_ticks = ['1','2','3','4','5','6','7','8','9','10','11','12',];
+  var plot945 = jQuery.jqplot ('chart_cat_945', plot945_data, {
+    seriesColors:['#333399','#cc00cc','#ffcc00','#339966','#80ccff','#80ffcc',],
+    seriesDefaults: {
+      renderer: jQuery.jqplot.BarRenderer,
+      rendererOptions: {
+      },
+      pointLabels: {
+        show: true
+      },
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer,
+        ticks: plot945_ticks,
+        label: 'Number of Loops',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+      },
+      yaxis: {
+        label: 'Coverage (%)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:1,
+        tickOptions:{formatString:'%.2f'},
+      },
+      y2axis: {
+        autoscale:true,
+        min:0,
+      }
+    },
+    highlighter: {
+      tooltipContentEditor: function (str, seriesIndex, pointIndex) {
+        return plot945_ticks[pointIndex]+' - '+plot945_data[seriesIndex][pointIndex];
+      },
+      show: true,
+      showTooltip: true,
+      sizeAdjust: 10,
+      formatString: '%s',
+      tooltipLocation: 'n',
+      useAxesFormatters: false,
+    },
+    legend: {
+       renderer: $.jqplot.EnhancedLegendRenderer,
+       show: true, 
+       location: 's', 
+       placement: 'outsideGrid',
+       rendererOptions: {
+          numberRows: '1',
+       },
+    },
+    series: [{label:'r0', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r1', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r2', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r3', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r4', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r5', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r6', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },],
+  });
+});
+}
+if (id == 946) {
+  document.getElementById('chart_cat_946').innerHTML = '';
+  $(document).ready(function(){
+  var plot946_data = [[1.457,2.1843,2.2421,2.2903,2.3156,2.3367,2.3388,2.3388,2.3388,2.3388,],[1.4243,2.0602,2.1009,2.1427,2.169,2.189,2.1909,],[1.3131,1.6839,1.7076,1.7309,1.745,1.7578,1.7587,1.7595,1.7595,],[1.3071,1.654,1.6709,1.6879,1.7008,1.709,1.7103,1.7115,1.7115,1.7115,],[1.1995,1.3884,1.4001,1.41,1.4173,1.4224,1.4228,1.4228,1.4228,1.4228,],[1.1551,1.2948,1.3019,1.3084,1.3133,1.3177,1.3184,1.3187,1.3187,1.3187,1.3187,],[1.0847,1.1467,1.1498,1.1528,1.1553,1.1572,1.1572,1.1573,1.1573,1.1573,1.1573,1.1573,],];
+  var plot946_ticks = ['1','2','3','4','5','6','7','8','9','10','11','12',];
+  var plot946 = jQuery.jqplot ('chart_cat_946', plot946_data, {
+    seriesColors:['#333399','#cc00cc','#ffcc00','#339966','#80ccff','#80ffcc',],
+    seriesDefaults: {
+      renderer: jQuery.jqplot.BarRenderer,
+      rendererOptions: {
+      },
+      pointLabels: {
+        show: true
+      },
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer,
+        ticks: plot946_ticks,
+        label: 'Number of Loops',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+      },
+      yaxis: {
+        label: 'Coverage (%)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:1,
+        tickOptions:{formatString:'%.2f'},
+      },
+      y2axis: {
+        autoscale:true,
+        min:0,
+      }
+    },
+    highlighter: {
+      tooltipContentEditor: function (str, seriesIndex, pointIndex) {
+        return plot946_ticks[pointIndex]+' - '+plot946_data[seriesIndex][pointIndex];
+      },
+      show: true,
+      showTooltip: true,
+      sizeAdjust: 10,
+      formatString: '%s',
+      tooltipLocation: 'n',
+      useAxesFormatters: false,
+    },
+    legend: {
+       renderer: $.jqplot.EnhancedLegendRenderer,
+       show: true, 
+       location: 's', 
+       placement: 'outsideGrid',
+       rendererOptions: {
+          numberRows: '1',
+       },
+    },
+    series: [{label:'r0', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r1', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r2', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r3', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r4', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r5', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r6', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },],
+  });
+});
+}
+if (id == 947) {
+  document.getElementById('chart_cat_947').innerHTML = '';
+  $(document).ready(function(){
+  var plot947_data = [[1.7164,3.6435,3.8679,4.1149,4.2027,4.2865,4.3248,4.3633,4.3755,4.3872,],[1.6567,3.2118,3.3782,3.5295,3.6063,3.6728,3.6812,],[1.4647,2.1902,2.2546,2.3125,2.3427,2.3674,2.37,2.3725,2.3749,],[1.4548,2.1231,2.1697,2.2087,2.2352,2.2502,2.2563,2.26,2.2637,2.2655,],[1.2842,1.5981,1.6195,1.6411,1.653,1.6604,1.662,1.6627,1.6635,1.6637,],[1.2175,1.4381,1.4512,1.4633,1.4706,1.4764,1.4785,1.4801,1.4814,1.4819,1.4821,],[1.116,1.2064,1.2118,1.2166,1.2196,1.222,1.2228,1.223,1.2231,1.2232,1.2234,1.2235,],];
+  var plot947_ticks = ['1','2','3','4','5','6','7','8','9','10','11','12',];
+  var plot947 = jQuery.jqplot ('chart_cat_947', plot947_data, {
+    seriesColors:['#333399','#cc00cc','#ffcc00','#339966','#80ccff','#80ffcc',],
+    seriesDefaults: {
+      renderer: jQuery.jqplot.BarRenderer,
+      rendererOptions: {
+      },
+      pointLabels: {
+        show: true
+      },
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer,
+        ticks: plot947_ticks,
+        label: 'Number of Loops',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+      },
+      yaxis: {
+        label: 'Coverage (%)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:1,
+        tickOptions:{formatString:'%.2f'},
+      },
+      y2axis: {
+        autoscale:true,
+        min:0,
+      }
+    },
+    highlighter: {
+      tooltipContentEditor: function (str, seriesIndex, pointIndex) {
+        return plot947_ticks[pointIndex]+' - '+plot947_data[seriesIndex][pointIndex];
+      },
+      show: true,
+      showTooltip: true,
+      sizeAdjust: 10,
+      formatString: '%s',
+      tooltipLocation: 'n',
+      useAxesFormatters: false,
+    },
+    legend: {
+       renderer: $.jqplot.EnhancedLegendRenderer,
+       show: true, 
+       location: 's', 
+       placement: 'outsideGrid',
+       rendererOptions: {
+          numberRows: '1',
+       },
+    },
+    series: [{label:'r0', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r1', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r2', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r3', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r4', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r5', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r6', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },],
+  });
+});
+}
+if (id == 948) {
+  document.getElementById('chart_cat_948').innerHTML = '';
+  $(document).ready(function(){
+  var plot948_data = [[1.7185,2.3616,2.4447,2.4646,2.4803,2.4905,2.4973,2.5014,2.503,2.503,],[1.6586,2.2092,2.2667,2.285,2.2984,2.2991,2.2991,],[1.4659,1.7671,1.7991,1.8119,1.819,1.8206,1.8212,1.8215,1.8215,],[1.456,1.7374,1.7599,1.7718,1.777,1.7791,1.7803,1.7812,1.7817,1.7817,],[1.2848,1.4293,1.4444,1.4509,1.4538,1.4548,1.4551,1.4554,1.4556,1.4556,],[1.218,1.3223,1.3314,1.3356,1.3375,1.3393,1.3399,1.3404,1.3407,1.3408,1.3408,],[1.1162,1.161,1.1649,1.1665,1.1673,1.1681,1.1682,1.1683,1.1684,1.1684,1.1684,1.1684,],];
+  var plot948_ticks = ['1','2','3','4','5','6','7','8','9','10','11','12',];
+  var plot948 = jQuery.jqplot ('chart_cat_948', plot948_data, {
+    seriesColors:['#333399','#cc00cc','#ffcc00','#339966','#80ccff','#80ffcc',],
+    seriesDefaults: {
+      renderer: jQuery.jqplot.BarRenderer,
+      rendererOptions: {
+      },
+      pointLabels: {
+        show: true
+      },
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer,
+        ticks: plot948_ticks,
+        label: 'Number of Loops',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+      },
+      yaxis: {
+        label: 'Coverage (%)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:1,
+        tickOptions:{formatString:'%.2f'},
+      },
+      y2axis: {
+        autoscale:true,
+        min:0,
+      }
+    },
+    highlighter: {
+      tooltipContentEditor: function (str, seriesIndex, pointIndex) {
+        return plot948_ticks[pointIndex]+' - '+plot948_data[seriesIndex][pointIndex];
+      },
+      show: true,
+      showTooltip: true,
+      sizeAdjust: 10,
+      formatString: '%s',
+      tooltipLocation: 'n',
+      useAxesFormatters: false,
+    },
+    legend: {
+       renderer: $.jqplot.EnhancedLegendRenderer,
+       show: true, 
+       location: 's', 
+       placement: 'outsideGrid',
+       rendererOptions: {
+          numberRows: '1',
+       },
+    },
+    series: [{label:'r0', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r1', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r2', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r3', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r4', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r5', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r6', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },],
+  });
+});
+}
+if (id == 949) {
+  document.getElementById('chart_cat_949').innerHTML = '';
+  $(document).ready(function(){
+  var plot949_data = [[1,1.7871565779933,2.3087996968309,2.7814311738844,2.2026674461048,1.9950751460166,1.3630474501139,],[1,2,4,8,16,20,32,],];
+  var plot949_ticks = ['run_0','R2','R4','R8','R16','R20','R32',];
+  var plot949 = jQuery.jqplot ('chart_cat_949', plot949_data, {
+    seriesDefaults: {
+      renderer: jQuery.jqplot.BarRenderer,
+      rendererOptions: {
+      },
+      pointLabels: {
+        show: false
+      },
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer,
+        ticks: plot949_ticks,
+        label: 'Run',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+      },
+      yaxis: {
+        label: 'Speedup (higher is better)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+      },
+      y2axis: {
+        autoscale:true,
+        min:0,
+      }
+    },
+    highlighter: {
+      tooltipContentEditor: function (str, seriesIndex, pointIndex) {
+        return plot949_ticks[pointIndex]+' - '+plot949_data[seriesIndex][pointIndex];
+      },
+      show: true,
+      showTooltip: true,
+      sizeAdjust: 10,
+      formatString: '%s',
+      tooltipLocation: 'n',
+      useAxesFormatters: false,
+    },
+    legend: {
+       renderer: $.jqplot.EnhancedLegendRenderer,
+       show: true, 
+       location: 's', 
+       placement: 'outsideGrid',
+       rendererOptions: {
+          numberRows: '1',
+       },
+    },
+    series: [{label:'Speedup', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'Ideal Speedup If Perfect Scaling', renderer: $.jqplot.LineRenderer, linePattern: 'dashed', yaxis:'yaxis', },],
+  });
+});
+}
+}
+function display_loop_profile_charts () {
+  document.getElementById('chart_cat_950').innerHTML = '';
+  $(document).ready(function(){
+  var plot950_data = [[93.65,0,0,1.75,1.09,0,0,0.14,],[88.88,0,0,1.73,1.24,0,0,0,],[69.98,0,0,1.47,1.12,0,0,0.1,],[67.99,0,0,1.14,0.59,0.34,0,0.12,],[48.1,0,0,0,0.93,0.79,0,0,],[39.2,0,0,0,0.71,0.68,0,0.19,],[21.89,0,0,0,0,0.42,0.41,0.07,],[93.65,93.65,93.65,95.4,96.49,96.49,96.49,96.63,],[88.88,88.88,88.88,90.61,91.85,91.85,91.85,91.85,],[69.98,69.98,69.98,71.45,72.57,72.57,72.57,72.67,],[67.99,67.99,67.99,69.13,69.72,70.06,70.06,70.18,],[48.1,48.1,48.1,48.1,49.03,49.82,49.82,49.82,],[39.2,39.2,39.2,39.2,39.91,40.59,40.59,40.78,],[21.89,21.89,21.89,21.89,21.89,22.31,22.72,22.79,],];
+  var plot950_ticks = ['> 8%','4% to 8%','2% to 4%','1% to 2%','0.5% to 1%','0.25% to 0.5%','0.125% to 0.25%','< 0.125%',];
+  var plot950 = jQuery.jqplot ('chart_cat_950', plot950_data, {
+    seriesColors:['#333399','#cc00cc','#ffcc00','#339966','#80ccff','#80ffcc','#7979d2','#ff4dff','#ffe066','#66cc99','#ccebff','#ccffeb',],
+    seriesDefaults: {
+      renderer: jQuery.jqplot.BarRenderer,
+      rendererOptions: {
+      },
+      pointLabels: {
+        show: true
+      },
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer,
+        ticks: plot950_ticks,
+        label: 'Coverage Ranges',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+      },
+      yaxis: {
+        label: 'Coverage (%)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+        tickOptions:{formatString:'%.2f'},
+      },
+      y2axis: {
+        label: 'Cumulated Coverage (%)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+      }
+    },
+    highlighter: {
+      tooltipContentEditor: function (str, seriesIndex, pointIndex) {
+        return plot950_ticks[pointIndex]+' - '+plot950_data[seriesIndex][pointIndex];
+      },
+      show: true,
+      showTooltip: true,
+      sizeAdjust: 10,
+      formatString: '%s',
+      tooltipLocation: 'n',
+      useAxesFormatters: false,
+    },
+    legend: {
+       renderer: $.jqplot.EnhancedLegendRenderer,
+       show: true, 
+       location: 's', 
+       placement: 'outsideGrid',
+       rendererOptions: {
+          numberRows: '1',
+       },
+    },
+    series: [{label:'r0', yaxis:'yaxis', },{label:'r1', yaxis:'yaxis', },{label:'r2', yaxis:'yaxis', },{label:'r3', yaxis:'yaxis', },{label:'r4', yaxis:'yaxis', },{label:'r5', yaxis:'yaxis', },{label:'r6', yaxis:'yaxis', },{label:'cumul. cov. r1', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r2', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r3', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r4', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r5', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r6', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r7', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },],
+  });
+});
+  document.getElementById('chart_cat_951').innerHTML = '';
+  $(document).ready(function(){
+  var plot951_data = [[0,0,0,1.82,0,0,0,0,],[0,0,0,1.45,0,0,0,0,],[0,0,0,1.27,0,0,0,0,],[0,0,0,0,0.93,0,0,0,],[0,0,0,0,0.93,0,0,0,],[0,0,0,0,0.65,0,0,0,],[0,0,0,0,0,0.37,0,0,],[0,0,0,1.82,1.82,1.82,1.82,1.82,],[0,0,0,1.45,1.45,1.45,1.45,1.45,],[0,0,0,1.27,1.27,1.27,1.27,1.27,],[0,0,0,0,0.93,0.93,0.93,0.93,],[0,0,0,0,0.93,0.93,0.93,0.93,],[0,0,0,0,0.65,0.65,0.65,0.65,],[0,0,0,0,0,0.37,0.37,0.37,],];
+  var plot951_ticks = ['> 8%','4% to 8%','2% to 4%','1% to 2%','0.5% to 1%','0.25% to 0.5%','0.125% to 0.25%','< 0.125%',];
+  var plot951 = jQuery.jqplot ('chart_cat_951', plot951_data, {
+    seriesColors:['#333399','#cc00cc','#ffcc00','#339966','#80ccff','#80ffcc','#7979d2','#ff4dff','#ffe066','#66cc99','#ccebff','#ccffeb',],
+    seriesDefaults: {
+      renderer: jQuery.jqplot.BarRenderer,
+      rendererOptions: {
+      },
+      pointLabels: {
+        show: true
+      },
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer,
+        ticks: plot951_ticks,
+        label: 'Coverage Ranges',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+      },
+      yaxis: {
+        label: 'Coverage (%)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+        tickOptions:{formatString:'%.2f'},
+      },
+      y2axis: {
+        label: 'Cumulated Coverage (%)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+      }
+    },
+    highlighter: {
+      tooltipContentEditor: function (str, seriesIndex, pointIndex) {
+        return plot951_ticks[pointIndex]+' - '+plot951_data[seriesIndex][pointIndex];
+      },
+      show: true,
+      showTooltip: true,
+      sizeAdjust: 10,
+      formatString: '%s',
+      tooltipLocation: 'n',
+      useAxesFormatters: false,
+    },
+    legend: {
+       renderer: $.jqplot.EnhancedLegendRenderer,
+       show: true, 
+       location: 's', 
+       placement: 'outsideGrid',
+       rendererOptions: {
+          numberRows: '1',
+       },
+    },
+    series: [{label:'r0', yaxis:'yaxis', },{label:'r1', yaxis:'yaxis', },{label:'r2', yaxis:'yaxis', },{label:'r3', yaxis:'yaxis', },{label:'r4', yaxis:'yaxis', },{label:'r5', yaxis:'yaxis', },{label:'r6', yaxis:'yaxis', },{label:'cumul. cov. r1', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r2', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r3', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r4', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r5', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r6', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r7', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },],
+  });
+});
+  document.getElementById('chart_cat_952').innerHTML = '';
+  $(document).ready(function(){
+  var plot952_data = [[0,0,0,0,0,0,0.44,0,],[0,0,0,0,0,0,0,0.07,],[0,0,0,0,0,0,0,0.05,],[0,0,0,0,0,0,0.13,0.08,],[0,0,0,0,0,0,0,0.15,],[0,0,0,0,0,0,0,0.12,],[0,0,0,0,0,0,0,0.04,],[0,0,0,0,0,0,0.44,0.44,],[0,0,0,0,0,0,0,0.07,],[0,0,0,0,0,0,0,0.05,],[0,0,0,0,0,0,0.13,0.21,],[0,0,0,0,0,0,0,0.15,],[0,0,0,0,0,0,0,0.12,],[0,0,0,0,0,0,0,0.04,],];
+  var plot952_ticks = ['> 8%','4% to 8%','2% to 4%','1% to 2%','0.5% to 1%','0.25% to 0.5%','0.125% to 0.25%','< 0.125%',];
+  var plot952 = jQuery.jqplot ('chart_cat_952', plot952_data, {
+    seriesColors:['#333399','#cc00cc','#ffcc00','#339966','#80ccff','#80ffcc','#7979d2','#ff4dff','#ffe066','#66cc99','#ccebff','#ccffeb',],
+    seriesDefaults: {
+      renderer: jQuery.jqplot.BarRenderer,
+      rendererOptions: {
+      },
+      pointLabels: {
+        show: true
+      },
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer,
+        ticks: plot952_ticks,
+        label: 'Coverage Ranges',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+      },
+      yaxis: {
+        label: 'Coverage (%)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+        tickOptions:{formatString:'%.2f'},
+      },
+      y2axis: {
+        label: 'Cumulated Coverage (%)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+      }
+    },
+    highlighter: {
+      tooltipContentEditor: function (str, seriesIndex, pointIndex) {
+        return plot952_ticks[pointIndex]+' - '+plot952_data[seriesIndex][pointIndex];
+      },
+      show: true,
+      showTooltip: true,
+      sizeAdjust: 10,
+      formatString: '%s',
+      tooltipLocation: 'n',
+      useAxesFormatters: false,
+    },
+    legend: {
+       renderer: $.jqplot.EnhancedLegendRenderer,
+       show: true, 
+       location: 's', 
+       placement: 'outsideGrid',
+       rendererOptions: {
+          numberRows: '1',
+       },
+    },
+    series: [{label:'r0', yaxis:'yaxis', },{label:'r1', yaxis:'yaxis', },{label:'r2', yaxis:'yaxis', },{label:'r3', yaxis:'yaxis', },{label:'r4', yaxis:'yaxis', },{label:'r5', yaxis:'yaxis', },{label:'r6', yaxis:'yaxis', },{label:'cumul. cov. r1', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r2', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r3', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r4', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r5', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r6', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r7', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },],
+  });
+});
+  document.getElementById('chart_cat_953').innerHTML = '';
+  $(document).ready(function(){
+  var plot953_data = [[93.65,93.65,93.65,97.22,98.31,98.31,98.75,98.89,],[88.88,88.88,88.88,92.06,93.3,93.3,93.3,93.37,],[69.98,69.98,69.98,72.72,73.84,73.84,73.84,73.99,],[67.99,67.99,67.99,69.13,70.65,70.99,71.12,71.32,],[48.1,48.1,48.1,48.1,49.96,50.75,50.75,50.9,],[39.2,39.2,39.2,39.2,40.56,41.24,41.24,41.55,],[21.89,21.89,21.89,21.89,21.89,22.68,23.09,23.2,],];
+  var plot953_ticks = ['> 8%','4% to 8%','2% to 4%','1% to 2%','0.5% to 1%','0.25% to 0.5%','0.125% to 0.25%','< 0.125%',];
+  var plot953 = jQuery.jqplot ('chart_cat_953', plot953_data, {
+    seriesColors:['#333399','#cc00cc','#ffcc00','#339966','#80ccff','#80ffcc',],
+    seriesDefaults: {
+      renderer: jQuery.jqplot.BarRenderer,
+      rendererOptions: {
+      },
+      pointLabels: {
+        show: true
+      },
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer,
+        ticks: plot953_ticks,
+        label: 'Coverage Ranges',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+      },
+      yaxis: {
+        label: 'Cumulated Coverage (%)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+        tickOptions:{formatString:'%.2f'},
+      },
+      y2axis: {
+        autoscale:true,
+        min:0,
+      }
+    },
+    highlighter: {
+      tooltipContentEditor: function (str, seriesIndex, pointIndex) {
+        return plot953_ticks[pointIndex]+' - '+plot953_data[seriesIndex][pointIndex];
+      },
+      show: true,
+      showTooltip: true,
+      sizeAdjust: 10,
+      formatString: '%s',
+      tooltipLocation: 'n',
+      useAxesFormatters: false,
+    },
+    legend: {
+       renderer: $.jqplot.EnhancedLegendRenderer,
+       show: true, 
+       location: 's', 
+       placement: 'outsideGrid',
+       rendererOptions: {
+          numberRows: '1',
+       },
+    },
+    series: [{label:'r0', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r1', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r2', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r3', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r4', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r5', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'r6', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },],
+  });
+});
+}
+function display_path_count_charts () {
+  document.getElementById('chart_cat_958').innerHTML = '';
+  $(document).ready(function(){
+  var plot958_data = [[47.04,0.07,0,0,1.75,0,0.07,47.7,0,],[44.82,0,0,0,1.73,0,0,45.3,0,],[34.84,0.05,0,0,1.47,0,0.05,36.26,0,],[33.19,0.08,0,0,1.14,0,0.04,35.73,0,],[23.6,0,0,0,0.93,0,0,25.29,0,],[19.46,0.08,0,0,0.71,0,0.11,20.42,0,],[10.42,0.01,0,0,0.42,0,0.06,11.88,0,],[47.04,47.11,47.11,47.11,48.86,48.86,48.93,96.63,96.63,],[44.82,44.82,44.82,44.82,46.55,46.55,46.55,91.85,91.85,],[34.84,34.89,34.89,34.89,36.36,36.36,36.41,72.67,72.67,],[33.19,33.27,33.27,33.27,34.41,34.41,34.45,70.18,70.18,],[23.6,23.6,23.6,23.6,24.53,24.53,24.53,49.82,49.82,],[19.46,19.54,19.54,19.54,20.25,20.25,20.36,40.78,40.78,],[10.42,10.43,10.43,10.43,10.85,10.85,10.91,22.79,22.79,],];
+  var plot958_ticks = ['1','2','3 to 4','5 to 8','9 to 16','17 to 32','33 to 64','> 64','unknown',];
+  var plot958 = jQuery.jqplot ('chart_cat_958', plot958_data, {
+    seriesColors:['#333399','#cc00cc','#ffcc00','#339966','#80ccff','#80ffcc','#7979d2','#ff4dff','#ffe066','#66cc99','#ccebff','#ccffeb',],
+    seriesDefaults: {
+      renderer: jQuery.jqplot.BarRenderer,
+      rendererOptions: {
+      },
+      pointLabels: {
+        show: true
+      },
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer,
+        ticks: plot958_ticks,
+        label: 'Path Ranges',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+      },
+      yaxis: {
+        label: 'Coverage (%)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+      },
+      y2axis: {
+        label: 'Cumulated Coverage (%)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+      }
+    },
+    highlighter: {
+      tooltipContentEditor: function (str, seriesIndex, pointIndex) {
+        return plot958_ticks[pointIndex]+' - '+plot958_data[seriesIndex][pointIndex];
+      },
+      show: true,
+      showTooltip: true,
+      sizeAdjust: 10,
+      formatString: '%s',
+      tooltipLocation: 'n',
+      useAxesFormatters: false,
+    },
+    legend: {
+       renderer: $.jqplot.EnhancedLegendRenderer,
+       show: true, 
+       location: 's', 
+       placement: 'outsideGrid',
+       rendererOptions: {
+          numberRows: '1',
+       },
+    },
+    series: [{label:'r0', yaxis:'yaxis', },{label:'r1', yaxis:'yaxis', },{label:'r2', yaxis:'yaxis', },{label:'r3', yaxis:'yaxis', },{label:'r4', yaxis:'yaxis', },{label:'r5', yaxis:'yaxis', },{label:'r6', yaxis:'yaxis', },{label:'cumul. cov. r1', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r2', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r3', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r4', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r5', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r6', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r7', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },],
+  });
+});
+  document.getElementById('chart_cat_959').innerHTML = '';
+  $(document).ready(function(){
+  var plot959_data = [[3,1,0,0,1,0,1,1,0,],[3,0,0,0,1,0,0,1,0,],[3,1,0,0,1,0,1,1,0,],[3,1,0,0,1,0,1,1,0,],[3,0,0,0,1,0,0,1,0,],[3,1,0,0,1,0,1,1,0,],[3,1,0,0,1,0,1,1,0,],];
+  var plot959_ticks = ['1','2','3 to 4','5 to 8','9 to 16','17 to 32','33 to 64','> 64','unknown',];
+  var plot959 = jQuery.jqplot ('chart_cat_959', plot959_data, {
+    seriesColors:['#333399','#cc00cc','#ffcc00','#339966','#80ccff','#80ffcc',],
+    seriesDefaults: {
+      renderer: jQuery.jqplot.BarRenderer,
+      rendererOptions: {
+      },
+      pointLabels: {
+        show: true
+      },
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer,
+        ticks: plot959_ticks,
+        label: 'Path Ranges',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+      },
+      yaxis: {
+        label: 'Count',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+      },
+      y2axis: {
+        autoscale:true,
+        min:0,
+      }
+    },
+    highlighter: {
+      tooltipContentEditor: function (str, seriesIndex, pointIndex) {
+        return plot959_ticks[pointIndex]+' - '+plot959_data[seriesIndex][pointIndex];
+      },
+      show: true,
+      showTooltip: true,
+      sizeAdjust: 10,
+      formatString: '%s',
+      tooltipLocation: 'n',
+      useAxesFormatters: false,
+    },
+    legend: {
+       renderer: $.jqplot.EnhancedLegendRenderer,
+       show: true, 
+       location: 's', 
+       placement: 'outsideGrid',
+       rendererOptions: {
+          numberRows: '1',
+       },
+    },
+    series: [{label:'r0', yaxis:'yaxis', },{label:'r1', yaxis:'yaxis', },{label:'r2', yaxis:'yaxis', },{label:'r3', yaxis:'yaxis', },{label:'r4', yaxis:'yaxis', },{label:'r5', yaxis:'yaxis', },{label:'r6', yaxis:'yaxis', },],
+  });
+});
+}
+function display_iteration_count_charts () {
+  document.getElementById('chart_cat_960').innerHTML = '';
+  $(document).ready(function(){
+  var plot960_data = [[0,0,0,0,0,96.63,],[0,0,0,0,0,91.85,],[0,0,0,0,0,72.67,],[0,0,0,0,0,70.18,],[0,0,0,0,0,49.82,],[0,0,0,0,0,40.78,],[0,0,0,0,0,22.79,],[0,0,0,0,0,96.63,],[0,0,0,0,0,91.85,],[0,0,0,0,0,72.67,],[0,0,0,0,0,70.18,],[0,0,0,0,0,49.82,],[0,0,0,0,0,40.78,],[0,0,0,0,0,22.79,],];
+  var plot960_ticks = ['1 to 10','10 to 25','25 to 50','50 to 100','> 100','unknown',];
+  var plot960 = jQuery.jqplot ('chart_cat_960', plot960_data, {
+    seriesColors:['#333399','#cc00cc','#ffcc00','#339966','#80ccff','#80ffcc','#7979d2','#ff4dff','#ffe066','#66cc99','#ccebff','#ccffeb',],
+    seriesDefaults: {
+      renderer: jQuery.jqplot.BarRenderer,
+      rendererOptions: {
+      },
+      pointLabels: {
+        show: true
+      },
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer,
+        ticks: plot960_ticks,
+        label: 'Iteration Ranges',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+      },
+      yaxis: {
+        label: 'Coverage (%)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+      },
+      y2axis: {
+        label: 'Cumulated Coverage (%)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+      }
+    },
+    highlighter: {
+      tooltipContentEditor: function (str, seriesIndex, pointIndex) {
+        return plot960_ticks[pointIndex]+' - '+plot960_data[seriesIndex][pointIndex];
+      },
+      show: true,
+      showTooltip: true,
+      sizeAdjust: 10,
+      formatString: '%s',
+      tooltipLocation: 'n',
+      useAxesFormatters: false,
+    },
+    legend: {
+       renderer: $.jqplot.EnhancedLegendRenderer,
+       show: true, 
+       location: 's', 
+       placement: 'outsideGrid',
+       rendererOptions: {
+          numberRows: '1',
+       },
+    },
+    series: [{label:'r0', yaxis:'yaxis', },{label:'r1', yaxis:'yaxis', },{label:'r2', yaxis:'yaxis', },{label:'r3', yaxis:'yaxis', },{label:'r4', yaxis:'yaxis', },{label:'r5', yaxis:'yaxis', },{label:'r6', yaxis:'yaxis', },{label:'cumul. cov. r1', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r2', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r3', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r4', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r5', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r6', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r7', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },],
+  });
+});
+  document.getElementById('chart_cat_961').innerHTML = '';
+  $(document).ready(function(){
+  var plot961_data = [[0,0,0,0,0,7,],[0,0,0,0,0,5,],[0,0,0,0,0,7,],[0,0,0,0,0,7,],[0,0,0,0,0,5,],[0,0,0,0,0,7,],[0,0,0,0,0,7,],];
+  var plot961_ticks = ['1 to 10','10 to 25','25 to 50','50 to 100','> 100','unknown',];
+  var plot961 = jQuery.jqplot ('chart_cat_961', plot961_data, {
+    seriesColors:['#333399','#cc00cc','#ffcc00','#339966','#80ccff','#80ffcc',],
+    seriesDefaults: {
+      renderer: jQuery.jqplot.BarRenderer,
+      rendererOptions: {
+      },
+      pointLabels: {
+        show: true
+      },
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer,
+        ticks: plot961_ticks,
+        label: 'Iteration Ranges',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+      },
+      yaxis: {
+        label: 'Count',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+      },
+      y2axis: {
+        autoscale:true,
+        min:0,
+      }
+    },
+    highlighter: {
+      tooltipContentEditor: function (str, seriesIndex, pointIndex) {
+        return plot961_ticks[pointIndex]+' - '+plot961_data[seriesIndex][pointIndex];
+      },
+      show: true,
+      showTooltip: true,
+      sizeAdjust: 10,
+      formatString: '%s',
+      tooltipLocation: 'n',
+      useAxesFormatters: false,
+    },
+    legend: {
+       renderer: $.jqplot.EnhancedLegendRenderer,
+       show: true, 
+       location: 's', 
+       placement: 'outsideGrid',
+       rendererOptions: {
+          numberRows: '1',
+       },
+    },
+    series: [{label:'r0', yaxis:'yaxis', },{label:'r1', yaxis:'yaxis', },{label:'r2', yaxis:'yaxis', },{label:'r3', yaxis:'yaxis', },{label:'r4', yaxis:'yaxis', },{label:'r5', yaxis:'yaxis', },{label:'r6', yaxis:'yaxis', },],
+  });
+});
+}
+function display_inner_loops_charts () {
+  document.getElementById('chart_cat_954').innerHTML = '';
+  $(document).ready(function(){
+  var plot954_data = [[93.65,0,0,1.75,1.09,0,0,0.14,],[88.88,0,0,1.73,1.24,0,0,0,],[69.98,0,0,1.47,1.12,0,0,0.1,],[67.99,0,0,1.14,0.59,0.34,0,0.12,],[48.1,0,0,0,0.93,0.79,0,0,],[39.2,0,0,0,0.71,0.68,0,0.19,],[21.89,0,0,0,0,0.42,0.41,0.07,],[93.65,93.65,93.65,95.4,96.49,96.49,96.49,96.63,],[88.88,88.88,88.88,90.61,91.85,91.85,91.85,91.85,],[69.98,69.98,69.98,71.45,72.57,72.57,72.57,72.67,],[67.99,67.99,67.99,69.13,69.72,70.06,70.06,70.18,],[48.1,48.1,48.1,48.1,49.03,49.82,49.82,49.82,],[39.2,39.2,39.2,39.2,39.91,40.59,40.59,40.78,],[21.89,21.89,21.89,21.89,21.89,22.31,22.72,22.79,],];
+  var plot954_ticks = ['> 8%','4% to 8%','2% to 4%','1% to 2%','0.5% to 1%','0.25% to 0.5%','0.125% to 0.25%','< 0.125%',];
+  var plot954 = jQuery.jqplot ('chart_cat_954', plot954_data, {
+    seriesColors:['#333399','#cc00cc','#ffcc00','#339966','#80ccff','#80ffcc','#7979d2','#ff4dff','#ffe066','#66cc99','#ccebff','#ccffeb',],
+    seriesDefaults: {
+      renderer: jQuery.jqplot.BarRenderer,
+      rendererOptions: {
+      },
+      pointLabels: {
+        show: true
+      },
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer,
+        ticks: plot954_ticks,
+        label: 'Coverage Ranges',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+      },
+      yaxis: {
+        label: 'Coverage (%)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+        tickOptions:{formatString:'%.2f'},
+      },
+      y2axis: {
+        label: 'Cumulated Coverage (%)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+      }
+    },
+    highlighter: {
+      tooltipContentEditor: function (str, seriesIndex, pointIndex) {
+        return plot954_ticks[pointIndex]+' - '+plot954_data[seriesIndex][pointIndex];
+      },
+      show: true,
+      showTooltip: true,
+      sizeAdjust: 10,
+      formatString: '%s',
+      tooltipLocation: 'n',
+      useAxesFormatters: false,
+    },
+    legend: {
+       renderer: $.jqplot.EnhancedLegendRenderer,
+       show: true, 
+       location: 's', 
+       placement: 'outsideGrid',
+       rendererOptions: {
+          numberRows: '1',
+       },
+    },
+    series: [{label:'r0', yaxis:'yaxis', },{label:'r1', yaxis:'yaxis', },{label:'r2', yaxis:'yaxis', },{label:'r3', yaxis:'yaxis', },{label:'r4', yaxis:'yaxis', },{label:'r5', yaxis:'yaxis', },{label:'r6', yaxis:'yaxis', },{label:'cumul. cov. r1', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r2', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r3', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r4', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r5', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r6', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },{label:'cumul. cov. r7', renderer: $.jqplot.LineRenderer, yaxis:'yaxis', },],
+  });
+});
+  document.getElementById('chart_cat_955').innerHTML = '';
+  $(document).ready(function(){
+  var plot955_data = [[2,0,0,1,2,0,0,2,],[2,0,0,1,2,0,0,0,],[2,0,0,1,2,0,0,2,],[2,0,0,1,1,1,0,2,],[2,0,0,0,1,2,0,0,],[2,0,0,0,1,2,0,2,],[2,0,0,0,0,1,2,2,],];
+  var plot955_ticks = ['> 8%','4% to 8%','2% to 4%','1% to 2%','0.5% to 1%','0.25% to 0.5%','0.125% to 0.25%','< 0.125%',];
+  var plot955 = jQuery.jqplot ('chart_cat_955', plot955_data, {
+    seriesColors:['#333399','#cc00cc','#ffcc00','#339966','#80ccff','#80ffcc',],
+    seriesDefaults: {
+      renderer: jQuery.jqplot.BarRenderer,
+      rendererOptions: {
+      },
+      pointLabels: {
+        show: true
+      },
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer,
+        ticks: plot955_ticks,
+        label: 'Coverage Ranges',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+      },
+      yaxis: {
+        label: 'Count',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+      },
+      y2axis: {
+        autoscale:true,
+        min:0,
+      }
+    },
+    highlighter: {
+      tooltipContentEditor: function (str, seriesIndex, pointIndex) {
+        return plot955_ticks[pointIndex]+' - '+plot955_data[seriesIndex][pointIndex];
+      },
+      show: true,
+      showTooltip: true,
+      sizeAdjust: 10,
+      formatString: '%s',
+      tooltipLocation: 'n',
+      useAxesFormatters: false,
+    },
+    legend: {
+       renderer: $.jqplot.EnhancedLegendRenderer,
+       show: true, 
+       location: 's', 
+       placement: 'outsideGrid',
+       rendererOptions: {
+          numberRows: '1',
+       },
+    },
+    series: [{label:'r0', yaxis:'yaxis', },{label:'r1', yaxis:'yaxis', },{label:'r2', yaxis:'yaxis', },{label:'r3', yaxis:'yaxis', },{label:'r4', yaxis:'yaxis', },{label:'r5', yaxis:'yaxis', },{label:'r6', yaxis:'yaxis', },],
+  });
+});
+}
+function display_categorization_charts () {
+  document.getElementById('chart_cat_956').innerHTML = '';
+  $(document).ready(function(){
+  var plot956_data = [[0.039788,0.020515,0.027878,0.024311,0.01909,0.016928,0.018696,],[6.785226,3.485312,1.945937,1.077234,0.5865,0.382996,0.264594,],[0.024696,0.185381,0.620154,0.356058,0.48875,0.466532,0.807462,],[0.004802,0.015293,0.006575,0.018573,0.012305,0.011684,0.01254,],[0,0.002611,0.001315,0.00453,0.0023,0.00368,0.001824,],[0.004802,0.002611,0.00526,0.003775,0.00782,0.00828,0.006612,],[0,0.010444,0.009205,0.012835,0.016215,0.018492,0.015162,],[0,0.005222,0.006575,0.00453,0.00644,0.004416,0.004788,],[0,0.002611,0.006575,0.008305,0.010695,0.006992,0.008322,],];
+  var plot956_ticks = ['r0','r1','r2','r3','r4','r5','r6',];
+  var plot956 = jQuery.jqplot ('chart_cat_956', plot956_data, {
+    seriesColors:['#839557','#4bb2c5','#EAA228','#d8b83f','#c5b47f','#4b5de4','#953579','#ff5800','#958c12',],
+    stackSeries: true,
+    seriesDefaults: {
+      renderer: jQuery.jqplot.BarRenderer,
+      rendererOptions: {
+      },
+      pointLabels: {
+        show: false
+      },
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer,
+        ticks: plot956_ticks,
+        label: 'Reports',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+      },
+      yaxis: {
+        label: 'Time (s)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+        tickOptions:{formatString:'%.2f'},
+      },
+      y2axis: {
+        autoscale:true,
+        min:0,
+      }
+    },
+    highlighter: {
+      tooltipContentEditor: function (str, seriesIndex, pointIndex) {
+        return plot956_ticks[pointIndex]+' - '+plot956_data[seriesIndex][pointIndex];
+      },
+      show: true,
+      showTooltip: true,
+      sizeAdjust: 10,
+      formatString: '%s',
+      tooltipLocation: 'n',
+      useAxesFormatters: false,
+    },
+    legend: {
+       renderer: $.jqplot.EnhancedLegendRenderer,
+       show: true, 
+       location: 's', 
+       placement: 'outsideGrid',
+       rendererOptions: {
+          numberRows: '1',
+       },
+    },
+    series: [{label:'System', yaxis:'yaxis', },{label:'Binary', yaxis:'yaxis', },{label:'MPI', yaxis:'yaxis', },{label:'Memory', yaxis:'yaxis', },{label:'OMP', yaxis:'yaxis', },{label:'String', yaxis:'yaxis', },{label:'IO', yaxis:'yaxis', },{label:'Others', yaxis:'yaxis', },{label:'Pthread', yaxis:'yaxis', },],
+  });
+  var txts = ["31","32","33","34","35","36","37",];
+  var div_chart = document.getElementById ("chart_cat_956");
+  if (div_chart == null) {
+    return ;
+  }
+  var div_axis  = div_chart.getElementsByClassName ("jqplot-xaxis");
+  if (div_axis.length == 0
+  ||  div_axis[0].children.length == 0) {
+    return ;
+  }
+  for (var i = 1; i < div_axis[0].children.length; i++) {
+    var div_label = div_axis[0].children[i];
+    if (txts[i - 1] != "") {
+      div_label.setAttribute ("title", "");
+      div_label.setAttribute ("tooltip_id", txts[i - 1]);
+      div_label.classList.add ("tooltip-maqao");
+      div_label.style["z-index"] = 999;
+    }
+  }
+  txts = null;
+});
+  $('#chart_cat_956').bind('jqplotDataClick',
+    function (ev, seriesIndex, pointIndex, data) {
+      document.getElementById("maqao_modal-body").innerHTML="<object id=\"maqao_modal-body_content\" type=\"text/html\" data=\"./modals/detailled_cat_run_"+(pointIndex + 1)+"\"></object>";
+      var modal = document.getElementById('MaqaoModal');
+      modal.style.display = "block";
+    }
+  );
+  document.getElementById('chart_cat_957').innerHTML = '';
+  $(document).ready(function(){
+  var plot957_data = [[0.58,0.55,1.06,1.61,1.66,1.84,1.64,],[98.91,93.44,73.99,71.34,51,41.63,23.21,],[0.36,4.97,23.58,23.58,42.5,50.71,70.83,],[0.07,0.41,0.25,1.23,1.07,1.27,1.1,],[0,0.07,0.05,0.3,0.2,0.4,0.16,],[0.07,0.07,0.2,0.25,0.68,0.9,0.58,],[0,0.28,0.35,0.85,1.41,2.01,1.33,],[0,0.14,0.25,0.3,0.56,0.48,0.42,],[0,0.07,0.25,0.55,0.93,0.76,0.73,],];
+  var plot957_ticks = ['r0','r1','r2','r3','r4','r5','r6',];
+  var plot957 = jQuery.jqplot ('chart_cat_957', plot957_data, {
+    seriesColors:['#839557','#4bb2c5','#EAA228','#d8b83f','#c5b47f','#4b5de4','#953579','#ff5800','#958c12',],
+    stackSeries: true,
+    seriesDefaults: {
+      renderer: jQuery.jqplot.BarRenderer,
+      rendererOptions: {
+      },
+      pointLabels: {
+        show: false
+      },
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer,
+        ticks: plot957_ticks,
+        label: 'Reports',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+      },
+      yaxis: {
+        label: 'Coverage (%)',
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        autoscale:true,
+        min:0,
+        tickOptions:{formatString:'%.2f'},
+        max:100,
+      },
+      y2axis: {
+        autoscale:true,
+        min:0,
+      }
+    },
+    highlighter: {
+      tooltipContentEditor: function (str, seriesIndex, pointIndex) {
+        return plot957_ticks[pointIndex]+' - '+plot957_data[seriesIndex][pointIndex];
+      },
+      show: true,
+      showTooltip: true,
+      sizeAdjust: 10,
+      formatString: '%s',
+      tooltipLocation: 'n',
+      useAxesFormatters: false,
+    },
+    legend: {
+       renderer: $.jqplot.EnhancedLegendRenderer,
+       show: true, 
+       location: 's', 
+       placement: 'outsideGrid',
+       rendererOptions: {
+          numberRows: '1',
+       },
+    },
+    series: [{label:'System', yaxis:'yaxis', },{label:'Binary', yaxis:'yaxis', },{label:'MPI', yaxis:'yaxis', },{label:'Memory', yaxis:'yaxis', },{label:'OMP', yaxis:'yaxis', },{label:'String', yaxis:'yaxis', },{label:'IO', yaxis:'yaxis', },{label:'Others', yaxis:'yaxis', },{label:'Pthread', yaxis:'yaxis', },],
+  });
+  var txts = ["38","39","40","41","42","43","44",];
+  var div_chart = document.getElementById ("chart_cat_957");
+  if (div_chart == null) {
+    return ;
+  }
+  var div_axis  = div_chart.getElementsByClassName ("jqplot-xaxis");
+  if (div_axis.length == 0
+  ||  div_axis[0].children.length == 0) {
+    return ;
+  }
+  for (var i = 1; i < div_axis[0].children.length; i++) {
+    var div_label = div_axis[0].children[i];
+    if (txts[i - 1] != "") {
+      div_label.setAttribute ("title", "");
+      div_label.setAttribute ("tooltip_id", txts[i - 1]);
+      div_label.classList.add ("tooltip-maqao");
+      div_label.style["z-index"] = 999;
+    }
+  }
+  txts = null;
+});
+  $('#chart_cat_957').bind('jqplotDataClick',
+    function (ev, seriesIndex, pointIndex, data) {
+      document.getElementById("maqao_modal-body").innerHTML="<object id=\"maqao_modal-body_content\" type=\"text/html\" data=\"./modals/detailled_cat_run_"+(pointIndex + 1)+"\"></object>";
+      var modal = document.getElementById('MaqaoModal');
+      modal.style.display = "block";
+    }
+  );
+}
+</script>
+</div>
+<div style="display: table-row;height:5px;"></div></div>
+<div class="_fixed_box"><h3 class="_header">Experiment Summaries<span class="tooltip-maqao-button help-maqao" title="" tooltip_id="45"></span></h3><div class="_content"><table id="_OV_exp_summary" style="table-layout:fixed;word-break:break-word;">
+<tr><th></th><th><span class="tooltip-maqao" title="" tooltip_id="46" >r0</span></th><th><span class="tooltip-maqao" title="" tooltip_id="47" >r1</span></th><th><span class="tooltip-maqao" title="" tooltip_id="48" >r2</span></th><th><span class="tooltip-maqao" title="" tooltip_id="49" >r3</span></th><th><span class="tooltip-maqao" title="" tooltip_id="50" >r4</span></th><th><span class="tooltip-maqao" title="" tooltip_id="51" >r5</span></th><th><span class="tooltip-maqao" title="" tooltip_id="52" >r6</span></th></tr>
+<tr><th>Experiment Name</th><td>lbm analyzis on FOB1</td><td>lbm analyzis on FOB1</td><td>lbm analyzis on FOB1</td><td>lbm analyzis on FOB1</td><td>lbm analyzis on FOB1</td><td>lbm analyzis on FOB1</td><td>lbm analyzis on FOB1</td></tr>
+<tr><th>Application</th><td>./lbm</td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td></tr>
+<tr><th>Timestamp</th><td>2022-05-07 11:03:10</td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td></tr>
+<tr><th>Experiment Type</th><td>MPI; </td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td></tr>
+<tr><th>Machine</th><td>knl06</td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td></tr>
+<tr><th>Architecture</th><td>x86_64</td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td></tr>
+<tr><th>Micro Architecture</th><td>KNIGHTS_MILL</td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td></tr>
+<tr><th>Model Name</th><td>Intel(R) Genuine Intel(R) CPU 0000 @ 1.20GHz</td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td></tr>
+<tr><th>Cache Size</th><td>1024 KB</td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td></tr>
+<tr><th>Number of Cores</th><td>72</td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td></tr>
+<tr><th>Maximal Frequency</th><td>1.3 GHz</td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td></tr>
+<tr><th>OS Version</th><td>Linux 5.4.0-91-generic #102-Ubuntu SMP Fri Nov 5 16:31:28 UTC 2021</td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td></tr>
+<tr><th>Architecture used during static analysis</th><td>x86_64</td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td></tr>
+<tr><th>Micro Architecture used during static analysis</th><td>KNIGHTS_MILL</td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td></tr>
+<tr><th>Compilation Options</th><td><strong>lbm</strong>: GNU 9.4.0 -march=knm --param l1-cache-size=32 --param l1-cache-line-size=64 --param l2-cache-size=1024 -mtune=knm -mmmx -mno-3dnow -msse -msse2 -msse3 -mssse3 -mno-sse4a -mcx16 -msahf -mmovbe -maes -mno-sha -mpclmul -mpopcnt -mabm -mno-lwp -mfma -mno-fma4 -mno-xop -mbmi -mno-sgx -mbmi2 -mno-pconfig -mno-wbnoinvd -mno-tbm -mavx -msse4.2 -msse4.1 -mlzcnt -mno-rtm -mno-hle -mrdrnd -mf16c -mfsgsbase -mrdseed -mprfchw -madx -mfxsr -mxsave -mxsaveopt -mavx512f -mavx512er -mavx512cd -mavx512pf -mprefetchwt1 -mno-clflushopt -mno-xsavec -mno-xsaves -mno-avx512dq -mno-avx512bw -mno-avx512vl -mno-avx512ifma -mno-avx512vbmi -mavx5124fmaps -mavx5124vnniw -mno-clwb -mno-mwaitx -mno-clzero -mno-pku -mno-rdpid -mno-gfni -mno-shstk -mno-avx512vbmi2 -mno-avx512vnni -mno-vaes -mno-vpclmulqdq -mno-avx512bitalg -mavx512vpopcntdq -mno-movdiri -mno-movdir64b -mno-waitpkg -mno-cldemote -mno-ptwrite -mavx2 -g -g -Ofast -Ofast -fno-openacc -fPIC -fcf-protection=full -fopenmp -ffast-math -funsafe-math-optimizations -finline-functions -funroll-loops -floop-interchange -fpeel-loops -ftree-vectorize -ftree-loop-vectorize -fomit-frame-pointer -fltrans <br></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td></tr>
+<tr><th>Number of processes observed</th><td>1</td><td>2</td><td>4</td><td>8</td><td>16</td><td>20</td><td>32</td></tr>
+<tr><th>Number of threads observed</th><td>1</td><td>2</td><td>4</td><td>8</td><td>16</td><td>20</td><td>32</td></tr>
+<tr><th>MAQAO version</th><td>2.15.5</td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td></tr>
+<tr style="word-wrap: break-word;"><th>MAQAO build</th><td>0b66882c33fcd95ef103e22d5fec6c0d2ff1b5e2::20220328-144625</td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td><td><i>same as r1</i></td></tr>
+</table></div>
+<div style="height:5px;"></div></div>
+</div></div>
+<script>
+function set_chart(id, idsec) {
+  var ids = [
+945, 946, 947, 948, 949];
+  for (var i = 0; i < ids.length; i++) {
+    if (id == ids[i]) {
+      document.getElementById('chart_'+ids[i]+'_fixed').style.display = 'table-cell';
+    }
+    else {
+      document.getElementById('chart_'+ids[i]+'_fixed').style.display = 'none';
+    }
+  }
+  document.getElementById('loop_profile_charts').style.display = 'none';
+  document.getElementById('path_count_charts').style.display = 'none';
+  document.getElementById('iteration_count_charts').style.display = 'none';
+  document.getElementById('inner_loop_profile_charts').style.display = 'none';
+  document.getElementById('application_categorization_charts').style.display = 'none';
+  if (id > -1) {
+    display_charts (id);
+  }
+  else if (idsec == 0){
+  document.getElementById('loop_profile_charts').style.display = 'table-cell';
+    display_loop_profile_charts ()
+  }
+  else if (idsec == 1){
+  document.getElementById('path_count_charts').style.display = 'table-cell';
+    display_path_count_charts ()
+  }
+  else if (idsec == 2){
+  document.getElementById('inner_loop_profile_charts').style.display = 'table-cell';
+    display_inner_loops_charts ()
+  }
+  else if (idsec == 3){
+  document.getElementById('iteration_count_charts').style.display = 'table-cell';
+    display_iteration_count_charts ()
+  }
+  else if (idsec == 4){
+  document.getElementById('application_categorization_charts').style.display = 'table-cell';
+    display_categorization_charts ()
+  }
+}
+</script>
+<style>
+._tr_odd {background-color: var(--table_row_odd_background);}
+.border_left_hover:hover {border-left: 4px solid var(--fixed_box_borders);}
+#_OV_exp_summary,#_OV_conf_summary {border-collapse: collapse;}
+#_OV_exp_summary tr:nth-child(odd), #_OV_conf_summary tr:nth-child(odd) {background-color: var(--table_row_odd_background);}
+._OV_chart_RP {margin:0px 0px 0px 0px !important;}
+#_tab_global_metrics {border-collapse:collapse;width:100%;border-left: 4px solid var(--background);}
+</style><script>
+function _onresize () {
+  var ids = [945, 946, 947, 948, 949];
+  for (var i = 0; i < ids.length; i++) {
+    if (document.getElementById('chart_'+ids[i]+'_fixed').style.display != 'none') {
+       display_charts (ids[i]);
+    }
+  }
+  if (document.getElementById('loop_profile_charts').style.display != 'none') {
+    display_loop_profile_charts ();
+  }
+  if (document.getElementById('path_count_charts').style.display != 'none') {
+    display_path_count_charts ();
+  }
+  if (document.getElementById('iteration_count_charts').style.display != 'none') {
+    display_path_count_charts ();
+  }
+  if (document.getElementById('inner_loop_profile_charts').style.display != 'none') {
+    display_inner_loops_charts ();
+  }
+  if (document.getElementById('application_categorization_charts').style.display != 'none') {
+    display_categorization_charts ();
+  }
+  __maqao_legacy_onresize ();
+  var w = window,
+    d = document,
+    e = d.documentElement,
+    g = d.getElementsByTagName("body")[0],
+    x = w.innerWidth || e.clientWidth || g.clientWidth;
+  document.getElementById("_OV_exp_summary").style.width = (x - 40)+"px";
+  var charts_RP = document.getElementsByClassName("_OV_chart_RP");
+  var y = document.getElementById("_tab_global_metrics").clientHeight + 40;
+  if (y < 520) {
+     y = 520;
+  }
+  for (var i = 0; i < charts_RP.length; i++) {
+    var elem = charts_RP.item(i);
+    elem.style.height = (y)+"px";
+    elem.style.maxHeight = (y)+"px";
+  }
+}
+var resizeId;
+window.addEventListener("resize", function() {
+  clearTimeout(resizeId);
+  resizeId = setTimeout(_onresize, 250);
+});
+$(document).ready(function(){
+  var ids = [945, 946, 947, 948, 949];
+  for (var i = 0; i < ids.length; i++) {
+    document.getElementById('chart_'+ids[i]+'_fixed').style.display = 'none';
+  }
+  document.getElementById('loop_profile_charts').style.display = 'none';
+  document.getElementById('path_count_charts').style.display = 'none';
+  document.getElementById('iteration_count_charts').style.display = 'none';
+  document.getElementById('inner_loop_profile_charts').style.display = 'none';
+  document.getElementById('application_categorization_charts').style.display = 'none';
+  set_chart(-1, 4);
+  _onresize ();
+});
+</script>
+
+  <div id="MaqaoModal" class="maqao_modal">
+    <div class="maqao_modal-content">
+      <div class="maqao_modal-header">
+        <span class="maqao_close">&times;</span>
+      </div>
+      <div id="maqao_modal-body" class="maqao_modal-body">
+      </div>
+    </div>
+  </div>
+</div><script>
+var tooltips_texts = ['Details some global metrics that summarize the application performance. Moving the cursor over a metric  displays some help about the metric. Most of rows can be clicked to display a chart related to the analysis. Metrics colors are:<ul><li><span style="background:#66cc00;">green </span> when the value is good.</li><li><span style="background:#FFCC99; width:20px;">light orange </span> when the value is good but it can be improved.</li><li><span style="background:#FF950E; width:20px;">orange </span> when the value is average and shows a potential performance issue.</li><li><span style="background:#FF3333; width:20px;">red </span> when the value is bad and shows probably a performance issue.</li></ul>',
+'run_0',
+'R2',
+'R4',
+'R8',
+'R16',
+'R20',
+'R32',
+'Time spent by the application in seconds',
+'Application profiling duration in seconds',
+'Percentage of the application time spent in loops (excluding loops present in modules not analyzed by the profiler). It represents 6.78 seconds.',
+'Percentage of the application time spent in innermost loops (excluding loops present in modules not analyzed by the profiler). It represents 6.63 seconds.',
+'Percentage of the application time spent in user code (meaning the time spent in the binary and external libraries specified in custom_categories).',
+'Basic options to use with the compiler to have good performance.',
+'Optimistic speedup available by reducing the number of paths in loops. Having multiple paths in a loop can prevent<br/>the compiler to vectorize the code, decreasing performances. The metric provides an estimation of a global speedup that<br/>can be achieved if all loops with more than two paths were fully vectorized.<br/>Lower is better.',
+'Processor friendly data layout. Accessing contiguous data is faster.<br/>Higher is better.',
+'Optimistic speedup if OpenMP, MPI and Pthread runtimes are perfect.<br/>Lower is better.<br/>This metric presents an estimation of the speed-up at application level if the MPI/OpenMP/Pthread behaviour is perfect.<br/>speedup = MAX (time) / MAX (time without OpenMP, MPI and Pthread)',
+'Optimistic speedup if OpenMP, MPI and Pthread runtimes are perfect and the load distribution if perfect.<br/>Lower is better.<br/>This metric presents an estimation of the speed-up at application level if most common parallel bottelnecks are perfect.<br/>speedup = MAX (time) / AVG (time without OpenMP, MPI and Pthread)',
+'Optimistic speedup if all instructions performing addresses computations and scalar integer computations have been deleted. <br/>Lower is better.',
+'Lower is better.',
+'Number of loops to optimize to get 80% of the speedup.<br>Lower is better.',
+'Optimistic speedup if all floating point instructions are vectorized in all analyzed loops. Memory instructions are not considered as vectorized.<br/>Lower is better.',
+'Lower is better.',
+'Number of loops to optimize to get 80% of the speedup.<br>Lower is better.',
+'Optimistic speedup if all instructions are vectorized in all analyzed loops.<br/>Lower is better.',
+'Lower is better.',
+'Number of loops to optimize to get 80% of the speedup.<br>Lower is better.',
+'Optimistic speedup if only arithmetic floating point instructions are kept.<br/>Lower is better.',
+'Lower is better.',
+'Number of loops to optimize to get 80% of the speedup.<br>Lower is better.',
+'Ratio of Ideal Speedup over Observed Speedup.<br/> = Ideal_speedup / Speedup',
+'run_0<br>',
+'R2<br>',
+'R4<br>',
+'R8<br>',
+'R16<br>',
+'R20<br>',
+'R32<br>',
+'run_0<br>',
+'R2<br>',
+'R4<br>',
+'R8<br>',
+'R16<br>',
+'R20<br>',
+'R32<br>',
+'Details about how experiments have been run',
+'run_0',
+'R2',
+'R4',
+'R8',
+'R16',
+'R20',
+'R32'];
+var modal = document.getElementById('MaqaoModal');
+var span = document.getElementsByClassName("maqao_close")[0];
+span.onclick = function() {
+    modal.style.display = "none";
+}
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
+const comparer = (idx, asc) => (a, b) => ((v1, v2) => 
+    v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v2 - v1 : v1.toString().localeCompare(v2)
+    )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
+addLoadEvent(function(){
+  document.querySelectorAll('._fixed_table th').forEach(th => th.addEventListener('click', (() => {
+    const table = th.closest('table');
+    // Remove all symbols in header
+    table.querySelectorAll('th').forEach(function (e) {
+      e.firstChild.textContent = "";
+    });
+    // Change the symbol on the clicked header
+    if (this.asc != true) {
+      th.firstChild.textContent = "\u25BC";
+    }
+    else {
+      th.firstChild.textContent = "\u25B2";
+    }
+    Array.from(table.querySelectorAll('tr:nth-child(n+2)'))
+        .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
+        .forEach(tr => table.appendChild(tr) );
+  })));
+});
+function _check_all_checkbox_ (obj_id, opts_ids) {
+  var obj   = document.getElementById (obj_id);
+  var opts  = window[opts_ids];
+  var count = 0
+  for (i = 0; i < opts.length; i++) {
+    var obj_s = document.getElementById(opts[i]);
+    if (obj_s.checked) {
+      count ++;
+    }
+  }
+  if (count == 0) {
+    obj.value = "Select all";
+  }
+  else if (count == opts.length) {
+    obj.value = "Select none";
+  }
+}
+// Fonction for table selector
+function click_table_menu (c, obj_id, opt_ids) {
+  var is_checked = document.getElementById (c).checked;
+  localStorage.setItem("__functions_"+c, is_checked);
+  $("."+c).each(function(index, element) {
+    if (is_checked) {
+      element.classList.remove("_tcol_hidden");
+    }
+    else {
+      element.classList.add("_tcol_hidden");
+    }
+  });
+  if (obj_id != undefined) {
+    _check_all_checkbox_ (obj_id, opt_ids)
+  }
+}
+function set_all_table_menu (obj, var_opt_ids) {
+  var opt_ids = window[var_opt_ids];
+  var is_selected = true
+  if (obj.value == "Select all") {
+    is_selected = false;
+  }
+  for (i = 0; i < opt_ids.length; i++) {
+    var obj_s = document.getElementById(opt_ids[i]);
+    if (is_selected == obj_s.checked) {
+      obj_s.checked = !obj_s.checked;
+      click_table_menu (opt_ids[i]);
+    }
+  }
+  if (is_selected == false) {
+    obj.value = "Select none";
+  } else {
+    obj.value = "Select all";
+  }
+  localStorage.setItem(obj.id, obj.value);
+}
+// Script for accordion box
+function _click_accordion_header(obj) {
+  var content = obj.nextSibling;
+  content.classList.toggle('collapsed');
+  obj.classList.toggle('collapsed');
+  obj.parentNode.classList.toggle('collapsed');
+  // Check if the box must be openned ...
+  if (obj.classList.contains ('collapsed'))
+  {
+    obj.firstChild.textContent = "\u25B6";
+  }
+  // or closed.
+  else 
+  {
+    obj.firstChild.textContent = "\u25BC";
+  }
+  if (typeof _onresize === "function") {
+    _onresize ();
+  }
+}
+  // Script for paged table
+function _click_paged_prev(obj) {
+  var pages_content_id = '_paged_tables_page_' + obj.parentNode.parentNode.id.substr (obj.parentNode.parentNode.id.lastIndexOf('_') + 1);
+  var pages_content = document.getElementById(pages_content_id).innerHTML;
+  var max_pages = pages_content.substr (pages_content.lastIndexOf('/') + 1);
+  var cur_page  = pages_content.substring (pages_content.lastIndexOf(' ') + 1, pages_content.lastIndexOf('/'));
+  max_pages = Number (max_pages);
+  cur_page  = Number (cur_page);
+  if (cur_page > 1) {
+    var div_paged = obj.parentNode.parentNode.id;
+    var i;
+    var x = document.getElementsByClassName(div_paged + '_' + (cur_page - 1));
+    for (i = 0; i < x.length; i++) {
+      x[i].classList.toggle('_paged_hidden');
+    }
+    x = document.getElementsByClassName(div_paged + '_' + (cur_page - 2));
+    for (i = 0; i < x.length; i++) {
+      x[i].classList.toggle('_paged_hidden');
+    }
+  document.getElementById(pages_content_id).textContent = "Page " + (cur_page - 1) + "/" + max_pages;
+  }
+}
+function _click_paged_next(obj) {
+  var pages_content_id = '_paged_tables_page_' + obj.parentNode.parentNode.id.substr (obj.parentNode.parentNode.id.lastIndexOf('_') + 1);
+  var pages_content = document.getElementById(pages_content_id).innerHTML;
+  var max_pages = pages_content.substr (pages_content.lastIndexOf('/') + 1);
+  var cur_page  = pages_content.substring (pages_content.lastIndexOf(' ') + 1, pages_content.lastIndexOf('/'));
+  max_pages = Number (max_pages);
+  cur_page  = Number (cur_page);
+  if (cur_page < max_pages) {
+    var div_paged = obj.parentNode.parentNode.id;
+    var i;
+    var x = document.getElementsByClassName(div_paged + '_' + (cur_page - 1));
+    for (i = 0; i < x.length; i++) {
+      x[i].classList.toggle('_paged_hidden');
+    }
+    x = document.getElementsByClassName(div_paged + '_' + cur_page);
+    for (i = 0; i < x.length; i++) {
+      x[i].classList.toggle('_paged_hidden');
+    }
+    document.getElementById(pages_content_id).textContent = "Page " + (cur_page + 1) + "/" + max_pages;
+  }
+}
+// Function for tree table
+function _click_treed(obj) {
+  if (obj.innerHTML == "\u25BA") {
+    obj.textContent = "\u25BC";
+    // Open childs
+    var x = document.getElementsByClassName(obj.parentNode.parentNode.id);
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.toggle('_treed_hidden');
+    }
+  }
+  else if (obj.innerHTML == "\u25BC") {
+    obj.textContent = "\u25BA";
+    // Close all childs
+    var trs = document.getElementsByTagName('tr');
+    var r   = obj.parentNode.parentNode.id+'_';
+    var re  = new RegExp (r, "g");
+    for (var i = 0; i < trs.length; i++) {
+      var s = trs[i].id+""
+      if (s.match(re)) {
+        var o = document.getElementById(s);
+        if (! o.classList.contains('_treed_hidden')) {
+          o.classList.toggle('_treed_hidden');
+        }
+        if (o.firstChild.firstChild.textContent == "\u25BC") {
+          o.firstChild.firstChild.textContent = "\u25BA";
+        }
+        if (o.firstChild.childNodes.length == 3) {
+          o.firstChild.childNodes[2].textContent = '+';
+        }
+      }
+    }
+    if (obj.parentNode.childNodes.length == 3) {
+      obj.parentNode.childNodes[2].textContent = '+';
+    }
+  }
+}
+function _click_expand (obj) {
+  var trs = document.getElementsByTagName('tr');
+  var r   = obj.parentNode.parentNode.id+'_';
+  var re  = new RegExp (r, "g");
+  // Symbole + => expand all
+  if (obj.textContent == "+") {
+    for (var i = 0; i < trs.length; i++) {
+      var s = trs[i].id+"";
+      if (s.match(re)) {
+        var o = document.getElementById(s);
+        if (o.classList.contains('_treed_hidden')) {
+           o.classList.toggle('_treed_hidden');
+        }
+        if (o.firstChild.firstChild.textContent == "\u25BA") {
+          o.firstChild.firstChild.textContent = "\u25BC";
+        }
+        if (o.firstChild.childNodes.length == 3) {
+          o.firstChild.childNodes[2].textContent = '\u2010';
+        }
+      }
+    }
+    var o = obj.parentNode.parentNode;
+    if (o.firstChild.firstChild.textContent == "\u25BA") {
+      o.firstChild.firstChild.textContent = "\u25BC";
+    }
+    obj.textContent = "\u2010";
+  }
+  // Symbole - => collapse all
+  else {
+    for (var i = 0; i < trs.length; i++) {
+      var s = trs[i].id+"";
+      if (s.match(re)) {
+        var o = document.getElementById(s);
+        if (! o.classList.contains('_treed_hidden')) {
+           o.classList.toggle('_treed_hidden');
+        }
+        if (o.firstChild.firstChild.textContent == "\u25BC") {
+          o.firstChild.firstChild.textContent = "\u25BA";
+        }
+        if (o.firstChild.childNodes.length == 3) {
+          o.firstChild.childNodes[2].textContent = '+';
+        }
+      }
+    }
+    var o = obj.parentNode.parentNode;
+    if (o.firstChild.firstChild.textContent == "\u25BC") {
+      o.firstChild.firstChild.textContent = "\u25BA";
+    }
+    obj.textContent = "+";
+  }
+}
+// Hide unselected tabs
+addLoadEvent(function(){
+  var x = document.getElementsByClassName("_tab_header_li");
+  for (var i = 0; i < x.length; i++) {
+    if (x[i].classList.contains("selected_tab") == false) {
+      var e = document.getElementById (x[i].dataset.tab);
+      e.style.display = "none";
+    }
+  }
+});
+// Change tab
+function change_tab (e, baseId) {
+  // Handle tabs
+  var i = 1;
+  while (true) {
+    var id = baseId + i;
+    var t = document.getElementById (id);
+    if (t == null) {
+      break;
+    }
+    if (id == e.dataset.tab) {
+      t.style.removeProperty("display");
+    }
+    else {
+      t.style.display = "none";
+    }
+    i = i + 1;
+  }
+  // Handle headers
+  $(e).siblings().each( function () {
+    this.classList.remove("selected_tab");
+  });
+  e.classList.add("selected_tab");
+}
+function __maqao_legacy_onresize () {
+  var obj = document.getElementById("spacer_page_title");
+  if (obj) {
+    obj.style.height = (document.getElementById("page_title").clientHeight + 20)+"px";
+  }
+  var obj = document.getElementById("page_title");
+  if (obj) {
+    var elems = document.getElementsByClassName ("_first_menu_level")
+    if (obj.clientHeight < 90) {
+      for (var i = 0; i < elems.length; i++) {
+        elems.item(i).style.borderBottomLeftRadius = "";
+        elems.item(i).style.borderBottomRightRadius = "";
+      }
+    }
+    else {
+      for (var i = 0; i < elems.length; i++) {
+        elems.item(i).style.borderBottomLeftRadius = "10px";
+        elems.item(i).style.borderBottomRightRadius = "10px";
+      }
+    }
+  }
+}
+</script>
+</body>
+</html>

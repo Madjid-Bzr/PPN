@@ -1,0 +1,4 @@
+name;time_p;time_s;cpi_ratio;
+/users/user2236/lbm_opt/target/maqao_2022-05-07_11-01-14/binaries/lbm;98.91;6.78;;
+/usr/lib/x86_64-linux-gnu/libc-2.31.so;0.95;0.06;;
+kernel;0.15;0.01;;

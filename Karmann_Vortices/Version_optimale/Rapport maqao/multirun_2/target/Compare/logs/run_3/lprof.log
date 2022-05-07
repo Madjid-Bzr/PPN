@@ -1,0 +1,88 @@
+
+* Info: Detected 8 Lprof instances in knl06: processes-per-node/ppn set accordingly.
+If this is incorrect, rerun with an explicit value for this setting
+
+* Info: Selecting the 'perf-high-ppn' engine for node knl06
+
+* Info: Process launched (host knl06, process 2176938)
+* Info: Process launched (host knl06, process 2176936)
+* Info: Process launched (host knl06, process 2176937)
+* Info: Process launched (host knl06, process 2176939)
+* Info: Process launched (host knl06, process 2176935)
+* Info: Process launched (host knl06, process 2176940)
+* Info: Process launched (host knl06, process 2176941)
+* Info: Process launched (host knl06, process 2176942)[1mRank [33m1[0m: L =  0, R =  2, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS: 100   0 (W = 102, H = 162)
+[1mRank [33m2[0m: L =  1, R =  3, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS: 200   0 (W = 102, H = 162)
+[1mRank [33m4[0m: L =  3, R =  5, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS: 400   0 (W = 102, H = 162)
+[1mRank [33m5[0m: L =  4, R =  6, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS: 500   0 (W = 102, H = 162)
+[1mRank [33m6[0m: L =  5, R =  7, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS: 600   0 (W = 102, H = 162)
+=================== CONFIG ===================
+iterations           = 200
+width                = 800
+height               = 160
+obstacle x coord     = 161.000000
+obstacle y coord     = 83.000000
+obstacle radius      = 17.000000
+reynolds number      = 100.000000
+inflow max velocity  = 0.100000
+output filename      = results.raw
+write interval       = 50
+------------ Derived parameters --------------
+kinetic viscosity    = 0.034000
+relax parameter      = 1.661130
+==============================================
+[1mRank [33m0[0m: L = -1, R =  1, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS:   0   0 (W = 102, H = 162)
+[1mRank [33m3[0m: L =  2, R =  4, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS: 300   0 (W = 102, H = 162)
+[1mRank [33m7[0m: L =  6, R = -1, T = -1, B = -1 | CORNER: -1, -1, -1, -1 | POS: 700   0 (W = 102, H = 162)
+[1mRank [33m0[0m: local average loop latency: [36m6.188387ms[0m
+[1mRank [33m0[0m: local simulation latency:   [36m1.237797548s[0m
+
+Global average loop latency:        6.252163ms
+Global simulation latency:          1.250555066s
+[1mRank [33m1[0m: local average loop latency: [36m6.325315ms[0m
+[1mRank [33m1[0m: local simulation latency:   [36m1.265181780s[0m
+
+[1mRank [33m2[0m: local average loop latency: [36m6.302336ms[0m
+[1mRank [33m2[0m: local simulation latency:   [36m1.260583559s[0m
+
+[1mRank [33m3[0m: local average loop latency: [36m6.281021ms[0m
+[1mRank [33m3[0m: local simulation latency:   [36m1.256321905s[0m
+
+[1mRank [33m4[0m: local average loop latency: [36m6.259702ms[0m
+[1mRank [33m4[0m: local simulation latency:   [36m1.252072090s[0m
+
+[1mRank [33m5[0m: local average loop latency: [36m6.242541ms[0m
+[1mRank [33m5[0m: local simulation latency:   [36m1.248629198s[0m
+
+[1mRank [33m6[0m: local average loop latency: [36m6.219954ms[0m
+[1mRank [33m6[0m: local simulation latency:   [36m1.244120131s[0m
+
+[1mRank [33m7[0m: local average loop latency: [36m6.198050ms[0m
+[1mRank [33m7[0m: local simulation latency:   [36m1.239734320s[0m
+
+
+* Info: Process finished (host knl06, process 2176939)
+* Info: Process finished (host knl06, process 2176936)
+* Info: Process finished (host knl06, process 2176935)
+* Info: Process finished (host knl06, process 2176937)
+* Info: Process finished (host knl06, process 2176941)
+* Info: Process finished (host knl06, process 2176940)
+* Info: Process finished (host knl06, process 2176942)
+* Info: Process finished (host knl06, process 2176938)
+
+Your experiment path is /users/user2236/lbm_opt/target/Compare/tools/lprof_npsu_run_3
+
+To display your profiling results:
+#########################################################################################################################
+#    LEVEL    |     REPORT     |                                        COMMAND                                         #
+#########################################################################################################################
+#  Functions  |  Cluster-wide  |  maqao lprof -df xp=/users/user2236/lbm_opt/target/Compare/tools/lprof_npsu_run_3      #
+#  Functions  |  Per-node      |  maqao lprof -df -dn xp=/users/user2236/lbm_opt/target/Compare/tools/lprof_npsu_run_3  #
+#  Functions  |  Per-process   |  maqao lprof -df -dp xp=/users/user2236/lbm_opt/target/Compare/tools/lprof_npsu_run_3  #
+#  Functions  |  Per-thread    |  maqao lprof -df -dt xp=/users/user2236/lbm_opt/target/Compare/tools/lprof_npsu_run_3  #
+#  Loops      |  Cluster-wide  |  maqao lprof -dl xp=/users/user2236/lbm_opt/target/Compare/tools/lprof_npsu_run_3      #
+#  Loops      |  Per-node      |  maqao lprof -dl -dn xp=/users/user2236/lbm_opt/target/Compare/tools/lprof_npsu_run_3  #
+#  Loops      |  Per-process   |  maqao lprof -dl -dp xp=/users/user2236/lbm_opt/target/Compare/tools/lprof_npsu_run_3  #
+#  Loops      |  Per-thread    |  maqao lprof -dl -dt xp=/users/user2236/lbm_opt/target/Compare/tools/lprof_npsu_run_3  #
+#########################################################################################################################
+
